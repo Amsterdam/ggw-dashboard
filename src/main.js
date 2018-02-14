@@ -19,6 +19,8 @@ import router from './router'
 import store from './store'
 import util from './services/util'
 
+import panos from '../static/links/panos'
+
 Vue.use(VueAxios, axios)
 Vue.use(BootstrapVue)
 Vue.use(uiv, {prefix: 'uiv'})
@@ -47,6 +49,9 @@ let vueApp = new Vue({
       setVariables: 'setVariables'
     }),
     async init () {
+      // Thanks to http://www.csvjson.com/csv2json
+      console.log('panos', panos)
+
       const gebieden = await util.getGebieden()
       console.log('gebieden', gebieden)
 
@@ -82,6 +87,12 @@ let vueApp = new Vue({
       const variables = await util.getVariables()
       console.log('variables', variables)
       this.setVariables(variables)
+
+      const variable = meta.find(m => m.variabele === 'OSCHBAO')
+      console.log('variable', variable)
+
+      const cijfers = await util.getCijfers(gebiedDetail, variable)
+      console.log('BEVDICHT', cijfers)
     }
   }
 })

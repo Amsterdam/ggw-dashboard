@@ -82,7 +82,9 @@ async function getVariables () {
 }
 
 async function getCijfers (gebied, meta) {
-  const cijfersUrl = getUrl(`/bbga/cijfers/?gebiedcode15=${gebied.code}&variabele=${meta.variabele}`)
+  const code = gebied.volledige_code || gebied.code
+
+  const cijfersUrl = getUrl(`/bbga/cijfers/?gebiedcode15=${code}&variabele=${meta.variabele}`)
   const cijfers = await readPaginatedData(cijfersUrl)
   return cijfers.map(c => ({jaar: c.jaar, waarde: c.waarde}))
 }
