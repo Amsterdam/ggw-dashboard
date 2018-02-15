@@ -110,7 +110,7 @@ export default {
       this.selection.buurten = null
 
       const gebiedDetail = await util.getDetail(gebied)
-      this.setGebied(gebiedDetail)
+      this.setGebied(gebiedDetail, null, null)
 
       this.selection.wijken = await util.getWijken(gebied)
       console.log('wijken', this.selection.wijken)
@@ -123,7 +123,7 @@ export default {
       this.selection.buurten = null
 
       const wijkDetail = await util.getDetail(wijk)
-      this.setWijk(wijkDetail)
+      this.setWijk(wijkDetail, null)
 
       this.selection.buurten = await util.getBuurten(wijk)
     },

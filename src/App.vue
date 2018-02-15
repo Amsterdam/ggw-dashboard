@@ -1,17 +1,20 @@
 <template>
   <div id="app" class="app container-fluid">
     <ams-header>Header</ams-header>
+    <ggw-selector></ggw-selector>
     <router-view/>
   </div>
 </template>
 
 <script>
 import amsHeader from './components/AMSHeader'
+import ggwSelector from './components/GGWSelector'
 
 export default {
   name: 'App',
   components: {
-    'ams-header': amsHeader
+    'ams-header': amsHeader,
+    'ggw-selector': ggwSelector
   }
 }
 </script>

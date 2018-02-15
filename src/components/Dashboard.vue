@@ -1,9 +1,6 @@
 <!--Example of a component with a link and how to watch for state changes-->
 <template>
   <div>
-    <h1>Kerncijfers gebiedsgericht werken</h1>
-
-    <ggw-selector></ggw-selector>
 
     <div class="row">
       <div class="col-sm">

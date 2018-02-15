@@ -94,8 +94,15 @@ async function getCijfers (gebied, meta) {
   const code = gebied.volledige_code || gebied.code
 
   const cijfersUrl = getUrl(`/bbga/cijfers/?gebiedcode15=${code}&variabele=${meta.variabele}`)
-  const cijfers = await readPaginatedData(cijfersUrl)
-  return cijfers.map(c => ({jaar: c.jaar, waarde: c.waarde}))
+  let cijfers = await readPaginatedData(cijfersUrl)
+  cijfers.sort((a, b) => a.jaar - b.jaar) // oldest first
+  cijfers = cijfers.map(c => ({jaar: c.jaar, waarde: c.waarde === null ? '' : c.waarde}))
+  return {
+    gebied,
+    meta,
+    cijfers: cijfers,
+    recent: cijfers[cijfers.length - 1]
+  }
 }
 
 export default {

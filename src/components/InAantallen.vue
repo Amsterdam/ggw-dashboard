@@ -1,15 +1,15 @@
 <template>
   <div>
-    <table class="table table-sm b-table-fixed" v-if="gebied">
+    <table class="table table-sm b-table-fixed" v-if="gwb">
       <thead>
       <tr>
-        <th colspan="2" class="text-center">{{gebied.naam}} in aantallen</th>
+        <th colspan="2" class="text-center">{{gwb.naam}} in aantallen</th>
       </tr>
       </thead>
       <tbody>
       <tr v-for="d in data" :key="d.label">
         <td>{{d.label}}</td>
-        <td>{{d.waarde.toLocaleString()}} {{d.na}}</td>
+        <td v-if="d.recent">{{d.recent.waarde.toLocaleString()}} {{d.na}}</td>
       </tr>
       </tbody>
     </table>
@@ -31,51 +31,40 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'gebied',
-      'wijk',
-      'buurt'
+      'gwb'
     ])
   },
   watch: {
-    'gebied' () {
-      if (this.gebied) {
+    'gwb' () {
+      if (this.gwb) {
         this.updateData()
       }
     }
   },
   methods: {
     async updateData () {
-      if (this.data) {
-        this.data = this.data.map(d => ({ ...d, waarde: '', na: null }))
-      }
       const meta = await util.getMeta()
       let data = inAantallen.map(async ia => {
         try {
           const iaMeta = meta.find(m => m.variabele === ia.variabele.toUpperCase())
-          const cijfers = await util.getCijfers(this.gebied, iaMeta)
+          const cijfers = await util.getCijfers(this.gwb, iaMeta)
           return {
             label: ia.label,
-            label2: iaMeta.label,
-            variabele: ia.variabele,
-            variabele2: iaMeta.variabele,
-            bron: iaMeta.bron,
-            waarde: cijfers[0].waarde,
-            jaar: cijfers[0].jaar,
-            na: ia.na
+            na: ia.na,
+            ...cijfers
           }
         } catch (err) {
           console.log('Error', err)
           return {
-            label: ia.label,
-            waarde: '?'
+            label: ia.label
           }
         }
       })
       this.data = await Promise.all(data)
-      console.log('data', data)
     }
   },
   async created () {
+    this.data = inAantallen.map(ia => ({label: ia.label}))
     this.updateData()
   }
 }

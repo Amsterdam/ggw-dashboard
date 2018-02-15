@@ -91,13 +91,14 @@ export default {
       this.filterText = null
       this.filterRegExp = null
       this.filteredMeta = this.meta
+      this.detail = null
     },
     async getDetails (meta) {
       const cijfers = await util.getCijfers(this.gebied, meta)
       console.log('cijfers', cijfers)
       this.detail = {
         meta,
-        cijfers
+        cijfers: cijfers.cijfers
       }
     }
   },
