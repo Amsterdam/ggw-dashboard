@@ -1,6 +1,6 @@
 <template>
   <div>
-    <table class="table table-sm b-table-fixed" v-if="gwb">
+    <table class="table table-sm" v-if="gwb">
       <thead>
       <tr>
         <th colspan="2" class="text-center">{{gwb.naam}} in aantallen</th>
@@ -8,8 +8,8 @@
       </thead>
       <tbody>
       <tr v-for="d in data" :key="d.label">
-        <td>{{d.label}}</td>
-        <td v-if="d.recent">{{d.recent.waarde.toLocaleString()}} {{d.na}}</td>
+        <td width="50%">{{d.label}}</td>
+        <td width="50%" v-if="d.recent">{{d.recent.waarde.toLocaleString()}} {{d.na}}</td>
       </tr>
       </tbody>
     </table>
