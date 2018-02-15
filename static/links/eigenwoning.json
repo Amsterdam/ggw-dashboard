@@ -1,0 +1,14 @@
+[
+  {
+    "label": "Tevredenheid met woning",
+    "variabele": "Wwoning_r"
+  },
+  {
+    "label": "Kan ik oud in worden",
+    "variabele": "Wgeschiktoud_p"
+  },
+  {
+    "label": "Verhuisgeneigd",
+    "variabele": "Wverhuis_p"
+  }
+]

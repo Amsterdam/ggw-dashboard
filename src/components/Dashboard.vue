@@ -68,10 +68,10 @@
 
     <div class="row">
       <div class="col-sm">
-        <placeholder title="Eigen buurt" pic="eigenbuurt.png" height="100"></placeholder>
+        <horizontal-text title="Eigen buurt" icon="buurt60.jpg" :config="eigenBuurt"></horizontal-text>
       </div>
       <div class="col-sm">
-        <placeholder title="Eigen woning" pic="eigenwoning.png" height="100"></placeholder>
+        <horizontal-text title="Eigen woning" icon="locaties.svg" :config="eigenWoning"></horizontal-text>
       </div>
     </div>
 
@@ -184,6 +184,7 @@ import ggwSelector from './GGWSelector'
 import placeholder from './Placeholder'
 import horizontalChart from './HorizontalChart'
 import verticalBarChart from './VerticalBarChart'
+import horizontalText from './HorizontalText'
 import pieChart from './PieChart'
 import inAantallen from './InAantallen'
 import dataTable from './DataTable'
@@ -194,6 +195,8 @@ import sociaalEconomisch from '../../static/links/sociaaleconomisch'
 import leeftijd from '../../static/links/leeftijd'
 import migratieAchtergrond from '../../static/links/migratieachtergrond'
 import positieOntwikkeling from '../../static/links/positie_en_ontwikkeling'
+import eigenBuurt from '../../static/links/eigenbuurt'
+import eigenWoning from '../../static/links/eigenwoning'
 
 export default {
   name: 'HelloWorld',
@@ -208,6 +211,7 @@ export default {
     'in-aantallen': inAantallen,
     'pano': pano,
     'data-table': dataTable,
+    'horizontal-text': horizontalText,
     'placeholder': placeholder
   },
   data () {
@@ -216,7 +220,9 @@ export default {
       sociaalEconomisch,
       leeftijd,
       migratieAchtergrond,
-      positieOntwikkeling
+      positieOntwikkeling,
+      eigenBuurt,
+      eigenWoning
     }
   },
   computed: {
