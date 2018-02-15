@@ -6,7 +6,6 @@ async function readPaginatedData (url) {
   while (next) {
     try {
       let response = await Vue.axios.get(next)
-      console.log('Plain response', response)
       next = response.data._links.next.href
       results = results.concat(response.data.results)
     } catch (e) {

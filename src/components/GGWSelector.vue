@@ -9,6 +9,7 @@
           </div>
           <div class="col-sm-9" v-if="selection.gebieden">
             <b-form-select v-model="selection.gebied"
+                           @change="updateGebied"
                            :options="selection.gebieden"
                            text-field="naam"
                            value-field="code"
@@ -22,9 +23,10 @@
           </div>
           <div class="col-sm-9" v-if="selection.wijken">
             <b-form-select v-model="selection.wijk"
+                           @change="updateWijk"
                            :options="selection.wijken"
                            text-field="naam"
-                           value-field="code"
+                           value-field="vollcode"
                            id="selectWijk">
             </b-form-select>
           </div>
@@ -35,6 +37,7 @@
           </div>
           <div class="col-sm-9" v-if="selection.buurten">
             <b-form-select v-model="selection.buurt"
+                           @change="updateBuurt"
                            :options="selection.buurten"
                            text-field="naam"
                            value-field="code"
@@ -67,8 +70,6 @@
 import { mapActions, mapGetters } from 'vuex'
 import util from '../services/util'
 
-const DEFAULT_GEBIED = 'DX01'
-
 export default {
   name: 'GGWSelector',
   components: {
@@ -82,27 +83,68 @@ export default {
         wijk: null,
         buurten: null,
         buurt: null,
-        themas: null,
-        thema: null
+        themas: ['Gebied in het kort'],
+        thema: 'Gebied in het kort'
       }
     }
   },
   computed: {
     ...mapGetters([
-      'gebied',
-      'wijk',
-      'buurt'
     ])
   },
   methods: {
     ...mapActions({
-    })
+      setGebied: 'setGebied',
+      setWijk: 'setWijk',
+      setBuurt: 'setBuurt',
+      setThema: 'setThema'
+    }),
+    async updateGebied (gebiedCode) {
+      console.log('updateGebied', gebiedCode)
+      const gebied = this.selection.gebieden.find(g => g.code === gebiedCode)
+
+      this.selection.wijk = null
+      this.selection.wijken = null
+
+      this.selection.buurt = null
+      this.selection.buurten = null
+
+      const gebiedDetail = await util.getDetail(gebied)
+      this.setGebied(gebiedDetail)
+
+      this.selection.wijken = await util.getWijken(gebied)
+      console.log('wijken', this.selection.wijken)
+    },
+    async updateWijk (wijkCode) {
+      console.log('updateWijk', wijkCode)
+      const wijk = this.selection.wijken.find(w => w.vollcode === wijkCode)
+
+      this.selection.buurt = null
+      this.selection.buurten = null
+
+      const wijkDetail = await util.getDetail(wijk)
+      this.setWijk(wijkDetail)
+
+      this.selection.buurten = await util.getBuurten(wijk)
+    },
+    async updateBuurt (buurtCode) {
+      console.log('updateBuurt', buurtCode)
+      const buurt = this.selection.buurten.find(b => b.code === buurtCode)
+
+      const buurtDetail = await util.getDetail(buurt)
+      this.setBuurt(buurtDetail)
+    },
+    async updateThema (thema) {
+      console.log('updateThema', thema)
+    }
   },
   watch: {
   },
-  async mounted () {
+  async created () {
     this.selection.gebieden = await util.getGebieden()
-    this.selection.gebied = this.selection.gebieden.find(g => g.code === DEFAULT_GEBIED).code
+
+    this.selection.gebied = 'DX01'
+    this.updateGebied(this.selection.gebied)
   }
 }
 </script>

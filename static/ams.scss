@@ -39,13 +39,14 @@ body {
 .form-control {
   background-color: $ams-lichtgrijs;
   border: none;
+  width: 100% !important;
   &:focus {
     background-color: $ams-lichtgrijs;
   }
 }
 
 select {
-  height: 24px !important;
+  height: 20px !important;
 }
 
 .custom-select {
