@@ -17,33 +17,40 @@
 
     <div class="row">
       <div class="col-sm-6">
-        <woning-voorraad></woning-voorraad>
+        <vertical-chart
+          title="Woningvoorraad"
+          icon="wonen_en_leefomgeving.svg"
+          :config="woningVoorraad"
+        ></vertical-chart>
       </div>
       <div class="col-sm-6">
-        <woning-voorraad></woning-voorraad>
+        <vertical-chart
+          title="Sociaal-economisch"
+          icon="werk_en_inkomen.svg"
+          :config="sociaalEconomisch"
+        ></vertical-chart>
       </div>
     </div>
 
     <div class="row">
-      <div class="col-sm">
-        <placeholder title="Woningvoorraad" pic="woningvoorraad.png" height="100"></placeholder>
+      <div class="col-sm-6">
+        <vertical-chart
+          title="Leeftijd"
+          icon="wonen_en_leefomgeving.svg"
+          :config="leeftijd"
+        ></vertical-chart>
       </div>
-      <div class="col-sm">
-        <placeholder title="Sociaal-economische" pic="sociaal-economisch.png" height="100"></placeholder>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-sm">
-        <placeholder title="Leeftijd" pic="leeftijd.png" height="100"></placeholder>
-      </div>
-      <div class="col-sm">
-        <placeholder title="Migratie-achtergrond" pic="migratie-achtergrond.png" height="100"></placeholder>
+      <div class="col-sm-6">
+        <vertical-chart
+          title="Migratie-achtergrond"
+          icon="locaties.svg"
+          :config="migratieAchtergrond"
+        ></vertical-chart>
       </div>
     </div>
 
     <div class="alert">
-      <h2>Positie en ontwikkeling van [XXX] t.o.v. het stedelijk gemiddelde</h2>
+      <h2>Positie en ontwikkeling van {{gwb.naam}} t.o.v. het stedelijk gemiddelde</h2>
     </div>
 
     <div class="row">
@@ -175,11 +182,16 @@ import leafletExample from './LeafletExample'
 import amsHeader from './AMSHeader'
 import ggwSelector from './GGWSelector'
 import placeholder from './Placeholder'
-import woningVoorraad from './WoningVoorraad'
+import verticalChart from './VerticalChart'
 import verticalBarChart from './VerticalBarChart'
 import pieChart from './PieChart'
 import inAantallen from './InAantallen'
 import pano from './Pano'
+
+import woningVoorraad from '../../static/links/woningvoorraad'
+import sociaalEconomisch from '../../static/links/sociaaleconomisch'
+import leeftijd from '../../static/links/leeftijd'
+import migratieAchtergrond from '../../static/links/migratieachtergrond'
 
 export default {
   name: 'HelloWorld',
@@ -188,7 +200,7 @@ export default {
     'leaflet-example': leafletExample,
     'ams-header': amsHeader,
     'ggw-selector': ggwSelector,
-    'woning-voorraad': woningVoorraad,
+    'vertical-chart': verticalChart,
     'vertical-bar-chart': verticalBarChart,
     'pie-chart': pieChart,
     'in-aantallen': inAantallen,
@@ -197,8 +209,10 @@ export default {
   },
   data () {
     return {
-      selected: '',
-      items: Array.from(Array(100).keys()).map(i => ({key: i.toString() + ' element'}))
+      woningVoorraad,
+      sociaalEconomisch,
+      leeftijd,
+      migratieAchtergrond
     }
   },
   computed: {

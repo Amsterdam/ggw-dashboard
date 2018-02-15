@@ -1,0 +1,14 @@
+[
+  {
+    "label": "Koop",
+    "variabele": "Wkoop_p"
+  },
+  {
+    "label": "Particuliere huur",
+    "variabele": "Wparthuur_p"
+  },
+  {
+    "label": "Corporatiebezit",
+    "variabele": "Wcorhuur_p"
+  }
+]

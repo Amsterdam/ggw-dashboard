@@ -1,0 +1,14 @@
+[
+  {
+    "label": "Geen",
+    "variabele": "BevAutoch_p"
+  },
+  {
+    "label": "Westers",
+    "variabele": "BevWest_p"
+  },
+  {
+    "label": "Niet-westers",
+    "variabele": "BevNW_p"
+  }
+]

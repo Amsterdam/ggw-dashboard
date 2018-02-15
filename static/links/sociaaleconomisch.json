@@ -1,0 +1,14 @@
+[
+  {
+    "label": "Laag opgeleid",
+    "variabele": "Bevopllaag_p"
+  },
+  {
+    "label": "Minimahuishoudens",
+    "variabele": "IMINHH120_P"
+  },
+  {
+    "label": "Geregistreerde werklooasheid",
+    "variabele": "Pregwerkl_p"
+  }
+]
