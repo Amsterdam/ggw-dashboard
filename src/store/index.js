@@ -8,6 +8,7 @@ export default new Vuex.Store({
     gebied: null,
     wijk: null,
     buurt: null,
+    gwb: null,
     thema: null,
     meta: null,
     variables: null

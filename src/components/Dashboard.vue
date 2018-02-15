@@ -10,7 +10,7 @@
         <placeholder title="buurt image" pic="buurt.png" height="200"></placeholder>
       </div>
       <div class="col-sm">
-        <placeholder title="[XXX] in aantallen" pic="inaantallen.png" height="200"></placeholder>
+        <in-aantallen></in-aantallen>
       </div>
     </div>
 
@@ -181,6 +181,7 @@ import placeholder from './Placeholder'
 import woningVoorraad from './WoningVoorraad'
 import verticalBarChart from './VerticalBarChart'
 import pieChart from './PieChart'
+import inAantallen from './InAantallen'
 
 export default {
   name: 'HelloWorld',
@@ -192,6 +193,7 @@ export default {
     'woning-voorraad': woningVoorraad,
     'vertical-bar-chart': verticalBarChart,
     'pie-chart': pieChart,
+    'in-aantallen': inAantallen,
     'placeholder': placeholder
   },
   data () {

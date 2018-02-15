@@ -1,5 +1,9 @@
 import Vue from 'vue'
 
+let meta = null
+let variables = null
+let themas = null
+
 async function readPaginatedData (url) {
   let next = url
   let results = []
@@ -63,20 +67,26 @@ async function getBuurten (wijk) {
 }
 
 async function getThemas () {
-  const themasUrl = 'https://acc.api.data.amsterdam.nl/bbga/themas/'
-  const themas = await readData(themasUrl)
+  if (!themas) {
+    const themasUrl = 'https://acc.api.data.amsterdam.nl/bbga/themas/'
+    themas = await readData(themasUrl)
+  }
   return themas.themas
 }
 
 async function getMeta () {
-  const metaUrl = getUrl('/bbga/meta')
-  const meta = readPaginatedData(metaUrl)
+  if (!meta) {
+    const metaUrl = getUrl('/bbga/meta')
+    meta = await readPaginatedData(metaUrl)
+  }
   return meta
 }
 
 async function getVariables () {
-  const variablesUrl = getUrl('/bbga/variabelen/')
-  const variables = await readData(variablesUrl)
+  if (!variables) {
+    const variablesUrl = getUrl('/bbga/variabelen/')
+    variables = await readData(variablesUrl)
+  }
   return variables.variabelen
 }
 

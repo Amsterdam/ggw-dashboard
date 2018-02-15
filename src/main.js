@@ -52,30 +52,30 @@ let vueApp = new Vue({
       // Thanks to http://www.csvjson.com/csv2json
       console.log('panos', panos)
 
-      const gebieden = await util.getGebieden()
-      console.log('gebieden', gebieden)
-
-      const gebied = gebieden.find(g => g.code === 'DX01')
-      const gebiedDetail = await util.getDetail(gebied)
-      this.setGebied(gebiedDetail)
-
-      console.log('gebied', gebiedDetail)
-
-      const wijken = await util.getWijken(gebied)
-      console.log('wijken', wijken)
-
-      const wijk = wijken.find(w => w.vollcode === 'A01')
-      const wijkDetail = await util.getDetail(wijk)
-      console.log('wijk', wijkDetail)
-      this.setWijk(wijkDetail)
-
-      const buurten = await util.getBuurten(wijk)
-      console.log('buurten', buurten)
-
-      const buurt = buurten.find(b => b.code === '01e')
-      const buurtDetail = await util.getDetail(buurt)
-      console.log('buurt', buurtDetail)
-      this.setBuurt(buurtDetail)
+      // const gebieden = await util.getGebieden()
+      // console.log('gebieden', gebieden)
+      //
+      // const gebied = gebieden.find(g => g.code === 'DX01')
+      // const gebiedDetail = await util.getDetail(gebied)
+      // this.setGebied(gebiedDetail)
+      //
+      // console.log('gebied', gebiedDetail)
+      //
+      // const wijken = await util.getWijken(gebied)
+      // console.log('wijken', wijken)
+      //
+      // const wijk = wijken.find(w => w.vollcode === 'A01')
+      // const wijkDetail = await util.getDetail(wijk)
+      // console.log('wijk', wijkDetail)
+      // this.setWijk(wijkDetail)
+      //
+      // const buurten = await util.getBuurten(wijk)
+      // console.log('buurten', buurten)
+      //
+      // const buurt = buurten.find(b => b.code === '01e')
+      // const buurtDetail = await util.getDetail(buurt)
+      // console.log('buurt', buurtDetail)
+      // this.setBuurt(buurtDetail)
 
       const themas = await util.getThemas()
       console.log('themas', themas)
@@ -91,8 +91,8 @@ let vueApp = new Vue({
       const variable = meta.find(m => m.variabele === 'OSCHBAO')
       console.log('variable', variable)
 
-      const cijfers = await util.getCijfers(gebiedDetail, variable)
-      console.log('BEVDICHT', cijfers)
+      // const cijfers = await util.getCijfers(gebiedDetail, variable)
+      // console.log('BEVDICHT', cijfers)
     }
   }
 })
