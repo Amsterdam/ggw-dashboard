@@ -32,6 +32,29 @@ body {
   background-color: $ams-lichtgrijs;
 }
 
+.form-inline label {
+  justify-content: left;
+}
+
+.form-control {
+  background-color: $ams-lichtgrijs;
+  border: none;
+  &:focus {
+    background-color: $ams-lichtgrijs;
+  }
+}
+
+select {
+  height: 24px !important;
+}
+
+.custom-select {
+  color: $ams-rood;
+  font-weight: bold;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 header {
   height: 108px;
 }
