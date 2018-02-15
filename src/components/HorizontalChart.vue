@@ -22,7 +22,7 @@ import util from '../services/util'
 import horizontalBarChart from './HorizontalBarChart'
 
 export default {
-  name: 'WoningVoorraad',
+  name: 'HorizontalChart',
   components: {
     'horizontal-bar-chart': horizontalBarChart
   },
@@ -55,7 +55,7 @@ export default {
         } catch (err) {
           console.log('Error', err)
           return {
-            label: c.label
+            label: c.label || c.variabele
           }
         }
       })
@@ -77,7 +77,4 @@ export default {
 </script>
 
 <style>
-.borderless td, .borderless th {
-  border: 0;
-}
 </style>

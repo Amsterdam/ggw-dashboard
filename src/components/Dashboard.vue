@@ -17,35 +17,35 @@
 
     <div class="row">
       <div class="col-sm-6">
-        <vertical-chart
+        <horizontal-chart
           title="Woningvoorraad"
           icon="wonen_en_leefomgeving.svg"
           :config="woningVoorraad"
-        ></vertical-chart>
+        ></horizontal-chart>
       </div>
       <div class="col-sm-6">
-        <vertical-chart
+        <horizontal-chart
           title="Sociaal-economisch"
           icon="werk_en_inkomen.svg"
           :config="sociaalEconomisch"
-        ></vertical-chart>
+        ></horizontal-chart>
       </div>
     </div>
 
     <div class="row">
       <div class="col-sm-6">
-        <vertical-chart
+        <horizontal-chart
           title="Leeftijd"
           icon="wonen_en_leefomgeving.svg"
           :config="leeftijd"
-        ></vertical-chart>
+        ></horizontal-chart>
       </div>
       <div class="col-sm-6">
-        <vertical-chart
+        <horizontal-chart
           title="Migratie-achtergrond"
           icon="locaties.svg"
           :config="migratieAchtergrond"
-        ></vertical-chart>
+        ></horizontal-chart>
       </div>
     </div>
 
@@ -55,7 +55,7 @@
 
     <div class="row">
       <div class="col-sm">
-        <placeholder title="tabel" pic="tabel.png" height="200"></placeholder>
+        <data-table :config="positieOntwikkeling"></data-table>
       </div>
       <div class="col-sm">
         <placeholder title="plot" pic="plot.png" height="200"></placeholder>
@@ -182,16 +182,18 @@ import leafletExample from './LeafletExample'
 import amsHeader from './AMSHeader'
 import ggwSelector from './GGWSelector'
 import placeholder from './Placeholder'
-import verticalChart from './VerticalChart'
+import horizontalChart from './HorizontalChart'
 import verticalBarChart from './VerticalBarChart'
 import pieChart from './PieChart'
 import inAantallen from './InAantallen'
+import dataTable from './DataTable'
 import pano from './Pano'
 
 import woningVoorraad from '../../static/links/woningvoorraad'
 import sociaalEconomisch from '../../static/links/sociaaleconomisch'
 import leeftijd from '../../static/links/leeftijd'
 import migratieAchtergrond from '../../static/links/migratieachtergrond'
+import positieOntwikkeling from '../../static/links/positie_en_ontwikkeling'
 
 export default {
   name: 'HelloWorld',
@@ -200,11 +202,12 @@ export default {
     'leaflet-example': leafletExample,
     'ams-header': amsHeader,
     'ggw-selector': ggwSelector,
-    'vertical-chart': verticalChart,
+    'horizontal-chart': horizontalChart,
     'vertical-bar-chart': verticalBarChart,
     'pie-chart': pieChart,
     'in-aantallen': inAantallen,
     'pano': pano,
+    'data-table': dataTable,
     'placeholder': placeholder
   },
   data () {
@@ -212,7 +215,8 @@ export default {
       woningVoorraad,
       sociaalEconomisch,
       leeftijd,
-      migratieAchtergrond
+      migratieAchtergrond,
+      positieOntwikkeling
     }
   },
   computed: {

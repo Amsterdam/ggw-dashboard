@@ -45,8 +45,8 @@ body {
   }
 }
 
-.table th, .table td {
-  border: none !important;
+.borderless tbody td, .borderless thead th {
+  border: 0;
 }
 
 select {

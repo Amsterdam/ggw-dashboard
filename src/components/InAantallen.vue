@@ -1,6 +1,6 @@
 <template>
   <div>
-    <table class="table table-sm" v-if="gwb">
+    <table class="table table-sm borderless" v-if="gwb">
       <thead>
       <tr>
         <th colspan="2" class="text-center">{{gwb.naam}} in aantallen</th>
@@ -45,18 +45,18 @@ export default {
     async updateData () {
       const meta = await util.getMeta()
       let data = inAantallen.map(async ia => {
+        const iaMeta = meta.find(m => m.variabele === ia.variabele.toUpperCase())
         try {
-          const iaMeta = meta.find(m => m.variabele === ia.variabele.toUpperCase())
           const cijfers = await util.getCijfers(this.gwb, iaMeta)
           return {
-            label: ia.label,
+            label: ia.label || iaMeta.label,
             na: ia.na,
             ...cijfers
           }
         } catch (err) {
           console.log('Error', err)
           return {
-            label: ia.label
+            label: ia.label || ia.variable
           }
         }
       })
