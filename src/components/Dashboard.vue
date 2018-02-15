@@ -1,10 +1,10 @@
 <!--Example of a component with a link and how to watch for state changes-->
 <template>
-  <div>
+  <div v-if="gwb">
 
     <div class="row">
       <div class="col-sm">
-        <placeholder title="buurt image" pic="buurt.png" height="200"></placeholder>
+        <pano></pano>
       </div>
       <div class="col-sm">
         <in-aantallen></in-aantallen>
@@ -12,7 +12,7 @@
     </div>
 
     <div class="alert">
-      <h2>Samenstelling woningvoorraad en bevolking van [XXX]</h2>
+      <h2>Samenstelling woningvoorraad en bevolking van {{gwb.naam}}</h2>
     </div>
 
     <div class="row">
@@ -179,6 +179,7 @@ import woningVoorraad from './WoningVoorraad'
 import verticalBarChart from './VerticalBarChart'
 import pieChart from './PieChart'
 import inAantallen from './InAantallen'
+import pano from './Pano'
 
 export default {
   name: 'HelloWorld',
@@ -191,6 +192,7 @@ export default {
     'vertical-bar-chart': verticalBarChart,
     'pie-chart': pieChart,
     'in-aantallen': inAantallen,
+    'pano': pano,
     'placeholder': placeholder
   },
   data () {
@@ -201,6 +203,7 @@ export default {
   },
   computed: {
     ...mapGetters([
+      'gwb'
     ])
   },
   methods: {

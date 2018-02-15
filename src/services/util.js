@@ -41,7 +41,9 @@ async function getGebieden () {
 
 async function getDetail (entity) {
   const url = entity._links.self.href
-  return readData(url)
+  const data = await readData(url)
+  data.volledige_code = data.volledige_code || data.code
+  return data
 }
 
 async function getWijken (gebied) {
@@ -91,7 +93,7 @@ async function getVariables () {
 }
 
 async function getCijfers (gebied, meta) {
-  const code = gebied.volledige_code || gebied.code
+  const code = gebied.volledige_code
 
   const cijfersUrl = getUrl(`/bbga/cijfers/?gebiedcode15=${code}&variabele=${meta.variabele}`)
   let cijfers = await readPaginatedData(cijfersUrl)
