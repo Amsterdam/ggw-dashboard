@@ -45,6 +45,10 @@ body {
   }
 }
 
+.table th, .table td {
+  border: none !important;
+}
+
 select {
   height: 20px !important;
 }
