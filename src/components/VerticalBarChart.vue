@@ -15,7 +15,7 @@ const vegaEmbedOptions = {
 
 const vegaSpec = {
   '$schema': 'https://vega.github.io/schema/vega-lite/v2.json',
-  'description': 'Woningvoorraad',
+  'description': '',
   'height': 100,
   'width': 250,
   'data': {
@@ -51,8 +51,27 @@ const vegaSpec = {
 }
 
 export default {
+  props: [
+    'chartdata'
+  ],
+  watch: {
+    'chartdata' () {
+      this.updateChart()
+    }
+  },
+  methods: {
+    updateChart () {
+      vegaSpec.data.values = this.chartdata[0].cijfers.map(d => ({
+        Type: d.jaar,
+        Aantal: d.waarde
+      }))
+      vegaEmbed(this.$el, vegaSpec, vegaEmbedOptions)
+    }
+  },
+  created () {
+  },
   mounted () {
-    vegaEmbed(this.$el, vegaSpec, vegaEmbedOptions)
+    this.updateChart()
   }
 }
 </script>

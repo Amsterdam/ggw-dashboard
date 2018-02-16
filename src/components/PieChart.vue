@@ -22,12 +22,6 @@ const vegaSpec = {
     {
       'name': 'table',
       'values': [
-        {'id': 1, 'field': 4},
-        {'id': 2, 'field': 6},
-        {'id': 3, 'field': 10},
-        {'id': 4, 'field': 3},
-        {'id': 5, 'field': 7},
-        {'id': 6, 'field': 8}
       ],
       'transform': [
         {
@@ -65,8 +59,27 @@ const vegaSpec = {
 }
 
 export default {
+  props: [
+    'chartdata'
+  ],
+  watch: {
+    'chartdata' () {
+      this.updateChart()
+    }
+  },
+  methods: {
+    updateChart () {
+      vegaSpec.data[0].values = this.chartdata.map((d, i) => ({
+        id: i,
+        field: d.recent.waarde
+      }))
+      vegaEmbed(this.$el, vegaSpec, vegaEmbedOptions)
+    }
+  },
+  created () {
+  },
   mounted () {
-    vegaEmbed(this.$el, vegaSpec, vegaEmbedOptions)
+    this.updateChart()
   }
 }
 </script>

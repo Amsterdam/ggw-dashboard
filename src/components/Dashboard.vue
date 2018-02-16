@@ -112,18 +112,15 @@
       <h2>Woningen naar eigendom en woonlasten</h2>
     </div>
 
-    <vertical-bar-chart></vertical-bar-chart>
-    <pie-chart></pie-chart>
-
     <div class="row">
       <div class="col-sm">
-        <placeholder title="gemiddelde WOZ-waarde" pic="gemiddelde-woz-waarde.png" height="100"></placeholder>
+        <vertical-chart :config="gemiddeldeWozWaarde"></vertical-chart>
       </div>
       <div class="col-sm">
-        <placeholder title="gemiddelde WOZ-waarde/m2" pic="gemiddelde-woz-waarde-m2.png" height="100"></placeholder>
+        <vertical-chart :config="gemiddeldeWozWaardeM2"></vertical-chart>
       </div>
       <div class="col-sm">
-        <placeholder title="gemiddelde huur vrij sector" pic="gemiddelde-huur-vrije-sector.png" height="100"></placeholder>
+        <vertical-chart :config="gemiddeldeHuurVrijeSector"></vertical-chart>
       </div>
     </div>
 
@@ -132,7 +129,7 @@
         <placeholder title="graph" height="200" pic="huur-verdeling.png"></placeholder>
       </div>
       <div class="col-sm">
-        <placeholder title="grootte van de woningen" pic="grootte-van-woningen.png" height="100"></placeholder>
+        <pie title="Grootte van de woningen" :config="grootteWoningen"></pie>
       </div>
     </div>
 
@@ -142,13 +139,13 @@
 
     <div class="row">
       <div class="col-sm">
-        <placeholder title="% Nultredewoningen" pic="nultrede.png" height="100"></placeholder>
+        <vertical-chart :config="percNultredewoningen"></vertical-chart>
       </div>
       <div class="col-sm">
-        <placeholder title="% Verhuisgeneigden 65+" pic="verhuis-65+.png" height="100"></placeholder>
+        <vertical-chart :config="percVerhuisgeneigden"></vertical-chart>
       </div>
       <div class="col-sm">
-        <placeholder title="% 65+ dat woning geschikt vindt om oud in te worden" pic="65+-geschikt.png" height="100"></placeholder>
+        <vertical-chart :config="percWoningGeschiktOud"></vertical-chart>
       </div>
     </div>
 
@@ -165,10 +162,14 @@
 
     <div class="row">
       <div class="col-sm">
-        <placeholder title="Informatie links" pic="meer-info.png" height="100"></placeholder>
+        <div v-for="info in meerInformatie" :key="info.label">
+          <a :href="info.url" target="_blank">{{info.label}}</a>
+        </div>
       </div>
       <div class="col-sm">
-        <placeholder title="Cijfer links" pic="meer-cijfers.png" ></placeholder>
+        <div v-for="info in meerCijfers" :key="info.label">
+          <a :href="info.url" target="_blank">{{info.label}}</a>
+        </div>
       </div>
     </div>
 
@@ -184,7 +185,9 @@ import ggwSelector from './GGWSelector'
 import placeholder from './Placeholder'
 import horizontalChart from './HorizontalChart'
 import verticalBarChart from './VerticalBarChart'
+import verticalChart from './VerticalChart'
 import horizontalText from './HorizontalText'
+import pie from './Pie'
 import pieChart from './PieChart'
 import inAantallen from './InAantallen'
 import dataTable from './DataTable'
@@ -197,6 +200,15 @@ import migratieAchtergrond from '../../static/links/migratieachtergrond'
 import positieOntwikkeling from '../../static/links/positie_en_ontwikkeling'
 import eigenBuurt from '../../static/links/eigenbuurt'
 import eigenWoning from '../../static/links/eigenwoning'
+import grootteWoningen from '../../static/links/grootte_woningen'
+import gemiddeldeWozWaarde from '../../static/links/gemm_woz_waarde'
+import gemiddeldeWozWaardeM2 from '../../static/links/gemm_woz_waarde_m2'
+import gemiddeldeHuurVrijeSector from '../../static/links/gemm_huur_vrije_sector'
+import percNultredewoningen from '../../static/links/perc_nultrede_woningen'
+import percVerhuisgeneigden from '../../static/links/perc_verhuisgeneigden_65+'
+import percWoningGeschiktOud from '../../static/links/perc_woning_geschikt_oud'
+import meerInformatie from '../../static/links/meer_informatie'
+import meerCijfers from '../../static/links/meer_cijfers'
 
 export default {
   name: 'HelloWorld',
@@ -207,6 +219,8 @@ export default {
     'ggw-selector': ggwSelector,
     'horizontal-chart': horizontalChart,
     'vertical-bar-chart': verticalBarChart,
+    'vertical-chart': verticalChart,
+    'pie': pie,
     'pie-chart': pieChart,
     'in-aantallen': inAantallen,
     'pano': pano,
@@ -222,7 +236,16 @@ export default {
       migratieAchtergrond,
       positieOntwikkeling,
       eigenBuurt,
-      eigenWoning
+      eigenWoning,
+      gemiddeldeWozWaarde,
+      gemiddeldeWozWaardeM2,
+      gemiddeldeHuurVrijeSector,
+      grootteWoningen,
+      percNultredewoningen,
+      percVerhuisgeneigden,
+      percWoningGeschiktOud,
+      meerInformatie,
+      meerCijfers
     }
   },
   computed: {
