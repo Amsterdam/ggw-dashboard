@@ -33,7 +33,6 @@ export default {
     async updateData () {
       this.chartdata = await util.getConfigCijfers(this.gwb, this.config)
       this.title = this.chartdata[0].label
-      console.log('chartdata', this.chartdata)
     }
   },
   watch: {

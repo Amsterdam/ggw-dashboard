@@ -95,7 +95,6 @@ export default {
     },
     async getDetails (meta) {
       const cijfers = await util.getCijfers(this.gebied, meta)
-      console.log('cijfers', cijfers)
       this.detail = {
         meta,
         cijfers: cijfers.cijfers
@@ -105,9 +104,6 @@ export default {
   watch: {
     'meta' (to, from) {
       this.filteredMeta = this.meta
-    },
-    '$route' (to, from) {
-      console.log('route', to, from)
     }
   }
 }

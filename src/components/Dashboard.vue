@@ -211,7 +211,7 @@ import meerInformatie from '../../static/links/meer_informatie'
 import meerCijfers from '../../static/links/meer_cijfers'
 
 export default {
-  name: 'HelloWorld',
+  name: 'GGWDashboard',
   components: {
     'vega-example': vegaExample,
     'leaflet-example': leafletExample,
@@ -255,20 +255,9 @@ export default {
   },
   methods: {
     ...mapActions({
-      setText: 'setText'
     })
   },
   watch: {
-    'text' (to, from) {
-      // Example of a state change watch
-      console.log('text has changed', from, to)
-    },
-    'selected' (to, from) {
-      const found = this.items.find(i => i.key === to.key)
-      if (found) {
-        console.log('you have selected', found.key)
-      }
-    }
   }
 }
 </script>

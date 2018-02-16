@@ -70,7 +70,6 @@ async function getBuurten (wijk) {
 
 async function getThemas () {
   if (!themas) {
-    console.log('get Themas')
     const themasUrl = 'https://acc.api.data.amsterdam.nl/bbga/themas/'
     themas = readData(themasUrl, d => d.data.themas)
   }
@@ -79,7 +78,6 @@ async function getThemas () {
 
 async function getMeta () {
   if (!meta) {
-    console.log('get Meta')
     const metaUrl = getUrl('/bbga/meta')
     meta = readPaginatedData(metaUrl)
   }
@@ -88,7 +86,6 @@ async function getMeta () {
 
 async function getVariables () {
   if (!variables) {
-    console.log('get Variables')
     const variablesUrl = getUrl('/bbga/variabelen/')
     variables = readData(variablesUrl, d => d.data.variabelen)
   }
@@ -100,7 +97,6 @@ async function getConfigCijfers (gwb, config) {
   const meta = await getMeta()
   let data = config.map(async c => {
     const cMeta = meta.find(m => m.variabele === c.variabele.toUpperCase())
-    console.log(c.variabele, c.post)
     if (cMeta) {
       const cijfers = await getCijfers(gwb, cMeta)
       return {

@@ -52,7 +52,6 @@ export default {
     }
   },
   created () {
-    console.log('wv', this.config)
     this.updateData()
   }
 }

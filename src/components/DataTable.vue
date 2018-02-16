@@ -51,7 +51,6 @@ export default {
       }
 
       this.data = data
-      console.log('data', this.data)
     }
   },
   watch: {

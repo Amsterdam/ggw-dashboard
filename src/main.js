@@ -19,8 +19,6 @@ import router from './router'
 import store from './store'
 import util from './services/util'
 
-import panos from '../static/links/panos'
-
 Vue.use(VueAxios, axios)
 Vue.use(BootstrapVue)
 Vue.use(uiv, {prefix: 'uiv'})
@@ -50,49 +48,15 @@ let vueApp = new Vue({
     }),
     async init () {
       // Thanks to http://www.csvjson.com/csv2json
-      console.log('panos', panos)
-
-      // const gebieden = await util.getGebieden()
-      // console.log('gebieden', gebieden)
-      //
-      // const gebied = gebieden.find(g => g.code === 'DX01')
-      // const gebiedDetail = await util.getDetail(gebied)
-      // this.setGebied(gebiedDetail)
-      //
-      // console.log('gebied', gebiedDetail)
-      //
-      // const wijken = await util.getWijken(gebied)
-      // console.log('wijken', wijken)
-      //
-      // const wijk = wijken.find(w => w.vollcode === 'A01')
-      // const wijkDetail = await util.getDetail(wijk)
-      // console.log('wijk', wijkDetail)
-      // this.setWijk(wijkDetail)
-      //
-      // const buurten = await util.getBuurten(wijk)
-      // console.log('buurten', buurten)
-      //
-      // const buurt = buurten.find(b => b.code === '01e')
-      // const buurtDetail = await util.getDetail(buurt)
-      // console.log('buurt', buurtDetail)
-      // this.setBuurt(buurtDetail)
 
       const themas = await util.getThemas()
       console.log('themas', themas)
 
       const meta = await util.getMeta()
       console.log('meta', meta)
-      this.setMeta(meta)
 
       const variables = await util.getVariables()
       console.log('variables', variables)
-      this.setVariables(variables)
-
-      const variable = meta.find(m => m.variabele === 'OSCHBAO')
-      console.log('variable', variable)
-
-      // const cijfers = await util.getCijfers(gebiedDetail, variable)
-      // console.log('BEVDICHT', cijfers)
     }
   }
 })

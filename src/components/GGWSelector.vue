@@ -100,7 +100,6 @@ export default {
       setThema: 'setThema'
     }),
     async updateGebied (gebiedCode) {
-      console.log('updateGebied', gebiedCode)
       const gebied = this.selection.gebieden.find(g => g.code === gebiedCode)
 
       this.selection.wijk = null
@@ -113,10 +112,8 @@ export default {
       this.setGebied(gebiedDetail, null, null)
 
       this.selection.wijken = await util.getWijken(gebied)
-      console.log('wijken', this.selection.wijken)
     },
     async updateWijk (wijkCode) {
-      console.log('updateWijk', wijkCode)
       const wijk = this.selection.wijken.find(w => w.vollcode === wijkCode)
 
       this.selection.buurt = null
@@ -128,14 +125,12 @@ export default {
       this.selection.buurten = await util.getBuurten(wijk)
     },
     async updateBuurt (buurtCode) {
-      console.log('updateBuurt', buurtCode)
       const buurt = this.selection.buurten.find(b => b.code === buurtCode)
 
       const buurtDetail = await util.getDetail(buurt)
       this.setBuurt(buurtDetail)
     },
     async updateThema (thema) {
-      console.log('updateThema', thema)
     }
   },
   watch: {

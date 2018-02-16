@@ -44,7 +44,6 @@ export default {
   methods: {
     async updateData () {
       this.data = await util.getConfigCijfers(this.gwb, inAantallen)
-      console.log('data', this.data)
     }
   },
   async created () {
