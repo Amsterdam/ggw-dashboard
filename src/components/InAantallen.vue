@@ -9,7 +9,7 @@
       <tbody>
       <tr v-for="d in data" :key="d.label">
         <td width="50%">{{d.label}}</td>
-        <td width="50%" v-if="d.recent">{{d.recent.waarde.toLocaleString()}} {{d.na}}</td>
+        <td width="50%" v-if="d.recent">{{d.recent.waarde.toLocaleString()}} {{d.post}}</td>
       </tr>
       </tbody>
     </table>
@@ -43,24 +43,8 @@ export default {
   },
   methods: {
     async updateData () {
-      const meta = await util.getMeta()
-      let data = inAantallen.map(async ia => {
-        const iaMeta = meta.find(m => m.variabele === ia.variabele.toUpperCase())
-        try {
-          const cijfers = await util.getCijfers(this.gwb, iaMeta)
-          return {
-            label: ia.label || iaMeta.label,
-            na: ia.na,
-            ...cijfers
-          }
-        } catch (err) {
-          console.log('Error', err)
-          return {
-            label: ia.label || ia.variable
-          }
-        }
-      })
-      this.data = await Promise.all(data)
+      this.data = await util.getConfigCijfers(this.gwb, inAantallen)
+      console.log('data', this.data)
     }
   },
   async created () {

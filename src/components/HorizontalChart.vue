@@ -43,24 +43,7 @@ export default {
   },
   methods: {
     async updateData () {
-      const meta = await util.getMeta()
-      let data = this.config.map(async c => {
-        try {
-          const cMeta = meta.find(m => m.variabele === c.variabele.toUpperCase())
-          const cijfers = await util.getCijfers(this.gwb, cMeta)
-          return {
-            label: c.label,
-            ...cijfers
-          }
-        } catch (err) {
-          console.log('Error', err)
-          return {
-            label: c.label || c.variabele
-          }
-        }
-      })
-      this.chartdata = await Promise.all(data)
-      console.log('data', this.chartdata)
+      this.chartdata = await util.getConfigCijfers(this.gwb, this.config)
     }
   },
   watch: {

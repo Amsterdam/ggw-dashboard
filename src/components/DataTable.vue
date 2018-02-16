@@ -39,24 +39,7 @@ export default {
   },
   methods: {
     async updateData () {
-      const meta = await util.getMeta()
-      let data = this.config.map(async c => {
-        const cMeta = meta.find(m => m.variabele === c.variabele.toUpperCase())
-        if (cMeta) {
-          const cijfers = await util.getCijfers(this.gwb, cMeta)
-          return {
-            label: c.label || cMeta.label,
-            ...cijfers
-          }
-        } else {
-          console.log('Error for variable', c.variabele)
-          return {
-            label: c.label || c.variabele
-          }
-        }
-      })
-
-      data = await Promise.all(data)
+      const data = await util.getConfigCijfers(this.gwb, this.config)
 
       for (let item of data) {
         for (let year of this.years) {

@@ -26,11 +26,11 @@
   {
     "label": "Oppervlakte land",
     "variabele": "ORland",
-    "na": "hectare"
+    "post": "hectare"
   },
   {
     "label": "Bevolkingsdichtheid",
     "variabele": "Bevdicht",
-    "na": "inw./km2"
+    "post": "inw./km2"
   }
 ]

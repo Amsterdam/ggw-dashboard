@@ -36,7 +36,7 @@
       <div class="col-sm-6">
         <horizontal-chart
           title="Leeftijd"
-          icon="wonen_en_leefomgeving.svg"
+          icon="kind_icoon_met_bal_60.png"
           :config="leeftijd"
         ></horizontal-chart>
       </div>

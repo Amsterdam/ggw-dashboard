@@ -19,9 +19,9 @@ async function readPaginatedData (url) {
   return results
 }
 
-async function readData (url) {
+async function readData (url, resolve = d => d.data) {
   let response = await Vue.axios.get(url)
-  return response.data
+  return resolve(response)
 }
 
 function getUrl (endpoint) {
@@ -70,26 +70,53 @@ async function getBuurten (wijk) {
 
 async function getThemas () {
   if (!themas) {
+    console.log('get Themas')
     const themasUrl = 'https://acc.api.data.amsterdam.nl/bbga/themas/'
-    themas = await readData(themasUrl)
+    themas = readData(themasUrl, d => d.data.themas)
   }
-  return themas.themas
+  return themas
 }
 
 async function getMeta () {
   if (!meta) {
+    console.log('get Meta')
     const metaUrl = getUrl('/bbga/meta')
-    meta = await readPaginatedData(metaUrl)
+    meta = readPaginatedData(metaUrl)
   }
   return meta
 }
 
 async function getVariables () {
   if (!variables) {
+    console.log('get Variables')
     const variablesUrl = getUrl('/bbga/variabelen/')
-    variables = await readData(variablesUrl)
+    variables = readData(variablesUrl, d => d.data.variabelen)
   }
-  return variables.variabelen
+  return variables
+}
+
+async function getConfigCijfers (gwb, config) {
+  const isPercentage = /_P$/i // Add auto-post for percentages
+  const meta = await getMeta()
+  let data = config.map(async c => {
+    const cMeta = meta.find(m => m.variabele === c.variabele.toUpperCase())
+    console.log(c.variabele, c.post)
+    if (cMeta) {
+      const cijfers = await getCijfers(gwb, cMeta)
+      return {
+        label: c.label || cMeta.label,
+        post: c.post || (isPercentage.test(cMeta.variabele) ? '%' : null),
+        ...cijfers
+      }
+    } else {
+      console.error('Error for variable', c.variabele)
+      return {
+        label: c.label || c.variabele
+      }
+    }
+  })
+
+  return Promise.all(data)
 }
 
 async function getCijfers (gebied, meta) {
@@ -117,5 +144,6 @@ export default {
   getDetail,
   getMeta,
   getVariables,
-  getCijfers
+  getCijfers,
+  getConfigCijfers
 }
