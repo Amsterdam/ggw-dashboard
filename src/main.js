@@ -49,14 +49,16 @@ let vueApp = new Vue({
     async init () {
       // Thanks to http://www.csvjson.com/csv2json
 
+      const meta = await util.getMeta()
+      console.log('meta', meta)
+      this.setMeta(meta)
+
       const themas = await util.getThemas()
       console.log('themas', themas)
 
-      const meta = await util.getMeta()
-      console.log('meta', meta)
-
       const variables = await util.getVariables()
       console.log('variables', variables)
+      this.setVariables(variables)
     }
   }
 })
