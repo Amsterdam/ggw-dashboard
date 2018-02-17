@@ -1,0 +1,105 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v3.0.json",
+  "width": 300,
+  "height": 300,
+  "data": [
+    {	"name": "data_table",
+      "values": [
+        {"key": "Chrome", "value": 5},
+        {"key": "Chrome Mobile", "value": 10},
+        {"key": "Mobile Safari", "value": 5},
+        {"key": "IE", "value": 10},
+        {"key": "Other", "value": 5}
+      ],
+      "transform": [
+        {	"type": "collect"
+        }
+      ]
+    },
+
+    {
+      "name": "data_table_pie",
+      "source": "data_table",
+      "transform": [
+        {	"type": "pie",
+          "field": "value",
+          "as": ["ff_outer_startAngle", "ff_outer_endAngle"]
+        }
+      ]
+    }
+  ],
+
+  "scales": [
+    {	"name": "scale_color",
+      "type": "ordinal",
+      "range": {"scheme": "category10"},
+      "domain": {"data": "data_table", "field": "key"}
+    }
+  ],
+
+  "marks": [
+
+    {
+      "name": "mark_outer_ring",
+      "type": "arc",
+      "from": {"data": "data_table_pie"},
+      "encode": {
+        "enter": {
+          "x": {"signal": "width / 2"},
+          "y": {"signal": "height / 2"},
+
+          "fill": {"scale": "scale_color", "field": "key"},
+          "fillOpacity": {"signal": "min(max(datum['value'] * 0.04, 0.2), 0.7)"},
+          "stroke": {"value": "white"},
+
+          "startAngle": {"field": "ff_outer_startAngle"},
+          "endAngle": {"field": "ff_outer_endAngle"},
+          "innerRadius": {"value": 0},
+          "outerRadius": {"value": 130}
+        }
+      }
+    },
+
+    {
+      "name": "mark_text",
+      "type": "text",
+      "from": {"data": "data_table_pie"},
+      "encode": {
+        "enter": {
+
+          "text": {"signal": "datum['value']"},
+
+          "x": {"signal": "width / 2"},
+          "y": {"signal": "height / 2"},
+
+          "radius": {"value": 150},
+          "theta": {"signal": "(datum['ff_outer_startAngle'] + datum['ff_outer_endAngle'])/2"},
+
+          "align": {"value": "center"},
+          "baseline": {"value": "middle"}
+        }
+      }
+    }
+
+  ],
+
+  "legends": [
+    {
+      "fill": "scale_color",
+      "title": "",
+      "orient": "right",
+      "encode": {
+        "symbols": {
+          "enter": {
+            "fillOpacity": {"value": 0.5}
+          }
+        },
+        "labels": {
+          "update": {
+            "text": {"field": "value"}
+          }
+        }
+      }
+    }
+  ]
+}

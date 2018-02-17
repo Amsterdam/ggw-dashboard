@@ -20,10 +20,6 @@ const vegaSpec = {
   'width': 250,
   'data': {
     'values': [
-      {'Type': '2014', 'Aantal': 300000},
-      {'Type': '2015', 'Aantal': 310000},
-      {'Type': '2016', 'Aantal': 340000},
-      {'Type': '2017', 'Aantal': 380000}
     ]
   },
   'config': {
@@ -38,8 +34,8 @@ const vegaSpec = {
       'type': 'bar'
     },
     'encoding': {
-      'y': {'field': 'Aantal', 'type': 'quantitative', 'axis': {'title': null}},
-      'x': {'field': 'Type', 'type': 'ordinal', 'sort': null, 'axis': {'labels': true, 'ticks': false, 'title': null}},
+      'y': {'field': 'Aantal', 'type': 'quantitative', 'axis': {'title': null, 'tickCount': 5, 'offset': 5}},
+      'x': {'field': 'Type', 'type': 'ordinal', 'sort': null, 'axis': {'labels': true, 'labelPadding': 5, 'ticks': false, 'title': null}},
       'color': {
         'field': 'Type',
         'type': 'nominal',

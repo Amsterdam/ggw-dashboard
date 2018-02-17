@@ -1,7 +1,9 @@
 <template>
   <div>
     <h5 class="text-center">{{title}}</h5>
-    <vertical-bar-chart v-if="chartdata" :chartdata="chartdata"></vertical-bar-chart>
+    <div class="text-center">
+      <vertical-bar-chart v-if="chartdata" :chartdata="chartdata"></vertical-bar-chart>
+    </div>
   </div>
 </template>
 

@@ -175,7 +175,7 @@
       </div>
 
     </div>
-    
+
     <div v-else class="text-center">
       <h2>Gegevens laden...</h2>
       <img src="../../static/icons/loading.gif">

@@ -33,7 +33,7 @@ const vegaSpec = {
     },
     'encoding': {
       'x': {'field': 'Aantal', 'type': 'quantitative', 'axis': {'labels': false, 'domain': false, 'grid': false, 'ticks': false, 'title': null}},
-      'y': {'field': 'Type', 'type': 'ordinal', 'sort': null, 'axis': {'labels': true, 'domain': false, 'grid': false, 'ticks': false, 'title': null}},
+      'y': {'field': 'Type', 'type': 'ordinal', 'sort': null, 'axis': {'labels': true, 'domain': false, 'grid': false, 'ticks': false, 'title': null, 'offset': 5}},
       'color': {
         'field': 'Type',
         'type': 'nominal',
@@ -47,7 +47,7 @@ const vegaSpec = {
       'type': 'text',
       'align': 'left',
       'baseline': 'middle',
-      'dx': 3
+      'dx': 5
     },
     'encoding': {
       'x': {'field': 'Aantal', 'type': 'quantitative', 'axis': {'labels': false, 'domain': false, 'grid': false, 'ticks': false, 'title': null}},
