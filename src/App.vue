@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="app container-fluid">
     <ams-header>Header</ams-header>
-    <ggw-selector></ggw-selector>
+    <ggw-selector class="sticky-top"></ggw-selector>
     <router-view/>
   </div>
 </template>
