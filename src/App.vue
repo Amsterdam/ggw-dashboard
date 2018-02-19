@@ -2,21 +2,19 @@
   <div id="app" class="app container-fluid">
     <ams-header>Header</ams-header>
     <ggw-selector class="sticky-top"></ggw-selector>
-    <dashboard></dashboard>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 import amsHeader from './components/AMSHeader'
 import ggwSelector from './components/GGWSelector'
-import dashboard from './components/Dashboard'
 
 export default {
   name: 'App',
   components: {
     'ams-header': amsHeader,
-    'ggw-selector': ggwSelector,
-    'dashboard': dashboard
+    'ggw-selector': ggwSelector
   }
 }
 </script>
