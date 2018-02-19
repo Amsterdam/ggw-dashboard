@@ -15,7 +15,6 @@ RUN apt-get update && \
     xvfb libgtk2.0-0 libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 && \
   rm -rf /var/lib/apt/lists/*
 
-COPY default.conf /etc/nginx/conf.d/
 COPY package.json /app/
 # RUN rm /etc/nginx/sites-enabled/default
 
@@ -35,4 +34,5 @@ RUN npm run build && cp -r /app/dist/. /var/www/html/
 RUN ln -sf /dev/stdout /var/log/nginx/access.log \
  && ln -sf /dev/stderr /var/log/nginx/error.log
 
+COPY default.conf /etc/nginx/conf.d/
 CMD ["nginx", "-g", "daemon off;"]
