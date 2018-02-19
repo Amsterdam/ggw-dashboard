@@ -20,7 +20,7 @@ export default new Router({
     },
     {
       path: '/meta',
-      name: 'Meta',
+      name: 'meta',
       component: Meta
     }
   ]
