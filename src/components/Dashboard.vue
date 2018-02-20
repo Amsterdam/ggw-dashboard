@@ -186,7 +186,7 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import vegaExample from './VegaExample'
-import leafletExample from './LeafletExample'
+import gwbMap from './GWBMap'
 import amsHeader from './AMSHeader'
 import ggwSelector from './GGWSelector'
 import placeholder from './Placeholder'
@@ -221,7 +221,7 @@ export default {
   name: 'GGWDashboard',
   components: {
     'vega-example': vegaExample,
-    'leaflet-example': leafletExample,
+    'gwb-map': gwbMap,
     'ams-header': amsHeader,
     'ggw-selector': ggwSelector,
     'horizontal-chart': horizontalChart,

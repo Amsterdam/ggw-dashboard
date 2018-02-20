@@ -8,19 +8,19 @@
       </header>
     </div>
     <div class="col-sm-3">
-      <leaflet-example></leaflet-example>
+      <gwb-map></gwb-map>
     </div>
   </div>
 
 </template>
 
 <script>
-import leafletExample from './LeafletExample'
+import gwbMap from './GWBMap'
 
 export default {
   name: 'AMSHeader',
   components: {
-    'leaflet-example': leafletExample
+    'gwb-map': gwbMap
   }
 }
 
