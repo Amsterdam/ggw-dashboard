@@ -4,6 +4,11 @@ let meta = null
 let variables = null
 let themas = null
 
+let gebieden = null
+let wijken = null
+let buurten = null
+let cijfers = {}
+
 async function readPaginatedData (url) {
   let next = url
   let results = []
@@ -33,10 +38,53 @@ function getKeyFromUrl (url) {
   return key
 }
 
-async function getGebieden () {
-  const gebiedenUrl = getUrl('/gebieden/gebiedsgerichtwerken/')
-  const gebieden = await readPaginatedData(gebiedenUrl)
-  return gebieden
+function getGebiedType (gebiedCode) {
+  if (/^[A-Z]$/.test(gebiedCode)) {
+    return 'Stadsdeel'
+  } else if (/^DX\d\d$/.test(gebiedCode)) {
+    return 'Gebied'
+  } else if (/^[A-Z]\d\d$/.test(gebiedCode)) {
+    return 'Wijk'
+  } else if (/^[A-Z]\d\d[a-z]$/.test(gebiedCode)) {
+    return 'Buurt'
+  } else if (/STAD/.test(gebiedCode)) {
+    return 'Stad'
+  } else {
+    return '?' + gebiedCode
+  }
+}
+
+async function getAllCijfers (variable, year) {
+  if (!cijfers[variable]) {
+    cijfers[variable] = {}
+  }
+  if (!cijfers[variable][year]) {
+    cijfers[variable][year] = getConfigCijfers(null, [variable], year)
+  }
+  return cijfers[variable][year]
+}
+
+async function getGwb (code) {
+  const gebiedType = getGebiedType(code)
+  let gwb = null
+
+  if (gebiedType === 'Gebied') {
+    await getGebieden()
+    gwb = gebieden.find(g => g.code === code)
+  } else if (gebiedType === 'Wijk') {
+    const allWijken = await getAllWijken()
+    gwb = allWijken.find(w => w.vollcode === code)
+  } else if (gebiedType === 'Buurt') {
+    const allBuurten = await getAllBuurten()
+    const searchCode = code.substring(1)
+    gwb = allBuurten.find(b => b.code === searchCode && b._display.includes(code))
+  }
+
+  if (!gwb) {
+    console.error('GWB not found', gebiedType, code)
+  }
+
+  return readData(gwb._links.self.href)
 }
 
 async function getDetail (entity) {
@@ -68,6 +116,30 @@ async function getBuurten (wijk) {
   return buurten
 }
 
+async function getGebieden () {
+  if (!gebieden) {
+    const gebiedenUrl = getUrl('/gebieden/gebiedsgerichtwerken/')
+    gebieden = await readPaginatedData(gebiedenUrl)
+  }
+  return gebieden
+}
+
+async function getAllWijken () {
+  if (!wijken) {
+    const url = getUrl('/gebieden/wijk/')
+    wijken = readPaginatedData(url)
+  }
+  return wijken
+}
+
+async function getAllBuurten () {
+  if (!buurten) {
+    const url = getUrl('/gebieden/buurt/')
+    buurten = readPaginatedData(url)
+  }
+  return buurten
+}
+
 async function getThemas () {
   if (!themas) {
     const themasUrl = 'https://acc.api.data.amsterdam.nl/bbga/themas/'
@@ -92,13 +164,13 @@ async function getVariables () {
   return variables
 }
 
-async function getConfigCijfers (gwb, config) {
+async function getConfigCijfers (gwb, config, year = null) {
   const isPercentage = /_P$/i // Add auto-post for percentages
   const meta = await getMeta()
   let data = config.map(async c => {
     const cMeta = meta.find(m => m.variabele === c.variabele.toUpperCase())
     if (cMeta) {
-      const cijfers = await getCijfers(gwb, cMeta)
+      const cijfers = await getCijfers(gwb, cMeta, year)
       return {
         label: c.label || cMeta.label,
         post: c.post || (isPercentage.test(cMeta.variabele) ? '%' : null),
@@ -115,13 +187,21 @@ async function getConfigCijfers (gwb, config) {
   return Promise.all(data)
 }
 
-async function getCijfers (gebied, meta) {
-  const code = gebied.volledige_code
+async function getCijfers (gebied, meta, year = null) {
+  const code = gebied && gebied.volledige_code
 
-  const cijfersUrl = getUrl(`/bbga/cijfers/?gebiedcode15=${code}&variabele=${meta.variabele}`)
+  const selectVariable = meta.variabele ? 'variabele=' + meta.variabele : ''
+  const selectCode = code ? '&gebiedcode15=' + code : ''
+  const selectYear = year ? '&jaar=' + year : ''
+
+  const cijfersUrl = getUrl(`/bbga/cijfers/?${selectVariable}${selectCode}${selectYear}`)
   let cijfers = await readPaginatedData(cijfersUrl)
   cijfers.sort((a, b) => a.jaar - b.jaar) // oldest first
-  cijfers = cijfers.map(c => ({jaar: c.jaar, waarde: c.waarde === null ? '' : c.waarde}))
+  cijfers = cijfers.map(c => ({
+    jaar: c.jaar,
+    waarde: c.waarde === null ? '' : c.waarde,
+    gebiedcode15: c.gebiedcode15
+  }))
   return {
     gebied,
     meta,
@@ -141,5 +221,8 @@ export default {
   getMeta,
   getVariables,
   getCijfers,
-  getConfigCijfers
+  getConfigCijfers,
+  getAllCijfers,
+  getGebiedType,
+  getGwb
 }

@@ -80,14 +80,7 @@
         <h2>Verschillen binnen het gebied</h2>
       </div>
 
-      <div class="row">
-        <div class="col-sm">
-          <placeholder title="kaart" pic="kaart.png" height="200"></placeholder>
-        </div>
-        <div class="col-sm">
-          <placeholder title="toelichting" pic="toelichting.png" height="200"></placeholder>
-        </div>
-      </div>
+      <verschillen-gebied></verschillen-gebied>
 
       <div class="alert">
         <div class="row">
@@ -199,6 +192,7 @@ import pieChart from './PieChart'
 import inAantallen from './InAantallen'
 import dataTable from './DataTable'
 import pano from './Pano'
+import verschillenGebied from './VerschillenGebied'
 
 import woningVoorraad from '../../static/links/woningvoorraad'
 import sociaalEconomisch from '../../static/links/sociaaleconomisch'
@@ -233,6 +227,7 @@ export default {
     'pano': pano,
     'data-table': dataTable,
     'horizontal-text': horizontalText,
+    'verschillen-gebied': verschillenGebied,
     'placeholder': placeholder
   },
   data () {
