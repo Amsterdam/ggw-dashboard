@@ -82,43 +82,43 @@ export default {
         map.removeLayer(gwbLayer)
       }
 
-      const gebiedCijfers = await util.getConfigCijfers(this.gwb, [this.variable])
-
+      const gebiedCijfers = await util.getAllCijfers(this.variable, this.gwb.volledige_code)
       const recentYear = gebiedCijfers[0].recent.jaar
 
       let cijfers = await util.getAllCijfers(this.variable, recentYear)
-      cijfers = cijfers[0].cijfers
-      cijfers = cijfers.filter(c => c.waarde !== '' && util.getGebiedType(c.gebiedcode15) === this.gebiedType)
-      cijfers = cijfers.sort((c1, c2) => c1.waarde - c2.waarde)
 
-      const lowest = cijfers.slice(0, 5)
-      const highest = cijfers.slice(cijfers.length - 5)
-      const all = lowest.concat(highest)
-
-      const gwbs = await Promise.all(all.map(async (c, i) => ({
-        ...c,
-        gwb: await util.getGwb(c.gebiedcode15),
-        i
-      })))
-
-      this.lowest = gwbs.slice(0, 5).reverse()
-      this.highest = gwbs.slice(5).reverse()
-
-      const lowStyle = {
-        'color': '#EC0000'
-      }
-
-      const highStyle = {
-        'color': '#00A03C'
-      }
-
-      gwbLayer = L.featureGroup()
-      gwbs.forEach(gwb => {
-        const wgs84Geometrie = rdMultiPolygonToWgs84(gwb.gwb.geometrie)
-        wgs84Geometrie.map(geometry => L.polygon(geometry.coordinates, gwb.i < 5 ? lowStyle : highStyle).addTo(gwbLayer))
-      })
-      gwbLayer.addTo(map)
-      map.fitBounds(gwbLayer.getBounds())
+      // cijfers = cijfers[0].cijfers
+      // cijfers = cijfers.filter(c => c.waarde !== '' && util.getGebiedType(c.gebiedcode15) === this.gebiedType)
+      // cijfers = cijfers.sort((c1, c2) => c1.waarde - c2.waarde)
+      //
+      // const lowest = cijfers.slice(0, 5)
+      // const highest = cijfers.slice(cijfers.length - 5)
+      // const all = lowest.concat(highest)
+      //
+      // const gwbs = await Promise.all(all.map(async (c, i) => ({
+      //   ...c,
+      //   gwb: await util.getGwb(c.gebiedcode15),
+      //   i
+      // })))
+      //
+      // this.lowest = gwbs.slice(0, 5).reverse()
+      // this.highest = gwbs.slice(5).reverse()
+      //
+      // const lowStyle = {
+      //   'color': '#EC0000'
+      // }
+      //
+      // const highStyle = {
+      //   'color': '#00A03C'
+      // }
+      //
+      // gwbLayer = L.featureGroup()
+      // gwbs.forEach(gwb => {
+      //   const wgs84Geometrie = rdMultiPolygonToWgs84(gwb.gwb.geometrie)
+      //   wgs84Geometrie.map(geometry => L.polygon(geometry.coordinates, gwb.i < 5 ? lowStyle : highStyle).addTo(gwbLayer))
+      // })
+      // gwbLayer.addTo(map)
+      // map.fitBounds(gwbLayer.getBounds())
     }
   },
   watch: {
@@ -142,7 +142,7 @@ export default {
       if (meta) {
         return {
           label: po.label || meta.label,
-          variable: meta
+          variable: po.variabele
         }
       } else {
         return {

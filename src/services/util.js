@@ -1,33 +1,9 @@
-import Vue from 'vue'
-
-let meta = null
-let variables = null
-let themas = null
+import { readPaginatedData, readData } from './datareader'
+import { getAllGebieden, getAllWijken, getAllBuurten } from './gebieden'
+import { getAllThemas, getAllMeta, getAllVariables, getAllCijfers } from './bbga'
 
 let gebieden = null
-let wijken = null
-let buurten = null
-let cijfers = {}
-
-async function readPaginatedData (url) {
-  let next = url
-  let results = []
-  while (next) {
-    try {
-      let response = await Vue.axios.get(next)
-      next = response.data._links.next.href
-      results = results.concat(response.data.results)
-    } catch (e) {
-      next = null
-    }
-  }
-  return results
-}
-
-async function readData (url, resolve = d => d.data) {
-  let response = await Vue.axios.get(url)
-  return resolve(response)
-}
+// let cijfers = {}
 
 function getUrl (endpoint) {
   return 'https://acc.api.data.amsterdam.nl' + endpoint
@@ -54,15 +30,15 @@ function getGebiedType (gebiedCode) {
   }
 }
 
-async function getAllCijfers (variable, year) {
-  if (!cijfers[variable]) {
-    cijfers[variable] = {}
-  }
-  if (!cijfers[variable][year]) {
-    cijfers[variable][year] = getConfigCijfers(null, [variable], year)
-  }
-  return cijfers[variable][year]
-}
+// async function getAllCijfers (variable, year) {
+//   if (!cijfers[variable]) {
+//     cijfers[variable] = {}
+//   }
+//   if (!cijfers[variable][year]) {
+//     cijfers[variable][year] = getConfigCijfers(null, [variable], year)
+//   }
+//   return cijfers[variable][year]
+// }
 
 async function getGwb (code) {
   const gebiedType = getGebiedType(code)
@@ -117,51 +93,19 @@ async function getBuurten (wijk) {
 }
 
 async function getGebieden () {
-  if (!gebieden) {
-    const gebiedenUrl = getUrl('/gebieden/gebiedsgerichtwerken/')
-    gebieden = await readPaginatedData(gebiedenUrl)
-  }
-  return gebieden
-}
-
-async function getAllWijken () {
-  if (!wijken) {
-    const url = getUrl('/gebieden/wijk/')
-    wijken = readPaginatedData(url)
-  }
-  return wijken
-}
-
-async function getAllBuurten () {
-  if (!buurten) {
-    const url = getUrl('/gebieden/buurt/')
-    buurten = readPaginatedData(url)
-  }
-  return buurten
+  return getAllGebieden()
 }
 
 async function getThemas () {
-  if (!themas) {
-    const themasUrl = 'https://acc.api.data.amsterdam.nl/bbga/themas/'
-    themas = readData(themasUrl, d => d.data.themas)
-  }
-  return themas
+  return getAllThemas()
 }
 
 async function getMeta () {
-  if (!meta) {
-    const metaUrl = getUrl('/bbga/meta')
-    meta = readPaginatedData(metaUrl)
-  }
-  return meta
+  return getAllMeta()
 }
 
 async function getVariables () {
-  if (!variables) {
-    const variablesUrl = getUrl('/bbga/variabelen/')
-    variables = readData(variablesUrl, d => d.data.variabelen)
-  }
-  return variables
+  return getAllVariables()
 }
 
 async function getConfigCijfers (gwb, config, year = null) {
