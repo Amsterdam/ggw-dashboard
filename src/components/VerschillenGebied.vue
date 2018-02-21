@@ -2,22 +2,19 @@
 <template>
   <div class="row">
     <div class="col-sm-6">
+      <b-form-select v-model="variable"
+                     :options="variables"
+                     text-field="label"
+                     value-field="variable">
+      </b-form-select>
       <div ref="map" class="map"></div>
+      <div class="text-center">
+        <button class="btn" :disabled="!variable" :class="{'btn-primary': gebiedType === 'Gebied'}" v-on:click="setGebiedType('Gebied')">Gebieden</button>
+        <button class="btn" :disabled="!variable" :class="{'btn-primary': gebiedType === 'Wijk'}" v-on:click="setGebiedType('Wijk')">Wijken</button>
+        <button class="btn" :disabled="!variable" :class="{'btn-primary': gebiedType === 'Buurt'}" v-on:click="setGebiedType('Buurt')">Buurten</button>
+      </div>
     </div>
     <div class="col-sm-6">
-      <b-form inline>
-        <div>
-          <b-form-select v-model="variable"
-                         :options="variables"
-                         text-field="label"
-                         value-field="variable">
-          </b-form-select>
-          <b-form-select v-model="gebiedType"
-                         :options="gebiedTypes">
-          </b-form-select>
-        </div>
-      </b-form>
-
       <div v-if="loading">
         Laden gegevens...
       </div>
@@ -25,7 +22,11 @@
         Geen cijfers beschikbaar
       </div>
       <div v-else>
-        <div v-if="own">{{own.gebied.naam}}: {{own.recent.waarde.toLocaleString()}}</div>
+        <div v-if="own && own.gebiedType === gebiedType && own.recent">
+          <h4>Geselecteerde {{own.gebiedType.toLowerCase()}}</h4>
+          <span class="font-weight-bold">{{ownIndex}}</span>
+          {{own.gebied.naam}}: {{(own.recent.waarde || "").toLocaleString()}}
+        </div>
 
         <div v-for="(item, index) in cijfers" :key="index">
           <h4 v-if="!(index % FRAGMENT)">
@@ -33,10 +34,10 @@
           </h4>
           <div>
             <span class="font-weight-bold">{{index % FRAGMENT + 1}}</span>
-            <span :class="{'highlight-own': item.gwb.naam === own.gebied.naam}">{{item.gwb.naam}}</span>
-            <span class="badge badge-secondary">
-            {{item.waarde.toLocaleString()}}
-          </span>
+            <span :class="{'highlight-own': item.gwb.naam === own.gebied.naam}">
+              {{item.gwb.naam}}:
+              {{(item.waarde || "").toLocaleString()}}
+            </span>
           </div>
         </div>
       </div>
@@ -74,6 +75,7 @@ export default {
       lowest: [],
       highest: [],
       own: null,
+      ownIndex: null,
       cijfers: [],
       loading: false
     }
@@ -83,7 +85,14 @@ export default {
       this.loading = false
       this.cijfers = []
     },
+    setGebiedType (type) {
+      this.gebiedType = type
+    },
     async getOwn () {
+      if (!(this.gebiedType && this.variable)) {
+        return
+      }
+
       // Try to derive most recent year from the cijfers for the current gwb
       let gwb = this.gwb
       if (this.gebiedType === 'Buurt' && this.buurt) {
@@ -93,7 +102,9 @@ export default {
       } else if (this.gebiedType === 'Gebied' && this.gebied) {
         gwb = this.gebied
       }
-      return util.getGebiedCijfers(this.variable, gwb)
+      const own = await util.getGebiedCijfers(this.variable, gwb)
+      own.gebiedType = util.getGebiedType(own.recent.gebiedcode15)
+      return own
     },
     async updateData () {
       if (!(this.gebiedType && this.variable)) {
@@ -119,6 +130,8 @@ export default {
         return this.noCijfers()
       }
 
+      this.ownIndex = cijfers.findIndex(c => c.gebiedcode15 === this.own.recent.gebiedcode15) + 1
+
       // Get only the lowest and highest values
       const highest = cijfers.slice(0, this.FRAGMENT)
       const lowest = cijfers.slice(cijfers.length - this.FRAGMENT)
@@ -140,6 +153,10 @@ export default {
     showCijfers () {
       if (gwbLayer) {
         map.removeLayer(gwbLayer)
+      }
+
+      if (!(this.gebiedType && this.variable)) {
+        return
       }
 
       const lowStyle = {
@@ -216,6 +233,8 @@ export default {
 
 .map {
   height: 350px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .select {

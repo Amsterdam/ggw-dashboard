@@ -9,7 +9,10 @@
         </td>
         <td>
           <div v-for="d in data" :key="d.label">
-            {{d.label}}: {{d.recent.waarde.toLocaleString()}}{{d.post}}
+            {{d.label}}:
+            <span v-if="d.recent">
+              {{(d.recent.waarde || "").toLocaleString()}}{{d.post}}
+          </span>
           </div>
         </td>
       </tr>

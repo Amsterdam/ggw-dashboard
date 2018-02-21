@@ -52,6 +52,7 @@ export async function getDetail (entity) {
   const url = entity._links.self.href
   const data = await readData(url)
   data.volledige_code = data.volledige_code || data.code
+  data.gebiedType = getGebiedType(data.volledige_code)
   return data
 }
 

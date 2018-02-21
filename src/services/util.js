@@ -2,14 +2,14 @@ import { getAllGebieden, getWijken, getBuurten, getGebiedType, getGwb, getDetail
 import { getAllMeta, getMeta, getAllCijfers, getGebiedCijfers } from './bbga'
 
 async function getConfigCijfers (gwb, config) {
-  const isPercentage = /_P$/i // Add auto-post for percentages
   let data = config.map(async c => {
     try {
       const cijfers = await getGebiedCijfers(c.variabele, gwb)
+      const post = c.post || cijfers.post
       return {
+        ...cijfers,
         label: c.label || cijfers.meta.label,
-        post: c.post || (isPercentage.test(cijfers.meta.variabele) ? '%' : null),
-        ...cijfers
+        post
       }
     } catch (e) {
       console.error('Error for variable', c.variabele)

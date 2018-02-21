@@ -79,6 +79,7 @@ export async function getAllCijfers (variableName, year) {
 }
 
 export async function getGebiedCijfers (variableName, gebied) {
+  const isPercentage = /_P$/i // Add auto-post for percentages
   async function _getGebiedCijfers (meta, gebied) {
     const cijfers = await _getAllCijfers(
       meta,
@@ -89,6 +90,7 @@ export async function getGebiedCijfers (variableName, gebied) {
       gebied,
       meta,
       cijfers: cijfers,
+      post: isPercentage.test(meta.variabele) ? '%' : null,
       recent: cijfers.length ? cijfers[cijfers.length - 1] : {}
     }
   }
