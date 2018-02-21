@@ -1,11 +1,11 @@
 <!--Example of a component that uses Leaflet-->
 <template>
   <div class="row">
-    <div class="col-sm">
+    <div class="col-sm-6">
       <div ref="map" class="map"></div>
     </div>
-    <div class="col-sm">
-      <b-form inline class="row">
+    <div class="col-sm-6">
+      <b-form inline>
         <div>
           <b-form-select v-model="variable"
                          :options="variables"
@@ -187,21 +187,19 @@ export default {
     }
   },
   async created () {
-    const allMeta = await util.getMeta()
-
-    this.variables = positieOntwikkeling.map(po => {
-      const meta = allMeta.find(m => m.variabele === po.variabele.toUpperCase())
+    this.variables = await Promise.all(positieOntwikkeling.map(async po => {
+      const meta = await util.getMeta(po.variabele)
       if (meta) {
         return {
           label: po.label || meta.label,
-          variable: po.variabele
+          variable: meta.variabele
         }
       } else {
         return {
           label: po.label || po.variabele
         }
       }
-    })
+    }))
 
     this.gebiedType = util.getGebiedType(this.gwb.volledige_code)
   },
@@ -218,6 +216,10 @@ export default {
 
 .map {
   height: 350px;
+}
+
+.select {
+  width: 100%;
 }
 
 .highlight-own {

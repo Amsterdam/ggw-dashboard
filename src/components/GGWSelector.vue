@@ -136,7 +136,7 @@ export default {
   watch: {
   },
   async created () {
-    this.selection.gebieden = await util.getGebieden()
+    this.selection.gebieden = await util.getAllGebieden()
 
     this.selection.gebied = 'DX01'
     this.updateGebied(this.selection.gebied)

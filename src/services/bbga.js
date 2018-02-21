@@ -34,7 +34,7 @@ export async function getAllVariables () {
   return allVariables
 }
 
-async function getMeta (variableName) {
+export async function getMeta (variableName) {
   const search = variableName.toUpperCase()
   const all = await getAllMeta()
   return all.find(m => m.variabele === search)

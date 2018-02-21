@@ -94,7 +94,7 @@ export default {
       this.detail = null
     },
     async getDetails (meta) {
-      const cijfers = await util.getCijfers(this.gebied, meta)
+      const cijfers = await util.getGebiedCijfers(meta.variabele, this.gebied)
       this.detail = {
         meta,
         cijfers: cijfers.cijfers

@@ -42,7 +42,7 @@ let vueApp = new Vue({
       setMeta: 'setMeta'
     }),
     async init () {
-      const meta = await util.getMeta()
+      const meta = await util.getAllMeta()
       this.setMeta(meta)
     }
   }

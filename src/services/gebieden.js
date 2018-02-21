@@ -43,6 +43,40 @@ async function _getAllBuurten () {
   return _buurten
 }
 
+function getKeyFromUrl (url) {
+  const key = url.match(/\/([^/]*)\/$/)[1]
+  return key
+}
+
+export async function getDetail (entity) {
+  const url = entity._links.self.href
+  const data = await readData(url)
+  data.volledige_code = data.volledige_code || data.code
+  return data
+}
+
+export async function getWijken (gebied) {
+  const gebiedsDetailUrl = gebied._links.self.href
+  const gebiedsDetail = await readData(gebiedsDetailUrl)
+
+  const stadsdeel = gebiedsDetail.stadsdeel
+  const stadsdeelDetailUrl = stadsdeel._links.self.href
+  const stadsdeelKey = getKeyFromUrl(stadsdeelDetailUrl)
+
+  const wijkenUrl = getUrl('/wijk/?stadsdeel=' + stadsdeelKey)
+  const wijken = readPaginatedData(wijkenUrl)
+  return wijken
+}
+
+export async function getBuurten (wijk) {
+  const wijkDetailUrl = wijk._links.self.href
+  const wijkKey = getKeyFromUrl(wijkDetailUrl)
+
+  const buurtenUrl = getUrl('/buurt/?buurtcombinatie=' + wijkKey)
+  const buurten = readPaginatedData(buurtenUrl)
+  return buurten
+}
+
 export function getGebiedType (gebiedCode) {
   if (/^[A-Z]$/.test(gebiedCode)) {
     return 'Stadsdeel'
