@@ -95,10 +95,12 @@
 
       <div class="row">
         <div class="col-sm">
-          <placeholder title="graph" pic="graph.png" height="200"></placeholder>
+          <line-chart :config="aantalWoningen"></line-chart>
+          <!--<placeholder title="graph" pic="graph.png" height="200"></placeholder>-->
         </div>
         <div class="col-sm">
-          <placeholder title="woonvormen" pic="andere-woonvormen.png" height="200"></placeholder>
+          {{typeWoningen}}
+          <!--<placeholder title="woonvormen" pic="andere-woonvormen.png" height="200"></placeholder>-->
         </div>
       </div>
 
@@ -120,7 +122,8 @@
 
       <div class="row">
         <div class="col-sm">
-          <placeholder title="graph" height="200" pic="huur-verdeling.png"></placeholder>
+          <stacked-bar-chart :config="typeWoningen"></stacked-bar-chart>
+          <!--<placeholder title="graph" height="200" pic="huur-verdeling.png"></placeholder>-->
         </div>
         <div class="col-sm">
           <pie title="Grootte van de woningen" :config="grootteWoningen"></pie>
@@ -191,6 +194,8 @@ import pie from './Pie'
 import pieChart from './PieChart'
 import inAantallen from './InAantallen'
 import dataTable from './DataTable'
+import lineChart from './LineChart'
+import stackedBarChart from './StackedBarChart'
 import pano from './Pano'
 import verschillenGebied from './VerschillenGebied'
 
@@ -210,6 +215,9 @@ import percVerhuisgeneigden from '../../static/links/perc_verhuisgeneigden_65+'
 import percWoningGeschiktOud from '../../static/links/perc_woning_geschikt_oud'
 import meerInformatie from '../../static/links/meer_informatie'
 import meerCijfers from '../../static/links/meer_cijfers'
+import aantalWoningen from '../../static/links/aantal_woningen'
+import typeWoningen from '../../static/links/type_woningen'
+import andereWoonvormen from '../../static/links/andere_woonvormen'
 
 export default {
   name: 'GGWDashboard',
@@ -226,6 +234,8 @@ export default {
     'in-aantallen': inAantallen,
     'pano': pano,
     'data-table': dataTable,
+    'line-chart': lineChart,
+    'stacked-bar-chart': stackedBarChart,
     'horizontal-text': horizontalText,
     'verschillen-gebied': verschillenGebied,
     'placeholder': placeholder
@@ -247,7 +257,10 @@ export default {
       percVerhuisgeneigden,
       percWoningGeschiktOud,
       meerInformatie,
-      meerCijfers
+      meerCijfers,
+      aantalWoningen,
+      typeWoningen,
+      andereWoonvormen
     }
   },
   computed: {
