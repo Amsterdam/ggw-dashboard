@@ -27,7 +27,7 @@ async function _getAllGebieden () {
 
 async function _getAllWijken () {
   const url = getUrl('/wijk/')
-  const _wijken = readPaginatedData(url)
+  const _wijken = await readPaginatedData(url)
   _wijken.forEach(w => {
     w.code = w.code || w.vollcode
   })
@@ -36,7 +36,7 @@ async function _getAllWijken () {
 
 async function _getAllBuurten () {
   const url = getUrl('/buurt/')
-  const _buurten = readPaginatedData(url)
+  const _buurten = await readPaginatedData(url)
   _buurten.forEach(b => {
     b.vollcode = b.vollcode || b._display.match(/\((.*)\)/)[1]
   })

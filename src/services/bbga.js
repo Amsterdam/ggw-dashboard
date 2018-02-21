@@ -4,6 +4,7 @@ let allMeta = null
 let allVariables = null
 let allThemas = null
 let allCijfers = {}
+let allGebiedCijfers = {}
 
 function getUrl (endpoint) {
   return `https://acc.api.data.amsterdam.nl/bbga${endpoint}`
@@ -59,7 +60,6 @@ async function _getAllCijfers (meta, year = null, gebiedCode = null) {
 
 export async function getAllCijfers (variableName, year) {
   variableName = variableName.toUpperCase()
-
   if (!allCijfers[variableName]) {
     const meta = await getMeta(variableName)
     allCijfers[variableName] = {
@@ -71,28 +71,33 @@ export async function getAllCijfers (variableName, year) {
   if (!allCijfers[variableName].year[year]) {
     allCijfers[variableName].year[year] = await _getAllCijfers(
       allCijfers[variableName].meta,
-      year)
+      year
+    )
   }
 
   return allCijfers[variableName].year[year]
 }
 
-async function _getGebiedCijfers (meta, gebied) {
-  const cijfers = await _getAllCijfers(meta, null, gebied.volledige_code)
-  return {
-    gebied,
-    meta,
-    cijfers: cijfers,
-    recent: cijfers[cijfers.length - 1]
-  }
-}
-
 export async function getGebiedCijfers (variableName, gebied) {
-  variableName = variableName.toUpperCase()
-
-  if (!gebiedCijfers[variableName]) {
-    const meta = await getMeta(variableName)
-    gebiedCijfers[variableName] = await _getGebiedCijfers(meta, gebied)
+  async function _getGebiedCijfers (meta, gebied) {
+    const cijfers = await _getAllCijfers(
+      meta,
+      null,
+      gebied.volledige_code
+    )
+    return {
+      gebied,
+      meta,
+      cijfers: cijfers,
+      recent: cijfers.length ? cijfers[cijfers.length - 1] : {}
+    }
   }
 
+  variableName = variableName.toUpperCase()
+  if (!allGebiedCijfers[variableName]) {
+    const meta = await getMeta(variableName)
+    allGebiedCijfers[variableName] = await _getGebiedCijfers(meta, gebied)
+  }
+
+  return allGebiedCijfers[variableName]
 }

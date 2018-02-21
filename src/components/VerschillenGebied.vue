@@ -82,43 +82,56 @@ export default {
         map.removeLayer(gwbLayer)
       }
 
-      const gebiedCijfers = await util.getAllCijfers(this.variable, this.gwb.volledige_code)
-      const recentYear = gebiedCijfers[0].recent.jaar
+      const gebiedCijfers = await util.getGebiedCijfers(this.variable, this.gwb.volledige_code)
+      const recentYear = gebiedCijfers.recent.jaar
+
+      if (!recentYear) {
+        console.error('No cijfers available')
+      }
 
       let cijfers = await util.getAllCijfers(this.variable, recentYear)
 
-      // cijfers = cijfers[0].cijfers
-      // cijfers = cijfers.filter(c => c.waarde !== '' && util.getGebiedType(c.gebiedcode15) === this.gebiedType)
-      // cijfers = cijfers.sort((c1, c2) => c1.waarde - c2.waarde)
-      //
-      // const lowest = cijfers.slice(0, 5)
-      // const highest = cijfers.slice(cijfers.length - 5)
-      // const all = lowest.concat(highest)
-      //
-      // const gwbs = await Promise.all(all.map(async (c, i) => ({
-      //   ...c,
-      //   gwb: await util.getGwb(c.gebiedcode15),
-      //   i
-      // })))
-      //
-      // this.lowest = gwbs.slice(0, 5).reverse()
-      // this.highest = gwbs.slice(5).reverse()
-      //
-      // const lowStyle = {
-      //   'color': '#EC0000'
-      // }
-      //
-      // const highStyle = {
-      //   'color': '#00A03C'
-      // }
-      //
-      // gwbLayer = L.featureGroup()
-      // gwbs.forEach(gwb => {
-      //   const wgs84Geometrie = rdMultiPolygonToWgs84(gwb.gwb.geometrie)
-      //   wgs84Geometrie.map(geometry => L.polygon(geometry.coordinates, gwb.i < 5 ? lowStyle : highStyle).addTo(gwbLayer))
-      // })
-      // gwbLayer.addTo(map)
-      // map.fitBounds(gwbLayer.getBounds())
+      cijfers = cijfers.filter(c => util.getGebiedType(c.gebiedcode15) === this.gebiedType)
+      cijfers = cijfers.filter(c => c.waarde !== '')
+      cijfers = cijfers.sort((c1, c2) => c1.waarde - c2.waarde)
+
+      if (!cijfers.length) {
+        console.error('No cijfers available')
+      }
+
+      console.log('cijfers', cijfers)
+
+      const lowest = cijfers.slice(0, 5)
+      const highest = cijfers.slice(cijfers.length - 5)
+      const all = lowest.concat(highest)
+
+      const gwbs = await Promise.all(all.map(async (c, i) => {
+        const gwb = await util.getGwb(c.gebiedcode15)
+        return {
+          ...c,
+          gwb,
+          i
+        }
+      }))
+
+      this.lowest = gwbs.slice(0, 5).reverse()
+      this.highest = gwbs.slice(5).reverse()
+
+      const lowStyle = {
+        'color': '#EC0000'
+      }
+
+      const highStyle = {
+        'color': '#00A03C'
+      }
+
+      gwbLayer = L.featureGroup()
+      gwbs.forEach(gwb => {
+        const wgs84Geometrie = rdMultiPolygonToWgs84(gwb.gwb.geometrie)
+        wgs84Geometrie.map(geometry => L.polygon(geometry.coordinates, gwb.i < 5 ? lowStyle : highStyle).addTo(gwbLayer))
+      })
+      gwbLayer.addTo(map)
+      map.fitBounds(gwbLayer.getBounds())
     }
   },
   watch: {
