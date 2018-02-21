@@ -1,5 +1,5 @@
 import { readPaginatedData, readData } from './datareader'
-import { getAllGebieden, getAllWijken, getAllBuurten } from './gebieden'
+import { getAllGebieden, getGebiedType, getGwb } from './gebieden'
 import { getAllThemas, getAllMeta, getAllVariables, getAllCijfers, getGebiedCijfers } from './bbga'
 
 function getUrl (endpoint) {
@@ -9,45 +9,6 @@ function getUrl (endpoint) {
 function getKeyFromUrl (url) {
   const key = url.match(/\/([^/]*)\/$/)[1]
   return key
-}
-
-function getGebiedType (gebiedCode) {
-  if (/^[A-Z]$/.test(gebiedCode)) {
-    return 'Stadsdeel'
-  } else if (/^DX\d\d$/.test(gebiedCode)) {
-    return 'Gebied'
-  } else if (/^[A-Z]\d\d$/.test(gebiedCode)) {
-    return 'Wijk'
-  } else if (/^[A-Z]\d\d[a-z]$/.test(gebiedCode)) {
-    return 'Buurt'
-  } else if (/STAD/.test(gebiedCode)) {
-    return 'Stad'
-  } else {
-    return '?' + gebiedCode
-  }
-}
-
-async function getGwb (code) {
-  const gebiedType = getGebiedType(code)
-  let gwb = null
-
-  if (gebiedType === 'Gebied') {
-    const allGebieden = await getGebieden()
-    gwb = allGebieden.find(g => g.code === code)
-  } else if (gebiedType === 'Wijk') {
-    const allWijken = await getAllWijken()
-    gwb = allWijken.find(w => w.vollcode === code)
-  } else if (gebiedType === 'Buurt') {
-    const allBuurten = await getAllBuurten()
-    const searchCode = code.substring(1)
-    gwb = allBuurten.find(b => b.code === searchCode && b._display.includes(code))
-  }
-
-  if (!gwb) {
-    console.error('GWB not found', gebiedType, code)
-  }
-
-  return readData(gwb._links.self.href)
 }
 
 async function getDetail (entity) {

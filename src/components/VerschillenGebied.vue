@@ -96,10 +96,6 @@ export default {
       return util.getGebiedCijfers(this.variable, gwb)
     },
     async updateData () {
-      if (gwbLayer) {
-        map.removeLayer(gwbLayer)
-      }
-
       if (!(this.gebiedType && this.variable)) {
         return
       }
@@ -142,6 +138,10 @@ export default {
       this.showCijfers()
     },
     showCijfers () {
+      if (gwbLayer) {
+        map.removeLayer(gwbLayer)
+      }
+
       const lowStyle = {
         'color': '#EC0000'
       }
@@ -176,6 +176,7 @@ export default {
       if (this.gwb) {
         this.gebiedType = util.getGebiedType(this.gwb.volledige_code)
         this.own = await this.getOwn()
+        this.showCijfers()
       }
     },
     'gebiedType' () {

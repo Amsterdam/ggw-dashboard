@@ -1,4 +1,4 @@
-import { readPaginatedData } from './datareader'
+import {readData, readPaginatedData} from './datareader'
 
 let allGebieden = null
 let allWijken = null
@@ -43,21 +43,44 @@ async function _getAllBuurten () {
   return _buurten
 }
 
-// function getGebiedType (gebiedCode) {
-//   if (/^[A-Z]$/.test(gebiedCode)) {
-//     return 'Stadsdeel'
-//   } else if (/^DX\d\d$/.test(gebiedCode)) {
-//     return 'Gebied'
-//   } else if (/^[A-Z]\d\d$/.test(gebiedCode)) {
-//     return 'Wijk'
-//   } else if (/^[A-Z]\d\d[a-z]$/.test(gebiedCode)) {
-//     return 'Buurt'
-//   } else if (/STAD/.test(gebiedCode)) {
-//     return 'Stad'
-//   } else {
-//     return '?' + gebiedCode
-//   }
-// }
+export function getGebiedType (gebiedCode) {
+  if (/^[A-Z]$/.test(gebiedCode)) {
+    return 'Stadsdeel'
+  } else if (/^DX\d\d$/.test(gebiedCode)) {
+    return 'Gebied'
+  } else if (/^[A-Z]\d\d$/.test(gebiedCode)) {
+    return 'Wijk'
+  } else if (/^[A-Z]\d\d[a-z]$/.test(gebiedCode)) {
+    return 'Buurt'
+  } else if (/STAD/.test(gebiedCode)) {
+    return 'Stad'
+  } else {
+    return '?' + gebiedCode
+  }
+}
+
+export async function getGwb (code) {
+  const gebiedType = getGebiedType(code)
+  let gwb = null
+
+  if (gebiedType === 'Gebied') {
+    const allGebieden = await getAllGebieden()
+    gwb = allGebieden.find(g => g.code === code)
+  } else if (gebiedType === 'Wijk') {
+    const allWijken = await getAllWijken()
+    gwb = allWijken.find(w => w.vollcode === code)
+  } else if (gebiedType === 'Buurt') {
+    const allBuurten = await getAllBuurten()
+    const searchCode = code.substring(1)
+    gwb = allBuurten.find(b => b.code === searchCode && b._display.includes(code))
+  }
+
+  if (!gwb) {
+    console.error('GWB not found', gebiedType, code)
+  }
+
+  return readData(gwb._links.self.href)
+}
 
 export async function getAllGebieden () {
   if (!allGebieden) {
