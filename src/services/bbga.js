@@ -96,8 +96,18 @@ export async function getGebiedCijfers (variableName, gebied) {
   variableName = variableName.toUpperCase()
   if (!allGebiedCijfers[variableName]) {
     const meta = await getMeta(variableName)
-    allGebiedCijfers[variableName] = await _getGebiedCijfers(meta, gebied)
+    allGebiedCijfers[variableName] = {
+      meta,
+      gebied: {}
+    }
   }
 
-  return allGebiedCijfers[variableName]
+  if (!allGebiedCijfers[variableName].gebied[gebied.volledige_code]) {
+    allGebiedCijfers[variableName].gebied[gebied.volledige_code] = await _getGebiedCijfers(
+      allGebiedCijfers[variableName].meta,
+      gebied
+    )
+  }
+
+  return allGebiedCijfers[variableName].gebied[gebied.volledige_code]
 }

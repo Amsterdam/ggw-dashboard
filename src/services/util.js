@@ -2,9 +2,6 @@ import { readPaginatedData, readData } from './datareader'
 import { getAllGebieden, getAllWijken, getAllBuurten } from './gebieden'
 import { getAllThemas, getAllMeta, getAllVariables, getAllCijfers, getGebiedCijfers } from './bbga'
 
-let gebieden = null
-// let cijfers = {}
-
 function getUrl (endpoint) {
   return 'https://acc.api.data.amsterdam.nl' + endpoint
 }
@@ -31,11 +28,9 @@ function getGebiedType (gebiedCode) {
 }
 
 async function getGwb (code) {
-
   const gebiedType = getGebiedType(code)
   let gwb = null
 
-  console.log('getGwb', code, gebiedType)
   if (gebiedType === 'Gebied') {
     const allGebieden = await getGebieden()
     gwb = allGebieden.find(g => g.code === code)

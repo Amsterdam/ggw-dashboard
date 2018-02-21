@@ -8,38 +8,41 @@
       <b-form inline class="row">
         <div>
           <b-form-select v-model="variable"
-                         @change="onVariable"
                          :options="variables"
                          text-field="label"
                          value-field="variable">
           </b-form-select>
           <b-form-select v-model="gebiedType"
-                         @change="onGebiedType"
                          :options="gebiedTypes">
           </b-form-select>
         </div>
       </b-form>
-      <div>
-        <h4>Hoogst scorende</h4>
-        <ul class="list-group">
-          <li class="list-group-item" v-for="i in highest" :key="i.gebiedcode15">
-            {{i.gwb.naam}}
-            ({{i.waarde.toLocaleString()}})
-          </li>
-        </ul>
+
+      <div v-if="loading">
+        Laden gegevens...
       </div>
-      <div>
-        <h4>Laagst scorende</h4>
-        <ul class="list-group">
-          <li class="list-group-item" v-for="i in lowest" :key="i.gebiedcode15">
-            {{i.gwb.naam}}
-            ({{i.waarde.toLocaleString()}})
-          </li>
-        </ul>
+      <div v-else-if="gebiedType && variable && !cijfers.length">
+        Geen cijfers beschikbaar
       </div>
+      <div v-else>
+        <div v-if="own">{{own.gebied.naam}}: {{own.recent.waarde.toLocaleString()}}</div>
+
+        <div v-for="(item, index) in cijfers" :key="index">
+          <h4 v-if="!(index % FRAGMENT)">
+            {{index == 0 ? 'Hoogst' : 'Laagst'}} scorende {{gebiedType.toLowerCase()}}
+          </h4>
+          <div>
+            <span class="font-weight-bold">{{index % FRAGMENT + 1}}</span>
+            <span :class="{'highlight-own': item.gwb.naam === own.gebied.naam}">{{item.gwb.naam}}</span>
+            <span class="badge badge-secondary">
+            {{item.waarde.toLocaleString()}}
+          </span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
-  <!--<div class="map"></div>-->
 </template>
 
 <script>
@@ -55,68 +58,90 @@ let gwbLayer = null
 export default {
   computed: {
     ...mapGetters([
-      'gwb'
+      'gwb',
+      'gebied',
+      'wijk',
+      'buurt'
     ])
   },
   data () {
     return {
+      FRAGMENT: 5,
       variable: null,
       variables: [],
       gebiedType: null,
       gebiedTypes: ['Gebied', 'Wijk', 'Buurt'],
       lowest: [],
-      highest: []
+      highest: [],
+      own: null,
+      cijfers: [],
+      loading: false
     }
   },
   methods: {
-    onGebiedType (gebiedType) {
+    noCijfers () {
+      this.loading = false
+      this.cijfers = []
     },
-    async onVariable (variable) {
+    async getOwn () {
+      // Try to derive most recent year from the cijfers for the current gwb
+      let gwb = this.gwb
+      if (this.gebiedType === 'Buurt' && this.buurt) {
+        gwb = this.buurt
+      } else if (this.gebiedType === 'Wijk' && this.wijk) {
+        gwb = this.wijk
+      } else if (this.gebiedType === 'Gebied' && this.gebied) {
+        gwb = this.gebied
+      }
+      return util.getGebiedCijfers(this.variable, gwb)
     },
     async updateData () {
-      if (!(this.gebiedType && this.variable)) {
-        return
-      }
-
       if (gwbLayer) {
         map.removeLayer(gwbLayer)
       }
 
-      const gebiedCijfers = await util.getGebiedCijfers(this.variable, this.gwb.volledige_code)
-      const recentYear = gebiedCijfers.recent.jaar
+      if (!(this.gebiedType && this.variable)) {
+        return
+      }
+
+      this.loading = true
+
+      this.own = await this.getOwn()
+      const recentYear = this.own.recent.jaar
 
       if (!recentYear) {
-        console.error('No cijfers available')
+        return this.noCijfers()
       }
 
+      // Sort and filter cijfers for gebiedType and waarde
       let cijfers = await util.getAllCijfers(this.variable, recentYear)
-
-      cijfers = cijfers.filter(c => util.getGebiedType(c.gebiedcode15) === this.gebiedType)
       cijfers = cijfers.filter(c => c.waarde !== '')
-      cijfers = cijfers.sort((c1, c2) => c1.waarde - c2.waarde)
+      cijfers = cijfers.filter(c => util.getGebiedType(c.gebiedcode15) === this.gebiedType)
+      cijfers = cijfers.sort((c1, c2) => c2.waarde - c1.waarde)
 
-      if (!cijfers.length) {
-        console.error('No cijfers available')
+      if (cijfers.length < 2 * this.FRAGMENT) {
+        return this.noCijfers()
       }
 
-      console.log('cijfers', cijfers)
+      // Get only the lowest and highest values
+      const highest = cijfers.slice(0, this.FRAGMENT)
+      const lowest = cijfers.slice(cijfers.length - this.FRAGMENT)
+      const highLow = highest.concat(lowest)
 
-      const lowest = cijfers.slice(0, 5)
-      const highest = cijfers.slice(cijfers.length - 5)
-      const all = lowest.concat(highest)
-
-      const gwbs = await Promise.all(all.map(async (c, i) => {
+      // Add gebieds info for the 10 remaining cijfers
+      const gwbs = await Promise.all(highLow.map(async (c, i) => {
         const gwb = await util.getGwb(c.gebiedcode15)
         return {
           ...c,
-          gwb,
-          i
+          gwb
         }
       }))
 
-      this.lowest = gwbs.slice(0, 5).reverse()
-      this.highest = gwbs.slice(5).reverse()
-
+      this.loading = false
+      this.cijfers = gwbs
+      this.showCijfers()
+    },
+    showCijfers () {
       const lowStyle = {
         'color': '#EC0000'
       }
@@ -125,19 +150,32 @@ export default {
         'color': '#00A03C'
       }
 
+      const ownStyle = {
+        'color': '#009DE6'
+      }
+
+      const gwbs = this.cijfers
+
       gwbLayer = L.featureGroup()
-      gwbs.forEach(gwb => {
+      gwbs.forEach((gwb, i) => {
         const wgs84Geometrie = rdMultiPolygonToWgs84(gwb.gwb.geometrie)
-        wgs84Geometrie.map(geometry => L.polygon(geometry.coordinates, gwb.i < 5 ? lowStyle : highStyle).addTo(gwbLayer))
+        wgs84Geometrie.map(geometry => L.polygon(geometry.coordinates, i < this.FRAGMENT ? highStyle : lowStyle).addTo(gwbLayer))
       })
+
+      if (this.own) {
+        const wgs84Geometrie = rdMultiPolygonToWgs84(this.own.gebied.geometrie)
+        wgs84Geometrie.map(geometry => L.polygon(geometry.coordinates, ownStyle).addTo(gwbLayer))
+      }
+
       gwbLayer.addTo(map)
       map.fitBounds(gwbLayer.getBounds())
     }
   },
   watch: {
-    'gwb' () {
+    async 'gwb' () {
       if (this.gwb) {
         this.gebiedType = util.getGebiedType(this.gwb.volledige_code)
+        this.own = await this.getOwn()
       }
     },
     'gebiedType' () {
@@ -174,6 +212,14 @@ export default {
 }
 </script>
 
-<style scoped>
-  .map {height: 350px}
+<style lang="scss" scoped>
+@import "../../static/ams.scss";
+
+.map {
+  height: 350px;
+}
+
+.highlight-own {
+  color: $ams-blauw
+}
 </style>
