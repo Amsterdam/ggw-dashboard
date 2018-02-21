@@ -1,33 +1,6 @@
-import Vue from 'vue'
-
-let meta = null
-let variables = null
-let themas = null
-
-let gebieden = null
-let wijken = null
-let buurten = null
-let cijfers = {}
-
-async function readPaginatedData (url) {
-  let next = url
-  let results = []
-  while (next) {
-    try {
-      let response = await Vue.axios.get(next)
-      next = response.data._links.next.href
-      results = results.concat(response.data.results)
-    } catch (e) {
-      next = null
-    }
-  }
-  return results
-}
-
-async function readData (url, resolve = d => d.data) {
-  let response = await Vue.axios.get(url)
-  return resolve(response)
-}
+import { readPaginatedData, readData } from './datareader'
+import { getAllGebieden, getAllWijken, getAllBuurten } from './gebieden'
+import { getAllThemas, getAllMeta, getAllVariables, getAllCijfers, getGebiedCijfers } from './bbga'
 
 function getUrl (endpoint) {
   return 'https://acc.api.data.amsterdam.nl' + endpoint
@@ -54,23 +27,13 @@ function getGebiedType (gebiedCode) {
   }
 }
 
-async function getAllCijfers (variable, year) {
-  if (!cijfers[variable]) {
-    cijfers[variable] = {}
-  }
-  if (!cijfers[variable][year]) {
-    cijfers[variable][year] = getConfigCijfers(null, [variable], year)
-  }
-  return cijfers[variable][year]
-}
-
 async function getGwb (code) {
   const gebiedType = getGebiedType(code)
   let gwb = null
 
   if (gebiedType === 'Gebied') {
-    await getGebieden()
-    gwb = gebieden.find(g => g.code === code)
+    const allGebieden = await getGebieden()
+    gwb = allGebieden.find(g => g.code === code)
   } else if (gebiedType === 'Wijk') {
     const allWijken = await getAllWijken()
     gwb = allWijken.find(w => w.vollcode === code)
@@ -117,51 +80,19 @@ async function getBuurten (wijk) {
 }
 
 async function getGebieden () {
-  if (!gebieden) {
-    const gebiedenUrl = getUrl('/gebieden/gebiedsgerichtwerken/')
-    gebieden = await readPaginatedData(gebiedenUrl)
-  }
-  return gebieden
-}
-
-async function getAllWijken () {
-  if (!wijken) {
-    const url = getUrl('/gebieden/wijk/')
-    wijken = readPaginatedData(url)
-  }
-  return wijken
-}
-
-async function getAllBuurten () {
-  if (!buurten) {
-    const url = getUrl('/gebieden/buurt/')
-    buurten = readPaginatedData(url)
-  }
-  return buurten
+  return getAllGebieden()
 }
 
 async function getThemas () {
-  if (!themas) {
-    const themasUrl = 'https://acc.api.data.amsterdam.nl/bbga/themas/'
-    themas = readData(themasUrl, d => d.data.themas)
-  }
-  return themas
+  return getAllThemas()
 }
 
 async function getMeta () {
-  if (!meta) {
-    const metaUrl = getUrl('/bbga/meta')
-    meta = readPaginatedData(metaUrl)
-  }
-  return meta
+  return getAllMeta()
 }
 
 async function getVariables () {
-  if (!variables) {
-    const variablesUrl = getUrl('/bbga/variabelen/')
-    variables = readData(variablesUrl, d => d.data.variabelen)
-  }
-  return variables
+  return getAllVariables()
 }
 
 async function getConfigCijfers (gwb, config, year = null) {
@@ -188,26 +119,7 @@ async function getConfigCijfers (gwb, config, year = null) {
 }
 
 async function getCijfers (gebied, meta, year = null) {
-  const code = gebied && gebied.volledige_code
-
-  const selectVariable = meta.variabele ? 'variabele=' + meta.variabele : ''
-  const selectCode = code ? '&gebiedcode15=' + code : ''
-  const selectYear = year ? '&jaar=' + year : ''
-
-  const cijfersUrl = getUrl(`/bbga/cijfers/?${selectVariable}${selectCode}${selectYear}`)
-  let cijfers = await readPaginatedData(cijfersUrl)
-  cijfers.sort((a, b) => a.jaar - b.jaar) // oldest first
-  cijfers = cijfers.map(c => ({
-    jaar: c.jaar,
-    waarde: c.waarde === null ? '' : c.waarde,
-    gebiedcode15: c.gebiedcode15
-  }))
-  return {
-    gebied,
-    meta,
-    cijfers: cijfers,
-    recent: cijfers[cijfers.length - 1]
-  }
+  return getGebiedCijfers(meta.variabele, gebied)
 }
 
 export default {
@@ -223,6 +135,7 @@ export default {
   getCijfers,
   getConfigCijfers,
   getAllCijfers,
+  getGebiedCijfers,
   getGebiedType,
   getGwb
 }
