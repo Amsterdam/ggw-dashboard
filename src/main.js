@@ -39,7 +39,7 @@ let vueApp = new Vue({
   },
   methods: {
     ...mapActions({
-      setMeta: 'setMeta',
+      setMeta: 'setMeta'
     }),
     async init () {
       const meta = await util.getMeta()
