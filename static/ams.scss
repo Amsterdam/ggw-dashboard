@@ -49,6 +49,14 @@ body {
   border: 0;
 }
 
+.btn {
+  background-color: $ams-lichtgrijs;
+}
+
+.btn-primary {
+  background-color: $ams-blauw;
+}
+
 select {
   height: 20px !important;
 }
