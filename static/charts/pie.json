@@ -91,7 +91,7 @@
       "encode": {
         "symbols": {
           "enter": {
-            "fillOpacity": {"value": 0.5}
+            "fillOpacity": {"value": 0.7}
           }
         },
         "labels": {

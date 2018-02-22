@@ -42,7 +42,7 @@ export default {
           data.cijfers.map(cijfer => ({
             x: cijfer.jaar,
             y: cijfer.waarde,
-            variable: data.meta.variabele
+            variable: data.label
           }))
         )
       })

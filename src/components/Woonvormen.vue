@@ -33,7 +33,6 @@ export default {
   methods: {
     async updateData () {
       this.data = await util.getConfigCijfers(this.gwb, this.config)
-      console.log('data', this.data)
     }
   },
   watch: {

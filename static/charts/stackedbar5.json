@@ -52,6 +52,25 @@
     }
   ],
 
+  "legends": [
+    {
+      "fill": "color",
+      "title": "",
+      "orient": "right",
+      "encode": {
+        "symbols": {
+          "enter": {
+          }
+        },
+        "labels": {
+          "update": {
+            "text": {"field": "value"}
+          }
+        }
+      }
+    }
+  ],
+
   "axes": [
     {"orient": "bottom", "scale": "x", "zindex": 1},
     {"orient": "left", "scale": "y", "zindex": 1}
@@ -74,6 +93,22 @@
         },
         "hover": {
           "fillOpacity": {"value": 0.5}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {"data": "table"},
+      "interactive": false,
+      "encode": {
+        "enter": {
+          "text": {"field": "y"},
+          "x": {"scale": "x", "field": "x"},
+          "y": {"scale": "y", "field": "y0"},
+          "dx": {"value": 30},
+          "dy": {"value": -5 },
+          "align": {"value": "left"},
+          "baseline": {"value": "bottom"}
         }
       }
     }

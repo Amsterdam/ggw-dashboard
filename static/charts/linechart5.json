@@ -45,6 +45,25 @@
     }
   ],
 
+  "legends": [
+    {
+      "fill": "variable",
+      "title": "",
+      "orient": "right",
+      "encode": {
+        "symbols": {
+          "enter": {
+          }
+        },
+        "labels": {
+          "update": {
+            "text": {"field": "value"}
+          }
+        }
+      }
+    }
+  ],
+
   "axes": [
     {"orient": "bottom", "scale": "x"},
     {"orient": "left", "scale": "y"}
