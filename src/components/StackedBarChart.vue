@@ -36,11 +36,16 @@ export default {
   methods: {
     async updateData () {
       this.chartdata = await util.getConfigCijfers(this.gwb, this.config)
-      console.log('Stacked bar chart data', this.chartdata)
-      vegaSpec.data.values = this.chartdata[0].cijfers.map(d => ({
-        key: d.jaar,
-        value: d.waarde
-      }))
+      vegaSpec.data.values = []
+      this.chartdata.forEach(data => {
+        vegaSpec.data.values = vegaSpec.data.values.concat(
+          data.cijfers.map(cijfer => ({
+            x: cijfer.jaar,
+            y: cijfer.waarde,
+            variable: data.meta.variabele
+          }))
+        )
+      })
       vegaEmbed(this.$el, vegaSpec, vegaEmbedOptions)
     }
   },

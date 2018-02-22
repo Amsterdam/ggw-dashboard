@@ -84,23 +84,22 @@
 
       <div class="alert">
         <div class="row">
-          <div class="col-sm">
+          <div class="col-sm-8">
             <h2>Aantal woningen</h2>
           </div>
-          <div class="col-sm">
+          <div class="col-sm-4">
             <h2>Andere woonvormen</h2>
           </div>
         </div>
       </div>
 
       <div class="row">
-        <div class="col-sm">
+        <div class="col-sm-8">
           <line-chart :config="aantalWoningen"></line-chart>
           <!--<placeholder title="graph" pic="graph.png" height="200"></placeholder>-->
         </div>
-        <div class="col-sm">
-          {{typeWoningen}}
-          <!--<placeholder title="woonvormen" pic="andere-woonvormen.png" height="200"></placeholder>-->
+        <div class="col-sm-4">
+          <woonvormen :config="andereWoonvormen"></woonvormen>
         </div>
       </div>
 
@@ -123,7 +122,6 @@
       <div class="row">
         <div class="col-sm">
           <stacked-bar-chart :config="typeWoningen"></stacked-bar-chart>
-          <!--<placeholder title="graph" height="200" pic="huur-verdeling.png"></placeholder>-->
         </div>
         <div class="col-sm">
           <pie title="Grootte van de woningen" :config="grootteWoningen"></pie>
@@ -196,6 +194,7 @@ import inAantallen from './InAantallen'
 import dataTable from './DataTable'
 import lineChart from './LineChart'
 import stackedBarChart from './StackedBarChart'
+import woonVormen from './Woonvormen'
 import pano from './Pano'
 import verschillenGebied from './VerschillenGebied'
 
@@ -238,6 +237,7 @@ export default {
     'stacked-bar-chart': stackedBarChart,
     'horizontal-text': horizontalText,
     'verschillen-gebied': verschillenGebied,
+    'woonvormen': woonVormen,
     'placeholder': placeholder
   },
   data () {

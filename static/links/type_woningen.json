@@ -1,22 +1,14 @@
 [
   {
     "label": "",
-    "variabele": "Wkoop_p"
+    "variabele": "WKOOP_P"
   },
   {
     "label": "",
-    "variabele": "Whuurvrijpart_p"
+    "variabele": "WPARTHUUR_P"
   },
   {
     "label": "",
-    "variabele": "Whuurvrijcorp_p"
-  },
-  {
-    "label": "",
-    "variabele": "Whuursocpart_p"
-  },
-  {
-    "label": "",
-    "variabele": "Whuursoccorp_p"
+    "variabele": "WCORHUUR_P"
   }
 ]

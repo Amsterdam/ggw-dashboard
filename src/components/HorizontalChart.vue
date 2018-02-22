@@ -1,18 +1,18 @@
 <template>
   <div>
-    <table class="table table-sm borderless">
-      <tbody>
-      <tr>
-        <td width="10%">
-          <img :src="'../../static/icons/' + icon">
-          {{title}}
-        </td>
-        <td>
-          <horizontal-bar-chart v-if="chartdata" :chartdata="chartdata"></horizontal-bar-chart>
-        </td>
-      </tr>
-      </tbody>
-    </table>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="float-left">
+          <div class="text-center">
+            <div><img :src="'../../static/icons/' + icon"></div>
+            <div class="font-weight-bold">{{title}}</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-8">
+        <horizontal-bar-chart v-if="chartdata" :chartdata="chartdata"></horizontal-bar-chart>
+      </div>
+    </div>
   </div>
 </template>
 
