@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v3.0.json",
-  "width": 300,
-  "height": 300,
+  "width": 250,
+  "height": 250,
   "data": [
     {	"name": "data_table",
       "values": [
@@ -32,7 +32,7 @@
   "scales": [
     {	"name": "scale_color",
       "type": "ordinal",
-      "range": {"scheme": "category10"},
+      "range": ["#00A03C", "#009DE6", "#E8E8E8"],
       "domain": {"data": "data_table", "field": "key"}
     }
   ],
@@ -91,7 +91,7 @@
       "encode": {
         "symbols": {
           "enter": {
-            "fillOpacity": {"value": 0.5}
+            "fillOpacity": {"value": 0.7}
           }
         },
         "labels": {

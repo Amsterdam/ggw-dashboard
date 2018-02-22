@@ -4,6 +4,8 @@
 
 <script>
 import vegaEmbed from 'vega-embed'
+import vegaSpec from '../../static/charts/horizontalbar'
+import { COLOR } from '../services/colorcoding'
 
 const vegaEmbedOptions = {
   'actions': {
@@ -11,51 +13,6 @@ const vegaEmbedOptions = {
     'source': false,
     'editor': false},
   'renderer': 'svg'
-}
-
-const vegaSpec = {
-  '$schema': 'https://vega.github.io/schema/vega-lite/v2.json',
-  'description': '',
-  'data': {
-    'values': [
-    ]
-  },
-  'config': {
-    'style': {
-      'cell': {
-        'stroke': 'transparent'
-      }
-    }
-  },
-  'layer': [{
-    'mark': {
-      'type': 'bar'
-    },
-    'encoding': {
-      'x': {'field': 'Aantal', 'type': 'quantitative', 'axis': {'labels': false, 'domain': false, 'grid': false, 'ticks': false, 'title': null}},
-      'y': {'field': 'Type', 'type': 'ordinal', 'sort': null, 'axis': {'labels': true, 'domain': false, 'grid': false, 'ticks': false, 'title': null, 'offset': 5}},
-      'color': {
-        'field': 'Type',
-        'type': 'nominal',
-        'scale': {'range': ['#00A03C', '#009DE6', '#E8E8E8']},
-        'legend': null
-      }
-    }
-  },
-  {
-    'mark': {
-      'type': 'text',
-      'align': 'left',
-      'baseline': 'middle',
-      'dx': 5
-    },
-    'encoding': {
-      'x': {'field': 'Aantal', 'type': 'quantitative', 'axis': {'labels': false, 'domain': false, 'grid': false, 'ticks': false, 'title': null}},
-      'y': {'field': 'Type', 'type': 'ordinal', 'sort': null, 'axis': {'labels': true, 'domain': false, 'grid': false, 'ticks': false, 'title': null}},
-      'text': {'field': 'Aantal', 'type': 'quantitative'}
-    }
-  }
-  ]
 }
 
 export default {
@@ -70,9 +27,11 @@ export default {
   methods: {
     updateChart () {
       vegaSpec.data.values = this.chartdata.map(d => ({
-        Type: d.label,
-        Aantal: d.recent.waarde
+        key: d.label,
+        value: d.recent.waarde,
+        color: d.recent.color
       }))
+      vegaSpec.layer[0].encoding.color.scale.range = vegaSpec.data.values.map(v => v.color || COLOR['ams-oranje'])
       vegaEmbed(this.$el, vegaSpec, vegaEmbedOptions)
     }
   },

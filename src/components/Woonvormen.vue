@@ -1,8 +1,10 @@
 <template>
   <div>
-    <div class="text-center">
-      <h5>{{title}}</h5>
-      <pie-chart v-if="chartdata" :chartdata="chartdata"></pie-chart>
+    <div v-for="(item, index) in data" :key="index">
+      <h4>
+        {{item.label}}
+        {{item.recent.waarde.toLocaleString()}}
+      </h4>
     </div>
   </div>
 </template>
@@ -10,20 +12,17 @@
 <script>
 import { mapGetters } from 'vuex'
 import util from '../services/util'
-import pieChart from './PieChart'
 
 export default {
-  name: 'Pie',
+  name: 'Woonvormen',
   components: {
-    'pie-chart': pieChart
   },
   props: [
-    'title',
     'config'
   ],
   data () {
     return {
-      chartdata: null
+      data: null
     }
   },
   computed: {
@@ -33,7 +32,7 @@ export default {
   },
   methods: {
     async updateData () {
-      this.chartdata = await util.getConfigCijfers(this.gwb, this.config)
+      this.data = await util.getConfigCijfers(this.gwb, this.config)
     }
   },
   watch: {
@@ -45,6 +44,7 @@ export default {
     this.updateData()
   }
 }
+
 </script>
 
 <style>

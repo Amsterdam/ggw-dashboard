@@ -4,6 +4,8 @@
 
 <script>
 import vegaEmbed from 'vega-embed'
+import vegaSpec from '../../static/charts/verticalbar'
+import { COLOR } from '../services/colorcoding'
 
 const vegaEmbedOptions = {
   'actions': {
@@ -11,39 +13,6 @@ const vegaEmbedOptions = {
     'source': false,
     'editor': false},
   'renderer': 'svg'
-}
-
-const vegaSpec = {
-  '$schema': 'https://vega.github.io/schema/vega-lite/v2.json',
-  'description': '',
-  'height': 100,
-  'width': 250,
-  'data': {
-    'values': [
-    ]
-  },
-  'config': {
-    'style': {
-      'cell': {
-        'stroke': 'transparent'
-      }
-    }
-  },
-  'layer': [{
-    'mark': {
-      'type': 'bar'
-    },
-    'encoding': {
-      'y': {'field': 'Aantal', 'type': 'quantitative', 'axis': {'title': null, 'tickCount': 5, 'offset': 5}},
-      'x': {'field': 'Type', 'type': 'ordinal', 'sort': null, 'axis': {'labels': true, 'labelPadding': 5, 'ticks': false, 'title': null}},
-      'color': {
-        'field': 'Type',
-        'type': 'nominal',
-        'scale': {'range': ['#BED200']},
-        'legend': null
-      }
-    }
-  }]
 }
 
 export default {
@@ -58,9 +27,10 @@ export default {
   methods: {
     updateChart () {
       vegaSpec.data.values = this.chartdata[0].cijfers.map(d => ({
-        Type: d.jaar,
-        Aantal: d.waarde
+        key: d.jaar,
+        value: d.waarde
       }))
+      vegaSpec.layer[0].encoding.color.scale.range = vegaSpec.data.values.map(v => v.color || COLOR['ams-groen'])
       vegaEmbed(this.$el, vegaSpec, vegaEmbedOptions)
     }
   },
