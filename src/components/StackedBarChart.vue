@@ -7,6 +7,7 @@ import { mapGetters } from 'vuex'
 import util from '../services/util'
 import vegaEmbed from 'vega-embed'
 import vegaSpec from '../../static/charts/stackedbar5'
+import { CHART_COLORS } from '../services/colorcoding'
 
 const vegaEmbedOptions = {
   'actions': {
@@ -46,6 +47,7 @@ export default {
           }))
         )
       })
+      vegaSpec.scales[2].range = CHART_COLORS
       vegaEmbed(this.$el, vegaSpec, vegaEmbedOptions)
     }
   },

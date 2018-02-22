@@ -5,6 +5,7 @@
 <script>
 import vegaEmbed from 'vega-embed'
 import vegaSpec from '../../static/charts/horizontalbar'
+import { COLOR } from '../services/colorcoding'
 
 const vegaEmbedOptions = {
   'actions': {
@@ -27,8 +28,10 @@ export default {
     updateChart () {
       vegaSpec.data.values = this.chartdata.map(d => ({
         key: d.label,
-        value: d.recent.waarde
+        value: d.recent.waarde,
+        color: d.recent.color
       }))
+      vegaSpec.layer[0].encoding.color.scale.range = vegaSpec.data.values.map(v => v.color || COLOR['ams-oranje'])
       vegaEmbed(this.$el, vegaSpec, vegaEmbedOptions)
     }
   },

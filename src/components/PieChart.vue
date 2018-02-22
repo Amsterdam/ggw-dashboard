@@ -5,6 +5,7 @@
 <script>
 import vegaEmbed from 'vega-embed'
 import config from '../../static/charts/pie'
+import { CHART_COLORS } from '../services/colorcoding'
 
 const vegaEmbedOptions = {
   'actions': {
@@ -31,6 +32,7 @@ export default {
         key: d.label,
         value: d.recent.waarde
       }))
+      vegaSpec.scales[0].range = CHART_COLORS
       vegaEmbed(this.$el, vegaSpec, vegaEmbedOptions)
     }
   },

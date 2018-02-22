@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v3.json",
-  "width": 500,
+  "width": 300,
   "height": 200,
   "padding": 5,
 
@@ -73,7 +73,7 @@
 
   "axes": [
     {"orient": "bottom", "scale": "x", "zindex": 1},
-    {"orient": "left", "scale": "y", "zindex": 1}
+    {"orient": "left", "scale": "y", "zindex": 1, "values": [0, 20, 40, 60, 80, 100]}
   ],
 
   "marks": [
@@ -105,7 +105,7 @@
           "text": {"field": "y"},
           "x": {"scale": "x", "field": "x"},
           "y": {"scale": "y", "field": "y0"},
-          "dx": {"value": 30},
+          "dx": {"value": 15},
           "dy": {"value": -5 },
           "align": {"value": "left"},
           "baseline": {"value": "bottom"}

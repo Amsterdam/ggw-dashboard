@@ -1,4 +1,5 @@
 import {readData, readPaginatedData} from './datareader'
+import { getColor } from './colorcoding'
 
 let allMeta = null
 let allVariables = null
@@ -52,7 +53,8 @@ async function _getAllCijfers (meta, year = null, gebiedCode = null) {
   cijfers = cijfers.map(c => ({
     jaar: c.jaar,
     waarde: c.waarde === null ? '' : c.waarde,
-    gebiedcode15: c.gebiedcode15
+    gebiedcode15: c.gebiedcode15,
+    color: getColor(meta.variabele, c.waarde, c.jaar)
   }))
 
   return cijfers

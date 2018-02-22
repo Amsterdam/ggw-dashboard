@@ -1,7 +1,9 @@
 <template>
   <div>
-    <h5>{{title}}</h5>
-    <pie-chart v-if="chartdata" :chartdata="chartdata"></pie-chart>
+    <div class="text-center">
+      <h5>{{title}}</h5>
+      <pie-chart v-if="chartdata" :chartdata="chartdata"></pie-chart>
+    </div>
   </div>
 </template>
 

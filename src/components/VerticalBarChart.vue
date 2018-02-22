@@ -5,6 +5,7 @@
 <script>
 import vegaEmbed from 'vega-embed'
 import vegaSpec from '../../static/charts/verticalbar'
+import { COLOR } from '../services/colorcoding'
 
 const vegaEmbedOptions = {
   'actions': {
@@ -29,6 +30,7 @@ export default {
         key: d.jaar,
         value: d.waarde
       }))
+      vegaSpec.layer[0].encoding.color.scale.range = vegaSpec.data.values.map(v => v.color || COLOR['ams-groen'])
       vegaEmbed(this.$el, vegaSpec, vegaEmbedOptions)
     }
   },

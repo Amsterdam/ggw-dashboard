@@ -9,7 +9,11 @@
     <tbody>
     <tr v-for="d in data" :key="d.label">
       <td>{{d.label}}</td>
-      <td v-for="y in years" :key="y" class="text-center" v-if="d[y]">
+      <td
+        :style="{'background-color': d[y].color}"
+        v-for="y in years" :key="y"
+        class="text-center"
+        v-if="d[y]">
         {{(d[y].waarde || "").toLocaleString()}}
       </td>
     </tr>

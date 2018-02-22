@@ -108,22 +108,22 @@
       </div>
 
       <div class="row">
-        <div class="col-sm">
+        <div class="col-sm-4">
           <vertical-chart :config="gemiddeldeWozWaarde"></vertical-chart>
         </div>
-        <div class="col-sm">
+        <div class="col-sm-4">
           <vertical-chart :config="gemiddeldeWozWaardeM2"></vertical-chart>
         </div>
-        <div class="col-sm">
+        <div class="col-sm-4">
           <vertical-chart :config="gemiddeldeHuurVrijeSector"></vertical-chart>
         </div>
       </div>
 
       <div class="row">
-        <div class="col-sm">
+        <div class="col-sm-6">
           <stacked-bar-chart :config="typeWoningen"></stacked-bar-chart>
         </div>
-        <div class="col-sm">
+        <div class="col-sm-6">
           <pie title="Grootte van de woningen" :config="grootteWoningen"></pie>
         </div>
       </div>
@@ -133,13 +133,13 @@
       </div>
 
       <div class="row">
-        <div class="col-sm">
+        <div class="col-sm-4">
           <vertical-chart :config="percNultredewoningen"></vertical-chart>
         </div>
-        <div class="col-sm">
+        <div class="col-sm-4">
           <vertical-chart :config="percVerhuisgeneigden"></vertical-chart>
         </div>
-        <div class="col-sm">
+        <div class="col-sm-4">
           <vertical-chart :config="percWoningGeschiktOud"></vertical-chart>
         </div>
       </div>
