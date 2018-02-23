@@ -9,6 +9,7 @@
       </b-form-select>
       <div ref="map" class="map"></div>
       <div class="text-center">
+        <!--<button class="btn" :disabled="!variable" :class="{'btn-primary': gebiedType === 'Stadsdeel'}" v-on:click="setGebiedType('Stadsdeel')">Stadsdelen</button>-->
         <button class="btn" :disabled="!variable" :class="{'btn-primary': gebiedType === 'Gebied'}" v-on:click="setGebiedType('Gebied')">Gebieden</button>
         <button class="btn" :disabled="!variable" :class="{'btn-primary': gebiedType === 'Wijk'}" v-on:click="setGebiedType('Wijk')">Wijken</button>
         <button class="btn" :disabled="!variable" :class="{'btn-primary': gebiedType === 'Buurt'}" v-on:click="setGebiedType('Buurt')">Buurten</button>
@@ -30,7 +31,7 @@
 
         <div v-for="(item, index) in highLow" :key="index">
           <h4 v-if="!(index % FRAGMENT)">
-            {{index == 0 ? 'Hoogst' : 'Laagst'}} scorende {{gebiedType.toLowerCase()}}
+            {{index === 0 ? 'Hoogst' : 'Laagst'}} scorende {{gebiedType.toLowerCase()}}
           </h4>
           <div>
             <span class="font-weight-bold">{{index % FRAGMENT + 1}}</span>
@@ -54,7 +55,12 @@ import util from '../services/util'
 import positieOntwikkeling from '../../static/links/positie_en_ontwikkeling'
 
 let map
-let gwbLayer = null
+let gwbLayer = []
+
+function clearLayers () {
+  gwbLayer.forEach(l => map.removeLayer(l))
+  gwbLayer = []
+}
 
 export default {
   computed: {
@@ -77,7 +83,6 @@ export default {
       own: null,
       ownIndex: null,
       highLow: [],
-      allGwbs: [],
       loading: false
     }
   },
@@ -85,6 +90,7 @@ export default {
     noCijfers () {
       this.loading = false
       this.highLow = []
+      clearLayers()
     },
     setGebiedType (type) {
       this.gebiedType = type
@@ -139,7 +145,7 @@ export default {
       const highLow = highest.concat(lowest.reverse())
 
       // Add gebieds info for the 10 remaining cijfers
-      const highLowGwbs = await Promise.all(highLow.map(async (c, i) => {
+      const highLowGwbs = await Promise.all(highLow.map(async c => {
         const gwb = await util.getGwb(c.gebiedcode15)
         return {
           ...c,
@@ -149,41 +155,32 @@ export default {
 
       this.loading = false
       this.highLow = highLowGwbs
+      clearLayers()
 
-      this.allGwbs = await Promise.all(cijfers.map(async (c, i) => {
-        const gwb = await util.getGwb(c.gebiedcode15)
-        return {
-          ...c,
-          gwb
-        }
-      }))
-
-      this.showCijfers()
-    },
-    showCijfers () {
-      if (gwbLayer) {
-        map.removeLayer(gwbLayer)
-      }
-
-      if (!(this.gebiedType && this.variable)) {
-        return
-      }
-
-      const gwbs = this.allGwbs
-
-      gwbLayer = L.featureGroup()
-      gwbs.forEach((gwb, i) => {
-        const wgs84Geometrie = rdMultiPolygonToWgs84(gwb.gwb.geometrie)
-        wgs84Geometrie.map(geometry => L.polygon(geometry.coordinates, {'color': gwb.color}).addTo(gwbLayer))
+      gwbLayer = []
+      cijfers.forEach(c => {
+        util.getGwb(c.gebiedcode15).then(gwb => {
+          const wgs84Geometrie = rdMultiPolygonToWgs84(gwb.geometrie)
+          wgs84Geometrie.map(geometry => {
+            const shape = L.polygon(geometry.coordinates, {'color': c.color})
+            gwbLayer.push(shape.addTo(map))
+          })
+        })
       })
+    },
+    async initialView () {
+      const gebieden = await util.getAllGebieden()
 
-      // if (this.own) {
-      //   const wgs84Geometrie = rdMultiPolygonToWgs84(this.own.gebied.geometrie)
-      //   wgs84Geometrie.map(geometry => L.polygon(geometry.coordinates, {'color': this.own.recent.color}).addTo(gwbLayer))
-      // }
-
-      gwbLayer.addTo(map)
-      map.fitBounds(gwbLayer.getBounds())
+      gwbLayer = []
+      gebieden.forEach(g => {
+        util.getGwb(g.vollcode).then(gwb => {
+          const wgs84Geometrie = rdMultiPolygonToWgs84(gwb.geometrie)
+          wgs84Geometrie.map(geometry => {
+            const shape = L.polygon(geometry.coordinates, {'color': 'gray'})
+            gwbLayer.push(shape.addTo(map))
+          })
+        })
+      })
     }
   },
   watch: {
@@ -191,7 +188,6 @@ export default {
       if (this.gwb) {
         this.gebiedType = util.getGebiedType(this.gwb.volledige_code)
         this.own = await this.getOwn()
-        this.showCijfers()
       }
     },
     'gebiedType' () {
@@ -217,9 +213,10 @@ export default {
     }))
 
     this.gebiedType = util.getGebiedType(this.gwb.volledige_code)
+    this.initialView()
   },
   mounted () {
-    map = L.map(this.$refs.map).setView([52.373, 4.893], 12)
+    map = L.map(this.$refs.map).setView([52.373, 4.893], 10)
     // L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map)
   }
 }
