@@ -38,7 +38,7 @@
       "encoding": {
         "x": {"field": "value", "type": "quantitative", "axis": {"labels": false, "domain": false, "grid": false, "ticks": false, "title": null}},
         "y": {"field": "key", "type": "ordinal", "sort": null, "axis": {"labels": true, "domain": false, "grid": false, "ticks": false, "title": null}},
-        "text": {"field": "value", "type": "quantitative"}
+        "text": {"field": "label", "type": "ordinal"}
       }
     }
   ]

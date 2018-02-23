@@ -43,7 +43,7 @@ export default {
   },
   methods: {
     async updateData () {
-      this.chartdata = await util.getConfigCijfers(this.gwb, this.config)
+      this.chartdata = await util.getLatestConfigCijfers(this.gwb, this.config)
     }
   },
   watch: {

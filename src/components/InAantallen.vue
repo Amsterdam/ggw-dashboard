@@ -43,7 +43,7 @@ export default {
   },
   methods: {
     async updateData () {
-      this.data = await util.getConfigCijfers(this.gwb, inAantallen)
+      this.data = await util.getLatestConfigCijfers(this.gwb, inAantallen)
     }
   },
   async created () {

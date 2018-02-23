@@ -102,7 +102,7 @@ export default {
       } else if (this.gebiedType === 'Gebied' && this.gebied) {
         gwb = this.gebied
       }
-      const own = await util.getGebiedCijfers(this.variable, gwb)
+      const own = await util.getGebiedCijfers(this.variable, gwb, util.CIJFERS.LATEST)
       own.gebiedType = util.getGebiedType(own.recent.gebiedcode15)
       return own
     },
@@ -159,29 +159,17 @@ export default {
         return
       }
 
-      const lowStyle = {
-        'color': '#EC0000'
-      }
-
-      const highStyle = {
-        'color': '#00A03C'
-      }
-
-      const ownStyle = {
-        'color': '#009DE6'
-      }
-
       const gwbs = this.cijfers
 
       gwbLayer = L.featureGroup()
       gwbs.forEach((gwb, i) => {
         const wgs84Geometrie = rdMultiPolygonToWgs84(gwb.gwb.geometrie)
-        wgs84Geometrie.map(geometry => L.polygon(geometry.coordinates, i < this.FRAGMENT ? highStyle : lowStyle).addTo(gwbLayer))
+        wgs84Geometrie.map(geometry => L.polygon(geometry.coordinates, {'color': gwb.color}).addTo(gwbLayer))
       })
 
       if (this.own) {
         const wgs84Geometrie = rdMultiPolygonToWgs84(this.own.gebied.geometrie)
-        wgs84Geometrie.map(geometry => L.polygon(geometry.coordinates, ownStyle).addTo(gwbLayer))
+        wgs84Geometrie.map(geometry => L.polygon(geometry.coordinates, {'color': this.own.recent.color}).addTo(gwbLayer))
       }
 
       gwbLayer.addTo(map)
@@ -223,7 +211,6 @@ export default {
   mounted () {
     map = L.map(this.$refs.map).setView([52.373, 4.893], 12)
     L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map)
-    // this.updateData()
   }
 }
 </script>
