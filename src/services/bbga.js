@@ -41,7 +41,7 @@ export async function getMeta (variableName) {
   return all.find(m => m.variabele === search)
 }
 
-async function _getAllCijfers (meta, year = null, gebiedCode = null) {
+async function getCijfers (meta, year = null, gebiedCode = null) {
   const selectVariable = `variabele=${meta.variabele}`
   const selectYear = year ? `&jaar=${year}` : ''
   const selectGebiedCode = gebiedCode ? `&gebiedcode15=${gebiedCode}` : ''
@@ -71,7 +71,7 @@ export async function getAllCijfers (variableName, year) {
   }
 
   if (!allCijfers[variableName].year[year]) {
-    allCijfers[variableName].year[year] = await _getAllCijfers(
+    allCijfers[variableName].year[year] = await getCijfers(
       allCijfers[variableName].meta,
       year
     )
@@ -80,12 +80,18 @@ export async function getAllCijfers (variableName, year) {
   return allCijfers[variableName].year[year]
 }
 
-export async function getGebiedCijfers (variableName, gebied) {
+export const CIJFERS = {
+  ALL: 'all',
+  LATEST: 'latest'
+}
+
+export async function getGebiedCijfers (variableName, gebied, recentOrAll = CIJFERS.ALL) {
   const isPercentage = /_P$/i // Add auto-post for percentages
-  async function _getGebiedCijfers (meta, gebied) {
-    const cijfers = await _getAllCijfers(
+
+  async function _getGebiedCijfers (meta, gebied, jaar) {
+    const cijfers = await getCijfers(
       meta,
-      null,
+      jaar,
       gebied.volledige_code
     )
     return {
@@ -97,7 +103,9 @@ export async function getGebiedCijfers (variableName, gebied) {
     }
   }
 
+  const jaarKey = recentOrAll
   variableName = variableName.toUpperCase()
+
   if (!allGebiedCijfers[variableName]) {
     const meta = await getMeta(variableName)
     allGebiedCijfers[variableName] = {
@@ -107,11 +115,16 @@ export async function getGebiedCijfers (variableName, gebied) {
   }
 
   if (!allGebiedCijfers[variableName].gebied[gebied.volledige_code]) {
-    allGebiedCijfers[variableName].gebied[gebied.volledige_code] = await _getGebiedCijfers(
+    allGebiedCijfers[variableName].gebied[gebied.volledige_code] = {}
+  }
+
+  if (!allGebiedCijfers[variableName].gebied[gebied.volledige_code][jaarKey]) {
+    allGebiedCijfers[variableName].gebied[gebied.volledige_code][jaarKey] = await _getGebiedCijfers(
       allGebiedCijfers[variableName].meta,
-      gebied
+      gebied,
+      recentOrAll === CIJFERS.ALL ? null : recentOrAll
     )
   }
 
-  return allGebiedCijfers[variableName].gebied[gebied.volledige_code]
+  return allGebiedCijfers[variableName].gebied[gebied.volledige_code][jaarKey]
 }
