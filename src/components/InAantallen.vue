@@ -9,7 +9,10 @@
       <tbody>
       <tr v-for="d in data" :key="d.label">
         <td width="50%">{{d.label}}</td>
-        <td width="50%" v-if="d.recent">{{(d.recent.waarde || "").toLocaleString()}} {{d.post}}</td>
+        <td width="50%" v-if="d.recent"
+            v-b-tooltip.hover v-b-tooltip.click v-b-tooltip.left :title="d.meta.bron + ' ' + d.recent.jaar">
+          {{(d.recent.waarde || "").toLocaleString()}} {{d.post}}
+        </td>
       </tr>
       </tbody>
     </table>

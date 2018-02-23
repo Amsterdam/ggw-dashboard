@@ -12,7 +12,8 @@
       <div class="col-sm-8">
         <div v-for="d in data" :key="d.label">
           {{d.label}}:
-          <span v-if="d.recent">
+          <span v-if="d.recent"
+                v-b-tooltip.hover v-b-tooltip.click v-b-tooltip.left :title="d.meta.bron + ' ' + d.recent.jaar">
                 {{(d.recent.waarde || "").toLocaleString()}}{{d.post}}
           </span>
         </div>

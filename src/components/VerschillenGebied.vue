@@ -26,7 +26,12 @@
         <div v-if="own && own.gebiedType === gebiedType && own.recent">
           <h4>Geselecteerde {{own.gebiedType.toLowerCase()}}</h4>
           <span class="font-weight-bold">{{ownIndex}}</span>
-          {{own.gebied.naam}}: {{(own.recent.waarde || "").toLocaleString()}}
+          {{own.gebied.naam}}:
+          <span
+            v-b-tooltip.hover v-b-tooltip.click v-b-tooltip.left
+            :title="own.meta.bron + ' ' + own.recent.jaar">
+            {{(own.recent.waarde || "").toLocaleString()}}
+          </span>
         </div>
 
         <div v-for="(item, index) in highLow" :key="index">
@@ -37,7 +42,11 @@
             <span class="font-weight-bold">{{index % FRAGMENT + 1}}</span>
             <span :class="{'highlight-own': item.gwb.naam === own.gebied.naam}">
               {{item.gwb.naam}}:
-              {{(item.waarde || "").toLocaleString()}}
+              <span
+                v-b-tooltip.hover v-b-tooltip.click v-b-tooltip.left
+                :title="own.meta.bron + ' ' + item.jaar">
+                {{(item.waarde || "").toLocaleString()}}
+              </span>
             </span>
           </div>
         </div>

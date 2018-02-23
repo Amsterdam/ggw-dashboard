@@ -3,7 +3,10 @@
     <div v-for="(item, index) in data" :key="index">
       <h4>
         {{item.label}}
-        {{item.recent.waarde.toLocaleString()}}
+        <span v-if="item.recent"
+          v-b-tooltip.hover v-b-tooltip.click v-b-tooltip.left :title="item.meta.bron + ' ' + item.recent.jaar">
+          {{item.recent.waarde.toLocaleString()}}
+        </span>
       </h4>
     </div>
   </div>

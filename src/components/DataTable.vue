@@ -8,10 +8,12 @@
     </thead>
     <tbody>
     <tr v-for="d in data" :key="d.label">
-      <td>{{d.label}}</td>
+      <td v-b-tooltip.hover v-b-tooltip.click v-b-tooltip.right :title="d.tooltip">
+        {{d.label}}
+      </td>
       <td
-        :style="{'background-color': d[y].color}"
         v-for="y in years" :key="y"
+        :style="{'background-color': d[y].color}"
         class="text-center"
         v-if="d[y]">
         {{(d[y].waarde || "").toLocaleString()}}
@@ -48,6 +50,7 @@ export default {
       const data = await util.getConfigCijfers(this.gwb, this.config)
 
       for (let item of data) {
+        item.tooltip = item.meta && item.meta.bron
         for (let year of this.years) {
           item[year] = {jaar: year, waarde: ''}
           if (item.cijfers) {

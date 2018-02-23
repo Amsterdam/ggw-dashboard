@@ -1,6 +1,9 @@
 <template>
   <div>
-    <h5 class="text-center">{{title}}</h5>
+    <h5 class="text-center"
+        v-b-tooltip.hover v-b-tooltip.click v-b-tooltip.top :title="tooltip">
+      {{title}}
+    </h5>
     <div class="text-center">
       <vertical-bar-chart v-if="chartdata" :chartdata="chartdata"></vertical-bar-chart>
     </div>
@@ -23,7 +26,8 @@ export default {
   data () {
     return {
       chartdata: null,
-      title: ''
+      title: null,
+      tooltip: null
     }
   },
   computed: {
@@ -35,6 +39,7 @@ export default {
     async updateData () {
       this.chartdata = await util.getConfigCijfers(this.gwb, this.config)
       this.title = this.chartdata[0].label
+      this.tooltip = this.chartdata[0].meta && this.chartdata[0].meta.bron
     }
   },
   watch: {
