@@ -4,6 +4,8 @@ let allGebieden = null
 let allWijken = null
 let allBuurten = null
 
+let allGwb = {}
+
 // export const GEBIED_TYPE = {
 //   Stad: 'Stad',
 //   Stadsdeel: 'Stadsdeel',
@@ -95,6 +97,10 @@ export function getGebiedType (gebiedCode) {
 }
 
 export async function getGwb (code) {
+  if (allGwb[code]) {
+    return allGwb[code]
+  }
+
   const gebiedType = getGebiedType(code)
   let gwb = null
 
@@ -114,7 +120,8 @@ export async function getGwb (code) {
     console.error('GWB not found', gebiedType, code)
   }
 
-  return readData(gwb._links.self.href)
+  allGwb[code] = readData(gwb._links.self.href)
+  return allGwb[code]
 }
 
 export async function getAllGebieden () {

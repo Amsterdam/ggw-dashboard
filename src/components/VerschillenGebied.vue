@@ -18,7 +18,7 @@
       <div v-if="loading">
         Laden gegevens...
       </div>
-      <div v-else-if="gebiedType && variable && !cijfers.length">
+      <div v-else-if="gebiedType && variable && !highLow.length">
         Geen cijfers beschikbaar
       </div>
       <div v-else>
@@ -28,7 +28,7 @@
           {{own.gebied.naam}}: {{(own.recent.waarde || "").toLocaleString()}}
         </div>
 
-        <div v-for="(item, index) in cijfers" :key="index">
+        <div v-for="(item, index) in highLow" :key="index">
           <h4 v-if="!(index % FRAGMENT)">
             {{index == 0 ? 'Hoogst' : 'Laagst'}} scorende {{gebiedType.toLowerCase()}}
           </h4>
@@ -76,14 +76,15 @@ export default {
       highest: [],
       own: null,
       ownIndex: null,
-      cijfers: [],
+      highLow: [],
+      allGwbs: [],
       loading: false
     }
   },
   methods: {
     noCijfers () {
       this.loading = false
-      this.cijfers = []
+      this.highLow = []
     },
     setGebiedType (type) {
       this.gebiedType = type
@@ -135,10 +136,10 @@ export default {
       // Get only the lowest and highest values
       const highest = cijfers.slice(0, this.FRAGMENT)
       const lowest = cijfers.slice(cijfers.length - this.FRAGMENT)
-      const highLow = highest.concat(lowest)
+      const highLow = highest.concat(lowest.reverse())
 
       // Add gebieds info for the 10 remaining cijfers
-      const gwbs = await Promise.all(highLow.map(async (c, i) => {
+      const highLowGwbs = await Promise.all(highLow.map(async (c, i) => {
         const gwb = await util.getGwb(c.gebiedcode15)
         return {
           ...c,
@@ -147,7 +148,16 @@ export default {
       }))
 
       this.loading = false
-      this.cijfers = gwbs
+      this.highLow = highLowGwbs
+
+      this.allGwbs = await Promise.all(cijfers.map(async (c, i) => {
+        const gwb = await util.getGwb(c.gebiedcode15)
+        return {
+          ...c,
+          gwb
+        }
+      }))
+
       this.showCijfers()
     },
     showCijfers () {
@@ -159,7 +169,7 @@ export default {
         return
       }
 
-      const gwbs = this.cijfers
+      const gwbs = this.allGwbs
 
       gwbLayer = L.featureGroup()
       gwbs.forEach((gwb, i) => {
@@ -167,10 +177,10 @@ export default {
         wgs84Geometrie.map(geometry => L.polygon(geometry.coordinates, {'color': gwb.color}).addTo(gwbLayer))
       })
 
-      if (this.own) {
-        const wgs84Geometrie = rdMultiPolygonToWgs84(this.own.gebied.geometrie)
-        wgs84Geometrie.map(geometry => L.polygon(geometry.coordinates, {'color': this.own.recent.color}).addTo(gwbLayer))
-      }
+      // if (this.own) {
+      //   const wgs84Geometrie = rdMultiPolygonToWgs84(this.own.gebied.geometrie)
+      //   wgs84Geometrie.map(geometry => L.polygon(geometry.coordinates, {'color': this.own.recent.color}).addTo(gwbLayer))
+      // }
 
       gwbLayer.addTo(map)
       map.fitBounds(gwbLayer.getBounds())
@@ -210,7 +220,7 @@ export default {
   },
   mounted () {
     map = L.map(this.$refs.map).setView([52.373, 4.893], 12)
-    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map)
+    // L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map)
   }
 }
 </script>
