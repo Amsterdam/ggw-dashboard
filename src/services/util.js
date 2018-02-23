@@ -35,6 +35,7 @@ export default {
   getMeta,
   getConfigCijfers,
   getLatestConfigCijfers,
+  CIJFERS,
   getAllCijfers,
   getGebiedCijfers,
   getGebiedType,
