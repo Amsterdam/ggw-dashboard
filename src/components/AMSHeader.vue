@@ -4,7 +4,7 @@
     <div class="col-sm-9">
       <header>
         <img src="../../static/logo-tall.svg">
-        <h1 class="text-center">Kerncijfers gebiedsgericht werken</h1>
+        <h1 class="text-center">Gebied in beeld</h1>
       </header>
     </div>
     <div class="col-sm-3">
