@@ -12,7 +12,7 @@
                            @change="updateGebied"
                            :options="selection.gebieden"
                            text-field="display"
-                           value-field="code"
+                           value-field="vollcode"
                            id="selectGebied">
             </b-form-select>
           </div>
@@ -40,7 +40,7 @@
                            @change="updateBuurt"
                            :options="selection.buurten"
                            text-field="display"
-                           value-field="code"
+                           value-field="vollcode"
                            id="selectBuurt">
             </b-form-select>
           </div>
@@ -69,6 +69,13 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import util from '../services/util'
+
+function getSelectNone (title) {
+  return {
+    display: `Alle ${title}`,
+    vollcode: null
+  }
+}
 
 export default {
   name: 'GGWSelector',
@@ -100,35 +107,49 @@ export default {
       setThema: 'setThema'
     }),
     async updateGebied (gebiedCode) {
-      const gebied = this.selection.gebieden.find(g => g.code === gebiedCode)
-
       this.selection.wijk = null
       this.selection.wijken = null
 
       this.selection.buurt = null
       this.selection.buurten = null
 
-      const gebiedDetail = await util.getDetail(gebied)
-      this.setGebied(gebiedDetail, null, null)
+      if (gebiedCode) {
+        const gebied = this.selection.gebieden.find(g => g.code === gebiedCode)
 
-      this.selection.wijken = await util.getWijken(gebied)
+        const gebiedDetail = await util.getDetail(gebied)
+        this.setGebied(gebiedDetail, null, null)
+
+        const wijken = await util.getWijken(gebied)
+        this.selection.wijken = [getSelectNone('wijken')].concat(wijken)
+      } else {
+        this.setGebied(null, null, null)
+      }
     },
     async updateWijk (wijkCode) {
-      const wijk = this.selection.wijken.find(w => w.vollcode === wijkCode)
-
       this.selection.buurt = null
       this.selection.buurten = null
 
-      const wijkDetail = await util.getDetail(wijk)
-      this.setWijk(wijkDetail, null)
+      if (wijkCode) {
+        const wijk = this.selection.wijken.find(w => w.vollcode === wijkCode)
 
-      this.selection.buurten = await util.getBuurten(wijk)
+        const wijkDetail = await util.getDetail(wijk)
+        this.setWijk(wijkDetail, null)
+
+        const buurten = await util.getBuurten(wijk)
+        this.selection.buurten = [getSelectNone('buurten')].concat(buurten)
+      } else {
+        this.setWijk(null, null)
+      }
     },
     async updateBuurt (buurtCode) {
-      const buurt = this.selection.buurten.find(b => b.code === buurtCode)
+      if (buurtCode) {
+        const buurt = this.selection.buurten.find(b => b.code === buurtCode)
 
-      const buurtDetail = await util.getDetail(buurt)
-      this.setBuurt(buurtDetail)
+        const buurtDetail = await util.getDetail(buurt)
+        this.setBuurt(buurtDetail)
+      } else {
+        this.setBuurt(null)
+      }
     },
     async updateThema (thema) {
     }
@@ -136,7 +157,9 @@ export default {
   watch: {
   },
   async created () {
-    this.selection.gebieden = await util.getAllGebieden()
+    const gebieden = await util.getAllGebieden()
+    // this.selection.gebieden = [getSelectNone('gebieden')].concat(gebieden)
+    this.selection.gebieden = gebieden
 
     this.selection.gebied = 'DX01'
     this.updateGebied(this.selection.gebied)
