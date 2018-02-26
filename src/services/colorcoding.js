@@ -60,15 +60,13 @@ function getCategory (zScore) {
 }
 
 export function getColor (variable, value, year) {
-  const varStd = std.filter(item => item.variabele === variable)
+  const varStd = std
+    .filter(item => item.variabele === variable && item.jaar <= year)
+    .sort((item1, item2) => item2.jaar - item1.jaar)
   if (varStd.length) {
-    const ref = varStd.find(item => item.jaar === year)
-    if (ref) {
-      const zScore = (value - ref.gem) / ref.SD
-      const category = getCategory(zScore)
-      return category.color
-    } else {
-      console.error('No ref voor var', variable, year)
-    }
+    const ref = varStd[0] // most recent year
+    const zScore = (value - ref.gem) / ref.SD
+    const category = getCategory(zScore)
+    return category.color
   }
 }
