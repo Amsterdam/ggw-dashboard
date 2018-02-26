@@ -20,9 +20,18 @@ export async function getAllThemas () {
 }
 
 export async function getAllMeta () {
-  if (!allMeta) {
+  async function getData () {
     const url = getUrl('/meta/')
-    allMeta = readPaginatedData(url)
+    const data = await readPaginatedData(url)
+    const dataObject = {}
+    data.forEach(item => {
+      dataObject[item.variabele] = item
+    })
+    return dataObject
+  }
+
+  if (!allMeta) {
+    allMeta = getData()
   }
   return allMeta
 }
@@ -36,9 +45,8 @@ export async function getAllVariables () {
 }
 
 export async function getMeta (variableName) {
-  const search = variableName.toUpperCase()
-  const all = await getAllMeta()
-  return all.find(m => m.variabele === search)
+  const meta = await getAllMeta()
+  return meta[variableName.toUpperCase()]
 }
 
 async function getCijfers (meta, year = null, gebiedCode = null) {

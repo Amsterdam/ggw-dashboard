@@ -79,7 +79,13 @@ export default {
     }),
     filter () {
       this.filterRegExp = RegExp(this.filterText, 'i')
-      this.filteredMeta = this.meta.filter(this.matchesFilter)
+      const filteredMeta = {}
+      for (let key in this.meta) {
+        if (this.matchesFilter(this.meta[key])) {
+          filteredMeta[key] = this.meta[key]
+        }
+      }
+      this.filteredMeta = filteredMeta
     },
     matchesFilter (meta) {
       return this.filterRegExp === null || (
