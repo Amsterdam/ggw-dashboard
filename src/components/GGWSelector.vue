@@ -11,7 +11,7 @@
             <b-form-select v-model="selection.gebied"
                            @change="updateGebied"
                            :options="selection.gebieden"
-                           text-field="naam"
+                           text-field="display"
                            value-field="code"
                            id="selectGebied">
             </b-form-select>
@@ -25,7 +25,7 @@
             <b-form-select v-model="selection.wijk"
                            @change="updateWijk"
                            :options="selection.wijken"
-                           text-field="naam"
+                           text-field="display"
                            value-field="vollcode"
                            id="selectWijk">
             </b-form-select>
@@ -39,7 +39,7 @@
             <b-form-select v-model="selection.buurt"
                            @change="updateBuurt"
                            :options="selection.buurten"
-                           text-field="naam"
+                           text-field="display"
                            value-field="code"
                            id="selectBuurt">
             </b-form-select>
