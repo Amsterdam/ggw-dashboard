@@ -53,9 +53,10 @@
           </div>
           <div class="col-sm-9" v-if="selection.themas">
             <b-form-select v-model="selection.thema"
+                           @change="updateThema"
                            :options="selection.themas"
-                           text-field="naam"
-                           value-field="code"
+                           text-field="text"
+                           value-field="id"
                            id="selectThema">
             </b-form-select>
           </div>
@@ -69,6 +70,7 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import util from '../services/util'
+import { THEMAS, IN_HET_KORT } from '../services/thema'
 
 function getSelectNone (title) {
   return {
@@ -90,8 +92,8 @@ export default {
         wijk: null,
         buurten: null,
         buurt: null,
-        themas: ['Gebied in het kort'],
-        thema: 'Gebied in het kort'
+        themas: THEMAS,
+        thema: null
       }
     }
   },
@@ -151,10 +153,14 @@ export default {
         this.setBuurt(null)
       }
     },
-    async updateThema (thema) {
+    async updateThema (themaId) {
+      this.setThema(THEMAS[themaId])
     }
   },
   watch: {
+    // '$route' (to, from) {
+    //   console.log('Route changed from', from, to)
+    // }
   },
   async created () {
     const gebieden = await util.getAllGebieden()
@@ -163,6 +169,9 @@ export default {
 
     this.selection.gebied = 'DX01'
     this.updateGebied(this.selection.gebied)
+
+    this.selection.thema = IN_HET_KORT
+    this.updateThema(this.selection.thema)
   }
 }
 </script>
