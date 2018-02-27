@@ -86,14 +86,16 @@ function getCategory (zScore) {
   return categories.find(c => c.inCategory(zScore))
 }
 
-export function getColor (variable, value, year) {
+export function getColor (meta, value, year) {
+  const variable = meta.variabele
+  const revert = meta.kleurenpalet === 2 ? -1 : 1
   const varStd = std
     .filter(item => item.variabele === variable && item.jaar <= year)
     .sort((item1, item2) => item2.jaar - item1.jaar)
   if (varStd.length) {
     const ref = varStd[0] // most recent year
     const zScore = (value - ref.gem) / ref.SD
-    const category = getCategory(zScore)
+    const category = getCategory(zScore * revert)
     return category.color
   }
 }

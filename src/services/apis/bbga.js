@@ -60,7 +60,7 @@ async function getCijfers (meta, year = null, gebiedCode = null) {
     jaar: c.jaar,
     waarde: c.waarde === null ? '' : c.waarde,
     gebiedcode15: c.gebiedcode15,
-    color: getColor(meta.variabele, c.waarde, c.jaar)
+    color: getColor(meta, c.waarde, c.jaar)
   }))
 
   return cijfers
