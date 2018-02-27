@@ -26,7 +26,7 @@ function getUrl (endpoint) {
 function enhanceGWB (gwb) {
   gwb.gebiedType = getGebiedType(gwb.volledige_code)
   gwb.vollcode = gwb.vollcode || gwb.code || gwb._display.match(/\((.*)\)/)[1]
-  gwb.volledige_code = gwb.vollcode
+  gwb.volledige_code = gwb.volledige_code || gwb.vollcode
   gwb.code = gwb.code || gwb.vollcode
   gwb.naam = localGebiedscodes[gwb.vollcode] ? localGebiedscodes[gwb.vollcode].gebiednaam : gwb.naam
   gwb.display = localGebiedscodes[gwb.vollcode] ? localGebiedscodes[gwb.vollcode].gebiedcodenaam : `${gwb.vollcode} ${gwb.naam}`
