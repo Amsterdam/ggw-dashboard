@@ -1,14 +1,17 @@
 <!--Example of a component that uses D3-->
 <template>
   <div class="row">
-    <div class="col-sm-9">
+    <div class="col-sm-5">
       <header>
         <img src="../../static/logo-tall.svg">
-        <h1 class="text-center">Kerncijfers gebiedsgericht werken</h1>
+        <h1 class="text-center">Gebied in beeld</h1>
       </header>
     </div>
     <div class="col-sm-3">
       <gwb-map></gwb-map>
+    </div>
+    <div class="col-sm-4">
+      <color-legend></color-legend>
     </div>
   </div>
 
@@ -16,11 +19,13 @@
 
 <script>
 import gwbMap from './GWBMap'
+import colorLegend from './ColorLegend'
 
 export default {
   name: 'AMSHeader',
   components: {
-    'gwb-map': gwbMap
+    'gwb-map': gwbMap,
+    'color-legend': colorLegend
   }
 }
 

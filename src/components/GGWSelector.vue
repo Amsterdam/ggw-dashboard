@@ -11,8 +11,8 @@
             <b-form-select v-model="selection.gebied"
                            @change="updateGebied"
                            :options="selection.gebieden"
-                           text-field="naam"
-                           value-field="code"
+                           text-field="display"
+                           value-field="vollcode"
                            id="selectGebied">
             </b-form-select>
           </div>
@@ -25,7 +25,7 @@
             <b-form-select v-model="selection.wijk"
                            @change="updateWijk"
                            :options="selection.wijken"
-                           text-field="naam"
+                           text-field="display"
                            value-field="vollcode"
                            id="selectWijk">
             </b-form-select>
@@ -39,8 +39,8 @@
             <b-form-select v-model="selection.buurt"
                            @change="updateBuurt"
                            :options="selection.buurten"
-                           text-field="naam"
-                           value-field="code"
+                           text-field="display"
+                           value-field="vollcode"
                            id="selectBuurt">
             </b-form-select>
           </div>
@@ -53,9 +53,10 @@
           </div>
           <div class="col-sm-9" v-if="selection.themas">
             <b-form-select v-model="selection.thema"
+                           @change="updateThema"
                            :options="selection.themas"
-                           text-field="naam"
-                           value-field="code"
+                           text-field="text"
+                           value-field="id"
                            id="selectThema">
             </b-form-select>
           </div>
@@ -69,6 +70,14 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import util from '../services/util'
+import { THEMAS, IN_HET_KORT } from '../services/thema'
+
+function getSelectNone (title) {
+  return {
+    display: `Alle ${title}`,
+    vollcode: null
+  }
+}
 
 export default {
   name: 'GGWSelector',
@@ -83,8 +92,8 @@ export default {
         wijk: null,
         buurten: null,
         buurt: null,
-        themas: ['Gebied in het kort'],
-        thema: 'Gebied in het kort'
+        themas: THEMAS,
+        thema: null
       }
     }
   },
@@ -100,46 +109,69 @@ export default {
       setThema: 'setThema'
     }),
     async updateGebied (gebiedCode) {
-      const gebied = this.selection.gebieden.find(g => g.code === gebiedCode)
-
       this.selection.wijk = null
       this.selection.wijken = null
 
       this.selection.buurt = null
       this.selection.buurten = null
 
-      const gebiedDetail = await util.getDetail(gebied)
-      this.setGebied(gebiedDetail, null, null)
+      if (gebiedCode) {
+        const gebied = this.selection.gebieden.find(g => g.code === gebiedCode)
 
-      this.selection.wijken = await util.getWijken(gebied)
+        const gebiedDetail = await util.getDetail(gebied)
+        this.setGebied(gebiedDetail, null, null)
+
+        const wijken = await util.getWijken(gebied)
+        this.selection.wijken = [getSelectNone('wijken')].concat(wijken)
+      } else {
+        this.setGebied(null, null, null)
+      }
     },
     async updateWijk (wijkCode) {
-      const wijk = this.selection.wijken.find(w => w.vollcode === wijkCode)
-
       this.selection.buurt = null
       this.selection.buurten = null
 
-      const wijkDetail = await util.getDetail(wijk)
-      this.setWijk(wijkDetail, null)
+      if (wijkCode) {
+        const wijk = this.selection.wijken.find(w => w.vollcode === wijkCode)
 
-      this.selection.buurten = await util.getBuurten(wijk)
+        const wijkDetail = await util.getDetail(wijk)
+        this.setWijk(wijkDetail, null)
+
+        const buurten = await util.getBuurten(wijk)
+        this.selection.buurten = [getSelectNone('buurten')].concat(buurten)
+      } else {
+        this.setWijk(null, null)
+      }
     },
     async updateBuurt (buurtCode) {
-      const buurt = this.selection.buurten.find(b => b.code === buurtCode)
+      if (buurtCode) {
+        const buurt = this.selection.buurten.find(b => b.code === buurtCode)
 
-      const buurtDetail = await util.getDetail(buurt)
-      this.setBuurt(buurtDetail)
+        const buurtDetail = await util.getDetail(buurt)
+        this.setBuurt(buurtDetail)
+      } else {
+        this.setBuurt(null)
+      }
     },
-    async updateThema (thema) {
+    async updateThema (themaId) {
+      this.setThema(THEMAS[themaId])
     }
   },
   watch: {
+    // '$route' (to, from) {
+    //   console.log('Route changed from', from, to)
+    // }
   },
   async created () {
-    this.selection.gebieden = await util.getAllGebieden()
+    const gebieden = await util.getAllGebieden()
+    // this.selection.gebieden = [getSelectNone('gebieden')].concat(gebieden)
+    this.selection.gebieden = gebieden
 
     this.selection.gebied = 'DX01'
     this.updateGebied(this.selection.gebied)
+
+    this.selection.thema = IN_HET_KORT
+    this.updateThema(this.selection.thema)
   }
 }
 </script>

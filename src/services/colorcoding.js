@@ -32,28 +32,55 @@ export const CHART_COLORS = [
   COLOR['ams-oranje']
 ]
 
+export const CATEGORY_COLORS = [
+  {
+    text: 'veel meer/beter dan gemiddeld',
+    color: COLOR['ams-donkergroen']
+  },
+  {
+    text: 'meer/beter dan gemiddeld',
+    color: COLOR['ams-groen']
+  },
+  {
+    text: 'rond stedelijk gemiddelde',
+    color: COLOR['ams-lichtgrijs']
+  },
+  {
+    text: 'minder/slechter dan gemiddeld',
+    color: COLOR['ams-blauw']
+  },
+  {
+    text: 'veel minder/slechter dan gemiddeld',
+    color: COLOR['ams-donkerblauw']
+  },
+  {
+    text: 'geen cijfers beschikbaar',
+    color: COLOR['ams-wit']
+  }
+]
+
 function getCategory (zScore) {
   const average = 0.5
   const categories = [
     {
       inCategory: s => s >= 2 * average,
-      color: COLOR['ams-donkergroen']
+      color: CATEGORY_COLORS[0].color
     },
     {
       inCategory: s => (average <= s && s < 2 * average),
-      color: COLOR['ams-groen']
+      color: CATEGORY_COLORS[1].color
     },
     {
       inCategory: s => (-average < s && s < average),
-      color: COLOR['ams-lichtgrijs']
+      color: CATEGORY_COLORS[2].color
     },
     {
       inCategory: s => (-2 * average < s && s <= -average),
-      color: COLOR['ams-blauw']
+      color: CATEGORY_COLORS[3].color
     },
     {
       inCategory: s => s <= -2 * average,
-      color: COLOR['ams-donkerblauw']
+      color: CATEGORY_COLORS[4].color
     }
   ]
   return categories.find(c => c.inCategory(zScore))

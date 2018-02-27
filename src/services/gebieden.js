@@ -18,31 +18,32 @@ function getUrl (endpoint) {
   return `https://acc.api.data.amsterdam.nl/gebieden${endpoint}`
 }
 
+function enhancedGWBList (gwbList) {
+  gwbList.forEach(g => {
+    g.vollcode = g.vollcode || g.code || g._display.match(/\((.*)\)/)[1]
+    g.code = g.code || g.vollcode
+    g.display = `${g.vollcode} ${g.naam}`
+  })
+  gwbList.sort((gwb1, gwb2) => gwb1.vollcode.localeCompare(gwb2.vollcode))
+  return gwbList
+}
+
 async function _getAllGebieden () {
   const url = getUrl('/gebiedsgerichtwerken/')
-  const _gebieden = await readPaginatedData(url)
-  _gebieden.forEach(g => {
-    g.vollcode = g.vollcode || g.code
-  })
-  return _gebieden
+  const gebieden = await readPaginatedData(url)
+  return enhancedGWBList(gebieden)
 }
 
 async function _getAllWijken () {
   const url = getUrl('/wijk/')
-  const _wijken = await readPaginatedData(url)
-  _wijken.forEach(w => {
-    w.code = w.code || w.vollcode
-  })
-  return _wijken
+  const wijken = await readPaginatedData(url)
+  return enhancedGWBList(wijken)
 }
 
 async function _getAllBuurten () {
   const url = getUrl('/buurt/')
-  const _buurten = await readPaginatedData(url)
-  _buurten.forEach(b => {
-    b.vollcode = b.vollcode || b._display.match(/\((.*)\)/)[1]
-  })
-  return _buurten
+  const buurten = await readPaginatedData(url)
+  return enhancedGWBList(buurten)
 }
 
 function getKeyFromUrl (url) {
@@ -67,8 +68,8 @@ export async function getWijken (gebied) {
   const stadsdeelKey = getKeyFromUrl(stadsdeelDetailUrl)
 
   const wijkenUrl = getUrl('/wijk/?stadsdeel=' + stadsdeelKey)
-  const wijken = readPaginatedData(wijkenUrl)
-  return wijken
+  const wijken = await readPaginatedData(wijkenUrl)
+  return enhancedGWBList(wijken)
 }
 
 export async function getBuurten (wijk) {
@@ -76,8 +77,8 @@ export async function getBuurten (wijk) {
   const wijkKey = getKeyFromUrl(wijkDetailUrl)
 
   const buurtenUrl = getUrl('/buurt/?buurtcombinatie=' + wijkKey)
-  const buurten = readPaginatedData(buurtenUrl)
-  return buurten
+  const buurten = await readPaginatedData(buurtenUrl)
+  return enhancedGWBList(buurten)
 }
 
 export function getGebiedType (gebiedCode) {
