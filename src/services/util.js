@@ -9,6 +9,17 @@ async function getLatestConfigCijfers (gwb, config) {
   return getConfigCijfers(gwb, config, CIJFERS.ALL)
 }
 
+function getTooltip (cijfers) {
+  return withYear => `
+    <h2>Definitie</h2>
+    <div>${cijfers.meta.definitie}</div>
+    <h2>Bron</h2>
+    <div>${cijfers.meta.bron}</div>
+    <h2>Peildatum</h2>
+    <div>${cijfers.meta.peildatum} ${withYear ? cijfers.recent.jaar : ''}</div>
+    `
+}
+
 async function getConfigCijfers (gwb, config, recentOrAll = CIJFERS.ALL) {
   let data = config.map(async c => {
     try {
@@ -17,6 +28,7 @@ async function getConfigCijfers (gwb, config, recentOrAll = CIJFERS.ALL) {
       return {
         ...cijfers,
         label: c.label || cijfers.meta.label,
+        tooltip: getTooltip(cijfers),
         post
       }
     } catch (e) {

@@ -8,7 +8,7 @@
     </thead>
     <tbody>
     <tr v-for="d in data" :key="d.label">
-      <td v-b-tooltip.hover v-b-tooltip.click v-b-tooltip.right :title="d.tooltip">
+      <td v-b-tooltip.hover.click v-b-tooltip.html.topright :title="d.tooltipText">
         {{d.label}}
       </td>
       <td
@@ -50,7 +50,7 @@ export default {
       const data = await util.getConfigCijfers(this.gwb, this.config)
 
       for (let item of data) {
-        item.tooltip = item.meta && item.meta.bron
+        item.tooltipText = item.tooltip ? item.tooltip(false) : ''
         for (let year of this.years) {
           item[year] = {jaar: year, waarde: ''}
           if (item.cijfers) {

@@ -36,7 +36,7 @@
       <table class="table table-sm">
         <thead>
         <tr>
-          <th v-for="(value, propertyName) in meta[0]" :key="propertyName">{{propertyName}}</th>
+          <th v-for="(v, p) in meta['BEVTOTAAL']" :key="p">{{p}}</th>
         </tr>
         </thead>
         <tbody>
@@ -111,6 +111,9 @@ export default {
     'meta' () {
       this.filteredMeta = this.meta
     }
+  },
+  created () {
+    this.filteredMeta = this.meta
   }
 }
 </script>
