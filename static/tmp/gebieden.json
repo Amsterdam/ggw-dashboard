@@ -1,0 +1,7106 @@
+[
+  {
+    "gebiedcode": "STAD",
+    "gebiedcodenaam": "Amsterdam",
+    "gebiednaam": "Amsterdam",
+    "Niveaunaam": "Amsterdam"
+  },
+  {
+    "gebiedcode": "A",
+    "gebiedcodenaam": "A Centrum",
+    "gebiednaam": "Centrum",
+    "Niveaunaam": "Stadsdelen"
+  },
+  {
+    "gebiedcode": "B",
+    "gebiedcodenaam": "B Westpoort",
+    "gebiednaam": "Westpoort",
+    "Niveaunaam": "Stadsdelen"
+  },
+  {
+    "gebiedcode": "E",
+    "gebiedcodenaam": "E West",
+    "gebiednaam": "West",
+    "Niveaunaam": "Stadsdelen"
+  },
+  {
+    "gebiedcode": "F",
+    "gebiedcodenaam": "F Nieuw-West",
+    "gebiednaam": "Nieuw-West",
+    "Niveaunaam": "Stadsdelen"
+  },
+  {
+    "gebiedcode": "K",
+    "gebiedcodenaam": "K Zuid",
+    "gebiednaam": "Zuid",
+    "Niveaunaam": "Stadsdelen"
+  },
+  {
+    "gebiedcode": "M",
+    "gebiedcodenaam": "M Oost",
+    "gebiednaam": "Oost",
+    "Niveaunaam": "Stadsdelen"
+  },
+  {
+    "gebiedcode": "N",
+    "gebiedcodenaam": "N Noord",
+    "gebiednaam": "Noord",
+    "Niveaunaam": "Stadsdelen"
+  },
+  {
+    "gebiedcode": "T",
+    "gebiedcodenaam": "T Zuidoost",
+    "gebiednaam": "Zuidoost",
+    "Niveaunaam": "Stadsdelen"
+  },
+  {
+    "gebiedcode": "Z",
+    "gebiedcodenaam": "Z onbekend",
+    "gebiednaam": "onbekend",
+    "Niveaunaam": "Stadsdelen"
+  },
+  {
+    "gebiedcode": "DX01",
+    "gebiedcodenaam": "DX01 Centrum-West",
+    "gebiednaam": "Centrum-West",
+    "Niveaunaam": "22 gebieden"
+  },
+  {
+    "gebiedcode": "DX02",
+    "gebiedcodenaam": "DX02 Centrum-Oost",
+    "gebiednaam": "Centrum-Oost",
+    "Niveaunaam": "22 gebieden"
+  },
+  {
+    "gebiedcode": "DX03",
+    "gebiedcodenaam": "DX03 Westerpark",
+    "gebiednaam": "Westerpark",
+    "Niveaunaam": "22 gebieden"
+  },
+  {
+    "gebiedcode": "DX04",
+    "gebiedcodenaam": "DX04 Bos en Lommer",
+    "gebiednaam": "Bos en Lommer",
+    "Niveaunaam": "22 gebieden"
+  },
+  {
+    "gebiedcode": "DX05",
+    "gebiedcodenaam": "DX05 Oud-West/De Baarsjes",
+    "gebiednaam": "Oud-West/De Baarsjes",
+    "Niveaunaam": "22 gebieden"
+  },
+  {
+    "gebiedcode": "DX06",
+    "gebiedcodenaam": "DX06 Geuzenveld-Slotermeer-Sloterdijken",
+    "gebiednaam": "Geuzenveld-Slotermeer-Sloterdijken",
+    "Niveaunaam": "22 gebieden"
+  },
+  {
+    "gebiedcode": "DX07",
+    "gebiedcodenaam": "DX07 Osdorp",
+    "gebiednaam": "Osdorp",
+    "Niveaunaam": "22 gebieden"
+  },
+  {
+    "gebiedcode": "DX08",
+    "gebiedcodenaam": "DX08 De Aker, Sloten en Nieuw Sloten",
+    "gebiednaam": "De Aker, Sloten en Nieuw Sloten",
+    "Niveaunaam": "22 gebieden"
+  },
+  {
+    "gebiedcode": "DX09",
+    "gebiedcodenaam": "DX09 Slotervaart",
+    "gebiednaam": "Slotervaart",
+    "Niveaunaam": "22 gebieden"
+  },
+  {
+    "gebiedcode": "DX10",
+    "gebiedcodenaam": "DX10 Oud-Zuid",
+    "gebiednaam": "Oud-Zuid",
+    "Niveaunaam": "22 gebieden"
+  },
+  {
+    "gebiedcode": "DX11",
+    "gebiedcodenaam": "DX11 Buitenveldert/Zuidas",
+    "gebiednaam": "Buitenveldert/Zuidas",
+    "Niveaunaam": "22 gebieden"
+  },
+  {
+    "gebiedcode": "DX12",
+    "gebiedcodenaam": "DX12 De Pijp/Rivierenbuurt",
+    "gebiednaam": "De Pijp/Rivierenbuurt",
+    "Niveaunaam": "22 gebieden"
+  },
+  {
+    "gebiedcode": "DX13",
+    "gebiedcodenaam": "DX13 Oud-Oost",
+    "gebiednaam": "Oud-Oost",
+    "Niveaunaam": "22 gebieden"
+  },
+  {
+    "gebiedcode": "DX14",
+    "gebiedcodenaam": "DX14 Indische Buurt/Oostelijk Havengebied",
+    "gebiednaam": "Indische Buurt/Oostelijk Havengebied",
+    "Niveaunaam": "22 gebieden"
+  },
+  {
+    "gebiedcode": "DX15",
+    "gebiedcodenaam": "DX15 Watergraafsmeer",
+    "gebiednaam": "Watergraafsmeer",
+    "Niveaunaam": "22 gebieden"
+  },
+  {
+    "gebiedcode": "DX16",
+    "gebiedcodenaam": "DX16 IJburg/Zeeburgereiland",
+    "gebiednaam": "IJburg/Zeeburgereiland",
+    "Niveaunaam": "22 gebieden"
+  },
+  {
+    "gebiedcode": "DX17",
+    "gebiedcodenaam": "DX17 Noord West",
+    "gebiednaam": "Noord West",
+    "Niveaunaam": "22 gebieden"
+  },
+  {
+    "gebiedcode": "DX18",
+    "gebiedcodenaam": "DX18 Oud Noord",
+    "gebiednaam": "Oud Noord",
+    "Niveaunaam": "22 gebieden"
+  },
+  {
+    "gebiedcode": "DX19",
+    "gebiedcodenaam": "DX19 Noord Oost",
+    "gebiednaam": "Noord Oost",
+    "Niveaunaam": "22 gebieden"
+  },
+  {
+    "gebiedcode": "DX20",
+    "gebiedcodenaam": "DX20 Bijlmer-Centrum",
+    "gebiednaam": "Bijlmer-Centrum",
+    "Niveaunaam": "22 gebieden"
+  },
+  {
+    "gebiedcode": "DX21",
+    "gebiedcodenaam": "DX21 Bijlmer-Oost",
+    "gebiednaam": "Bijlmer-Oost",
+    "Niveaunaam": "22 gebieden"
+  },
+  {
+    "gebiedcode": "DX22",
+    "gebiedcodenaam": "DX22 Gaasperdam/Driemond",
+    "gebiednaam": "Gaasperdam/Driemond",
+    "Niveaunaam": "22 gebieden"
+  },
+  {
+    "gebiedcode": "ZX99",
+    "gebiedcodenaam": "ZX99 buiten beschouwing",
+    "gebiednaam": "buiten beschouwing",
+    "Niveaunaam": "22 gebieden"
+  },
+  {
+    "gebiedcode": "A00",
+    "gebiedcodenaam": "A00 Burgwallen-Oude Zijde",
+    "gebiednaam": "Burgwallen-Oude Zijde",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "A01",
+    "gebiedcodenaam": "A01 Burgwallen-Nieuwe Zijde",
+    "gebiednaam": "Burgwallen-Nieuwe Zijde",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "A02",
+    "gebiedcodenaam": "A02 Grachtengordel-West",
+    "gebiednaam": "Grachtengordel-West",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "A03",
+    "gebiedcodenaam": "A03 Grachtengordel-Zuid",
+    "gebiednaam": "Grachtengordel-Zuid",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "A04",
+    "gebiedcodenaam": "A04 Nieuwmarkt/Lastage",
+    "gebiednaam": "Nieuwmarkt/Lastage",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "A05",
+    "gebiedcodenaam": "A05 Haarlemmerbuurt",
+    "gebiednaam": "Haarlemmerbuurt",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "A06",
+    "gebiedcodenaam": "A06 Jordaan",
+    "gebiednaam": "Jordaan",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "A07",
+    "gebiedcodenaam": "A07 De Weteringschans",
+    "gebiednaam": "De Weteringschans",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "A08",
+    "gebiedcodenaam": "A08 Weesperbuurt/Plantage",
+    "gebiednaam": "Weesperbuurt/Plantage",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "A09",
+    "gebiedcodenaam": "A09 Oostelijke Eilanden/Kadijken",
+    "gebiednaam": "Oostelijke Eilanden/Kadijken",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "B10",
+    "gebiedcodenaam": "B10 Westelijk Havengebied",
+    "gebiednaam": "Westelijk Havengebied",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "E12",
+    "gebiedcodenaam": "E12 Houthavens",
+    "gebiednaam": "Houthavens",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "E13",
+    "gebiedcodenaam": "E13 Spaarndammer- en Zeeheldenbuurt",
+    "gebiednaam": "Spaarndammer- en Zeeheldenbuurt",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "E14",
+    "gebiedcodenaam": "E14 Staatsliedenbuurt",
+    "gebiednaam": "Staatsliedenbuurt",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "E15",
+    "gebiedcodenaam": "E15 Centrale Markt",
+    "gebiednaam": "Centrale Markt",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "E16",
+    "gebiedcodenaam": "E16 Frederik Hendrikbuurt",
+    "gebiednaam": "Frederik Hendrikbuurt",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "E17",
+    "gebiedcodenaam": "E17 Da Costabuurt",
+    "gebiednaam": "Da Costabuurt",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "E18",
+    "gebiedcodenaam": "E18 Kinkerbuurt",
+    "gebiednaam": "Kinkerbuurt",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "E19",
+    "gebiedcodenaam": "E19 Van Lennepbuurt",
+    "gebiednaam": "Van Lennepbuurt",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "E20",
+    "gebiedcodenaam": "E20 Helmersbuurt",
+    "gebiednaam": "Helmersbuurt",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "E21",
+    "gebiedcodenaam": "E21 Overtoomse Sluis",
+    "gebiednaam": "Overtoomse Sluis",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "E22",
+    "gebiedcodenaam": "E22 Vondelbuurt",
+    "gebiednaam": "Vondelbuurt",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "E36",
+    "gebiedcodenaam": "E36 Sloterdijk",
+    "gebiednaam": "Sloterdijk",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "E37",
+    "gebiedcodenaam": "E37 Landlust",
+    "gebiednaam": "Landlust",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "E38",
+    "gebiedcodenaam": "E38 Erasmuspark",
+    "gebiednaam": "Erasmuspark",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "E39",
+    "gebiedcodenaam": "E39 De Kolenkit",
+    "gebiednaam": "De Kolenkit",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "E40",
+    "gebiedcodenaam": "E40 Geuzenbuurt",
+    "gebiednaam": "Geuzenbuurt",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "E41",
+    "gebiedcodenaam": "E41 Van Galenbuurt",
+    "gebiednaam": "Van Galenbuurt",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "E42",
+    "gebiedcodenaam": "E42 Hoofdweg e.o.",
+    "gebiednaam": "Hoofdweg e.o.",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "E43",
+    "gebiedcodenaam": "E43 Westindische Buurt",
+    "gebiednaam": "Westindische Buurt",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "E75",
+    "gebiedcodenaam": "E75 Chassébuurt",
+    "gebiednaam": "Chassébuurt",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "F11",
+    "gebiedcodenaam": "F11 Bedrijventerrein Sloterdijk",
+    "gebiednaam": "Bedrijventerrein Sloterdijk",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "F76",
+    "gebiedcodenaam": "F76 Slotermeer-Noordoost",
+    "gebiednaam": "Slotermeer-Noordoost",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "F77",
+    "gebiedcodenaam": "F77 Slotermeer-Zuidwest",
+    "gebiednaam": "Slotermeer-Zuidwest",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "F78",
+    "gebiedcodenaam": "F78 Geuzenveld",
+    "gebiednaam": "Geuzenveld",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "F79",
+    "gebiedcodenaam": "F79 Eendracht",
+    "gebiednaam": "Eendracht",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "F80",
+    "gebiedcodenaam": "F80 Lutkemeer/Ookmeer",
+    "gebiednaam": "Lutkemeer/Ookmeer",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "F81",
+    "gebiedcodenaam": "F81 Osdorp-Oost",
+    "gebiednaam": "Osdorp-Oost",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "F82",
+    "gebiedcodenaam": "F82 Osdorp-Midden",
+    "gebiednaam": "Osdorp-Midden",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "F83",
+    "gebiedcodenaam": "F83 De Punt",
+    "gebiednaam": "De Punt",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "F84",
+    "gebiedcodenaam": "F84 Middelveldsche Akerpolder",
+    "gebiednaam": "Middelveldsche Akerpolder",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "F85",
+    "gebiedcodenaam": "F85 Slotervaart Noord",
+    "gebiednaam": "Slotervaart Noord",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "F86",
+    "gebiedcodenaam": "F86 Overtoomse Veld",
+    "gebiednaam": "Overtoomse Veld",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "F87",
+    "gebiedcodenaam": "F87 Westlandgracht",
+    "gebiednaam": "Westlandgracht",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "F88",
+    "gebiedcodenaam": "F88 Sloter/Riekerpolder",
+    "gebiednaam": "Sloter/Riekerpolder",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "F89",
+    "gebiedcodenaam": "F89 Slotervaart Zuid",
+    "gebiednaam": "Slotervaart Zuid",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "K23",
+    "gebiedcodenaam": "K23 Zuidas",
+    "gebiednaam": "Zuidas",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "K24",
+    "gebiedcodenaam": "K24 Oude Pijp",
+    "gebiednaam": "Oude Pijp",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "K25",
+    "gebiedcodenaam": "K25 Nieuwe Pijp",
+    "gebiednaam": "Nieuwe Pijp",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "K26",
+    "gebiedcodenaam": "K26 Zuid Pijp",
+    "gebiednaam": "Zuid Pijp",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "K44",
+    "gebiedcodenaam": "K44 Hoofddorppleinbuurt",
+    "gebiednaam": "Hoofddorppleinbuurt",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "K45",
+    "gebiedcodenaam": "K45 Schinkelbuurt",
+    "gebiednaam": "Schinkelbuurt",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "K46",
+    "gebiedcodenaam": "K46 Willemspark",
+    "gebiednaam": "Willemspark",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "K47",
+    "gebiedcodenaam": "K47 Museumkwartier",
+    "gebiednaam": "Museumkwartier",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "K48",
+    "gebiedcodenaam": "K48 Stadionbuurt",
+    "gebiednaam": "Stadionbuurt",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "K49",
+    "gebiedcodenaam": "K49 Apollobuurt",
+    "gebiednaam": "Apollobuurt",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "K52",
+    "gebiedcodenaam": "K52 Scheldebuurt",
+    "gebiednaam": "Scheldebuurt",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "K53",
+    "gebiedcodenaam": "K53 IJselbuurt",
+    "gebiednaam": "IJselbuurt",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "K54",
+    "gebiedcodenaam": "K54 Rijnbuurt",
+    "gebiednaam": "Rijnbuurt",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "K59",
+    "gebiedcodenaam": "K59 Prinses Irenebuurt e.o.",
+    "gebiednaam": "Prinses Irenebuurt e.o.",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "K90",
+    "gebiedcodenaam": "K90 Buitenveldert-West",
+    "gebiednaam": "Buitenveldert-West",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "K91",
+    "gebiedcodenaam": "K91 Buitenveldert-Oost",
+    "gebiednaam": "Buitenveldert-Oost",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "M27",
+    "gebiedcodenaam": "M27 Weesperzijde",
+    "gebiednaam": "Weesperzijde",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "M28",
+    "gebiedcodenaam": "M28 Oosterparkbuurt",
+    "gebiednaam": "Oosterparkbuurt",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "M29",
+    "gebiedcodenaam": "M29 Dapperbuurt",
+    "gebiednaam": "Dapperbuurt",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "M30",
+    "gebiedcodenaam": "M30 Transvaalbuurt",
+    "gebiednaam": "Transvaalbuurt",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "M31",
+    "gebiedcodenaam": "M31 Indische Buurt West",
+    "gebiednaam": "Indische Buurt West",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "M32",
+    "gebiedcodenaam": "M32 Indische Buurt Oost",
+    "gebiednaam": "Indische Buurt Oost",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "M33",
+    "gebiedcodenaam": "M33 Oostelijk Havengebied",
+    "gebiednaam": "Oostelijk Havengebied",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "M34",
+    "gebiedcodenaam": "M34 Zeeburgereiland/Nieuwe diep",
+    "gebiednaam": "Zeeburgereiland/Nieuwe diep",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "M35",
+    "gebiedcodenaam": "M35 IJburg West",
+    "gebiednaam": "IJburg West",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "M50",
+    "gebiedcodenaam": "M50 IJburg Oost",
+    "gebiednaam": "IJburg Oost",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "M51",
+    "gebiedcodenaam": "M51 IJburg Zuid",
+    "gebiednaam": "IJburg Zuid",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "M55",
+    "gebiedcodenaam": "M55 Frankendael",
+    "gebiednaam": "Frankendael",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "M56",
+    "gebiedcodenaam": "M56 Middenmeer",
+    "gebiednaam": "Middenmeer",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "M57",
+    "gebiedcodenaam": "M57 Betondorp",
+    "gebiednaam": "Betondorp",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "M58",
+    "gebiedcodenaam": "M58 Omval/Overamstel",
+    "gebiednaam": "Omval/Overamstel",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "N60",
+    "gebiedcodenaam": "N60 Volewijck",
+    "gebiednaam": "Volewijck",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "N61",
+    "gebiedcodenaam": "N61 IJplein/Vogelbuurt",
+    "gebiednaam": "IJplein/Vogelbuurt",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "N62",
+    "gebiedcodenaam": "N62 Tuindorp Nieuwendam",
+    "gebiednaam": "Tuindorp Nieuwendam",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "N63",
+    "gebiedcodenaam": "N63 Tuindorp Buiksloot",
+    "gebiednaam": "Tuindorp Buiksloot",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "N64",
+    "gebiedcodenaam": "N64 Nieuwendammerdijk/Buiksloterdijk",
+    "gebiednaam": "Nieuwendammerdijk/Buiksloterdijk",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "N65",
+    "gebiedcodenaam": "N65 Tuindorp Oostzaan",
+    "gebiednaam": "Tuindorp Oostzaan",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "N66",
+    "gebiedcodenaam": "N66 Oostzanerwerf",
+    "gebiednaam": "Oostzanerwerf",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "N67",
+    "gebiedcodenaam": "N67 Kadoelen",
+    "gebiednaam": "Kadoelen",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "N68",
+    "gebiedcodenaam": "N68 Waterlandpleinbuurt",
+    "gebiednaam": "Waterlandpleinbuurt",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "N69",
+    "gebiedcodenaam": "N69 Buikslotermeer",
+    "gebiednaam": "Buikslotermeer",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "N70",
+    "gebiedcodenaam": "N70 Banne Buiksloot",
+    "gebiednaam": "Banne Buiksloot",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "N71",
+    "gebiedcodenaam": "N71 Noordelijke IJ-oevers West",
+    "gebiednaam": "Noordelijke IJ-oevers West",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "N72",
+    "gebiedcodenaam": "N72 Noordelijke IJ-oevers Oost",
+    "gebiednaam": "Noordelijke IJ-oevers Oost",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "N73",
+    "gebiedcodenaam": "N73 Waterland",
+    "gebiednaam": "Waterland",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "N74",
+    "gebiedcodenaam": "N74 Elzenhagen",
+    "gebiednaam": "Elzenhagen",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "T92",
+    "gebiedcodenaam": "T92 Amstel III/Bullewijk",
+    "gebiednaam": "Amstel III/Bullewijk",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "T93",
+    "gebiedcodenaam": "T93 Bijlmer-Centrum (D,F,H)",
+    "gebiednaam": "Bijlmer-Centrum (D,F,H)",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "T94",
+    "gebiedcodenaam": "T94 Bijlmer-Oost (E,G,K)",
+    "gebiednaam": "Bijlmer-Oost (E,G,K)",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "T95",
+    "gebiedcodenaam": "T95 Nellestein",
+    "gebiednaam": "Nellestein",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "T96",
+    "gebiedcodenaam": "T96 Holendrecht/Reigersbos",
+    "gebiednaam": "Holendrecht/Reigersbos",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "T97",
+    "gebiedcodenaam": "T97 Gein",
+    "gebiednaam": "Gein",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "T98",
+    "gebiedcodenaam": "T98 Driemond",
+    "gebiednaam": "Driemond",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "Z99",
+    "gebiedcodenaam": "Z99 buiten beschouwing",
+    "gebiednaam": "buiten beschouwing",
+    "Niveaunaam": "Wijken"
+  },
+  {
+    "gebiedcode": "AS01",
+    "gebiedcodenaam": "AS01 Westelijke Eilanden",
+    "gebiednaam": "Westelijke Eilanden",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "AS02",
+    "gebiedcodenaam": "AS02 Westerdok en IJdok",
+    "gebiednaam": "Westerdok en IJdok",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "AS03",
+    "gebiedcodenaam": "AS03 Haarlemmerbuurt",
+    "gebiednaam": "Haarlemmerbuurt",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "AS04",
+    "gebiedcodenaam": "AS04 Westelijke Grachtengordel",
+    "gebiednaam": "Westelijke Grachtengordel",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "AS05",
+    "gebiedcodenaam": "AS05 Noordelijke Jordaan",
+    "gebiednaam": "Noordelijke Jordaan",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "AS06",
+    "gebiedcodenaam": "AS06 Zuidelijke Jordaan",
+    "gebiednaam": "Zuidelijke Jordaan",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "AS07",
+    "gebiedcodenaam": "AS07 Burgwallen Oude Zijde Noord",
+    "gebiednaam": "Burgwallen Oude Zijde Noord",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "AS08",
+    "gebiedcodenaam": "AS08 Burgwallen Nieuwe Zijde",
+    "gebiednaam": "Burgwallen Nieuwe Zijde",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "AS09",
+    "gebiedcodenaam": "AS09 Burgwallen Oude Zijde Zuid",
+    "gebiednaam": "Burgwallen Oude Zijde Zuid",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "AS10",
+    "gebiedcodenaam": "AS10 Leidsebuurt",
+    "gebiednaam": "Leidsebuurt",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "AS11",
+    "gebiedcodenaam": "AS11 Weteringbuurt/Frederikspleinbuurt",
+    "gebiednaam": "Weteringbuurt/Frederikspleinbuurt",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "AS12",
+    "gebiedcodenaam": "AS12 Zuidelijke Grachtengordel",
+    "gebiednaam": "Zuidelijke Grachtengordel",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "AS13",
+    "gebiedcodenaam": "AS13 Rembrandtplein/Reguliersbuurt",
+    "gebiednaam": "Rembrandtplein/Reguliersbuurt",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "AS14",
+    "gebiedcodenaam": "AS14 Oosterdokseiland",
+    "gebiednaam": "Oosterdokseiland",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "AS15",
+    "gebiedcodenaam": "AS15 Nieuwmarktbuurt",
+    "gebiednaam": "Nieuwmarktbuurt",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "AS16",
+    "gebiedcodenaam": "AS16 Waterloopleinbuurt",
+    "gebiednaam": "Waterloopleinbuurt",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "AS17",
+    "gebiedcodenaam": "AS17 Oostelijke Eilanden",
+    "gebiednaam": "Oostelijke Eilanden",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "AS18",
+    "gebiedcodenaam": "AS18 Kadijken",
+    "gebiednaam": "Kadijken",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "AS19",
+    "gebiedcodenaam": "AS19 Plantagebuurt",
+    "gebiednaam": "Plantagebuurt",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "AS20",
+    "gebiedcodenaam": "AS20 Weesperbuurt",
+    "gebiednaam": "Weesperbuurt",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "ES01",
+    "gebiedcodenaam": "ES01 Houthaven",
+    "gebiednaam": "Houthaven",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "ES02",
+    "gebiedcodenaam": "ES02 Zeeheldenbuurt",
+    "gebiednaam": "Zeeheldenbuurt",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "ES03",
+    "gebiedcodenaam": "ES03 Spaarndammerbuurt",
+    "gebiednaam": "Spaarndammerbuurt",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "ES04",
+    "gebiedcodenaam": "ES04 Staatsliedenbuurt",
+    "gebiednaam": "Staatsliedenbuurt",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "ES05",
+    "gebiedcodenaam": "ES05 GWL-terrein",
+    "gebiednaam": "GWL-terrein",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "ES06",
+    "gebiedcodenaam": "ES06 Westerkwartier",
+    "gebiednaam": "Westerkwartier",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "ES07",
+    "gebiedcodenaam": "ES07 Frederik Hendrikbuurt",
+    "gebiednaam": "Frederik Hendrikbuurt",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "ES08",
+    "gebiedcodenaam": "ES08 Da Costabuurt",
+    "gebiednaam": "Da Costabuurt",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "ES09",
+    "gebiedcodenaam": "ES09 Bellamybuurt",
+    "gebiednaam": "Bellamybuurt",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "ES10",
+    "gebiedcodenaam": "ES10 Borgerbuurt",
+    "gebiednaam": "Borgerbuurt",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "ES11",
+    "gebiedcodenaam": "ES11 Helmersbuurt",
+    "gebiednaam": "Helmersbuurt",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "ES12",
+    "gebiedcodenaam": "ES12 Cremerbuurt",
+    "gebiednaam": "Cremerbuurt",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "ES13",
+    "gebiedcodenaam": "ES13 Vondelparkbuurt Noord",
+    "gebiednaam": "Vondelparkbuurt Noord",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "ES14",
+    "gebiedcodenaam": "ES14 Oud Sloterdijk",
+    "gebiednaam": "Oud Sloterdijk",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "ES15",
+    "gebiedcodenaam": "ES15 Landlust",
+    "gebiednaam": "Landlust",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "ES16",
+    "gebiedcodenaam": "ES16 Gibraltarbuurt",
+    "gebiednaam": "Gibraltarbuurt",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "ES17",
+    "gebiedcodenaam": "ES17 Gulden Winckelbuurt",
+    "gebiednaam": "Gulden Winckelbuurt",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "ES18",
+    "gebiedcodenaam": "ES18 Erasmusparkbuurt",
+    "gebiednaam": "Erasmusparkbuurt",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "ES19",
+    "gebiedcodenaam": "ES19 Robert Scottbuurt",
+    "gebiednaam": "Robert Scottbuurt",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "ES20",
+    "gebiedcodenaam": "ES20 Laan van Spartaan",
+    "gebiednaam": "Laan van Spartaan",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "ES21",
+    "gebiedcodenaam": "ES21 Kolenkitbuurt",
+    "gebiednaam": "Kolenkitbuurt",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "ES22",
+    "gebiedcodenaam": "ES22 Geuzenbuurt",
+    "gebiednaam": "Geuzenbuurt",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "ES23",
+    "gebiedcodenaam": "ES23 Chassébuurt",
+    "gebiednaam": "Chassébuurt",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "ES24",
+    "gebiedcodenaam": "ES24 Mercatorbuurt-Noord",
+    "gebiednaam": "Mercatorbuurt-Noord",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "ES25",
+    "gebiedcodenaam": "ES25 Mercatorbuurt-Zuid",
+    "gebiednaam": "Mercatorbuurt-Zuid",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "ES26",
+    "gebiedcodenaam": "ES26 Postjesbuurt",
+    "gebiednaam": "Postjesbuurt",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "ES27",
+    "gebiedcodenaam": "ES27 Sloterdijk I",
+    "gebiednaam": "Sloterdijk I",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "ES61",
+    "gebiedcodenaam": "ES61 Marcantibuurt",
+    "gebiednaam": "Marcantibuurt",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "ES99",
+    "gebiedcodenaam": "ES99 Westerpark",
+    "gebiednaam": "Westerpark",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "FS11",
+    "gebiedcodenaam": "FS11 Bedrijventerrein Sloterdijk",
+    "gebiednaam": "Bedrijventerrein Sloterdijk",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "FS76",
+    "gebiedcodenaam": "FS76 Slotermeer-Noordoost",
+    "gebiednaam": "Slotermeer-Noordoost",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "FS77",
+    "gebiedcodenaam": "FS77 Slotermeer-Zuidwest",
+    "gebiednaam": "Slotermeer-Zuidwest",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "FS78",
+    "gebiedcodenaam": "FS78 Geuzenveld",
+    "gebiednaam": "Geuzenveld",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "FS79",
+    "gebiedcodenaam": "FS79 de Eendracht",
+    "gebiednaam": "de Eendracht",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "FS80",
+    "gebiedcodenaam": "FS80 Lutkemeer/Ookmeer",
+    "gebiednaam": "Lutkemeer/Ookmeer",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "FS81",
+    "gebiedcodenaam": "FS81 Osdorp-Oost",
+    "gebiednaam": "Osdorp-Oost",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "FS82",
+    "gebiedcodenaam": "FS82 Osdorp-Midden",
+    "gebiednaam": "Osdorp-Midden",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "FS83",
+    "gebiedcodenaam": "FS83 De Punt",
+    "gebiednaam": "De Punt",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "FS84",
+    "gebiedcodenaam": "FS84 Middelveldsche Akerpolder",
+    "gebiednaam": "Middelveldsche Akerpolder",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "FS85",
+    "gebiedcodenaam": "FS85 Slotervaart Noord",
+    "gebiednaam": "Slotervaart Noord",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "FS86",
+    "gebiedcodenaam": "FS86 Overtoomse Veld",
+    "gebiednaam": "Overtoomse Veld",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "FS87",
+    "gebiedcodenaam": "FS87 Westlandgracht",
+    "gebiednaam": "Westlandgracht",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "FS88",
+    "gebiedcodenaam": "FS88 Sloter/Riekerpolder",
+    "gebiednaam": "Sloter/Riekerpolder",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "FS89",
+    "gebiedcodenaam": "FS89 Slotervaart Zuid",
+    "gebiednaam": "Slotervaart Zuid",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "KS23",
+    "gebiedcodenaam": "KS23 Zuidas",
+    "gebiednaam": "Zuidas",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "KS24",
+    "gebiedcodenaam": "KS24 Oude Pijp",
+    "gebiednaam": "Oude Pijp",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "KS25",
+    "gebiedcodenaam": "KS25 Nieuwe Pijp",
+    "gebiednaam": "Nieuwe Pijp",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "KS26",
+    "gebiedcodenaam": "KS26 Zuid Pijp",
+    "gebiednaam": "Zuid Pijp",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "KS44",
+    "gebiedcodenaam": "KS44 Hoofddorppleinbuurt",
+    "gebiednaam": "Hoofddorppleinbuurt",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "KS45",
+    "gebiedcodenaam": "KS45 Schinkelbuurt",
+    "gebiednaam": "Schinkelbuurt",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "KS46",
+    "gebiedcodenaam": "KS46 Willemspark",
+    "gebiednaam": "Willemspark",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "KS47",
+    "gebiedcodenaam": "KS47 Museumkwartier",
+    "gebiednaam": "Museumkwartier",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "KS48",
+    "gebiedcodenaam": "KS48 Stadionbuurt",
+    "gebiednaam": "Stadionbuurt",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "KS49",
+    "gebiedcodenaam": "KS49 Apollobuurt",
+    "gebiednaam": "Apollobuurt",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "KS52",
+    "gebiedcodenaam": "KS52 Scheldebuurt",
+    "gebiednaam": "Scheldebuurt",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "KS53",
+    "gebiedcodenaam": "KS53 IJselbuurt",
+    "gebiednaam": "IJselbuurt",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "KS54",
+    "gebiedcodenaam": "KS54 Rijnbuurt",
+    "gebiednaam": "Rijnbuurt",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "KS59",
+    "gebiedcodenaam": "KS59 Prinses Irenebuurt e.o.",
+    "gebiednaam": "Prinses Irenebuurt e.o.",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "KS90",
+    "gebiedcodenaam": "KS90 Buitenveldert-West",
+    "gebiednaam": "Buitenveldert-West",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "KS91",
+    "gebiedcodenaam": "KS91 Buitenveldert-Oost",
+    "gebiednaam": "Buitenveldert-Oost",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "MS01",
+    "gebiedcodenaam": "MS01 Weesperzijde",
+    "gebiednaam": "Weesperzijde",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "MS02",
+    "gebiedcodenaam": "MS02 Oosterparkbuurt",
+    "gebiednaam": "Oosterparkbuurt",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "MS03",
+    "gebiedcodenaam": "MS03 Dapperbuurt",
+    "gebiednaam": "Dapperbuurt",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "MS04",
+    "gebiedcodenaam": "MS04 Oostpoort",
+    "gebiednaam": "Oostpoort",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "MS05",
+    "gebiedcodenaam": "MS05 Transvaalbuurt",
+    "gebiednaam": "Transvaalbuurt",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "MS06",
+    "gebiedcodenaam": "MS06 Omval-Van der Kunbuurt",
+    "gebiednaam": "Omval-Van der Kunbuurt",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "MS07",
+    "gebiedcodenaam": "MS07 Don Bosco",
+    "gebiednaam": "Don Bosco",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "MS08",
+    "gebiedcodenaam": "MS08 Julianapark",
+    "gebiednaam": "Julianapark",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "MS09",
+    "gebiedcodenaam": "MS09 Amsteldorp",
+    "gebiednaam": "Amsteldorp",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "MS10",
+    "gebiedcodenaam": "MS10 Tuindorp Frankendael",
+    "gebiednaam": "Tuindorp Frankendael",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "MS11",
+    "gebiedcodenaam": "MS11 Middenmeer",
+    "gebiednaam": "Middenmeer",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "MS12",
+    "gebiedcodenaam": "MS12 Park de Meer",
+    "gebiednaam": "Park de Meer",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "MS13",
+    "gebiedcodenaam": "MS13 Science Park",
+    "gebiednaam": "Science Park",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "MS14",
+    "gebiedcodenaam": "MS14 Betondorp",
+    "gebiednaam": "Betondorp",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "MS15",
+    "gebiedcodenaam": "MS15 Weespertrekvaart",
+    "gebiednaam": "Weespertrekvaart",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "MS16",
+    "gebiedcodenaam": "MS16 Amstelkwartier",
+    "gebiednaam": "Amstelkwartier",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "MS17",
+    "gebiedcodenaam": "MS17 Java eiland",
+    "gebiednaam": "Java eiland",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "MS18",
+    "gebiedcodenaam": "MS18 KNSM eiland",
+    "gebiednaam": "KNSM eiland",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "MS19",
+    "gebiedcodenaam": "MS19 Oostelijke Handelskade",
+    "gebiednaam": "Oostelijke Handelskade",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "MS20",
+    "gebiedcodenaam": "MS20 Sporenburg",
+    "gebiednaam": "Sporenburg",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "MS21",
+    "gebiedcodenaam": "MS21 Borneo",
+    "gebiednaam": "Borneo",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "MS22",
+    "gebiedcodenaam": "MS22 Cruquius",
+    "gebiednaam": "Cruquius",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "MS23",
+    "gebiedcodenaam": "MS23 Timorpleinbuurt",
+    "gebiednaam": "Timorpleinbuurt",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "MS24",
+    "gebiedcodenaam": "MS24 Makassarpleinbuurt",
+    "gebiednaam": "Makassarpleinbuurt",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "MS25",
+    "gebiedcodenaam": "MS25 Ambonpleinbuurt",
+    "gebiednaam": "Ambonpleinbuurt",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "MS26",
+    "gebiedcodenaam": "MS26 Sumatraplantsoenbuurt",
+    "gebiednaam": "Sumatraplantsoenbuurt",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "MS27",
+    "gebiedcodenaam": "MS27 Zeeburgereiland",
+    "gebiednaam": "Zeeburgereiland",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "MS28",
+    "gebiedcodenaam": "MS28 Steigereiland",
+    "gebiednaam": "Steigereiland",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "MS29",
+    "gebiedcodenaam": "MS29 Rieteilanden-West",
+    "gebiednaam": "Rieteilanden-West",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "MS30",
+    "gebiedcodenaam": "MS30 Haveneiland-West",
+    "gebiednaam": "Haveneiland-West",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "MS31",
+    "gebiedcodenaam": "MS31 Haveneiland-Oost",
+    "gebiednaam": "Haveneiland-Oost",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "NS60",
+    "gebiedcodenaam": "NS60 Volewijck",
+    "gebiednaam": "Volewijck",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "NS61",
+    "gebiedcodenaam": "NS61 IJplein/Vogelbuurt",
+    "gebiednaam": "IJplein/Vogelbuurt",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "NS62",
+    "gebiedcodenaam": "NS62 Tuindorp Nieuwendam",
+    "gebiednaam": "Tuindorp Nieuwendam",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "NS63",
+    "gebiedcodenaam": "NS63 Tuindorp Buiksloot",
+    "gebiednaam": "Tuindorp Buiksloot",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "NS64",
+    "gebiedcodenaam": "NS64 Nieuwendammerdijk/Buiksloterdijk",
+    "gebiednaam": "Nieuwendammerdijk/Buiksloterdijk",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "NS65",
+    "gebiedcodenaam": "NS65 Tuindorp Oostzaan",
+    "gebiednaam": "Tuindorp Oostzaan",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "NS66",
+    "gebiedcodenaam": "NS66 Oostzanerwerf",
+    "gebiednaam": "Oostzanerwerf",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "NS67",
+    "gebiedcodenaam": "NS67 Kadoelen",
+    "gebiednaam": "Kadoelen",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "NS68",
+    "gebiedcodenaam": "NS68 Waterlandpleinbuurt",
+    "gebiednaam": "Waterlandpleinbuurt",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "NS69",
+    "gebiedcodenaam": "NS69 Buikslotermeer",
+    "gebiednaam": "Buikslotermeer",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "NS70",
+    "gebiedcodenaam": "NS70 Banne Buiksloot",
+    "gebiednaam": "Banne Buiksloot",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "NS71",
+    "gebiedcodenaam": "NS71 Noordelijke IJ-oevers West",
+    "gebiednaam": "Noordelijke IJ-oevers West",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "NS72",
+    "gebiedcodenaam": "NS72 Noordelijke IJ-oevers Oost",
+    "gebiednaam": "Noordelijke IJ-oevers Oost",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "NS73",
+    "gebiedcodenaam": "NS73 Waterland",
+    "gebiednaam": "Waterland",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "NS74",
+    "gebiedcodenaam": "NS74 Elzenhagen",
+    "gebiednaam": "Elzenhagen",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "TS01",
+    "gebiedcodenaam": "TS01 E/G-buurt Noord",
+    "gebiednaam": "E/G-buurt Noord",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "TS02",
+    "gebiedcodenaam": "TS02 K-buurt West",
+    "gebiednaam": "K-buurt West",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "TS03",
+    "gebiedcodenaam": "TS03 K-buurt Midden",
+    "gebiednaam": "K-buurt Midden",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "TS04",
+    "gebiedcodenaam": "TS04 G/K-buurt Oost",
+    "gebiednaam": "G/K-buurt Oost",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "TS05",
+    "gebiedcodenaam": "TS05 D-buurt",
+    "gebiednaam": "D-buurt",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "TS06",
+    "gebiedcodenaam": "TS06 F-buurt",
+    "gebiednaam": "F-buurt",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "TS07",
+    "gebiedcodenaam": "TS07 Vogeltjeswei/Nelson Mandelapark",
+    "gebiednaam": "Vogeltjeswei/Nelson Mandelapark",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "TS08",
+    "gebiedcodenaam": "TS08 H-buurt",
+    "gebiednaam": "H-buurt",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "TS09",
+    "gebiedcodenaam": "TS09 Amsterdamse Poort/Centrumgebied",
+    "gebiednaam": "Amsterdamse Poort/Centrumgebied",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "TS10",
+    "gebiedcodenaam": "TS10 Holendrecht-West",
+    "gebiednaam": "Holendrecht-West",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "TS11",
+    "gebiedcodenaam": "TS11 Holendrecht-Oost",
+    "gebiednaam": "Holendrecht-Oost",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "TS12",
+    "gebiedcodenaam": "TS12 Reigersbos",
+    "gebiednaam": "Reigersbos",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "TS13",
+    "gebiedcodenaam": "TS13 Gein",
+    "gebiednaam": "Gein",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "TS14",
+    "gebiedcodenaam": "TS14 Nellestein",
+    "gebiednaam": "Nellestein",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "TS15",
+    "gebiedcodenaam": "TS15 Amstel III (excl. Arena)",
+    "gebiednaam": "Amstel III (excl. Arena)",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "TS16",
+    "gebiedcodenaam": "TS16 Driemond",
+    "gebiednaam": "Driemond",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "TS17",
+    "gebiedcodenaam": "TS17 Arenagebied",
+    "gebiednaam": "Arenagebied",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "TS18",
+    "gebiedcodenaam": "TS18 Venserpolder",
+    "gebiednaam": "Venserpolder",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "ZS99",
+    "gebiedcodenaam": "ZS99 buiten beschouwing",
+    "gebiednaam": "buiten beschouwing",
+    "Niveaunaam": "Alternatieve buurten"
+  },
+  {
+    "gebiedcode": "AA02",
+    "gebiedcodenaam": "AA02 Gebied West",
+    "gebiednaam": "Gebied West",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "AA03",
+    "gebiedcodenaam": "AA03 Gebied Zuid",
+    "gebiednaam": "Gebied Zuid",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "AA04",
+    "gebiedcodenaam": "AA04 Gebied Oost",
+    "gebiednaam": "Gebied Oost",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "AA11",
+    "gebiedcodenaam": "AA11 Gebied 1011",
+    "gebiednaam": "Gebied 1011",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "AA12",
+    "gebiedcodenaam": "AA12 Gebied 1012",
+    "gebiednaam": "Gebied 1012",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "EA01",
+    "gebiedcodenaam": "EA01 Westerpark",
+    "gebiednaam": "Westerpark",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "EA02",
+    "gebiedcodenaam": "EA02 Oud-West",
+    "gebiednaam": "Oud-West",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "EA03",
+    "gebiedcodenaam": "EA03 Bos en Lommer",
+    "gebiednaam": "Bos en Lommer",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "EA04",
+    "gebiedcodenaam": "EA04 De Baarsjes",
+    "gebiednaam": "De Baarsjes",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "FA01",
+    "gebiedcodenaam": "FA01 Slotervaart Zuid",
+    "gebiednaam": "Slotervaart Zuid",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "FA02",
+    "gebiedcodenaam": "FA02 Slotervaart Noord",
+    "gebiednaam": "Slotervaart Noord",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "FA03",
+    "gebiedcodenaam": "FA03 Slotermeer Oost",
+    "gebiednaam": "Slotermeer Oost",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "FA04",
+    "gebiedcodenaam": "FA04 Slotermeer West",
+    "gebiednaam": "Slotermeer West",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "FA05",
+    "gebiedcodenaam": "FA05 Geuzenveld",
+    "gebiednaam": "Geuzenveld",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "FA06",
+    "gebiedcodenaam": "FA06 Nieuw-West Midden",
+    "gebiednaam": "Nieuw-West Midden",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "FA07",
+    "gebiedcodenaam": "FA07 Osdorp West",
+    "gebiednaam": "Osdorp West",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "FA08",
+    "gebiedcodenaam": "FA08 De Aker",
+    "gebiednaam": "De Aker",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "FA09",
+    "gebiedcodenaam": "FA09 Sloten en Nieuw Sloten",
+    "gebiednaam": "Sloten en Nieuw Sloten",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "FA10",
+    "gebiedcodenaam": "FA10 Bedrijventerrein Sloterdijk",
+    "gebiednaam": "Bedrijventerrein Sloterdijk",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "KA01",
+    "gebiedcodenaam": "KA01 De Pijp",
+    "gebiednaam": "De Pijp",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "KA02",
+    "gebiedcodenaam": "KA02 Rivierenbuurt",
+    "gebiednaam": "Rivierenbuurt",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "KA03",
+    "gebiedcodenaam": "KA03 Oud-Zuid",
+    "gebiednaam": "Oud-Zuid",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "KA04",
+    "gebiedcodenaam": "KA04 Buitenveldert",
+    "gebiednaam": "Buitenveldert",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "KA05",
+    "gebiedcodenaam": "KA05 Zuidas",
+    "gebiednaam": "Zuidas",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "MA01",
+    "gebiedcodenaam": "MA01 Oud-Oost",
+    "gebiednaam": "Oud-Oost",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "MA02",
+    "gebiedcodenaam": "MA02 Watergraafsmeer",
+    "gebiednaam": "Watergraafsmeer",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "MA03",
+    "gebiedcodenaam": "MA03 Oostelijk Havengebied",
+    "gebiednaam": "Oostelijk Havengebied",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "MA04",
+    "gebiedcodenaam": "MA04 Indische Buurt",
+    "gebiednaam": "Indische Buurt",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "MA05",
+    "gebiedcodenaam": "MA05 IJburg / Zeeburgereiland",
+    "gebiednaam": "IJburg / Zeeburgereiland",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "NA60",
+    "gebiedcodenaam": "NA60 Volewijck",
+    "gebiednaam": "Volewijck",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "NA61",
+    "gebiedcodenaam": "NA61 IJplein/Vogelbuurt",
+    "gebiednaam": "IJplein/Vogelbuurt",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "NA62",
+    "gebiedcodenaam": "NA62 Tuindorp Nieuwendam",
+    "gebiednaam": "Tuindorp Nieuwendam",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "NA63",
+    "gebiedcodenaam": "NA63 Tuindorp Buiksloot",
+    "gebiednaam": "Tuindorp Buiksloot",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "NA64",
+    "gebiedcodenaam": "NA64 Nieuwendammerdijk/Buiksloterdijk",
+    "gebiednaam": "Nieuwendammerdijk/Buiksloterdijk",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "NA65",
+    "gebiedcodenaam": "NA65 Tuindorp Oostzaan",
+    "gebiednaam": "Tuindorp Oostzaan",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "NA66",
+    "gebiedcodenaam": "NA66 Oostzanerwerf",
+    "gebiednaam": "Oostzanerwerf",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "NA67",
+    "gebiedcodenaam": "NA67 Kadoelen",
+    "gebiednaam": "Kadoelen",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "NA68",
+    "gebiedcodenaam": "NA68 Waterlandpleinbuurt",
+    "gebiednaam": "Waterlandpleinbuurt",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "NA69",
+    "gebiedcodenaam": "NA69 Buikslotermeer",
+    "gebiednaam": "Buikslotermeer",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "NA70",
+    "gebiedcodenaam": "NA70 Banne Buiksloot",
+    "gebiednaam": "Banne Buiksloot",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "NA71",
+    "gebiedcodenaam": "NA71 Noordelijke IJ-oevers West",
+    "gebiednaam": "Noordelijke IJ-oevers West",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "NA72",
+    "gebiedcodenaam": "NA72 Noordelijke IJ-oevers Oost",
+    "gebiednaam": "Noordelijke IJ-oevers Oost",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "NA73",
+    "gebiedcodenaam": "NA73 Waterland",
+    "gebiednaam": "Waterland",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "NA74",
+    "gebiedcodenaam": "NA74 Elzenhagen",
+    "gebiednaam": "Elzenhagen",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "TA01",
+    "gebiedcodenaam": "TA01 EGK-buurt",
+    "gebiednaam": "EGK-buurt",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "TA02",
+    "gebiedcodenaam": "TA02 Venserpolder",
+    "gebiednaam": "Venserpolder",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "TA03",
+    "gebiedcodenaam": "TA03 DF-buurt + Vogeltjeswei",
+    "gebiednaam": "DF-buurt + Vogeltjeswei",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "TA04",
+    "gebiedcodenaam": "TA04 H-buurt",
+    "gebiednaam": "H-buurt",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "TA05",
+    "gebiedcodenaam": "TA05 Holendrecht",
+    "gebiednaam": "Holendrecht",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "TA06",
+    "gebiedcodenaam": "TA06 Reigersbos + Gein + Nellestein",
+    "gebiednaam": "Reigersbos + Gein + Nellestein",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "TA08",
+    "gebiedcodenaam": "TA08 Amsterdamse Poort/Centrumgebied",
+    "gebiednaam": "Amsterdamse Poort/Centrumgebied",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "TA09",
+    "gebiedcodenaam": "TA09 Amstel III",
+    "gebiednaam": "Amstel III",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "TA10",
+    "gebiedcodenaam": "TA10 Driemond",
+    "gebiednaam": "Driemond",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "ZA99",
+    "gebiedcodenaam": "ZA99 buiten beschouwing",
+    "gebiednaam": "buiten beschouwing",
+    "Niveaunaam": "Rayons"
+  },
+  {
+    "gebiedcode": "DY01",
+    "gebiedcodenaam": "DY01 Centrum-West",
+    "gebiednaam": "Centrum-West",
+    "Niveaunaam": "27 gebieden"
+  },
+  {
+    "gebiedcode": "DY02",
+    "gebiedcodenaam": "DY02 Centrum-Oost",
+    "gebiednaam": "Centrum-Oost",
+    "Niveaunaam": "27 gebieden"
+  },
+  {
+    "gebiedcode": "DY03",
+    "gebiedcodenaam": "DY03 Westerpark",
+    "gebiednaam": "Westerpark",
+    "Niveaunaam": "27 gebieden"
+  },
+  {
+    "gebiedcode": "DY04",
+    "gebiedcodenaam": "DY04 Bos en Lommer",
+    "gebiednaam": "Bos en Lommer",
+    "Niveaunaam": "27 gebieden"
+  },
+  {
+    "gebiedcode": "DY05",
+    "gebiedcodenaam": "DY05 Oud-West",
+    "gebiednaam": "Oud-West",
+    "Niveaunaam": "27 gebieden"
+  },
+  {
+    "gebiedcode": "DY06",
+    "gebiedcodenaam": "DY06 De Baarsjes",
+    "gebiednaam": "De Baarsjes",
+    "Niveaunaam": "27 gebieden"
+  },
+  {
+    "gebiedcode": "DY07",
+    "gebiedcodenaam": "DY07 Slotermeer-Sloterdijken",
+    "gebiednaam": "Slotermeer-Sloterdijken",
+    "Niveaunaam": "27 gebieden"
+  },
+  {
+    "gebiedcode": "DY08",
+    "gebiedcodenaam": "DY08 Geuzenveld",
+    "gebiednaam": "Geuzenveld",
+    "Niveaunaam": "27 gebieden"
+  },
+  {
+    "gebiedcode": "DY09",
+    "gebiedcodenaam": "DY09 Osdorp",
+    "gebiednaam": "Osdorp",
+    "Niveaunaam": "27 gebieden"
+  },
+  {
+    "gebiedcode": "DY10",
+    "gebiedcodenaam": "DY10 De Aker, Sloten en Nieuw Sloten",
+    "gebiednaam": "De Aker, Sloten en Nieuw Sloten",
+    "Niveaunaam": "27 gebieden"
+  },
+  {
+    "gebiedcode": "DY11",
+    "gebiedcodenaam": "DY11 Slotervaart",
+    "gebiednaam": "Slotervaart",
+    "Niveaunaam": "27 gebieden"
+  },
+  {
+    "gebiedcode": "DY12",
+    "gebiedcodenaam": "DY12 Oud-Zuid-West",
+    "gebiednaam": "Oud-Zuid-West",
+    "Niveaunaam": "27 gebieden"
+  },
+  {
+    "gebiedcode": "DY13",
+    "gebiedcodenaam": "DY13 Oud-Zuid-Oost",
+    "gebiednaam": "Oud-Zuid-Oost",
+    "Niveaunaam": "27 gebieden"
+  },
+  {
+    "gebiedcode": "DY14",
+    "gebiedcodenaam": "DY14 Buitenveldert/Zuidas",
+    "gebiednaam": "Buitenveldert/Zuidas",
+    "Niveaunaam": "27 gebieden"
+  },
+  {
+    "gebiedcode": "DY15",
+    "gebiedcodenaam": "DY15 De Pijp",
+    "gebiednaam": "De Pijp",
+    "Niveaunaam": "27 gebieden"
+  },
+  {
+    "gebiedcode": "DY16",
+    "gebiedcodenaam": "DY16 Rivierenbuurt",
+    "gebiednaam": "Rivierenbuurt",
+    "Niveaunaam": "27 gebieden"
+  },
+  {
+    "gebiedcode": "DY17",
+    "gebiedcodenaam": "DY17 Oud-Oost",
+    "gebiednaam": "Oud-Oost",
+    "Niveaunaam": "27 gebieden"
+  },
+  {
+    "gebiedcode": "DY18",
+    "gebiedcodenaam": "DY18 Indische Buurt",
+    "gebiednaam": "Indische Buurt",
+    "Niveaunaam": "27 gebieden"
+  },
+  {
+    "gebiedcode": "DY19",
+    "gebiedcodenaam": "DY19 Oostelijk Havengebied",
+    "gebiednaam": "Oostelijk Havengebied",
+    "Niveaunaam": "27 gebieden"
+  },
+  {
+    "gebiedcode": "DY20",
+    "gebiedcodenaam": "DY20 Watergraafsmeer",
+    "gebiednaam": "Watergraafsmeer",
+    "Niveaunaam": "27 gebieden"
+  },
+  {
+    "gebiedcode": "DY21",
+    "gebiedcodenaam": "DY21 IJburg/Zeeburgereiland",
+    "gebiednaam": "IJburg/Zeeburgereiland",
+    "Niveaunaam": "27 gebieden"
+  },
+  {
+    "gebiedcode": "DY22",
+    "gebiedcodenaam": "DY22 Noord West",
+    "gebiednaam": "Noord West",
+    "Niveaunaam": "27 gebieden"
+  },
+  {
+    "gebiedcode": "DY23",
+    "gebiedcodenaam": "DY23 Oud Noord",
+    "gebiednaam": "Oud Noord",
+    "Niveaunaam": "27 gebieden"
+  },
+  {
+    "gebiedcode": "DY24",
+    "gebiedcodenaam": "DY24 Noord Oost",
+    "gebiednaam": "Noord Oost",
+    "Niveaunaam": "27 gebieden"
+  },
+  {
+    "gebiedcode": "DY25",
+    "gebiedcodenaam": "DY25 Bijlmer-Centrum",
+    "gebiednaam": "Bijlmer-Centrum",
+    "Niveaunaam": "27 gebieden"
+  },
+  {
+    "gebiedcode": "DY26",
+    "gebiedcodenaam": "DY26 Bijlmer-Oost",
+    "gebiednaam": "Bijlmer-Oost",
+    "Niveaunaam": "27 gebieden"
+  },
+  {
+    "gebiedcode": "DY27",
+    "gebiedcodenaam": "DY27 Gaasperdam/Driemond",
+    "gebiednaam": "Gaasperdam/Driemond",
+    "Niveaunaam": "27 gebieden"
+  },
+  {
+    "gebiedcode": "ZY99",
+    "gebiedcodenaam": "ZY99 buiten beschouwing",
+    "gebiednaam": "buiten beschouwing",
+    "Niveaunaam": "27 gebieden"
+  },
+  {
+    "gebiedcode": "A00a",
+    "gebiedcodenaam": "A00a Kop Zeedijk",
+    "gebiednaam": "Kop Zeedijk",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A00b",
+    "gebiedcodenaam": "A00b Oude Kerk e.o.",
+    "gebiednaam": "Oude Kerk e.o.",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A00c",
+    "gebiedcodenaam": "A00c Burgwallen Oost",
+    "gebiednaam": "Burgwallen Oost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A00d",
+    "gebiedcodenaam": "A00d Nes e.o.",
+    "gebiednaam": "Nes e.o.",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A00e",
+    "gebiedcodenaam": "A00e BG-terrein e.o.",
+    "gebiednaam": "BG-terrein e.o.",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A01a",
+    "gebiedcodenaam": "A01a Stationsplein e.o.",
+    "gebiednaam": "Stationsplein e.o.",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A01b",
+    "gebiedcodenaam": "A01b Hemelrijk",
+    "gebiednaam": "Hemelrijk",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A01c",
+    "gebiedcodenaam": "A01c Nieuwendijk Noord",
+    "gebiednaam": "Nieuwendijk Noord",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A01d",
+    "gebiedcodenaam": "A01d Spuistraat Noord",
+    "gebiednaam": "Spuistraat Noord",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A01e",
+    "gebiedcodenaam": "A01e Nieuwe Kerk e.o.",
+    "gebiednaam": "Nieuwe Kerk e.o.",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A01f",
+    "gebiedcodenaam": "A01f Spuistraat Zuid",
+    "gebiednaam": "Spuistraat Zuid",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A01g",
+    "gebiedcodenaam": "A01g Begijnhofbuurt",
+    "gebiednaam": "Begijnhofbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A01h",
+    "gebiedcodenaam": "A01h Kalverdriehoek",
+    "gebiednaam": "Kalverdriehoek",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A02a",
+    "gebiedcodenaam": "A02a Langestraat e.o.",
+    "gebiednaam": "Langestraat e.o.",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A02b",
+    "gebiedcodenaam": "A02b Leliegracht e.o.",
+    "gebiednaam": "Leliegracht e.o.",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A02c",
+    "gebiedcodenaam": "A02c Felix Meritisbuurt",
+    "gebiednaam": "Felix Meritisbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A02d",
+    "gebiedcodenaam": "A02d Leidsegracht Noord",
+    "gebiednaam": "Leidsegracht Noord",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A03a",
+    "gebiedcodenaam": "A03a Spiegelbuurt",
+    "gebiednaam": "Spiegelbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A03b",
+    "gebiedcodenaam": "A03b Gouden Bocht",
+    "gebiednaam": "Gouden Bocht",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A03c",
+    "gebiedcodenaam": "A03c Van Loonbuurt",
+    "gebiednaam": "Van Loonbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A03d",
+    "gebiedcodenaam": "A03d Amstelveldbuurt",
+    "gebiednaam": "Amstelveldbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A03e",
+    "gebiedcodenaam": "A03e Rembrandtpleinbuurt",
+    "gebiednaam": "Rembrandtpleinbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A03f",
+    "gebiedcodenaam": "A03f Reguliersbuurt",
+    "gebiednaam": "Reguliersbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A03g",
+    "gebiedcodenaam": "A03g Leidsegracht Zuid",
+    "gebiednaam": "Leidsegracht Zuid",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A04a",
+    "gebiedcodenaam": "A04a Oosterdokseiland",
+    "gebiednaam": "Oosterdokseiland",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A04b",
+    "gebiedcodenaam": "A04b Scheepvaarthuisbuurt",
+    "gebiednaam": "Scheepvaarthuisbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A04c",
+    "gebiedcodenaam": "A04c Rapenburg",
+    "gebiednaam": "Rapenburg",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A04d",
+    "gebiedcodenaam": "A04d Lastage",
+    "gebiednaam": "Lastage",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A04e",
+    "gebiedcodenaam": "A04e Nieuwmarkt",
+    "gebiednaam": "Nieuwmarkt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A04f",
+    "gebiedcodenaam": "A04f Uilenburg",
+    "gebiednaam": "Uilenburg",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A04g",
+    "gebiedcodenaam": "A04g Valkenburg",
+    "gebiednaam": "Valkenburg",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A04h",
+    "gebiedcodenaam": "A04h Zuiderkerkbuurt",
+    "gebiednaam": "Zuiderkerkbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A04i",
+    "gebiedcodenaam": "A04i Waterloopleinbuurt",
+    "gebiednaam": "Waterloopleinbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A05a",
+    "gebiedcodenaam": "A05a Westerdokseiland",
+    "gebiednaam": "Westerdokseiland",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A05b",
+    "gebiedcodenaam": "A05b Haarlemmerbuurt Oost",
+    "gebiednaam": "Haarlemmerbuurt Oost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A05c",
+    "gebiedcodenaam": "A05c Haarlemmerbuurt West",
+    "gebiednaam": "Haarlemmerbuurt West",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A05d",
+    "gebiedcodenaam": "A05d Westelijke Eilanden",
+    "gebiednaam": "Westelijke Eilanden",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A05f",
+    "gebiedcodenaam": "A05f Planciusbuurt Noord",
+    "gebiednaam": "Planciusbuurt Noord",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A05g",
+    "gebiedcodenaam": "A05g Planciusbuurt Zuid",
+    "gebiednaam": "Planciusbuurt Zuid",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A06a",
+    "gebiedcodenaam": "A06a Driehoekbuurt",
+    "gebiednaam": "Driehoekbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A06c",
+    "gebiedcodenaam": "A06c Bloemgrachtbuurt",
+    "gebiednaam": "Bloemgrachtbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A06d",
+    "gebiedcodenaam": "A06d Marnixbuurt Noord",
+    "gebiednaam": "Marnixbuurt Noord",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A06e",
+    "gebiedcodenaam": "A06e Zaagpoortbuurt",
+    "gebiednaam": "Zaagpoortbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A06f",
+    "gebiedcodenaam": "A06f Marnixbuurt Midden",
+    "gebiednaam": "Marnixbuurt Midden",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A06g",
+    "gebiedcodenaam": "A06g Elandsgrachtbuurt",
+    "gebiednaam": "Elandsgrachtbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A06h",
+    "gebiedcodenaam": "A06h Passeerdersgrachtbuurt",
+    "gebiednaam": "Passeerdersgrachtbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A06i",
+    "gebiedcodenaam": "A06i Groenmarktkadebuurt",
+    "gebiednaam": "Groenmarktkadebuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A06j",
+    "gebiedcodenaam": "A06j Marnixbuurt Zuid",
+    "gebiednaam": "Marnixbuurt Zuid",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A06k",
+    "gebiedcodenaam": "A06k Anjeliersbuurt Noord",
+    "gebiednaam": "Anjeliersbuurt Noord",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A06l",
+    "gebiedcodenaam": "A06l Anjeliersbuurt Zuid",
+    "gebiednaam": "Anjeliersbuurt Zuid",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A07a",
+    "gebiedcodenaam": "A07a Leidsebuurt Noordwest",
+    "gebiednaam": "Leidsebuurt Noordwest",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A07b",
+    "gebiedcodenaam": "A07b Leidsebuurt Zuidwest",
+    "gebiednaam": "Leidsebuurt Zuidwest",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A07c",
+    "gebiedcodenaam": "A07c Leidsebuurt Noordoost",
+    "gebiednaam": "Leidsebuurt Noordoost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A07d",
+    "gebiedcodenaam": "A07d Leidsebuurt Zuidoost",
+    "gebiednaam": "Leidsebuurt Zuidoost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A07e",
+    "gebiedcodenaam": "A07e Weteringbuurt",
+    "gebiednaam": "Weteringbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A07f",
+    "gebiedcodenaam": "A07f Den Texbuurt",
+    "gebiednaam": "Den Texbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A07g",
+    "gebiedcodenaam": "A07g Utrechtsebuurt Zuid",
+    "gebiednaam": "Utrechtsebuurt Zuid",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A07h",
+    "gebiedcodenaam": "A07h Frederikspleinbuurt",
+    "gebiednaam": "Frederikspleinbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A08a",
+    "gebiedcodenaam": "A08a Weesperbuurt",
+    "gebiednaam": "Weesperbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A08b",
+    "gebiedcodenaam": "A08b Sarphatistrook",
+    "gebiednaam": "Sarphatistrook",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A08d",
+    "gebiedcodenaam": "A08d de Plantage",
+    "gebiednaam": "de Plantage",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A08e",
+    "gebiedcodenaam": "A08e Alexanderplein e.o.",
+    "gebiednaam": "Alexanderplein e.o.",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A09a",
+    "gebiedcodenaam": "A09a Marine-Etablissement",
+    "gebiednaam": "Marine-Etablissement",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A09b",
+    "gebiedcodenaam": "A09b Kattenburg",
+    "gebiednaam": "Kattenburg",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A09c",
+    "gebiedcodenaam": "A09c Wittenburg",
+    "gebiednaam": "Wittenburg",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A09d",
+    "gebiedcodenaam": "A09d Oostenburg",
+    "gebiednaam": "Oostenburg",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A09e",
+    "gebiedcodenaam": "A09e Czaar Peterbuurt",
+    "gebiednaam": "Czaar Peterbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A09f",
+    "gebiedcodenaam": "A09f Het Funen",
+    "gebiednaam": "Het Funen",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A09h",
+    "gebiedcodenaam": "A09h Kazernebuurt",
+    "gebiednaam": "Kazernebuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "A09i",
+    "gebiedcodenaam": "A09i Kadijken",
+    "gebiednaam": "Kadijken",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "B10a",
+    "gebiedcodenaam": "B10a Coenhaven/Mercuriushaven",
+    "gebiednaam": "Coenhaven/Mercuriushaven",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "B10b",
+    "gebiedcodenaam": "B10b Alfa-driehoek",
+    "gebiednaam": "Alfa-driehoek",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "B10c",
+    "gebiedcodenaam": "B10c Petroleumhaven",
+    "gebiednaam": "Petroleumhaven",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "B10d",
+    "gebiedcodenaam": "B10d Westhaven Noord",
+    "gebiednaam": "Westhaven Noord",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "B10e",
+    "gebiedcodenaam": "B10e Vervoerscentrum",
+    "gebiednaam": "Vervoerscentrum",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "B10f",
+    "gebiedcodenaam": "B10f Amerikahaven",
+    "gebiednaam": "Amerikahaven",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "B10g",
+    "gebiedcodenaam": "B10g Afrikahaven",
+    "gebiednaam": "Afrikahaven",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "B10h",
+    "gebiedcodenaam": "B10h Westhaven Zuid",
+    "gebiednaam": "Westhaven Zuid",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E12a",
+    "gebiedcodenaam": "E12a Houthavens West",
+    "gebiednaam": "Houthavens West",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E12b",
+    "gebiedcodenaam": "E12b Houthavens Oost",
+    "gebiednaam": "Houthavens Oost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E13a",
+    "gebiedcodenaam": "E13a Zeeheldenbuurt",
+    "gebiednaam": "Zeeheldenbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E13b",
+    "gebiedcodenaam": "E13b Spaarndammerbuurt Noordoost",
+    "gebiednaam": "Spaarndammerbuurt Noordoost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E13c",
+    "gebiedcodenaam": "E13c Spaarndammerbuurt Zuidoost",
+    "gebiednaam": "Spaarndammerbuurt Zuidoost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E13d",
+    "gebiedcodenaam": "E13d Spaarndammerbuurt Zuidwest",
+    "gebiednaam": "Spaarndammerbuurt Zuidwest",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E13e",
+    "gebiedcodenaam": "E13e Spaarndammerbuurt Midden",
+    "gebiednaam": "Spaarndammerbuurt Midden",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E13f",
+    "gebiedcodenaam": "E13f Spaarndammerbuurt Noordwest",
+    "gebiednaam": "Spaarndammerbuurt Noordwest",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E13g",
+    "gebiedcodenaam": "E13g Westergasfabriek",
+    "gebiednaam": "Westergasfabriek",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E13h",
+    "gebiedcodenaam": "E13h Overbraker Binnenpolder",
+    "gebiednaam": "Overbraker Binnenpolder",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E14a",
+    "gebiedcodenaam": "E14a De Wittenbuurt Noord",
+    "gebiednaam": "De Wittenbuurt Noord",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E14b",
+    "gebiedcodenaam": "E14b De Wittenbuurt Zuid",
+    "gebiednaam": "De Wittenbuurt Zuid",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E14c",
+    "gebiedcodenaam": "E14c Staatsliedenbuurt Noordoost",
+    "gebiednaam": "Staatsliedenbuurt Noordoost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E14d",
+    "gebiedcodenaam": "E14d Fannius Scholtenbuurt",
+    "gebiednaam": "Fannius Scholtenbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E14e",
+    "gebiedcodenaam": "E14e Westerstaatsman",
+    "gebiednaam": "Westerstaatsman",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E14f",
+    "gebiedcodenaam": "E14f Buyskade e.o.",
+    "gebiednaam": "Buyskade e.o.",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E15a",
+    "gebiedcodenaam": "E15a Ecowijk",
+    "gebiednaam": "Ecowijk",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E15b",
+    "gebiedcodenaam": "E15b Markthallen",
+    "gebiednaam": "Markthallen",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E15c",
+    "gebiedcodenaam": "E15c Bedrijvencentrum Westerkwartier",
+    "gebiednaam": "Bedrijvencentrum Westerkwartier",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E15d",
+    "gebiedcodenaam": "E15d Marcanti",
+    "gebiednaam": "Marcanti",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E16a",
+    "gebiedcodenaam": "E16a Frederik Hendrikbuurt Noord",
+    "gebiednaam": "Frederik Hendrikbuurt Noord",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E16b",
+    "gebiedcodenaam": "E16b Frederik Hendrikbuurt Zuidoost",
+    "gebiednaam": "Frederik Hendrikbuurt Zuidoost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E16c",
+    "gebiedcodenaam": "E16c Frederik Hendrikbuurt Zuidwest",
+    "gebiednaam": "Frederik Hendrikbuurt Zuidwest",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E17a",
+    "gebiedcodenaam": "E17a Da Costabuurt Noord",
+    "gebiednaam": "Da Costabuurt Noord",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E18a",
+    "gebiedcodenaam": "E18a Bellamybuurt Noord",
+    "gebiednaam": "Bellamybuurt Noord",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E18b",
+    "gebiedcodenaam": "E18b Bellamybuurt Zuid",
+    "gebiednaam": "Bellamybuurt Zuid",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E19a",
+    "gebiedcodenaam": "E19a Da Costabuurt Zuid",
+    "gebiednaam": "Da Costabuurt Zuid",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E19b",
+    "gebiedcodenaam": "E19b Borgerbuurt",
+    "gebiednaam": "Borgerbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E19c",
+    "gebiedcodenaam": "E19c Lootsbuurt",
+    "gebiednaam": "Lootsbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E20a",
+    "gebiedcodenaam": "E20a Helmersbuurt Oost",
+    "gebiednaam": "Helmersbuurt Oost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E20b",
+    "gebiedcodenaam": "E20b WG-terrein",
+    "gebiednaam": "WG-terrein",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E20c",
+    "gebiedcodenaam": "E20c Cremerbuurt Oost",
+    "gebiednaam": "Cremerbuurt Oost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E21a",
+    "gebiedcodenaam": "E21a Cremerbuurt West",
+    "gebiednaam": "Cremerbuurt West",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E21b",
+    "gebiedcodenaam": "E21b Vondelparkbuurt West",
+    "gebiednaam": "Vondelparkbuurt West",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E22a",
+    "gebiedcodenaam": "E22a Vondelparkbuurt Oost",
+    "gebiednaam": "Vondelparkbuurt Oost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E22b",
+    "gebiedcodenaam": "E22b Vondelparkbuurt Midden",
+    "gebiednaam": "Vondelparkbuurt Midden",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E36a",
+    "gebiedcodenaam": "E36a Woon- en groengebied Sloterdijk",
+    "gebiednaam": "Woon- en groengebied Sloterdijk",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E36b",
+    "gebiedcodenaam": "E36b Bedrijventerrein Sloterdijk I",
+    "gebiednaam": "Bedrijventerrein Sloterdijk I",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E37a",
+    "gebiedcodenaam": "E37a Bedrijventerrein Landlust",
+    "gebiednaam": "Bedrijventerrein Landlust",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E37c",
+    "gebiedcodenaam": "E37c Bosleeuw",
+    "gebiednaam": "Bosleeuw",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E37d",
+    "gebiedcodenaam": "E37d Landlust Zuid",
+    "gebiednaam": "Landlust Zuid",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E37e",
+    "gebiedcodenaam": "E37e Erasmusparkbuurt Oost",
+    "gebiednaam": "Erasmusparkbuurt Oost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E37f",
+    "gebiedcodenaam": "E37f Gibraltarbuurt",
+    "gebiednaam": "Gibraltarbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E37g",
+    "gebiedcodenaam": "E37g Landlust Noord",
+    "gebiednaam": "Landlust Noord",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E38c",
+    "gebiedcodenaam": "E38c Erasmusparkbuurt West",
+    "gebiednaam": "Erasmusparkbuurt West",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E38d",
+    "gebiedcodenaam": "E38d Robert Scottbuurt Oost",
+    "gebiednaam": "Robert Scottbuurt Oost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E39a",
+    "gebiedcodenaam": "E39a Robert Scottbuurt West",
+    "gebiednaam": "Robert Scottbuurt West",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E39b",
+    "gebiedcodenaam": "E39b Laan van Spartaan",
+    "gebiednaam": "Laan van Spartaan",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E39c",
+    "gebiedcodenaam": "E39c Kolenkitbuurt Zuid",
+    "gebiednaam": "Kolenkitbuurt Zuid",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E39d",
+    "gebiedcodenaam": "E39d Kolenkitbuurt Noord",
+    "gebiednaam": "Kolenkitbuurt Noord",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E40a",
+    "gebiedcodenaam": "E40a Geuzenhofbuurt",
+    "gebiednaam": "Geuzenhofbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E40b",
+    "gebiedcodenaam": "E40b Trompbuurt",
+    "gebiednaam": "Trompbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E40c",
+    "gebiedcodenaam": "E40c Pieter van der Doesbuurt",
+    "gebiednaam": "Pieter van der Doesbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E41a",
+    "gebiedcodenaam": "E41a John Franklinbuurt",
+    "gebiednaam": "John Franklinbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E41b",
+    "gebiedcodenaam": "E41b Jan Maijenbuurt",
+    "gebiednaam": "Jan Maijenbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E41c",
+    "gebiedcodenaam": "E41c Orteliusbuurt Noord",
+    "gebiednaam": "Orteliusbuurt Noord",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E41d",
+    "gebiedcodenaam": "E41d Mercatorpark",
+    "gebiednaam": "Mercatorpark",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E42a",
+    "gebiedcodenaam": "E42a Balboaplein e.o.",
+    "gebiednaam": "Balboaplein e.o.",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E42b",
+    "gebiedcodenaam": "E42b Columbusplein e.o.",
+    "gebiednaam": "Columbusplein e.o.",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E42c",
+    "gebiedcodenaam": "E42c Orteliusbuurt Midden",
+    "gebiednaam": "Orteliusbuurt Midden",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E42d",
+    "gebiedcodenaam": "E42d Orteliusbuurt Zuid",
+    "gebiednaam": "Orteliusbuurt Zuid",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E43a",
+    "gebiedcodenaam": "E43a Paramariboplein e.o.",
+    "gebiednaam": "Paramariboplein e.o.",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E43b",
+    "gebiedcodenaam": "E43b Postjeskade e.o.",
+    "gebiednaam": "Postjeskade e.o.",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E75a",
+    "gebiedcodenaam": "E75a Kortenaerkwartier",
+    "gebiednaam": "Kortenaerkwartier",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E75b",
+    "gebiedcodenaam": "E75b Filips van Almondekwartier",
+    "gebiednaam": "Filips van Almondekwartier",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E75c",
+    "gebiedcodenaam": "E75c De Wester Quartier",
+    "gebiednaam": "De Wester Quartier",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "E75d",
+    "gebiedcodenaam": "E75d Van Brakelkwartier",
+    "gebiednaam": "Van Brakelkwartier",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F11a",
+    "gebiedcodenaam": "F11a Sloterdijk II",
+    "gebiednaam": "Sloterdijk II",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F11c",
+    "gebiedcodenaam": "F11c Sloterdijk III Oost",
+    "gebiednaam": "Sloterdijk III Oost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F11d",
+    "gebiedcodenaam": "F11d Sloterdijk III West",
+    "gebiednaam": "Sloterdijk III West",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F11e",
+    "gebiedcodenaam": "F11e De Heining",
+    "gebiednaam": "De Heining",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F11f",
+    "gebiedcodenaam": "F11f Teleport",
+    "gebiednaam": "Teleport",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F11h",
+    "gebiedcodenaam": "F11h Bretten Oost",
+    "gebiednaam": "Bretten Oost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F11j",
+    "gebiedcodenaam": "F11j Bretten West",
+    "gebiednaam": "Bretten West",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F76a",
+    "gebiedcodenaam": "F76a Buurt 3",
+    "gebiednaam": "Buurt 3",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F76b",
+    "gebiedcodenaam": "F76b Buurt 2",
+    "gebiednaam": "Buurt 2",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F77a",
+    "gebiedcodenaam": "F77a Slotermeer Zuid",
+    "gebiednaam": "Slotermeer Zuid",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F77b",
+    "gebiedcodenaam": "F77b Noordoever Sloterplas",
+    "gebiednaam": "Noordoever Sloterplas",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F77c",
+    "gebiedcodenaam": "F77c Buurt 4 Oost",
+    "gebiednaam": "Buurt 4 Oost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F77d",
+    "gebiedcodenaam": "F77d Buurt 5  Noord",
+    "gebiednaam": "Buurt 5  Noord",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F77e",
+    "gebiedcodenaam": "F77e Sloterpark",
+    "gebiednaam": "Sloterpark",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F77f",
+    "gebiedcodenaam": "F77f Buurt 5 Zuid",
+    "gebiednaam": "Buurt 5 Zuid",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F78a",
+    "gebiedcodenaam": "F78a Buurt 6",
+    "gebiednaam": "Buurt 6",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F78b",
+    "gebiedcodenaam": "F78b Buurt 7",
+    "gebiednaam": "Buurt 7",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F78c",
+    "gebiedcodenaam": "F78c Buurt 8",
+    "gebiednaam": "Buurt 8",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F78d",
+    "gebiedcodenaam": "F78d Buurt 9",
+    "gebiednaam": "Buurt 9",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F78e",
+    "gebiedcodenaam": "F78e Eendrachtspark",
+    "gebiednaam": "Eendrachtspark",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F79a",
+    "gebiedcodenaam": "F79a Osdorper Binnenpolder",
+    "gebiednaam": "Osdorper Binnenpolder",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F79b",
+    "gebiedcodenaam": "F79b Buurt 10",
+    "gebiednaam": "Buurt 10",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F80a",
+    "gebiedcodenaam": "F80a Ookmeer",
+    "gebiednaam": "Ookmeer",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F80b",
+    "gebiedcodenaam": "F80b Osdorper Bovenpolder",
+    "gebiednaam": "Osdorper Bovenpolder",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F80c",
+    "gebiedcodenaam": "F80c Bedrijvenpark Lutkemeer",
+    "gebiednaam": "Bedrijvenpark Lutkemeer",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F81a",
+    "gebiedcodenaam": "F81a Wildeman",
+    "gebiednaam": "Wildeman",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F81b",
+    "gebiedcodenaam": "F81b Meer en Oever",
+    "gebiednaam": "Meer en Oever",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F81c",
+    "gebiedcodenaam": "F81c Osdorpplein e.o.",
+    "gebiednaam": "Osdorpplein e.o.",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F81d",
+    "gebiedcodenaam": "F81d Calandlaan/Lelylaan",
+    "gebiednaam": "Calandlaan/Lelylaan",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F81e",
+    "gebiedcodenaam": "F81e Osdorp Zuidoost",
+    "gebiednaam": "Osdorp Zuidoost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F82a",
+    "gebiedcodenaam": "F82a Osdorp Midden Noord",
+    "gebiednaam": "Osdorp Midden Noord",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F82b",
+    "gebiedcodenaam": "F82b Osdorp Midden Zuid",
+    "gebiednaam": "Osdorp Midden Zuid",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F82c",
+    "gebiedcodenaam": "F82c Zuidwestkwadrant Osdorp Noord",
+    "gebiednaam": "Zuidwestkwadrant Osdorp Noord",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F82d",
+    "gebiedcodenaam": "F82d Zuidwestkwadrant Osdorp Zuid",
+    "gebiednaam": "Zuidwestkwadrant Osdorp Zuid",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F83a",
+    "gebiedcodenaam": "F83a De Punt",
+    "gebiednaam": "De Punt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F83b",
+    "gebiedcodenaam": "F83b Bedrijvencentrum Osdorp",
+    "gebiednaam": "Bedrijvencentrum Osdorp",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F84a",
+    "gebiedcodenaam": "F84a Middelveldsche Akerpolder",
+    "gebiednaam": "Middelveldsche Akerpolder",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F84b",
+    "gebiedcodenaam": "F84b De Aker West",
+    "gebiednaam": "De Aker West",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F84c",
+    "gebiedcodenaam": "F84c De Aker Oost",
+    "gebiednaam": "De Aker Oost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F85a",
+    "gebiedcodenaam": "F85a Oostoever Sloterplas",
+    "gebiednaam": "Oostoever Sloterplas",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F85b",
+    "gebiedcodenaam": "F85b Emanuel van Meterenbuurt",
+    "gebiednaam": "Emanuel van Meterenbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F85c",
+    "gebiedcodenaam": "F85c Jacob Geelbuurt",
+    "gebiednaam": "Jacob Geelbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F86a",
+    "gebiedcodenaam": "F86a Overtoomse Veld Noord",
+    "gebiednaam": "Overtoomse Veld Noord",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F86b",
+    "gebiedcodenaam": "F86b Overtoomse Veld Zuid",
+    "gebiednaam": "Overtoomse Veld Zuid",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F86c",
+    "gebiedcodenaam": "F86c Rembrandtpark Noord",
+    "gebiednaam": "Rembrandtpark Noord",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F86d",
+    "gebiedcodenaam": "F86d Rembrandtpark Zuid",
+    "gebiednaam": "Rembrandtpark Zuid",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F86e",
+    "gebiedcodenaam": "F86e Johan Jongkindbuurt",
+    "gebiednaam": "Johan Jongkindbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F86f",
+    "gebiedcodenaam": "F86f Lucas/Andreasziekenhuis e.o.",
+    "gebiednaam": "Lucas/Andreasziekenhuis e.o.",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F87a",
+    "gebiedcodenaam": "F87a Koningin Wilhelminaplein",
+    "gebiednaam": "Koningin Wilhelminaplein",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F87b",
+    "gebiedcodenaam": "F87b Andreasterrein",
+    "gebiednaam": "Andreasterrein",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F87c",
+    "gebiedcodenaam": "F87c Delflandpleinbuurt Oost",
+    "gebiednaam": "Delflandpleinbuurt Oost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F87d",
+    "gebiedcodenaam": "F87d Delflandpleinbuurt West",
+    "gebiednaam": "Delflandpleinbuurt West",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F87e",
+    "gebiedcodenaam": "F87e Riekerhaven",
+    "gebiednaam": "Riekerhaven",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F87f",
+    "gebiedcodenaam": "F87f Schipluidenbuurt",
+    "gebiednaam": "Schipluidenbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F88a",
+    "gebiedcodenaam": "F88a Riekerpolder",
+    "gebiednaam": "Riekerpolder",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F88b",
+    "gebiedcodenaam": "F88b Park Haagseweg",
+    "gebiednaam": "Park Haagseweg",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F88c",
+    "gebiedcodenaam": "F88c Nieuwe Meer",
+    "gebiednaam": "Nieuwe Meer",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F88d",
+    "gebiedcodenaam": "F88d Sloterweg e.o.",
+    "gebiednaam": "Sloterweg e.o.",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F88e",
+    "gebiedcodenaam": "F88e Nieuw Sloten Noordwest",
+    "gebiednaam": "Nieuw Sloten Noordwest",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F88f",
+    "gebiedcodenaam": "F88f Nieuw Sloten Noordoost",
+    "gebiednaam": "Nieuw Sloten Noordoost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F88g",
+    "gebiedcodenaam": "F88g Belgiëplein e.o.",
+    "gebiednaam": "Belgiëplein e.o.",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F88h",
+    "gebiedcodenaam": "F88h Nieuw Sloten Zuidwest",
+    "gebiednaam": "Nieuw Sloten Zuidwest",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F88i",
+    "gebiedcodenaam": "F88i Nieuw Sloten Zuidoost",
+    "gebiednaam": "Nieuw Sloten Zuidoost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F88j",
+    "gebiedcodenaam": "F88j Dorp Sloten",
+    "gebiednaam": "Dorp Sloten",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F89a",
+    "gebiedcodenaam": "F89a Louis Chrispijnbuurt",
+    "gebiednaam": "Louis Chrispijnbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F89b",
+    "gebiedcodenaam": "F89b Jacques Veldmanbuurt",
+    "gebiednaam": "Jacques Veldmanbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F89c",
+    "gebiedcodenaam": "F89c Staalmanbuurt",
+    "gebiednaam": "Staalmanbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "F89d",
+    "gebiedcodenaam": "F89d Medisch Centrum Slotervaart",
+    "gebiednaam": "Medisch Centrum Slotervaart",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K23a",
+    "gebiedcodenaam": "K23a Zuidas Noord",
+    "gebiednaam": "Zuidas Noord",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K23b",
+    "gebiedcodenaam": "K23b RAI",
+    "gebiednaam": "RAI",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K23c",
+    "gebiedcodenaam": "K23c VU-kwartier",
+    "gebiednaam": "VU-kwartier",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K23d",
+    "gebiedcodenaam": "K23d Zuidas Zuid",
+    "gebiednaam": "Zuidas Zuid",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K23e",
+    "gebiedcodenaam": "K23e Vivaldi",
+    "gebiednaam": "Vivaldi",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K24a",
+    "gebiedcodenaam": "K24a Hemonybuurt",
+    "gebiednaam": "Hemonybuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K24b",
+    "gebiedcodenaam": "K24b Gerard Doubuurt",
+    "gebiednaam": "Gerard Doubuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K24c",
+    "gebiedcodenaam": "K24c Frans Halsbuurt",
+    "gebiednaam": "Frans Halsbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K24d",
+    "gebiedcodenaam": "K24d Hercules Seghersbuurt",
+    "gebiednaam": "Hercules Seghersbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K24e",
+    "gebiedcodenaam": "K24e Sarphatiparkbuurt",
+    "gebiednaam": "Sarphatiparkbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K25a",
+    "gebiedcodenaam": "K25a Willibrordusbuurt",
+    "gebiednaam": "Willibrordusbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K25b",
+    "gebiedcodenaam": "K25b Van der Helstpleinbuurt",
+    "gebiednaam": "Van der Helstpleinbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K25c",
+    "gebiedcodenaam": "K25c Lizzy Ansinghbuurt",
+    "gebiednaam": "Lizzy Ansinghbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K25d",
+    "gebiedcodenaam": "K25d Cornelis Troostbuurt",
+    "gebiednaam": "Cornelis Troostbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K26a",
+    "gebiedcodenaam": "K26a Diamantbuurt",
+    "gebiednaam": "Diamantbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K26b",
+    "gebiedcodenaam": "K26b Burgemeester Tellegenbuurt Oost",
+    "gebiednaam": "Burgemeester Tellegenbuurt Oost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K26c",
+    "gebiedcodenaam": "K26c Burgemeester Tellegenbuurt West",
+    "gebiednaam": "Burgemeester Tellegenbuurt West",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K44a",
+    "gebiedcodenaam": "K44a Surinamepleinbuurt",
+    "gebiednaam": "Surinamepleinbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K44b",
+    "gebiedcodenaam": "K44b Westlandgrachtbuurt",
+    "gebiednaam": "Westlandgrachtbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K44c",
+    "gebiedcodenaam": "K44c Aalsmeerwegbuurt West",
+    "gebiednaam": "Aalsmeerwegbuurt West",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K44d",
+    "gebiedcodenaam": "K44d Aalsmeerwegbuurt Oost",
+    "gebiednaam": "Aalsmeerwegbuurt Oost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K44e",
+    "gebiedcodenaam": "K44e Legmeerpleinbuurt",
+    "gebiednaam": "Legmeerpleinbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K44f",
+    "gebiedcodenaam": "K44f Bedrijventerrein Schinkel",
+    "gebiednaam": "Bedrijventerrein Schinkel",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K45a",
+    "gebiedcodenaam": "K45a Schinkelbuurt Noord",
+    "gebiednaam": "Schinkelbuurt Noord",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K45b",
+    "gebiedcodenaam": "K45b Schinkelbuurt Zuid",
+    "gebiednaam": "Schinkelbuurt Zuid",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K46a",
+    "gebiedcodenaam": "K46a Valeriusbuurt Oost",
+    "gebiednaam": "Valeriusbuurt Oost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K46b",
+    "gebiedcodenaam": "K46b Valeriusbuurt West",
+    "gebiednaam": "Valeriusbuurt West",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K46c",
+    "gebiedcodenaam": "K46c Willemsparkbuurt Noord",
+    "gebiednaam": "Willemsparkbuurt Noord",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K46d",
+    "gebiedcodenaam": "K46d Vondelpark West",
+    "gebiednaam": "Vondelpark West",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K47a",
+    "gebiedcodenaam": "K47a Johannnes Vermeerbuurt",
+    "gebiednaam": "Johannnes Vermeerbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K47b",
+    "gebiedcodenaam": "K47b P.C. Hooftbuurt",
+    "gebiednaam": "P.C. Hooftbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K47c",
+    "gebiedcodenaam": "K47c Concertgebouwbuurt",
+    "gebiednaam": "Concertgebouwbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K47d",
+    "gebiedcodenaam": "K47d Cornelis Schuytbuurt",
+    "gebiednaam": "Cornelis Schuytbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K47e",
+    "gebiedcodenaam": "K47e Banpleinbuurt",
+    "gebiednaam": "Banpleinbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K47f",
+    "gebiedcodenaam": "K47f Hondecoeterbuurt",
+    "gebiednaam": "Hondecoeterbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K47g",
+    "gebiedcodenaam": "K47g Harmoniehofbuurt",
+    "gebiednaam": "Harmoniehofbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K47h",
+    "gebiedcodenaam": "K47h Museumplein",
+    "gebiednaam": "Museumplein",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K47i",
+    "gebiedcodenaam": "K47i Vondelpark Oost",
+    "gebiednaam": "Vondelpark Oost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K47j",
+    "gebiedcodenaam": "K47j Duivelseiland",
+    "gebiednaam": "Duivelseiland",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K48a",
+    "gebiedcodenaam": "K48a Bertelmanpleinbuurt",
+    "gebiednaam": "Bertelmanpleinbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K48b",
+    "gebiedcodenaam": "K48b Marathonbuurt Oost",
+    "gebiednaam": "Marathonbuurt Oost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K48c",
+    "gebiedcodenaam": "K48c Marathonbuurt West",
+    "gebiednaam": "Marathonbuurt West",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K48d",
+    "gebiedcodenaam": "K48d Olympisch Stadion e.o.",
+    "gebiednaam": "Olympisch Stadion e.o.",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K48e",
+    "gebiedcodenaam": "K48e IJsbaanpad e.o.",
+    "gebiednaam": "IJsbaanpad e.o.",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K48f",
+    "gebiedcodenaam": "K48f Van Tuyllbuurt",
+    "gebiednaam": "Van Tuyllbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K49a",
+    "gebiedcodenaam": "K49a Diepenbrockbuurt",
+    "gebiednaam": "Diepenbrockbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K49b",
+    "gebiedcodenaam": "K49b Beethovenbuurt",
+    "gebiednaam": "Beethovenbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K49c",
+    "gebiedcodenaam": "K49c Hiltonbuurt",
+    "gebiednaam": "Hiltonbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K49d",
+    "gebiedcodenaam": "K49d Minervabuurt Noord",
+    "gebiednaam": "Minervabuurt Noord",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K49e",
+    "gebiedcodenaam": "K49e Minervabuurt Midden",
+    "gebiednaam": "Minervabuurt Midden",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K49f",
+    "gebiedcodenaam": "K49f Minervabuurt Zuid",
+    "gebiednaam": "Minervabuurt Zuid",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K52a",
+    "gebiedcodenaam": "K52a Wielingenbuurt",
+    "gebiednaam": "Wielingenbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K52b",
+    "gebiedcodenaam": "K52b Scheldebuurt West",
+    "gebiednaam": "Scheldebuurt West",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K52c",
+    "gebiedcodenaam": "K52c Scheldebuurt Midden",
+    "gebiednaam": "Scheldebuurt Midden",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K52d",
+    "gebiedcodenaam": "K52d Scheldebuurt Oost",
+    "gebiednaam": "Scheldebuurt Oost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K52g",
+    "gebiedcodenaam": "K52g Veluwebuurt",
+    "gebiednaam": "Veluwebuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K52h",
+    "gebiedcodenaam": "K52h Kop Zuidas",
+    "gebiednaam": "Kop Zuidas",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K53a",
+    "gebiedcodenaam": "K53a IJselbuurt West",
+    "gebiednaam": "IJselbuurt West",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K53b",
+    "gebiedcodenaam": "K53b IJselbuurt Oost",
+    "gebiednaam": "IJselbuurt Oost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K54a",
+    "gebiedcodenaam": "K54a Kromme Mijdrechtbuurt",
+    "gebiednaam": "Kromme Mijdrechtbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K54b",
+    "gebiedcodenaam": "K54b Rijnbuurt Oost",
+    "gebiednaam": "Rijnbuurt Oost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K54c",
+    "gebiedcodenaam": "K54c Rijnbuurt Midden",
+    "gebiednaam": "Rijnbuurt Midden",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K54d",
+    "gebiedcodenaam": "K54d Rijnbuurt West",
+    "gebiednaam": "Rijnbuurt West",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K54e",
+    "gebiedcodenaam": "K54e Zorgvlied",
+    "gebiednaam": "Zorgvlied",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K59a",
+    "gebiedcodenaam": "K59a Prinses Irenebuurt",
+    "gebiednaam": "Prinses Irenebuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K59b",
+    "gebiedcodenaam": "K59b Beatrixpark",
+    "gebiednaam": "Beatrixpark",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K90a",
+    "gebiedcodenaam": "K90a Gelderlandpleinbuurt",
+    "gebiednaam": "Gelderlandpleinbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K90c",
+    "gebiedcodenaam": "K90c Buitenveldert Midden Zuid",
+    "gebiednaam": "Buitenveldert Midden Zuid",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K90d",
+    "gebiedcodenaam": "K90d Buitenveldert Zuidwest",
+    "gebiednaam": "Buitenveldert Zuidwest",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K90e",
+    "gebiedcodenaam": "K90e Amsterdamse Bos",
+    "gebiednaam": "Amsterdamse Bos",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K90i",
+    "gebiedcodenaam": "K90i Buitenveldert West Midden",
+    "gebiednaam": "Buitenveldert West Midden",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K90j",
+    "gebiedcodenaam": "K90j Zuiderhof",
+    "gebiednaam": "Zuiderhof",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K91a",
+    "gebiedcodenaam": "K91a De Klenckebuurt",
+    "gebiednaam": "De Klenckebuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K91b",
+    "gebiedcodenaam": "K91b Buitenveldert Oost Midden",
+    "gebiednaam": "Buitenveldert Oost Midden",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K91c",
+    "gebiedcodenaam": "K91c Buitenveldert Zuidoost",
+    "gebiednaam": "Buitenveldert Zuidoost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "K91d",
+    "gebiedcodenaam": "K91d Amstelpark",
+    "gebiednaam": "Amstelpark",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M27a",
+    "gebiedcodenaam": "M27a Swammerdambuurt",
+    "gebiednaam": "Swammerdambuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M27b",
+    "gebiedcodenaam": "M27b Weesperzijde Midden/Zuid",
+    "gebiednaam": "Weesperzijde Midden/Zuid",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M27c",
+    "gebiedcodenaam": "M27c Parooldriehoek",
+    "gebiednaam": "Parooldriehoek",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M28a",
+    "gebiedcodenaam": "M28a Oosterparkbuurt Noordwest",
+    "gebiednaam": "Oosterparkbuurt Noordwest",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M28b",
+    "gebiedcodenaam": "M28b Oosterpark",
+    "gebiednaam": "Oosterpark",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M28c",
+    "gebiedcodenaam": "M28c Oosterparkbuurt Zuidoost",
+    "gebiednaam": "Oosterparkbuurt Zuidoost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M28d",
+    "gebiedcodenaam": "M28d Oosterparkbuurt Zuidwest",
+    "gebiednaam": "Oosterparkbuurt Zuidwest",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M29a",
+    "gebiedcodenaam": "M29a Dapperbuurt Noord",
+    "gebiednaam": "Dapperbuurt Noord",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M29b",
+    "gebiedcodenaam": "M29b Dapperbuurt Zuid",
+    "gebiednaam": "Dapperbuurt Zuid",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M29c",
+    "gebiedcodenaam": "M29c Oostpoort",
+    "gebiednaam": "Oostpoort",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M30a",
+    "gebiedcodenaam": "M30a Transvaalbuurt West",
+    "gebiednaam": "Transvaalbuurt West",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M30b",
+    "gebiedcodenaam": "M30b Transvaalbuurt Oost",
+    "gebiednaam": "Transvaalbuurt Oost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M31a",
+    "gebiedcodenaam": "M31a Noordwestkwadrant Indische Buurt Noord",
+    "gebiednaam": "Noordwestkwadrant Indische Buurt Noord",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M31b",
+    "gebiedcodenaam": "M31b Noordwestkwadrant Indische Buurt Zuid",
+    "gebiednaam": "Noordwestkwadrant Indische Buurt Zuid",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M31c",
+    "gebiedcodenaam": "M31c Zuidwestkwadrant Indische Buurt",
+    "gebiednaam": "Zuidwestkwadrant Indische Buurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M32a",
+    "gebiedcodenaam": "M32a Noordoostkwadrant Indische Buurt",
+    "gebiednaam": "Noordoostkwadrant Indische Buurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M32b",
+    "gebiedcodenaam": "M32b Zuidoostkwadrant Indische Buurt",
+    "gebiednaam": "Zuidoostkwadrant Indische Buurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M32c",
+    "gebiedcodenaam": "M32c Zeeburgerdijk Oost",
+    "gebiednaam": "Zeeburgerdijk Oost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M32d",
+    "gebiedcodenaam": "M32d Flevopark",
+    "gebiednaam": "Flevopark",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M33a",
+    "gebiedcodenaam": "M33a Oostelijke Handelskade",
+    "gebiednaam": "Oostelijke Handelskade",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M33b",
+    "gebiedcodenaam": "M33b Rietlanden",
+    "gebiednaam": "Rietlanden",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M33c",
+    "gebiedcodenaam": "M33c Java-eiland",
+    "gebiednaam": "Java-eiland",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M33d",
+    "gebiedcodenaam": "M33d KNSM-eiland",
+    "gebiednaam": "KNSM-eiland",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M33e",
+    "gebiedcodenaam": "M33e Sporenburg",
+    "gebiednaam": "Sporenburg",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M33f",
+    "gebiedcodenaam": "M33f Borneo",
+    "gebiednaam": "Borneo",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M33g",
+    "gebiedcodenaam": "M33g Entrepot-Noordwest",
+    "gebiednaam": "Entrepot-Noordwest",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M33h",
+    "gebiedcodenaam": "M33h Architectenbuurt",
+    "gebiednaam": "Architectenbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M33i",
+    "gebiedcodenaam": "M33i Bedrijvengebied Veelaan",
+    "gebiednaam": "Bedrijvengebied Veelaan",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M33j",
+    "gebiedcodenaam": "M33j Bedrijvengebied Cruquiusweg",
+    "gebiednaam": "Bedrijvengebied Cruquiusweg",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M33k",
+    "gebiedcodenaam": "M33k Bedrijvengebied Zeeburgerkade",
+    "gebiednaam": "Bedrijvengebied Zeeburgerkade",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M34a",
+    "gebiedcodenaam": "M34a Zeeburgereiland Noordwest",
+    "gebiednaam": "Zeeburgereiland Noordwest",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M34c",
+    "gebiedcodenaam": "M34c Zeeburgereiland Zuidoost",
+    "gebiednaam": "Zeeburgereiland Zuidoost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M34d",
+    "gebiedcodenaam": "M34d Zeeburgereiland Zuidwest",
+    "gebiednaam": "Zeeburgereiland Zuidwest",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M34e",
+    "gebiedcodenaam": "M34e Nieuwe Diep/Diemerpark",
+    "gebiednaam": "Nieuwe Diep/Diemerpark",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M34f",
+    "gebiedcodenaam": "M34f RI Oost terrein",
+    "gebiednaam": "RI Oost terrein",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M34g",
+    "gebiedcodenaam": "M34g Zeeburgereiland Noordoost",
+    "gebiednaam": "Zeeburgereiland Noordoost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M35a",
+    "gebiedcodenaam": "M35a Steigereiland Noord",
+    "gebiednaam": "Steigereiland Noord",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M35b",
+    "gebiedcodenaam": "M35b Steigereiland Zuid",
+    "gebiednaam": "Steigereiland Zuid",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M35c",
+    "gebiedcodenaam": "M35c Haveneiland Zuidwest/Rieteiland West",
+    "gebiednaam": "Haveneiland Zuidwest/Rieteiland West",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M35e",
+    "gebiedcodenaam": "M35e Haveneiland Noordwest",
+    "gebiednaam": "Haveneiland Noordwest",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M35f",
+    "gebiedcodenaam": "M35f Haveneiland Noordoost",
+    "gebiednaam": "Haveneiland Noordoost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M50a",
+    "gebiedcodenaam": "M50a Strandeiland",
+    "gebiednaam": "Strandeiland",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M50b",
+    "gebiedcodenaam": "M50b Middeneiland Zuidoost",
+    "gebiednaam": "Middeneiland Zuidoost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M50c",
+    "gebiedcodenaam": "M50c Middeneiland Noordoost",
+    "gebiednaam": "Middeneiland Noordoost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M50d",
+    "gebiedcodenaam": "M50d Middeneiland Zuidwest",
+    "gebiednaam": "Middeneiland Zuidwest",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M50e",
+    "gebiedcodenaam": "M50e Middeneiland Noordwest",
+    "gebiednaam": "Middeneiland Noordwest",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M50f",
+    "gebiedcodenaam": "M50f Buiteneiland",
+    "gebiednaam": "Buiteneiland",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M50g",
+    "gebiedcodenaam": "M50g Centrumeiland",
+    "gebiednaam": "Centrumeiland",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M51a",
+    "gebiedcodenaam": "M51a Rieteiland Oost",
+    "gebiednaam": "Rieteiland Oost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M51b",
+    "gebiedcodenaam": "M51b Haveneiland Oost",
+    "gebiednaam": "Haveneiland Oost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M51c",
+    "gebiedcodenaam": "M51c Haveneiland Noord",
+    "gebiednaam": "Haveneiland Noord",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M55b",
+    "gebiedcodenaam": "M55b De Eenhoorn",
+    "gebiednaam": "De Eenhoorn",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M55c",
+    "gebiedcodenaam": "M55c Julianapark",
+    "gebiednaam": "Julianapark",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M55d",
+    "gebiedcodenaam": "M55d Don Bosco",
+    "gebiednaam": "Don Bosco",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M55e",
+    "gebiedcodenaam": "M55e Frankendael",
+    "gebiednaam": "Frankendael",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M55f",
+    "gebiedcodenaam": "M55f Tuindorp Amstelstation",
+    "gebiednaam": "Tuindorp Amstelstation",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M55g",
+    "gebiedcodenaam": "M55g De Wetbuurt",
+    "gebiednaam": "De Wetbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M55h",
+    "gebiedcodenaam": "M55h Tuindorp Frankendael",
+    "gebiednaam": "Tuindorp Frankendael",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M55i",
+    "gebiedcodenaam": "M55i Van der Kunbuurt",
+    "gebiednaam": "Van der Kunbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M56a",
+    "gebiedcodenaam": "M56a Linnaeusparkbuurt",
+    "gebiednaam": "Linnaeusparkbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M56b",
+    "gebiedcodenaam": "M56b Middenmeer Noord",
+    "gebiednaam": "Middenmeer Noord",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M56c",
+    "gebiedcodenaam": "M56c Middenmeer Zuid",
+    "gebiednaam": "Middenmeer Zuid",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M56d",
+    "gebiedcodenaam": "M56d Sportpark Middenmeer Zuid",
+    "gebiednaam": "Sportpark Middenmeer Zuid",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M56e",
+    "gebiedcodenaam": "M56e Sportpark Middenmeer Noord",
+    "gebiednaam": "Sportpark Middenmeer Noord",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M56f",
+    "gebiedcodenaam": "M56f Park De Meer",
+    "gebiednaam": "Park De Meer",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M56g",
+    "gebiedcodenaam": "M56g Sportpark Voorland",
+    "gebiednaam": "Sportpark Voorland",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M56h",
+    "gebiedcodenaam": "M56h Science Park Noord",
+    "gebiednaam": "Science Park Noord",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M56i",
+    "gebiedcodenaam": "M56i Science Park Zuid",
+    "gebiednaam": "Science Park Zuid",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M57a",
+    "gebiedcodenaam": "M57a Betondorp",
+    "gebiednaam": "Betondorp",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M57b",
+    "gebiedcodenaam": "M57b Nieuwe Oosterbegraafplaats",
+    "gebiednaam": "Nieuwe Oosterbegraafplaats",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M57c",
+    "gebiedcodenaam": "M57c Drieburg",
+    "gebiednaam": "Drieburg",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M58b",
+    "gebiedcodenaam": "M58b Weespertrekvaart",
+    "gebiednaam": "Weespertrekvaart",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M58e",
+    "gebiedcodenaam": "M58e Amstelglorie",
+    "gebiednaam": "Amstelglorie",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M58f",
+    "gebiedcodenaam": "M58f Overamstel",
+    "gebiednaam": "Overamstel",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M58g",
+    "gebiedcodenaam": "M58g Amstelkwartier Noord",
+    "gebiednaam": "Amstelkwartier Noord",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M58h",
+    "gebiedcodenaam": "M58h De Omval",
+    "gebiednaam": "De Omval",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M58i",
+    "gebiedcodenaam": "M58i Amstelkwartier Zuid",
+    "gebiednaam": "Amstelkwartier Zuid",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "M58j",
+    "gebiedcodenaam": "M58j Amstelkwartier West",
+    "gebiednaam": "Amstelkwartier West",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N60a",
+    "gebiedcodenaam": "N60a Van der Pekbuurt",
+    "gebiednaam": "Van der Pekbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N60b",
+    "gebiedcodenaam": "N60b Bloemenbuurt Zuid",
+    "gebiednaam": "Bloemenbuurt Zuid",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N60c",
+    "gebiedcodenaam": "N60c Bloemenbuurt Noord",
+    "gebiednaam": "Bloemenbuurt Noord",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N61a",
+    "gebiedcodenaam": "N61a IJplein e.o.",
+    "gebiednaam": "IJplein e.o.",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N61b",
+    "gebiedcodenaam": "N61b Vogelbuurt Zuid",
+    "gebiednaam": "Vogelbuurt Zuid",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N61c",
+    "gebiedcodenaam": "N61c Vogelbuurt Noord",
+    "gebiednaam": "Vogelbuurt Noord",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N61d",
+    "gebiedcodenaam": "N61d Vliegenbos",
+    "gebiednaam": "Vliegenbos",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N62a",
+    "gebiedcodenaam": "N62a Tuindorp Nieuwendam West",
+    "gebiednaam": "Tuindorp Nieuwendam West",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N62b",
+    "gebiedcodenaam": "N62b Tuindorp Nieuwendam Oost",
+    "gebiednaam": "Tuindorp Nieuwendam Oost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N63a",
+    "gebiedcodenaam": "N63a Blauwe Zand",
+    "gebiednaam": "Blauwe Zand",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N64a",
+    "gebiedcodenaam": "N64a Buiksloterdijk West",
+    "gebiednaam": "Buiksloterdijk West",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N64b",
+    "gebiedcodenaam": "N64b Buiksloterdijk Oost",
+    "gebiednaam": "Buiksloterdijk Oost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N64c",
+    "gebiedcodenaam": "N64c Nieuwendammerdijk West",
+    "gebiednaam": "Nieuwendammerdijk West",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N64d",
+    "gebiedcodenaam": "N64d Nieuwendammerdijk Oost",
+    "gebiednaam": "Nieuwendammerdijk Oost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N64e",
+    "gebiedcodenaam": "N64e Nieuwendammerdijk Zuid",
+    "gebiednaam": "Nieuwendammerdijk Zuid",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N65a",
+    "gebiedcodenaam": "N65a Tuindorp Oostzaan West",
+    "gebiednaam": "Tuindorp Oostzaan West",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N65b",
+    "gebiedcodenaam": "N65b Tuindorp Oostzaan Oost",
+    "gebiednaam": "Tuindorp Oostzaan Oost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N65c",
+    "gebiedcodenaam": "N65c Terrasdorp",
+    "gebiednaam": "Terrasdorp",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N65d",
+    "gebiedcodenaam": "N65d De Bongerd",
+    "gebiednaam": "De Bongerd",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N66b",
+    "gebiedcodenaam": "N66b Oostzanerdijk",
+    "gebiednaam": "Oostzanerdijk",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N66c",
+    "gebiedcodenaam": "N66c Walvisbuurt",
+    "gebiednaam": "Walvisbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N66d",
+    "gebiedcodenaam": "N66d Twiske West",
+    "gebiednaam": "Twiske West",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N66e",
+    "gebiedcodenaam": "N66e Noorder IJplas",
+    "gebiednaam": "Noorder IJplas",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N66f",
+    "gebiedcodenaam": "N66f Molenwijk",
+    "gebiednaam": "Molenwijk",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N66g",
+    "gebiedcodenaam": "N66g Circus/Kermisbuurt",
+    "gebiednaam": "Circus/Kermisbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N67a",
+    "gebiedcodenaam": "N67a Kadoelen",
+    "gebiednaam": "Kadoelen",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N67b",
+    "gebiedcodenaam": "N67b Twiske Oost",
+    "gebiednaam": "Twiske Oost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N68a",
+    "gebiedcodenaam": "N68a Baanakkerspark Noord",
+    "gebiednaam": "Baanakkerspark Noord",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N68b",
+    "gebiedcodenaam": "N68b Baanakkerspark Zuid",
+    "gebiednaam": "Baanakkerspark Zuid",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N68c",
+    "gebiedcodenaam": "N68c Werengouw Midden",
+    "gebiednaam": "Werengouw Midden",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N68d",
+    "gebiedcodenaam": "N68d Markengouw Midden",
+    "gebiednaam": "Markengouw Midden",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N68e",
+    "gebiedcodenaam": "N68e Markengouw Zuid",
+    "gebiednaam": "Markengouw Zuid",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N68f",
+    "gebiedcodenaam": "N68f Werengouw Zuid",
+    "gebiednaam": "Werengouw Zuid",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N69a",
+    "gebiedcodenaam": "N69a Rode Kruisbuurt",
+    "gebiednaam": "Rode Kruisbuurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N69c",
+    "gebiedcodenaam": "N69c Loenermark",
+    "gebiednaam": "Loenermark",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N69j",
+    "gebiedcodenaam": "N69j Buikslotermeerplein",
+    "gebiednaam": "Buikslotermeerplein",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N69k",
+    "gebiedcodenaam": "N69k Plan van Gool",
+    "gebiednaam": "Plan van Gool",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N69l",
+    "gebiedcodenaam": "N69l De Kleine Wereld",
+    "gebiednaam": "De Kleine Wereld",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N69m",
+    "gebiedcodenaam": "N69m Buikslotermeer Noord",
+    "gebiednaam": "Buikslotermeer Noord",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N70a",
+    "gebiedcodenaam": "N70a Banne Zuidwest",
+    "gebiednaam": "Banne Zuidwest",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N70b",
+    "gebiedcodenaam": "N70b Banne Zuidoost",
+    "gebiednaam": "Banne Zuidoost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N70c",
+    "gebiedcodenaam": "N70c Banne Noordwest",
+    "gebiednaam": "Banne Noordwest",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N70d",
+    "gebiedcodenaam": "N70d Banne Noordoost",
+    "gebiednaam": "Banne Noordoost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N70e",
+    "gebiedcodenaam": "N70e Buiksloterbreek",
+    "gebiednaam": "Buiksloterbreek",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N70f",
+    "gebiedcodenaam": "N70f Marjoleinterrein",
+    "gebiednaam": "Marjoleinterrein",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N71c",
+    "gebiedcodenaam": "N71c Papaverweg e.o.",
+    "gebiednaam": "Papaverweg e.o.",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N71e",
+    "gebiedcodenaam": "N71e Cornelis Douwesterrein",
+    "gebiednaam": "Cornelis Douwesterrein",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N71f",
+    "gebiedcodenaam": "N71f NDSM terrein",
+    "gebiednaam": "NDSM terrein",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N71g",
+    "gebiedcodenaam": "N71g Buiksloterham",
+    "gebiednaam": "Buiksloterham",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N71h",
+    "gebiedcodenaam": "N71h Overhoeks",
+    "gebiednaam": "Overhoeks",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N72a",
+    "gebiedcodenaam": "N72a Bedrijventerrein Hamerstraat",
+    "gebiednaam": "Bedrijventerrein Hamerstraat",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N72b",
+    "gebiedcodenaam": "N72b Zamenhofstraat e.o.",
+    "gebiednaam": "Zamenhofstraat e.o.",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N72c",
+    "gebiedcodenaam": "N72c Bedrijventerrein Nieuwendammerdijk",
+    "gebiednaam": "Bedrijventerrein Nieuwendammerdijk",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N73a",
+    "gebiedcodenaam": "N73a Schellingwoude West",
+    "gebiednaam": "Schellingwoude West",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N73b",
+    "gebiedcodenaam": "N73b Schellingwoude Oost",
+    "gebiednaam": "Schellingwoude Oost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N73c",
+    "gebiedcodenaam": "N73c Schellingwoude Noord",
+    "gebiednaam": "Schellingwoude Noord",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N73d",
+    "gebiedcodenaam": "N73d Durgerdam",
+    "gebiednaam": "Durgerdam",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N73e",
+    "gebiedcodenaam": "N73e Zwarte Gouw",
+    "gebiednaam": "Zwarte Gouw",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N73f",
+    "gebiedcodenaam": "N73f Ransdorp",
+    "gebiednaam": "Ransdorp",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N73g",
+    "gebiedcodenaam": "N73g Holysloot",
+    "gebiednaam": "Holysloot",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N73h",
+    "gebiedcodenaam": "N73h Zunderdorp",
+    "gebiednaam": "Zunderdorp",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N73i",
+    "gebiedcodenaam": "N73i Noorderstrook West",
+    "gebiednaam": "Noorderstrook West",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N73j",
+    "gebiedcodenaam": "N73j Noorderstrook Oost",
+    "gebiednaam": "Noorderstrook Oost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N74a",
+    "gebiedcodenaam": "N74a Nintemanterrein",
+    "gebiednaam": "Nintemanterrein",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N74b",
+    "gebiedcodenaam": "N74b Elzenhagen Zuid",
+    "gebiednaam": "Elzenhagen Zuid",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "N74c",
+    "gebiedcodenaam": "N74c Elzenhagen Noord",
+    "gebiednaam": "Elzenhagen Noord",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "T92a",
+    "gebiedcodenaam": "T92a Hoofdcentrum Zuidoost",
+    "gebiednaam": "Hoofdcentrum Zuidoost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "T92b",
+    "gebiedcodenaam": "T92b Amstel III deel A/B Noord",
+    "gebiednaam": "Amstel III deel A/B Noord",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "T92c",
+    "gebiedcodenaam": "T92c Amstel III deel C/D Noord",
+    "gebiednaam": "Amstel III deel C/D Noord",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "T92d",
+    "gebiedcodenaam": "T92d Amstel III deel A/B Zuid",
+    "gebiednaam": "Amstel III deel A/B Zuid",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "T92e",
+    "gebiedcodenaam": "T92e Amstel III deel C/D Zuid",
+    "gebiednaam": "Amstel III deel C/D Zuid",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "T92f",
+    "gebiedcodenaam": "T92f AMC",
+    "gebiednaam": "AMC",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "T92g",
+    "gebiedcodenaam": "T92g Hoge Dijk",
+    "gebiednaam": "Hoge Dijk",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "T93a",
+    "gebiedcodenaam": "T93a Venserpolder West",
+    "gebiednaam": "Venserpolder West",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "T93b",
+    "gebiedcodenaam": "T93b Venserpolder Oost",
+    "gebiednaam": "Venserpolder Oost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "T93c",
+    "gebiedcodenaam": "T93c D-buurt",
+    "gebiednaam": "D-buurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "T93d",
+    "gebiedcodenaam": "T93d F-buurt",
+    "gebiednaam": "F-buurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "T93e",
+    "gebiedcodenaam": "T93e Amsterdamse Poort",
+    "gebiednaam": "Amsterdamse Poort",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "T93f",
+    "gebiedcodenaam": "T93f Hoptille",
+    "gebiednaam": "Hoptille",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "T93g",
+    "gebiedcodenaam": "T93g Rechte H-buurt",
+    "gebiednaam": "Rechte H-buurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "T93h",
+    "gebiedcodenaam": "T93h Hakfort/Huigenbos",
+    "gebiednaam": "Hakfort/Huigenbos",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "T93i",
+    "gebiedcodenaam": "T93i Huntum",
+    "gebiednaam": "Huntum",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "T93j",
+    "gebiedcodenaam": "T93j Vogeltjeswei",
+    "gebiednaam": "Vogeltjeswei",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "T93k",
+    "gebiedcodenaam": "T93k Nelson Mandelapark",
+    "gebiednaam": "Nelson Mandelapark",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "T94a",
+    "gebiedcodenaam": "T94a E-buurt",
+    "gebiednaam": "E-buurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "T94b",
+    "gebiedcodenaam": "T94b G-buurt West",
+    "gebiednaam": "G-buurt West",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "T94c",
+    "gebiedcodenaam": "T94c Bijlmermuseum Noord",
+    "gebiednaam": "Bijlmermuseum Noord",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "T94d",
+    "gebiedcodenaam": "T94d Kortvoort",
+    "gebiednaam": "Kortvoort",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "T94e",
+    "gebiedcodenaam": "T94e Kelbergen",
+    "gebiednaam": "Kelbergen",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "T94f",
+    "gebiedcodenaam": "T94f K-buurt Midden",
+    "gebiednaam": "K-buurt Midden",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "T94g",
+    "gebiedcodenaam": "T94g K-buurt Zuidoost",
+    "gebiednaam": "K-buurt Zuidoost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "T94h",
+    "gebiedcodenaam": "T94h K-buurt Zuidwest",
+    "gebiednaam": "K-buurt Zuidwest",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "T94i",
+    "gebiedcodenaam": "T94i Grunder/Koningshoef",
+    "gebiednaam": "Grunder/Koningshoef",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "T94j",
+    "gebiedcodenaam": "T94j G-buurt Oost",
+    "gebiednaam": "G-buurt Oost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "T94k",
+    "gebiedcodenaam": "T94k Kantershof",
+    "gebiednaam": "Kantershof",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "T94l",
+    "gebiedcodenaam": "T94l Gooise Kant",
+    "gebiednaam": "Gooise Kant",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "T94m",
+    "gebiedcodenaam": "T94m G-buurt Noord",
+    "gebiednaam": "G-buurt Noord",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "T94n",
+    "gebiedcodenaam": "T94n Bijlmermuseum Zuid",
+    "gebiednaam": "Bijlmermuseum Zuid",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "T95a",
+    "gebiedcodenaam": "T95a L-buurt",
+    "gebiednaam": "L-buurt",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "T95b",
+    "gebiedcodenaam": "T95b Gaasperpark",
+    "gebiednaam": "Gaasperpark",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "T95c",
+    "gebiedcodenaam": "T95c Gaasperplas",
+    "gebiednaam": "Gaasperplas",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "T96a",
+    "gebiedcodenaam": "T96a Holendrecht Noordwest",
+    "gebiednaam": "Holendrecht Noordwest",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "T96b",
+    "gebiedcodenaam": "T96b Reigersbos Noord",
+    "gebiednaam": "Reigersbos Noord",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "T96c",
+    "gebiedcodenaam": "T96c Holendrecht Oost",
+    "gebiednaam": "Holendrecht Oost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "T96d",
+    "gebiedcodenaam": "T96d Gaasperdam Noord",
+    "gebiednaam": "Gaasperdam Noord",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "T96e",
+    "gebiedcodenaam": "T96e Gaasperdam Zuid",
+    "gebiednaam": "Gaasperdam Zuid",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "T96f",
+    "gebiedcodenaam": "T96f Reigersbos Midden",
+    "gebiednaam": "Reigersbos Midden",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "T96g",
+    "gebiedcodenaam": "T96g Reigersbos Zuid",
+    "gebiednaam": "Reigersbos Zuid",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "T97a",
+    "gebiedcodenaam": "T97a Gein Noordwest",
+    "gebiednaam": "Gein Noordwest",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "T97b",
+    "gebiedcodenaam": "T97b Gein Zuidwest",
+    "gebiednaam": "Gein Zuidwest",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "T97c",
+    "gebiedcodenaam": "T97c Gein Noordoost",
+    "gebiednaam": "Gein Noordoost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "T97d",
+    "gebiedcodenaam": "T97d Gein Zuidoost",
+    "gebiednaam": "Gein Zuidoost",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "T98a",
+    "gebiedcodenaam": "T98a Dorp Driemond",
+    "gebiednaam": "Dorp Driemond",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "T98b",
+    "gebiedcodenaam": "T98b Landelijk Gebied Driemond",
+    "gebiednaam": "Landelijk Gebied Driemond",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "Z99z",
+    "gebiedcodenaam": "Z99z buiten beschouwing",
+    "gebiednaam": "buiten beschouwing",
+    "Niveaunaam": "Buurten"
+  },
+  {
+    "gebiedcode": "bb1",
+    "gebiedcodenaam": "bb1  Afrikahaven",
+    "gebiednaam": "Afrikahaven",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb10",
+    "gebiedcodenaam": "bb10 Sloterdijk I",
+    "gebiednaam": "Sloterdijk I",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb11",
+    "gebiedcodenaam": "bb11 Sloterdijk II",
+    "gebiednaam": "Sloterdijk II",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb12",
+    "gebiedcodenaam": "bb12 Sloterdijk III",
+    "gebiednaam": "Sloterdijk III",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb13",
+    "gebiedcodenaam": "bb13 Heining",
+    "gebiednaam": "Heining",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb14",
+    "gebiedcodenaam": "bb14 Bedrijvencentrum Osdorp",
+    "gebiednaam": "Bedrijvencentrum Osdorp",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb15",
+    "gebiedcodenaam": "bb15 Business Park Amsterdam  Osdorp",
+    "gebiednaam": "Business Park Amsterdam  Osdorp",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb16",
+    "gebiedcodenaam": "bb16 Overamstel",
+    "gebiednaam": "Overamstel",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb17",
+    "gebiedcodenaam": "bb17 Weespertrekvaart Amsterdam",
+    "gebiednaam": "Weespertrekvaart Amsterdam",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb18",
+    "gebiedcodenaam": "bb18 Weespertrekvaart Ouder-Amstel",
+    "gebiednaam": "Weespertrekvaart Ouder-Amstel",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb19",
+    "gebiedcodenaam": "bb19 Amstel II",
+    "gebiednaam": "Amstel II",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb2",
+    "gebiedcodenaam": "bb2  Atlaspark",
+    "gebiednaam": "Atlaspark",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb20",
+    "gebiedcodenaam": "bb20 Amstel III bedrijven",
+    "gebiednaam": "Amstel III bedrijven",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb21",
+    "gebiedcodenaam": "bb21 AMC",
+    "gebiednaam": "AMC",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb22",
+    "gebiedcodenaam": "bb22 Schinkel",
+    "gebiednaam": "Schinkel",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb23",
+    "gebiedcodenaam": "bb23 Medisch Centrum Slotervaart",
+    "gebiednaam": "Medisch Centrum Slotervaart",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb24",
+    "gebiedcodenaam": "bb24 Bedrijvencentrum Westerpark/Food Center Amsterdam",
+    "gebiednaam": "Bedrijvencentrum Westerpark/Food Center Amsterdam",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb25",
+    "gebiedcodenaam": "bb25 Landlust",
+    "gebiednaam": "Landlust",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb26",
+    "gebiedcodenaam": "bb26 C. Douwesterrein",
+    "gebiednaam": "C. Douwesterrein",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb27",
+    "gebiedcodenaam": "bb27 NDSM/Hoge land",
+    "gebiednaam": "NDSM/Hoge land",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb28",
+    "gebiedcodenaam": "bb28 Hamerstraat",
+    "gebiednaam": "Hamerstraat",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb29",
+    "gebiedcodenaam": "bb29 Buiksloterham/Overhoeks",
+    "gebiednaam": "Buiksloterham/Overhoeks",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb3",
+    "gebiedcodenaam": "bb3  Amerikahaven",
+    "gebiednaam": "Amerikahaven",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb30",
+    "gebiedcodenaam": "bb30 Papaverweg/Metaalbewerkerweg",
+    "gebiednaam": "Papaverweg/Metaalbewerkerweg",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb31",
+    "gebiedcodenaam": "bb31 Zamenhofstraat/Pereboomsloot",
+    "gebiednaam": "Zamenhofstraat/Pereboomsloot",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb32",
+    "gebiedcodenaam": "bb32 Gembo-terrein/Nieuwendammerdijk",
+    "gebiednaam": "Gembo-terrein/Nieuwendammerdijk",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb33",
+    "gebiedcodenaam": "bb33 Cruquius",
+    "gebiednaam": "Cruquius",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb34",
+    "gebiedcodenaam": "bb34 Verrijn Stuart/de Sniep",
+    "gebiednaam": "Verrijn Stuart/de Sniep",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb35",
+    "gebiedcodenaam": "bb35 Zeeburgereiland",
+    "gebiednaam": "Zeeburgereiland",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb36",
+    "gebiedcodenaam": "bb36 Jan Tooropstraat",
+    "gebiednaam": "Jan Tooropstraat",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb37",
+    "gebiedcodenaam": "bb37 Molukkenstraat",
+    "gebiednaam": "Molukkenstraat",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb38",
+    "gebiedcodenaam": "bb38 Tramremise Lekstraat",
+    "gebiednaam": "Tramremise Lekstraat",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb39",
+    "gebiedcodenaam": "bb39 Drieburg",
+    "gebiednaam": "Drieburg",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb4",
+    "gebiedcodenaam": "bb4  Westhaven",
+    "gebiednaam": "Westhaven",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb40",
+    "gebiedcodenaam": "bb40 Havenstraatterrein/Karperweg",
+    "gebiednaam": "Havenstraatterrein/Karperweg",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb41",
+    "gebiedcodenaam": "bb41 Sloten Slimmeweg",
+    "gebiednaam": "Sloten Slimmeweg",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb42",
+    "gebiedcodenaam": "bb42 Pompstation Waterleidingen ZO",
+    "gebiednaam": "Pompstation Waterleidingen ZO",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb43",
+    "gebiedcodenaam": "bb43 Steigereiland",
+    "gebiednaam": "Steigereiland",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb44",
+    "gebiedcodenaam": "bb44 Molenkade",
+    "gebiednaam": "Molenkade",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb45",
+    "gebiedcodenaam": "bb45 Ambachtenstraat Ouderkerk",
+    "gebiednaam": "Ambachtenstraat Ouderkerk",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb5",
+    "gebiedcodenaam": "bb5  Petroleumhaven e.o.",
+    "gebiednaam": "Petroleumhaven e.o.",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb51",
+    "gebiedcodenaam": "bb51 Amsterdam Teleport e.o.",
+    "gebiednaam": "Amsterdam Teleport e.o.",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb52",
+    "gebiedcodenaam": "bb52 Amstel III kantoren",
+    "gebiednaam": "Amstel III kantoren",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb53",
+    "gebiedcodenaam": "bb53 Centrumgebied/Hoofdcentrum Zuidoost",
+    "gebiednaam": "Centrumgebied/Hoofdcentrum Zuidoost",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb54",
+    "gebiedcodenaam": "bb54 Overschiestraat/Riekerpolder",
+    "gebiednaam": "Overschiestraat/Riekerpolder",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb55",
+    "gebiedcodenaam": "bb55 Cornelis Lelylaan",
+    "gebiednaam": "Cornelis Lelylaan",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb56",
+    "gebiedcodenaam": "bb56 Amsterdam Fashion Centre",
+    "gebiednaam": "Amsterdam Fashion Centre",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb57",
+    "gebiedcodenaam": "bb57 werkgebieden Centrum",
+    "gebiednaam": "werkgebieden Centrum",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb58",
+    "gebiedcodenaam": "bb58 Oostelijke Handelskade/Rietlandpark",
+    "gebiednaam": "Oostelijke Handelskade/Rietlandpark",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb59",
+    "gebiedcodenaam": "bb59 Zuidas",
+    "gebiednaam": "Zuidas",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb6",
+    "gebiedcodenaam": "bb6  Coenhaven/Vlothaven",
+    "gebiednaam": "Coenhaven/Vlothaven",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb60",
+    "gebiedcodenaam": "bb60 Jollenpad/Zuiderhof/Burgerweeshuis",
+    "gebiednaam": "Jollenpad/Zuiderhof/Burgerweeshuis",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb61",
+    "gebiedcodenaam": "bb61 Science Park Amsterdam",
+    "gebiednaam": "Science Park Amsterdam",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb62",
+    "gebiedcodenaam": "bb62 Amstelstation/De Eenhoorn",
+    "gebiednaam": "Amstelstation/De Eenhoorn",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb63",
+    "gebiedcodenaam": "bb63 Entrada",
+    "gebiednaam": "Entrada",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb64",
+    "gebiedcodenaam": "bb64 Bergwijkpark Diemen",
+    "gebiednaam": "Bergwijkpark Diemen",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb65",
+    "gebiedcodenaam": "bb65 Oude Haagseweg",
+    "gebiednaam": "Oude Haagseweg",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb66",
+    "gebiedcodenaam": "bb66 Centrale Zone Noord",
+    "gebiednaam": "Centrale Zone Noord",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb67",
+    "gebiedcodenaam": "bb67 Delflandpleinbuurt",
+    "gebiednaam": "Delflandpleinbuurt",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb68",
+    "gebiedcodenaam": "bb68 van Diemenstraat",
+    "gebiednaam": "van Diemenstraat",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb69",
+    "gebiedcodenaam": "bb69 Boldootstrook",
+    "gebiednaam": "Boldootstrook",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb7",
+    "gebiedcodenaam": "bb7  Minervahaven/Hempoint",
+    "gebiednaam": "Minervahaven/Hempoint",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb70",
+    "gebiedcodenaam": "bb70 Bovenkerk",
+    "gebiednaam": "Bovenkerk",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb71",
+    "gebiedcodenaam": "bb71 Legmeer",
+    "gebiednaam": "Legmeer",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb72",
+    "gebiedcodenaam": "bb72 Uilenstede",
+    "gebiednaam": "Uilenstede",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb73",
+    "gebiedcodenaam": "bb73 de Krijgsman",
+    "gebiednaam": "de Krijgsman",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb74",
+    "gebiedcodenaam": "bb74 Ziekenhuis Amstelveen e.o.",
+    "gebiednaam": "Ziekenhuis Amstelveen e.o.",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb75",
+    "gebiedcodenaam": "bb75 Burgemeester Rijnderslaan",
+    "gebiednaam": "Burgemeester Rijnderslaan",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb76",
+    "gebiedcodenaam": "bb76 Schweitzerlaan",
+    "gebiednaam": "Schweitzerlaan",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb77",
+    "gebiedcodenaam": "bb77 Stroombaan",
+    "gebiednaam": "Stroombaan",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb78",
+    "gebiedcodenaam": "bb78 KLM e.o.",
+    "gebiednaam": "KLM e.o.",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb8",
+    "gebiedcodenaam": "bb8  Vervoerscentrum",
+    "gebiednaam": "Vervoerscentrum",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bb9",
+    "gebiedcodenaam": "bb9  Alfa-driehoek",
+    "gebiednaam": "Alfa-driehoek",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "bbxx",
+    "gebiedcodenaam": "bbxx Overig Amsterdam o.i.d.",
+    "gebiednaam": "Overig Amsterdam o.i.d.",
+    "Niveaunaam": "Werkgebieden"
+  },
+  {
+    "gebiedcode": "W001",
+    "gebiedcodenaam": "W001 Haarlemmerstraat/Haarlemmerdijk e.o.",
+    "gebiednaam": "Haarlemmerstraat/Haarlemmerdijk e.o.",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W002",
+    "gebiedcodenaam": "W002 Jordaan/Westelijke grachtengordel (excl kernstraten)",
+    "gebiednaam": "Jordaan/Westelijke grachtengordel (excl kernstraten)",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W003",
+    "gebiedcodenaam": "W003 Nieuwendijk/Damrak",
+    "gebiednaam": "Nieuwendijk/Damrak",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W004",
+    "gebiedcodenaam": "W004 Dam/ Magna Plaza",
+    "gebiednaam": "Dam/ Magna Plaza",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W005",
+    "gebiedcodenaam": "W005 Kalverstraat/Heilige Weg/Rokin.",
+    "gebiednaam": "Kalverstraat/Heilige Weg/Rokin.",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W006",
+    "gebiedcodenaam": "W006 Utrechtse straat",
+    "gebiednaam": "Utrechtse straat",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W007",
+    "gebiedcodenaam": "W007 Rozengracht/Raadhuisstraat",
+    "gebiednaam": "Rozengracht/Raadhuisstraat",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W008",
+    "gebiedcodenaam": "W008 Waterlooplein/Jodenbreestraat",
+    "gebiednaam": "Waterlooplein/Jodenbreestraat",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W009",
+    "gebiedcodenaam": "W009 Reguliersbreestraat/Munt",
+    "gebiednaam": "Reguliersbreestraat/Munt",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W010",
+    "gebiedcodenaam": "W010 Vijzelstraat/Vijzelgracht",
+    "gebiednaam": "Vijzelstraat/Vijzelgracht",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W011",
+    "gebiedcodenaam": "W011 Leidsestraat/ Koningsplein",
+    "gebiednaam": "Leidsestraat/ Koningsplein",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W012",
+    "gebiedcodenaam": "W012 Nieuwmarktbuurt/Burgwallen (excl kernstraten)",
+    "gebiednaam": "Nieuwmarktbuurt/Burgwallen (excl kernstraten)",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W013",
+    "gebiedcodenaam": "W013 Oostelijke eilanden",
+    "gebiednaam": "Oostelijke eilanden",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W014",
+    "gebiedcodenaam": "W014 Binnenstad overig",
+    "gebiednaam": "Binnenstad overig",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W015",
+    "gebiedcodenaam": "W015 Spaarndammerstraat",
+    "gebiednaam": "Spaarndammerstraat",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W016",
+    "gebiedcodenaam": "W016 Tweede Nassaustraat",
+    "gebiednaam": "Tweede Nassaustraat",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W017",
+    "gebiedcodenaam": "W017 Hugo de Grootplein en omgeving",
+    "gebiednaam": "Hugo de Grootplein en omgeving",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W018",
+    "gebiedcodenaam": "W018 Staatliedenbuurt overig",
+    "gebiednaam": "Staatliedenbuurt overig",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W019",
+    "gebiedcodenaam": "W019 Spaarndammerbuurt overig",
+    "gebiednaam": "Spaarndammerbuurt overig",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W020",
+    "gebiedcodenaam": "W020 Frederik Hendrikbuurt overig",
+    "gebiednaam": "Frederik Hendrikbuurt overig",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W022",
+    "gebiedcodenaam": "W022 Bedrijvencentrum Westerpark",
+    "gebiednaam": "Bedrijvencentrum Westerpark",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W023",
+    "gebiedcodenaam": "W023 Westelijk Havengebied overig",
+    "gebiednaam": "Westelijk Havengebied overig",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W024",
+    "gebiedcodenaam": "W024 Station Sloterdijk en omgeving",
+    "gebiednaam": "Station Sloterdijk en omgeving",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W025",
+    "gebiedcodenaam": "W025 Kinkerstraat",
+    "gebiednaam": "Kinkerstraat",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W026",
+    "gebiedcodenaam": "W026 Ten Katemarkt",
+    "gebiednaam": "Ten Katemarkt",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W027",
+    "gebiedcodenaam": "W027 J.P. Heyestraat",
+    "gebiednaam": "J.P. Heyestraat",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W028",
+    "gebiedcodenaam": "W028 Bilderdijkstraat",
+    "gebiednaam": "Bilderdijkstraat",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W029",
+    "gebiedcodenaam": "W029 Overtoom en omgeving.",
+    "gebiednaam": "Overtoom en omgeving.",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W030",
+    "gebiedcodenaam": "W030 Kinkerbuurt overig",
+    "gebiednaam": "Kinkerbuurt overig",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W031",
+    "gebiedcodenaam": "W031 Oud West overig",
+    "gebiednaam": "Oud West overig",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W032",
+    "gebiedcodenaam": "W032 Ferdinand Bolstraat, Heinekenplein e.o.",
+    "gebiednaam": "Ferdinand Bolstraat, Heinekenplein e.o.",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W033",
+    "gebiedcodenaam": "W033 Albert Cuypstraat,Albert Cuyp-markt",
+    "gebiednaam": "Albert Cuypstraat,Albert Cuyp-markt",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W034",
+    "gebiedcodenaam": "W034 van Woustraat en omgeving.",
+    "gebiednaam": "van Woustraat en omgeving.",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W035",
+    "gebiedcodenaam": "W035 De Pijp overig",
+    "gebiednaam": "De Pijp overig",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W036",
+    "gebiedcodenaam": "W036 Linnaeusstraat",
+    "gebiednaam": "Linnaeusstraat",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W037",
+    "gebiedcodenaam": "W037 Dapperstraat/Dapperplein",
+    "gebiednaam": "Dapperstraat/Dapperplein",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W038",
+    "gebiedcodenaam": "W038 Eerste van Swindenstraat",
+    "gebiednaam": "Eerste van Swindenstraat",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W039",
+    "gebiedcodenaam": "W039 Eerste Oosterparkstraat",
+    "gebiednaam": "Eerste Oosterparkstraat",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W040",
+    "gebiedcodenaam": "W040 Oud Oost overig",
+    "gebiednaam": "Oud Oost overig",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W041",
+    "gebiedcodenaam": "W041 Javastraat",
+    "gebiednaam": "Javastraat",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W042",
+    "gebiedcodenaam": "W042 Molukkenstraat",
+    "gebiednaam": "Molukkenstraat",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W043",
+    "gebiedcodenaam": "W043 Brazilie",
+    "gebiednaam": "Brazilie",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W044",
+    "gebiedcodenaam": "W044 Oud Zeeburg overig",
+    "gebiednaam": "Oud Zeeburg overig",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W045",
+    "gebiedcodenaam": "W045 Nieuw Zeeburg overig",
+    "gebiednaam": "Nieuw Zeeburg overig",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W046",
+    "gebiedcodenaam": "W046 Bos en Lommerweg",
+    "gebiednaam": "Bos en Lommerweg",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W047",
+    "gebiedcodenaam": "W047 Gulden Winckel-plantsoen/-markt",
+    "gebiednaam": "Gulden Winckel-plantsoen/-markt",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W048",
+    "gebiedcodenaam": "W048 Bos en Lommer overig",
+    "gebiednaam": "Bos en Lommer overig",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W049",
+    "gebiedcodenaam": "W049 Jan Evertsenstraat en omgeving",
+    "gebiednaam": "Jan Evertsenstraat en omgeving",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W050",
+    "gebiedcodenaam": "W050 Jan van Galenstraat",
+    "gebiednaam": "Jan van Galenstraat",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W051",
+    "gebiedcodenaam": "W051 Postjesweg",
+    "gebiednaam": "Postjesweg",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W052",
+    "gebiedcodenaam": "W052 De Baarsjes overig",
+    "gebiednaam": "De Baarsjes overig",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W053",
+    "gebiedcodenaam": "W053 P.C. Hooftstraat",
+    "gebiednaam": "P.C. Hooftstraat",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W054",
+    "gebiedcodenaam": "W054 Beethovenstraat",
+    "gebiednaam": "Beethovenstraat",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W055",
+    "gebiedcodenaam": "W055 Zeilstraat/Hoofddorpplein",
+    "gebiednaam": "Zeilstraat/Hoofddorpplein",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W056",
+    "gebiedcodenaam": "W056 Cornelis Schuytstraat",
+    "gebiednaam": "Cornelis Schuytstraat",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W057",
+    "gebiedcodenaam": "W057 Amstelveense weg",
+    "gebiednaam": "Amstelveense weg",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W058",
+    "gebiedcodenaam": "W058 Olympiaplein en omgeving.",
+    "gebiednaam": "Olympiaplein en omgeving.",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W059",
+    "gebiedcodenaam": "W059 Oud Zuid overig",
+    "gebiednaam": "Oud Zuid overig",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W060",
+    "gebiedcodenaam": "W060 Schinkel (Praxis)",
+    "gebiednaam": "Schinkel (Praxis)",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W061",
+    "gebiedcodenaam": "W061 Rijnstraat",
+    "gebiednaam": "Rijnstraat",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W062",
+    "gebiedcodenaam": "W062 Maasstraat",
+    "gebiednaam": "Maasstraat",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W063",
+    "gebiedcodenaam": "W063 Scheldestraat",
+    "gebiednaam": "Scheldestraat",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W064",
+    "gebiedcodenaam": "W064 Rivierenbuurt overig",
+    "gebiednaam": "Rivierenbuurt overig",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W065",
+    "gebiedcodenaam": "W065 Middenweg",
+    "gebiednaam": "Middenweg",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W066",
+    "gebiedcodenaam": "W066 Christiaan Huygensplein",
+    "gebiednaam": "Christiaan Huygensplein",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W067",
+    "gebiedcodenaam": "W067 Watergraafsmeer overig",
+    "gebiednaam": "Watergraafsmeer overig",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W068",
+    "gebiedcodenaam": "W068 Spaklerweg (Kwikfit, Halfords)",
+    "gebiednaam": "Spaklerweg (Kwikfit, Halfords)",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W069",
+    "gebiedcodenaam": "W069 Buikslotermeerplein (boven t Y)",
+    "gebiednaam": "Buikslotermeerplein (boven t Y)",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W070",
+    "gebiedcodenaam": "W070 Mosveld/Hagedoornweg",
+    "gebiednaam": "Mosveld/Hagedoornweg",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W071",
+    "gebiedcodenaam": "W071 Waterlandplein",
+    "gebiednaam": "Waterlandplein",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W073",
+    "gebiedcodenaam": "W073 de Wieken",
+    "gebiednaam": "de Wieken",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W074",
+    "gebiedcodenaam": "W074 Klaprozenweg",
+    "gebiednaam": "Klaprozenweg",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W075",
+    "gebiedcodenaam": "W075 Noord overig",
+    "gebiednaam": "Noord overig",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W076",
+    "gebiedcodenaam": "W076 Burgemeester de Vlugtlaan/Burgemeester Fockstraat",
+    "gebiednaam": "Burgemeester de Vlugtlaan/Burgemeester Fockstraat",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W077",
+    "gebiedcodenaam": "W077 Plein 40-45",
+    "gebiednaam": "Plein 40-45",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W078",
+    "gebiedcodenaam": "W078 Lambertus Zijlplein",
+    "gebiednaam": "Lambertus Zijlplein",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W079",
+    "gebiedcodenaam": "W079 Burg. v Leeuwenlaan.",
+    "gebiednaam": "Burg. v Leeuwenlaan.",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W082",
+    "gebiedcodenaam": "W082 Geuzenveld/Slotermeer overig",
+    "gebiednaam": "Geuzenveld/Slotermeer overig",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W083",
+    "gebiedcodenaam": "W083 Osdorperplein/Tussenmeer",
+    "gebiednaam": "Osdorperplein/Tussenmeer",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W084",
+    "gebiedcodenaam": "W084 Osdorperban/Hoekenes",
+    "gebiednaam": "Osdorperban/Hoekenes",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W085",
+    "gebiedcodenaam": "W085 Dijkgraafplein en omgeving",
+    "gebiednaam": "Dijkgraafplein en omgeving",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W086",
+    "gebiedcodenaam": "W086 De Aker/Dukaat",
+    "gebiednaam": "De Aker/Dukaat",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W087",
+    "gebiedcodenaam": "W087 Osdorp overig",
+    "gebiednaam": "Osdorp overig",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W088",
+    "gebiedcodenaam": "W088 Bedrijvencentrum Osdorp",
+    "gebiednaam": "Bedrijvencentrum Osdorp",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W089",
+    "gebiedcodenaam": "W089 August Allebéplein",
+    "gebiednaam": "August Allebéplein",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W090",
+    "gebiedcodenaam": "W090 Johan Huizingalaan en omgeving",
+    "gebiednaam": "Johan Huizingalaan en omgeving",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W091",
+    "gebiedcodenaam": "W091 Sierplein",
+    "gebiednaam": "Sierplein",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W093",
+    "gebiedcodenaam": "W093 Delflandplein",
+    "gebiednaam": "Delflandplein",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W094",
+    "gebiedcodenaam": "W094 Slotervaart/Overtoomse Veld overig",
+    "gebiednaam": "Slotervaart/Overtoomse Veld overig",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W095",
+    "gebiedcodenaam": "W095 Belgiëplein en omgeving",
+    "gebiednaam": "Belgiëplein en omgeving",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W096",
+    "gebiedcodenaam": "W096 Gelderlandplein",
+    "gebiednaam": "Gelderlandplein",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W097",
+    "gebiedcodenaam": "W097 Rooswijk",
+    "gebiednaam": "Rooswijk",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W098",
+    "gebiedcodenaam": "W098 Buitenveldert overig",
+    "gebiednaam": "Buitenveldert overig",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W099",
+    "gebiedcodenaam": "W099 Amsterdamse Poort",
+    "gebiednaam": "Amsterdamse Poort",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W100",
+    "gebiedcodenaam": "W100 Arena gebied",
+    "gebiednaam": "Arena gebied",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W101",
+    "gebiedcodenaam": "W101 Reigersbos",
+    "gebiednaam": "Reigersbos",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W103",
+    "gebiedcodenaam": "W103 Ganzenpoort",
+    "gebiednaam": "Ganzenpoort",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W104",
+    "gebiedcodenaam": "W104 Gein/Wisseloordplein",
+    "gebiednaam": "Gein/Wisseloordplein",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W105",
+    "gebiedcodenaam": "W105 Holendrechtplein",
+    "gebiednaam": "Holendrechtplein",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W106",
+    "gebiedcodenaam": "W106 IKEA Zuidoost",
+    "gebiednaam": "IKEA Zuidoost",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W107",
+    "gebiedcodenaam": "W107 Praxis Zuidoost",
+    "gebiednaam": "Praxis Zuidoost",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W108",
+    "gebiedcodenaam": "W108 Zuidoost overig",
+    "gebiednaam": "Zuidoost overig",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W313",
+    "gebiedcodenaam": "W313 Ceintuurbaan West",
+    "gebiednaam": "Ceintuurbaan West",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W334",
+    "gebiedcodenaam": "W334 De Clerqstraat",
+    "gebiednaam": "De Clerqstraat",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W335",
+    "gebiedcodenaam": "W335 1e Constantijn Huijgensstraat",
+    "gebiednaam": "1e Constantijn Huijgensstraat",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W336",
+    "gebiedcodenaam": "W336 IJburg",
+    "gebiednaam": "IJburg",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W337",
+    "gebiedcodenaam": "W337 Zonneplein",
+    "gebiednaam": "Zonneplein",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W338",
+    "gebiedcodenaam": "W338 Purmerplein",
+    "gebiednaam": "Purmerplein",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W339",
+    "gebiedcodenaam": "W339 Caleido",
+    "gebiednaam": "Caleido",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W340",
+    "gebiedcodenaam": "W340 Albert Camuslaan eo",
+    "gebiednaam": "Albert Camuslaan eo",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W341",
+    "gebiedcodenaam": "W341 Beukenplein en omgeving",
+    "gebiednaam": "Beukenplein en omgeving",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W342",
+    "gebiedcodenaam": "W342 Pretoriusstraat/Pretoriusplein",
+    "gebiednaam": "Pretoriusstraat/Pretoriusplein",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W343",
+    "gebiedcodenaam": "W343 Brink Betondorp",
+    "gebiednaam": "Brink Betondorp",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W351",
+    "gebiedcodenaam": "W351 Praxis Noordzeeweg",
+    "gebiednaam": "Praxis Noordzeeweg",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W352",
+    "gebiedcodenaam": "W352 Zuidas Noord overig gebied",
+    "gebiednaam": "Zuidas Noord overig gebied",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W353",
+    "gebiedcodenaam": "W353 Gamma Nieuwe Hemweg",
+    "gebiednaam": "Gamma Nieuwe Hemweg",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W354",
+    "gebiedcodenaam": "W354 PDV Molukkenstraat",
+    "gebiednaam": "PDV Molukkenstraat",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W355",
+    "gebiedcodenaam": "W355 PDV Villa Arena",
+    "gebiednaam": "PDV Villa Arena",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W356",
+    "gebiedcodenaam": "W356 Praxis Trompenburgerstraat",
+    "gebiednaam": "Praxis Trompenburgerstraat",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W357",
+    "gebiedcodenaam": "W357 Gamma Aletta Jacobslaan",
+    "gebiednaam": "Gamma Aletta Jacobslaan",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W358",
+    "gebiedcodenaam": "W358 Woon en Bouwcentrum Westpoort",
+    "gebiednaam": "Woon en Bouwcentrum Westpoort",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W359",
+    "gebiedcodenaam": "W359 Riva-terrein Zuidoost",
+    "gebiednaam": "Riva-terrein Zuidoost",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W370",
+    "gebiedcodenaam": "W370 Tussenmeer midden",
+    "gebiednaam": "Tussenmeer midden",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W376",
+    "gebiedcodenaam": "W376 de negen straatjes",
+    "gebiednaam": "de negen straatjes",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W377",
+    "gebiedcodenaam": "W377 van der Pekstraat",
+    "gebiednaam": "van der Pekstraat",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W378",
+    "gebiedcodenaam": "W378 Bezaanjachtplein",
+    "gebiednaam": "Bezaanjachtplein",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W379",
+    "gebiedcodenaam": "W379 de Kameleon",
+    "gebiednaam": "de Kameleon",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W380",
+    "gebiedcodenaam": "W380 Oostpoort",
+    "gebiednaam": "Oostpoort",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W381",
+    "gebiedcodenaam": "W381 Mercuriusplein",
+    "gebiednaam": "Mercuriusplein",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W382",
+    "gebiedcodenaam": "W382 Roelof Hartststraat/plein",
+    "gebiednaam": "Roelof Hartststraat/plein",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W383",
+    "gebiedcodenaam": "W383 Europaplein",
+    "gebiednaam": "Europaplein",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W401",
+    "gebiedcodenaam": "W401 Czaar Peterstraat",
+    "gebiednaam": "Czaar Peterstraat",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W402",
+    "gebiedcodenaam": "W402 Eilandenboulevard",
+    "gebiednaam": "Eilandenboulevard",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W403",
+    "gebiedcodenaam": "W403 Warmoesstraat",
+    "gebiednaam": "Warmoesstraat",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W404",
+    "gebiedcodenaam": "W404 Damstraat/Hoogstraten",
+    "gebiednaam": "Damstraat/Hoogstraten",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W405",
+    "gebiedcodenaam": "W405 Staalstraat",
+    "gebiednaam": "Staalstraat",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W406",
+    "gebiedcodenaam": "W406 Sint Anthoniesbreestraat",
+    "gebiednaam": "Sint Anthoniesbreestraat",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W407",
+    "gebiedcodenaam": "W407 Nieuwmarkt /Gelderse kade",
+    "gebiednaam": "Nieuwmarkt /Gelderse kade",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W408",
+    "gebiedcodenaam": "W408 Zeedijk",
+    "gebiednaam": "Zeedijk",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W409",
+    "gebiedcodenaam": "W409 Grimburgwal",
+    "gebiednaam": "Grimburgwal",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W410",
+    "gebiedcodenaam": "W410 N. Spiegelstraat/Spiegelgracht",
+    "gebiednaam": "N. Spiegelstraat/Spiegelgracht",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W411",
+    "gebiedcodenaam": "W411 Singel/Reguliersdwarsstraat",
+    "gebiednaam": "Singel/Reguliersdwarsstraat",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W412",
+    "gebiedcodenaam": "W412 Elandsgracht/Hazenstraat",
+    "gebiednaam": "Elandsgracht/Hazenstraat",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W413",
+    "gebiedcodenaam": "W413 Leliegracht",
+    "gebiednaam": "Leliegracht",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W414",
+    "gebiedcodenaam": "W414 Herenstraat/Prinsenstraat",
+    "gebiednaam": "Herenstraat/Prinsenstraat",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W415",
+    "gebiedcodenaam": "W415 2e Leliedwarsstraat/2e Anjeliersdwarsstraat",
+    "gebiednaam": "2e Leliedwarsstraat/2e Anjeliersdwarsstraat",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W416",
+    "gebiedcodenaam": "W416 Westerstraat",
+    "gebiednaam": "Westerstraat",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W417",
+    "gebiedcodenaam": "W417 2e Goudsbloemdwarsstraat",
+    "gebiednaam": "2e Goudsbloemdwarsstraat",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W418",
+    "gebiedcodenaam": "W418 Leidseplein/Max Euweplein",
+    "gebiednaam": "Leidseplein/Max Euweplein",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W421",
+    "gebiedcodenaam": "W421 Amstelstation",
+    "gebiednaam": "Amstelstation",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W422",
+    "gebiedcodenaam": "W422 Zuidplein.Station Zuid",
+    "gebiednaam": "Zuidplein.Station Zuid",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W423",
+    "gebiedcodenaam": "W423 Centraal Station",
+    "gebiednaam": "Centraal Station",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W424",
+    "gebiedcodenaam": "W424 1e vd Helststraat",
+    "gebiednaam": "1e vd Helststraat",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W425",
+    "gebiedcodenaam": "W425 Sarphatipark W",
+    "gebiednaam": "Sarphatipark W",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W426",
+    "gebiedcodenaam": "W426 van Baerlestraat",
+    "gebiednaam": "van Baerlestraat",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W427",
+    "gebiedcodenaam": "W427 Waddenweg/Meeuwenlaan",
+    "gebiednaam": "Waddenweg/Meeuwenlaan",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": "W428",
+    "gebiedcodenaam": "W428 Stadionplein",
+    "gebiednaam": "Stadionplein",
+    "Niveaunaam": "Winkelgebieden"
+  },
+  {
+    "gebiedcode": 0,
+    "gebiedcodenaam": 0,
+    "gebiednaam": 0,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1000,
+    "gebiedcodenaam": 1000,
+    "gebiednaam": 1000,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1001,
+    "gebiedcodenaam": 1001,
+    "gebiednaam": 1001,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1002,
+    "gebiedcodenaam": 1002,
+    "gebiednaam": 1002,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1003,
+    "gebiedcodenaam": 1003,
+    "gebiednaam": 1003,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1004,
+    "gebiedcodenaam": 1004,
+    "gebiednaam": 1004,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1005,
+    "gebiedcodenaam": 1005,
+    "gebiednaam": 1005,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1006,
+    "gebiedcodenaam": 1006,
+    "gebiednaam": 1006,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1007,
+    "gebiedcodenaam": 1007,
+    "gebiednaam": 1007,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1008,
+    "gebiedcodenaam": 1008,
+    "gebiednaam": 1008,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1009,
+    "gebiedcodenaam": 1009,
+    "gebiednaam": 1009,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1010,
+    "gebiedcodenaam": 1010,
+    "gebiednaam": 1010,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1011,
+    "gebiedcodenaam": 1011,
+    "gebiednaam": 1011,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1012,
+    "gebiedcodenaam": 1012,
+    "gebiednaam": 1012,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1013,
+    "gebiedcodenaam": 1013,
+    "gebiednaam": 1013,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1014,
+    "gebiedcodenaam": 1014,
+    "gebiednaam": 1014,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1015,
+    "gebiedcodenaam": 1015,
+    "gebiednaam": 1015,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1016,
+    "gebiedcodenaam": 1016,
+    "gebiednaam": 1016,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1017,
+    "gebiedcodenaam": 1017,
+    "gebiednaam": 1017,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1018,
+    "gebiedcodenaam": 1018,
+    "gebiednaam": 1018,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1019,
+    "gebiedcodenaam": 1019,
+    "gebiednaam": 1019,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1020,
+    "gebiedcodenaam": 1020,
+    "gebiednaam": 1020,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1021,
+    "gebiedcodenaam": 1021,
+    "gebiednaam": 1021,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1022,
+    "gebiedcodenaam": 1022,
+    "gebiednaam": 1022,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1023,
+    "gebiedcodenaam": 1023,
+    "gebiednaam": 1023,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1024,
+    "gebiedcodenaam": 1024,
+    "gebiednaam": 1024,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1025,
+    "gebiedcodenaam": 1025,
+    "gebiednaam": 1025,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1026,
+    "gebiedcodenaam": 1026,
+    "gebiednaam": 1026,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1027,
+    "gebiedcodenaam": 1027,
+    "gebiednaam": 1027,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1028,
+    "gebiedcodenaam": 1028,
+    "gebiednaam": 1028,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1029,
+    "gebiedcodenaam": 1029,
+    "gebiednaam": 1029,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1030,
+    "gebiedcodenaam": 1030,
+    "gebiednaam": 1030,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1031,
+    "gebiedcodenaam": 1031,
+    "gebiednaam": 1031,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1032,
+    "gebiedcodenaam": 1032,
+    "gebiednaam": 1032,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1033,
+    "gebiedcodenaam": 1033,
+    "gebiednaam": 1033,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1034,
+    "gebiedcodenaam": 1034,
+    "gebiednaam": 1034,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1035,
+    "gebiedcodenaam": 1035,
+    "gebiednaam": 1035,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1036,
+    "gebiedcodenaam": 1036,
+    "gebiednaam": 1036,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1037,
+    "gebiedcodenaam": 1037,
+    "gebiednaam": 1037,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1038,
+    "gebiedcodenaam": 1038,
+    "gebiednaam": 1038,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1039,
+    "gebiedcodenaam": 1039,
+    "gebiednaam": 1039,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1040,
+    "gebiedcodenaam": 1040,
+    "gebiednaam": 1040,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1041,
+    "gebiedcodenaam": 1041,
+    "gebiednaam": 1041,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1042,
+    "gebiedcodenaam": 1042,
+    "gebiednaam": 1042,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1043,
+    "gebiedcodenaam": 1043,
+    "gebiednaam": 1043,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1044,
+    "gebiedcodenaam": 1044,
+    "gebiednaam": 1044,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1045,
+    "gebiedcodenaam": 1045,
+    "gebiednaam": 1045,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1046,
+    "gebiedcodenaam": 1046,
+    "gebiednaam": 1046,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1047,
+    "gebiedcodenaam": 1047,
+    "gebiednaam": 1047,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1048,
+    "gebiedcodenaam": 1048,
+    "gebiednaam": 1048,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1049,
+    "gebiedcodenaam": 1049,
+    "gebiednaam": 1049,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1050,
+    "gebiedcodenaam": 1050,
+    "gebiednaam": 1050,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1051,
+    "gebiedcodenaam": 1051,
+    "gebiednaam": 1051,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1052,
+    "gebiedcodenaam": 1052,
+    "gebiednaam": 1052,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1053,
+    "gebiedcodenaam": 1053,
+    "gebiednaam": 1053,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1054,
+    "gebiedcodenaam": 1054,
+    "gebiednaam": 1054,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1055,
+    "gebiedcodenaam": 1055,
+    "gebiednaam": 1055,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1056,
+    "gebiedcodenaam": 1056,
+    "gebiednaam": 1056,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1057,
+    "gebiedcodenaam": 1057,
+    "gebiednaam": 1057,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1058,
+    "gebiedcodenaam": 1058,
+    "gebiednaam": 1058,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1059,
+    "gebiedcodenaam": 1059,
+    "gebiednaam": 1059,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1060,
+    "gebiedcodenaam": 1060,
+    "gebiednaam": 1060,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1061,
+    "gebiedcodenaam": 1061,
+    "gebiednaam": 1061,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1062,
+    "gebiedcodenaam": 1062,
+    "gebiednaam": 1062,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1063,
+    "gebiedcodenaam": 1063,
+    "gebiednaam": 1063,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1064,
+    "gebiedcodenaam": 1064,
+    "gebiednaam": 1064,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1065,
+    "gebiedcodenaam": 1065,
+    "gebiednaam": 1065,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1066,
+    "gebiedcodenaam": 1066,
+    "gebiednaam": 1066,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1067,
+    "gebiedcodenaam": 1067,
+    "gebiednaam": 1067,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1068,
+    "gebiedcodenaam": 1068,
+    "gebiednaam": 1068,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1069,
+    "gebiedcodenaam": 1069,
+    "gebiednaam": 1069,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1070,
+    "gebiedcodenaam": 1070,
+    "gebiednaam": 1070,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1071,
+    "gebiedcodenaam": 1071,
+    "gebiednaam": 1071,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1072,
+    "gebiedcodenaam": 1072,
+    "gebiednaam": 1072,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1073,
+    "gebiedcodenaam": 1073,
+    "gebiednaam": 1073,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1074,
+    "gebiedcodenaam": 1074,
+    "gebiednaam": 1074,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1075,
+    "gebiedcodenaam": 1075,
+    "gebiednaam": 1075,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1076,
+    "gebiedcodenaam": 1076,
+    "gebiednaam": 1076,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1077,
+    "gebiedcodenaam": 1077,
+    "gebiednaam": 1077,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1078,
+    "gebiedcodenaam": 1078,
+    "gebiednaam": 1078,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1079,
+    "gebiedcodenaam": 1079,
+    "gebiednaam": 1079,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1080,
+    "gebiedcodenaam": 1080,
+    "gebiednaam": 1080,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1081,
+    "gebiedcodenaam": 1081,
+    "gebiednaam": 1081,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1082,
+    "gebiedcodenaam": 1082,
+    "gebiednaam": 1082,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1083,
+    "gebiedcodenaam": 1083,
+    "gebiednaam": 1083,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1084,
+    "gebiedcodenaam": 1084,
+    "gebiednaam": 1084,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1085,
+    "gebiedcodenaam": 1085,
+    "gebiednaam": 1085,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1086,
+    "gebiedcodenaam": 1086,
+    "gebiednaam": 1086,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1087,
+    "gebiedcodenaam": 1087,
+    "gebiednaam": 1087,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1088,
+    "gebiedcodenaam": 1088,
+    "gebiednaam": 1088,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1089,
+    "gebiedcodenaam": 1089,
+    "gebiednaam": 1089,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1090,
+    "gebiedcodenaam": 1090,
+    "gebiednaam": 1090,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1091,
+    "gebiedcodenaam": 1091,
+    "gebiednaam": 1091,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1092,
+    "gebiedcodenaam": 1092,
+    "gebiednaam": 1092,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1093,
+    "gebiedcodenaam": 1093,
+    "gebiednaam": 1093,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1094,
+    "gebiedcodenaam": 1094,
+    "gebiednaam": 1094,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1095,
+    "gebiedcodenaam": 1095,
+    "gebiednaam": 1095,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1096,
+    "gebiedcodenaam": 1096,
+    "gebiednaam": 1096,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1097,
+    "gebiedcodenaam": 1097,
+    "gebiednaam": 1097,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1098,
+    "gebiedcodenaam": 1098,
+    "gebiednaam": 1098,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1099,
+    "gebiedcodenaam": 1099,
+    "gebiednaam": 1099,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1100,
+    "gebiedcodenaam": 1100,
+    "gebiednaam": 1100,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1101,
+    "gebiedcodenaam": 1101,
+    "gebiednaam": 1101,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1102,
+    "gebiedcodenaam": 1102,
+    "gebiednaam": 1102,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1103,
+    "gebiedcodenaam": 1103,
+    "gebiednaam": 1103,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1104,
+    "gebiedcodenaam": 1104,
+    "gebiednaam": 1104,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1105,
+    "gebiedcodenaam": 1105,
+    "gebiednaam": 1105,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1106,
+    "gebiedcodenaam": 1106,
+    "gebiednaam": 1106,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1107,
+    "gebiedcodenaam": 1107,
+    "gebiednaam": 1107,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1108,
+    "gebiedcodenaam": 1108,
+    "gebiednaam": 1108,
+    "Niveaunaam": "4-cijferige postcode"
+  },
+  {
+    "gebiedcode": 1109,
+    "gebiedcodenaam": 1109,
+    "gebiednaam": 1109,
+    "Niveaunaam": "4-cijferige postcode"
+  }
+]
