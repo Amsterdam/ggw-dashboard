@@ -1,5 +1,5 @@
-import { getAllGebieden, getWijken, getBuurten, getGebiedType, getGwb, getDetail } from './gebieden'
-import { getAllMeta, getMeta, getAllCijfers, getGebiedCijfers, CIJFERS } from './bbga'
+import { getAllGebieden, getWijken, getBuurten, getGebiedType, getGwb, getDetail } from './apis/gebieden'
+import { getAllMeta, getMeta, getAllCijfers, getGebiedCijfers, CIJFERS } from './apis/bbga'
 
 async function getLatestConfigCijfers (gwb, config) {
   return getConfigCijfers(gwb, config, CIJFERS.LATEST)

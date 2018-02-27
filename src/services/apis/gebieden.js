@@ -1,4 +1,4 @@
-import {readData, readPaginatedData} from './datareader'
+import {readData, readPaginatedData} from '../datareader'
 
 let allGebieden = null
 let allWijken = null
@@ -47,8 +47,7 @@ async function _getAllBuurten () {
 }
 
 function getKeyFromUrl (url) {
-  const key = url.match(/\/([^/]*)\/$/)[1]
-  return key
+  return url.match(/\/([^/]*)\/$/)[1]
 }
 
 export async function getDetail (entity) {

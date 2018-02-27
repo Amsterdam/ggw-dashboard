@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import amsHeader from './components/AMSHeader'
-import ggwSelector from './components/GGWSelector'
+import amsHeader from './components/layout/AMSHeader'
+import ggwSelector from './components/layout/GGWSelector'
 
 export default {
   name: 'App',

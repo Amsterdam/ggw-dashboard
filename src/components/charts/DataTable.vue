@@ -25,7 +25,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import util from '../services/util'
+import util from '../../services/util'
 
 export default {
   name: 'DataTable',

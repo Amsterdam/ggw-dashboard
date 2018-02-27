@@ -4,8 +4,8 @@
 
 <script>
 import vegaEmbed from 'vega-embed'
-import vegaSpec from '../../static/charts/verticalbar'
-import { COLOR } from '../services/colorcoding'
+import vegaSpec from '../../../static/charts/horizontalbar'
+import { COLOR } from '../../services/colorcoding'
 
 const vegaEmbedOptions = {
   'actions': {
@@ -26,11 +26,16 @@ export default {
   },
   methods: {
     updateChart () {
-      vegaSpec.data.values = this.chartdata[0].cijfers.map(d => ({
-        key: d.jaar,
-        value: d.waarde
+      vegaSpec.data.values = this.chartdata.map(d => ({
+        key: d.label,
+        value: d.recent.waarde || 0,
+        label: d.recent.waarde === undefined ? 'Geen recente gegevens' : d.recent.waarde
       }))
-      vegaSpec.layer[0].encoding.color.scale.range = vegaSpec.data.values.map(v => v.color || COLOR['ams-groen'])
+
+      vegaSpec.layer[0].encoding.color.scale.range = this.chartdata
+        .filter(d => d.recent.waarde)
+        .map(d => d.recent.color || COLOR['ams-oranje'])
+
       vegaEmbed(this.$el, vegaSpec, vegaEmbedOptions)
     }
   },

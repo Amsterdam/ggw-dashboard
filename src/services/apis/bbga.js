@@ -1,9 +1,7 @@
-import {readData, readPaginatedData} from './datareader'
-import { getColor } from './colorcoding'
+import { readPaginatedData } from '../datareader'
+import { getColor } from '../colorcoding'
 
 let allMeta = null
-let allVariables = null
-let allThemas = null
 let allCijfers = {}
 let allGebiedCijfers = {}
 
@@ -11,13 +9,13 @@ function getUrl (endpoint) {
   return `https://acc.api.data.amsterdam.nl/bbga${endpoint}`
 }
 
-export async function getAllThemas () {
-  if (!allThemas) {
-    const url = getUrl('/themas/')
-    allThemas = readData(url, d => d.data.themas)
-  }
-  return allThemas
-}
+// export async function getAllThemas () {
+//   if (!allThemas) {
+//     const url = getUrl('/themas/')
+//     allThemas = readData(url, d => d.data.themas)
+//   }
+//   return allThemas
+// }
 
 export async function getAllMeta () {
   async function getData () {
@@ -36,13 +34,13 @@ export async function getAllMeta () {
   return allMeta
 }
 
-export async function getAllVariables () {
-  if (!allVariables) {
-    const url = getUrl('/variabelen/')
-    allVariables = readData(url, d => d.data.variabelen)
-  }
-  return allVariables
-}
+// export async function getAllVariables () {
+//   if (!allVariables) {
+//     const url = getUrl('/variabelen/')
+//     allVariables = readData(url, d => d.data.variabelen)
+//   }
+//   return allVariables
+// }
 
 export async function getMeta (variableName) {
   const meta = await getAllMeta()

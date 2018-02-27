@@ -69,8 +69,8 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import util from '../services/util'
-import { THEMAS, IN_HET_KORT } from '../services/thema'
+import util from '../../services/util'
+import { THEMAS, IN_HET_KORT } from '../../services/thema'
 
 function getSelectNone (title) {
   return {
@@ -163,9 +163,8 @@ export default {
     // }
   },
   async created () {
-    const gebieden = await util.getAllGebieden()
+    this.selection.gebieden = await util.getAllGebieden()
     // this.selection.gebieden = [getSelectNone('gebieden')].concat(gebieden)
-    this.selection.gebieden = gebieden
 
     this.selection.gebied = 'DX01'
     this.updateGebied(this.selection.gebied)
