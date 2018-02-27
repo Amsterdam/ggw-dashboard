@@ -2,7 +2,11 @@ import { getAllGebieden, getWijken, getBuurten, getGebiedType, getGwb, getDetail
 import { getAllMeta, getMeta, getAllCijfers, getGebiedCijfers, CIJFERS } from './apis/bbga'
 
 async function getLatestConfigCijfers (gwb, config) {
-  return getConfigCijfers(gwb, config, CIJFERS.LATEST)
+  const latestCijfers = await getConfigCijfers(gwb, config, CIJFERS.LATEST)
+  if (latestCijfers.recent && latestCijfers.recent.waarde) {
+    return latestCijfers
+  }
+  return getConfigCijfers(gwb, config, CIJFERS.ALL)
 }
 
 async function getConfigCijfers (gwb, config, recentOrAll = CIJFERS.ALL) {
