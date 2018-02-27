@@ -64,23 +64,23 @@
 
     <div v-else class="text-center">
       <h2>Gegevens laden...</h2>
-      <img src="../../static/icons/loading.gif">
+      <img src="../../../static/icons/loading.gif">
     </div>
   </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import horizontalChart from './HorizontalChart'
-import inAantallen from './InAantallen'
-import dataTable from './DataTable'
-import pano from './Pano'
+import horizontalChart from '../charts/HorizontalChart'
+import inAantallen from '../InAantallen'
+import dataTable from '../charts/DataTable'
+import pano from '../Pano'
 
-import woningVoorraad from '../../static/links/woningvoorraad'
-import sociaalEconomisch from '../../static/links/sociaaleconomisch'
-import leeftijd from '../../static/links/leeftijd'
-import migratieAchtergrond from '../../static/links/migratieachtergrond'
-import positieOntwikkeling from '../../static/links/positie_en_ontwikkeling'
+import woningVoorraad from '../../../static/links/woningvoorraad'
+import sociaalEconomisch from '../../../static/links/sociaaleconomisch'
+import leeftijd from '../../../static/links/leeftijd'
+import migratieAchtergrond from '../../../static/links/migratieachtergrond'
+import positieOntwikkeling from '../../../static/links/positie_en_ontwikkeling'
 
 export default {
   name: 'InHetKort',

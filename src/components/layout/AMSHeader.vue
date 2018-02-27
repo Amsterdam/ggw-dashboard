@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-sm-5">
       <header>
-        <img src="../../static/logo-tall.svg">
+        <img src="../../../static/logo-tall.svg">
         <h1 class="text-center">Gebied in beeld</h1>
       </header>
     </div>
@@ -18,8 +18,8 @@
 </template>
 
 <script>
-import gwbMap from './GWBMap'
-import colorLegend from './ColorLegend'
+import gwbMap from '../GWBMap'
+import colorLegend from '../ColorLegend'
 
 export default {
   name: 'AMSHeader',

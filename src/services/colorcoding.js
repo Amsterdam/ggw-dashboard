@@ -35,23 +35,23 @@ export const CHART_COLORS = [
 export const CATEGORY_COLORS = [
   {
     text: 'veel meer/beter dan gemiddeld',
-    color: COLOR['ams-donkergroen']
+    color: '#00A03C'
   },
   {
     text: 'meer/beter dan gemiddeld',
-    color: COLOR['ams-groen']
+    color: '#B4E600'
   },
   {
     text: 'rond stedelijk gemiddelde',
-    color: COLOR['ams-lichtgrijs']
+    color: '#E8E8E8'
   },
   {
     text: 'minder/slechter dan gemiddeld',
-    color: COLOR['ams-blauw']
+    color: '#B1D9F5'
   },
   {
     text: 'veel minder/slechter dan gemiddeld',
-    color: COLOR['ams-donkerblauw']
+    color: '#00A0E6'
   },
   {
     text: 'geen cijfers beschikbaar',
@@ -86,14 +86,16 @@ function getCategory (zScore) {
   return categories.find(c => c.inCategory(zScore))
 }
 
-export function getColor (variable, value, year) {
+export function getColor (meta, value, year) {
+  const variable = meta.variabele
+  const revert = meta.kleurenpalet === 2 ? -1 : 1
   const varStd = std
     .filter(item => item.variabele === variable && item.jaar <= year)
     .sort((item1, item2) => item2.jaar - item1.jaar)
   if (varStd.length) {
     const ref = varStd[0] // most recent year
     const zScore = (value - ref.gem) / ref.SD
-    const category = getCategory(zScore)
+    const category = getCategory(zScore * revert)
     return category.color
   }
 }

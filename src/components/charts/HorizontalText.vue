@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="row">
-      <div class="col-sm-3">
+      <div class="col-sm-4">
         <div class="float-left">
           <div class="text-center">
             <div><img :src="'../../static/icons/' + icon"></div>
@@ -9,8 +9,14 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-9">
-        <horizontal-bar-chart v-if="chartdata" :chartdata="chartdata"></horizontal-bar-chart>
+      <div class="col-sm-8">
+        <div v-for="d in data" :key="d.label">
+          {{d.label}}:
+          <span v-if="d.recent"
+                v-b-tooltip.hover v-b-tooltip.click v-b-tooltip.left :title="d.meta.bron + ' ' + d.recent.jaar">
+                {{(d.recent.waarde || "").toLocaleString()}}{{d.post}}
+          </span>
+        </div>
       </div>
     </div>
   </div>
@@ -18,13 +24,11 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import util from '../services/util'
-import horizontalBarChart from './HorizontalBarChart'
+import util from '../../services/util'
 
 export default {
-  name: 'HorizontalChart',
+  name: 'HorizontalText',
   components: {
-    'horizontal-bar-chart': horizontalBarChart
   },
   props: [
     'title',
@@ -33,7 +37,7 @@ export default {
   ],
   data () {
     return {
-      chartdata: null
+      data: null
     }
   },
   computed: {
@@ -43,7 +47,7 @@ export default {
   },
   methods: {
     async updateData () {
-      this.chartdata = await util.getLatestConfigCijfers(this.gwb, this.config)
+      this.data = await util.getLatestConfigCijfers(this.gwb, this.config)
     }
   },
   watch: {

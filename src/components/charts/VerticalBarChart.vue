@@ -4,8 +4,8 @@
 
 <script>
 import vegaEmbed from 'vega-embed'
-import config from '../../static/charts/pie'
-import { CHART_COLORS } from '../services/colorcoding'
+import vegaSpec from '../../../static/charts/verticalbar'
+import { COLOR } from '../../services/colorcoding'
 
 const vegaEmbedOptions = {
   'actions': {
@@ -14,8 +14,6 @@ const vegaEmbedOptions = {
     'editor': false},
   'renderer': 'svg'
 }
-
-const vegaSpec = config
 
 export default {
   props: [
@@ -28,11 +26,11 @@ export default {
   },
   methods: {
     updateChart () {
-      vegaSpec.data[0].values = this.chartdata.map((d, i) => ({
-        key: d.label,
-        value: d.recent.waarde
+      vegaSpec.data.values = this.chartdata[0].cijfers.map(d => ({
+        key: d.jaar,
+        value: d.waarde
       }))
-      vegaSpec.scales[0].range = CHART_COLORS
+      vegaSpec.layer[0].encoding.color.scale.range = vegaSpec.data.values.map(v => v.color || COLOR['ams-groen'])
       vegaEmbed(this.$el, vegaSpec, vegaEmbedOptions)
     }
   },

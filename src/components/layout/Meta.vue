@@ -36,7 +36,7 @@
       <table class="table table-sm">
         <thead>
         <tr>
-          <th v-for="(value, propertyName) in meta[0]" :key="propertyName">{{propertyName}}</th>
+          <th v-for="(v, p) in meta['BEVTOTAAL']" :key="p">{{p}}</th>
         </tr>
         </thead>
         <tbody>
@@ -54,7 +54,7 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import util from '../services/util'
+import util from '../../services/util'
 
 export default {
   name: 'Meta',
@@ -80,7 +80,7 @@ export default {
     filter () {
       this.filterRegExp = RegExp(this.filterText, 'i')
       const filteredMeta = {}
-      for (let key in this.meta) {
+      for (let key of Object.keys(this.meta)) {
         if (this.matchesFilter(this.meta[key])) {
           filteredMeta[key] = this.meta[key]
         }
@@ -108,9 +108,12 @@ export default {
     }
   },
   watch: {
-    'meta' (to, from) {
+    'meta' () {
       this.filteredMeta = this.meta
     }
+  },
+  created () {
+    this.filteredMeta = this.meta
   }
 }
 </script>

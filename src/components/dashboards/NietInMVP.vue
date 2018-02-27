@@ -112,50 +112,50 @@
 
     <div v-else class="text-center">
       <h2>Gegevens laden...</h2>
-      <img src="../../static/icons/loading.gif">
+      <img src="../../../static/icons/loading.gif">
     </div>
   </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import gwbMap from './GWBMap'
-import amsHeader from './AMSHeader'
-import ggwSelector from './GGWSelector'
-import placeholder from './Placeholder'
-import horizontalChart from './HorizontalChart'
-import verticalBarChart from './VerticalBarChart'
-import verticalChart from './VerticalChart'
-import horizontalText from './HorizontalText'
-import pie from './Pie'
-import pieChart from './PieChart'
-import inAantallen from './InAantallen'
-import dataTable from './DataTable'
-import lineChart from './LineChart'
-import stackedBarChart from './StackedBarChart'
-import woonVormen from './Woonvormen'
-import pano from './Pano'
-import verschillenGebied from './VerschillenGebied'
+import gwbMap from '../GWBMap'
+import amsHeader from '../layout/AMSHeader'
+import ggwSelector from '../layout/GGWSelector'
+import placeholder from '../Placeholder'
+import horizontalChart from '../charts/HorizontalChart'
+import verticalBarChart from '../charts/VerticalBarChart'
+import verticalChart from '../charts/VerticalChart'
+import horizontalText from '../charts/HorizontalText'
+import pie from '../charts/Pie'
+import pieChart from '../charts/PieChart'
+import inAantallen from '../InAantallen'
+import dataTable from '../charts/DataTable'
+import lineChart from '../charts/LineChart'
+import stackedBarChart from '../charts/StackedBarChart'
+import woonVormen from '../Woonvormen'
+import pano from '../Pano'
+import verschillenGebied from '../VerschillenGebied'
 
-import woningVoorraad from '../../static/links/woningvoorraad'
-import sociaalEconomisch from '../../static/links/sociaaleconomisch'
-import leeftijd from '../../static/links/leeftijd'
-import migratieAchtergrond from '../../static/links/migratieachtergrond'
-import positieOntwikkeling from '../../static/links/positie_en_ontwikkeling'
-import eigenBuurt from '../../static/links/eigenbuurt'
-import eigenWoning from '../../static/links/eigenwoning'
-import grootteWoningen from '../../static/links/grootte_woningen'
-import gemiddeldeWozWaarde from '../../static/links/gemm_woz_waarde'
-import gemiddeldeWozWaardeM2 from '../../static/links/gemm_woz_waarde_m2'
-import gemiddeldeHuurVrijeSector from '../../static/links/gemm_huur_vrije_sector'
-import percNultredewoningen from '../../static/links/perc_nultrede_woningen'
-import percVerhuisgeneigden from '../../static/links/perc_verhuisgeneigden_65+'
-import percWoningGeschiktOud from '../../static/links/perc_woning_geschikt_oud'
-import meerInformatie from '../../static/links/meer_informatie'
-import meerCijfers from '../../static/links/meer_cijfers'
-import aantalWoningen from '../../static/links/aantal_woningen'
-import typeWoningen from '../../static/links/type_woningen'
-import andereWoonvormen from '../../static/links/andere_woonvormen'
+import woningVoorraad from '../../../static/links/woningvoorraad'
+import sociaalEconomisch from '../../../static/links/sociaaleconomisch'
+import leeftijd from '../../../static/links/leeftijd'
+import migratieAchtergrond from '../../../static/links/migratieachtergrond'
+import positieOntwikkeling from '../../../static/links/positie_en_ontwikkeling'
+import eigenBuurt from '../../../static/links/eigenbuurt'
+import eigenWoning from '../../../static/links/eigenwoning'
+import grootteWoningen from '../../../static/links/grootte_woningen'
+import gemiddeldeWozWaarde from '../../../static/links/gemm_woz_waarde'
+import gemiddeldeWozWaardeM2 from '../../../static/links/gemm_woz_waarde_m2'
+import gemiddeldeHuurVrijeSector from '../../../static/links/gemm_huur_vrije_sector'
+import percNultredewoningen from '../../../static/links/perc_nultrede_woningen'
+import percVerhuisgeneigden from '../../../static/links/perc_verhuisgeneigden_65+'
+import percWoningGeschiktOud from '../../../static/links/perc_woning_geschikt_oud'
+import meerInformatie from '../../../static/links/meer_informatie'
+import meerCijfers from '../../../static/links/meer_cijfers'
+import aantalWoningen from '../../../static/links/aantal_woningen'
+import typeWoningen from '../../../static/links/type_woningen'
+import andereWoonvormen from '../../../static/links/andere_woonvormen'
 
 export default {
   name: 'GGWDashboard',
@@ -218,7 +218,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-  @import "../../static/ams.scss";
+  @import "../../../static/ams";
 
   .alert {
     margin-top: 5px;

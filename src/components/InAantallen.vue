@@ -10,7 +10,7 @@
       <tr v-for="d in data" :key="d.label">
         <td width="50%">{{d.label}}</td>
         <td width="50%" v-if="d.recent"
-            v-b-tooltip.hover triggers="click" v-b-tooltip.left :title="d.meta.bron + ' ' + d.recent.jaar">
+            v-b-tooltip.hover triggers="click" v-b-tooltip.html.left :title="d.tooltip(true)">
           {{(d.recent.waarde || "").toLocaleString()}} {{d.post}}
         </td>
       </tr>

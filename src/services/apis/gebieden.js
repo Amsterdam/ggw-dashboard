@@ -1,4 +1,9 @@
-import {readData, readPaginatedData} from './datareader'
+import {readData, readPaginatedData} from '../datareader'
+import gebiedscodes from '../../../static/tmp/gebieden'
+
+// Transform list of gebiedscodes into object
+const localGebiedscodes = {}
+gebiedscodes.forEach(g => { localGebiedscodes[g.gebiedcode] = g })
 
 let allGebieden = null
 let allWijken = null
@@ -18,12 +23,17 @@ function getUrl (endpoint) {
   return `https://acc.api.data.amsterdam.nl/gebieden${endpoint}`
 }
 
+function enhanceGWB (gwb) {
+  gwb.gebiedType = getGebiedType(gwb.volledige_code)
+  gwb.vollcode = gwb.vollcode || gwb.code || gwb._display.match(/\((.*)\)/)[1]
+  gwb.volledige_code = gwb.vollcode
+  gwb.code = gwb.code || gwb.vollcode
+  gwb.naam = localGebiedscodes[gwb.vollcode] ? localGebiedscodes[gwb.vollcode].gebiednaam : gwb.naam
+  gwb.display = localGebiedscodes[gwb.vollcode] ? localGebiedscodes[gwb.vollcode].gebiedcodenaam : `${gwb.vollcode} ${gwb.naam}`
+}
+
 function enhancedGWBList (gwbList) {
-  gwbList.forEach(g => {
-    g.vollcode = g.vollcode || g.code || g._display.match(/\((.*)\)/)[1]
-    g.code = g.code || g.vollcode
-    g.display = `${g.vollcode} ${g.naam}`
-  })
+  gwbList.forEach(g => enhanceGWB(g))
   gwbList.sort((gwb1, gwb2) => gwb1.vollcode.localeCompare(gwb2.vollcode))
   return gwbList
 }
@@ -47,15 +57,13 @@ async function _getAllBuurten () {
 }
 
 function getKeyFromUrl (url) {
-  const key = url.match(/\/([^/]*)\/$/)[1]
-  return key
+  return url.match(/\/([^/]*)\/$/)[1]
 }
 
 export async function getDetail (entity) {
   const url = entity._links.self.href
   const data = await readData(url)
-  data.volledige_code = data.volledige_code || data.code
-  data.gebiedType = getGebiedType(data.volledige_code)
+  enhanceGWB(data)
   return data
 }
 

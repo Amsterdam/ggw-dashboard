@@ -7,16 +7,16 @@
 
     <div v-else class="text-center">
       <h2>Gegevens laden...</h2>
-      <img src="../../static/icons/loading.gif">
+      <img src="../../../static/icons/loading.gif">
     </div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-import { IN_HET_KORT, NIET_IN_MVP } from '../services/thema'
-import inHetKort from './InHetKort'
-import nietInMVP from './NietInMVP'
+import { IN_HET_KORT, NIET_IN_MVP } from '../../services/thema'
+import inHetKort from '../dashboards/InHetKort'
+import nietInMVP from '../dashboards/NietInMVP'
 
 export default {
   name: 'GGWDashboard',
