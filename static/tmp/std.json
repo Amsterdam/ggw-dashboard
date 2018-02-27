@@ -11729,6 +11729,2932 @@
     "variabele": "VIMPACT_I",
     "gem": 95,
     "SD": 28.455388901,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "VIMPACT_I",
+    "gem": 87,
+    "SD": 26.925089061,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "VINBRAAK_I",
+    "gem": 92,
+    "SD": 47.860228428,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2011,
+    "variabele": "VJEUGDIGE_P",
+    "gem": 5.1,
+    "SD": 1.9029984882,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2012,
+    "variabele": "VJEUGDIGE_P",
+    "gem": 4.5,
+    "SD": 1.7779282084,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2013,
+    "variabele": "VJEUGDIGE_P",
+    "gem": 3.8,
+    "SD": 1.6353122123,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2014,
+    "variabele": "VJEUGDIGE_P",
+    "gem": 3.5,
+    "SD": 1.6400594111,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "VJEUGDIGE_P",
+    "gem": 3.2,
+    "SD": 1.4059788607,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "VJEUGDIGE_P",
+    "gem": 2.8,
+    "SD": 1.555414637,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2014,
+    "variabele": "VKAGRESSIEF_P",
+    "gem": 10,
+    "SD": 4.8640150057,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "VKAGRESSIEF_P",
+    "gem": 9,
+    "SD": 4.5047726674,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "VKAGRESSIEF_P",
+    "gem": 10,
+    "SD": 5.4709059876,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "VKFIETSPARKEREN_R",
+    "gem": 5.8,
+    "SD": 0.5938348294,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2017,
+    "variabele": "VKFIETSPARKEREN_R",
+    "gem": 5.5,
+    "SD": 0.5334666978,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2014,
+    "variabele": "VKHARD_P",
+    "gem": 19,
+    "SD": 6.5364599472,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "VKHARD_P",
+    "gem": 17,
+    "SD": 6.4274243457,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "VKHARD_P",
+    "gem": 19,
+    "SD": 7.2207489699,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2005,
+    "variabele": "VKOV65_R",
+    "gem": 7.2,
+    "SD": 0.6312445977,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2007,
+    "variabele": "VKOV65_R",
+    "gem": 7.4,
+    "SD": 0.573983675,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2009,
+    "variabele": "VKOV65_R",
+    "gem": 7.5,
+    "SD": 0.4885373218,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2011,
+    "variabele": "VKOV65_R",
+    "gem": 7.5,
+    "SD": 0.4134848753,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2013,
+    "variabele": "VKOV65_R",
+    "gem": 7.7,
+    "SD": 0.8152243819,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "VKOV65_R",
+    "gem": 7.6,
+    "SD": 0.6866502842,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2017,
+    "variabele": "VKOV65_R",
+    "gem": 7.3,
+    "SD": 0.9367618732,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2009,
+    "variabele": "VKOVERLASTVERKEER_R",
+    "gem": 6.9,
+    "SD": 0.5196944183,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2011,
+    "variabele": "VKOVERLASTVERKEER_R",
+    "gem": 7,
+    "SD": 0.4615070574,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2013,
+    "variabele": "VKOVERLASTVERKEER_R",
+    "gem": 7.1,
+    "SD": 0.5390751401,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "VKOVERLASTVERKEER_R",
+    "gem": 7,
+    "SD": 0.5230977515,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2017,
+    "variabele": "VKOVERLASTVERKEER_R",
+    "gem": 6.9,
+    "SD": 0.6115419172,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2005,
+    "variabele": "VKOV_R",
+    "gem": 7.4,
+    "SD": 0.6571385404,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2007,
+    "variabele": "VKOV_R",
+    "gem": 7.6,
+    "SD": 0.7001107332,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2009,
+    "variabele": "VKOV_R",
+    "gem": 7.7,
+    "SD": 0.719619622,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2011,
+    "variabele": "VKOV_R",
+    "gem": 7.7,
+    "SD": 0.7413083551,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2013,
+    "variabele": "VKOV_R",
+    "gem": 7.8,
+    "SD": 0.7939653846,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "VKOV_R",
+    "gem": 7.7,
+    "SD": 0.8626576761,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2017,
+    "variabele": "VKOV_R",
+    "gem": 7.5,
+    "SD": 0.9341454956,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2007,
+    "variabele": "VKPARKEEROVERLAST_R",
+    "gem": 6.6,
+    "SD": 0.5710492975,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2009,
+    "variabele": "VKPARKEEROVERLAST_R",
+    "gem": 6.5,
+    "SD": 0.5442957257,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2011,
+    "variabele": "VKPARKEEROVERLAST_R",
+    "gem": 6.6,
+    "SD": 0.5128571652,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2013,
+    "variabele": "VKPARKEEROVERLAST_R",
+    "gem": 6.8,
+    "SD": 0.5406228381,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "VKPARKEEROVERLAST_R",
+    "gem": 6.7,
+    "SD": 0.6243938384,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2017,
+    "variabele": "VKPARKEEROVERLAST_R",
+    "gem": 6.6,
+    "SD": 0.6562318411,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2005,
+    "variabele": "VKPARKEREN_R",
+    "gem": 5.9,
+    "SD": 0.8639672764,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2007,
+    "variabele": "VKPARKEREN_R",
+    "gem": 6.1,
+    "SD": 0.8784798296,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2009,
+    "variabele": "VKPARKEREN_R",
+    "gem": 6.2,
+    "SD": 0.7780193417,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2011,
+    "variabele": "VKPARKEREN_R",
+    "gem": 6.4,
+    "SD": 0.716602645,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2013,
+    "variabele": "VKPARKEREN_R",
+    "gem": 6.4,
+    "SD": 0.7521270999,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "VKPARKEREN_R",
+    "gem": 6.4,
+    "SD": 0.762908064,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2017,
+    "variabele": "VKPARKEREN_R",
+    "gem": 6.2,
+    "SD": 0.6795244395,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "VKPARKOVL_P",
+    "gem": 38,
+    "SD": 9.2427689827,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2009,
+    "variabele": "VKVERKEERSLAWAAI_R",
+    "gem": 6.7,
+    "SD": 0.4772789471,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2011,
+    "variabele": "VKVERKEERSLAWAAI_R",
+    "gem": 6.8,
+    "SD": 0.4673136232,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2013,
+    "variabele": "VKVERKEERSLAWAAI_R",
+    "gem": 7,
+    "SD": 0.4929447286,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "VKVERKEERSLAWAAI_R",
+    "gem": 6.9,
+    "SD": 0.4789487879,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2017,
+    "variabele": "VKVERKEERSLAWAAI_R",
+    "gem": 6.8,
+    "SD": 0.528002302,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2014,
+    "variabele": "VOVERLAST_I",
+    "gem": 122,
+    "SD": 36.008040752,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "VOVERLAST_I",
+    "gem": 120,
+    "SD": 36.196796248,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "VOVERLAST_I",
+    "gem": 123,
+    "SD": 40.288136604,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2014,
+    "variabele": "VPERSONOVL_I",
+    "gem": 132,
+    "SD": 60.515278245,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "VPERSONOVL_I",
+    "gem": 130,
+    "SD": 61.415924245,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "VPERSONOVL_I",
+    "gem": 139,
+    "SD": 69.236487102,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2014,
+    "variabele": "VSLACHTFIETS_P",
+    "gem": 19,
+    "SD": 9.7049529165,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "VSLACHTFIETS_P",
+    "gem": 20,
+    "SD": 9.0187384515,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "VSLACHTFIETS_P",
+    "gem": 20,
+    "SD": 9.115781864,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2014,
+    "variabele": "VSLACHTGEW_P",
+    "gem": 4,
+    "SD": 2.2583862916,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "VSLACHTGEW_P",
+    "gem": 4,
+    "SD": 2.1963558096,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "VSLACHTGEW_P",
+    "gem": 4,
+    "SD": 2.0895900446,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2014,
+    "variabele": "VSLACHTJONG_P",
+    "gem": 65,
+    "SD": 10.440043367,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "VSLACHTJONG_P",
+    "gem": 62,
+    "SD": 9.7091022585,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "VSLACHTJONG_P",
+    "gem": 63,
+    "SD": "",
     "bron": ""
+  },
+  {
+    "jaar": 2014,
+    "variabele": "VSLACHTVAN_P",
+    "gem": 17,
+    "SD": 5.6387657348,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "VSLACHTVAN_P",
+    "gem": 17,
+    "SD": 5.9592356037,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "VSLACHTVAN_P",
+    "gem": 17,
+    "SD": 5.6838263831,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2014,
+    "variabele": "VSLACHTVERM_P",
+    "gem": 34,
+    "SD": 8.7793071804,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "VSLACHTVERM_P",
+    "gem": 34,
+    "SD": 8.5776089133,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "VSLACHTVERM_P",
+    "gem": 34,
+    "SD": 8.9734747617,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2014,
+    "variabele": "VSLACHT_P",
+    "gem": 50,
+    "SD": 8.9095939412,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "VSLACHT_P",
+    "gem": 49,
+    "SD": 8.5567542271,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "VSLACHT_P",
+    "gem": 50,
+    "SD": 8.77815598,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "VVAAKVEILIGVOELENALG_P",
+    "gem": 3,
+    "SD": 2.6518319866,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "VVAAKVEILIGVOELEN_P",
+    "gem": 4,
+    "SD": 2.7981586583,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2005,
+    "variabele": "VVEILIGAVOND_R",
+    "gem": 6.7,
+    "SD": 0.7572760312,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2007,
+    "variabele": "VVEILIGAVOND_R",
+    "gem": 7,
+    "SD": 0.6941559233,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2009,
+    "variabele": "VVEILIGAVOND_R",
+    "gem": 7.1,
+    "SD": 0.6452695402,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2011,
+    "variabele": "VVEILIGAVOND_R",
+    "gem": 7.2,
+    "SD": 0.6211583557,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2013,
+    "variabele": "VVEILIGAVOND_R",
+    "gem": 7.3,
+    "SD": 0.6069867144,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "VVEILIGAVOND_R",
+    "gem": 7.3,
+    "SD": 0.6217610204,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2017,
+    "variabele": "VVEILIGAVOND_R",
+    "gem": 7.2,
+    "SD": 0.6126551989,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2005,
+    "variabele": "VVEILIGDAG_R",
+    "gem": 7.9,
+    "SD": 0.4816271538,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2007,
+    "variabele": "VVEILIGDAG_R",
+    "gem": 8.2,
+    "SD": 0.4283491869,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2009,
+    "variabele": "VVEILIGDAG_R",
+    "gem": 8.2,
+    "SD": 0.4052618901,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2011,
+    "variabele": "VVEILIGDAG_R",
+    "gem": 8.2,
+    "SD": 0.3979723891,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2013,
+    "variabele": "VVEILIGDAG_R",
+    "gem": 8.3,
+    "SD": 0.3916349402,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "VVEILIGDAG_R",
+    "gem": 8.3,
+    "SD": 0.4195846542,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2017,
+    "variabele": "VVEILIGDAG_R",
+    "gem": 8.2,
+    "SD": 0.420326813,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2014,
+    "variabele": "VVEILIGH_I",
+    "gem": 108,
+    "SD": 21.938586721,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "VVEILIGH_I",
+    "gem": 106,
+    "SD": 22.547857122,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "VVEILIGH_I",
+    "gem": 104,
+    "SD": 22.593581287,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "VVEILIGVOELEN65_P",
+    "gem": 24,
+    "SD": 7.6974971249,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "VVEILIGVOELEN65_P",
+    "gem": 23,
+    "SD": 10.27096135,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "VVEILIGVOELENALG_P",
+    "gem": 43,
+    "SD": 6.4726963716,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2012,
+    "variabele": "VVEILIGVOELEN_P",
+    "gem": 29,
+    "SD": 8.7482552626,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2013,
+    "variabele": "VVEILIGVOELEN_P",
+    "gem": 30,
+    "SD": 9.2752983087,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2014,
+    "variabele": "VVEILIGVOELEN_P",
+    "gem": 28,
+    "SD": 10.468338508,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "VVEILIGVOELEN_P",
+    "gem": 29,
+    "SD": 10.762946745,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "VVEILIGVOELEN_P",
+    "gem": 27,
+    "SD": 9.6769528968,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "VVEILPREV_P",
+    "gem": 61,
+    "SD": 10.521193763,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "VVEILTHUIS_P",
+    "gem": 2,
+    "SD": 1.988200487,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2014,
+    "variabele": "VVERLOED_I",
+    "gem": 111,
+    "SD": 21.987514495,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "VVERLOED_I",
+    "gem": 109,
+    "SD": 18.247297289,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "VVERLOED_I",
+    "gem": 107,
+    "SD": 19.274394616,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2014,
+    "variabele": "VVOLUME_I",
+    "gem": 107,
+    "SD": 29.989819192,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "VVOLUME_I",
+    "gem": 104,
+    "SD": 28.867534608,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "VVOLUME_I",
+    "gem": 100,
+    "SD": 29.963013882,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2014,
+    "variabele": "VVOLWASSEN_P",
+    "gem": 1.4,
+    "SD": 1.6416227334,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "VVOLWASSEN_P",
+    "gem": 1.3,
+    "SD": 1.0928460616,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "VVOLWASSEN_P",
+    "gem": 1.2,
+    "SD": 0.9284071453,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2011,
+    "variabele": "WBEZET",
+    "gem": 1.91,
+    "SD": 0.3686604702,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2012,
+    "variabele": "WBEZET",
+    "gem": 1.92,
+    "SD": 0.3529078763,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2013,
+    "variabele": "WBEZET",
+    "gem": 1.93,
+    "SD": 0.3468228197,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2014,
+    "variabele": "WBEZET",
+    "gem": 1.95,
+    "SD": 0.346191258,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "WBEZET",
+    "gem": 1.96,
+    "SD": 0.3367730781,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "WBEZET",
+    "gem": 1.95,
+    "SD": 0.3671372256,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2017,
+    "variabele": "WBEZET",
+    "gem": 1.96,
+    "SD": 0.3766275766,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2011,
+    "variabele": "WCORHUUR_P",
+    "gem": 48.6,
+    "SD": 25.885495099,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2012,
+    "variabele": "WCORHUUR_P",
+    "gem": 47.9,
+    "SD": 25.611939098,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2013,
+    "variabele": "WCORHUUR_P",
+    "gem": 47.2,
+    "SD": 25.220973926,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2014,
+    "variabele": "WCORHUUR_P",
+    "gem": 46.7,
+    "SD": 24.671322101,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "WCORHUUR_P",
+    "gem": 45.7,
+    "SD": 24.214297575,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "WCORHUUR_P",
+    "gem": 44.5,
+    "SD": 23.511245815,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2017,
+    "variabele": "WCORHUUR_P",
+    "gem": 42.8,
+    "SD": 23.309825537,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "WDICHT",
+    "gem": 2533,
+    "SD": 4607.5474587,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "WDICHT",
+    "gem": 2572,
+    "SD": 4635.6008302,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2017,
+    "variabele": "WDICHT",
+    "gem": 2597,
+    "SD": 4633.4951422,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2005,
+    "variabele": "WDUBBELGLAS_P",
+    "gem": 63.8,
+    "SD": 20.324201697,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2007,
+    "variabele": "WDUBBELGLAS_P",
+    "gem": 64.2,
+    "SD": 19.390363928,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2009,
+    "variabele": "WDUBBELGLAS_P",
+    "gem": 66.6,
+    "SD": 18.886496759,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2011,
+    "variabele": "WDUBBELGLAS_P",
+    "gem": 68.8,
+    "SD": 17.817607277,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2013,
+    "variabele": "WDUBBELGLAS_P",
+    "gem": 69.9,
+    "SD": 17.111117546,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "WDUBBELGLAS_P",
+    "gem": 71.5,
+    "SD": 18.413248356,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2007,
+    "variabele": "WGESCHIKTOUD65_P",
+    "gem": 57,
+    "SD": 9.6512255101,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2009,
+    "variabele": "WGESCHIKTOUD65_P",
+    "gem": 56,
+    "SD": 9.2870346106,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2011,
+    "variabele": "WGESCHIKTOUD65_P",
+    "gem": 58,
+    "SD": 11.211806963,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2013,
+    "variabele": "WGESCHIKTOUD65_P",
+    "gem": 59,
+    "SD": 10.128428184,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "WGESCHIKTOUD65_P",
+    "gem": 55,
+    "SD": 10.622237654,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2007,
+    "variabele": "WGESCHIKTOUD_P",
+    "gem": 41,
+    "SD": 9.8206378375,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2009,
+    "variabele": "WGESCHIKTOUD_P",
+    "gem": 42,
+    "SD": 9.6319000703,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2011,
+    "variabele": "WGESCHIKTOUD_P",
+    "gem": 40,
+    "SD": 9.9168182187,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2013,
+    "variabele": "WGESCHIKTOUD_P",
+    "gem": 42,
+    "SD": 10.057402535,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "WGESCHIKTOUD_P",
+    "gem": 40,
+    "SD": 9.394609212,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2005,
+    "variabele": "WHUURHOOG_P",
+    "gem": 1,
+    "SD": 2.707280015,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2007,
+    "variabele": "WHUURHOOG_P",
+    "gem": 2,
+    "SD": 2.5203519423,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2009,
+    "variabele": "WHUURHOOG_P",
+    "gem": 3,
+    "SD": 3.4577904361,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2011,
+    "variabele": "WHUURHOOG_P",
+    "gem": 4,
+    "SD": 3.475330089,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2013,
+    "variabele": "WHUURHOOG_P",
+    "gem": 5,
+    "SD": 5.0022976087,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "WHUURHOOG_P",
+    "gem": 6,
+    "SD": 6.6244361888,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "WHUURKWAL_P",
+    "gem": 18,
+    "SD": 11.813615281,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2005,
+    "variabele": "WHUURLAAG_P",
+    "gem": 46,
+    "SD": 21.301682017,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2007,
+    "variabele": "WHUURLAAG_P",
+    "gem": 42,
+    "SD": 18.098219489,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2009,
+    "variabele": "WHUURLAAG_P",
+    "gem": 37,
+    "SD": 17.636049097,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2011,
+    "variabele": "WHUURLAAG_P",
+    "gem": 33,
+    "SD": 14.781842016,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2013,
+    "variabele": "WHUURLAAG_P",
+    "gem": 28,
+    "SD": 13.910360766,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2005,
+    "variabele": "WHUURMIDDEN_P",
+    "gem": 3,
+    "SD": 4.0891600799,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2007,
+    "variabele": "WHUURMIDDEN_P",
+    "gem": 3,
+    "SD": 3.7495341326,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2009,
+    "variabele": "WHUURMIDDEN_P",
+    "gem": 4,
+    "SD": 3.9736190096,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2011,
+    "variabele": "WHUURMIDDEN_P",
+    "gem": 5,
+    "SD": 4.2843150649,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2013,
+    "variabele": "WHUURMIDDEN_P",
+    "gem": 5,
+    "SD": 4.5026102391,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "WHUURMIDDEN_P",
+    "gem": 6,
+    "SD": 3.741093502,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2005,
+    "variabele": "WHUURQUOTE",
+    "gem": 23,
+    "SD": 1.9313618848,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2007,
+    "variabele": "WHUURQUOTE",
+    "gem": 24,
+    "SD": 1.8214288788,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2009,
+    "variabele": "WHUURQUOTE",
+    "gem": 24,
+    "SD": 1.9477296511,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2011,
+    "variabele": "WHUURQUOTE",
+    "gem": 26,
+    "SD": 2.1442956022,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2013,
+    "variabele": "WHUURQUOTE",
+    "gem": 27,
+    "SD": 2.4767848669,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "WHUURQUOTE",
+    "gem": 28,
+    "SD": 2.2511139741,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2005,
+    "variabele": "WHUURTSLG_P",
+    "gem": 71,
+    "SD": 18.115035575,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2007,
+    "variabele": "WHUURTSLG_P",
+    "gem": 68,
+    "SD": 15.968395287,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2009,
+    "variabele": "WHUURTSLG_P",
+    "gem": 65,
+    "SD": 16.007820294,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2011,
+    "variabele": "WHUURTSLG_P",
+    "gem": 61,
+    "SD": 15.21842,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2013,
+    "variabele": "WHUURTSLG_P",
+    "gem": 58,
+    "SD": 14.961129761,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "WHUURTSLG_P",
+    "gem": 57,
+    "SD": 17.451718532,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2005,
+    "variabele": "WHUURVRIJ_GEM",
+    "gem": 831,
+    "SD": 170.12446424,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2007,
+    "variabele": "WHUURVRIJ_GEM",
+    "gem": 883,
+    "SD": 53.033008589,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2009,
+    "variabele": "WHUURVRIJ_GEM",
+    "gem": 963,
+    "SD": 0,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2011,
+    "variabele": "WHUURVRIJ_GEM",
+    "gem": 996,
+    "SD": 39.597979746,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2013,
+    "variabele": "WHUURVRIJ_GEM",
+    "gem": 1091,
+    "SD": 163.115501,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "WHUURVRIJ_GEM",
+    "gem": 1123,
+    "SD": 192.38568034,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2005,
+    "variabele": "WHUUR_GEM",
+    "gem": 362,
+    "SD": 88.098694249,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2007,
+    "variabele": "WHUUR_GEM",
+    "gem": 396,
+    "SD": 84.883649871,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2009,
+    "variabele": "WHUUR_GEM",
+    "gem": 426,
+    "SD": 98.376750714,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2011,
+    "variabele": "WHUUR_GEM",
+    "gem": 469,
+    "SD": 106.64988827,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2013,
+    "variabele": "WHUUR_GEM",
+    "gem": 523,
+    "SD": 142.08087274,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "WHUUR_GEM",
+    "gem": 577,
+    "SD": 85.296508095,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2011,
+    "variabele": "WKOOP_P",
+    "gem": 26.4,
+    "SD": 15.331244079,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2012,
+    "variabele": "WKOOP_P",
+    "gem": 26.9,
+    "SD": 15.381215198,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2013,
+    "variabele": "WKOOP_P",
+    "gem": 27.8,
+    "SD": 15.066455112,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2014,
+    "variabele": "WKOOP_P",
+    "gem": 27.9,
+    "SD": 14.711349207,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "WKOOP_P",
+    "gem": 28.9,
+    "SD": 14.925652483,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "WKOOP_P",
+    "gem": 29.6,
+    "SD": 15.155475472,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2017,
+    "variabele": "WKOOP_P",
+    "gem": 30.4,
+    "SD": 14.836207104,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2005,
+    "variabele": "WNULTREDE_P",
+    "gem": 24,
+    "SD": 12.341284036,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2007,
+    "variabele": "WNULTREDE_P",
+    "gem": 25,
+    "SD": 13.256538681,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2009,
+    "variabele": "WNULTREDE_P",
+    "gem": 26,
+    "SD": 13.066924407,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2011,
+    "variabele": "WNULTREDE_P",
+    "gem": 25,
+    "SD": 12.479614633,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2013,
+    "variabele": "WNULTREDE_P",
+    "gem": 25,
+    "SD": 12.117172934,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "WNULTREDE_P",
+    "gem": 26,
+    "SD": 14.154466175,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2005,
+    "variabele": "WONDERHOUDWONING_R",
+    "gem": 6.8,
+    "SD": 0.592219896,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2007,
+    "variabele": "WONDERHOUDWONING_R",
+    "gem": 7,
+    "SD": 0.4856012843,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2009,
+    "variabele": "WONDERHOUDWONING_R",
+    "gem": 7.1,
+    "SD": 0.5009337553,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2011,
+    "variabele": "WONDERHOUDWONING_R",
+    "gem": 7.1,
+    "SD": 0.4670357021,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2013,
+    "variabele": "WONDERHOUDWONING_R",
+    "gem": 7.2,
+    "SD": 0.4168383147,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "WONDERHOUDWONING_R",
+    "gem": 7.2,
+    "SD": 0.4898456062,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2017,
+    "variabele": "WONDERHOUDWONING_R",
+    "gem": 7.3,
+    "SD": 0.4614369215,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2011,
+    "variabele": "WOPP0040_P",
+    "gem": 7.4,
+    "SD": 11.066448925,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2012,
+    "variabele": "WOPP0040_P",
+    "gem": 7.4,
+    "SD": 11.071683165,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2013,
+    "variabele": "WOPP0040_P",
+    "gem": 8.2,
+    "SD": 12.909719858,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2014,
+    "variabele": "WOPP0040_P",
+    "gem": 8.2,
+    "SD": 12.373656251,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "WOPP0040_P",
+    "gem": 8.4,
+    "SD": 11.945907125,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "WOPP0040_P",
+    "gem": 9.2,
+    "SD": 15.447979802,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2017,
+    "variabele": "WOPP0040_P",
+    "gem": 9.4,
+    "SD": 15.53768066,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2011,
+    "variabele": "WOPP100PLUS_P",
+    "gem": 13.3,
+    "SD": 17.178459349,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2012,
+    "variabele": "WOPP100PLUS_P",
+    "gem": 13.8,
+    "SD": 17.361866724,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2013,
+    "variabele": "WOPP100PLUS_P",
+    "gem": 15.3,
+    "SD": 18.873131778,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2014,
+    "variabele": "WOPP100PLUS_P",
+    "gem": 15.6,
+    "SD": 18.968519326,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "WOPP100PLUS_P",
+    "gem": 15.8,
+    "SD": 19.005339727,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "WOPP100PLUS_P",
+    "gem": 16,
+    "SD": 17.612696131,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2017,
+    "variabele": "WOPP100PLUS_P",
+    "gem": 16.3,
+    "SD": 17.498187938,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2011,
+    "variabele": "WOPP4060_P",
+    "gem": 30.4,
+    "SD": 21.340610828,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2012,
+    "variabele": "WOPP4060_P",
+    "gem": 30.1,
+    "SD": 21.183535481,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2013,
+    "variabele": "WOPP4060_P",
+    "gem": 30.2,
+    "SD": 21.017990576,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2014,
+    "variabele": "WOPP4060_P",
+    "gem": 29.5,
+    "SD": 20.22122143,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "WOPP4060_P",
+    "gem": 29.1,
+    "SD": 20.066936719,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "WOPP4060_P",
+    "gem": 28.6,
+    "SD": 19.80389171,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2017,
+    "variabele": "WOPP4060_P",
+    "gem": 28.4,
+    "SD": 19.664002275,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2011,
+    "variabele": "WOPP6080_P",
+    "gem": 26.9,
+    "SD": 12.397214519,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2012,
+    "variabele": "WOPP6080_P",
+    "gem": 26.9,
+    "SD": 12.376897343,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2013,
+    "variabele": "WOPP6080_P",
+    "gem": 27.4,
+    "SD": 12.136419198,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2014,
+    "variabele": "WOPP6080_P",
+    "gem": 27.4,
+    "SD": 11.592587475,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "WOPP6080_P",
+    "gem": 27.3,
+    "SD": 11.451093236,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "WOPP6080_P",
+    "gem": 27,
+    "SD": 11.596971254,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2017,
+    "variabele": "WOPP6080_P",
+    "gem": 27,
+    "SD": 11.411408366,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2011,
+    "variabele": "WOPP80100_P",
+    "gem": 17.3,
+    "SD": 10.848881439,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2012,
+    "variabele": "WOPP80100_P",
+    "gem": 17.4,
+    "SD": 10.661417577,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2013,
+    "variabele": "WOPP80100_P",
+    "gem": 18,
+    "SD": 10.681875231,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2014,
+    "variabele": "WOPP80100_P",
+    "gem": 18.4,
+    "SD": 10.555554296,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "WOPP80100_P",
+    "gem": 18.5,
+    "SD": 10.465035058,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "WOPP80100_P",
+    "gem": 18.4,
+    "SD": 10.524834876,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2017,
+    "variabele": "WOPP80100_P",
+    "gem": 18.5,
+    "SD": 10.318567032,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2011,
+    "variabele": "WOPPONB_P",
+    "gem": 4.6,
+    "SD": 11.569663723,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2012,
+    "variabele": "WOPPONB_P",
+    "gem": 4.5,
+    "SD": 11.079116814,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2013,
+    "variabele": "WOPPONB_P",
+    "gem": 0.9,
+    "SD": 2.8034282535,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2014,
+    "variabele": "WOPPONB_P",
+    "gem": 0.9,
+    "SD": 2.7587536406,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "WOPPONB_P",
+    "gem": 0.9,
+    "SD": 2.5204697431,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "WOPPONB_P",
+    "gem": 0.8,
+    "SD": 2.0868266245,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2017,
+    "variabele": "WOPPONB_P",
+    "gem": 0.5,
+    "SD": 1.8944302519,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2011,
+    "variabele": "WPARTHUUR_P",
+    "gem": 25,
+    "SD": 20.827825063,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2012,
+    "variabele": "WPARTHUUR_P",
+    "gem": 25.1,
+    "SD": 20.603433136,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2013,
+    "variabele": "WPARTHUUR_P",
+    "gem": 25,
+    "SD": 20.623356159,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2014,
+    "variabele": "WPARTHUUR_P",
+    "gem": 25.4,
+    "SD": 20.242921244,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "WPARTHUUR_P",
+    "gem": 25.3,
+    "SD": 20.59561048,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "WPARTHUUR_P",
+    "gem": 25.9,
+    "SD": 21.979304,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2017,
+    "variabele": "WPARTHUUR_P",
+    "gem": 26.8,
+    "SD": 22.211848338,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2005,
+    "variabele": "WVERHUIS65_P",
+    "gem": 13,
+    "SD": 5.4702544923,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2007,
+    "variabele": "WVERHUIS65_P",
+    "gem": 13,
+    "SD": 7.9865271166,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2009,
+    "variabele": "WVERHUIS65_P",
+    "gem": 13,
+    "SD": 5.4961615886,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2011,
+    "variabele": "WVERHUIS65_P",
+    "gem": 12,
+    "SD": 6.1711428401,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2013,
+    "variabele": "WVERHUIS65_P",
+    "gem": 12,
+    "SD": 5.7725861902,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "WVERHUIS65_P",
+    "gem": 12,
+    "SD": 5.3832301332,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2005,
+    "variabele": "WVERHUIS_P",
+    "gem": 25,
+    "SD": 8.1374599211,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2007,
+    "variabele": "WVERHUIS_P",
+    "gem": 26,
+    "SD": 8.9621381108,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2009,
+    "variabele": "WVERHUIS_P",
+    "gem": 22,
+    "SD": 8.2238354786,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2011,
+    "variabele": "WVERHUIS_P",
+    "gem": 24,
+    "SD": 8.284760401,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2013,
+    "variabele": "WVERHUIS_P",
+    "gem": 25,
+    "SD": 6.7565779619,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "WVERHUIS_P",
+    "gem": 26,
+    "SD": 7.4654891384,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2005,
+    "variabele": "WWONING65_R",
+    "gem": 7.6,
+    "SD": 0.4777466681,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2007,
+    "variabele": "WWONING65_R",
+    "gem": 7.7,
+    "SD": 0.4394756548,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2009,
+    "variabele": "WWONING65_R",
+    "gem": 7.8,
+    "SD": 0.4434599712,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2011,
+    "variabele": "WWONING65_R",
+    "gem": 7.7,
+    "SD": 0.4211248673,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2013,
+    "variabele": "WWONING65_R",
+    "gem": 7.8,
+    "SD": 0.43511226,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "WWONING65_R",
+    "gem": 7.8,
+    "SD": 0.3985227669,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2017,
+    "variabele": "WWONING65_R",
+    "gem": 8,
+    "SD": 0.3234978782,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2005,
+    "variabele": "WWONINGCORP_R",
+    "gem": 6.8,
+    "SD": 0.5066185422,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2007,
+    "variabele": "WWONINGCORP_R",
+    "gem": 7,
+    "SD": 0.4726094044,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2009,
+    "variabele": "WWONINGCORP_R",
+    "gem": 6.9,
+    "SD": 0.489406474,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2011,
+    "variabele": "WWONINGCORP_R",
+    "gem": 7,
+    "SD": 0.4943011027,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2013,
+    "variabele": "WWONINGCORP_R",
+    "gem": 7.1,
+    "SD": 0.411635627,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "WWONINGCORP_R",
+    "gem": 7,
+    "SD": 0.5159309512,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2017,
+    "variabele": "WWONINGCORP_R",
+    "gem": 7.3,
+    "SD": 0.4108868531,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2005,
+    "variabele": "WWONING_R",
+    "gem": 7.2,
+    "SD": 0.5554858728,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2007,
+    "variabele": "WWONING_R",
+    "gem": 7.4,
+    "SD": 0.4968169196,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2009,
+    "variabele": "WWONING_R",
+    "gem": 7.5,
+    "SD": 0.5020819779,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2011,
+    "variabele": "WWONING_R",
+    "gem": 7.5,
+    "SD": 0.4639352919,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2013,
+    "variabele": "WWONING_R",
+    "gem": 7.6,
+    "SD": 0.4147887287,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "WWONING_R",
+    "gem": 7.6,
+    "SD": 0.4947711944,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2017,
+    "variabele": "WWONING_R",
+    "gem": 7.8,
+    "SD": 0.3656735599,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2014,
+    "variabele": "WWOZ_GEM",
+    "gem": 234800,
+    "SD": 107573.87528,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "WWOZ_GEM",
+    "gem": 238831,
+    "SD": 109934.52507,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "WWOZ_GEM",
+    "gem": 253606,
+    "SD": 119659.89221,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2017,
+    "variabele": "WWOZ_GEM",
+    "gem": 292448,
+    "SD": 144763.80966,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2014,
+    "variabele": "WWOZ_M2",
+    "gem": 2888,
+    "SD": 674.99942254,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "WWOZ_M2",
+    "gem": 3053,
+    "SD": 781.81109065,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "WWOZ_M2",
+    "gem": 3200,
+    "SD": 854.38858711,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2017,
+    "variabele": "WWOZ_M2",
+    "gem": 3833,
+    "SD": 1156.0017244,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2008,
+    "variabele": "WZADL_P",
+    "gem": 20,
+    "SD": 4.6534901698,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2012,
+    "variabele": "WZADL_P",
+    "gem": 19,
+    "SD": 6.1763305306,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "WZADL_P",
+    "gem": 18,
+    "SD": 4.46559721,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "WZALCOREGVO4_P",
+    "gem": 14,
+    "SD": 8.1060343083,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2017,
+    "variabele": "WZALCOREGVO4_P",
+    "gem": 12,
+    "SD": 8.4275624901,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2012,
+    "variabele": "WZALC_P",
+    "gem": 17,
+    "SD": 5.8836114009,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "WZALC_P",
+    "gem": 17,
+    "SD": 5.4613954102,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "WZANGST_P",
+    "gem": 12,
+    "SD": 2.9837220719,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2017,
+    "variabele": "WZANGST_P",
+    "gem": 12,
+    "SD": 1.8955404488,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2008,
+    "variabele": "WZBEWEEG_P",
+    "gem": 62,
+    "SD": 8.1664237087,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2012,
+    "variabele": "WZBEWEEG_P",
+    "gem": 64,
+    "SD": 8.7253673064,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "WZBEWEEG_P",
+    "gem": 65,
+    "SD": 8.8371510169,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2009,
+    "variabele": "WZBUURTHUIZEN65_R",
+    "gem": 6.6,
+    "SD": 0.5900674469,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2011,
+    "variabele": "WZBUURTHUIZEN65_R",
+    "gem": 6.6,
+    "SD": 0.4342955084,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2013,
+    "variabele": "WZBUURTHUIZEN65_R",
+    "gem": 6.5,
+    "SD": 0.6521243614,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "WZBUURTHUIZEN65_R",
+    "gem": 6.6,
+    "SD": 0.4374424902,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2017,
+    "variabele": "WZBUURTHUIZEN65_R",
+    "gem": 6.6,
+    "SD": 0.665922432,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2009,
+    "variabele": "WZBUURTHUIZEN_R",
+    "gem": 6.6,
+    "SD": 0.5757009267,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2011,
+    "variabele": "WZBUURTHUIZEN_R",
+    "gem": 6.6,
+    "SD": 0.547062785,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2013,
+    "variabele": "WZBUURTHUIZEN_R",
+    "gem": 6.5,
+    "SD": 0.5635878438,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "WZBUURTHUIZEN_R",
+    "gem": 6.7,
+    "SD": 0.5620613929,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2017,
+    "variabele": "WZBUURTHUIZEN_R",
+    "gem": 6.7,
+    "SD": 0.6635163662,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "WZCANNAREGVO4_P",
+    "gem": 7,
+    "SD": 4.0326052078,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2017,
+    "variabele": "WZCANNAREGVO4_P",
+    "gem": 7,
+    "SD": 4.3282020902,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2012,
+    "variabele": "WZCHRONISCH_P",
+    "gem": 35,
+    "SD": 6.3941599437,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2013,
+    "variabele": "WZCONDO_P",
+    "gem": 9,
+    "SD": 3.4465617474,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2014,
+    "variabele": "WZCONDO_P",
+    "gem": 7,
+    "SD": 3.2938261612,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "WZCONDO_P",
+    "gem": 6,
+    "SD": 2.0639138208,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "WZCONDO_P",
+    "gem": 6,
+    "SD": 2.5920290736,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "WZDEPRESS_P",
+    "gem": 10,
+    "SD": 2.3359601788,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2017,
+    "variabele": "WZDEPRESS_P",
+    "gem": 10,
+    "SD": 2.1136538192,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2008,
+    "variabele": "WZDEPR_P",
+    "gem": 7,
+    "SD": 2.7620549177,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2012,
+    "variabele": "WZDEPR_P",
+    "gem": 7,
+    "SD": 3.0482954685,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "WZDEPR_P",
+    "gem": 8,
+    "SD": 2.6972007294,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "WZEENZJ_P",
+    "gem": 9,
+    "SD": 3.0968493974,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2017,
+    "variabele": "WZEENZJ_P",
+    "gem": 9,
+    "SD": 2.1762193676,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "WZGEDWONGENV04_P",
+    "gem": 3,
+    "SD": 1.2277430273,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2008,
+    "variabele": "WZGEZOND_1000INW",
+    "gem": 2.5,
+    "SD": 2.1593512342,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2009,
+    "variabele": "WZGEZOND_1000INW",
+    "gem": 2.8,
+    "SD": 2.2352755209,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2010,
+    "variabele": "WZGEZOND_1000INW",
+    "gem": 4.6,
+    "SD": 3.4376192176,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2011,
+    "variabele": "WZGEZOND_1000INW",
+    "gem": 5.2,
+    "SD": 4.2547262174,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2012,
+    "variabele": "WZGEZOND_1000INW",
+    "gem": 5.6,
+    "SD": 4.3292394442,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2013,
+    "variabele": "WZGEZOND_1000INW",
+    "gem": 6,
+    "SD": 4.1146740223,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2014,
+    "variabele": "WZGEZOND_1000INW",
+    "gem": 6.3,
+    "SD": 4.3361837462,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "WZGEZOND_1000INW",
+    "gem": 6.6,
+    "SD": 4.387123168,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "WZGEZOND_1000INW",
+    "gem": 6.9,
+    "SD": 4.1783720732,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2017,
+    "variabele": "WZGEZOND_1000INW",
+    "gem": 7.1,
+    "SD": 5.6359780518,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2012,
+    "variabele": "WZGEZOND_P",
+    "gem": 75,
+    "SD": 6.2650322542,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "WZGEZOND_P",
+    "gem": 76,
+    "SD": 5.9516449761,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "WZJBR_P",
+    "gem": 2.8,
+    "SD": 1.342414959,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "WZJHPGB_P",
+    "gem": 0.5,
+    "SD": 0.140191582,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "WZJVOORZ_P",
+    "gem": 34,
+    "SD": 9.04209414,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2013,
+    "variabele": "WZKMISH_I",
+    "gem": 100,
+    "SD": 37.389137715,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2014,
+    "variabele": "WZKMISH_I",
+    "gem": 100,
+    "SD": 36.480113779,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "WZKMISH_I",
+    "gem": 100,
+    "SD": 36.46334814,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "WZKMISH_I",
+    "gem": 100,
+    "SD": 36.966112948,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2012,
+    "variabele": "WZOESO_P",
+    "gem": 17,
+    "SD": 5.388711011,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "WZOESO_P",
+    "gem": 14,
+    "SD": 5.8430037344,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "WZOKT_P",
+    "gem": 4.9,
+    "SD": 1.5947763756,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "WZOKT_P",
+    "gem": 8.4,
+    "SD": 2.6146440745,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2013,
+    "variabele": "WZONGEWENST_P",
+    "gem": 5,
+    "SD": 1.5861240411,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2014,
+    "variabele": "WZONGEWENST_P",
+    "gem": 4,
+    "SD": 1.664380152,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "WZONGEWENST_P",
+    "gem": 4,
+    "SD": 1.3683180815,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2012,
+    "variabele": "WZONGEZOND_P",
+    "gem": 25,
+    "SD": 7.1840371387,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "WZOOO_P",
+    "gem": 2.2,
+    "SD": 0.778999247,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2011,
+    "variabele": "WZOUDERPSY_P",
+    "gem": 4,
+    "SD": 1.594948165,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2012,
+    "variabele": "WZOUDERPSY_P",
+    "gem": 4,
+    "SD": 1.5927467172,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2013,
+    "variabele": "WZOUDERPSY_P",
+    "gem": 4,
+    "SD": 1.6613951722,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2014,
+    "variabele": "WZOUDERPSY_P",
+    "gem": 4,
+    "SD": 2.0605990525,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "WZOUDERPSY_P",
+    "gem": 4,
+    "SD": 1.0711528467,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "WZOUDERPSY_P",
+    "gem": 3,
+    "SD": 1.2880570287,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2017,
+    "variabele": "WZPIEKER_P",
+    "gem": 4,
+    "SD": 1.317305628,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "WZPROSOC_P",
+    "gem": 83,
+    "SD": 2.8242150195,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2017,
+    "variabele": "WZPROSOC_P",
+    "gem": 77,
+    "SD": 3.1908961409,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "WZROOKREGVO4_P",
+    "gem": 10,
+    "SD": 5.1775823805,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2017,
+    "variabele": "WZROOKREGVO4_P",
+    "gem": 9,
+    "SD": 5.0400989477,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2008,
+    "variabele": "WZROOK_P",
+    "gem": 27,
+    "SD": 4.6894004084,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2012,
+    "variabele": "WZROOK_P",
+    "gem": 28,
+    "SD": 5.1759098997,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "WZROOK_P",
+    "gem": 27,
+    "SD": 5.1723540824,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "WZSAMEN_P",
+    "gem": 1.9,
+    "SD": 0.95328096,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "WZSAMEN_P",
+    "gem": 2.1,
+    "SD": 1.0833749576,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2012,
+    "variabele": "WZSLI_I",
+    "gem": 104,
+    "SD": 3.8644806283,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2014,
+    "variabele": "WZSLI_I",
+    "gem": 104,
+    "SD": 4.5405818038,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "WZSLI_I",
+    "gem": 105,
+    "SD": 4.7438727854,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "WZVT_P",
+    "gem": 3.5,
+    "SD": 1.5546119071,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2008,
+    "variabele": "WZWELZIJN_1000INW",
+    "gem": 1.9,
+    "SD": 1.4757841395,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2009,
+    "variabele": "WZWELZIJN_1000INW",
+    "gem": 2.2,
+    "SD": 1.6101213751,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2010,
+    "variabele": "WZWELZIJN_1000INW",
+    "gem": 2.4,
+    "SD": 1.6602771294,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2011,
+    "variabele": "WZWELZIJN_1000INW",
+    "gem": 2.8,
+    "SD": 2.2938470863,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2012,
+    "variabele": "WZWELZIJN_1000INW",
+    "gem": 3.2,
+    "SD": 2.1963312518,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2013,
+    "variabele": "WZWELZIJN_1000INW",
+    "gem": 3.4,
+    "SD": 2.0053388303,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2014,
+    "variabele": "WZWELZIJN_1000INW",
+    "gem": 3.4,
+    "SD": 1.8537611969,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "WZWELZIJN_1000INW",
+    "gem": 3.3,
+    "SD": 1.6718687974,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "WZWELZIJN_1000INW",
+    "gem": 3.3,
+    "SD": 1.5373382292,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2017,
+    "variabele": "WZWELZIJN_1000INW",
+    "gem": 3.4,
+    "SD": 2.6534749766,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "WZZIN_P",
+    "gem": 7.6,
+    "SD": 1.2589420419,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "WZZIN_P",
+    "gem": 6.7,
+    "SD": 1.7291553877,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2009,
+    "variabele": "WZZORGVOORZ65_R",
+    "gem": 7.4,
+    "SD": 0.3085765069,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2011,
+    "variabele": "WZZORGVOORZ65_R",
+    "gem": 7.4,
+    "SD": 0.3324566043,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2013,
+    "variabele": "WZZORGVOORZ65_R",
+    "gem": 7.5,
+    "SD": 0.5811042741,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "WZZORGVOORZ65_R",
+    "gem": 7.5,
+    "SD": 0.3761875897,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2017,
+    "variabele": "WZZORGVOORZ65_R",
+    "gem": 7.4,
+    "SD": 0.3686176819,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2009,
+    "variabele": "WZZORGVOORZIENINGEN_R",
+    "gem": 7.3,
+    "SD": 0.6146929639,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2011,
+    "variabele": "WZZORGVOORZIENINGEN_R",
+    "gem": 7.3,
+    "SD": 0.64630323,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2013,
+    "variabele": "WZZORGVOORZIENINGEN_R",
+    "gem": 7.4,
+    "SD": 0.7134927514,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "WZZORGVOORZIENINGEN_R",
+    "gem": 7.4,
+    "SD": 0.7270757877,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2017,
+    "variabele": "WZZORGVOORZIENINGEN_R",
+    "gem": 7.4,
+    "SD": 0.6594773807,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2010,
+    "variabele": "WZZWAAR10_P",
+    "gem": 26,
+    "SD": 8.0314587096,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2011,
+    "variabele": "WZZWAAR10_P",
+    "gem": 27,
+    "SD": 7.3884196273,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2012,
+    "variabele": "WZZWAAR10_P",
+    "gem": 24,
+    "SD": 8.1213736496,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2013,
+    "variabele": "WZZWAAR10_P",
+    "gem": 24,
+    "SD": 9.944510075,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2014,
+    "variabele": "WZZWAAR10_P",
+    "gem": 23,
+    "SD": 8.8655947827,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2015,
+    "variabele": "WZZWAAR10_P",
+    "gem": 22,
+    "SD": 8.3708678506,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "WZZWAAR10_P",
+    "gem": 21,
+    "SD": 9.2014066421,
+    "bron": "sdbc"
+  },
+  {
+    "jaar": 2008,
+    "variabele": "WZZWAAR_P",
+    "gem": 40,
+    "SD": 9.5493704604,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2012,
+    "variabele": "WZZWAAR_P",
+    "gem": 40,
+    "SD": 9.0916449919,
+    "bron": "sdgeb22"
+  },
+  {
+    "jaar": 2016,
+    "variabele": "WZZWAAR_P",
+    "gem": 40,
+    "SD": 9.4800999136,
+    "bron": "sdgeb22"
   }
 ]
