@@ -35,23 +35,23 @@ export const CHART_COLORS = [
 export const CATEGORY_COLORS = [
   {
     text: 'veel meer/beter dan gemiddeld',
-    color: COLOR['ams-donkergroen']
+    color: '#00A03C'
   },
   {
     text: 'meer/beter dan gemiddeld',
-    color: COLOR['ams-groen']
+    color: '#B4E600'
   },
   {
     text: 'rond stedelijk gemiddelde',
-    color: COLOR['ams-lichtgrijs']
+    color: '#E8E8E8'
   },
   {
     text: 'minder/slechter dan gemiddeld',
-    color: COLOR['ams-blauw']
+    color: '#B1D9F5'
   },
   {
     text: 'veel minder/slechter dan gemiddeld',
-    color: COLOR['ams-donkerblauw']
+    color: '#00A0E6'
   },
   {
     text: 'geen cijfers beschikbaar',
