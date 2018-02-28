@@ -30,7 +30,7 @@
           <span
             v-b-tooltip.hover v-b-tooltip.click v-b-tooltip.left
             :title="own.meta.bron + ' ' + own.recent.jaar">
-            {{(own.recent.waarde || "").toLocaleString()}}
+            {{own.recent | displaywaarde}}
           </span>
         </div>
 
@@ -45,7 +45,7 @@
               <span
                 v-b-tooltip.hover v-b-tooltip.click v-b-tooltip.left
                 :title="own.meta.bron + ' ' + item.jaar">
-                {{(item.waarde || "").toLocaleString()}}
+                {{item | displaywaarde}}
               </span>
             </span>
           </div>
@@ -138,7 +138,7 @@ export default {
 
       // Sort and filter cijfers for gebiedType and waarde
       let cijfers = await util.getAllCijfers(this.variable, recentYear)
-      cijfers = cijfers.filter(c => c.waarde !== '')
+      cijfers = cijfers.filter(c => c.waarde !== null)
       cijfers = cijfers.filter(c => util.getGebiedType(c.gebiedcode15) === this.gebiedType)
       cijfers = cijfers.sort((c1, c2) => c2.waarde - c1.waarde)
 

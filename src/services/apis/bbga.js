@@ -48,6 +48,9 @@ export async function getMeta (variableName) {
 }
 
 async function getCijfers (meta, year = null, gebiedCode = null) {
+  const isPercentage = /_P$/i // Add auto-post for percentages
+  const post = isPercentage.test(meta.variabele) ? '%' : ''
+
   const selectVariable = `variabele=${meta.variabele}`
   const selectYear = year ? `&jaar=${year}` : ''
   const selectGebiedCode = gebiedCode ? `&gebiedcode15=${gebiedCode}` : ''
@@ -56,14 +59,13 @@ async function getCijfers (meta, year = null, gebiedCode = null) {
   let cijfers = await readPaginatedData(url)
 
   cijfers.sort((a, b) => a.jaar - b.jaar) // oldest first
-  cijfers = cijfers.map(c => ({
+  return cijfers.map(c => ({
     jaar: c.jaar,
-    waarde: c.waarde === null ? '' : c.waarde,
+    waarde: c.waarde === '' || c.waarde === undefined ? null : c.waarde, // Sometimes the API returns '' for null value
+    post,
     gebiedcode15: c.gebiedcode15,
     color: getColor(meta, c.waarde, c.jaar)
   }))
-
-  return cijfers
 }
 
 export async function getAllCijfers (variableName, year) {
@@ -92,8 +94,6 @@ export const CIJFERS = {
 }
 
 export async function getGebiedCijfers (variableName, gebied, recentOrAll = CIJFERS.ALL) {
-  const isPercentage = /_P$/i // Add auto-post for percentages
-
   async function _getGebiedCijfers (meta, gebied, jaar) {
     const cijfers = await getCijfers(
       meta,
@@ -104,8 +104,7 @@ export async function getGebiedCijfers (variableName, gebied, recentOrAll = CIJF
       gebied,
       meta,
       cijfers: cijfers,
-      post: isPercentage.test(meta.variabele) ? '%' : null,
-      recent: cijfers.length ? cijfers[cijfers.length - 1] : {}
+      recent: cijfers.length ? cijfers[cijfers.length - 1] : undefined
     }
   }
 

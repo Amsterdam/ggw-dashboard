@@ -11,7 +11,7 @@
         <td width="50%">{{d.label}}</td>
         <td width="50%" v-if="d.recent"
             v-b-tooltip.hover triggers="click" v-b-tooltip.html.left :title="d.tooltip(true)">
-          {{(d.recent.waarde || "").toLocaleString()}} {{d.post}}
+          {{d.recent | displaywaarde}}
         </td>
       </tr>
       </tbody>

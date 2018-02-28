@@ -24,6 +24,12 @@ Vue.use(BootstrapVue)
 Vue.use(uiv, {prefix: 'uiv'})
 Vue.config.productionTip = false
 
+Vue.filter('displaywaarde', function (cijfer) {
+  if (cijfer && cijfer.waarde !== null) {
+    return `${cijfer.waarde.toLocaleString()}${cijfer.post || ''}`
+  }
+})
+
 /* eslint-disable no-new */
 let vueApp = new Vue({
   el: '#app',

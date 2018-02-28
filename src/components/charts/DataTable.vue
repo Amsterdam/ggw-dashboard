@@ -16,7 +16,7 @@
         :style="{'background-color': d[y].color}"
         class="text-center"
         v-if="d[y]">
-        {{(d[y].waarde || "").toLocaleString()}}
+        {{ d[y] | displaywaarde }}
       </td>
     </tr>
     </tbody>
@@ -67,7 +67,7 @@ export default {
       this.updateData()
     }
   },
-  created () {
+  async created () {
     this.data = this.config.map(c => ({label: c.label || c.variabele}))
     this.updateData()
   }

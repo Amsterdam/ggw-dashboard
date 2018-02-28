@@ -3,7 +3,7 @@ import { getAllMeta, getMeta, getAllCijfers, getGebiedCijfers, CIJFERS } from '.
 
 async function getLatestConfigCijfers (gwb, config) {
   const latestCijfers = await getConfigCijfers(gwb, config, CIJFERS.LATEST)
-  if (latestCijfers.recent && latestCijfers.recent.waarde) {
+  if (latestCijfers.recent && latestCijfers.recent.waarde !== null) {
     return latestCijfers
   }
   return getConfigCijfers(gwb, config, CIJFERS.ALL)
@@ -24,12 +24,13 @@ async function getConfigCijfers (gwb, config, recentOrAll = CIJFERS.ALL) {
   let data = config.map(async c => {
     try {
       const cijfers = await getGebiedCijfers(c.variabele, gwb, recentOrAll)
-      const post = c.post || cijfers.post
+      if (c.post) {
+        cijfers.cijfers.forEach(cijfer => { cijfer.post = c.post })
+      }
       return {
         ...cijfers,
         label: c.label || cijfers.meta.label,
-        tooltip: getTooltip(cijfers),
-        post
+        tooltip: getTooltip(cijfers)
       }
     } catch (e) {
       console.error('Error for variable', c.variabele)

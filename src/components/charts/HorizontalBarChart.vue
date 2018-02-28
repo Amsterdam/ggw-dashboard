@@ -28,12 +28,12 @@ export default {
     updateChart () {
       vegaSpec.data.values = this.chartdata.map(d => ({
         key: d.label,
-        value: d.recent.waarde || 0,
-        label: d.recent.waarde === undefined ? 'Geen recente gegevens' : d.recent.waarde
+        value: (d.recent && d.recent.waarde) || 0,
+        label: (d.recent && d.recent.waarde !== null) ? d.recent.waarde : 'Geen gegevens'
       }))
 
       vegaSpec.layer[0].encoding.color.scale.range = this.chartdata
-        .filter(d => d.recent.waarde)
+        .filter(d => d.recent && d.recent.waarde)
         .map(d => d.recent.color || COLOR['ams-oranje'])
 
       vegaEmbed(this.$el, vegaSpec, vegaEmbedOptions)

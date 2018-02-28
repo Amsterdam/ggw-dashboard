@@ -14,7 +14,7 @@
           {{d.label}}:
           <span v-if="d.recent"
                 v-b-tooltip.hover v-b-tooltip.click v-b-tooltip.left :title="d.meta.bron + ' ' + d.recent.jaar">
-                {{(d.recent.waarde || "").toLocaleString()}}{{d.post}}
+                {{d.recent | displaywaarde}}
           </span>
         </div>
       </div>
@@ -37,7 +37,7 @@ export default {
   ],
   data () {
     return {
-      data: null
+      data: []
     }
   },
   computed: {
@@ -55,7 +55,7 @@ export default {
       this.updateData()
     }
   },
-  created () {
+  async created () {
     this.updateData()
   }
 }
