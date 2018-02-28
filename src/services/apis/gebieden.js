@@ -1,13 +1,10 @@
 import {readData, readPaginatedData} from '../datareader'
 import gebiedscodes from '../../../static/tmp/gebieden'
+import { cacheResponse } from "../cache";
 
 // Transform list of gebiedscodes into object
 const localGebiedscodes = {}
 gebiedscodes.forEach(g => { localGebiedscodes[g.gebiedcode] = g })
-
-let allGebieden = null
-let allWijken = null
-let allBuurten = null
 
 let allGwb = {}
 
@@ -129,27 +126,17 @@ export async function getGwb (code) {
     console.error('GWB not found', gebiedType, code)
   }
 
-  allGwb[code] = readData(gwb._links.self.href)
-  return allGwb[code]
+  return cacheResponse('allGWB', async () => readData(gwb._links.self.href))
 }
 
 export async function getAllGebieden () {
-  if (!allGebieden) {
-    allGebieden = _getAllGebieden()
-  }
-  return allGebieden
+  return cacheResponse('allGebieden', _getAllGebieden)
 }
 
 export async function getAllWijken () {
-  if (!allWijken) {
-    allWijken = _getAllWijken()
-  }
-  return allWijken
+  return cacheResponse('allWijken', _getAllWijken)
 }
 
 export async function getAllBuurten () {
-  if (!allBuurten) {
-    allBuurten = _getAllBuurten()
-  }
-  return allBuurten
+  return cacheResponse('allBuurten', _getAllBuurten)
 }
