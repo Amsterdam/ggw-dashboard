@@ -67,7 +67,9 @@ let map
 let gwbLayer = null
 
 function clearLayers () {
-  map.removeLayer(gwbLayer)
+  if (gwbLayer) {
+    map.removeLayer(gwbLayer)
+  }
   gwbLayer = null
 }
 
@@ -171,7 +173,13 @@ export default {
         util.getGwb(c.gebiedcode15).then(gwb => {
           const wgs84Geometrie = rdMultiPolygonToWgs84(gwb.geometrie)
           wgs84Geometrie.map(geometry => {
-            const shape = L.polygon(geometry.coordinates, {'color': c.color})
+            const shape = L.polygon(geometry.coordinates, {
+              'fillOpacity': 0.8,
+              'fillColor': c.color,
+              'color': 'gray',
+              'opacity': 0.5,
+              'weight': 1
+            })
             shape.addTo(gwbLayer)
           })
         })
@@ -229,7 +237,7 @@ export default {
   mounted () {
     map = L.map(this.$refs.map, {
       crs: rd,
-      zoomControl: false,
+      zoomControl: true,
       scrollWheelZoom: false
     }).setView([52.35, 4.9], 6)
 
