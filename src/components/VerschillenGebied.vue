@@ -29,7 +29,7 @@
           {{own.gebied.naam}}:
           <span
             v-b-tooltip.hover v-b-tooltip.click v-b-tooltip.left
-            :title="own.meta.bron + ' ' + own.recent.jaar">
+            title="">
             {{own.recent | displaywaarde}}
           </span>
         </div>
@@ -44,7 +44,7 @@
               {{item.gwb.naam}}:
               <span
                 v-b-tooltip.hover v-b-tooltip.click v-b-tooltip.left
-                :title="own.meta.bron + ' ' + item.jaar">
+                title="">
                 {{item | displaywaarde}}
               </span>
             </span>
@@ -59,16 +59,18 @@
 <script>
 import L from 'leaflet'
 import { mapGetters } from 'vuex'
-import { rdMultiPolygonToWgs84 } from '../services/geojson'
+import { rd, rdMultiPolygonToWgs84, tileLayer } from '../services/geojson'
 import util from '../services/util'
 import positieOntwikkeling from '../../static/links/positie_en_ontwikkeling'
 
 let map
-let gwbLayer = []
+let gwbLayer = null
 
 function clearLayers () {
-  gwbLayer.forEach(l => map.removeLayer(l))
-  gwbLayer = []
+  if (gwbLayer) {
+    map.removeLayer(gwbLayer)
+  }
+  gwbLayer = null
 }
 
 export default {
@@ -166,30 +168,38 @@ export default {
       this.highLow = highLowGwbs
       clearLayers()
 
-      gwbLayer = []
+      gwbLayer = L.featureGroup()
       cijfers.forEach(c => {
         util.getGwb(c.gebiedcode15).then(gwb => {
           const wgs84Geometrie = rdMultiPolygonToWgs84(gwb.geometrie)
           wgs84Geometrie.map(geometry => {
-            const shape = L.polygon(geometry.coordinates, {'color': c.color})
-            gwbLayer.push(shape.addTo(map))
+            const shape = L.polygon(geometry.coordinates, {
+              'fillOpacity': 0.8,
+              'fillColor': c.color,
+              'color': 'gray',
+              'opacity': 0.5,
+              'weight': 1
+            })
+            shape.addTo(gwbLayer)
           })
         })
       })
+      gwbLayer.addTo(map)
     },
     async initialView () {
       const gebieden = await util.getAllGebieden()
 
-      gwbLayer = []
+      gwbLayer = L.featureGroup()
       gebieden.forEach(g => {
         util.getGwb(g.vollcode).then(gwb => {
           const wgs84Geometrie = rdMultiPolygonToWgs84(gwb.geometrie)
           wgs84Geometrie.map(geometry => {
             const shape = L.polygon(geometry.coordinates, {'color': 'gray'})
-            gwbLayer.push(shape.addTo(map))
+            shape.addTo(gwbLayer)
           })
         })
       })
+      gwbLayer.addTo(map)
     }
   },
   watch: {
@@ -225,8 +235,13 @@ export default {
     this.initialView()
   },
   mounted () {
-    map = L.map(this.$refs.map).setView([52.373, 4.893], 10)
-    // L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map)
+    map = L.map(this.$refs.map, {
+      crs: rd,
+      zoomControl: true,
+      scrollWheelZoom: false
+    }).setView([52.35, 4.9], 6)
+
+    map.addLayer(tileLayer())
   }
 }
 </script>

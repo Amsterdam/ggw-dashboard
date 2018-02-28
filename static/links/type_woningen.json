@@ -1,14 +1,14 @@
 [
   {
-    "label": "",
+    "label": "Koop",
     "variabele": "WKOOP_P"
   },
   {
-    "label": "",
-    "variabele": "WPARTHUUR_P"
+    "label": "Corporatie huur",
+    "variabele": "WCORHUUR_P"
   },
   {
-    "label": "",
-    "variabele": "WCORHUUR_P"
+    "label": "Particulier huur",
+    "variabele": "WPARTHUUR_P"
   }
 ]

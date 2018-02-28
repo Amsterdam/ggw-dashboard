@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="text-center">
-      <h5 v-b-tooltip.hover v-b-tooltip.click v-b-tooltip.top :title="tooltip">
+      <h5 v-b-tooltip.hover v-b-tooltip.click v-b-tooltip.top title="">
         {{title}}
       </h5>
       <pie-chart v-if="chartdata" :chartdata="chartdata"></pie-chart>

@@ -6,7 +6,7 @@
 <script>
 import L from 'leaflet'
 import { mapGetters } from 'vuex'
-import { rdMultiPolygonToWgs84 } from '../services/geojson'
+import { rd, rdMultiPolygonToWgs84, tileLayer } from '../services/geojson'
 
 let map
 let gwbLayer = null
@@ -45,8 +45,14 @@ export default {
     }
   },
   mounted () {
-    map = L.map(this.$el).setView([52.373, 4.893], 12)
-    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map)
+    map = L.map(this.$el, {
+      crs: rd,
+      zoomControl: false,
+      scrollWheelZoom: false
+    }).setView([52.35, 4.9], 12)
+
+    map.addLayer(tileLayer())
+
     this.updateData()
   }
 }

@@ -1,6 +1,6 @@
 [
   {
-    "label": "Gemiddelde WOZ-waarde",
-    "variabele": "Wwoz_gem"
+    "label": "% Nultredewoningen",
+    "variabele": "Wnultrede_p"
   }
 ]
