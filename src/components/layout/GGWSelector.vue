@@ -94,7 +94,11 @@ export default {
         buurt: null,
         themas: THEMAS,
         thema: null
-      }
+      },
+      gebiedDetail: null,
+      wijkDetail: null,
+      buurtDetail: null,
+      themaDetail: null
     }
   },
   computed: {
@@ -106,71 +110,117 @@ export default {
       setGebied: 'setGebied',
       setWijk: 'setWijk',
       setBuurt: 'setBuurt',
+      setGWB: 'setGWB',
       setThema: 'setThema'
     }),
-    async updateGebied (gebiedCode) {
+    async updateGebied (gebiedCode, wijkCode = null) {
+      this.wijkDetail = null
       this.selection.wijk = null
       this.selection.wijken = null
 
+      this.buurtDetail = null
       this.selection.buurt = null
       this.selection.buurten = null
 
       if (gebiedCode) {
         const gebied = this.selection.gebieden.find(g => g.code === gebiedCode)
 
-        const gebiedDetail = await util.getDetail(gebied)
-        this.setGebied(gebiedDetail, null, null)
+        this.gebiedDetail = await util.getDetail(gebied)
 
         const wijken = await util.getWijken(gebied)
         this.selection.wijken = [getSelectNone('wijken')].concat(wijken)
       } else {
-        this.setGebied(null, null, null)
+        this.gebiedDetail = null
+      }
+
+      if (!wijkCode) {
+        this.updateState()
       }
     },
-    async updateWijk (wijkCode) {
+    async updateWijk (wijkCode, buurtCode = null) {
+      this.buurtDetail = null
       this.selection.buurt = null
       this.selection.buurten = null
 
       if (wijkCode) {
         const wijk = this.selection.wijken.find(w => w.vollcode === wijkCode)
 
-        const wijkDetail = await util.getDetail(wijk)
-        this.setWijk(wijkDetail, null)
+        this.wijkDetail = await util.getDetail(wijk)
 
         const buurten = await util.getBuurten(wijk)
         this.selection.buurten = [getSelectNone('buurten')].concat(buurten)
       } else {
-        this.setWijk(null, null)
+        this.wijkDetail = null
+      }
+
+      if (!buurtCode) {
+        this.updateState()
       }
     },
     async updateBuurt (buurtCode) {
       if (buurtCode) {
         const buurt = this.selection.buurten.find(b => b.code === buurtCode)
 
-        const buurtDetail = await util.getDetail(buurt)
-        this.setBuurt(buurtDetail)
+        this.buurtDetail = await util.getDetail(buurt)
       } else {
-        this.setBuurt(null)
+        this.buurtDetail = null
       }
+
+      this.updateState()
     },
     async updateThema (themaId) {
-      this.setThema(THEMAS[themaId])
+      this.selection.thema = themaId
+      this.themaDetail = THEMAS[this.selection.thema]
+      this.updateState()
+    },
+    updateState () {
+      this.setGebied(this.gebiedDetail)
+      this.setWijk(this.wijkDetail)
+      this.setBuurt(this.buurtDetail)
+      this.setGWB(this.buurtDetail || this.wijkDetail || this.gebiedDetail)
+      this.setThema(this.themaDetail)
+      this.updateUrl()
+    },
+    updateUrl () {
+      this.$router.push({
+        name: 'dashboard',
+        query: {
+          gebied: this.selection.gebied,
+          wijk: this.selection.wijk,
+          buurt: this.selection.buurt,
+          thema: this.selection.thema
+        }
+      })
+    },
+    async parseRoute () {
+      let { gebied, wijk, buurt, thema } = this.$route.query
+
+      this.selection.thema = thema || IN_HET_KORT
+      this.updateThema(this.selection.thema)
+
+      this.selection.gebied = gebied || 'DX01'
+      await this.updateGebied(this.selection.gebied, wijk)
+
+      if (wijk) {
+        this.selection.wijk = wijk
+        await this.updateWijk(this.selection.wijk, buurt)
+
+        if (buurt) {
+          this.selection.buurt = buurt
+          this.updateBuurt(this.selection.buurt)
+        }
+      }
     }
   },
   watch: {
-    // '$route' (to, from) {
-    //   console.log('Route changed from', from, to)
-    // }
+    '$route' (to, from) {
+      // console.log('Route changed from', from, to)
+    }
   },
   async created () {
     this.selection.gebieden = await util.getAllGebieden()
-    // this.selection.gebieden = [getSelectNone('gebieden')].concat(gebieden)
 
-    this.selection.gebied = 'DX01'
-    this.updateGebied(this.selection.gebied)
-
-    this.selection.thema = IN_HET_KORT
-    this.updateThema(this.selection.thema)
+    this.parseRoute()
   }
 }
 </script>

@@ -14,20 +14,17 @@ export default new Vuex.Store({
     variables: null
   },
   actions: {
-    setGebied: (store, gebied, wijk = null, buurt = null) => {
+    setGebied: (store, gebied) => {
       store.commit('gebied', gebied)
-      store.commit('wijk', wijk)
-      store.commit('buurt', buurt)
-      store.commit('gwb')
     },
-    setWijk: (store, wijk, buurt = null) => {
+    setWijk: (store, wijk) => {
       store.commit('wijk', wijk)
-      store.commit('buurt', buurt)
-      store.commit('gwb')
     },
     setBuurt: (store, buurt) => {
       store.commit('buurt', buurt)
-      store.commit('gwb')
+    },
+    setGWB: (store, gwb) => {
+      store.commit('gwb', gwb)
     },
     setThema: (store, thema) => store.commit('thema', thema),
     setMeta: (store, meta) => store.commit('meta', meta),
@@ -37,7 +34,7 @@ export default new Vuex.Store({
     gebied: (state, gebied) => { state.gebied = gebied },
     wijk: (state, wijk) => { state.wijk = wijk },
     buurt: (state, buurt) => { state.buurt = buurt },
-    gwb: (state) => { state.gwb = state.buurt || state.wijk || state.gebied },
+    gwb: (state, gwb) => { state.gwb = gwb },
     thema: (state, thema) => { state.thema = thema },
     meta: (state, meta) => { state.meta = meta },
     variables: (state, variables) => { state.variables = variables }

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="gwb && meta">
+    <div v-if="gwb && meta && thema">
       <in-het-kort v-if="thema.id === IN_HET_KORT"></in-het-kort>
       <niet-in-mvp v-if="thema.id === NIET_IN_MVP"></niet-in-mvp>
     </div>

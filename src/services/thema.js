@@ -1,5 +1,5 @@
-export const IN_HET_KORT = 'In het kort'
-export const NIET_IN_MVP = 'Niet in MVP'
+export const IN_HET_KORT = 'InHetKort'
+export const NIET_IN_MVP = 'NietInMVP'
 
 export const THEMAS = {
   [IN_HET_KORT]: {

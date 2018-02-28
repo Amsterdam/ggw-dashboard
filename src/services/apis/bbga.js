@@ -22,9 +22,7 @@ export async function getAllMeta () {
     const url = getUrl('/meta/')
     const data = await readPaginatedData(url)
     const dataObject = {}
-    data.forEach(item => {
-      dataObject[item.variabele] = item
-    })
+    data.forEach(item => { dataObject[item.variabele] = item })
     return dataObject
   }
 
