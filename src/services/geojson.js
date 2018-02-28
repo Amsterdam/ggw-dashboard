@@ -1,4 +1,6 @@
+import L from 'leaflet'
 import proj4 from 'proj4'
+import 'proj4leaflet'
 
 // Code copied from Atlas
 const config = {
@@ -26,12 +28,36 @@ const config = {
   earthRadius: 6378137 // The radius in meters
 }
 
+let rdSettings = config.rd
+rdSettings.transformation.bounds = L.bounds.apply(null, rdSettings.transformation.bounds)
+
+export const rd = new L.Proj.CRS(
+  rdSettings.code,
+  rdSettings.projection,
+  rdSettings.transformation
+)
+
+rd.distance = L.CRS.Earth.distance
+rd.R = config.EARTH_RADIUS
+
 export function rdToWgs84 (rdCoordinates) {
   const wgs84Coordinates = proj4(config.rd.projection, config.wgs84.projection,
     [rdCoordinates[0], rdCoordinates[1]])
   return [
     wgs84Coordinates[1], wgs84Coordinates[0]
   ]
+}
+
+export function tileLayer () {
+  return L.tileLayer(
+    'https://t1.data.amsterdam.nl/topo_rd_zw/{z}/{x}/{y}.png',
+    {
+      tms: true,
+      minZoom: 0,
+      maxZoom: 20,
+      opacity: 0.3
+    }
+  )
 }
 
 export function rdMultiPolygonToWgs84 (geometry) {
