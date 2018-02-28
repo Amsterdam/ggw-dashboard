@@ -225,7 +225,7 @@ export default {
     this.initialView()
   },
   mounted () {
-    map = L.map(this.$refs.map).setView([52.373, 4.893], 10)
+    map = L.map(this.$refs.map, { zoomControl: false, scrollWheelZoom: false }).setView([52.373, 4.893], 10)
     // L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map)
   }
 }
