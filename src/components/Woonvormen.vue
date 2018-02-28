@@ -4,7 +4,7 @@
       <h4>
         {{item.label}}
         <span v-if="item.recent"
-          v-b-tooltip.hover v-b-tooltip.click v-b-tooltip.left :title="item.meta.bron + ' ' + item.recent.jaar">
+          v-b-tooltip.hover v-b-tooltip.click v-b-tooltip.left title="">
           {{item.recent | displaywaarde}}
         </span>
       </h4>

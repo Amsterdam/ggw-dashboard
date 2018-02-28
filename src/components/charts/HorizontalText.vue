@@ -13,7 +13,7 @@
         <div v-for="d in data" :key="d.label">
           {{d.label}}:
           <span v-if="d.recent"
-                v-b-tooltip.hover v-b-tooltip.click v-b-tooltip.left :title="d.meta.bron + ' ' + d.recent.jaar">
+                v-b-tooltip.hover v-b-tooltip.click v-b-tooltip.left title="">
                 {{d.recent | displaywaarde}}
           </span>
         </div>

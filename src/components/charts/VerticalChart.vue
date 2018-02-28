@@ -1,7 +1,7 @@
 <template>
   <div>
     <h5 class="text-center"
-        v-b-tooltip.hover v-b-tooltip.click v-b-tooltip.top :title="tooltip">
+        v-b-tooltip.hover v-b-tooltip.click v-b-tooltip.top title="">
       {{title}}
     </h5>
     <div class="text-center">

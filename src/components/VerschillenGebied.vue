@@ -29,7 +29,7 @@
           {{own.gebied.naam}}:
           <span
             v-b-tooltip.hover v-b-tooltip.click v-b-tooltip.left
-            :title="own.meta.bron + ' ' + own.recent.jaar">
+            title="">
             {{own.recent | displaywaarde}}
           </span>
         </div>
@@ -44,7 +44,7 @@
               {{item.gwb.naam}}:
               <span
                 v-b-tooltip.hover v-b-tooltip.click v-b-tooltip.left
-                :title="own.meta.bron + ' ' + item.jaar">
+                title="">
                 {{item | displaywaarde}}
               </span>
             </span>
