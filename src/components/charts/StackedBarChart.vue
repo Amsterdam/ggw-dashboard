@@ -1,5 +1,7 @@
 <template>
-  <div></div>
+  <div class="text-center">
+    <div ref="stacked"></div>
+  </div>
 </template>
 
 <script>
@@ -48,7 +50,7 @@ export default {
         )
       })
       vegaSpec.scales[2].range = CHART_COLORS
-      vegaEmbed(this.$el, vegaSpec, vegaEmbedOptions)
+      vegaEmbed(this.$refs.stacked, vegaSpec, vegaEmbedOptions)
     }
   },
   watch: {

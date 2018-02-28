@@ -1,19 +1,19 @@
 [
   {
-    "label": "",
-    "variabele": "WvoorrBAG"
-  },
-  {
-    "label": "",
-    "variabele": "wcorhuur"
-  },
-  {
-    "label": "",
+    "label": "Koop",
     "variabele": "Wkoop"
   },
   {
-    "label": "",
+    "label": "Corporatie huur",
+    "variabele": "wcorhuur"
+  },
+  {
+    "label": "Particulier huur",
     "variabele": "Wparthuur"
+  },
+  {
+    "label": "",
+    "variabele": "WvoorrBAG"
   },
   {
     "label": "",
