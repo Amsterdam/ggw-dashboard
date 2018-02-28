@@ -1,10 +1,14 @@
 import {readData, readPaginatedData} from '../datareader'
 import gebiedscodes from '../../../static/tmp/gebieden'
-import { cacheResponse } from "../cache";
+import { cacheResponse } from '../cache'
 
 // Transform list of gebiedscodes into object
 const localGebiedscodes = {}
 gebiedscodes.forEach(g => { localGebiedscodes[g.gebiedcode] = g })
+
+let allGebieden = null
+let allWijken = null
+let allBuurten = null
 
 let allGwb = {}
 
@@ -37,20 +41,20 @@ function enhancedGWBList (gwbList) {
 
 async function _getAllGebieden () {
   const url = getUrl('/gebiedsgerichtwerken/')
-  const gebieden = await readPaginatedData(url)
-  return enhancedGWBList(gebieden)
+  const getData = async () => enhancedGWBList(await readPaginatedData(url))
+  return cacheResponse('allGebieden', getData)
 }
 
 async function _getAllWijken () {
   const url = getUrl('/wijk/')
-  const wijken = await readPaginatedData(url)
-  return enhancedGWBList(wijken)
+  const getData = async () => enhancedGWBList(await readPaginatedData(url))
+  return cacheResponse('allWijken', getData)
 }
 
 async function _getAllBuurten () {
   const url = getUrl('/buurt/')
-  const buurten = await readPaginatedData(url)
-  return enhancedGWBList(buurten)
+  const getData = async () => enhancedGWBList(await readPaginatedData(url))
+  return cacheResponse('allBuurten', getData)
 }
 
 function getKeyFromUrl (url) {
@@ -126,17 +130,27 @@ export async function getGwb (code) {
     console.error('GWB not found', gebiedType, code)
   }
 
-  return cacheResponse('allGWB', async () => readData(gwb._links.self.href))
+  allGwb[code] = readData(gwb._links.self.href)
+  return allGwb[code]
 }
 
 export async function getAllGebieden () {
-  return cacheResponse('allGebieden', _getAllGebieden)
+  if (!allGebieden) {
+    allGebieden = _getAllGebieden()
+  }
+  return allGebieden
 }
 
 export async function getAllWijken () {
-  return cacheResponse('allWijken', _getAllWijken)
+  if (!allWijken) {
+    allWijken = _getAllWijken()
+  }
+  return allWijken
 }
 
 export async function getAllBuurten () {
-  return cacheResponse('allBuurten', _getAllBuurten)
+  if (!allBuurten) {
+    allBuurten = _getAllBuurten()
+  }
+  return allBuurten
 }

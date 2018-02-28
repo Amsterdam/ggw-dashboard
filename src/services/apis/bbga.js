@@ -15,7 +15,10 @@ export async function getAllMeta () {
     return dataObject
   }
 
-  return cacheResponse('allMeta', getData)
+  return cacheResponse(
+    'allMeta',
+    getData
+  )
 }
 
 export async function getMeta (variableName) {
@@ -47,8 +50,12 @@ async function getCijfers (meta, year = null, gebiedCode = null) {
 export async function getAllCijfers (variableName, year) {
   variableName = variableName.toUpperCase()
   const meta = await getMeta(variableName)
+  const getData = async () => getCijfers(meta, year)
 
-  return cacheResponse(`cijfers.${variableName}.${year}`, async () => getCijfers(meta, year))
+  return cacheResponse(
+    `allCijfers.${variableName}.${year}`,
+    getData
+  )
 }
 
 export const CIJFERS = {
@@ -57,7 +64,11 @@ export const CIJFERS = {
 }
 
 export async function getGebiedCijfers (variableName, gebied, recentOrAll = CIJFERS.ALL) {
-  async function _getGebiedCijfers (meta, gebied, jaar) {
+  variableName = variableName.toUpperCase()
+  const meta = await getMeta(variableName)
+  const jaar = recentOrAll === CIJFERS.ALL ? null : recentOrAll
+
+  async function getData () {
     const cijfers = await getCijfers(
       meta,
       jaar,
@@ -71,15 +82,8 @@ export async function getGebiedCijfers (variableName, gebied, recentOrAll = CIJF
     }
   }
 
-  variableName = variableName.toUpperCase()
-  const meta = await getMeta(variableName)
-
   return cacheResponse(
     `gebiedCijfers.${variableName}.${gebied.volledige_code}.${recentOrAll}`,
-    async () => _getGebiedCijfers(
-      meta,
-      gebied,
-      recentOrAll === CIJFERS.ALL ? null : recentOrAll
-    )
+    getData
   )
 }
