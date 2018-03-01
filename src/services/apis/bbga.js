@@ -1,21 +1,10 @@
 import { readPaginatedData } from '../datareader'
 import { getColor } from '../colorcoding'
-
-let allMeta = null
-let allCijfers = {}
-let allGebiedCijfers = {}
+import { cacheResponse } from '../cache'
 
 function getUrl (endpoint) {
   return `https://acc.api.data.amsterdam.nl/bbga${endpoint}`
 }
-
-// export async function getAllThemas () {
-//   if (!allThemas) {
-//     const url = getUrl('/themas/')
-//     allThemas = readData(url, d => d.data.themas)
-//   }
-//   return allThemas
-// }
 
 export async function getAllMeta () {
   async function getData () {
@@ -26,19 +15,11 @@ export async function getAllMeta () {
     return dataObject
   }
 
-  if (!allMeta) {
-    allMeta = getData()
-  }
-  return allMeta
+  return cacheResponse(
+    'allMeta',
+    getData
+  )
 }
-
-// export async function getAllVariables () {
-//   if (!allVariables) {
-//     const url = getUrl('/variabelen/')
-//     allVariables = readData(url, d => d.data.variabelen)
-//   }
-//   return allVariables
-// }
 
 export async function getMeta (variableName) {
   const meta = await getAllMeta()
@@ -68,22 +49,13 @@ async function getCijfers (meta, year = null, gebiedCode = null) {
 
 export async function getAllCijfers (variableName, year) {
   variableName = variableName.toUpperCase()
-  if (!allCijfers[variableName]) {
-    const meta = await getMeta(variableName)
-    allCijfers[variableName] = {
-      meta,
-      year: {}
-    }
-  }
+  const meta = await getMeta(variableName)
+  const getData = async () => getCijfers(meta, year)
 
-  if (!allCijfers[variableName].year[year]) {
-    allCijfers[variableName].year[year] = await getCijfers(
-      allCijfers[variableName].meta,
-      year
-    )
-  }
-
-  return allCijfers[variableName].year[year]
+  return cacheResponse(
+    `allCijfers.${variableName}.${year}`,
+    getData
+  )
 }
 
 export const CIJFERS = {
@@ -92,7 +64,11 @@ export const CIJFERS = {
 }
 
 export async function getGebiedCijfers (variableName, gebied, recentOrAll = CIJFERS.ALL) {
-  async function _getGebiedCijfers (meta, gebied, jaar) {
+  variableName = variableName.toUpperCase()
+  const meta = await getMeta(variableName)
+  const jaar = recentOrAll === CIJFERS.ALL ? null : recentOrAll
+
+  async function getData () {
     const cijfers = await getCijfers(
       meta,
       jaar,
@@ -106,28 +82,8 @@ export async function getGebiedCijfers (variableName, gebied, recentOrAll = CIJF
     }
   }
 
-  const jaarKey = recentOrAll
-  variableName = variableName.toUpperCase()
-
-  if (!allGebiedCijfers[variableName]) {
-    const meta = await getMeta(variableName)
-    allGebiedCijfers[variableName] = {
-      meta,
-      gebied: {}
-    }
-  }
-
-  if (!allGebiedCijfers[variableName].gebied[gebied.volledige_code]) {
-    allGebiedCijfers[variableName].gebied[gebied.volledige_code] = {}
-  }
-
-  if (!allGebiedCijfers[variableName].gebied[gebied.volledige_code][jaarKey]) {
-    allGebiedCijfers[variableName].gebied[gebied.volledige_code][jaarKey] = await _getGebiedCijfers(
-      allGebiedCijfers[variableName].meta,
-      gebied,
-      recentOrAll === CIJFERS.ALL ? null : recentOrAll
-    )
-  }
-
-  return allGebiedCijfers[variableName].gebied[gebied.volledige_code][jaarKey]
+  return cacheResponse(
+    `gebiedCijfers.${variableName}.${gebied.volledige_code}.${recentOrAll}`,
+    getData
+  )
 }
