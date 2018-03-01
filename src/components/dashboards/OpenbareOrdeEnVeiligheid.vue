@@ -1,9 +1,82 @@
 <template>
   <div>
     <div v-if="gwb && meta">
+
       <div class="alert">
-        <h2>Not Yet Implemented</h2>
+        <h2>Bewoners over veiligheid en overlast in hun eigen buurt</h2>
       </div>
+
+      <div class="row">
+        <div class="col-sm">
+          <horizontal-text title="Veiligheid" icon="x.jpg" :config="veiligheid"></horizontal-text>
+        </div>
+        <div class="col-sm">
+          <horizontal-text title="Overlast" icon="x.svg" :config="overlast"></horizontal-text>
+        </div>
+      </div>
+
+      <div class="alert">
+        <h2>Positie en ontwikkeling van {{gwb.naam}} t.o.v. het stedelijk gemiddelde</h2>
+      </div>
+
+      <div class="row">
+        <div class="col-sm">
+          <data-table :config="positieOntwikkeling"></data-table>
+        </div>
+        <div class="col-sm">
+        </div>
+      </div>
+
+      <div class="alert">
+        <h2>Verschillen binnen het gebied</h2>
+      </div>
+
+      <verschillen-gebied></verschillen-gebied>
+
+      <div class="alert">
+        <h2>Aandeel bewoners dat veel overlast ervaart van….</h2>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-4">
+          <vertical-chart :config="horecagelegenheden"></vertical-chart>
+        </div>
+        <div class="col-sm-4">
+          <vertical-chart :config="drugs"></vertical-chart>
+        </div>
+        <div class="col-sm-4">
+          <vertical-chart :config="dronkenMensen"></vertical-chart>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-4">
+          <vertical-chart :config="rondhangendeJongeren"></vertical-chart>
+        </div>
+        <div class="col-sm-4">
+          <vertical-chart :config="lastigVallenOpStraat"></vertical-chart>
+        </div>
+        <div class="col-sm-4">
+          <vertical-chart :config="buurtbewoners"></vertical-chart>
+        </div>
+      </div>
+
+      <div class="alert">
+        <h2>Aandeel 15-plussers dat de afgelopen 12 maanden slachtoffer is geweest van….</h2>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-4">
+          <vertical-chart :config="vermogensDelicten"></vertical-chart>
+        </div>
+        <div class="col-sm-4">
+          <vertical-chart :config="geweldSlachtoffers"></vertical-chart>
+        </div>
+        <div class="col-sm-4">
+          <vertical-chart :config="vandalismeSlachtoffers"></vertical-chart>
+        </div>
+      </div>
+
     </div>
 
     <div v-else class="text-center">
@@ -16,12 +89,46 @@
 <script>
 import { mapGetters } from 'vuex'
 
+import horizontalText from '../charts/HorizontalText'
+import dataTable from '../charts/DataTable'
+import verschillenGebied from '../VerschillenGebied'
+import verticalChart from '../charts/VerticalChart'
+
+import veiligheid from '../../../static/links/veiligheid'
+import overlast from '../../../static/links/overlast'
+import positieOntwikkeling from '../../../static/links/positie_en_ontwikkeling'
+import horecagelegenheden from '../../../static/links/horeca'
+import drugs from '../../../static/links/drugs'
+import dronkenMensen from '../../../static/links/dronken_mensen'
+import rondhangendeJongeren from '../../../static/links/rondhangende_jongeren'
+import lastigVallenOpStraat from '../../../static/links/lastig_vallen_op_straat'
+import buurtbewoners from '../../../static/links/buurtbewoners'
+import vermogensDelicten from '../../../static/links/vermogensdelicten'
+import geweldSlachtoffers from '../../../static/links/geweld_slachtoffers'
+import vandalismeSlachtoffers from '../../../static/links/vandalisme_slachtoffers'
+
 export default {
   name: 'OpenbareOrdeEnVeiligheid',
   components: {
+    'horizontal-text': horizontalText,
+    'data-table': dataTable,
+    'verschillen-gebied': verschillenGebied,
+    'vertical-chart': verticalChart
   },
   data () {
     return {
+      veiligheid,
+      overlast,
+      positieOntwikkeling,
+      horecagelegenheden,
+      drugs,
+      dronkenMensen,
+      rondhangendeJongeren,
+      lastigVallenOpStraat,
+      buurtbewoners,
+      vermogensDelicten,
+      geweldSlachtoffers,
+      vandalismeSlachtoffers
     }
   },
   computed: {
