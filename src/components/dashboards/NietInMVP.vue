@@ -124,11 +124,9 @@ import amsHeader from '../layout/AMSHeader'
 import ggwSelector from '../layout/GGWSelector'
 import placeholder from '../Placeholder'
 import horizontalChart from '../charts/HorizontalChart'
-import verticalBarChart from '../charts/VerticalBarChart'
 import verticalChart from '../charts/VerticalChart'
 import horizontalText from '../charts/HorizontalText'
 import pie from '../charts/Pie'
-import pieChart from '../charts/PieChart'
 import inAantallen from '../InAantallen'
 import dataTable from '../charts/DataTable'
 import lineChart from '../charts/LineChart'
@@ -164,10 +162,8 @@ export default {
     'ams-header': amsHeader,
     'ggw-selector': ggwSelector,
     'horizontal-chart': horizontalChart,
-    'vertical-bar-chart': verticalBarChart,
     'vertical-chart': verticalChart,
     'pie': pie,
-    'pie-chart': pieChart,
     'in-aantallen': inAantallen,
     'pano': pano,
     'data-table': dataTable,
