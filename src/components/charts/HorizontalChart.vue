@@ -10,7 +10,8 @@
         </div>
       </div>
       <div class="col-sm-9">
-        <horizontal-bar-chart v-if="chartdata" :chartdata="chartdata"></horizontal-bar-chart>
+        <div :ref="chartRef"></div>
+        <!--<horizontal-bar-chart v-if="chartdata" :chartdata="chartdata"></horizontal-bar-chart>-->
       </div>
     </div>
   </div>
@@ -19,12 +20,23 @@
 <script>
 import { mapGetters } from 'vuex'
 import util from '../../services/util'
-import horizontalBarChart from './HorizontalBarChart'
+// import horizontalBarChart from './HorizontalBarChart'
+import vegaEmbed from 'vega-embed'
+import vegaSpec from '../../../static/charts/horizontalbar'
+import { COLOR } from '../../services/colorcoding'
+
+const vegaEmbedOptions = {
+  'actions': {
+    'export': false,
+    'source': false,
+    'editor': false},
+  'renderer': 'svg'
+}
 
 export default {
   name: 'HorizontalChart',
   components: {
-    'horizontal-bar-chart': horizontalBarChart
+    // 'horizontal-bar-chart': horizontalBarChart
   },
   props: [
     'title',
@@ -33,7 +45,8 @@ export default {
   ],
   data () {
     return {
-      chartdata: null
+      chartdata: null,
+      chartRef: `${this._uid}.horzBarChart`
     }
   },
   computed: {
@@ -44,6 +57,21 @@ export default {
   methods: {
     async updateData () {
       this.chartdata = await util.getLatestConfigCijfers(this.gwb, this.config)
+      this.updateChart()
+    },
+
+    updateChart () {
+      vegaSpec.data.values = this.chartdata.map(d => ({
+        key: d.label,
+        value: (d.recent && d.recent.waarde) || 0,
+        label: (d.recent && d.recent.waarde !== null) ? d.recent.waarde : 'Geen gegevens'
+      }))
+
+      vegaSpec.layer[0].encoding.color.scale.range = this.chartdata
+        .filter(d => d.recent && d.recent.waarde)
+        .map(d => d.recent.color || COLOR['ams-oranje'])
+
+      vegaEmbed(this.$refs[this.chartRef], vegaSpec, vegaEmbedOptions)
     }
   },
   watch: {

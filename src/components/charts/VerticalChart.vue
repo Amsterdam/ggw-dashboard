@@ -5,7 +5,8 @@
       {{title}}
     </h5>
     <div class="text-center">
-      <vertical-bar-chart v-if="chartdata" :chartdata="chartdata"></vertical-bar-chart>
+      <div :ref="chartRef"></div>
+      <!--<vertical-bar-chart v-if="chartdata" :chartdata="chartdata"></vertical-bar-chart>-->
     </div>
   </div>
 </template>
@@ -13,12 +14,23 @@
 <script>
 import { mapGetters } from 'vuex'
 import util from '../../services/util'
-import verticalBarChart from './VerticalBarChart'
+// import verticalBarChart from './VerticalBarChart'
+import vegaEmbed from 'vega-embed'
+import vegaSpec from '../../../static/charts/verticalbar'
+import { COLOR } from '../../services/colorcoding'
+
+const vegaEmbedOptions = {
+  'actions': {
+    'export': false,
+    'source': false,
+    'editor': false},
+  'renderer': 'svg'
+}
 
 export default {
   name: 'VerticalChart',
   components: {
-    'vertical-bar-chart': verticalBarChart
+    // 'vertical-bar-chart': verticalBarChart
   },
   props: [
     'config'
@@ -27,7 +39,8 @@ export default {
     return {
       chartdata: null,
       title: null,
-      tooltip: null
+      tooltip: null,
+      chartRef: `${this._uid}.vertBarChart`
     }
   },
   computed: {
@@ -40,6 +53,17 @@ export default {
       this.chartdata = await util.getConfigCijfers(this.gwb, this.config)
       this.title = this.chartdata[0].label
       this.tooltip = this.chartdata[0].meta && this.chartdata[0].meta.bron
+      this.updateChart()
+    },
+
+    updateChart () {
+      vegaSpec.data.values = this.chartdata[0].cijfers.map(d => ({
+        key: d.jaar,
+        value: d.waarde,
+        color: d.color
+      }))
+      vegaSpec.layer[0].encoding.color.scale.range = vegaSpec.data.values.map(v => v.color || COLOR['ams-groen'])
+      vegaEmbed(this.$refs[this.chartRef], vegaSpec, vegaEmbedOptions)
     }
   },
   watch: {

@@ -4,7 +4,7 @@
       <h5 v-b-tooltip.hover v-b-tooltip.click v-b-tooltip.top title="">
         {{title}}
       </h5>
-      <pie-chart v-if="chartdata" :chartdata="chartdata"></pie-chart>
+      <div :ref="chartRef"></div>
     </div>
   </div>
 </template>
@@ -12,12 +12,21 @@
 <script>
 import { mapGetters } from 'vuex'
 import util from '../../services/util'
-import pieChart from './PieChart'
+import vegaEmbed from 'vega-embed'
+import vegaSpec from '../../../static/charts/pie'
+import { CHART_COLORS } from '../../services/colorcoding'
+
+const vegaEmbedOptions = {
+  'actions': {
+    'export': false,
+    'source': false,
+    'editor': false},
+  'renderer': 'svg'
+}
 
 export default {
   name: 'Pie',
   components: {
-    'pie-chart': pieChart
   },
   props: [
     'title',
@@ -26,7 +35,8 @@ export default {
   data () {
     return {
       chartdata: null,
-      tooltip: null
+      tooltip: null,
+      chartRef: `${this._uid}.pieChart`
     }
   },
   computed: {
@@ -38,6 +48,17 @@ export default {
     async updateData () {
       this.chartdata = await util.getLatestConfigCijfers(this.gwb, this.config)
       this.tooltip = this.chartdata[0].meta && this.chartdata[0].meta.bron
+      this.updateChart()
+    },
+
+    updateChart () {
+      vegaSpec.data[0].values = this.chartdata.map(d => ({
+        key: d.label,
+        value: d.recent.waarde
+      }))
+
+      vegaSpec.scales[0].range = CHART_COLORS
+      vegaEmbed(this.$refs[this.chartRef], vegaSpec, vegaEmbedOptions)
     }
   },
   watch: {
