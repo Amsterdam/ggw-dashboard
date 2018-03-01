@@ -1,6 +1,9 @@
-@import "ams";
-@import "ams-bootstrap";
-@import "ams-ois";
+//
+//  Application specific styling
+//  specific
+//
+
+@import "styles/ams-bootstrap";
 
 .borderless tbody td, .borderless thead th {
   border: 0;

@@ -3,7 +3,7 @@
   <div>
     <div v-if="gwb && meta">
 
-      <div class="alert">
+      <div class="grid-title">
         <h2>Bewoners over hun eigen buurt en woning</h2>
       </div>
 
@@ -16,20 +16,18 @@
         </div>
       </div>
 
-      <div class="alert">
+      <div class="grid-title">
         <h2>Verschillen binnen het gebied</h2>
       </div>
 
       <verschillen-gebied></verschillen-gebied>
 
-      <div class="alert">
-        <div class="row">
-          <div class="col-sm-8">
-            <h2>Aantal woningen</h2>
-          </div>
-          <div class="col-sm-4">
-            <h2>Andere woonvormen</h2>
-          </div>
+      <div class="grid-title">
+        <div class="col-sm-8">
+          <h2>Aantal woningen</h2>
+        </div>
+        <div class="col-sm-4">
+          <h2>Andere woonvormen</h2>
         </div>
       </div>
 
@@ -43,7 +41,7 @@
         </div>
       </div>
 
-      <div class="alert">
+      <div class="grid-title">
         <h2>Woningen naar eigendom en woonlasten</h2>
       </div>
 
@@ -68,7 +66,7 @@
         </div>
       </div>
 
-      <div class="alert">
+      <div class="grid-title">
         <h2>Woningen voor ouderen</h2>
       </div>
 
@@ -84,14 +82,12 @@
         </div>
       </div>
 
-      <div class="alert">
-        <div class="row">
-          <div class="col-sm">
-            <h2>Meer informatie</h2>
-          </div>
-          <div class="col-sm">
-            <h2>Meer cijfers</h2>
-          </div>
+      <div class="grid-title">
+        <div class="col-sm">
+          <h2>Meer informatie</h2>
+        </div>
+        <div class="col-sm">
+          <h2>Meer cijfers</h2>
         </div>
       </div>
 
@@ -218,10 +214,4 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-  @import "../../../static/ams";
-
-  .alert {
-    margin-top: 5px;
-    background-color: $ams-lichtgrijs;
-  }
 </style>

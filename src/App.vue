@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="app container-fluid">
+  <div id="app" class="grid-container">
     <ams-header>Header</ams-header>
     <ggw-selector class="sticky-top"></ggw-selector>
     <router-view></router-view>
@@ -21,7 +21,6 @@ export default {
 
 <!-- Global styling -->
 <style lang="scss">
-  @import "../static/ams.scss";
 
   .app {
     margin-top: 5px;

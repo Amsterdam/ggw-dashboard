@@ -1,0 +1,69 @@
+//
+//  AMSTERDAM specific bootstrap overrides
+//  Generic
+//
+
+@import '../../node_modules/bootstrap/scss/bootstrap';
+@import '/generic/ams-colorpalette';
+@import '/generic/ams-helperclasses';
+@import '/generic/amsterdam-grid';
+@import '/generic/amsterdam';
+
+// header components
+.ams-header {
+  &__logo {
+
+    &--short {
+      width: 150px;
+      height: 100px;
+    }
+
+    & + h1 {
+      display: inline-block;
+      margin-left: 50px;
+    }
+  }
+
+}
+
+
+.ams-row {
+  @extend .rij;
+
+  &--title {
+    background-color: $ams-wit;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    padding: .5rem;
+
+    h2 {
+      margin-top: .5rem;
+    }
+
+  }
+
+  &.sticky-top {
+    box-shadow: 0 1px 1px 0 $ams-donkergrijs;
+  }
+}
+
+
+.form-inline label {
+  justify-content: left;
+}
+
+.form-control {
+  background-color: $ams-lichtgrijs;
+  border: none;
+  width: 100% !important;
+  &:focus {
+    background-color: $ams-lichtgrijs;
+  }
+}
+
+
+
+body {
+  font-family: Avenir, sans-serif;
+  line-height: 1.25;
+}

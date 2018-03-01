@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="gwb && meta">
-      <div class="alert">
+      <div class="grid-title">
         <h2>Not Yet Implemented</h2>
       </div>
     </div>

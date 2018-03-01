@@ -1,13 +1,12 @@
 <!--Example of a component that uses D3-->
 <template>
-  <div class="alert">
-    <div class="row">
-      <div class="col-sm">
-        <b-form inline class="row">
-          <div class="col-sm-3">
+  <div class="grid-zone grid_12 z-content">
+      <div class="grid-blok grid_3">
+        <div class="rij mode_input selectie" v-if="selection.gebieden">
+          <div class="label">
             <label for="selectGebied">Gebied</label>
           </div>
-          <div class="col-sm-9" v-if="selection.gebieden">
+          <div class="invoer">
             <b-form-select v-model="selection.gebied"
                            @change="updateGebied"
                            :options="selection.gebieden"
@@ -16,12 +15,12 @@
                            id="selectGebied">
             </b-form-select>
           </div>
-        </b-form>
-        <b-form inline class="row">
+        </div>
+        <b-form inline class="row" v-if="selection.wijken">
           <div class="col-sm-3">
             <label for="selectWijk">Wijk</label>
           </div>
-          <div class="col-sm-9" v-if="selection.wijken">
+          <div class="col-sm-9">
             <b-form-select v-model="selection.wijk"
                            @change="updateWijk"
                            :options="selection.wijken"
@@ -31,11 +30,11 @@
             </b-form-select>
           </div>
         </b-form>
-        <b-form inline class="row">
+        <b-form inline class="row" v-if="selection.buurten">
           <div class="col-sm-3">
             <label for="selectBuurt">Buurt</label>
           </div>
-          <div class="col-sm-9" v-if="selection.buurten">
+          <div class="col-sm-9">
             <b-form-select v-model="selection.buurt"
                            @change="updateBuurt"
                            :options="selection.buurten"
@@ -47,11 +46,11 @@
         </b-form>
       </div>
       <div class="col-sm">
-        <b-form inline class="row">
+        <b-form inline class="row" v-if="selection.themas">
           <div class="col-sm-3">
             <label for="selectThema">Thema</label>
           </div>
-          <div class="col-sm-9" v-if="selection.themas">
+          <div class="col-sm-9">
             <b-form-select v-model="selection.thema"
                            @change="updateThema"
                            :options="selection.themas"
@@ -63,7 +62,6 @@
         </b-form>
       </div>
     </div>
-  </div>
 
 </template>
 

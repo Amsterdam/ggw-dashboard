@@ -6,6 +6,10 @@
                      :options="variables"
                      text-field="label"
                      value-field="variable">
+        <template slot="first">
+          <!-- this slot appears above the options from 'options' prop -->
+          <option :value="null" disabled>-- Selecteer een categorie --</option>
+        </template>
       </b-form-select>
       <div ref="map" class="map"></div>
       <div class="text-center">
@@ -259,7 +263,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../static/ams.scss";
+@import "../../static/styles/generic/ams-colorpalette.scss";
 
 .map {
   height: 350px;
@@ -272,6 +276,6 @@ export default {
 }
 
 .highlight-own {
-  color: $ams-blauw
+  color: $ams-blauw;
 }
 </style>

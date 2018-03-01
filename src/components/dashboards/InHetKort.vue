@@ -11,7 +11,7 @@
         </div>
       </div>
 
-      <div class="alert">
+      <div class="grid-title">
         <h2>Samenstelling woningvoorraad en bevolking van {{gwb.naam}}</h2>
       </div>
 
@@ -49,7 +49,7 @@
         </div>
       </div>
 
-      <div class="alert">
+      <div class="grid-title">
         <h2>Positie en ontwikkeling van {{gwb.naam}} t.o.v. het stedelijk gemiddelde</h2>
       </div>
 
