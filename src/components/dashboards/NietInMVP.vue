@@ -158,7 +158,7 @@ import typeWoningen from '../../../static/links/type_woningen'
 import andereWoonvormen from '../../../static/links/andere_woonvormen'
 
 export default {
-  name: 'GGWDashboard',
+  name: 'NietInMVP',
   components: {
     'gwb-map': gwbMap,
     'ams-header': amsHeader,
