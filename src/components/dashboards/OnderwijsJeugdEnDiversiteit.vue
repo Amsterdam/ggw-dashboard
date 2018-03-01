@@ -54,7 +54,6 @@ import onderwijsJeugd from '../../../static/links/onderwijs_jeugd'
 import diversiteit from '../../../static/links/diversiteit'
 import positieOntwikkeling from '../../../static/links/positie_en_ontwikkeling'
 
-
 export default {
   name: 'OnderwijsJeugdEnDiversiteit',
   components: {
