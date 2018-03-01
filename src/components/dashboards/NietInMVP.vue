@@ -49,13 +49,13 @@
 
       <div class="row">
         <div class="col-sm-4">
-          <vertical-chart :config="gemiddeldeWozWaarde"></vertical-chart>
+          <vertical-bar-chart :config="gemiddeldeWozWaarde"></vertical-bar-chart>
         </div>
         <div class="col-sm-4">
-          <vertical-chart :config="gemiddeldeWozWaardeM2"></vertical-chart>
+          <vertical-bar-chart :config="gemiddeldeWozWaardeM2"></vertical-bar-chart>
         </div>
         <div class="col-sm-4">
-          <vertical-chart :config="gemiddeldeHuurVrijeSector"></vertical-chart>
+          <vertical-bar-chart :config="gemiddeldeHuurVrijeSector"></vertical-bar-chart>
         </div>
       </div>
 
@@ -74,13 +74,13 @@
 
       <div class="row">
         <div class="col-sm-4">
-          <vertical-chart :config="percNultredewoningen"></vertical-chart>
+          <vertical-bar-chart :config="percNultredewoningen"></vertical-bar-chart>
         </div>
         <div class="col-sm-4">
-          <vertical-chart :config="percVerhuisgeneigden"></vertical-chart>
+          <vertical-bar-chart :config="percVerhuisgeneigden"></vertical-bar-chart>
         </div>
         <div class="col-sm-4">
-          <vertical-chart :config="percWoningGeschiktOud"></vertical-chart>
+          <vertical-bar-chart :config="percWoningGeschiktOud"></vertical-bar-chart>
         </div>
       </div>
 
@@ -123,10 +123,10 @@ import gwbMap from '../GWBMap'
 import amsHeader from '../layout/AMSHeader'
 import ggwSelector from '../layout/GGWSelector'
 import placeholder from '../Placeholder'
-import horizontalChart from '../charts/HorizontalChart'
-import verticalChart from '../charts/VerticalChart'
+import horizontalBarChart from '../charts/HorizontalBarChart'
+import verticalBarChart from '../charts/VerticalBarChart'
 import horizontalText from '../charts/HorizontalText'
-import pie from '../charts/Pie'
+import pie from '../charts/PieChart'
 import inAantallen from '../InAantallen'
 import dataTable from '../charts/DataTable'
 import lineChart from '../charts/LineChart'
@@ -161,8 +161,8 @@ export default {
     'gwb-map': gwbMap,
     'ams-header': amsHeader,
     'ggw-selector': ggwSelector,
-    'horizontal-chart': horizontalChart,
-    'vertical-chart': verticalChart,
+    'horizontal-bar-chart': horizontalBarChart,
+    'vertical-bar-chart': verticalBarChart,
     'pie': pie,
     'in-aantallen': inAantallen,
     'pano': pano,

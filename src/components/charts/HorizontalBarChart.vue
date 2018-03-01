@@ -11,7 +11,6 @@
       </div>
       <div class="col-sm-9">
         <div :ref="chartRef"></div>
-        <!--<horizontal-bar-chart v-if="chartdata" :chartdata="chartdata"></horizontal-bar-chart>-->
       </div>
     </div>
   </div>
@@ -20,7 +19,6 @@
 <script>
 import { mapGetters } from 'vuex'
 import util from '../../services/util'
-// import horizontalBarChart from './HorizontalBarChart'
 import vegaEmbed from 'vega-embed'
 import vegaSpec from '../../../static/charts/horizontalbar'
 import { COLOR } from '../../services/colorcoding'
@@ -34,9 +32,8 @@ const vegaEmbedOptions = {
 }
 
 export default {
-  name: 'HorizontalChart',
+  name: 'HorizontalBarChart',
   components: {
-    // 'horizontal-bar-chart': horizontalBarChart
   },
   props: [
     'title',

@@ -48,7 +48,7 @@ import { mapGetters } from 'vuex'
 import horizontalText from '../charts/HorizontalText'
 import dataTable from '../charts/DataTable'
 import verschillenGebied from '../VerschillenGebied'
-import verticalChart from '../charts/VerticalChart'
+import verticalBarChart from '../charts/VerticalBarChart'
 
 import onderwijsJeugd from '../../../static/links/onderwijs_jeugd'
 import diversiteit from '../../../static/links/diversiteit'
@@ -60,7 +60,7 @@ export default {
     'horizontal-text': horizontalText,
     'data-table': dataTable,
     'verschillen-gebied': verschillenGebied,
-    'vertical-chart': verticalChart
+    'vertical-bar-chart': verticalBarChart
   },
   data () {
     return {

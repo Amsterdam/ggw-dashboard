@@ -1,12 +1,10 @@
 <template>
   <div>
-    <h5 class="text-center"
-        v-b-tooltip.hover v-b-tooltip.click v-b-tooltip.top title="">
-      {{title}}
-    </h5>
     <div class="text-center">
+      <h5 v-b-tooltip.hover v-b-tooltip.click v-b-tooltip.top title="">
+        {{title}}
+      </h5>
       <div :ref="chartRef"></div>
-      <!--<vertical-bar-chart v-if="chartdata" :chartdata="chartdata"></vertical-bar-chart>-->
     </div>
   </div>
 </template>
@@ -14,10 +12,9 @@
 <script>
 import { mapGetters } from 'vuex'
 import util from '../../services/util'
-// import verticalBarChart from './VerticalBarChart'
 import vegaEmbed from 'vega-embed'
-import vegaSpec from '../../../static/charts/verticalbar'
-import { COLOR } from '../../services/colorcoding'
+import vegaSpec from '../../../static/charts/pie'
+import { CHART_COLORS } from '../../services/colorcoding'
 
 const vegaEmbedOptions = {
   'actions': {
@@ -28,19 +25,18 @@ const vegaEmbedOptions = {
 }
 
 export default {
-  name: 'VerticalChart',
+  name: 'PieChart',
   components: {
-    // 'vertical-bar-chart': verticalBarChart
   },
   props: [
+    'title',
     'config'
   ],
   data () {
     return {
       chartdata: null,
-      title: null,
       tooltip: null,
-      chartRef: `${this._uid}.vertBarChart`
+      chartRef: `${this._uid}.pieChart`
     }
   },
   computed: {
@@ -50,19 +46,18 @@ export default {
   },
   methods: {
     async updateData () {
-      this.chartdata = await util.getConfigCijfers(this.gwb, this.config)
-      this.title = this.chartdata[0].label
+      this.chartdata = await util.getLatestConfigCijfers(this.gwb, this.config)
       this.tooltip = this.chartdata[0].meta && this.chartdata[0].meta.bron
       this.updateChart()
     },
 
     updateChart () {
-      vegaSpec.data.values = this.chartdata[0].cijfers.map(d => ({
-        key: d.jaar,
-        value: d.waarde,
-        color: d.color
+      vegaSpec.data[0].values = this.chartdata.map(d => ({
+        key: d.label,
+        value: d.recent.waarde
       }))
-      vegaSpec.layer[0].encoding.color.scale.range = vegaSpec.data.values.map(v => v.color || COLOR['ams-groen'])
+
+      vegaSpec.scales[0].range = CHART_COLORS
       vegaEmbed(this.$refs[this.chartRef], vegaSpec, vegaEmbedOptions)
     }
   },
@@ -75,7 +70,6 @@ export default {
     this.updateData()
   }
 }
-
 </script>
 
 <style>
