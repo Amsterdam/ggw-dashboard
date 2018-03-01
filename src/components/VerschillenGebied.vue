@@ -103,14 +103,12 @@ export default {
       this.highLow = []
       clearLayers()
     },
+
     setGebiedType (type) {
       this.gebiedType = type
+      this.updateData()
     },
     async getOwn () {
-      if (!(this.gebiedType && this.variable)) {
-        return
-      }
-
       // Try to derive most recent year from the cijfers for the current gwb
       let gwb = this.gwb
       if (this.gebiedType === 'Buurt' && this.buurt) {
@@ -120,23 +118,30 @@ export default {
       } else if (this.gebiedType === 'Gebied' && this.gebied) {
         gwb = this.gebied
       }
-      const own = await util.getGebiedCijfers(this.variable, gwb, util.CIJFERS.LATEST)
-      own.gebiedType = util.getGebiedType(own.recent.gebiedcode15)
-      return own
+
+      return util.getGebiedCijfers(this.variable, gwb, util.CIJFERS.LATEST)
     },
     async updateData () {
-      if (!(this.gebiedType && this.variable)) {
-        return
-      }
-
       this.loading = true
 
-      this.own = await this.getOwn()
-      const recentYear = this.own.recent.jaar
+      if (this.gebiedType && !this.variable) {
+        this.initialView()
+        return this.noCijfers()
+      } else if (!(this.gebiedType && this.variable)) {
+        return this.noCijfers()
+      }
 
+      this.own = await this.getOwn()
+      if (!this.own) {
+        return this.noCijfers()
+      }
+
+      const recentYear = this.own.recent && this.own.recent.jaar
       if (!recentYear) {
         return this.noCijfers()
       }
+
+      this.own.gebiedType = util.getGebiedType(this.own.recent.gebiedcode15)
 
       // Sort and filter cijfers for gebiedType and waarde
       let cijfers = await util.getAllCijfers(this.variable, recentYear)
@@ -187,30 +192,37 @@ export default {
       gwbLayer.addTo(map)
     },
     async initialView () {
-      const gebieden = await util.getAllGebieden()
-
-      gwbLayer = L.featureGroup()
-      gebieden.forEach(g => {
-        util.getGwb(g.vollcode).then(gwb => {
-          const wgs84Geometrie = rdMultiPolygonToWgs84(gwb.geometrie)
-          wgs84Geometrie.map(geometry => {
-            const shape = L.polygon(geometry.coordinates, {'color': 'gray'})
-            shape.addTo(gwbLayer)
-          })
-        })
-      })
-      gwbLayer.addTo(map)
+      // const getGebieden = {
+      //   'Gebied': util.getAllGebieden,
+      //   'Wijk': util.getAllWijken,
+      //   'Buurt': util.getAllBuurten
+      // }
+      //
+      // const gebieden = await getGebieden[this.gebiedType]()
+      //
+      // clearLayers()
+      // gwbLayer = L.featureGroup()
+      // gebieden.forEach(g => {
+      //   util.getGwb(g.vollcode).then(gwb => {
+      //     const wgs84Geometrie = rdMultiPolygonToWgs84(gwb.geometrie)
+      //     wgs84Geometrie.map(geometry => {
+      //       const shape = L.polygon(geometry.coordinates, {
+      //         'color': 'gray',
+      //         'opacity': 0.5,
+      //         'weight': 1
+      //       })
+      //       shape.addTo(gwbLayer)
+      //     })
+      //   })
+      // })
+      // gwbLayer.addTo(map)
     }
   },
   watch: {
     async 'gwb' () {
       if (this.gwb) {
-        this.gebiedType = util.getGebiedType(this.gwb.volledige_code)
-        this.own = await this.getOwn()
+        this.setGebiedType(util.getGebiedType(this.gwb.volledige_code))
       }
-    },
-    'gebiedType' () {
-      this.updateData()
     },
     'variable' () {
       this.updateData()

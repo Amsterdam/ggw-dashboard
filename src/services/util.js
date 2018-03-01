@@ -1,4 +1,4 @@
-import { getAllGebieden, getWijken, getBuurten, getGebiedType, getGwb, getDetail } from './apis/gebieden'
+import { getAllGebieden, getAllWijken, getAllBuurten, getWijken, getBuurten, getGebiedType, getGwb, getDetail } from './apis/gebieden'
 import { getAllMeta, getMeta, getAllCijfers, getGebiedCijfers, CIJFERS } from './apis/bbga'
 
 async function getLatestConfigCijfers (gwb, config) {
@@ -45,6 +45,8 @@ async function getConfigCijfers (gwb, config, recentOrAll = CIJFERS.ALL) {
 
 export default {
   getAllGebieden,
+  getAllWijken,
+  getAllBuurten,
   getWijken,
   getBuurten,
   getDetail,

@@ -123,7 +123,7 @@ export default {
       this.selection.buurten = null
 
       if (gebiedCode) {
-        const gebied = this.selection.gebieden.find(g => g.code === gebiedCode)
+        const gebied = this.selection.gebieden.find(g => g.vollcode === gebiedCode)
 
         this.gebiedDetail = await util.getDetail(gebied)
 
@@ -159,7 +159,7 @@ export default {
     },
     async updateBuurt (buurtCode) {
       if (buurtCode) {
-        const buurt = this.selection.buurten.find(b => b.code === buurtCode)
+        const buurt = this.selection.buurten.find(b => b.vollcode === buurtCode)
 
         this.buurtDetail = await util.getDetail(buurt)
       } else {

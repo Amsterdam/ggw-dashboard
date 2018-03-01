@@ -19,10 +19,10 @@ function getUrl (endpoint) {
 }
 
 function enhanceGWB (gwb) {
-  gwb.gebiedType = getGebiedType(gwb.volledige_code)
-  gwb.vollcode = gwb.vollcode || gwb.code || gwb._display.match(/\((.*)\)/)[1]
-  gwb.volledige_code = gwb.volledige_code || gwb.vollcode
+  gwb.vollcode = gwb.vollcode || gwb._display.match(/\((.*)\)/)[1] // Gebied and Buurt
   gwb.code = gwb.code || gwb.vollcode
+  gwb.volledige_code = gwb.volledige_code || gwb.vollcode
+  gwb.gebiedType = getGebiedType(gwb.volledige_code)
   gwb.naam = localGebiedscodes[gwb.vollcode] ? localGebiedscodes[gwb.vollcode].gebiednaam : gwb.naam
   gwb.display = localGebiedscodes[gwb.vollcode] ? localGebiedscodes[gwb.vollcode].gebiedcodenaam : `${gwb.vollcode} ${gwb.naam}`
 }
@@ -97,13 +97,12 @@ export async function getGwb (code) {
       const allBuurten = await getAllBuurten()
       const searchCode = code.substring(1)
       gwb = allBuurten.find(b => b.code === searchCode && b._display.includes(code))
+    } else {
+      console.error('Unknown gebied type', gebiedType, code)
+      return
     }
 
-    if (!gwb) {
-      console.error('GWB not found', gebiedType, code)
-    } else {
-      return readData(gwb._links.self.href)
-    }
+    return readData(gwb._links.self.href)
   }
 
   return cacheResponse(`GWB.${code}`, getData)
