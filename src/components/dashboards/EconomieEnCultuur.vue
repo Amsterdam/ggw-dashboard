@@ -65,10 +65,10 @@
 
       <div class="row">
         <div class="col-sm-6">
-          <pie title="" :config="vestigingenHoofdfunctie"></pie>
+          <pie-chart title="" :config="vestigingenHoofdfunctie"></pie-chart>
         </div>
         <div class="col-sm-6">
-          <pie title="" :config="werkzamenHoofdfunctie"></pie>
+          <pie-chart title="" :config="werkzamenHoofdfunctie"></pie-chart>
         </div>
       </div>
 
@@ -108,7 +108,7 @@ import dataTable from '../charts/DataTable'
 import verschillenGebied from '../VerschillenGebied'
 import lineChart from '../charts/LineChart'
 import woonVormen from '../Woonvormen'
-import pie from '../charts/Pie'
+import pieChart from '../charts/PieChart'
 
 import bedrijvigheid from '../../../static/links/bedrijvigheid'
 import cultuur from '../../../static/links/cultuur'
@@ -127,7 +127,7 @@ export default {
     'verschillen-gebied': verschillenGebied,
     'line-chart': lineChart,
     'woonvormen': woonVormen,
-    'pie': pie
+    'pie-chart': pieChart
   },
   data () {
     return {

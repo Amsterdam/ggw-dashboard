@@ -15,7 +15,7 @@ gebiedscodes.forEach(g => { localGebiedscodes[g.gebiedcode] = g })
 // }
 
 function getUrl (endpoint) {
-  return `https://acc.api.data.amsterdam.nl/gebieden${endpoint}`
+  return `https://api.data.amsterdam.nl/gebieden${endpoint}`
 }
 
 function enhanceGWB (gwb) {

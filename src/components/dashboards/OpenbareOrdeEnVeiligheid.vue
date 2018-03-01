@@ -39,25 +39,25 @@
 
       <div class="row">
         <div class="col-sm-4">
-          <vertical-chart :config="horecagelegenheden"></vertical-chart>
+          <vertical-bar-chart :config="horecagelegenheden"></vertical-bar-chart>
         </div>
         <div class="col-sm-4">
-          <vertical-chart :config="drugs"></vertical-chart>
+          <vertical-bar-chart :config="drugs"></vertical-bar-chart>
         </div>
         <div class="col-sm-4">
-          <vertical-chart :config="dronkenMensen"></vertical-chart>
+          <vertical-bar-chart :config="dronkenMensen"></vertical-bar-chart>
         </div>
       </div>
 
       <div class="row">
         <div class="col-sm-4">
-          <vertical-chart :config="rondhangendeJongeren"></vertical-chart>
+          <vertical-bar-chart :config="rondhangendeJongeren"></vertical-bar-chart>
         </div>
         <div class="col-sm-4">
-          <vertical-chart :config="lastigVallenOpStraat"></vertical-chart>
+          <vertical-bar-chart :config="lastigVallenOpStraat"></vertical-bar-chart>
         </div>
         <div class="col-sm-4">
-          <vertical-chart :config="buurtbewoners"></vertical-chart>
+          <vertical-bar-chart :config="buurtbewoners"></vertical-bar-chart>
         </div>
       </div>
 
@@ -67,13 +67,13 @@
 
       <div class="row">
         <div class="col-sm-4">
-          <vertical-chart :config="vermogensDelicten"></vertical-chart>
+          <vertical-bar-chart :config="vermogensDelicten"></vertical-bar-chart>
         </div>
         <div class="col-sm-4">
-          <vertical-chart :config="geweldSlachtoffers"></vertical-chart>
+          <vertical-bar-chart :config="geweldSlachtoffers"></vertical-bar-chart>
         </div>
         <div class="col-sm-4">
-          <vertical-chart :config="vandalismeSlachtoffers"></vertical-chart>
+          <vertical-bar-chart :config="vandalismeSlachtoffers"></vertical-bar-chart>
         </div>
       </div>
 
@@ -92,7 +92,7 @@ import { mapGetters } from 'vuex'
 import horizontalText from '../charts/HorizontalText'
 import dataTable from '../charts/DataTable'
 import verschillenGebied from '../VerschillenGebied'
-import verticalChart from '../charts/VerticalChart'
+import verticalBarChart from '../charts/VerticalBarChart'
 
 import veiligheid from '../../../static/links/veiligheid'
 import overlast from '../../../static/links/overlast'
@@ -113,7 +113,7 @@ export default {
     'horizontal-text': horizontalText,
     'data-table': dataTable,
     'verschillen-gebied': verschillenGebied,
-    'vertical-chart': verticalChart
+    'vertical-bar-chart': verticalBarChart
   },
   data () {
     return {

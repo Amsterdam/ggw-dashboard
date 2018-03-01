@@ -17,35 +17,35 @@
 
       <div class="row">
         <div class="col-sm-6">
-          <horizontal-chart
+          <horizontal-bar-chart
             title="Woningvoorraad"
             icon="wonen_en_leefomgeving.svg"
             :config="woningVoorraad"
-          ></horizontal-chart>
+          ></horizontal-bar-chart>
         </div>
         <div class="col-sm-6">
-          <horizontal-chart
+          <horizontal-bar-chart
             title="Sociaal-economisch"
             icon="werk_en_inkomen.svg"
             :config="sociaalEconomisch"
-          ></horizontal-chart>
+          ></horizontal-bar-chart>
         </div>
       </div>
 
       <div class="row">
         <div class="col-sm-6">
-          <horizontal-chart
+          <horizontal-bar-chart
             title="Leeftijd"
             icon="kind_icoon_met_bal_60.png"
             :config="leeftijd"
-          ></horizontal-chart>
+          ></horizontal-bar-chart>
         </div>
         <div class="col-sm-6">
-          <horizontal-chart
+          <horizontal-bar-chart
             title="Migratie-achtergrond"
             icon="locaties.svg"
             :config="migratieAchtergrond"
-          ></horizontal-chart>
+          ></horizontal-bar-chart>
         </div>
       </div>
 
@@ -71,7 +71,7 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import horizontalChart from '../charts/HorizontalChart'
+import horizontalBarChart from '../charts/HorizontalBarChart'
 import inAantallen from '../InAantallen'
 import dataTable from '../charts/DataTable'
 import pano from '../Pano'
@@ -85,7 +85,7 @@ import positieOntwikkeling from '../../../static/links/positie_en_ontwikkeling'
 export default {
   name: 'InHetKort',
   components: {
-    'horizontal-chart': horizontalChart,
+    'horizontal-bar-chart': horizontalBarChart,
     'in-aantallen': inAantallen,
     'pano': pano,
     'data-table': dataTable

@@ -59,13 +59,13 @@
 
       <div class="row">
         <div class="col-sm-4">
-          <vertical-chart :config="gemiddeldeWozWaarde"></vertical-chart>
+          <vertical-bar-chart :config="gemiddeldeWozWaarde"></vertical-bar-chart>
         </div>
         <div class="col-sm-4">
-          <vertical-chart :config="gemiddeldeWozWaardeM2"></vertical-chart>
+          <vertical-bar-chart :config="gemiddeldeWozWaardeM2"></vertical-bar-chart>
         </div>
         <div class="col-sm-4">
-          <vertical-chart :config="gemiddeldeHuurVrijeSector"></vertical-chart>
+          <vertical-bar-chart :config="gemiddeldeHuurVrijeSector"></vertical-bar-chart>
         </div>
       </div>
 
@@ -74,7 +74,7 @@
           <stacked-bar-chart :config="typeWoningen"></stacked-bar-chart>
         </div>
         <div class="col-sm-6">
-          <pie title="Grootte van de woningen" :config="grootteWoningen"></pie>
+          <pie-chart title="Grootte van de woningen" :config="grootteWoningen"></pie-chart>
         </div>
       </div>
 
@@ -84,13 +84,13 @@
 
       <div class="row">
         <div class="col-sm-4">
-          <vertical-chart :config="percNultredewoningen"></vertical-chart>
+          <vertical-bar-chart :config="percNultredewoningen"></vertical-bar-chart>
         </div>
         <div class="col-sm-4">
-          <vertical-chart :config="percVerhuisgeneigden"></vertical-chart>
+          <vertical-bar-chart :config="percVerhuisgeneigden"></vertical-bar-chart>
         </div>
         <div class="col-sm-4">
-          <vertical-chart :config="percWoningGeschiktOud"></vertical-chart>
+          <vertical-bar-chart :config="percWoningGeschiktOud"></vertical-bar-chart>
         </div>
       </div>
 
@@ -135,8 +135,8 @@ import verschillenGebied from '../VerschillenGebied'
 import lineChart from '../charts/LineChart'
 import woonVormen from '../Woonvormen'
 import stackedBarChart from '../charts/StackedBarChart'
-import pie from '../charts/Pie'
-import verticalChart from '../charts/VerticalChart'
+import pieChart from '../charts/PieChart'
+import verticalBarChart from '../charts/VerticalBarChart'
 
 import eigenBuurt from '../../../static/links/eigenbuurt'
 import eigenWoning from '../../../static/links/eigenwoning'
@@ -163,8 +163,8 @@ export default {
     'line-chart': lineChart,
     'woonvormen': woonVormen,
     'stacked-bar-chart': stackedBarChart,
-    'pie': pie,
-    'vertical-chart': verticalChart
+    'pie-chart': pieChart,
+    'vertical-bar-chart': verticalBarChart
   },
   data () {
     return {

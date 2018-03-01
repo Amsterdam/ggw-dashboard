@@ -1,8 +1,18 @@
 <template>
-  <div></div>
+  <div>
+    <h5 class="text-center"
+        v-b-tooltip.hover v-b-tooltip.click v-b-tooltip.top title="">
+      {{title}}
+    </h5>
+    <div class="text-center">
+      <div :ref="chartRef"></div>
+    </div>
+  </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+import util from '../../services/util'
 import vegaEmbed from 'vega-embed'
 import vegaSpec from '../../../static/charts/verticalbar'
 import { COLOR } from '../../services/colorcoding'
@@ -16,15 +26,33 @@ const vegaEmbedOptions = {
 }
 
 export default {
+  name: 'VerticalBarChart',
+  components: {
+  },
   props: [
-    'chartdata'
+    'config'
   ],
-  watch: {
-    'chartdata' () {
-      this.updateChart()
+  data () {
+    return {
+      chartdata: null,
+      title: null,
+      tooltip: null,
+      chartRef: `${this._uid}.vertBarChart`
     }
   },
+  computed: {
+    ...mapGetters([
+      'gwb'
+    ])
+  },
   methods: {
+    async updateData () {
+      this.chartdata = await util.getConfigCijfers(this.gwb, this.config)
+      this.title = this.chartdata[0].label
+      this.tooltip = this.chartdata[0].meta && this.chartdata[0].meta.bron
+      this.updateChart()
+    },
+
     updateChart () {
       vegaSpec.data.values = this.chartdata[0].cijfers.map(d => ({
         key: d.jaar,
@@ -32,13 +60,20 @@ export default {
         color: d.color
       }))
       vegaSpec.layer[0].encoding.color.scale.range = vegaSpec.data.values.map(v => v.color || COLOR['ams-groen'])
-      vegaEmbed(this.$el, vegaSpec, vegaEmbedOptions)
+      vegaEmbed(this.$refs[this.chartRef], vegaSpec, vegaEmbedOptions)
+    }
+  },
+  watch: {
+    'gwb' () {
+      this.updateData()
     }
   },
   created () {
-  },
-  mounted () {
-    this.updateChart()
+    this.updateData()
   }
 }
+
 </script>
+
+<style>
+</style>

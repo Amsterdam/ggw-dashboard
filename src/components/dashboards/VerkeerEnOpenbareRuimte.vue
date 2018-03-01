@@ -38,13 +38,13 @@
 
       <div class="row">
         <div class="col-sm-4">
-          <vertical-chart :config="stratenEnStoepen"></vertical-chart>
+          <vertical-bar-chart :config="stratenEnStoepen"></vertical-bar-chart>
         </div>
         <div class="col-sm-4">
-          <vertical-chart :config="groen"></vertical-chart>
+          <vertical-bar-chart :config="groen"></vertical-bar-chart>
         </div>
         <div class="col-sm-4">
-          <vertical-chart :config="speelvoorzieningen"></vertical-chart>
+          <vertical-bar-chart :config="speelvoorzieningen"></vertical-bar-chart>
         </div>
       </div>
 
@@ -57,8 +57,8 @@
           <line-chart :config="aantalParkeerplaatsen"></line-chart>
         </div>
         <div class="col-sm-6">
-          <vertical-chart :config="parkeervoorzieningen"></vertical-chart>
-          <vertical-chart :config="fietsparkeervoorzieningen"></vertical-chart>
+          <vertical-bar-chart :config="parkeervoorzieningen"></vertical-bar-chart>
+          <vertical-bar-chart :config="fietsparkeervoorzieningen"></vertical-bar-chart>
         </div>
       </div>
 
@@ -103,8 +103,8 @@ import verschillenGebied from '../VerschillenGebied'
 import lineChart from '../charts/LineChart'
 import woonVormen from '../Woonvormen'
 import stackedBarChart from '../charts/StackedBarChart'
-import pie from '../charts/Pie'
-import verticalChart from '../charts/VerticalChart'
+import pieChart from '../charts/PieChart'
+import verticalBarChart from '../charts/VerticalBarChart'
 
 import verkeer from '../../../static/links/verkeer'
 import openbareRuimte from '../../../static/links/openbare_ruimte'
@@ -128,8 +128,8 @@ export default {
     'line-chart': lineChart,
     'woonvormen': woonVormen,
     'stacked-bar-chart': stackedBarChart,
-    'pie': pie,
-    'vertical-chart': verticalChart
+    'pie-chart': pieChart,
+    'vertical-bar-chart': verticalBarChart
   },
   data () {
     return {

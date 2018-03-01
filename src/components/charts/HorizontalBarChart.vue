@@ -1,8 +1,24 @@
 <template>
-  <div></div>
+  <div>
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="float-left">
+          <div class="text-center">
+            <div><img :src="'../../static/icons/' + icon"></div>
+            <div class="font-weight-bold">{{title}}</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-9">
+        <div :ref="chartRef"></div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+import util from '../../services/util'
 import vegaEmbed from 'vega-embed'
 import vegaSpec from '../../../static/charts/horizontalbar'
 import { COLOR } from '../../services/colorcoding'
@@ -16,15 +32,31 @@ const vegaEmbedOptions = {
 }
 
 export default {
+  name: 'HorizontalBarChart',
+  components: {
+  },
   props: [
-    'chartdata'
+    'title',
+    'icon',
+    'config'
   ],
-  watch: {
-    'chartdata' () {
-      this.updateChart()
+  data () {
+    return {
+      chartdata: null,
+      chartRef: `${this._uid}.horzBarChart`
     }
   },
+  computed: {
+    ...mapGetters([
+      'gwb'
+    ])
+  },
   methods: {
+    async updateData () {
+      this.chartdata = await util.getLatestConfigCijfers(this.gwb, this.config)
+      this.updateChart()
+    },
+
     updateChart () {
       vegaSpec.data.values = this.chartdata.map(d => ({
         key: d.label,
@@ -36,13 +68,20 @@ export default {
         .filter(d => d.recent && d.recent.waarde)
         .map(d => d.recent.color || COLOR['ams-oranje'])
 
-      vegaEmbed(this.$el, vegaSpec, vegaEmbedOptions)
+      vegaEmbed(this.$refs[this.chartRef], vegaSpec, vegaEmbedOptions)
     }
   },
-  created () {
+  watch: {
+    'gwb' () {
+      this.updateData()
+    }
   },
-  mounted () {
-    this.updateChart()
+  async created () {
+    this.updateData()
   }
 }
+
 </script>
+
+<style>
+</style>
