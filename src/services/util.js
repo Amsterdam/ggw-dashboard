@@ -33,7 +33,7 @@ async function getConfigCijfers (gwb, config, recentOrAll = CIJFERS.ALL) {
         tooltip: getTooltip(cijfers)
       }
     } catch (e) {
-      console.error('Error for variable', c.variabele, e)
+      console.error('Variable not found', c.variabele)
       return {
         label: c.label || c.variabele
       }
