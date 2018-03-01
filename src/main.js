@@ -5,6 +5,9 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import 'leaflet/dist/leaflet.css'
 
 import '../static/ams.scss'
+import '../static/ams-bootstrap.scss'
+import '../static/ams-ois.scss'
+import '../static/app.scss'
 
 import Vue from 'vue'
 import { mapGetters, mapActions } from 'vuex'

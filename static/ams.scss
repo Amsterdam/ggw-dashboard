@@ -27,45 +27,8 @@ body {
   line-height: 1.25;
 }
 
-.alert {
-  margin-top: 5px;
-  background-color: $ams-lichtgrijs;
-}
-
-.form-inline label {
-  justify-content: left;
-}
-
-.form-control {
-  background-color: $ams-lichtgrijs;
-  border: none;
-  width: 100% !important;
-  &:focus {
-    background-color: $ams-lichtgrijs;
-  }
-}
-
-.borderless tbody td, .borderless thead th {
-  border: 0;
-}
-
-.btn {
-  background-color: $ams-lichtgrijs;
-}
-
-.btn-primary {
-  background-color: $ams-blauw;
-}
-
 select {
   height: 20px !important;
-}
-
-.custom-select {
-  color: $ams-rood;
-  font-weight: bold;
-  padding-top: 0;
-  padding-bottom: 0;
 }
 
 header {

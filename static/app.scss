@@ -1,0 +1,7 @@
+@import "ams";
+@import "ams-bootstrap";
+@import "ams-ois";
+
+.borderless tbody td, .borderless thead th {
+  border: 0;
+}
