@@ -3,7 +3,7 @@ import { getColor } from '../colorcoding'
 import { cacheResponse } from '../cache'
 
 function getUrl (endpoint) {
-  return `https://acc.api.data.amsterdam.nl/bbga${endpoint}`
+  return `https://api.data.amsterdam.nl/bbga${endpoint}`
 }
 
 export async function getAllMeta () {
