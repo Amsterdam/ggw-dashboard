@@ -5,3 +5,10 @@
 .borderless tbody td, .borderless thead th {
   border: 0;
 }
+
+.chart-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -5,7 +5,9 @@
         <icon :icon="icon" :title="title"></icon>
       </div>
       <div class="col-sm-9">
-        <div :ref="chartRef"></div>
+        <div class="chart-container">
+          <div :ref="chartRef"></div>
+        </div>
       </div>
     </div>
   </div>

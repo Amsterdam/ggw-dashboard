@@ -1,5 +1,7 @@
 <template>
-  <div></div>
+  <div class="chart-container">
+    <div :ref="chartRef"></div>
+  </div>
 </template>
 
 <script>
@@ -26,7 +28,8 @@ export default {
   ],
   data () {
     return {
-      chartdata: null
+      chartdata: null,
+      chartRef: `${this._uid}.lineChart`
     }
   },
   computed: {
@@ -48,7 +51,7 @@ export default {
         )
       })
       vegaSpec.scales[2].range = CHART_COLORS
-      vegaEmbed(this.$el, vegaSpec, vegaEmbedOptions)
+      vegaEmbed(this.$refs[this.chartRef], vegaSpec, vegaEmbedOptions)
     }
   },
   watch: {
