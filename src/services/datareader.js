@@ -23,7 +23,7 @@ export async function readPaginatedData (url) {
   let next = url
   let results = []
   let page = 1
-  let pageSize = 100
+  let pageSize = 1000
   const concatParam = url.includes('?') ? '&' : '?'
   while (next) {
     try {
