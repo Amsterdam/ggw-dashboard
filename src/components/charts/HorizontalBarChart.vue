@@ -2,9 +2,7 @@
   <div>
     <div class="row">
       <div class="col-sm-3">
-        <div class="float-left">
-          <icon :icon="icon" :title="title"></icon>
-        </div>
+        <icon :icon="icon" :title="title"></icon>
       </div>
       <div class="col-sm-9">
         <div :ref="chartRef"></div>

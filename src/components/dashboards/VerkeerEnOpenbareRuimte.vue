@@ -7,10 +7,10 @@
 
       <div class="row">
         <div class="col-sm">
-          <horizontal-text title="Verkeer" icon="parkeren_60.png" :config="verkeer"></horizontal-text>
+          <horizontal-text title="Verkeer" icon="GASD_Icoon_Parkeren en beheer.png" :config="verkeer"></horizontal-text>
         </div>
         <div class="col-sm">
-          <horizontal-text title="Openbare ruimte" icon="openbare_ruimte_60.png" :config="openbareRuimte"></horizontal-text>
+          <horizontal-text title="Openbare ruimte" icon="GASD_Icoon_Melding openbare ruimte.png" :config="openbareRuimte"></horizontal-text>
         </div>
       </div>
 

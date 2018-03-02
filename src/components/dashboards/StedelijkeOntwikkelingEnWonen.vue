@@ -10,7 +10,7 @@
           <horizontal-text title="Eigen buurt" icon="buurt60.jpg" :config="eigenBuurt"></horizontal-text>
         </div>
         <div class="col-sm">
-          <horizontal-text title="Eigen woning" icon="locaties.svg" :config="eigenWoning"></horizontal-text>
+          <horizontal-text title="Eigen woning" icon="house-icon-vector-png.png" :config="eigenWoning"></horizontal-text>
         </div>
       </div>
 

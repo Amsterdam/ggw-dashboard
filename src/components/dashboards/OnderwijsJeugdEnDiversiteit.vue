@@ -8,10 +8,10 @@
 
       <div class="row">
         <div class="col-sm">
-          <horizontal-text title="Veiligheid" icon="x.jpg" :config="onderwijsJeugd"></horizontal-text>
+          <horizontal-text title="Onderwijs en jeugd" icon="Middelbare scholier jongen-01.png" :config="onderwijsJeugd"></horizontal-text>
         </div>
         <div class="col-sm">
-          <horizontal-text title="Overlast" icon="x.svg" :config="diversiteit"></horizontal-text>
+          <horizontal-text title="Diversiteit" icon="GASD_Icoon_Bestuur en organisatie.png" :config="diversiteit"></horizontal-text>
         </div>
       </div>
 
