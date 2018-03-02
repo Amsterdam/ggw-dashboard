@@ -1,31 +1,28 @@
 <!--Example of a component that uses D3-->
 <template>
-  <div class="row">
-    <div class="col-sm-5">
-      <header class="ams-header">
-        <img class="ams-header__logo ams-header__logo--tall" src="../../../static/logo-tall.svg">
-        <h1 class="text-center">Gebied in beeld</h1>
-      </header>
+  <div class="grid-wrapper wrapper_12 contents-wrapper">
+    <div class="grid-container container_12">
+      <div class="grid-zone grid_12">
+        <div class="grid-blok grid_1">
+          <header class="grid-element ams-header">
+            <img class="ams-header__logo ams-header__logo--tall" src="../../../static/logo-tall.svg">
+          </header>
+        </div>
+        <div class="grid-blok grid_10">
+          <header class="grid-element">
+            <h2>Gebied in beeld</h2>
+          </header>
+        </div>
+      </div>
     </div>
-    <!--<div class="col-sm-3">-->
-      <!--<gwb-map></gwb-map>-->
-    <!--</div>-->
-    <!--<div class="col-sm-4">-->
-      <!--<color-legend></color-legend>-->
-    <!--</div>-->
   </div>
-
 </template>
 
 <script>
-import gwbMap from '../GWBMap'
-import colorLegend from '../ColorLegend'
 
 export default {
   name: 'AMSHeader',
   components: {
-    'gwb-map': gwbMap,
-    'color-legend': colorLegend
   }
 }
 

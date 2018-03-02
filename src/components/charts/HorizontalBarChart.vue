@@ -1,18 +1,12 @@
 <template>
-  <div>
-    <div class="row">
-      <div class="col-sm-3">
-        <div class="float-left">
-          <div class="text-center">
-            <div><img :src="'../../static/icons/' + icon"></div>
-            <div class="font-weight-bold">{{title}}</div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-9">
-        <div :ref="chartRef"></div>
-      </div>
+  <div class="chart-container" v-if="gwb">
+    <div class="text-center">
+      <div><img :src="'../../static/icons/' + icon"></div>
+      <div>{{title}}</div>
     </div>
+
+    <div :ref="chartRef"></div>
+
   </div>
 </template>
 
@@ -83,5 +77,6 @@ export default {
 
 </script>
 
-<style>
+<style lang="scss" scoped>
+
 </style>

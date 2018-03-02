@@ -3,7 +3,7 @@
 //  Generic
 //
 
-@import '../../node_modules/bootstrap/scss/bootstrap';
+//@import '../../node_modules/bootstrap/scss/bootstrap';
 @import '/generic/ams-colorpalette';
 @import '/generic/ams-helperclasses';
 @import '/generic/amsterdam-grid';
@@ -11,21 +11,41 @@
 
 // header components
 .ams-header {
-  &__logo {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: -2rem;
 
+  &__logo {
     &--short {
       width: 150px;
       height: 100px;
     }
-
-    & + h1 {
-      display: inline-block;
-      margin-left: 50px;
-    }
   }
-
 }
 
+.sticky-top {
+  position: sticky;
+  top: 0;
+  background-color: $ams-wit;
+  box-shadow: 0 1px 1px 0 $ams-lichtgrijs;
+  z-index: 9999;
+}
+
+.invoer select {
+  background-image: url(/static/icons/caret-down-black.svg);
+
+  &:focus:hover {
+    background-image: url(/static/icons/caret-up-black.svg);
+  }
+}
+
+.footer-wrapper .bgcolor_darkgrey .links li a {
+  background-image: url(/static/icons/caret-right-white.svg);
+
+  &:hover {
+    background-image: url(/static/icons/caret-right-white.svg);
+  }
+}
 
 .ams-row {
   @extend .rij;
@@ -42,28 +62,77 @@
 
   }
 
-  &.sticky-top {
-    box-shadow: 0 1px 1px 0 $ams-donkergrijs;
-  }
 }
 
-
-.form-inline label {
-  justify-content: left;
-}
-
-.form-control {
-  background-color: $ams-lichtgrijs;
-  border: none;
-  width: 100% !important;
-  &:focus {
-    background-color: $ams-lichtgrijs;
-  }
-}
+//
+//.form-inline label {
+//  justify-content: left;
+//}
+//
+//.form-control {
+//  background-color: $ams-lichtgrijs;
+//  border: none;
+//  width: 100% !important;
+//  &:focus {
+//    background-color: $ams-lichtgrijs;
+//  }
+//}
 
 
 
 body {
   font-family: Avenir, sans-serif;
   line-height: 1.25;
+  margin: 0;
+  padding: 0;
+}
+
+.grid-wrapper {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.chart-container {
+  &:hover {
+    background-color: $ams-top-menu;
+  }
+}
+
+table {
+  margin: auto;
+  text-align: left;
+  border-collapse: collapse;
+
+  tr {
+    padding: .5rem;
+
+    &:hover {
+      background-color: $ams-top-menu;
+      td {
+        box-shadow: 0 1px 0 1px $ams-top-menu;
+      }
+    }
+  }
+
+  td, th {
+    padding: .5rem;
+  }
+
+  thead {
+    tr {
+      &:hover {
+        background: inherit;
+      }
+    }
+
+    th {
+      border-top: 1px solid $ams-zwart;
+      border-bottom: 1px solid $ams-zwart;
+    }
+  }
+
+  td {
+    border-bottom: 1px solid $ams-middengrijs;
+    box-shadow: 0 1px 0 1px $ams-wit;
+  }
 }

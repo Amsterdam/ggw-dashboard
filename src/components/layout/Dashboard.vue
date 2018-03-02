@@ -14,10 +14,7 @@
       <niet-in-mvp v-if="thema.id === NIET_IN_MVP"></niet-in-mvp>
     </div>
 
-    <div v-else class="text-center">
-      <h2>Gegevens laden...</h2>
-      <img src="../../../static/icons/loading.gif">
-    </div>
+    <loading-component v-else></loading-component>
   </div>
 </template>
 
@@ -47,6 +44,7 @@ import verkeerEnOpenbareRuimte from '../dashboards/VerkeerEnOpenbareRuimte'
 import welzijnZorgEnSport from '../dashboards/WelzijnZorgEnSport'
 import werkInkomenEnParticipatie from '../dashboards/WerkInkomenEnParticipatie'
 import nietInMVP from '../dashboards/NietInMVP'
+import loadingComponent from '../LoadingComponent'
 
 export default {
   name: 'GGWDashboard',
@@ -61,7 +59,8 @@ export default {
     'verkeer-en-openbare-ruimte': verkeerEnOpenbareRuimte,
     'welzijn-zorg-en-sport': welzijnZorgEnSport,
     'werk-inkomen-en-participatie': werkInkomenEnParticipatie,
-    'niet-in-mvp': nietInMVP
+    'niet-in-mvp': nietInMVP,
+    'loading-component': loadingComponent
   },
   data () {
     return {

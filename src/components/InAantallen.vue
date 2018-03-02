@@ -1,16 +1,15 @@
 <template>
   <div>
-    <table class="table table-sm borderless" v-if="gwb">
+    <table v-if="gwb">
       <thead>
-      <tr>
-        <th colspan="2" class="text-center">{{gwb.naam}} in aantallen</th>
-      </tr>
+        <tr>
+          <th colspan="2">{{gwb.naam}} in aantallen</th>
+        </tr>
       </thead>
       <tbody>
       <tr v-for="d in data" :key="d.label">
         <td width="50%">{{d.label}}</td>
-        <td width="50%" v-if="d.recent"
-            v-b-tooltip.hover triggers="click" v-b-tooltip.html.left title="">
+        <td width="50%" v-if="d.recent">
           {{d.recent | displaywaarde}}
         </td>
       </tr>

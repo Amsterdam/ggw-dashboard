@@ -1,68 +1,85 @@
 <!--Example of a component that uses D3-->
 <template>
-  <div class="grid-zone grid_12 z-content">
-      <div class="grid-blok grid_3">
-        <div class="rij mode_input selectie" v-if="selection.gebieden">
-          <div class="label">
-            <label for="selectGebied">Gebied</label>
-          </div>
-          <div class="invoer">
-            <b-form-select v-model="selection.gebied"
-                           @change="updateGebied"
-                           :options="selection.gebieden"
-                           text-field="display"
-                           value-field="vollcode"
-                           id="selectGebied">
-            </b-form-select>
+  <div class="grid-wrapper wrapper_12 contents-wrapper">
+    <div class="grid-container container_12">
+      <div class="grid-zone grid_12">
+        <div class="grid-blok grid_6">
+          <div class="grid-element">
+            <div class="rij mode_input selectie">
+              <div class="label">
+                <label for="selectGebied">Gebied</label>
+              </div>
+              <div class="invoer">
+                <b-form-select v-model="selection.gebied"
+                               @change="updateGebied"
+                               :options="selection.gebieden"
+                               text-field="display"
+                               value-field="vollcode"
+                               id="selectGebied"
+                               :disabled="!selection.gebieden">
+                </b-form-select>
+              </div>
+            </div>
+            <div class="rij mode_input selectie">
+              <div class="label">
+                <label for="selectWijk">Wijk</label>
+              </div>
+              <div class="invoer">
+                <b-form-select v-model="selection.wijk"
+                               @change="updateWijk"
+                               :options="selection.wijken"
+                               text-field="display"
+                               value-field="vollcode"
+                               id="selectWijk"
+                               :disabled="!selection.wijken">
+                </b-form-select>
+              </div>
+            </div>
           </div>
         </div>
-        <b-form inline class="row" v-if="selection.wijken">
-          <div class="col-sm-3">
-            <label for="selectWijk">Wijk</label>
+        <div class="grid-blok grid_6">
+          <div class="grid-element">
+            <div class="rij mode_input selectie">
+              <div class="label">
+                <label for="selectBuurt">Buurt</label>
+              </div>
+              <div class="invoer">
+                <b-form-select v-model="selection.buurt"
+                               @change="updateBuurt"
+                               :options="selection.buurten"
+                               text-field="display"
+                               value-field="vollcode"
+                               id="selectBuurt"
+                               :disabled="!selection.buurten">
+                  <template slot="first" v-if="!selection.buurten">
+                    <!-- this slot appears above the options from 'options' prop -->
+                    <option :value="null" disabled>-- Selecteer een wijk om buurten te zien --</option>
+                  </template>
+
+                </b-form-select>
+              </div>
+            </div>
+
+            <div class="rij mode_input selectie">
+              <div class="label">
+                <label for="selectThema">Thema</label>
+              </div>
+              <div class="invoer">
+                <b-form-select v-model="selection.thema"
+                               @change="updateThema"
+                               :options="selection.themas"
+                               text-field="text"
+                               value-field="id"
+                               id="selectThema"
+                               :disabled="!selection.themas">
+                </b-form-select>
+              </div>
+            </div>
           </div>
-          <div class="col-sm-9">
-            <b-form-select v-model="selection.wijk"
-                           @change="updateWijk"
-                           :options="selection.wijken"
-                           text-field="display"
-                           value-field="vollcode"
-                           id="selectWijk">
-            </b-form-select>
-          </div>
-        </b-form>
-        <b-form inline class="row" v-if="selection.buurten">
-          <div class="col-sm-3">
-            <label for="selectBuurt">Buurt</label>
-          </div>
-          <div class="col-sm-9">
-            <b-form-select v-model="selection.buurt"
-                           @change="updateBuurt"
-                           :options="selection.buurten"
-                           text-field="display"
-                           value-field="vollcode"
-                           id="selectBuurt">
-            </b-form-select>
-          </div>
-        </b-form>
-      </div>
-      <div class="col-sm">
-        <b-form inline class="row" v-if="selection.themas">
-          <div class="col-sm-3">
-            <label for="selectThema">Thema</label>
-          </div>
-          <div class="col-sm-9">
-            <b-form-select v-model="selection.thema"
-                           @change="updateThema"
-                           :options="selection.themas"
-                           text-field="text"
-                           value-field="id"
-                           id="selectThema">
-            </b-form-select>
-          </div>
-        </b-form>
+        </div>
       </div>
     </div>
-
+  </div>
 </template>
 
 <script>

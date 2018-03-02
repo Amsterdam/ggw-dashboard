@@ -1,30 +1,53 @@
 <!--Example of a component that uses Leaflet-->
 <template>
-  <div class="row">
-    <div class="col-sm-6">
-      <b-form-select v-model="variable"
-                     :options="variables"
-                     text-field="label"
-                     value-field="variable">
-        <template slot="first">
-          <!-- this slot appears above the options from 'options' prop -->
-          <option :value="null" disabled>-- Selecteer een categorie --</option>
-        </template>
-      </b-form-select>
+  <div class="grid-element">
+    <div class="grid-blok grid_12">
+      <div class="rij mode_input selectie">
+        <div class="invoer">
+          <b-form-select v-model="variable"
+                           :options="variables"
+                           text-field="label"
+                           value-field="variable">
+              <template slot="first">
+                <!-- this slot appears above the options from 'options' prop -->
+                <option :value="null" disabled>-- Selecteer een categorie --</option>
+              </template>
+          </b-form-select>
+        </div>
+      </div>
       <div ref="map" class="map"></div>
-      <div class="text-center">
-        <!--<button class="btn" :disabled="!variable" :class="{'btn-primary': gebiedType === 'Stadsdeel'}" v-on:click="setGebiedType('Stadsdeel')">Stadsdelen</button>-->
-        <button class="btn" :disabled="!variable" :class="{'btn-primary': gebiedType === 'Gebied'}" v-on:click="setGebiedType('Gebied')">Gebieden</button>
-        <button class="btn" :disabled="!variable" :class="{'btn-primary': gebiedType === 'Wijk'}" v-on:click="setGebiedType('Wijk')">Wijken</button>
-        <button class="btn" :disabled="!variable" :class="{'btn-primary': gebiedType === 'Buurt'}" v-on:click="setGebiedType('Buurt')">Buurten</button>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <div v-if="loading">
-        Laden gegevens...
-      </div>
-      <div v-else-if="gebiedType && variable && !highLow.length">
-        Geen cijfers beschikbaar
+
+
+      <fieldset class="rij mode_input text rij_verplicht">
+        <div class="antwoorden checkboxen">
+          <div class="label">
+            <label for="gebiedFilter">Filter</label>
+          </div>
+
+          <div class="antwoord">
+            <input :disabled="!variable" :checked="gebiedType === 'Gebied'" @click="setGebiedType('Gebied')" type="radio" name="gebiedFilter" id="1">
+            <label for="1">Gebieden</label>
+          </div>
+
+          <div class="antwoord">
+            <input :disabled="!variable" :checked="gebiedType === 'Wijk'" @click="setGebiedType('Wijk')" type="radio" name="gebiedFilter" id="2">
+            <label for="2">Wijken</label>
+          </div>
+
+          <div class="antwoord">
+            <input :disabled="!variable" :checked="gebiedType === 'Buurt'" @click="setGebiedType('Buurt')" type="radio" name="gebiedFilter" id="3">
+            <label for="3">Buurten</label>
+          </div>
+        </div>
+      </fieldset>
+
+      <loading-component :simple="true" v-if="loading"></loading-component>
+      <div v-else-if="gebiedType && variable && !highLow.length" class="grid-wrapper wrapper_12 alert-wrapper bgcolor_darkgrey">
+        <div class="grid-container container_12 grid-alerts ">
+          <div class="melding rich-content">
+            Geen cijfers beschikbaar
+          </div>
+        </div>
       </div>
       <div v-else>
         <div v-if="own && own.gebiedType === gebiedType && own.recent">
@@ -55,6 +78,10 @@
           </div>
         </div>
       </div>
+    </div>
+
+
+
 
     </div>
   </div>
@@ -66,6 +93,7 @@ import { mapGetters } from 'vuex'
 import { rd, rdMultiPolygonToWgs84, tileLayer } from '../services/geojson'
 import util from '../services/util'
 import positieOntwikkeling from '../../static/links/positie_en_ontwikkeling'
+import loadingComponent from './LoadingComponent'
 
 let map
 let gwbLayer = null
@@ -78,6 +106,9 @@ function clearLayers () {
 }
 
 export default {
+  components: {
+    'loading-component': loadingComponent
+  },
   computed: {
     ...mapGetters([
       'gwb',
@@ -265,17 +296,33 @@ export default {
 <style lang="scss" scoped>
 @import "../../static/styles/generic/ams-colorpalette.scss";
 
-.map {
-  height: 350px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
+  .map {
+    height: 350px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
 
-.select {
-  width: 100%;
-}
+  .select {
+    width: 100%;
+  }
 
-.highlight-own {
-  color: $ams-blauw;
-}
+  .highlight-own {
+    color: $ams-blauw;
+  }
+
+  .antwoord {
+    display: inline-block;
+    width: 25%;
+
+    input, label {
+      cursor: pointer;
+    }
+  }
+
+  .rij_verplicht {
+    +.alert-wrapper {
+      padding-top: 0;
+      margin-top: -1rem;
+    }
+  }
 </style>

@@ -1,9 +1,11 @@
 <template>
   <div>
     <div>Betekenis kleuren:</div>
-    <div v-for="entry in legend" :key="entry.color" class="legend-entry">
-      <span :style="getBulletStyle(entry)" class="legend-bullet">&#9634;</span>
-      {{entry.text}}
+    <div class="legend">
+      <div v-for="entry in legend" :key="entry.color" class="legend-entry">
+        <span :style="getBulletStyle(entry)" class="legend-bullet">&#9634;</span>
+        {{entry.text}}
+      </div>
     </div>
   </div>
 </template>
@@ -45,8 +47,15 @@ export default {
 </script>
 
 <style>
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
   .legend-entry {
     margin-top: 7px;
+    display: flex;
+    width: 33%;
   }
 
   .legend-bullet {

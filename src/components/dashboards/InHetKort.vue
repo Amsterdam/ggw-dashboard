@@ -1,71 +1,69 @@
 <template>
   <div>
     <div v-if="gwb && meta">
-
-      <div class="row">
-        <div class="col-sm">
-          <pano></pano>
+      <div class="grid-element align-center">
+        <div class="grid-blok grid_6">
+            <pano></pano>
         </div>
-        <div class="col-sm">
-          <in-aantallen></in-aantallen>
-        </div>
-      </div>
-
-      <div class="grid-title">
-        <h2>Samenstelling woningvoorraad en bevolking van {{gwb.naam}}</h2>
-      </div>
-
-      <div class="row">
-        <div class="col-sm-6">
-          <horizontal-bar-chart
-            title="Woningvoorraad"
-            icon="wonen_en_leefomgeving.svg"
-            :config="woningVoorraad"
-          ></horizontal-bar-chart>
-        </div>
-        <div class="col-sm-6">
-          <horizontal-bar-chart
-            title="Sociaal-economisch"
-            icon="werk_en_inkomen.svg"
-            :config="sociaalEconomisch"
-          ></horizontal-bar-chart>
+        <div class="grid-blok grid_6">
+            <in-aantallen></in-aantallen>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-sm-6">
-          <horizontal-bar-chart
-            title="Leeftijd"
-            icon="kind_icoon_met_bal_60.png"
-            :config="leeftijd"
-          ></horizontal-bar-chart>
-        </div>
-        <div class="col-sm-6">
-          <horizontal-bar-chart
-            title="Migratie-achtergrond"
-            icon="locaties.svg"
-            :config="migratieAchtergrond"
-          ></horizontal-bar-chart>
+
+      <div class="grid-element">
+        <div class="grid-blok grid_12">
+          <div class="grid-title">
+            <h2>Samenstelling woningvoorraad en bevolking van {{gwb.naam}}</h2>
+          </div>
+
+          <div class="grid-blok grid_6 align-center">
+            <horizontal-bar-chart
+              title="Woningvoorraad"
+              icon="wonen_en_leefomgeving.svg"
+              :config="woningVoorraad"
+            ></horizontal-bar-chart>
+          </div>
+          <div class="grid-blok grid_6 align-center">
+            <horizontal-bar-chart
+              title="Sociaal-economisch"
+              icon="werk_en_inkomen.svg"
+              :config="sociaalEconomisch"
+            ></horizontal-bar-chart>
+          </div>
+          <div class="grid-blok grid_6 align-center">
+              <horizontal-bar-chart
+                title="Leeftijd"
+                icon="kind_icoon_met_bal_60.png"
+                :config="leeftijd"
+              ></horizontal-bar-chart>
+          </div>
+          <div class="grid-blok grid_6 align-center">
+              <horizontal-bar-chart
+                title="Migratie-achtergrond"
+                icon="locaties.svg"
+                :config="migratieAchtergrond"
+              ></horizontal-bar-chart>
+          </div>
         </div>
       </div>
 
-      <div class="grid-title">
-        <h2>Positie en ontwikkeling van {{gwb.naam}} t.o.v. het stedelijk gemiddelde</h2>
+
+
+      <div class="grid-element">
+        <div class="grid-blok grid_12">
+          <div class="grid-title">
+            <h2>Positie en ontwikkeling van {{gwb.naam}} t.o.v. het stedelijk gemiddelde</h2>
+          </div>
+        </div>
       </div>
 
-      <div class="row">
-        <div class="col-sm">
-          <data-table :config="positieOntwikkeling"></data-table>
-        </div>
-        <div class="col-sm">
-        </div>
+      <div class="grid-blok grid_12 align-center">
+        <data-table :config="positieOntwikkeling"></data-table>
       </div>
     </div>
 
-    <div v-else class="text-center">
-      <h2>Gegevens laden...</h2>
-      <img src="../../../static/icons/loading.gif">
-    </div>
+    <loading-component v-else></loading-component>
   </div>
 </template>
 
@@ -75,6 +73,7 @@ import horizontalBarChart from '../charts/HorizontalBarChart'
 import inAantallen from '../InAantallen'
 import dataTable from '../charts/DataTable'
 import pano from '../Pano'
+import loadingComponent from '../LoadingComponent'
 
 import woningVoorraad from '../../../static/links/woningvoorraad'
 import sociaalEconomisch from '../../../static/links/sociaaleconomisch'
@@ -88,7 +87,8 @@ export default {
     'horizontal-bar-chart': horizontalBarChart,
     'in-aantallen': inAantallen,
     'pano': pano,
-    'data-table': dataTable
+    'data-table': dataTable,
+    'loading-component': loadingComponent
   },
   data () {
     return {
@@ -116,4 +116,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
+  .align-center {
+    text-align: center;
+  }
 </style>
