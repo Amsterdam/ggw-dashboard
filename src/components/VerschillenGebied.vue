@@ -8,7 +8,7 @@
                      text-field="label"
                      value-field="variable">
       </b-form-select>
-      <div ref="map" class="map"></div>
+      <div :ref="mapRef" class="map"></div>
       <div class="text-center">
         <button v-for="action in gebiedTypes" :key="action"
                 class="btn action-button" :disabled="!variable || loading || drawing"
@@ -96,7 +96,8 @@ export default {
       ownIndex: null,
       highLow: [],
       loading: false,
-      drawing: false
+      drawing: false,
+      mapRef: `${this._uid}.map`
     }
   },
   methods: {
@@ -254,7 +255,7 @@ export default {
   },
 
   mounted () {
-    map = amsMap(this.$refs.map)
+    map = amsMap(this.$refs[this.mapRef])
   }
 }
 </script>

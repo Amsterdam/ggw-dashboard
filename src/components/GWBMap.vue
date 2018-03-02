@@ -1,6 +1,6 @@
 <!--Example of a component that uses Leaflet-->
 <template>
-  <div class="map"></div>
+  <div class="map" :ref="mapRef"></div>
 </template>
 
 <script>
@@ -16,6 +16,11 @@ export default {
     ...mapGetters([
       'gwb'
     ])
+  },
+  data () {
+    return {
+      mapRef: `${this._uid}.map`
+    }
   },
   methods: {
     async updateData () {
@@ -39,7 +44,7 @@ export default {
     }
   },
   mounted () {
-    map = amsMap(this.$el)
+    map = amsMap(this.$refs[this.mapRef])
     this.updateData()
   }
 }
