@@ -3,10 +3,7 @@
     <div class="row">
       <div class="col-sm-3">
         <div class="float-left">
-          <div class="text-center">
-            <div><img :src="'../../static/icons/' + icon"></div>
-            <div class="font-weight-bold">{{title}}</div>
-          </div>
+          <icon :icon="icon" :title="title"></icon>
         </div>
       </div>
       <div class="col-sm-9">
@@ -18,6 +15,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import icon from '../Icon'
 import util from '../../services/util'
 import vegaEmbed from 'vega-embed'
 import vegaSpec from '../../../static/charts/horizontalbar'
@@ -34,6 +32,7 @@ const vegaEmbedOptions = {
 export default {
   name: 'HorizontalBarChart',
   components: {
+    'icon': icon
   },
   props: [
     'title',
