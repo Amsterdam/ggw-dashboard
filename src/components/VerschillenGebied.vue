@@ -10,9 +10,9 @@
       <div ref="map" class="map"></div>
       <div class="text-center">
         <!--<button class="btn" :disabled="!variable" :class="{'btn-primary': gebiedType === 'Stadsdeel'}" v-on:click="setGebiedType('Stadsdeel')">Stadsdelen</button>-->
-        <button class="btn" :disabled="!variable" :class="{'btn-primary': gebiedType === 'Gebied'}" v-on:click="setGebiedType('Gebied')">Gebieden</button>
-        <button class="btn" :disabled="!variable" :class="{'btn-primary': gebiedType === 'Wijk'}" v-on:click="setGebiedType('Wijk')">Wijken</button>
-        <button class="btn" :disabled="!variable" :class="{'btn-primary': gebiedType === 'Buurt'}" v-on:click="setGebiedType('Buurt')">Buurten</button>
+        <button class="btn" :disabled="!variable" :class="{'btn-primary': gebiedType === 'Gebied'}" @click="setGebiedType('Gebied')">Gebieden</button>
+        <button class="btn" :disabled="!variable" :class="{'btn-primary': gebiedType === 'Wijk'}" @click="setGebiedType('Wijk')">Wijken</button>
+        <button class="btn" :disabled="!variable" :class="{'btn-primary': gebiedType === 'Buurt'}" @click="setGebiedType('Buurt')">Buurten</button>
       </div>
     </div>
     <div class="col-sm-6">
@@ -59,8 +59,9 @@
 <script>
 import L from 'leaflet'
 import { mapGetters } from 'vuex'
-import { rd, rdMultiPolygonToWgs84, tileLayer } from '../services/geojson'
+import { rd, tileLayer } from '../services/geojson'
 import util from '../services/util'
+import { getShapes } from '../services/map'
 import positieOntwikkeling from '../../static/links/positie_en_ontwikkeling'
 
 let map
@@ -87,7 +88,7 @@ export default {
       FRAGMENT: 5,
       variable: null,
       variables: [],
-      gebiedType: null,
+      gebiedType: 'Gebied',
       gebiedTypes: ['Gebied', 'Wijk', 'Buurt'],
       lowest: [],
       highest: [],
@@ -108,6 +109,7 @@ export default {
       this.gebiedType = type
       this.updateData()
     },
+
     async getOwn () {
       // Try to derive most recent year from the cijfers for the current gwb
       let gwb = this.gwb
@@ -121,28 +123,31 @@ export default {
 
       return util.getGebiedCijfers(this.variable, gwb, util.CIJFERS.LATEST)
     },
+
     async updateData () {
+      if (!this.variable) {
+        return this.noCijfers()
+      }
+
+      clearLayers()
       this.loading = true
 
-      if (this.gebiedType && !this.variable) {
-        this.initialView()
-        return this.noCijfers()
-      } else if (!(this.gebiedType && this.variable)) {
-        return this.noCijfers()
-      }
-
       this.own = await this.getOwn()
-      if (!this.own) {
-        return this.noCijfers()
-      }
-
-      const recentYear = this.own.recent && this.own.recent.jaar
-      if (!recentYear) {
+      if (!this.own && this.own.recent && this.own.recent.jaar) {
+        // Unable to specify a search year...
         return this.noCijfers()
       }
 
       this.own.gebiedType = util.getGebiedType(this.own.recent.gebiedcode15)
 
+      const cijfers = await this.getCijfers(this.own.recent.jaar)
+
+      this.loading = false
+
+      this.cijferView(cijfers)
+    },
+
+    async getCijfers (recentYear) {
       // Sort and filter cijfers for gebiedType and waarde
       let cijfers = await util.getAllCijfers(this.variable, recentYear)
       cijfers = cijfers.filter(c => c.waarde !== null)
@@ -150,6 +155,7 @@ export default {
       cijfers = cijfers.sort((c1, c2) => c2.waarde - c1.waarde)
 
       if (cijfers.length < 2 * this.FRAGMENT) {
+        // At least 5 low and high are expected
         return this.noCijfers()
       }
 
@@ -161,91 +167,92 @@ export default {
       const highLow = highest.concat(lowest.reverse())
 
       // Add gebieds info for the 10 remaining cijfers
-      const highLowGwbs = await Promise.all(highLow.map(async c => {
-        const gwb = await util.getGwb(c.gebiedcode15)
+      this.highLow = await Promise.all(highLow.map(async c => {
+        const gwb = await util.getGwbSummary(c.gebiedcode15)
         return {
           ...c,
           gwb
         }
       }))
 
-      this.loading = false
-      this.highLow = highLowGwbs
+      return cijfers
+    },
+
+    async cijferView (cijfers) {
+      const cijfersLookup = {}
+      cijfers.forEach(cijfer => { cijfersLookup[cijfer.gebiedcode15] = cijfer })
+
+      const shapes = await getShapes(this.gebiedType, (gebiedcode15) => {
+        const c = cijfersLookup[gebiedcode15]
+        return {
+          'fillOpacity': 0.8,
+          'fillColor': (c && c.color) || 'white',
+          'color': 'gray',
+          'opacity': 0.5,
+          'weight': 1
+        }
+      })
+
+      this.showShapes(shapes)
+    },
+
+    async gwbView () {
       clearLayers()
 
-      gwbLayer = L.featureGroup()
-      cijfers.forEach(c => {
-        util.getGwb(c.gebiedcode15).then(gwb => {
-          const wgs84Geometrie = rdMultiPolygonToWgs84(gwb.geometrie)
-          wgs84Geometrie.map(geometry => {
-            const shape = L.polygon(geometry.coordinates, {
-              'fillOpacity': 0.8,
-              'fillColor': c.color,
-              'color': 'gray',
-              'opacity': 0.5,
-              'weight': 1
-            })
-            shape.addTo(gwbLayer)
-          })
-        })
-      })
-      gwbLayer.addTo(map)
+      const shapes = await getShapes(this.gebiedType || 'Gebied', () => ({
+        'color': 'gray',
+        'opacity': 0.5,
+        'weight': 1
+      }))
+
+      this.showShapes(shapes)
     },
-    async initialView () {
-      // const getGebieden = {
-      //   'Gebied': util.getAllGebieden,
-      //   'Wijk': util.getAllWijken,
-      //   'Buurt': util.getAllBuurten
-      // }
-      //
-      // const gebieden = await getGebieden[this.gebiedType]()
-      //
-      // clearLayers()
-      // gwbLayer = L.featureGroup()
-      // gebieden.forEach(g => {
-      //   util.getGwb(g.vollcode).then(gwb => {
-      //     const wgs84Geometrie = rdMultiPolygonToWgs84(gwb.geometrie)
-      //     wgs84Geometrie.map(geometry => {
-      //       const shape = L.polygon(geometry.coordinates, {
-      //         'color': 'gray',
-      //         'opacity': 0.5,
-      //         'weight': 1
-      //       })
-      //       shape.addTo(gwbLayer)
-      //     })
-      //   })
-      // })
-      // gwbLayer.addTo(map)
+
+    showShapes (shapes) {
+      clearLayers()
+      gwbLayer = L.featureGroup()
+      shapes.forEach(shape => shape.addTo(gwbLayer))
+      gwbLayer.addTo(map)
+      map.fitBounds(gwbLayer.getBounds())
+    },
+
+    async showVariables () {
+      const variables = await Promise.all(positieOntwikkeling.map(async po => {
+        const meta = await util.getMeta(po.variabele)
+        if (meta) {
+          return {
+            label: po.label || meta.label,
+            variable: meta.variabele
+          }
+        } else {
+          return {
+            label: po.label || po.variabele
+          }
+        }
+      }))
+      this.variables = variables
     }
+
   },
   watch: {
     async 'gwb' () {
       if (this.gwb) {
-        this.setGebiedType(util.getGebiedType(this.gwb.volledige_code))
+        this.own.gebiedType = util.getGebiedType(this.gwb.volledige_code)
+        // this.gebiedType = util.getGebiedType(this.gwb.volledige_code)
+        // Update of the map takes too much time to follow the gebied type
+        // this.updateData()
       }
     },
     'variable' () {
       this.updateData()
     }
   },
-  async created () {
-    this.variables = await Promise.all(positieOntwikkeling.map(async po => {
-      const meta = await util.getMeta(po.variabele)
-      if (meta) {
-        return {
-          label: po.label || meta.label,
-          variable: meta.variabele
-        }
-      } else {
-        return {
-          label: po.label || po.variabele
-        }
-      }
-    }))
 
-    this.gebiedType = util.getGebiedType(this.gwb.volledige_code)
-    this.initialView()
+  created () {
+    this.showVariables()
+    this.gwbView()
   },
+
   mounted () {
     map = L.map(this.$refs.map, {
       crs: rd,
