@@ -48,18 +48,6 @@ export function rdToWgs84 (rdCoordinates) {
   ]
 }
 
-export function tileLayer () {
-  return L.tileLayer(
-    'https://t1.data.amsterdam.nl/topo_rd_zw/{z}/{x}/{y}.png',
-    {
-      tms: true,
-      minZoom: 0,
-      maxZoom: 20,
-      opacity: 0.3
-    }
-  )
-}
-
 export function rdMultiPolygonToWgs84 (geometry) {
   if (geometry.type !== 'MultiPolygon') {
     console.error('Error in geometry type, "MultiPolygon" was expected', geometry.type)

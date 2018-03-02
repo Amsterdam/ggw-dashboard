@@ -3,16 +3,17 @@
   <div class="row">
     <div class="col-sm-6">
       <b-form-select v-model="variable"
+                     :disabled="loading || drawing"
                      :options="variables"
                      text-field="label"
                      value-field="variable">
       </b-form-select>
       <div ref="map" class="map"></div>
       <div class="text-center">
-        <!--<button class="btn" :disabled="!variable" :class="{'btn-primary': gebiedType === 'Stadsdeel'}" v-on:click="setGebiedType('Stadsdeel')">Stadsdelen</button>-->
-        <button class="btn" :disabled="!variable" :class="{'btn-primary': gebiedType === 'Gebied'}" @click="setGebiedType('Gebied')">Gebieden</button>
-        <button class="btn" :disabled="!variable" :class="{'btn-primary': gebiedType === 'Wijk'}" @click="setGebiedType('Wijk')">Wijken</button>
-        <button class="btn" :disabled="!variable" :class="{'btn-primary': gebiedType === 'Buurt'}" @click="setGebiedType('Buurt')">Buurten</button>
+        <button v-for="action in gebiedTypes" :key="action"
+                class="btn action-button" :disabled="!variable || loading || drawing"
+                :class="{'btn-primary': gebiedType === action}"
+                @click="setGebiedType(action)">{{action}}en</button>
       </div>
     </div>
     <div class="col-sm-6">
@@ -57,11 +58,10 @@
 </template>
 
 <script>
-import L from 'leaflet'
 import { mapGetters } from 'vuex'
-import { rd, tileLayer } from '../services/geojson'
 import util from '../services/util'
-import { getShapes } from '../services/map'
+import { getShapes, drawShapes, amsMap } from '../services/map'
+import { COLOR } from '../services/colorcoding'
 import positieOntwikkeling from '../../static/links/positie_en_ontwikkeling'
 
 let map
@@ -95,12 +95,14 @@ export default {
       own: null,
       ownIndex: null,
       highLow: [],
-      loading: false
+      loading: false,
+      drawing: false
     }
   },
   methods: {
     noCijfers () {
       this.loading = false
+      this.drawing = false
       this.highLow = []
       clearLayers()
     },
@@ -120,7 +122,6 @@ export default {
       } else if (this.gebiedType === 'Gebied' && this.gebied) {
         gwb = this.gebied
       }
-
       return util.getGebiedCijfers(this.variable, gwb, util.CIJFERS.LATEST)
     },
 
@@ -129,8 +130,8 @@ export default {
         return this.noCijfers()
       }
 
-      clearLayers()
       this.loading = true
+      clearLayers()
 
       this.own = await this.getOwn()
       if (!this.own && this.own.recent && this.own.recent.jaar) {
@@ -144,7 +145,9 @@ export default {
 
       this.loading = false
 
-      this.cijferView(cijfers)
+      if (cijfers) {
+        this.cijferView(cijfers)
+      }
     },
 
     async getCijfers (recentYear) {
@@ -179,6 +182,9 @@ export default {
     },
 
     async cijferView (cijfers) {
+      clearLayers()
+      this.drawing = true
+
       const cijfersLookup = {}
       cijfers.forEach(cijfer => { cijfersLookup[cijfer.gebiedcode15] = cijfer })
 
@@ -186,8 +192,8 @@ export default {
         const c = cijfersLookup[gebiedcode15]
         return {
           'fillOpacity': 0.8,
-          'fillColor': (c && c.color) || 'white',
-          'color': 'gray',
+          'fillColor': (c && c.color) || COLOR['ams-wit'],
+          'color': COLOR['ams-donkergrijs'],
           'opacity': 0.5,
           'weight': 1
         }
@@ -198,9 +204,10 @@ export default {
 
     async gwbView () {
       clearLayers()
+      this.drawing = true
 
       const shapes = await getShapes(this.gebiedType || 'Gebied', () => ({
-        'color': 'gray',
+        'color': COLOR['ams-donkergrijs'],
         'opacity': 0.5,
         'weight': 1
       }))
@@ -210,10 +217,11 @@ export default {
 
     showShapes (shapes) {
       clearLayers()
-      gwbLayer = L.featureGroup()
-      shapes.forEach(shape => shape.addTo(gwbLayer))
-      gwbLayer.addTo(map)
-      map.fitBounds(gwbLayer.getBounds())
+      this.drawing = true
+
+      gwbLayer = drawShapes(shapes, map)
+
+      this.drawing = false
     },
 
     async showVariables () {
@@ -235,14 +243,6 @@ export default {
 
   },
   watch: {
-    async 'gwb' () {
-      if (this.gwb) {
-        this.own.gebiedType = util.getGebiedType(this.gwb.volledige_code)
-        // this.gebiedType = util.getGebiedType(this.gwb.volledige_code)
-        // Update of the map takes too much time to follow the gebied type
-        // this.updateData()
-      }
-    },
     'variable' () {
       this.updateData()
     }
@@ -254,13 +254,7 @@ export default {
   },
 
   mounted () {
-    map = L.map(this.$refs.map, {
-      crs: rd,
-      zoomControl: true,
-      scrollWheelZoom: false
-    }).setView([52.35, 4.9], 6)
-
-    map.addLayer(tileLayer())
+    map = amsMap(this.$refs.map)
   }
 }
 </script>
@@ -280,5 +274,9 @@ export default {
 
 .highlight-own {
   color: $ams-blauw
+}
+
+.action-button {
+  margin-right: 5px;
 }
 </style>
