@@ -61,6 +61,10 @@
             </b-form-select>
           </div>
         </b-form>
+        <div class="text-right loadinfo">
+          <span v-if="HTTPStatus.error > 0" class="error">Gegevens incompleet!</span>
+          <img v-if="HTTPStatus.pending" class="loader" src="../../../static/icons/loading.gif">
+        </div>
       </div>
     </div>
   </div>
@@ -70,6 +74,7 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import util from '../../services/util'
+import { HTTPStatus } from '../../services/datareader'
 import { THEMAS, IN_HET_KORT } from '../../services/thema'
 
 function getSelectNone (title) {
@@ -98,7 +103,8 @@ export default {
       gebiedDetail: null,
       wijkDetail: null,
       buurtDetail: null,
-      themaDetail: null
+      themaDetail: null,
+      HTTPStatus
     }
   },
   computed: {
@@ -226,4 +232,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../../../static/ams";
+
+.loadinfo {
+  margin-right: 6px;
+  margin-top: 15px;
+}
+
+.loader {
+  width: 20px;
+}
+
+.error {
+  color: $ams-rood;
+  font-weight: bold;
+}
 </style>
