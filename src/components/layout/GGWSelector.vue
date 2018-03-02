@@ -10,6 +10,7 @@
           <div class="col-sm-9" v-if="selection.gebieden">
             <b-form-select v-model="selection.gebied"
                            @change="updateGebied"
+                           :disabled="HTTPStatus.pending > 0"
                            :options="selection.gebieden"
                            text-field="display"
                            value-field="vollcode"
@@ -24,6 +25,7 @@
           <div class="col-sm-9" v-if="selection.wijken">
             <b-form-select v-model="selection.wijk"
                            @change="updateWijk"
+                           :disabled="HTTPStatus.pending > 0"
                            :options="selection.wijken"
                            text-field="display"
                            value-field="vollcode"
@@ -37,6 +39,7 @@
           </div>
           <div class="col-sm-9" v-if="selection.buurten">
             <b-form-select v-model="selection.buurt"
+                           :disabled="HTTPStatus.pending > 0"
                            @change="updateBuurt"
                            :options="selection.buurten"
                            text-field="display"
@@ -53,6 +56,7 @@
           </div>
           <div class="col-sm-9" v-if="selection.themas">
             <b-form-select v-model="selection.thema"
+                           :disabled="HTTPStatus.pending > 0"
                            @change="updateThema"
                            :options="selection.themas"
                            text-field="text"

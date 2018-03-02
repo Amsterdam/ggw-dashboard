@@ -3,16 +3,17 @@
   <div class="row">
     <div class="col-sm-6">
       <b-form-select v-model="variable"
+                     :disabled="loading || drawing"
                      :options="variables"
                      text-field="label"
                      value-field="variable">
       </b-form-select>
       <div ref="map" class="map"></div>
       <div class="text-center">
-        <!--<button class="btn" :disabled="!variable" :class="{'btn-primary': gebiedType === 'Stadsdeel'}" v-on:click="setGebiedType('Stadsdeel')">Stadsdelen</button>-->
-        <button class="btn" :disabled="!variable" :class="{'btn-primary': gebiedType === 'Gebied'}" v-on:click="setGebiedType('Gebied')">Gebieden</button>
-        <button class="btn" :disabled="!variable" :class="{'btn-primary': gebiedType === 'Wijk'}" v-on:click="setGebiedType('Wijk')">Wijken</button>
-        <button class="btn" :disabled="!variable" :class="{'btn-primary': gebiedType === 'Buurt'}" v-on:click="setGebiedType('Buurt')">Buurten</button>
+        <button v-for="action in gebiedTypes" :key="action"
+                class="btn action-button" :disabled="!variable || loading || drawing"
+                :class="{'btn-primary': gebiedType === action}"
+                @click="setGebiedType(action)">{{action}}en</button>
       </div>
     </div>
     <div class="col-sm-6">
@@ -57,10 +58,10 @@
 </template>
 
 <script>
-import L from 'leaflet'
 import { mapGetters } from 'vuex'
-import { rd, rdMultiPolygonToWgs84, tileLayer } from '../services/geojson'
 import util from '../services/util'
+import { getShapes, drawShapes, amsMap } from '../services/map'
+import { COLOR } from '../services/colorcoding'
 import positieOntwikkeling from '../../static/links/positie_en_ontwikkeling'
 
 let map
@@ -87,19 +88,21 @@ export default {
       FRAGMENT: 5,
       variable: null,
       variables: [],
-      gebiedType: null,
+      gebiedType: 'Gebied',
       gebiedTypes: ['Gebied', 'Wijk', 'Buurt'],
       lowest: [],
       highest: [],
       own: null,
       ownIndex: null,
       highLow: [],
-      loading: false
+      loading: false,
+      drawing: false
     }
   },
   methods: {
     noCijfers () {
       this.loading = false
+      this.drawing = false
       this.highLow = []
       clearLayers()
     },
@@ -108,6 +111,7 @@ export default {
       this.gebiedType = type
       this.updateData()
     },
+
     async getOwn () {
       // Try to derive most recent year from the cijfers for the current gwb
       let gwb = this.gwb
@@ -118,31 +122,35 @@ export default {
       } else if (this.gebiedType === 'Gebied' && this.gebied) {
         gwb = this.gebied
       }
-
       return util.getGebiedCijfers(this.variable, gwb, util.CIJFERS.LATEST)
     },
-    async updateData () {
-      this.loading = true
 
-      if (this.gebiedType && !this.variable) {
-        this.initialView()
-        return this.noCijfers()
-      } else if (!(this.gebiedType && this.variable)) {
+    async updateData () {
+      if (!this.variable) {
         return this.noCijfers()
       }
+
+      this.loading = true
+      clearLayers()
 
       this.own = await this.getOwn()
-      if (!this.own) {
-        return this.noCijfers()
-      }
-
-      const recentYear = this.own.recent && this.own.recent.jaar
-      if (!recentYear) {
+      if (!this.own && this.own.recent && this.own.recent.jaar) {
+        // Unable to specify a search year...
         return this.noCijfers()
       }
 
       this.own.gebiedType = util.getGebiedType(this.own.recent.gebiedcode15)
 
+      const cijfers = await this.getCijfers(this.own.recent.jaar)
+
+      this.loading = false
+
+      if (cijfers) {
+        this.cijferView(cijfers)
+      }
+    },
+
+    async getCijfers (recentYear) {
       // Sort and filter cijfers for gebiedType and waarde
       let cijfers = await util.getAllCijfers(this.variable, recentYear)
       cijfers = cijfers.filter(c => c.waarde !== null)
@@ -150,6 +158,7 @@ export default {
       cijfers = cijfers.sort((c1, c2) => c2.waarde - c1.waarde)
 
       if (cijfers.length < 2 * this.FRAGMENT) {
+        // At least 5 low and high are expected
         return this.noCijfers()
       }
 
@@ -161,99 +170,91 @@ export default {
       const highLow = highest.concat(lowest.reverse())
 
       // Add gebieds info for the 10 remaining cijfers
-      const highLowGwbs = await Promise.all(highLow.map(async c => {
-        const gwb = await util.getGwb(c.gebiedcode15)
+      this.highLow = await Promise.all(highLow.map(async c => {
+        const gwb = await util.getGwbSummary(c.gebiedcode15)
         return {
           ...c,
           gwb
         }
       }))
 
-      this.loading = false
-      this.highLow = highLowGwbs
-      clearLayers()
-
-      gwbLayer = L.featureGroup()
-      cijfers.forEach(c => {
-        util.getGwb(c.gebiedcode15).then(gwb => {
-          const wgs84Geometrie = rdMultiPolygonToWgs84(gwb.geometrie)
-          wgs84Geometrie.map(geometry => {
-            const shape = L.polygon(geometry.coordinates, {
-              'fillOpacity': 0.8,
-              'fillColor': c.color,
-              'color': 'gray',
-              'opacity': 0.5,
-              'weight': 1
-            })
-            shape.addTo(gwbLayer)
-          })
-        })
-      })
-      gwbLayer.addTo(map)
+      return cijfers
     },
-    async initialView () {
-      // const getGebieden = {
-      //   'Gebied': util.getAllGebieden,
-      //   'Wijk': util.getAllWijken,
-      //   'Buurt': util.getAllBuurten
-      // }
-      //
-      // const gebieden = await getGebieden[this.gebiedType]()
-      //
-      // clearLayers()
-      // gwbLayer = L.featureGroup()
-      // gebieden.forEach(g => {
-      //   util.getGwb(g.vollcode).then(gwb => {
-      //     const wgs84Geometrie = rdMultiPolygonToWgs84(gwb.geometrie)
-      //     wgs84Geometrie.map(geometry => {
-      //       const shape = L.polygon(geometry.coordinates, {
-      //         'color': 'gray',
-      //         'opacity': 0.5,
-      //         'weight': 1
-      //       })
-      //       shape.addTo(gwbLayer)
-      //     })
-      //   })
-      // })
-      // gwbLayer.addTo(map)
+
+    async cijferView (cijfers) {
+      clearLayers()
+      this.drawing = true
+
+      const cijfersLookup = {}
+      cijfers.forEach(cijfer => { cijfersLookup[cijfer.gebiedcode15] = cijfer })
+
+      const shapes = await getShapes(this.gebiedType, (gebiedcode15) => {
+        const c = cijfersLookup[gebiedcode15]
+        return {
+          'fillOpacity': 0.8,
+          'fillColor': (c && c.color) || COLOR['ams-wit'],
+          'color': COLOR['ams-donkergrijs'],
+          'opacity': 0.5,
+          'weight': 1
+        }
+      })
+
+      this.showShapes(shapes)
+    },
+
+    async gwbView () {
+      clearLayers()
+      this.drawing = true
+
+      const shapes = await getShapes(this.gebiedType || 'Gebied', () => ({
+        'color': COLOR['ams-donkergrijs'],
+        'opacity': 0.5,
+        'weight': 1
+      }))
+
+      this.showShapes(shapes)
+    },
+
+    showShapes (shapes) {
+      clearLayers()
+      this.drawing = true
+
+      gwbLayer = drawShapes(shapes, map)
+
+      this.drawing = false
+    },
+
+    async showVariables () {
+      const variables = await Promise.all(positieOntwikkeling.map(async po => {
+        const meta = await util.getMeta(po.variabele)
+        if (meta) {
+          return {
+            label: po.label || meta.label,
+            variable: meta.variabele
+          }
+        } else {
+          return {
+            label: po.label || po.variabele
+          }
+        }
+      }))
+      this.variables = variables
     }
+
   },
   watch: {
-    async 'gwb' () {
-      if (this.gwb) {
-        this.setGebiedType(util.getGebiedType(this.gwb.volledige_code))
-      }
-    },
     'variable' () {
       this.updateData()
     }
   },
-  async created () {
-    this.variables = await Promise.all(positieOntwikkeling.map(async po => {
-      const meta = await util.getMeta(po.variabele)
-      if (meta) {
-        return {
-          label: po.label || meta.label,
-          variable: meta.variabele
-        }
-      } else {
-        return {
-          label: po.label || po.variabele
-        }
-      }
-    }))
 
-    this.gebiedType = util.getGebiedType(this.gwb.volledige_code)
-    this.initialView()
+  created () {
+    this.showVariables()
+    this.gwbView()
   },
-  mounted () {
-    map = L.map(this.$refs.map, {
-      crs: rd,
-      zoomControl: true,
-      scrollWheelZoom: false
-    }).setView([52.35, 4.9], 6)
 
-    map.addLayer(tileLayer())
+  mounted () {
+    map = amsMap(this.$refs.map)
   }
 }
 </script>
@@ -273,5 +274,9 @@ export default {
 
 .highlight-own {
   color: $ams-blauw
+}
+
+.action-button {
+  margin-right: 5px;
 }
 </style>
