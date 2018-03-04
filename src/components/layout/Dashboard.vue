@@ -1,17 +1,17 @@
 <template>
   <div>
     <div v-if="gwb && meta && thema">
-      <in-het-kort v-if="thema.id === IN_HET_KORT"></in-het-kort>
-      <bevolking v-if="thema.id === BEVOLKING"></bevolking>
-      <duurzaamheid-en-water v-if="thema.id === DUURZAAMHEID_EN_WATER"></duurzaamheid-en-water>
-      <economie-en-cultuur v-if="thema.id === ECONOMIE_EN_CULTUUR"></economie-en-cultuur>
-      <onderwijs-jeugd-en-diversiteit v-if="thema.id === ONDERWIJS_JEUGD_EN_DIVERSITEIT"></onderwijs-jeugd-en-diversiteit>
-      <openbare-orde-en-veiligheid v-if="thema.id === OPENBARE_ORDE_EN_VEILIGHEID"></openbare-orde-en-veiligheid>
-      <stedelijke-ontwikkeling-en-wonen v-if="thema.id === STEDELIJKE_ONTWIKKELING_EN_WONEN"></stedelijke-ontwikkeling-en-wonen>
-      <verkeer-en-openbare-ruimte v-if="thema.id === VERKEER_EN_OPENBARE_RUIMTE"></verkeer-en-openbare-ruimte>
-      <welzijn-zorg-en-sport v-if="thema.id === WELZIJN_ZORG_EN_SPORT"></welzijn-zorg-en-sport>
-      <werk-inkomen-en-participatie v-if="thema.id === WERK_INKOMEN_EN_PARTICIPATIE"></werk-inkomen-en-participatie>
-      <niet-in-mvp v-if="thema.id === NIET_IN_MVP"></niet-in-mvp>
+      <in-het-kort v-if="thema === IN_HET_KORT"></in-het-kort>
+      <bevolking v-if="thema === BEVOLKING"></bevolking>
+      <duurzaamheid-en-water v-if="thema === DUURZAAMHEID_EN_WATER"></duurzaamheid-en-water>
+      <economie-en-cultuur v-if="thema === ECONOMIE_EN_CULTUUR"></economie-en-cultuur>
+      <onderwijs-jeugd-en-diversiteit v-if="thema === ONDERWIJS_JEUGD_EN_DIVERSITEIT"></onderwijs-jeugd-en-diversiteit>
+      <openbare-orde-en-veiligheid v-if="thema === OPENBARE_ORDE_EN_VEILIGHEID"></openbare-orde-en-veiligheid>
+      <stedelijke-ontwikkeling-en-wonen v-if="thema === STEDELIJKE_ONTWIKKELING_EN_WONEN"></stedelijke-ontwikkeling-en-wonen>
+      <verkeer-en-openbare-ruimte v-if="thema === VERKEER_EN_OPENBARE_RUIMTE"></verkeer-en-openbare-ruimte>
+      <welzijn-zorg-en-sport v-if="thema === WELZIJN_ZORG_EN_SPORT"></welzijn-zorg-en-sport>
+      <werk-inkomen-en-participatie v-if="thema === WERK_INKOMEN_EN_PARTICIPATIE"></werk-inkomen-en-participatie>
+      <niet-in-mvp v-if="thema === NIET_IN_MVP"></niet-in-mvp>
     </div>
 
     <div v-else class="text-center">
