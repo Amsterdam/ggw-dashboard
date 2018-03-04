@@ -163,6 +163,11 @@ export default {
         return this.noCijfers()
       }
 
+      const variableDetail = this.variables.find(v => v.variable === this.variable)
+      if (variableDetail.revert) {
+        cijfers = cijfers.reverse()
+      }
+
       this.ownIndex = cijfers.findIndex(c => c.gebiedcode15 === this.own.recent.gebiedcode15) + 1
 
       // Get only the lowest and highest values
@@ -231,7 +236,8 @@ export default {
         if (meta) {
           return {
             label: po.label || meta.label,
-            variable: meta.variabele
+            variable: meta.variabele,
+            revert: meta.kleurenpalet === 2
           }
         } else {
           return {
