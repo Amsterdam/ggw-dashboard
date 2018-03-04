@@ -59,8 +59,6 @@
                            :disabled="HTTPStatus.pending > 0"
                            @change="updateThema"
                            :options="selection.themas"
-                           text-field="text"
-                           value-field="id"
                            id="selectThema">
             </b-form-select>
           </div>
@@ -180,7 +178,7 @@ export default {
     },
     async updateThema (themaId) {
       this.selection.thema = themaId
-      this.themaDetail = THEMAS[this.selection.thema]
+      this.themaDetail = this.selection.thema
       this.updateState()
     },
     updateState () {
