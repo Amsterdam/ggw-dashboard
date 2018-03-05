@@ -42,7 +42,7 @@
       </fieldset>
 
       <loading-component :simple="true" v-if="loading"></loading-component>
-      <div v-else-if="gebiedType && variable && !highLow.length" class="grid-wrapper wrapper_12 alert-wrapper bgcolor_darkgrey">
+      <div v-else-if="gebiedType && variable && !highLow.length" class="grid-wrapper wrapper_12 alert-wrapper bgcolor_orange">
         <div class="grid-container container_12 grid-alerts ">
           <div class="melding rich-content">
             Geen cijfers beschikbaar
@@ -50,41 +50,59 @@
         </div>
       </div>
       <div v-else>
-        <div v-if="own && own.gebiedType === gebiedType && own.recent">
-          <h4>Geselecteerde {{own.gebiedType.toLowerCase()}}</h4>
-          <span class="font-weight-bold">{{ownIndex}}</span>
-          {{own.gebied.naam}}:
-          <span
-            v-b-tooltip.hover v-b-tooltip.click v-b-tooltip.left
-            title="">
-            {{own.recent | displaywaarde}}
-          </span>
-        </div>
+        <table v-if="own && own.gebiedType === gebiedType && own.recent">
+          <thead>
+            <tr>
+              <th colspan="3">
+                Geselecteerde {{own.gebiedType.toLowerCase()}}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{ownIndex}}</td>
+              <td>{{own.gebied.naam}}</td>
+              <td>{{own.recent | displaywaarde}}</td>
+            </tr>
+          </tbody>
+        </table>
 
-        <div v-for="(item, index) in highLow" :key="index">
-          <h4 v-if="!(index % FRAGMENT)">
-            {{index === 0 ? 'Hoogst' : 'Laagst'}} scorende {{gebiedType.toLowerCase()}}
-          </h4>
-          <div>
-            <span class="font-weight-bold">{{index % FRAGMENT + 1}}</span>
-            <span :class="{'highlight-own': item.gwb.naam === own.gebied.naam}">
-              {{item.gwb.naam}}:
-              <span
-                v-b-tooltip.hover v-b-tooltip.click v-b-tooltip.left
-                title="">
-                {{item | displaywaarde}}
-              </span>
-            </span>
-          </div>
+        <table v-if="highLow.length">
+          <thead>
+          <tr>
+            <th colspan="3">
+              Hoogst scorende {{gebiedType.toLowerCase()}}
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr :class="{'highlight-own': item.gwb.naam === own.gebied.naam}" v-for="(item, index) in highLow" :key="index" v-if="index < FRAGMENT">
+            <td>{{index % FRAGMENT + 1}}</td>
+            <td>{{item.gwb.naam}}</td>
+            <td>{{item | displaywaarde}}</td>
+          </tr>
+          </tbody>
+        </table>
+
+        <table v-if="highLow.length">
+          <thead>
+          <tr>
+            <th colspan="3">
+              Laagst scorende {{gebiedType.toLowerCase()}}
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr :class="{'highlight-own': item.gwb.naam === own.gebied.naam}" v-for="(item, index) in highLow" :key="index" v-if="index >= FRAGMENT">
+            <td>{{index % FRAGMENT + 1}}</td>
+            <td>{{item.gwb.naam}}</td>
+            <td>{{item | displaywaarde}}</td>
+          </tr>
+          </tbody>
+        </table>
         </div>
       </div>
     </div>
-
-
-
-
-    </div>
-  </div>
 </template>
 
 <script>
@@ -302,12 +320,13 @@ export default {
     margin-bottom: 5px;
   }
 
-  .select {
-    width: 100%;
+  table {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
 
   .highlight-own {
-    color: $ams-blauw;
+    background-color: $ams-blauw;
   }
 
   .antwoord {
