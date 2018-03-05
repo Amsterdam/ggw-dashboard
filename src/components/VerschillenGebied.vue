@@ -349,16 +349,6 @@ export default {
     }
   }
 
-  .align-center {
-    > table {
-      margin: auto;
-    }
-  }
 
-  .align-right {
-    > table {
-      float: right;
-    }
-  }
 
 </style>

@@ -1,13 +1,13 @@
 <template>
-  <div>
-    <div class="Notification-grijs" v-for="(item, index) in data" :key="index">
+  <ul>
+    <li v-for="(item, index) in data" :key="index">
       {{item.label}}
       <span v-if="item.recent"
         v-b-tooltip.hover v-b-tooltip.click v-b-tooltip.left title="">
         {{item.recent | displaywaarde}}
       </span>
-    </div>
-  </div>
+    </li>
+  </ul>
 </template>
 
 <script>

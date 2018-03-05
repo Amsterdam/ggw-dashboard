@@ -12,10 +12,10 @@
 
       <div class="grid-element">
         <div class="grid-blok grid_12">
+          <color-legend></color-legend>
           <div class="grid-title">
             <h2>Samenstelling woningvoorraad en bevolking van {{gwb.naam}}</h2>
           </div>
-          <color-legend></color-legend>
           <div class="grid-blok grid_6 align-center">
             <horizontal-bar-chart
               title="Woningvoorraad"

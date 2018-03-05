@@ -21,9 +21,6 @@ export default {
 <style scoped>
 .icon-container {
   height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin-bottom: 5px;
 }
 
@@ -33,7 +30,6 @@ export default {
 }
 
 .title {
-  text-align: center;
   font-weight: bold;
 }
 </style>

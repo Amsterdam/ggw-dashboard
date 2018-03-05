@@ -3,12 +3,12 @@
     <div v-if="gwb && meta">
       <div class="grid-element">
         <div class="grid-blok grid_12">
+        <color-legend></color-legend>
           <div class="grid-title">
             <h2>Positie en ontwikkeling van {{gwb.naam}} t.o.v. het stedelijk gemiddelde</h2>
           </div>
         </div>
       </div>
-      <color-legend></color-legend>
       <div class="grid-blok grid_12">
         <data-table :config="positieOntwikkeling"></data-table>
       </div>
