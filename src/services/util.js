@@ -1,5 +1,6 @@
-import { getAllGebieden, getAllWijken, getAllBuurten, getWijken, getBuurten, getGebiedType, getGwb, getGwbSummary, getDetail } from './apis/gebieden'
+import { getAllGebieden, getAllWijken, getAllBuurten, getWijken, getBuurten, getGebiedType, getGwb, getGwbSummary, getDetail, GEBIED_TYPE } from './apis/gebieden'
 import { getAllMeta, getMeta, getAllCijfers, getGebiedCijfers, CIJFERS } from './apis/bbga'
+import { getGeometries as getGeoGeometries, GEBIED_TYPE as GEO_GEBIED_TYPE } from './apis/map'
 
 async function getLatestConfigCijfers (gwb, config) {
   const latestCijfers = await getConfigCijfers(gwb, config, CIJFERS.LATEST)
@@ -43,6 +44,25 @@ async function getConfigCijfers (gwb, config, recentOrAll = CIJFERS.ALL) {
   return Promise.all(data)
 }
 
+async function getGeometries (gebiedType) {
+  const geoGebiedType = {
+    [GEBIED_TYPE.Gebied]: GEO_GEBIED_TYPE.Gebied,
+    [GEBIED_TYPE.Wijk]: GEO_GEBIED_TYPE.Wijk,
+    [GEBIED_TYPE.Buurt]: GEO_GEBIED_TYPE.Buurt
+  }[gebiedType]
+
+  return getGeoGeometries(geoGebiedType)
+}
+
+async function getGwbs (gebiedType) {
+  const getAll = {
+    [GEBIED_TYPE.Gebied]: getAllGebieden,
+    [GEBIED_TYPE.Wijk]: getAllWijken,
+    [GEBIED_TYPE.Buurt]: getAllBuurten
+  }
+  return getAll[gebiedType]()
+}
+
 export default {
   getAllGebieden,
   getAllWijken,
@@ -59,5 +79,8 @@ export default {
   getGebiedCijfers,
   getGebiedType,
   getGwb,
-  getGwbSummary
+  getGwbs,
+  getGwbSummary,
+  GEBIED_TYPE,
+  getGeometries
 }

@@ -6,13 +6,13 @@ import { cacheResponse } from '../cache'
 const localGebiedscodes = {}
 gebiedscodes.forEach(g => { localGebiedscodes[g.gebiedcode] = g })
 
-// export const GEBIED_TYPE = {
-//   Stad: 'Stad',
-//   Stadsdeel: 'Stadsdeel',
-//   Gebied: 'Gebied',
-//   Wijk: 'Wijk',
-//   Buurt: 'Buurt'
-// }
+export const GEBIED_TYPE = {
+  Stad: 'Stad',
+  Stadsdeel: 'Stadsdeel',
+  Gebied: 'Gebied',
+  Wijk: 'Wijk',
+  Buurt: 'Buurt'
+}
 
 function getUrl (endpoint) {
   return `https://api.data.amsterdam.nl/gebieden${endpoint}`
@@ -71,15 +71,15 @@ export async function getBuurten (wijk) {
 
 export function getGebiedType (gebiedCode) {
   if (/^[A-Z]$/.test(gebiedCode)) {
-    return 'Stadsdeel'
+    return GEBIED_TYPE.Stadsdeel
   } else if (/^DX\d\d$/.test(gebiedCode)) {
-    return 'Gebied'
+    return GEBIED_TYPE.Gebied
   } else if (/^[A-Z]\d\d$/.test(gebiedCode)) {
-    return 'Wijk'
+    return GEBIED_TYPE.Wijk
   } else if (/^[A-Z]\d\d[a-z]$/.test(gebiedCode)) {
-    return 'Buurt'
+    return GEBIED_TYPE.Buurt
   } else if (/STAD/.test(gebiedCode)) {
-    return 'Stad'
+    return GEBIED_TYPE.Stad
   } else {
     return '?' + gebiedCode
   }
