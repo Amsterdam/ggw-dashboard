@@ -3,5 +3,30 @@
 //  specific
 //
 
-@import "~stijl/src/styles/ams-bootstrap";
+@import "~stijl/src/styles/ams-stijl";
 
+
+.sticky-top {
+  position: sticky;
+  top: 0;
+  background-color: $ams-wit;
+  box-shadow: 0 1px 1px 0 $ams-lichtgrijs;
+  z-index: 9999;
+}
+
+.page-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,.3);
+  z-index: 9999;
+
+  .loading-component {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

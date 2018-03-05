@@ -16,7 +16,7 @@
           </b-form-select>
         </div>
       </div>
-      <div ref="map" class="map"></div>
+      <div :ref="mapRef" class="map"></div>
 
 
       <fieldset class="rij mode_input text rij_verplicht">
@@ -42,8 +42,7 @@
         </div>
       </fieldset>
 
-      <loading-component :simple="true" v-if="loading"></loading-component>
-      <div v-else-if="gebiedType && variable && !highLow.length" class="grid-wrapper wrapper_12 alert-wrapper bgcolor_orange">
+      <div v-if="gebiedType && variable && !highLow.length" class="grid-wrapper wrapper_12 alert-wrapper bgcolor_orange">
         <div class="grid-container container_12 grid-alerts ">
           <div class="melding rich-content">
             Geen cijfers beschikbaar
@@ -112,7 +111,6 @@ import util from '../services/util'
 import { getShapes, drawShapes, amsMap } from '../services/map'
 import { COLOR } from '../services/colorcoding'
 import positieOntwikkeling from '../../static/links/positie_en_ontwikkeling'
-import loadingComponent from './LoadingComponent'
 
 let map
 let gwbLayer = null
@@ -125,9 +123,6 @@ function clearLayers () {
 }
 
 export default {
-  components: {
-    'loading-component': loadingComponent
-  },
   computed: {
     ...mapGetters([
       'gwb',

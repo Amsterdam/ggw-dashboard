@@ -19,15 +19,8 @@
           </div>
         </div>
       </div>
-
       <verschillen-gebied></verschillen-gebied>
-
-
     </div>
-
-
-    <loading-component v-else></loading-component>
-
   <div class="clear"></div>
     <footer>
       <meer-cijfers-en-informatie></meer-cijfers-en-informatie>
@@ -45,7 +38,6 @@ import verschillenGebied from '../VerschillenGebied'
 import positieOntwikkeling from '../../../static/links/positie_en_ontwikkeling'
 
 import meerCijfersEnInformatie from '../MeerCijfersEnInformatie'
-import loadingComponent from '../LoadingComponent'
 
 export default {
   name: 'DuurzaamheidEnWater',
@@ -53,7 +45,6 @@ export default {
     'data-table': dataTable,
     'verschillen-gebied': verschillenGebied,
     'meer-cijfers-en-informatie': meerCijfersEnInformatie,
-    'loading-component': loadingComponent
   },
   data () {
     return {

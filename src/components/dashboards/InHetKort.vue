@@ -62,8 +62,6 @@
         <data-table :config="positieOntwikkeling"></data-table>
       </div>
     </div>
-
-    <loading-component v-else></loading-component>
   </div>
 </template>
 
@@ -73,7 +71,6 @@ import horizontalBarChart from '../charts/HorizontalBarChart'
 import inAantallen from '../InAantallen'
 import dataTable from '../charts/DataTable'
 import pano from '../Pano'
-import loadingComponent from '../LoadingComponent'
 
 import woningVoorraad from '../../../static/links/woningvoorraad'
 import sociaalEconomisch from '../../../static/links/sociaaleconomisch'
@@ -88,7 +85,6 @@ export default {
     'in-aantallen': inAantallen,
     'pano': pano,
     'data-table': dataTable,
-    'loading-component': loadingComponent
   },
   data () {
     return {

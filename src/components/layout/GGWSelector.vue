@@ -79,7 +79,6 @@
         </div>
         <div class="absolute-loader">
           <span v-if="HTTPStatus.error > 0" class="error">Gegevens incompleet!</span>
-          <loading-component v-if="HTTPStatus.pending"></loading-component>
         </div>
       </div>
     </div>
@@ -92,7 +91,6 @@ import { mapActions, mapGetters } from 'vuex'
 import util from '../../services/util'
 import { HTTPStatus } from '../../services/datareader'
 import { THEMAS, IN_HET_KORT } from '../../services/thema'
-import loadingComponent from '../LoadingComponent'
 
 function getSelectNone (title) {
   return {
@@ -104,7 +102,6 @@ function getSelectNone (title) {
 export default {
   name: 'GGWSelector',
   components: {
-    'loading-component': loadingComponent
   },
   data () {
     return {
@@ -250,9 +247,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .absolute-loader {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-  }
 </style>

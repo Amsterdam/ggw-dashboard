@@ -25,6 +25,12 @@
         </div>
       </div>
     </div>
+
+    <transition name="fade">
+      <div class="page-overlay" v-if="HTTPStatus.pending > 0">
+          <loading-component></loading-component>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -33,6 +39,9 @@ import amsHeader from './components/layout/AMSHeader'
 import ggwSelector from './components/layout/GGWSelector'
 import gwbMap from './components/GWBMap'
 import colorLegend from './components/ColorLegend'
+import { HTTPStatus } from './services/datareader'
+import loadingComponent from './components/LoadingComponent'
+
 
 export default {
   name: 'App',
@@ -40,7 +49,13 @@ export default {
     'ams-header': amsHeader,
     'ggw-selector': ggwSelector,
     'gwb-map': gwbMap,
-    'color-legend': colorLegend
+    'color-legend': colorLegend,
+    'loading-component': loadingComponent
+  },
+  data() {
+    return {
+      HTTPStatus
+    }
   }
 }
 </script>
@@ -61,4 +76,12 @@ export default {
       padding-bottom: 0;
     }
   }
+
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .4s;
+  }
+  .fade-enter, .fade-leave-to {
+    opacity: 0;
+  }
+
 </style>

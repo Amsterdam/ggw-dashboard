@@ -13,8 +13,6 @@
       <werk-inkomen-en-participatie v-if="thema === WERK_INKOMEN_EN_PARTICIPATIE"></werk-inkomen-en-participatie>
       <niet-in-mvp v-if="thema === NIET_IN_MVP"></niet-in-mvp>
     </div>
-
-    <loading-component v-else></loading-component>
   </div>
 </template>
 
@@ -44,7 +42,6 @@ import verkeerEnOpenbareRuimte from '../dashboards/VerkeerEnOpenbareRuimte'
 import welzijnZorgEnSport from '../dashboards/WelzijnZorgEnSport'
 import werkInkomenEnParticipatie from '../dashboards/WerkInkomenEnParticipatie'
 import nietInMVP from '../dashboards/NietInMVP'
-import loadingComponent from '../LoadingComponent'
 
 export default {
   name: 'GGWDashboard',
@@ -60,7 +57,6 @@ export default {
     'welzijn-zorg-en-sport': welzijnZorgEnSport,
     'werk-inkomen-en-participatie': werkInkomenEnParticipatie,
     'niet-in-mvp': nietInMVP,
-    'loading-component': loadingComponent
   },
   data () {
     return {
