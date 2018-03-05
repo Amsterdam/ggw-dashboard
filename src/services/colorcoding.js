@@ -25,16 +25,12 @@ export const COLOR = {
 }
 
 export const CHART_COLORS = [
-  COLOR['ams-blauw'],
   COLOR['ams-rood'],
-  COLOR['ams-groen'],
-  COLOR['ams-paars'],
+  COLOR['ams-donkergrijs'],
+  COLOR['ams-middengrijs'],
   COLOR['ams-oranje'],
-  COLOR['ams-blauw'],
-  COLOR['ams-rood'],
-  COLOR['ams-groen'],
   COLOR['ams-paars'],
-  COLOR['ams-oranje']
+  COLOR['ams-geel']
 ]
 
 export const CATEGORY_COLORS = [
