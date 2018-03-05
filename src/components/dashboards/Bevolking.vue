@@ -45,7 +45,7 @@
 
       <div class="row">
         <div class="col-sm-8">
-          <line-chart :config="aantalInwoners"></line-chart>
+          <line-chart :config="aantalInwoners" colors="4"></line-chart>
         </div>
         <div class="col-sm-4">
           <woonvormen :config="andereInwoners"></woonvormen>
