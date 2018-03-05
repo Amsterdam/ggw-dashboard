@@ -73,7 +73,7 @@
 
       <div class="row">
         <div class="col-sm-6 offset-sm-6">
-          <stacked-bar-chart :config="huishoudsamenstelling"></stacked-bar-chart>
+          <stacked-bar-chart :config="huishoudsamenstelling" last="7"></stacked-bar-chart>
         </div>
       </div>
 

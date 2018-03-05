@@ -29,6 +29,11 @@ export const CHART_COLORS = [
   COLOR['ams-rood'],
   COLOR['ams-groen'],
   COLOR['ams-paars'],
+  COLOR['ams-oranje'],
+  COLOR['ams-blauw'],
+  COLOR['ams-rood'],
+  COLOR['ams-groen'],
+  COLOR['ams-paars'],
   COLOR['ams-oranje']
 ]
 
