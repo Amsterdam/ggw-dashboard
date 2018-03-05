@@ -8,6 +8,7 @@
           </div>
         </div>
       </div>
+      <color-legend></color-legend>
       <div class="grid-blok grid_12">
         <data-table :config="positieOntwikkeling"></data-table>
       </div>
@@ -38,6 +39,7 @@ import verschillenGebied from '../VerschillenGebied'
 import positieOntwikkeling from '../../../static/links/positie_en_ontwikkeling'
 
 import meerCijfersEnInformatie from '../MeerCijfersEnInformatie'
+import colorLegend from '../ColorLegend.vue'
 
 export default {
   name: 'DuurzaamheidEnWater',
@@ -45,6 +47,7 @@ export default {
     'data-table': dataTable,
     'verschillen-gebied': verschillenGebied,
     'meer-cijfers-en-informatie': meerCijfersEnInformatie,
+    'color-legend': colorLegend
   },
   data () {
     return {

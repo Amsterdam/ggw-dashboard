@@ -10,13 +10,12 @@
         </div>
       </div>
 
-
       <div class="grid-element">
         <div class="grid-blok grid_12">
           <div class="grid-title">
             <h2>Samenstelling woningvoorraad en bevolking van {{gwb.naam}}</h2>
           </div>
-
+          <color-legend></color-legend>
           <div class="grid-blok grid_6 align-center">
             <horizontal-bar-chart
               title="Woningvoorraad"
@@ -48,8 +47,6 @@
         </div>
       </div>
 
-
-
       <div class="grid-element">
         <div class="grid-blok grid_12">
           <div class="grid-title">
@@ -77,6 +74,7 @@ import sociaalEconomisch from '../../../static/links/sociaaleconomisch'
 import leeftijd from '../../../static/links/leeftijd'
 import migratieAchtergrond from '../../../static/links/migratieachtergrond'
 import positieOntwikkeling from '../../../static/links/positie_en_ontwikkeling'
+import colorLegend from '../ColorLegend'
 
 export default {
   name: 'InHetKort',
@@ -85,6 +83,7 @@ export default {
     'in-aantallen': inAantallen,
     'pano': pano,
     'data-table': dataTable,
+    'color-legend': colorLegend
   },
   data () {
     return {
@@ -110,7 +109,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
   .align-center {
     text-align: center;

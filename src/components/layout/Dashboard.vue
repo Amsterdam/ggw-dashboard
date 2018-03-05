@@ -56,7 +56,7 @@ export default {
     'verkeer-en-openbare-ruimte': verkeerEnOpenbareRuimte,
     'welzijn-zorg-en-sport': welzijnZorgEnSport,
     'werk-inkomen-en-participatie': werkInkomenEnParticipatie,
-    'niet-in-mvp': nietInMVP,
+    'niet-in-mvp': nietInMVP
   },
   data () {
     return {

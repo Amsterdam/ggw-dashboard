@@ -14,7 +14,6 @@
       <div class="grid-container container_12 breakout-container">
         <div class="grid-zone grid_12 z-kolom1-4_1 breakout-zone hasbgcolor bgcolor_superlightgrey">
           <gwb-map></gwb-map>
-          <color-legend></color-legend>
         </div>
       </div>
     </div>
@@ -38,10 +37,8 @@
 import amsHeader from './components/layout/AMSHeader'
 import ggwSelector from './components/layout/GGWSelector'
 import gwbMap from './components/GWBMap'
-import colorLegend from './components/ColorLegend'
 import { HTTPStatus } from './services/datareader'
 import loadingComponent from './components/LoadingComponent'
-
 
 export default {
   name: 'App',
@@ -49,7 +46,6 @@ export default {
     'ams-header': amsHeader,
     'ggw-selector': ggwSelector,
     'gwb-map': gwbMap,
-    'color-legend': colorLegend,
     'loading-component': loadingComponent
   },
   data() {

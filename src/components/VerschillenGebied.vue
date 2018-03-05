@@ -18,7 +18,6 @@
       </div>
       <div :ref="mapRef" class="map"></div>
 
-
       <fieldset class="rij mode_input text rij_verplicht">
         <div class="antwoorden checkboxen">
           <div class="label">
@@ -42,7 +41,7 @@
         </div>
       </fieldset>
 
-      <div v-if="gebiedType && variable && !highLow.length" class="grid-wrapper wrapper_12 alert-wrapper bgcolor_orange">
+      <div v-if="!loading && gebiedType && variable && !highLow.length" class="grid-wrapper wrapper_12 alert-wrapper bgcolor_orange">
         <div class="grid-container container_12 grid-alerts ">
           <div class="melding rich-content">
             Geen cijfers beschikbaar
@@ -50,56 +49,61 @@
         </div>
       </div>
       <div v-else>
-        <table v-if="own && own.gebiedType === gebiedType && own.recent">
-          <thead>
+        <div class="grid-blok grid_12 align-center">
+          <table v-if="own && own.gebiedType === gebiedType && own.recent">
+            <thead>
+              <tr>
+                <th colspan="3">
+                  Geselecteerde {{own.gebiedType.toLowerCase()}}
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{ownIndex}}</td>
+                <td>{{own.gebied.naam}}</td>
+                <td>{{own.recent | displaywaarde}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="grid-blok grid_6 align-right">
+          <table v-if="highLow.length">
+            <thead>
             <tr>
               <th colspan="3">
-                Geselecteerde {{own.gebiedType.toLowerCase()}}
+                Hoogst scorende {{gebiedType.toLowerCase()}}
               </th>
             </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>{{ownIndex}}</td>
-              <td>{{own.gebied.naam}}</td>
-              <td>{{own.recent | displaywaarde}}</td>
+            </thead>
+            <tbody>
+            <tr :class="{'highlight-own': item.gwb.naam === own.gebied.naam}" v-for="(item, index) in highLow" :key="index" v-if="index < FRAGMENT">
+              <td>{{index % FRAGMENT + 1}}</td>
+              <td>{{item.gwb.naam}}</td>
+              <td>{{item | displaywaarde}}</td>
             </tr>
-          </tbody>
-        </table>
+            </tbody>
+          </table>
+        </div>
 
-        <table v-if="highLow.length">
-          <thead>
-          <tr>
-            <th colspan="3">
-              Hoogst scorende {{gebiedType.toLowerCase()}}
-            </th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr :class="{'highlight-own': item.gwb.naam === own.gebied.naam}" v-for="(item, index) in highLow" :key="index" v-if="index < FRAGMENT">
-            <td>{{index % FRAGMENT + 1}}</td>
-            <td>{{item.gwb.naam}}</td>
-            <td>{{item | displaywaarde}}</td>
-          </tr>
-          </tbody>
-        </table>
-
-        <table v-if="highLow.length">
-          <thead>
-          <tr>
-            <th colspan="3">
-              Laagst scorende {{gebiedType.toLowerCase()}}
-            </th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr :class="{'highlight-own': item.gwb.naam === own.gebied.naam}" v-for="(item, index) in highLow" :key="index" v-if="index >= FRAGMENT">
-            <td>{{index % FRAGMENT + 1}}</td>
-            <td>{{item.gwb.naam}}</td>
-            <td>{{item | displaywaarde}}</td>
-          </tr>
-          </tbody>
-        </table>
+        <div class="grid-blok grid_6">
+          <table v-if="highLow.length">
+            <thead>
+            <tr>
+              <th colspan="3">
+                Laagst scorende {{gebiedType.toLowerCase()}}
+              </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr :class="{'highlight-own': item.gwb.naam === own.gebied.naam}" v-for="(item, index) in highLow" :key="index" v-if="index >= FRAGMENT">
+              <td>{{index % FRAGMENT + 1}}</td>
+              <td>{{item.gwb.naam}}</td>
+              <td>{{item | displaywaarde}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
         </div>
       </div>
     </div>
@@ -324,8 +328,7 @@ export default {
   }
 
   table {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin: 1rem;
   }
 
   .highlight-own {
@@ -347,4 +350,17 @@ export default {
       margin-top: -1rem;
     }
   }
+
+  .align-center {
+    > table {
+      margin: auto;
+    }
+  }
+
+  .align-right {
+    > table {
+      float: right;
+    }
+  }
+
 </style>

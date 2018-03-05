@@ -30,3 +30,14 @@
     transform: translate(-50%, -50%);
   }
 }
+
+.chart-container {
+  &:hover {
+    background-color: $ams-top-menu;
+  }
+}
+
+.breakout-zone {
+  padding-top: 10px !important; // override amssterdam.css
+  margin-bottom: 10px;
+}

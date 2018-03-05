@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div>Betekenis kleuren:</div>
+  <div class="grid-zone grid_12 z-kolom1-4_1 breakout-zone hasbgcolor bgcolor_superlightgrey fullwidth">
+    <h4>Betekenis kleuren</h4>
     <div class="legend">
       <div v-for="entry in legend" :key="entry.color" class="legend-entry">
         <span :style="getBulletStyle(entry)" class="legend-bullet">&#9634;</span>
@@ -46,7 +46,9 @@ export default {
 
 </script>
 
-<style>
+<style lang="scss">
+  @import '~stijl/src/styles/generic/ams-colorpalette';
+
   .legend {
     display: flex;
     flex-wrap: wrap;
@@ -63,4 +65,9 @@ export default {
     border: 1px solid;
     margin-right: 7px;
   }
+
+  .fullwidth {
+    box-shadow: 50vw 0 0 0 $ams-top-menu, -50vw 0 0 0 $ams-top-menu;
+  }
+
 </style>
