@@ -7,10 +7,10 @@
 
       <div class="row">
         <div class="col-sm">
-          <horizontal-text title="Bedrijvigheid" icon="x.jpg" :config="bedrijvigheid"></horizontal-text>
+          <horizontal-text title="Bedrijvigheid" icon="Missing.jpg" :config="bedrijvigheid"></horizontal-text>
         </div>
         <div class="col-sm">
-          <horizontal-text title="Cultuur" icon="x.svg" :config="cultuur"></horizontal-text>
+          <horizontal-text title="Cultuur" icon="Missing.jpg" :config="cultuur"></horizontal-text>
         </div>
       </div>
 

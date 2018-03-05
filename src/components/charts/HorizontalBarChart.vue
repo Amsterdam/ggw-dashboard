@@ -1,8 +1,9 @@
 <template>
   <div class="chart-container" v-if="gwb">
     <div class="text-center">
-      <div><img :src="'../../static/icons/' + icon"></div>
-      <div>{{title}}</div>
+      <div>
+        <icon :icon="icon" :title="title"></icon>
+      </div>
     </div>
 
     <div :ref="chartRef"></div>
@@ -12,6 +13,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import icon from '../Icon'
 import util from '../../services/util'
 import vegaEmbed from 'vega-embed'
 import vegaSpec from '../../../static/charts/horizontalbar'
@@ -28,6 +30,7 @@ const vegaEmbedOptions = {
 export default {
   name: 'HorizontalBarChart',
   components: {
+    'icon': icon
   },
   props: [
     'title',
@@ -77,6 +80,5 @@ export default {
 
 </script>
 
-<style lang="scss" scoped>
-
+<style>
 </style>

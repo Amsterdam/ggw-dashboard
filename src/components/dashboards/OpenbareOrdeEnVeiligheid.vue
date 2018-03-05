@@ -8,10 +8,10 @@
 
       <div class="row">
         <div class="col-sm">
-          <horizontal-text title="Veiligheid" icon="x.jpg" :config="veiligheid"></horizontal-text>
+          <horizontal-text title="Veiligheid" icon="veelpleger.jpg" :config="veiligheid"></horizontal-text>
         </div>
         <div class="col-sm">
-          <horizontal-text title="Overlast" icon="x.svg" :config="overlast"></horizontal-text>
+          <horizontal-text title="Overlast" icon="silhouet daders.jpg" :config="overlast"></horizontal-text>
         </div>
       </div>
 

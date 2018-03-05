@@ -6,20 +6,20 @@ import { cacheResponse } from '../cache'
 const localGebiedscodes = {}
 gebiedscodes.forEach(g => { localGebiedscodes[g.gebiedcode] = g })
 
-// export const GEBIED_TYPE = {
-//   Stad: 'Stad',
-//   Stadsdeel: 'Stadsdeel',
-//   Gebied: 'Gebied',
-//   Wijk: 'Wijk',
-//   Buurt: 'Buurt'
-// }
+export const GEBIED_TYPE = {
+  Stad: 'Stad',
+  Stadsdeel: 'Stadsdeel',
+  Gebied: 'Gebied',
+  Wijk: 'Wijk',
+  Buurt: 'Buurt'
+}
 
 function getUrl (endpoint) {
   return `https://api.data.amsterdam.nl/gebieden${endpoint}`
 }
 
 function enhanceGWB (gwb) {
-  gwb.vollcode = gwb.vollcode || gwb._display.match(/\((.*)\)/)[1] // Gebied and Buurt
+  gwb.vollcode = gwb.vollcode || gwb.volledige_code || gwb._display.match(/\((.*)\)$/)[1] // Gebied and Buurt
   gwb.code = gwb.code || gwb.vollcode
   gwb.volledige_code = gwb.volledige_code || gwb.vollcode
   gwb.gebiedType = getGebiedType(gwb.volledige_code)
@@ -38,10 +38,13 @@ function getKeyFromUrl (url) {
 }
 
 export async function getDetail (entity) {
-  const url = entity._links.self.href
-  const data = await readData(url)
-  enhanceGWB(data)
-  return data
+  async function getData () {
+    const url = entity._links.self.href
+    const data = await readData(url)
+    enhanceGWB(data)
+    return data
+  }
+  return cacheResponse(`GWB.detail.${entity.vollcode}`, getData)
 }
 
 export async function getWijken (gebied) {
@@ -68,44 +71,50 @@ export async function getBuurten (wijk) {
 
 export function getGebiedType (gebiedCode) {
   if (/^[A-Z]$/.test(gebiedCode)) {
-    return 'Stadsdeel'
+    return GEBIED_TYPE.Stadsdeel
   } else if (/^DX\d\d$/.test(gebiedCode)) {
-    return 'Gebied'
+    return GEBIED_TYPE.Gebied
   } else if (/^[A-Z]\d\d$/.test(gebiedCode)) {
-    return 'Wijk'
+    return GEBIED_TYPE.Wijk
   } else if (/^[A-Z]\d\d[a-z]$/.test(gebiedCode)) {
-    return 'Buurt'
+    return GEBIED_TYPE.Buurt
   } else if (/STAD/.test(gebiedCode)) {
-    return 'Stad'
+    return GEBIED_TYPE.Stad
   } else {
     return '?' + gebiedCode
   }
 }
 
-export async function getGwb (code) {
-  async function getData () {
-    const gebiedType = getGebiedType(code)
-    let gwb = null
+const GWB = {} // local dict to get GWB for a given code
 
-    if (gebiedType === 'Gebied') {
-      const allGebieden = await getAllGebieden()
-      gwb = allGebieden.find(g => g.code === code)
-    } else if (gebiedType === 'Wijk') {
-      const allWijken = await getAllWijken()
-      gwb = allWijken.find(w => w.vollcode === code)
-    } else if (gebiedType === 'Buurt') {
-      const allBuurten = await getAllBuurten()
-      const searchCode = code.substring(1)
-      gwb = allBuurten.find(b => b.code === searchCode && b._display.includes(code))
-    } else {
-      console.error('Unknown gebied type', gebiedType, code)
-      return
-    }
-
-    return readData(gwb._links.self.href)
+export async function getGwbSummary (code) {
+  if (GWB[code]) {
+    return GWB[code]
   }
 
-  return cacheResponse(`GWB.${code}`, getData)
+  const gebiedType = getGebiedType(code)
+  let gwbCollection = []
+
+  if (gebiedType === 'Gebied') {
+    gwbCollection = await getAllGebieden()
+  } else if (gebiedType === 'Wijk') {
+    gwbCollection = await getAllWijken()
+  } else if (gebiedType === 'Buurt') {
+    gwbCollection = await getAllBuurten()
+  } else {
+    console.error('Unknown gebied type', gebiedType, code)
+    return null
+  }
+
+  GWB[code] = gwbCollection.find(item => item.vollcode === code)
+  return GWB[code]
+}
+
+export async function getGwb (code) {
+  const gwb = await getGwbSummary(code)
+  if (gwb) {
+    return getDetail(gwb)
+  }
 }
 
 export async function getAllGebieden () {

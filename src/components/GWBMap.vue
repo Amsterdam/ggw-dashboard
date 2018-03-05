@@ -1,12 +1,12 @@
 <!--Example of a component that uses Leaflet-->
 <template>
-  <div class="map"></div>
+  <div class="map" :ref="mapRef"></div>
 </template>
 
 <script>
-import L from 'leaflet'
 import { mapGetters } from 'vuex'
-import { rd, rdMultiPolygonToWgs84, tileLayer } from '../services/geojson'
+import { getGWBShapes, drawShapes, amsMap } from '../services/map'
+import { COLOR } from '../services/colorcoding'
 
 let map
 let gwbLayer = null
@@ -16,6 +16,11 @@ export default {
     ...mapGetters([
       'gwb'
     ])
+  },
+  data () {
+    return {
+      mapRef: `${this._uid}.map`
+    }
   },
   methods: {
     async updateData () {
@@ -27,16 +32,10 @@ export default {
         return
       }
 
-      const wgs84Geometrie = rdMultiPolygonToWgs84(this.gwb.geometrie)
-
-      const style = {
-        'color': '#EC0000'
-      }
-
-      gwbLayer = L.featureGroup()
-      wgs84Geometrie.map(geometry => L.polygon(geometry.coordinates, style).addTo(gwbLayer))
-      gwbLayer.addTo(map)
-      map.fitBounds(gwbLayer.getBounds())
+      const shapes = getGWBShapes(this.gwb, () => ({
+        'color': COLOR['ams-rood']
+      }))
+      gwbLayer = drawShapes(shapes, map)
     }
   },
   watch: {
@@ -45,14 +44,7 @@ export default {
     }
   },
   mounted () {
-    map = L.map(this.$el, {
-      crs: rd,
-      zoomControl: false,
-      scrollWheelZoom: false
-    }).setView([52.35, 4.9], 12)
-
-    map.addLayer(tileLayer())
-
+    map = amsMap(this.$refs[this.mapRef])
     this.updateData()
   }
 }

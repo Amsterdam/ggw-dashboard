@@ -11,12 +11,12 @@
               </div>
               <div class="invoer">
                 <b-form-select v-model="selection.gebied"
+                               :disabled="HTTPStatus.pending > 0 || !selection.gebieden"
                                @change="updateGebied"
                                :options="selection.gebieden"
                                text-field="display"
                                value-field="vollcode"
-                               id="selectGebied"
-                               :disabled="!selection.gebieden">
+                               id="selectGebied">
                 </b-form-select>
               </div>
             </div>
@@ -26,12 +26,12 @@
               </div>
               <div class="invoer">
                 <b-form-select v-model="selection.wijk"
+                               :disabled="HTTPStatus.pending > 0 || !selection.wijken"
                                @change="updateWijk"
                                :options="selection.wijken"
                                text-field="display"
                                value-field="vollcode"
-                               id="selectWijk"
-                               :disabled="!selection.wijken">
+                               id="selectWijk">
                 </b-form-select>
               </div>
             </div>
@@ -45,12 +45,12 @@
               </div>
               <div class="invoer">
                 <b-form-select v-model="selection.buurt"
+                               :disabled="HTTPStatus.pending > 0 || !selection.buurten"
                                @change="updateBuurt"
                                :options="selection.buurten"
                                text-field="display"
                                value-field="vollcode"
-                               id="selectBuurt"
-                               :disabled="!selection.buurten">
+                               id="selectBuurt">
                   <template slot="first" v-if="!selection.buurten">
                     <!-- this slot appears above the options from 'options' prop -->
                     <option :value="null" disabled>-- Selecteer een wijk om buurten te zien --</option>
@@ -66,26 +66,33 @@
               </div>
               <div class="invoer">
                 <b-form-select v-model="selection.thema"
+                               :disabled="HTTPStatus.pending > 0 || !selection.themas"
                                @change="updateThema"
                                :options="selection.themas"
                                text-field="text"
                                value-field="id"
-                               id="selectThema"
-                               :disabled="!selection.themas">
+                               id="selectThema">
                 </b-form-select>
               </div>
             </div>
           </div>
         </div>
+        <div class="absolute-loader">
+          <span v-if="HTTPStatus.error > 0" class="error">Gegevens incompleet!</span>
+          <loading-component v-if="HTTPStatus.pending"></loading-component>
+        </div>
       </div>
     </div>
   </div>
+
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import util from '../../services/util'
+import { HTTPStatus } from '../../services/datareader'
 import { THEMAS, IN_HET_KORT } from '../../services/thema'
+import loadingComponent from '../LoadingComponent'
 
 function getSelectNone (title) {
   return {
@@ -97,6 +104,7 @@ function getSelectNone (title) {
 export default {
   name: 'GGWSelector',
   components: {
+    'loading-component': loadingComponent
   },
   data () {
     return {
@@ -113,7 +121,8 @@ export default {
       gebiedDetail: null,
       wijkDetail: null,
       buurtDetail: null,
-      themaDetail: null
+      themaDetail: null,
+      HTTPStatus
     }
   },
   computed: {
@@ -185,7 +194,7 @@ export default {
     },
     async updateThema (themaId) {
       this.selection.thema = themaId
-      this.themaDetail = THEMAS[this.selection.thema]
+      this.themaDetail = this.selection.thema
       this.updateState()
     },
     updateState () {
@@ -241,4 +250,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  .absolute-loader {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 </style>

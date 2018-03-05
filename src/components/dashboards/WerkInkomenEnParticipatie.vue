@@ -8,10 +8,10 @@
 
       <div class="row">
         <div class="col-sm">
-          <horizontal-text title="Welzijn en zorg" icon="x.jpg" :config="werkInkomen"></horizontal-text>
+          <horizontal-text title="Werk en inkomen" icon="GASD_Icoon_Werk en inkomen.png" :config="werkInkomen"></horizontal-text>
         </div>
         <div class="col-sm">
-          <horizontal-text title="Sport" icon="x.svg" :config="participatie"></horizontal-text>
+          <horizontal-text title="Participatie" icon="GASD_Icoon_Ondernemen.png" :config="participatie"></horizontal-text>
         </div>
       </div>
 

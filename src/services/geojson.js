@@ -48,16 +48,27 @@ export function rdToWgs84 (rdCoordinates) {
   ]
 }
 
-export function tileLayer () {
-  return L.tileLayer(
-    'https://t1.data.amsterdam.nl/topo_rd_zw/{z}/{x}/{y}.png',
-    {
-      tms: true,
-      minZoom: 0,
-      maxZoom: 20,
-      opacity: 0.3
-    }
-  )
+export function rdPolygonToWgs84 (geometry) {
+  if (geometry.type !== 'Polygon') {
+    console.error('Error in geometry type, "Polygon" was expected', geometry.type)
+  }
+
+  // {
+  //   'type': 'Polygon',
+  //   'coordinates': [
+  //       [
+  //         [-99.028, 46.985], [-99.028, 50.979],
+  //         [-82.062, 50.979], [-82.062, 47.002],
+  //         [-99.028, 46.985]
+  //       ]
+  // }
+
+  return {
+    type: 'Polygon',
+    coordinates: [
+      geometry.coordinates[0].map(rdCoordinate => rdToWgs84(rdCoordinate))
+    ]
+  }
 }
 
 export function rdMultiPolygonToWgs84 (geometry) {

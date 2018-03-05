@@ -1,5 +1,5 @@
 <template>
-  <div class="text-center">
+  <div class="chart-container">
     <div :ref="chartRef"></div>
   </div>
 </template>

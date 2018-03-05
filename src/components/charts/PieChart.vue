@@ -4,7 +4,9 @@
       <h5 v-b-tooltip.hover v-b-tooltip.click v-b-tooltip.top title="">
         {{title}}
       </h5>
-      <div :ref="chartRef"></div>
+      <div class="chart-container">
+        <div :ref="chartRef"></div>
+      </div>
     </div>
   </div>
 </template>

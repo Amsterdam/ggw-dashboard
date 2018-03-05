@@ -8,10 +8,10 @@
 
       <div class="row">
         <div class="col-sm">
-          <horizontal-text title="Welzijn en zorg" icon="x.jpg" :config="welzijnZorg"></horizontal-text>
+          <horizontal-text title="Welzijn en zorg" icon="Eva_oma_rollator.png" :config="welzijnZorg"></horizontal-text>
         </div>
         <div class="col-sm">
-          <horizontal-text title="Sport" icon="x.svg" :config="sport"></horizontal-text>
+          <horizontal-text title="Sport" icon="Adam_sport_WT_voetbal.png" :config="sport"></horizontal-text>
         </div>
       </div>
 
