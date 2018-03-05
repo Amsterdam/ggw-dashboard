@@ -1,0 +1,22 @@
+[
+  {
+    "label": "Overig",
+    "variabele": "BevoverigHH_p"
+  },
+  {
+    "label": "Eenoudergezin",
+    "variabele": "BeveenouderHH_p"
+  },
+  {
+    "label": "Stel met kinderen",
+    "variabele": "BevpaarmkindHH_p"
+  },
+  {
+    "label": "Stel zonder kinderen",
+    "variabele": "BevpaarzkindHH_p"
+  },
+  {
+    "label": "Eenpersoons huishouden",
+    "variabele": "BevalleenHH_p"
+  }
+]

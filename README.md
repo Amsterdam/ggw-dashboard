@@ -2,6 +2,11 @@
 
 > A Vue.js project
 
+## Requirements
+
+    node >= 6.0
+    npm >= 3.0
+
 ## Build Setup
 
 ``` bash

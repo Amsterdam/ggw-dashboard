@@ -24,7 +24,8 @@ export default {
   components: {
   },
   props: [
-    'config'
+    'config',
+    'last'
   ],
   data () {
     return {
@@ -40,16 +41,22 @@ export default {
   methods: {
     async updateData () {
       this.chartdata = await util.getConfigCijfers(this.gwb, this.config)
-      vegaSpec.data.values = []
-      this.chartdata.forEach(data => {
-        vegaSpec.data.values = vegaSpec.data.values.concat(
+
+      let cijfers = util.flatten(
+        this.chartdata.map(data =>
           data.cijfers.map(cijfer => ({
             x: cijfer.jaar,
             y: cijfer.waarde,
             variable: data.label
-          }))
-        )
-      })
+          }))))
+
+      const maxYear = cijfers.reduce((max, cijfer) => cijfer.x > max ? cijfer.x : max, -1)
+
+      if (this.last) {
+        cijfers = cijfers.filter(cijfer => cijfer.x > maxYear - this.last)
+      }
+
+      vegaSpec.data.values = cijfers
       vegaSpec.scales[2].range = CHART_COLORS
       vegaEmbed(this.$refs[this.chartRef], vegaSpec, vegaEmbedOptions)
     }
