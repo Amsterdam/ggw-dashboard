@@ -3,24 +3,19 @@ import L from 'leaflet'
 import util from '../services/util'
 import { rd, rdMultiPolygonToWgs84 } from '../services/geojson'
 
+const allGeometries = {}
+
 export async function getShapes (gebiedType, getStyle) {
-  const getGebieden = {
-    'Gebied': util.getAllGebieden,
-    'Wijk': util.getAllWijken,
-    'Buurt': util.getAllBuurten
-  }
-  const gwbs = await getGebieden[gebiedType]()
+  const gwbs = await util.getGwbs(gebiedType)
 
-  // Get gwb details, load in parallel, wait for all finished
-  const gwbDetails = await Promise.all(
-    gwbs.map(gwb => util.getGwb(gwb.vollcode))
-  )
+  allGeometries[gebiedType] = allGeometries[gebiedType] || await util.getGeometries(gebiedType)
 
-  // Transform each gwb geometry into L.Polygon[]
-  // Save the polygons with the gwb for faster access
-  let polygons = []
-  gwbDetails.forEach(gwb => { polygons = polygons.concat(getGWBShapes(gwb, getStyle)) })
-  return polygons
+  const geometries = allGeometries[gebiedType]
+
+  return gwbs.map(gwb => {
+    const geometry = geometries[gwb.vollcode] || geometries[gwb.code]
+    return L.polygon(geometry.coordinates, getStyle(gwb.vollcode))
+  })
 }
 
 export function getGWBShapes (gwb, getStyle) {
