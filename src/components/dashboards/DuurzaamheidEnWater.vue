@@ -23,9 +23,7 @@
       <verschillen-gebied></verschillen-gebied>
     </div>
   <div class="clear"></div>
-    <footer>
-      <meer-cijfers-en-informatie></meer-cijfers-en-informatie>
-    </footer>
+  <meer-cijfers-en-informatie></meer-cijfers-en-informatie>
   <div class="clear"></div>
   </div>
 </template>

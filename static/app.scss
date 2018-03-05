@@ -5,6 +5,9 @@
 
 @import "~stijl/src/styles/ams-stijl";
 
+.grid-wrapper {
+  padding: 0 !important; // TEMP
+}
 
 .sticky-top {
   position: sticky;
@@ -20,7 +23,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0,0,0,.3);
+  background-color: rgba(0,0,0,.4);
   z-index: 9999;
 
   .loading-component {
@@ -40,4 +43,13 @@
 .breakout-zone {
   padding-top: 10px !important; // override amssterdam.css
   margin-bottom: 10px;
+}
+
+.pad-top-bottom {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.grid-title + .fullwidth {
+  margin-top: -20px;
 }

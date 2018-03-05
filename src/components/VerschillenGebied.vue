@@ -1,6 +1,5 @@
 <!--Example of a component that uses Leaflet-->
 <template>
-  <div class="grid-element">
     <div class="grid-blok grid_12">
       <div class="rij mode_input selectie">
         <div class="invoer">
@@ -106,7 +105,6 @@
         </div>
         </div>
       </div>
-    </div>
 </template>
 
 <script>
