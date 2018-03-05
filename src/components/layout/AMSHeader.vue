@@ -1,4 +1,3 @@
-<!--Example of a component that uses D3-->
 <template>
   <div class="row">
     <div class="col-sm-5">

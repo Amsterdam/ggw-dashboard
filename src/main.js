@@ -15,7 +15,6 @@ import { mapGetters, mapActions } from 'vuex'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import BootstrapVue from 'bootstrap-vue'
-import * as uiv from 'uiv'
 
 import App from './App'
 import router from './router'
@@ -24,7 +23,6 @@ import util from './services/util'
 
 Vue.use(VueAxios, axios)
 Vue.use(BootstrapVue)
-Vue.use(uiv, {prefix: 'uiv'})
 Vue.config.productionTip = false
 
 Vue.filter('displaywaarde', function (cijfer) {

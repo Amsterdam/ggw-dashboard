@@ -1,4 +1,3 @@
-<!--Example of a component that uses D3-->
 <template>
   <div class="alert">
     <div class="row">
