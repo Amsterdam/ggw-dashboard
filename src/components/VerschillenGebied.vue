@@ -312,7 +312,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../static/styles/generic/ams-colorpalette.scss";
+@import "~stijl/src/styles/generic/ams-colorpalette.scss";
 
   .map {
     height: 350px;
