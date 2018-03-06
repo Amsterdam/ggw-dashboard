@@ -90,8 +90,12 @@ export default {
       FRAGMENT: 5,
       variable: null,
       variables: [],
-      gebiedType: 'Gebied',
-      gebiedTypes: ['Gebied', 'Wijk', 'Buurt'],
+      gebiedType: util.GEBIED_TYPE.Gebied,
+      gebiedTypes: [
+        util.GEBIED_TYPE.Gebied,
+        util.GEBIED_TYPE.Wijk,
+        util.GEBIED_TYPE.Buurt
+      ],
       lowest: [],
       highest: [],
       own: null,
@@ -118,11 +122,11 @@ export default {
     async getOwn () {
       // Try to derive most recent year from the cijfers for the current gwb
       let gwb = this.gwb
-      if (this.gebiedType === 'Buurt' && this.buurt) {
+      if (this.gebiedType === util.GEBIED_TYPE.Buurt && this.buurt) {
         gwb = this.buurt
-      } else if (this.gebiedType === 'Wijk' && this.wijk) {
+      } else if (this.gebiedType === util.GEBIED_TYPE.Wijk && this.wijk) {
         gwb = this.wijk
-      } else if (this.gebiedType === 'Gebied' && this.gebied) {
+      } else if (this.gebiedType === util.GEBIED_TYPE.Gebied && this.gebied) {
         gwb = this.gebied
       }
       return util.getGebiedCijfers(this.variable, gwb, util.CIJFERS.LATEST)
@@ -214,7 +218,7 @@ export default {
       clearLayers()
       this.drawing = true
 
-      const shapes = await getShapes(this.gebiedType || 'Gebied', () => ({
+      const shapes = await getShapes(this.gebiedType || util.GEBIED_TYPE.Gebied, () => ({
         'color': COLOR['ams-donkergrijs'],
         'opacity': 0.5,
         'weight': 1
