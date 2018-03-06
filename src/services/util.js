@@ -53,6 +53,7 @@ function getYearCijfers (data, last = null) {
         x: cijfer.jaar,
         y: cijfer.waarde,
         variable: item.label,
+        color: cijfer.color,
         cijfer
       }))))
 
