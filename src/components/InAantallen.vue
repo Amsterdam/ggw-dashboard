@@ -9,7 +9,7 @@
       <tbody>
       <tr v-for="d in data" :key="d.label">
         <td width="50%">
-          <tooltip :text="d.label" :content="d.tooltip && d.tooltip(true)"></tooltip>
+          <tooltip :cijfers="data" :cijfer="d"></tooltip>
         </td>
         <td width="50%" v-if="d.recent"
             v-b-tooltip.hover triggers="click" v-b-tooltip.html.left title="">
@@ -57,7 +57,7 @@ export default {
       this.data = await util.getLatestConfigCijfers(this.gwb, inAantallen)
     }
   },
-  async created () {
+  created () {
     this.data = inAantallen.map(ia => ({label: ia.label}))
     this.updateData()
   }

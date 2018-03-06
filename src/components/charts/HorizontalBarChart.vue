@@ -1,20 +1,23 @@
 <template>
   <div>
-    <div class="row">
-      <div class="col-sm-3">
-        <icon :icon="icon" :title="title"></icon>
-      </div>
-      <div class="col-sm-9">
-        <div class="chart-container">
-          <div :ref="chartRef"></div>
+    <tooltip :cijfers="chartdata">
+      <div class="row">
+        <div class="col-sm-3">
+            <icon :icon="icon" :title="title"></icon>
+        </div>
+        <div class="col-sm-9">
+          <div class="chart-container">
+            <div :ref="chartRef"></div>
+          </div>
         </div>
       </div>
-    </div>
+    </tooltip>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+import tooltip from '../Tooltip'
 import icon from '../Icon'
 import util from '../../services/util'
 import vegaEmbed from 'vega-embed'
@@ -32,6 +35,7 @@ const vegaEmbedOptions = {
 export default {
   name: 'HorizontalBarChart',
   components: {
+    'tooltip': tooltip,
     'icon': icon
   },
   props: [
@@ -74,7 +78,7 @@ export default {
       this.updateData()
     }
   },
-  async created () {
+  created () {
     this.updateData()
   }
 }
