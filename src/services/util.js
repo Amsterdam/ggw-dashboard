@@ -44,6 +44,30 @@ async function getConfigCijfers (gwb, config, recentOrAll = CIJFERS.ALL) {
   return Promise.all(data)
 }
 
+function getYearCijfers (data, last = null) {
+  data = data.filter(item => item.cijfers)
+
+  let cijfers = flatten(
+    data.map(item =>
+      item.cijfers.map(cijfer => ({
+        x: cijfer.jaar,
+        y: cijfer.waarde,
+        variable: item.label,
+        cijfer
+      }))))
+
+  if (last) {
+    const maxYear = getMaxYear(cijfers)
+    cijfers = cijfers.filter(cijfer => cijfer.x > maxYear - last)
+  }
+
+  return cijfers
+}
+
+function getMaxYear (cijfers) {
+  return cijfers.reduce((max, cijfer) => cijfer.x > max ? cijfer.x : max, -1)
+}
+
 async function getGeometries (gebiedType) {
   const geoGebiedType = {
     [GEBIED_TYPE.Gebied]: GEO_GEBIED_TYPE.Gebied,
@@ -78,6 +102,8 @@ export default {
   getMeta,
   getConfigCijfers,
   getLatestConfigCijfers,
+  getYearCijfers,
+  getMaxYear,
   CIJFERS,
   getAllCijfers,
   getGebiedCijfers,
