@@ -1,0 +1,507 @@
+[
+  {
+    "Variabele": "Bevtotaal",
+    "Thema Kerncijfertabel": "Bevolking",
+    "Volgorde kerncijfertabel": 1
+  },
+  {
+    "Variabele": "Bev_prog2018",
+    "Thema Kerncijfertabel": "Bevolking",
+    "Volgorde kerncijfertabel": 2
+  },
+  {
+    "Variabele": "Bev0_17_p",
+    "Thema Kerncijfertabel": "Bevolking",
+    "Volgorde kerncijfertabel": 3
+  },
+  {
+    "Variabele": "Bev65plus_p",
+    "Thema Kerncijfertabel": "Bevolking",
+    "Volgorde kerncijfertabel": 4
+  },
+  {
+    "Variabele": "Bev80plus_p",
+    "Thema Kerncijfertabel": "Bevolking",
+    "Volgorde kerncijfertabel": 5
+  },
+  {
+    "Variabele": "BevNW_p",
+    "Thema Kerncijfertabel": "Bevolking",
+    "Volgorde kerncijfertabel": 6
+  },
+  {
+    "Variabele": "BevNstedeling_p",
+    "Thema Kerncijfertabel": "Bevolking",
+    "Volgorde kerncijfertabel": 7
+  },
+  {
+    "Variabele": "BevhuishoudenHH",
+    "Thema Kerncijfertabel": "Bevolking",
+    "Volgorde kerncijfertabel": 8
+  },
+  {
+    "Variabele": "BevpaarmkindHH_p",
+    "Thema Kerncijfertabel": "Bevolking",
+    "Volgorde kerncijfertabel": 9
+  },
+  {
+    "Variabele": "BeveenouderHH_p",
+    "Thema Kerncijfertabel": "Bevolking",
+    "Volgorde kerncijfertabel": 10
+  },
+  {
+    "Variabele": "BevalleenHH_p",
+    "Thema Kerncijfertabel": "Bevolking",
+    "Volgorde kerncijfertabel": 11
+  },
+  {
+    "Variabele": "Wdubbelglas_p",
+    "Thema Kerncijfertabel": "Duurzaamheid en water",
+    "Volgorde kerncijfertabel": 1
+  },
+  {
+    "Variabele": "Dlabel_i",
+    "Thema Kerncijfertabel": "Duurzaamheid en water",
+    "Volgorde kerncijfertabel": 2
+  },
+  {
+    "Variabele": "Dzon_1000won",
+    "Thema Kerncijfertabel": "Duurzaamheid en water",
+    "Volgorde kerncijfertabel": 3
+  },
+  {
+    "Variabele": "BHVest",
+    "Thema Kerncijfertabel": "Economie en cultuur",
+    "Volgorde kerncijfertabel": 1
+  },
+  {
+    "Variabele": "BHkantruim_m2leeg_p",
+    "Thema Kerncijfertabel": "Economie en cultuur",
+    "Volgorde kerncijfertabel": 2
+  },
+  {
+    "Variabele": "Bhhoreca_1000inw",
+    "Thema Kerncijfertabel": "Economie en cultuur",
+    "Volgorde kerncijfertabel": 3
+  },
+  {
+    "Variabele": "Bhhotbed_1000inw",
+    "Thema Kerncijfertabel": "Economie en cultuur",
+    "Volgorde kerncijfertabel": 4
+  },
+  {
+    "Variabele": "BHwink_1000inw",
+    "Thema Kerncijfertabel": "Economie en cultuur",
+    "Volgorde kerncijfertabel": 5
+  },
+  {
+    "Variabele": "BHBGWwvo_1000inw",
+    "Thema Kerncijfertabel": "Economie en cultuur",
+    "Volgorde kerncijfertabel": 6
+  },
+  {
+    "Variabele": "BHwp",
+    "Thema Kerncijfertabel": "Economie en cultuur",
+    "Volgorde kerncijfertabel": 7
+  },
+  {
+    "Variabele": "BHwp_1000inw",
+    "Thema Kerncijfertabel": "Economie en cultuur",
+    "Volgorde kerncijfertabel": 8
+  },
+  {
+    "Variabele": "SRcultuur_1000inw",
+    "Thema Kerncijfertabel": "Economie en cultuur",
+    "Volgorde kerncijfertabel": 9
+  },
+  {
+    "Variabele": "SRuit4_p",
+    "Thema Kerncijfertabel": "Economie en cultuur",
+    "Volgorde kerncijfertabel": 10
+  },
+  {
+    "Variabele": "O_oplPO_l_p",
+    "Thema Kerncijfertabel": "Onderwijs, jeugd en diversiteit",
+    "Volgorde kerncijfertabel": 1
+  },
+  {
+    "Variabele": "Ocitoscore_gem",
+    "Thema Kerncijfertabel": "Onderwijs, jeugd en diversiteit",
+    "Volgorde kerncijfertabel": 2
+  },
+  {
+    "Variabele": "OPROVMBOBK_p",
+    "Thema Kerncijfertabel": "Onderwijs, jeugd en diversiteit",
+    "Volgorde kerncijfertabel": 3
+  },
+  {
+    "Variabele": "OLSV_p",
+    "Thema Kerncijfertabel": "Onderwijs, jeugd en diversiteit",
+    "Volgorde kerncijfertabel": 4
+  },
+  {
+    "Variabele": "Iminjong120_p",
+    "Thema Kerncijfertabel": "Onderwijs, jeugd en diversiteit",
+    "Volgorde kerncijfertabel": 5
+  },
+  {
+    "Variabele": "WZzwaar10_p",
+    "Thema Kerncijfertabel": "Onderwijs, jeugd en diversiteit",
+    "Volgorde kerncijfertabel": 6
+  },
+  {
+    "Variabele": "SRclub10_p",
+    "Thema Kerncijfertabel": "Onderwijs, jeugd en diversiteit",
+    "Volgorde kerncijfertabel": 7
+  },
+  {
+    "Variabele": "Wzdepress_p",
+    "Thema Kerncijfertabel": "Onderwijs, jeugd en diversiteit",
+    "Volgorde kerncijfertabel": 8
+  },
+  {
+    "Variabele": "WZcannaregVO4_p",
+    "Thema Kerncijfertabel": "Onderwijs, jeugd en diversiteit",
+    "Volgorde kerncijfertabel": 9
+  },
+  {
+    "Variabele": "WzgedwongenV04_p",
+    "Thema Kerncijfertabel": "Onderwijs, jeugd en diversiteit",
+    "Volgorde kerncijfertabel": 10
+  },
+  {
+    "Variabele": "Vjeugdige_p",
+    "Thema Kerncijfertabel": "Onderwijs, jeugd en diversiteit",
+    "Volgorde kerncijfertabel": 11
+  },
+  {
+    "Variabele": "WzVT_p",
+    "Thema Kerncijfertabel": "Onderwijs, jeugd en diversiteit",
+    "Volgorde kerncijfertabel": 12
+  },
+  {
+    "Variabele": "Lsoccoh_r",
+    "Thema Kerncijfertabel": "Onderwijs, jeugd en diversiteit",
+    "Volgorde kerncijfertabel": 13
+  },
+  {
+    "Variabele": "Lomganggroepenb_r",
+    "Thema Kerncijfertabel": "Onderwijs, jeugd en diversiteit",
+    "Volgorde kerncijfertabel": 14
+  },
+  {
+    "Variabele": "Ldiscri_p",
+    "Thema Kerncijfertabel": "Onderwijs, jeugd en diversiteit",
+    "Volgorde kerncijfertabel": 15
+  },
+  {
+    "Variabele": "Vveiligh_i",
+    "Thema Kerncijfertabel": "Openbare orde en veiligheid",
+    "Volgorde kerncijfertabel": 1
+  },
+  {
+    "Variabele": "Vcrimin_i",
+    "Thema Kerncijfertabel": "Openbare orde en veiligheid",
+    "Volgorde kerncijfertabel": 2
+  },
+  {
+    "Variabele": "Vbeleving_i",
+    "Thema Kerncijfertabel": "Openbare orde en veiligheid",
+    "Volgorde kerncijfertabel": 3
+  },
+  {
+    "Variabele": "Voverlast_i",
+    "Thema Kerncijfertabel": "Openbare orde en veiligheid",
+    "Volgorde kerncijfertabel": 4
+  },
+  {
+    "Variabele": "Vpersonovl_i",
+    "Thema Kerncijfertabel": "Openbare orde en veiligheid",
+    "Volgorde kerncijfertabel": 5
+  },
+  {
+    "Variabele": "Vveiligvoelen_p",
+    "Thema Kerncijfertabel": "Openbare orde en veiligheid",
+    "Volgorde kerncijfertabel": 6
+  },
+  {
+    "Variabele": "Lburenoverlast_r",
+    "Thema Kerncijfertabel": "Openbare orde en veiligheid",
+    "Volgorde kerncijfertabel": 7
+  },
+  {
+    "Variabele": "Lhoreca_p",
+    "Thema Kerncijfertabel": "Openbare orde en veiligheid",
+    "Volgorde kerncijfertabel": 8
+  },
+  {
+    "Variabele": "Ljongerenovl_p",
+    "Thema Kerncijfertabel": "Openbare orde en veiligheid",
+    "Volgorde kerncijfertabel": 9
+  },
+  {
+    "Variabele": "Vbrand_p",
+    "Thema Kerncijfertabel": "Openbare orde en veiligheid",
+    "Volgorde kerncijfertabel": 10
+  },
+  {
+    "Variabele": "Lbuurt_r",
+    "Thema Kerncijfertabel": "Stedelijke ontwikkeling en wonen",
+    "Volgorde kerncijfertabel": 1
+  },
+  {
+    "Variabele": "Lverwachtingbuurt_r",
+    "Thema Kerncijfertabel": "Stedelijke ontwikkeling en wonen",
+    "Volgorde kerncijfertabel": 2
+  },
+  {
+    "Variabele": "Lbuurtvoor_p",
+    "Thema Kerncijfertabel": "Stedelijke ontwikkeling en wonen",
+    "Volgorde kerncijfertabel": 3
+  },
+  {
+    "Variabele": "Wverhuis_p",
+    "Thema Kerncijfertabel": "Stedelijke ontwikkeling en wonen",
+    "Volgorde kerncijfertabel": 4
+  },
+  {
+    "Variabele": "Bevmuttot_p",
+    "Thema Kerncijfertabel": "Stedelijke ontwikkeling en wonen",
+    "Volgorde kerncijfertabel": 5
+  },
+  {
+    "Variabele": "WvoorrBAG",
+    "Thema Kerncijfertabel": "Stedelijke ontwikkeling en wonen",
+    "Volgorde kerncijfertabel": 6
+  },
+  {
+    "Variabele": "Wkoop_p",
+    "Thema Kerncijfertabel": "Stedelijke ontwikkeling en wonen",
+    "Volgorde kerncijfertabel": 7
+  },
+  {
+    "Variabele": "Wcorhuur_p",
+    "Thema Kerncijfertabel": "Stedelijke ontwikkeling en wonen",
+    "Volgorde kerncijfertabel": 8
+  },
+  {
+    "Variabele": "Whuurtslg_p",
+    "Thema Kerncijfertabel": "Stedelijke ontwikkeling en wonen",
+    "Volgorde kerncijfertabel": 9
+  },
+  {
+    "Variabele": "Whuurmidden_p",
+    "Thema Kerncijfertabel": "Stedelijke ontwikkeling en wonen",
+    "Volgorde kerncijfertabel": 10
+  },
+  {
+    "Variabele": "Wwoz_m2",
+    "Thema Kerncijfertabel": "Stedelijke ontwikkeling en wonen",
+    "Volgorde kerncijfertabel": 11
+  },
+  {
+    "Variabele": "Wopp0040_p",
+    "Thema Kerncijfertabel": "Stedelijke ontwikkeling en wonen",
+    "Volgorde kerncijfertabel": 12
+  },
+  {
+    "Variabele": "Wopp100plus_p",
+    "Thema Kerncijfertabel": "Stedelijke ontwikkeling en wonen",
+    "Volgorde kerncijfertabel": 13
+  },
+  {
+    "Variabele": "Wbezet",
+    "Thema Kerncijfertabel": "Stedelijke ontwikkeling en wonen",
+    "Volgorde kerncijfertabel": 14
+  },
+  {
+    "Variabele": "Wwoning_r",
+    "Thema Kerncijfertabel": "Stedelijke ontwikkeling en wonen",
+    "Volgorde kerncijfertabel": 15
+  },
+  {
+    "Variabele": "ORverloed_p",
+    "Thema Kerncijfertabel": "Verkeer en Openbare ruimte",
+    "Volgorde kerncijfertabel": 1
+  },
+  {
+    "Variabele": "ORonderhoudstraten_r",
+    "Thema Kerncijfertabel": "Verkeer en Openbare ruimte",
+    "Volgorde kerncijfertabel": 2
+  },
+  {
+    "Variabele": "ORonderhoudgroen_r",
+    "Thema Kerncijfertabel": "Verkeer en Openbare ruimte",
+    "Volgorde kerncijfertabel": 3
+  },
+  {
+    "Variabele": "OR_fijn_p",
+    "Thema Kerncijfertabel": "Verkeer en Openbare ruimte",
+    "Volgorde kerncijfertabel": 4
+  },
+  {
+    "Variabele": "ORaanbodspelen_r",
+    "Thema Kerncijfertabel": "Verkeer en Openbare ruimte",
+    "Volgorde kerncijfertabel": 5
+  },
+  {
+    "Variabele": "ORverblijf_i",
+    "Thema Kerncijfertabel": "Verkeer en Openbare ruimte",
+    "Volgorde kerncijfertabel": 6
+  },
+  {
+    "Variabele": "VKparkeren_r",
+    "Thema Kerncijfertabel": "Verkeer en Openbare ruimte",
+    "Volgorde kerncijfertabel": 7
+  },
+  {
+    "Variabele": "VKfietsparkeren_r",
+    "Thema Kerncijfertabel": "Verkeer en Openbare ruimte",
+    "Volgorde kerncijfertabel": 8
+  },
+  {
+    "Variabele": "VKhard_p",
+    "Thema Kerncijfertabel": "Verkeer en Openbare ruimte",
+    "Volgorde kerncijfertabel": 9
+  },
+  {
+    "Variabele": "VKov_r",
+    "Thema Kerncijfertabel": "Verkeer en Openbare ruimte",
+    "Volgorde kerncijfertabel": 10
+  },
+  {
+    "Variabele": "WZSLI_i",
+    "Thema Kerncijfertabel": "Welzijn, zorg en sport",
+    "Volgorde kerncijfertabel": 1
+  },
+  {
+    "Variabele": "WZzorgvoorzieningen_r",
+    "Thema Kerncijfertabel": "Welzijn, zorg en sport",
+    "Volgorde kerncijfertabel": 2
+  },
+  {
+    "Variabele": "Peenz_p",
+    "Thema Kerncijfertabel": "Welzijn, zorg en sport",
+    "Volgorde kerncijfertabel": 3
+  },
+  {
+    "Variabele": "Pregie_p",
+    "Thema Kerncijfertabel": "Welzijn, zorg en sport",
+    "Volgorde kerncijfertabel": 4
+  },
+  {
+    "Variabele": "WZgezond_p",
+    "Thema Kerncijfertabel": "Welzijn, zorg en sport",
+    "Volgorde kerncijfertabel": 5
+  },
+  {
+    "Variabele": "WZADL_p",
+    "Thema Kerncijfertabel": "Welzijn, zorg en sport",
+    "Volgorde kerncijfertabel": 6
+  },
+  {
+    "Variabele": "WZdepr_p",
+    "Thema Kerncijfertabel": "Welzijn, zorg en sport",
+    "Volgorde kerncijfertabel": 7
+  },
+  {
+    "Variabele": "Pmantel_p",
+    "Thema Kerncijfertabel": "Welzijn, zorg en sport",
+    "Volgorde kerncijfertabel": 8
+  },
+  {
+    "Variabele": "WZrook_p",
+    "Thema Kerncijfertabel": "Welzijn, zorg en sport",
+    "Volgorde kerncijfertabel": 9
+  },
+  {
+    "Variabele": "Wzalc_p",
+    "Thema Kerncijfertabel": "Welzijn, zorg en sport",
+    "Volgorde kerncijfertabel": 10
+  },
+  {
+    "Variabele": "WZzwaar_p",
+    "Thema Kerncijfertabel": "Welzijn, zorg en sport",
+    "Volgorde kerncijfertabel": 11
+  },
+  {
+    "Variabele": "WZbeweeg_p",
+    "Thema Kerncijfertabel": "Welzijn, zorg en sport",
+    "Volgorde kerncijfertabel": 12
+  },
+  {
+    "Variabele": "SRsportgelegenheden_r",
+    "Thema Kerncijfertabel": "Welzijn, zorg en sport",
+    "Volgorde kerncijfertabel": 13
+  },
+  {
+    "Variabele": "SRsport_1000inw",
+    "Thema Kerncijfertabel": "Welzijn, zorg en sport",
+    "Volgorde kerncijfertabel": 14
+  },
+  {
+    "Variabele": "SRsportdln_p",
+    "Thema Kerncijfertabel": "Welzijn, zorg en sport",
+    "Volgorde kerncijfertabel": 15
+  },
+  {
+    "Variabele": "Pregwerkl_p",
+    "Thema Kerncijfertabel": "Werk, inkomen en participatie",
+    "Volgorde kerncijfertabel": 1
+  },
+  {
+    "Variabele": "Iwwb_p",
+    "Thema Kerncijfertabel": "Werk, inkomen en participatie",
+    "Volgorde kerncijfertabel": 2
+  },
+  {
+    "Variabele": "Iwwb12_p",
+    "Thema Kerncijfertabel": "Werk, inkomen en participatie",
+    "Volgorde kerncijfertabel": 3
+  },
+  {
+    "Variabele": "Bevopllaag_p",
+    "Thema Kerncijfertabel": "Werk, inkomen en participatie",
+    "Volgorde kerncijfertabel": 4
+  },
+  {
+    "Variabele": "Ihhink_gem",
+    "Thema Kerncijfertabel": "Werk, inkomen en participatie",
+    "Volgorde kerncijfertabel": 5
+  },
+  {
+    "Variabele": "Ilangminhh120_p",
+    "Thema Kerncijfertabel": "Werk, inkomen en participatie",
+    "Volgorde kerncijfertabel": 6
+  },
+  {
+    "Variabele": "Iveoa_p",
+    "Thema Kerncijfertabel": "Werk, inkomen en participatie",
+    "Volgorde kerncijfertabel": 7
+  },
+  {
+    "Variabele": "Ishv_p",
+    "Thema Kerncijfertabel": "Werk, inkomen en participatie",
+    "Volgorde kerncijfertabel": 8
+  },
+  {
+    "Variabele": "Pmaatschap_p",
+    "Thema Kerncijfertabel": "Werk, inkomen en participatie",
+    "Volgorde kerncijfertabel": 9
+  },
+  {
+    "Variabele": "Pvrijwil_p",
+    "Thema Kerncijfertabel": "Werk, inkomen en participatie",
+    "Volgorde kerncijfertabel": 10
+  },
+  {
+    "Variabele": "Lbetrokken_r",
+    "Thema Kerncijfertabel": "Werk, inkomen en participatie",
+    "Volgorde kerncijfertabel": 11
+  },
+  {
+    "Variabele": "Pgodshuis_p",
+    "Thema Kerncijfertabel": "Werk, inkomen en participatie",
+    "Volgorde kerncijfertabel": 12
+  }
+]
