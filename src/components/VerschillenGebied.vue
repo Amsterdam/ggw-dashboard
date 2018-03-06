@@ -137,7 +137,7 @@ export default {
       clearLayers()
 
       this.own = await this.getOwn()
-      if (!this.own && this.own.recent && this.own.recent.jaar) {
+      if (!(this.own && this.own.recent && this.own.recent.jaar)) {
         // Unable to specify a search year...
         return this.noCijfers()
       }

@@ -21,7 +21,7 @@
 
       <div class="row">
         <div class="col-sm">
-          <data-table :config="positieOntwikkeling"></data-table>
+          <data-table :config="kerncijfers"></data-table>
         </div>
         <div class="col-sm">
         </div>
@@ -31,7 +31,7 @@
         <h2>Verschillen binnen het gebied</h2>
       </div>
 
-      <verschillen-gebied></verschillen-gebied>
+      <verschillen-gebied :config="kerncijfers"></verschillen-gebied>
 
       <div class="alert">
         <h2>Aandeel bewoners dat veel overlast ervaart van….</h2>
@@ -88,6 +88,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import { OPENBARE_ORDE_EN_VEILIGHEID, getKerncijfers } from '../../services/thema'
 
 import horizontalText from '../charts/HorizontalText'
 import dataTable from '../charts/DataTable'
@@ -96,7 +97,6 @@ import verticalBarChart from '../charts/VerticalBarChart'
 
 import veiligheid from '../../../static/links/veiligheid'
 import overlast from '../../../static/links/overlast'
-import positieOntwikkeling from '../../../static/links/positie_en_ontwikkeling'
 import horecagelegenheden from '../../../static/links/horeca'
 import drugs from '../../../static/links/drugs'
 import dronkenMensen from '../../../static/links/dronken_mensen'
@@ -106,6 +106,8 @@ import buurtbewoners from '../../../static/links/buurtbewoners'
 import vermogensDelicten from '../../../static/links/vermogensdelicten'
 import geweldSlachtoffers from '../../../static/links/geweld_slachtoffers'
 import vandalismeSlachtoffers from '../../../static/links/vandalisme_slachtoffers'
+
+const kerncijfers = getKerncijfers(OPENBARE_ORDE_EN_VEILIGHEID)
 
 export default {
   name: 'OpenbareOrdeEnVeiligheid',
@@ -119,7 +121,7 @@ export default {
     return {
       veiligheid,
       overlast,
-      positieOntwikkeling,
+      kerncijfers,
       horecagelegenheden,
       drugs,
       dronkenMensen,

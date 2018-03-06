@@ -20,7 +20,7 @@
 
       <div class="row">
         <div class="col-sm">
-          <data-table :config="positieOntwikkeling"></data-table>
+          <data-table :config="kerncijfers"></data-table>
         </div>
         <div class="col-sm">
         </div>
@@ -30,7 +30,7 @@
         <h2>Verschillen binnen het gebied</h2>
       </div>
 
-      <verschillen-gebied></verschillen-gebied>
+      <verschillen-gebied :config="kerncijfers"></verschillen-gebied>
 
       <div class="alert">
         <h2>Rapportcijfer bewoners voor schoonhouden openbare Ruimte</h2>
@@ -96,6 +96,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import { VERKEER_EN_OPENBARE_RUIMTE, getKerncijfers } from '../../services/thema'
 
 import horizontalText from '../charts/HorizontalText'
 import dataTable from '../charts/DataTable'
@@ -108,7 +109,6 @@ import verticalBarChart from '../charts/VerticalBarChart'
 
 import verkeer from '../../../static/links/verkeer'
 import openbareRuimte from '../../../static/links/openbare_ruimte'
-import positieOntwikkeling from '../../../static/links/positie_en_ontwikkeling'
 import stratenEnStoepen from '../../../static/links/straten_en_stoepen'
 import groen from '../../../static/links/groen'
 import speelvoorzieningen from '../../../static/links/speelvoorzieningen'
@@ -118,6 +118,8 @@ import fietsparkeervoorzieningen from '../../../static/links/fietsparkeervoorzie
 
 import meerInformatie from '../../../static/links/meer_informatie'
 import meerCijfers from '../../../static/links/meer_cijfers'
+
+const kerncijfers = getKerncijfers(VERKEER_EN_OPENBARE_RUIMTE)
 
 export default {
   name: 'VerkeerEnOpenbareRuimte',
@@ -133,7 +135,7 @@ export default {
   },
   data () {
     return {
-      positieOntwikkeling,
+      kerncijfers,
       verkeer,
       openbareRuimte,
       stratenEnStoepen,

@@ -20,7 +20,7 @@
 
       <div class="row">
         <div class="col-sm">
-          <data-table :config="positieOntwikkeling"></data-table>
+          <data-table :config="kerncijfers"></data-table>
         </div>
         <div class="col-sm">
         </div>
@@ -30,7 +30,7 @@
         <h2>Verschillen binnen het gebied</h2>
       </div>
 
-      <verschillen-gebied></verschillen-gebied>
+      <verschillen-gebied :config="kerncijfers"></verschillen-gebied>
 
       <div class="alert">
         <div class="row">
@@ -128,6 +128,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import { STEDELIJKE_ONTWIKKELING_EN_WONEN, getKerncijfers } from '../../services/thema'
 
 import horizontalText from '../charts/HorizontalText'
 import dataTable from '../charts/DataTable'
@@ -140,7 +141,6 @@ import verticalBarChart from '../charts/VerticalBarChart'
 
 import eigenBuurt from '../../../static/links/eigenbuurt'
 import eigenWoning from '../../../static/links/eigenwoning'
-import positieOntwikkeling from '../../../static/links/positie_en_ontwikkeling'
 import aantalWoningen from '../../../static/links/aantal_woningen'
 import andereWoonvormen from '../../../static/links/andere_woonvormen'
 import gemiddeldeWozWaarde from '../../../static/links/gemm_woz_waarde'
@@ -153,6 +153,8 @@ import percVerhuisgeneigden from '../../../static/links/perc_verhuisgeneigden_65
 import percWoningGeschiktOud from '../../../static/links/perc_woning_geschikt_oud'
 import meerInformatie from '../../../static/links/meer_informatie'
 import meerCijfers from '../../../static/links/meer_cijfers'
+
+const kerncijfers = getKerncijfers(STEDELIJKE_ONTWIKKELING_EN_WONEN)
 
 export default {
   name: 'StedelijkeOntwikkelingEnWonen',
@@ -168,7 +170,7 @@ export default {
   },
   data () {
     return {
-      positieOntwikkeling,
+      kerncijfers,
       eigenBuurt,
       eigenWoning,
       gemiddeldeWozWaarde,
