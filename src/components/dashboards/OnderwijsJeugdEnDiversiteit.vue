@@ -24,7 +24,7 @@
             <h2>Positie en ontwikkeling van {{gwb.naam}} t.o.v. het stedelijk gemiddelde</h2>
           </div>
 
-          <data-table :config="positieOntwikkeling"></data-table>
+          <data-table :config="kerncijfers"></data-table>
         </div>
       </div>
       <div class="zone-clear clear"></div>
@@ -35,7 +35,7 @@
             <h2>Verschillen binnen het gebied</h2>
           </div>
 
-        <verschillen-gebied></verschillen-gebied>
+        <verschillen-gebied :config="kerncijfers"></verschillen-gebied>
         </div>
       </div>
     </div>
@@ -44,6 +44,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import { ONDERWIJS_JEUGD_EN_DIVERSITEIT, getKerncijfers } from '../../services/thema'
 
 import horizontalText from '../charts/HorizontalText'
 import dataTable from '../charts/DataTable'
@@ -52,8 +53,9 @@ import verticalBarChart from '../charts/VerticalBarChart'
 
 import onderwijsJeugd from '../../../static/links/onderwijs_jeugd'
 import diversiteit from '../../../static/links/diversiteit'
-import positieOntwikkeling from '../../../static/links/positie_en_ontwikkeling'
 import colorLegend from '../ColorLegend'
+
+const kerncijfers = getKerncijfers(ONDERWIJS_JEUGD_EN_DIVERSITEIT)
 
 export default {
   name: 'OnderwijsJeugdEnDiversiteit',
@@ -68,7 +70,7 @@ export default {
     return {
       onderwijsJeugd,
       diversiteit,
-      positieOntwikkeling
+      kerncijfers
     }
   },
   computed: {

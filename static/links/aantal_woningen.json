@@ -1,5 +1,9 @@
 [
   {
+    "label": "",
+    "variabele": "WvoorrBAG"
+  },
+  {
     "label": "Koop",
     "variabele": "Wkoop"
   },
@@ -10,10 +14,6 @@
   {
     "label": "Particulier huur",
     "variabele": "Wparthuur"
-  },
-  {
-    "label": "",
-    "variabele": "WvoorrBAG"
   },
   {
     "label": "",

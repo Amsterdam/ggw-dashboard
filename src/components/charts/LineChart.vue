@@ -24,7 +24,8 @@ export default {
   components: {
   },
   props: [
-    'config'
+    'config',
+    'colors'
   ],
   data () {
     return {
@@ -40,17 +41,18 @@ export default {
   methods: {
     async updateData () {
       this.chartdata = await util.getConfigCijfers(this.gwb, this.config)
-      vegaSpec.data.values = []
-      this.chartdata.forEach(data => {
-        vegaSpec.data.values = vegaSpec.data.values.concat(
+
+      let cijfers = util.flatten(
+        this.chartdata.map(data =>
           data.cijfers.map(cijfer => ({
             x: cijfer.jaar,
             y: cijfer.waarde,
-            variable: data.label
-          }))
-        )
-      })
-      vegaSpec.scales[2].range = CHART_COLORS
+            variable: data.label,
+            dash: /prognose/i.test(data.label)
+          }))))
+
+      vegaSpec.data[0].values = cijfers
+      vegaSpec.scales[2].range = CHART_COLORS.slice(0, this.colors || CHART_COLORS.length)
       vegaEmbed(this.$refs[this.chartRef], vegaSpec, vegaEmbedOptions)
     }
   },

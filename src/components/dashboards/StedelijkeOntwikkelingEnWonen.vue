@@ -22,7 +22,7 @@
         <div class="grid-title">
           <h2>Positie en ontwikkeling van {{gwb.naam}} t.o.v. het stedelijk gemiddelde</h2>
         </div>
-        <data-table :config="positieOntwikkeling"></data-table>
+        <data-table :config="kerncijfers"></data-table>
       </div>
     </div>
     <div class="zone-clear clear"></div>
@@ -33,7 +33,7 @@
           <h2>Verschillen binnen het gebied</h2>
         </div>
 
-        <verschillen-gebied></verschillen-gebied>
+        <verschillen-gebied :config="kerncijfers"></verschillen-gebied>
       </div>
     </div>
     <div class="zone-clear clear"></div>
@@ -111,6 +111,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import { STEDELIJKE_ONTWIKKELING_EN_WONEN, getKerncijfers } from '../../services/thema'
 
 import horizontalText from '../charts/HorizontalText'
 import dataTable from '../charts/DataTable'
@@ -125,7 +126,6 @@ import colorLegend from '../ColorLegend'
 
 import eigenBuurt from '../../../static/links/eigenbuurt'
 import eigenWoning from '../../../static/links/eigenwoning'
-import positieOntwikkeling from '../../../static/links/positie_en_ontwikkeling'
 import aantalWoningen from '../../../static/links/aantal_woningen'
 import andereWoonvormen from '../../../static/links/andere_woonvormen'
 import gemiddeldeWozWaarde from '../../../static/links/gemm_woz_waarde'
@@ -138,6 +138,8 @@ import percVerhuisgeneigden from '../../../static/links/perc_verhuisgeneigden_65
 import percWoningGeschiktOud from '../../../static/links/perc_woning_geschikt_oud'
 import meerInformatie from '../../../static/links/meer_informatie'
 import meerCijfers from '../../../static/links/meer_cijfers'
+
+const kerncijfers = getKerncijfers(STEDELIJKE_ONTWIKKELING_EN_WONEN)
 
 export default {
   name: 'StedelijkeOntwikkelingEnWonen',
@@ -155,7 +157,7 @@ export default {
   },
   data () {
     return {
-      positieOntwikkeling,
+      kerncijfers,
       eigenBuurt,
       eigenWoning,
       gemiddeldeWozWaarde,

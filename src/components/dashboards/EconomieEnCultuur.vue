@@ -21,7 +21,7 @@
         </div>
 
         <div class="grid-blok grid_12">
-          <data-table :config="positieOntwikkeling"></data-table>
+          <data-table :config="kerncijfers"></data-table>
         </div>
       </div>
       <div class="zone-clear clear"></div>
@@ -32,7 +32,7 @@
             <h2>Verschillen binnen het gebied</h2>
           </div>
 
-          <verschillen-gebied></verschillen-gebied>
+          <verschillen-gebied :config="kerncijfers"></verschillen-gebied>
         </div>
       </div>
       <div class="zone-clear clear"></div>
@@ -92,6 +92,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import { ECONOMIE_EN_CULTUUR, getKerncijfers } from '../../services/thema'
 
 import horizontalText from '../charts/HorizontalText'
 import dataTable from '../charts/DataTable'
@@ -102,13 +103,14 @@ import pieChart from '../charts/PieChart'
 
 import bedrijvigheid from '../../../static/links/bedrijvigheid'
 import cultuur from '../../../static/links/cultuur'
-import positieOntwikkeling from '../../../static/links/positie_en_ontwikkeling'
 import aantalVestigingenEnWerkzamePersonen from '../../../static/links/aantal_vestigingen_werkzamen'
 import typeVestiging from '../../../static/links/type_vestiging'
 import vestigingenHoofdfunctie from '../../../static/links/vestigingen_hoofdfunctie'
 import werkzamenHoofdfunctie from '../../../static/links/werkzamen_hoofdfunctie'
 import horeca from '../../../static/links/horeca'
 import colorLegend from '../ColorLegend'
+
+const kerncijfers = getKerncijfers(ECONOMIE_EN_CULTUUR)
 
 export default {
   name: 'EconomieEnCultuur',
@@ -125,7 +127,7 @@ export default {
     return {
       bedrijvigheid,
       cultuur,
-      positieOntwikkeling,
+      kerncijfers,
       aantalVestigingenEnWerkzamePersonen,
       typeVestiging,
       vestigingenHoofdfunctie,

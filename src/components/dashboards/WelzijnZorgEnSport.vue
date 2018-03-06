@@ -22,7 +22,7 @@
           <div class="grid-title">
             <h2>Positie en ontwikkeling van {{gwb.naam}} t.o.v. het stedelijk gemiddelde</h2>
           </div>
-          <data-table :config="positieOntwikkeling"></data-table>
+          <data-table :config="kerncijfers"></data-table>
         </div>
       </div>
       <div class="zone-clear clear"></div>
@@ -32,7 +32,7 @@
           <div class="grid-title">
             <h2>Verschillen binnen het gebied</h2>
           </div>
-          <verschillen-gebied></verschillen-gebied>
+          <verschillen-gebied :config="kerncijfers"></verschillen-gebied>
         </div>
       </div>
       <div class="zone-clear clear"></div>
@@ -41,6 +41,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import { WELZIJN_ZORG_EN_SPORT, getKerncijfers } from '../../services/thema'
 
 import horizontalText from '../charts/HorizontalText'
 import dataTable from '../charts/DataTable'
@@ -48,9 +49,10 @@ import verschillenGebied from '../VerschillenGebied'
 import verticalBarChart from '../charts/VerticalBarChart'
 import colorLegend from '../ColorLegend'
 
-import positieOntwikkeling from '../../../static/links/positie_en_ontwikkeling'
 import welzijnZorg from '../../../static/links/welzijn_zorg'
 import sport from '../../../static/links/sport'
+
+const kerncijfers = getKerncijfers(WELZIJN_ZORG_EN_SPORT)
 
 export default {
   name: 'WelzijnZorgEnSport',
@@ -65,7 +67,7 @@ export default {
     return {
       welzijnZorg,
       sport,
-      positieOntwikkeling
+      kerncijfers
     }
   },
   computed: {

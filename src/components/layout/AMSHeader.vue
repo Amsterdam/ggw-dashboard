@@ -1,4 +1,3 @@
-<!--Example of a component that uses D3-->
 <template>
   <div class="grid-wrapper wrapper_12 contents-wrapper">
     <div class="grid-container container_12">

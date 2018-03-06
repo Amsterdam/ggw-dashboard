@@ -21,7 +21,7 @@
           <div class="grid-title">
             <h2>Positie en ontwikkeling van {{gwb.naam}} t.o.v. het stedelijk gemiddelde</h2>
           </div>
-          <data-table :config="positieOntwikkeling"></data-table>
+          <data-table :config="kerncijfers"></data-table>
         </div>
       </div>
       <div class="zone-clear clear"></div>
@@ -31,7 +31,7 @@
           <div class="grid-title">
             <h2>Verschillen binnen het gebied</h2>
           </div>
-          <verschillen-gebied></verschillen-gebied>
+          <verschillen-gebied :config="kerncijfers"></verschillen-gebied>
         </div>
       </div>
     </div>
@@ -40,6 +40,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import { WERK_INKOMEN_EN_PARTICIPATIE, getKerncijfers } from '../../services/thema'
 
 import horizontalText from '../charts/HorizontalText'
 import dataTable from '../charts/DataTable'
@@ -47,9 +48,10 @@ import verschillenGebied from '../VerschillenGebied'
 import verticalBarChart from '../charts/VerticalBarChart'
 import colorLegend from '../ColorLegend'
 
-import positieOntwikkeling from '../../../static/links/positie_en_ontwikkeling'
 import werkInkomen from '../../../static/links/werk_inkomen'
 import participatie from '../../../static/links/participatie'
+
+const kerncijfers = getKerncijfers(WERK_INKOMEN_EN_PARTICIPATIE)
 
 export default {
   name: 'WerkInkomenEnParticipatie',
@@ -64,7 +66,7 @@ export default {
     return {
       werkInkomen,
       participatie,
-      positieOntwikkeling
+      kerncijfers
     }
   },
   computed: {

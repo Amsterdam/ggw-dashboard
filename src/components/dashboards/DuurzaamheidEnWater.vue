@@ -10,7 +10,7 @@
         </div>
       </div>
       <div class="grid-blok grid_12">
-        <data-table :config="positieOntwikkeling"></data-table>
+        <data-table :config="kerncijfers"></data-table>
       </div>
 
       <div class="grid-element">
@@ -20,7 +20,7 @@
           </div>
         </div>
       </div>
-      <verschillen-gebied></verschillen-gebied>
+      <verschillen-gebied :config="kerncijfers"></verschillen-gebied>
     </div>
   <div class="clear"></div>
   <meer-cijfers-en-informatie></meer-cijfers-en-informatie>
@@ -30,14 +30,15 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import { DUURZAAMHEID_EN_WATER, getKerncijfers } from '../../services/thema'
 
 import dataTable from '../charts/DataTable'
 import verschillenGebied from '../VerschillenGebied'
 
-import positieOntwikkeling from '../../../static/links/positie_en_ontwikkeling'
-
 import meerCijfersEnInformatie from '../MeerCijfersEnInformatie'
 import colorLegend from '../ColorLegend.vue'
+
+const kerncijfers = getKerncijfers(DUURZAAMHEID_EN_WATER)
 
 export default {
   name: 'DuurzaamheidEnWater',
@@ -49,7 +50,7 @@ export default {
   },
   data () {
     return {
-      positieOntwikkeling
+      kerncijfers
     }
   },
   computed: {

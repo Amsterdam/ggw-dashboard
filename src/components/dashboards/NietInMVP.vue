@@ -33,7 +33,7 @@
 
       <div class="row">
         <div class="col-sm-8">
-          <line-chart :config="aantalWoningen"></line-chart>
+          <line-chart :config="aantalWoningen" colors="4"></line-chart>
           <!--<placeholder title="graph" pic="graph.png" height="200"></placeholder>-->
         </div>
         <div class="col-sm-4">
