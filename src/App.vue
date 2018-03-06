@@ -18,7 +18,7 @@
       </div>
     </div>
     <div class="grid-wrapper wrapper_12 contents-wrapper">
-      <div class="grid-container container_12">
+      <div class="grid-container container_12 router-view">
         <div class="grid-zone grid_12">
             <router-view></router-view>
         </div>
@@ -62,4 +62,10 @@ export default {
       padding-bottom: 0;
     }
   }
+
+  .router-view {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
 </style>

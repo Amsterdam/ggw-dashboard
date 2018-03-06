@@ -1,9 +1,9 @@
 <template>
-  <div>
-    <div class="icon-container">
+  <div class="container">
+    <div class="icon-container grid-blok grid_12">
       <img class="icon" :src="`static/icons/${icon}`">
     </div>
-    <div v-if="title" class="title">
+    <div v-if="title" class="title grid-blok grid_12 pad-top-bottom">
       {{title}}
     </div>
   </div>
@@ -18,18 +18,26 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.container {
+  * {
+    text-align: center;
+  }
+}
+
 .icon-container {
-  height: 60px;
+  height: 100px;
   margin-bottom: 5px;
 }
 
 .icon {
-  max-width: 60px;
-  max-height: 60px;
+  max-width: 100%;
+  max-height: 100%;
+  min-width: 100px;
 }
 
 .title {
   font-weight: bold;
+  vertical-align: baseline;
 }
 </style>

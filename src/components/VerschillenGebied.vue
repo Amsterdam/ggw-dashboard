@@ -1,111 +1,168 @@
 <!--Example of a component that uses Leaflet-->
 <template>
-    <div class="grid-blok grid_12">
-      <div class="rij mode_input selectie">
-        <div class="invoer">
-          <b-form-select v-model="variable"
-                         :disabled="loading || drawing"
-                         :options="variables"
-                           text-field="label"
-                           value-field="variable">
-              <template slot="first">
-                <!-- this slot appears above the options from 'options' prop -->
-                <option :value="null" disabled>-- Selecteer een categorie --</option>
-              </template>
-          </b-form-select>
-        </div>
-      </div>
-      <div :ref="mapRef" class="map"></div>
-
-      <fieldset class="rij mode_input text rij_verplicht">
-        <div class="antwoorden checkboxen">
-          <div class="label">
-            <label for="gebiedFilter">Filter</label>
-          </div>
-
-          <div class="antwoord">
-            <input :disabled="!variable || loading || drawing" :checked="gebiedType === 'Gebied'" @click="setGebiedType('Gebied')" type="radio" name="gebiedFilter" id="1">
-            <label for="1">Gebieden</label>
-          </div>
-
-          <div class="antwoord">
-            <input :disabled="!variable || loading || drawing" :checked="gebiedType === 'Wijk'" @click="setGebiedType('Wijk')" type="radio" name="gebiedFilter" id="2">
-            <label for="2">Wijken</label>
-          </div>
-
-          <div class="antwoord">
-            <input :disabled="!variable || loading || drawing" :checked="gebiedType === 'Buurt'" @click="setGebiedType('Buurt')" type="radio" name="gebiedFilter" id="3">
-            <label for="3">Buurten</label>
-          </div>
-        </div>
-      </fieldset>
-
-      <div v-if="!loading && gebiedType && variable && !highLow.length" class="grid-wrapper wrapper_12 alert-wrapper bgcolor_orange">
-        <div class="grid-container container_12 grid-alerts ">
-          <div class="melding rich-content">
-            Geen cijfers beschikbaar
+  <div>
+    <div class="grid-element">
+      <div class="grid-blok grid_12">
+        <div class="rij mode_input selectie">
+          <div class="invoer">
+            <b-form-select v-model="variable"
+                           :disabled="loading || drawing"
+                           :options="variables"
+                             text-field="label"
+                             value-field="variable">
+                <template slot="first">
+                  <!-- this slot appears above the options from 'options' prop -->
+                  <option :value="null" disabled>-- Selecteer een categorie --</option>
+                </template>
+            </b-form-select>
           </div>
         </div>
       </div>
-      <div v-else>
-        <div class="grid-blok grid_12 align-center">
-          <h4 v-if="cityCijfers">{{cityCijfers.gebied.naam}}: {{cityCijfers.recent.waarde}}</h4>
-          <table v-if="own && own.gebiedType === gebiedType && own.recent">
-            <thead>
-              <tr>
-                <th colspan="3">
-                  Geselecteerde {{own.gebiedType.toLowerCase()}}
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>{{ownIndex}}</td>
-                <td>{{own.gebied.naam}}</td>
-                <td>{{own.recent | displaywaarde}}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="grid-blok grid_6 align-right">
-          <table v-if="highLow.length">
-            <thead>
-            <tr>
-              <th colspan="3">
-                Hoogst scorende {{gebiedType.toLowerCase()}}
-              </th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr :class="{'highlight-own': item.gwb.naam === own.gebied.naam}" v-for="(item, index) in highLow" :key="index" v-if="index < FRAGMENT">
-              <td>{{index % FRAGMENT + 1}}</td>
-              <td>{{item.gwb.naam}}</td>
-              <td>{{item | displaywaarde}}</td>
-            </tr>
-            </tbody>
-          </table>
+    </div>
+    <div class="zone-clear clear"></div>
+    <div class="grid-element">
+      <div class="grid-blok grid_8 pad-top-bottom pull-up">
+          <div :ref="mapRef" class="map"></div>
+      </div>
+      <div class="grid-blok grid_4 pad-top-bottom marge-left pull-up">
+        <span v-if="cityCijfers" class="pad-top-bottom"><b>{{cityCijfers.gebied.naam}}: {{cityCijfers.recent.waarde}}</b></span>
+
+        <div v-if="own && own.gebiedType === gebiedType && own.recent" class="pad-top-bottom">
+          <span><b>Geselecteerde {{own.gebiedType.toLowerCase()}}</b></span>
+          <ol :start="ownIndex">
+            <li>
+              {{own.gebied.naam}}: {{own.recent | displaywaarde}}
+            </li>
+          </ol>
         </div>
 
-        <div class="grid-blok grid_6">
-          <table v-if="highLow.length">
-            <thead>
-            <tr>
-              <th colspan="3">
-                Laagst scorende {{gebiedType.toLowerCase()}}
-              </th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr :class="{'highlight-own': item.gwb.naam === own.gebied.naam}" v-for="(item, index) in highLow" :key="index" v-if="index >= FRAGMENT">
-              <td>{{index % FRAGMENT + 1}}</td>
-              <td>{{item.gwb.naam}}</td>
-              <td>{{item | displaywaarde}}</td>
-            </tr>
-            </tbody>
-          </table>
-        </div>
+          <div v-if="highLow.length">
+            <span>
+              <b>Hoogst scorende {{gebiedType.toLowerCase()}}</b>
+            </span>
+            <div>
+              <ol>
+                <li :class="{'highlight-own': item.gwb.naam === own.gebied.naam}" v-for="(item, index) in highLow" :key="index" v-if="index < FRAGMENT">
+                  {{item.gwb.naam}}: {{item | displaywaarde}}
+                </li>
+              </ol>
+            </div>
+          </div>
+
+          <div v-if="highLow.length">
+            <span>
+              <b>Laagst scorende {{gebiedType.toLowerCase()}}</b>
+            </span>
+            <div>
+              <ol>
+                <li :class="{'highlight-own': item.gwb.naam === own.gebied.naam}" v-for="(item, index) in highLow" :key="index" v-if="index >= FRAGMENT">
+                  {{item.gwb.naam}}: {{item | displaywaarde}}
+                </li>
+              </ol>
+            </div>
+          </div>
         </div>
       </div>
+      <div class="zone-clear clear"></div>
+      <div class="grid-element">
+        <div class="grid-blok grid_12">
+          <fieldset class="rij mode_input text rij_verplicht">
+            <div class="antwoorden checkboxen">
+              <div class="label">
+                <label for="gebiedFilter">Filter</label>
+              </div>
+
+              <div class="antwoord">
+                <input :disabled="!variable || loading || drawing" :checked="gebiedType === 'Gebied'" @click="setGebiedType('Gebied')" type="radio" name="gebiedFilter" id="1">
+                <label for="1">Gebieden</label>
+              </div>
+
+              <div class="antwoord">
+                <input :disabled="!variable || loading || drawing" :checked="gebiedType === 'Wijk'" @click="setGebiedType('Wijk')" type="radio" name="gebiedFilter" id="2">
+                <label for="2">Wijken</label>
+              </div>
+
+              <div class="antwoord">
+                <input :disabled="!variable || loading || drawing" :checked="gebiedType === 'Buurt'" @click="setGebiedType('Buurt')" type="radio" name="gebiedFilter" id="3">
+                <label for="3">Buurten</label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    <div class="zone-clear clear"></div>
+
+      <!--<div v-if="!loading && gebiedType && variable && !highLow.length" class="grid-wrapper wrapper_12 alert-wrapper bgcolor_orange">-->
+        <!--<div class="grid-container container_12 grid-alerts ">-->
+          <!--<div class="melding rich-content">-->
+            <!--Geen cijfers beschikbaar-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div v-else>-->
+        <!--<div class="grid-blok grid_12 align-center">-->
+          <!--<span class="Notification-grijs" v-if="cityCijfers">-->
+            <!--{{cityCijfers.gebied.naam}}: {{cityCijfers.recent.waarde}}-->
+          <!--</span>-->
+          <!--<div class="grid-blok grid_3 align-right">-->
+            <!--<table v-if="own && own.gebiedType === gebiedType && own.recent">-->
+              <!--<thead>-->
+                <!--<tr>-->
+                  <!--<th colspan="3">-->
+                    <!--Geselecteerde {{own.gebiedType.toLowerCase()}}-->
+                  <!--</th>-->
+                <!--</tr>-->
+              <!--</thead>-->
+              <!--<tbody>-->
+                <!--<tr>-->
+                  <!--<td>{{ownIndex}}</td>-->
+                  <!--<td>{{own.gebied.naam}}</td>-->
+                  <!--<td>{{own.recent | displaywaarde}}</td>-->
+                <!--</tr>-->
+              <!--</tbody>-->
+            <!--</table>-->
+          <!--</div>-->
+
+          <!--<div class="grid-blok grid_4 align-right">-->
+            <!--<table v-if="highLow.length">-->
+              <!--<thead>-->
+              <!--<tr>-->
+                <!--<th colspan="3">-->
+                  <!--Hoogst scorende {{gebiedType.toLowerCase()}}-->
+                <!--</th>-->
+              <!--</tr>-->
+              <!--</thead>-->
+              <!--<tbody>-->
+              <!--<tr :class="{'highlight-own': item.gwb.naam === own.gebied.naam}" v-for="(item, index) in highLow" :key="index" v-if="index < FRAGMENT">-->
+                <!--<td>{{index % FRAGMENT + 1}}</td>-->
+                <!--<td>{{item.gwb.naam}}</td>-->
+                <!--<td>{{item | displaywaarde}}</td>-->
+              <!--</tr>-->
+              <!--</tbody>-->
+            <!--</table>-->
+          <!--</div>-->
+
+          <!--<div class="grid-blok grid_4">-->
+            <!--<table v-if="highLow.length">-->
+              <!--<thead>-->
+              <!--<tr>-->
+                <!--<th colspan="3">-->
+                  <!--Laagst scorende {{gebiedType.toLowerCase()}}-->
+                <!--</th>-->
+              <!--</tr>-->
+              <!--</thead>-->
+              <!--<tbody>-->
+              <!--<tr :class="{'highlight-own': item.gwb.naam === own.gebied.naam}" v-for="(item, index) in highLow" :key="index" v-if="index >= FRAGMENT">-->
+                <!--<td>{{index % FRAGMENT + 1}}</td>-->
+                <!--<td>{{item.gwb.naam}}</td>-->
+                <!--<td>{{item | displaywaarde}}</td>-->
+              <!--</tr>-->
+              <!--</tbody>-->
+            <!--</table>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+  </div>
 </template>
 
 <script>
@@ -338,17 +395,16 @@ export default {
 @import "~stijl/src/styles/generic/ams-colorpalette.scss";
 
   .map {
-    height: 350px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    height: 400px;
   }
 
   table {
-    margin: 1rem;
+    /*override grid*/
+    width: 95% !important;
   }
 
   .highlight-own {
-    background-color: $ams-blauw;
+    color: $ams-blauw;
   }
 
   .antwoord {
@@ -366,4 +422,21 @@ export default {
       margin-top: -1rem;
     }
   }
+
+  .Notification-grijs {
+    margin: 0 0 20px;
+  }
+
+  ol {
+    margin: 5px;
+  }
+
+  .marge-left {
+    padding-left: 5px;
+  }
+
+  .pull-up {
+    margin-top: -15px;
+  }
+
 </style>

@@ -1,13 +1,11 @@
 <template>
-  <div class="chart-container" v-if="gwb">
-    <div class="text-center">
-      <div>
-        <icon :icon="icon" :title="title"></icon>
-      </div>
+  <div class="block-container" v-if="gwb">
+    <div class="grid-blok grid_12">
+      <icon :icon="icon" :title="title"></icon>
     </div>
-
-    <div :ref="chartRef"></div>
-
+    <div class="grid-blok grid_12">
+      <div :ref="chartRef"></div>
+    </div>
   </div>
 </template>
 

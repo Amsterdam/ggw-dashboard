@@ -1,9 +1,9 @@
 <template>
-  <div>
-    <div class="grid-blok grid_12">
+  <div class="block-container">
+    <div class="grid-blok grid_4">
       <icon :icon="icon" :title="title"></icon>
     </div>
-    <div class="grid-blok grid_12">
+    <div class="grid-blok grid_8">
       <div v-for="d in data" :key="d.label">
         {{d.label}}:
         <span v-if="d.recent"
@@ -57,5 +57,13 @@ export default {
 
 </script>
 
-<style>
+<style lang="scss" scoped>
+  .block-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .grid_8 {
+    padding-left: 1rem;
+  }
 </style>
