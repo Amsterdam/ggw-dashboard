@@ -1,5 +1,4 @@
 <template>
-  <div>
     <div v-if="gwb && meta">
       <div class="grid-element">
         <div class="grid-blok grid_12">
@@ -39,7 +38,6 @@
         </div>
       </div>
     </div>
-  </div>
 </template>
 
 <script>

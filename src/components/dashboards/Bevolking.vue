@@ -1,87 +1,78 @@
 <template>
-  <div>
-    <div v-if="gwb && meta">
-      <div class="alert">
-        <h2>Bevolkingssamenstelling</h2>
-      </div>
-
-      <div class="row">
-        <div class="col-sm">
+  <div v-if="gwb && meta">
+    <div class="grid-element">
+      <div class="grid-blok grid_12">
+        <div class="grid-title">
+          <h2>Bevolkingssamenstelling</h2>
+        </div>
+        <div class="grid-blok grid_6">
           <horizontal-text title="Inwoners" icon="Missing.jpg" :config="inwoners"></horizontal-text>
         </div>
-        <div class="col-sm">
+        <div class="grid-blok grid_6">
           <horizontal-text title="Huishoudens" icon="Gezinnetje.svg" :config="huishoudens"></horizontal-text>
         </div>
       </div>
+    </div>
+    <div class="zone-clear clear"></div>
 
-      <div class="alert">
-        <h2>Positie en ontwikkeling van {{gwb.naam}} t.o.v. het stedelijk gemiddelde</h2>
-      </div>
-
-      <div class="row">
-        <div class="col-sm">
-          <data-table :config="kerncijfers"></data-table>
+    <div class="grid-element">
+      <div class="grid-blok grid_12">
+        <div class="grid-title">
+          <h2>Positie en ontwikkeling van {{gwb.naam}} t.o.v. het stedelijk gemiddelde</h2>
         </div>
-        <div class="col-sm">
+
+        <data-table :config="kerncijfers"></data-table>
+      </div>
+    </div>
+    <div class="zone-clear clear"></div>
+    <div class="grid-element">
+      <div class="grid-blok grid_12">
+        <div class="grid-title">
+          <h2>Verschillen binnen het gebied</h2>
         </div>
+        <verschillen-gebied :config="kerncijfers"></verschillen-gebied>
       </div>
+    </div>
+    <div class="zone-clear clear"></div>
 
-      <div class="alert">
-        <h2>Verschillen binnen het gebied</h2>
-      </div>
-
-      <verschillen-gebied :config="kerncijfers"></verschillen-gebied>
-
-      <div class="alert">
-        <div class="row">
-          <div class="col-sm-8">
+    <div class="grid-element">
+      <div class="grid-blok grid_8">
+        <div class="grid-title">
             <h2>Aantal inwoners</h2>
-          </div>
-          <div class="col-sm-4">
-            <h2>De aantallen zijn inclusief…</h2>
-          </div>
         </div>
-      </div>
-
-      <div class="row">
-        <div class="col-sm-8">
           <line-chart :config="aantalInwoners" colors="4"></line-chart>
+      </div>
+      <div class="grid-blok grid_4">
+        <div class="grid-title">
+            <h2>De aantallen zijn inclusief…</h2>
         </div>
-        <div class="col-sm-4">
           <woonvormen :config="andereInwoners"></woonvormen>
+      </div>
+    </div>
+    <div class="zone-clear clear"></div>
+
+    <div class="grid-element">
+      <div class="grid-blok grid_12">
+        <div class="grid-title">
+          <h2>Migratieachtergrond</h2>
         </div>
-      </div>
-
-      <div class="alert">
-        <h2>Migratieachtergrond</h2>
-      </div>
-
-      <div class="row">
-        <div class="col-sm-8">
+        <div class="grid-blok grid_7">
           <line-chart :config="migratieachtergrond"></line-chart>
         </div>
-        <div class="col-sm-4">
+        <div class="grid-blok grid_5">
           <pie-chart title="" :config="migratieVerdeling"></pie-chart>
         </div>
       </div>
+    </div>
+    <div class="zone-clear clear"></div>
 
-      <div class="alert">
-        <div class="col-sm-6 offset-sm-6">
+    <div class="grid-element">
+      <div class="grid-blok grid_6">
+        <div class="grid-title">
           <h2>Huishoudsamenstelling</h2>
         </div>
+        <stacked-bar-chart :config="huishoudsamenstelling" last="7"></stacked-bar-chart>
       </div>
-
-      <div class="row">
-        <div class="col-sm-6 offset-sm-6">
-          <stacked-bar-chart :config="huishoudsamenstelling" last="7"></stacked-bar-chart>
-        </div>
-      </div>
-
-    </div>
-
-    <div v-else class="text-center">
-      <h2>Gegevens laden...</h2>
-      <img src="../../../static/icons/loading.gif">
     </div>
   </div>
 </template>
