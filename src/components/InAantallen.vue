@@ -8,7 +8,9 @@
       </thead>
       <tbody>
       <tr v-for="d in data" :key="d.label">
-        <td width="50%">{{d.label}}</td>
+        <td width="50%">
+          <tooltip :text="d.label" :content="d.tooltip && d.tooltip(true)"></tooltip>
+        </td>
         <td width="50%" v-if="d.recent"
             v-b-tooltip.hover triggers="click" v-b-tooltip.html.left title="">
           {{d.recent | displaywaarde}}
@@ -21,6 +23,9 @@
 
 <script>
 import { mapGetters } from 'vuex'
+
+import tooltip from './Tooltip'
+
 import util from '../services/util'
 import inAantallen from '../../static/links/in_aantallen'
 
@@ -31,6 +36,9 @@ export default {
     return {
       data: null
     }
+  },
+  components: {
+    'tooltip': tooltip
   },
   computed: {
     ...mapGetters([
