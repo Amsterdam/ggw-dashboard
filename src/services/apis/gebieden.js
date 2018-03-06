@@ -95,11 +95,11 @@ export async function getGwbSummary (code) {
   const gebiedType = getGebiedType(code)
   let gwbCollection = []
 
-  if (gebiedType === 'Gebied') {
+  if (gebiedType === GEBIED_TYPE.Gebied) {
     gwbCollection = await getAllGebieden()
-  } else if (gebiedType === 'Wijk') {
+  } else if (gebiedType === GEBIED_TYPE.Wijk) {
     gwbCollection = await getAllWijken()
-  } else if (gebiedType === 'Buurt') {
+  } else if (gebiedType === GEBIED_TYPE.Buurt) {
     gwbCollection = await getAllBuurten()
   } else {
     console.error('Unknown gebied type', gebiedType, code)

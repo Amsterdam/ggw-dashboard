@@ -42,19 +42,7 @@ export default {
     async updateData () {
       this.chartdata = await util.getConfigCijfers(this.gwb, this.config)
 
-      let cijfers = util.flatten(
-        this.chartdata.map(data =>
-          data.cijfers.map(cijfer => ({
-            x: cijfer.jaar,
-            y: cijfer.waarde,
-            variable: data.label
-          }))))
-
-      const maxYear = cijfers.reduce((max, cijfer) => cijfer.x > max ? cijfer.x : max, -1)
-
-      if (this.last) {
-        cijfers = cijfers.filter(cijfer => cijfer.x > maxYear - this.last)
-      }
+      const cijfers = util.getYearCijfers(this.chartdata, this.last)
 
       vegaSpec.data.values = cijfers
       vegaSpec.scales[2].range = CHART_COLORS

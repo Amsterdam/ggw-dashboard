@@ -37,7 +37,7 @@ export default {
   data () {
     return {
       data: null,
-      years: [2014, 2015, 2016, 2017]
+      years: []
     }
   },
   computed: {
@@ -48,6 +48,10 @@ export default {
   methods: {
     async updateData () {
       const data = await util.getConfigCijfers(this.gwb, this.config)
+
+      const cijfers = util.getYearCijfers(data)
+      const maxYear = util.getMaxYear(cijfers)
+      this.years = [3, 2, 1, 0].map(i => maxYear - i)
 
       for (let item of data) {
         item.tooltipText = item.tooltip ? item.tooltip(false) : ''
