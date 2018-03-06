@@ -1,7 +1,7 @@
 <template>
   <div v-if="gwb && meta">
     <div class="grid-element">
-      <div class="grid-blok grid_12">
+      <div class="grid-blok grid_12 card">
         <div class="grid-title">
           <h2>Bewoners over hun eigen buurt en woning</h2>
         </div>
@@ -38,23 +38,23 @@
     <div class="zone-clear clear"></div>
 
     <div class="grid-element">
-      <div class="grid-blok grid_8">
+      <div class="grid-blok grid_12 card">
         <div class="grid-title">
           <h2>Aantal woningen</h2>
         </div>
-        <line-chart :config="aantalWoningen"></line-chart>
-      </div>
-      <div class="grid-blok grid_4">
-        <div class="grid-title">
-          <h2>Andere woonvormen</h2>
+        <div class="grid-blok grid_8">
+          <line-chart :config="aantalWoningen"></line-chart>
         </div>
-        <woonvormen :config="andereWoonvormen"></woonvormen>
+        <div class="grid-blok grid_4">
+          <span><b>Andere woonvormen</b></span>
+          <woonvormen :config="andereWoonvormen"></woonvormen>
+        </div>
       </div>
     </div>
     <div class="zone-clear clear"></div>
 
     <div class="grid-element">
-      <div class="grid-blok grid_12">
+      <div class="grid-blok grid_12 card">
         <div class="grid-title">
           <h2>Woningen naar eigendom en woonlasten</h2>
         </div>
@@ -72,7 +72,7 @@
     <div class="zone-clear clear"></div>
 
     <div class="grid-element">
-      <div class="grid-blok grid_12 pad-top-bottom">
+      <div class="grid-blok grid_12 card">
         <div class="grid-blok grid_6">
           <stacked-bar-chart title="Type woningen" :config="typeWoningen"></stacked-bar-chart>
         </div>
@@ -84,7 +84,7 @@
     <div class="zone-clear clear"></div>
 
     <div class="grid-element">
-        <div class="grid-blok grid_12">
+        <div class="grid-blok grid_12 card">
           <div class="grid-title">
             <h2>Woningen voor ouderen</h2>
           </div>

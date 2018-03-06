@@ -58,12 +58,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .block-container {
-    display: flex;
-    align-items: center;
-  }
-
   .grid_8 {
-    padding-left: 1rem;
+    vertical-align: middle;
+    align-items: flex-start;
   }
 </style>

@@ -2,7 +2,7 @@
   <div>
     <div v-if="gwb && meta">
       <div class="grid-element">
-        <div class="grid-blok grid_12 pad-top-bottom">
+        <div class="grid-blok grid_12 card">
           <div class="grid-title">
             <h2>Bewoners over hun eigen buurt en woning</h2>
           </div>
@@ -16,14 +16,16 @@
         </div>
 
         <color-legend></color-legend>
-        <div class="grid-title">
-          <h2>Positie en ontwikkeling van {{gwb.naam}} t.o.v. het stedelijk gemiddelde</h2>
-        </div>
+        <div class="grid-element">
+          <div class="grid-blok grid_12">
+              <div class="grid-title">
+                <h2>Positie en ontwikkeling van {{gwb.naam}} t.o.v. het stedelijk gemiddelde</h2>
+              </div>
 
-        <div class="grid-blok grid_12">
-          <data-table :config="kerncijfers"></data-table>
+              <data-table :config="kerncijfers"></data-table>
+            </div>
+          </div>
         </div>
-      </div>
       <div class="zone-clear clear"></div>
 
       <div class="grid-element">
@@ -38,30 +40,32 @@
       <div class="zone-clear clear"></div>
 
       <div class="grid-element">
-        <div class="grid-blok grid_8">
+        <div class="grid-blok grid_12 card">
           <div class="grid-title">
             <h2>Aantal vestigingen en werkzame personen</h2>
           </div>
-          <line-chart :config="aantalVestigingenEnWerkzamePersonen"></line-chart>
-        </div>
-        <div class="grid-blok grid_4">
-          <div class="grid-title">
-            <h2>Van de vestigingen is…</h2>
+          <div class="grid-blok grid_8">
+            <line-chart :config="aantalVestigingenEnWerkzamePersonen"></line-chart>
           </div>
-            <woonvormen :config="typeVestiging"></woonvormen>
+          <div class="grid-blok grid_4">
+            <div class="grid-title">
+              <span><b>Van de vestigingen is…</b></span>
+            </div>
+              <woonvormen :config="typeVestiging"></woonvormen>
+          </div>
         </div>
       </div>
 
       <div class="zone-clear clear"></div>
 
       <div class="grid-element">
-        <div class="grid-blok grid_6">
+        <div class="grid-blok grid_6 card break-out-card">
           <div class="grid-title">
             <h2>Vestigingen naar hoofdfunctie</h2>
           </div>
           <pie-chart title="" :config="vestigingenHoofdfunctie"></pie-chart>
-          </div>
-          <div class="grid-blok grid_6">
+        </div>
+          <div class="grid-blok grid_6 card break-out-card">
             <div class="grid-title">
               <h2>Werkzame personen naar hoofdfunctie</h2>
             </div>
@@ -146,4 +150,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  .grid_4 {
+    align-items: flex-start;
+  }
 </style>

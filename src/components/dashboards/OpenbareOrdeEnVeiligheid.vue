@@ -1,7 +1,7 @@
 <template>
   <div v-if="gwb && meta">
     <div class="grid-element">
-      <div class="grid-blok grid_12">
+      <div class="grid-blok grid_12 card">
         <div class="grid-title">
           <h2>Bewoners over veiligheid en overlast in hun eigen buurt</h2>
         </div>
@@ -41,7 +41,7 @@
     <div class="zone-clear clear"></div>
 
     <div class="grid-element">
-      <div class="grid-blok grid_12">
+      <div class="grid-blok grid_12 card">
         <div class="grid-title">
           <h2>Aandeel bewoners dat veel overlast ervaart van….</h2>
         </div>
@@ -69,7 +69,7 @@
     <div class="zone-clear clear"></div>
 
     <div class="grid-element">
-      <div class="grid-blok grid_12">
+      <div class="grid-blok grid_12 card">
         <div class="grid-title">
           <h2>Aandeel 15-plussers dat de afgelopen 12 maanden slachtoffer is geweest van….</h2>
         </div>

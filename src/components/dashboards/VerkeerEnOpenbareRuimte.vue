@@ -1,7 +1,7 @@
 <template>
   <div v-if="gwb && meta">
     <div class="grid-element">
-      <div class="grid-blok grid_12">
+      <div class="grid-blok grid_12 card">
         <div class="grid-title">
           <h2>Bewoners over het verkeer en de openbare ruimte in hun eigen buurt</h2>
         </div>
@@ -37,7 +37,7 @@
     <div class="zone-clear clear"></div>
 
     <div class="grid-element">
-      <div class="grid-blok grid_12">
+      <div class="grid-blok grid_12 card">
         <div class="grid-title">
           <h2>Rapportcijfer bewoners voor schoonhouden openbare Ruimte</h2>
         </div>
@@ -55,7 +55,7 @@
     <div class="zone-clear clear"></div>
 
     <div class="grid-element">
-      <div class="grid-blok grid_12">
+      <div class="grid-blok grid_12 card">
         <div class="grid-title">
           <h2>Parkeren</h2>
         </div>
@@ -64,7 +64,7 @@
         </div>
       </div>
 
-      <div class="grid-blok grid_12">
+      <div class="grid-blok grid_12 card">
         <div class="grid-blok grid_6">
           <vertical-bar-chart :config="parkeervoorzieningen"></vertical-bar-chart>
         </div>

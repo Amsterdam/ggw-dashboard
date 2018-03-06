@@ -36,30 +36,30 @@
     <div class="zone-clear clear"></div>
 
     <div class="grid-element">
-      <div class="grid-blok grid_8">
+      <div class="grid-blok grid_12 card">
         <div class="grid-title">
             <h2>Aantal inwoners</h2>
         </div>
+        <div class="grid-blok grid_8">
           <line-chart :config="aantalInwoners" colors="4"></line-chart>
-      </div>
-      <div class="grid-blok grid_4">
-        <div class="grid-title">
-            <h2>De aantallen zijn inclusief…</h2>
         </div>
-          <woonvormen :config="andereInwoners"></woonvormen>
+        <div class="grid-blok grid_4">
+            <span><b>De aantallen zijn inclusief…</b></span>
+            <woonvormen :config="andereInwoners"></woonvormen>
+        </div>
       </div>
     </div>
     <div class="zone-clear clear"></div>
 
     <div class="grid-element">
-      <div class="grid-blok grid_12">
+      <div class="grid-blok grid_12 card">
         <div class="grid-title">
           <h2>Migratieachtergrond</h2>
         </div>
-        <div class="grid-blok grid_7">
+        <div class="grid-blok grid_6">
           <line-chart :config="migratieachtergrond"></line-chart>
         </div>
-        <div class="grid-blok grid_5">
+        <div class="grid-blok grid_6">
           <pie-chart title="" :config="migratieVerdeling"></pie-chart>
         </div>
       </div>
@@ -67,11 +67,13 @@
     <div class="zone-clear clear"></div>
 
     <div class="grid-element">
-      <div class="grid-blok grid_6">
+      <div class="grid-blok grid_12 card">
         <div class="grid-title">
           <h2>Huishoudsamenstelling</h2>
         </div>
-        <stacked-bar-chart :config="huishoudsamenstelling" last="7"></stacked-bar-chart>
+        <div class="grid-blok grid_7">
+          <stacked-bar-chart :config="huishoudsamenstelling" last="7"></stacked-bar-chart>
+        </div>
       </div>
     </div>
   </div>

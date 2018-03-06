@@ -1,7 +1,7 @@
 <template>
     <div v-if="gwb && meta">
       <div class="grid-element">
-        <div class="grid-blok grid_12">
+        <div class="grid-blok grid_12 card">
           <div class="grid-title">
             <h2>Bewoners over het voorzieningenaanbod in hun eigen buurt en hun eigen sportdeelname</h2>
           </div>
