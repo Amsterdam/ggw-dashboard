@@ -62,7 +62,6 @@ import { mapGetters } from 'vuex'
 import util from '../services/util'
 import { getShapes, drawShapes, amsMap } from '../services/map'
 import { COLOR } from '../services/colorcoding'
-import positieOntwikkeling from '../../static/links/positie_en_ontwikkeling'
 
 let map
 let gwbLayer = null
@@ -83,6 +82,9 @@ export default {
       'buurt'
     ])
   },
+  props: [
+    'config'
+  ],
   data () {
     return {
       FRAGMENT: 5,
@@ -135,7 +137,7 @@ export default {
       clearLayers()
 
       this.own = await this.getOwn()
-      if (!this.own && this.own.recent && this.own.recent.jaar) {
+      if (!(this.own && this.own.recent && this.own.recent.jaar)) {
         // Unable to specify a search year...
         return this.noCijfers()
       }
@@ -231,7 +233,7 @@ export default {
     },
 
     async showVariables () {
-      const variables = await Promise.all(positieOntwikkeling.map(async po => {
+      const variables = await Promise.all(this.config.map(async po => {
         const meta = await util.getMeta(po.variabele)
         if (meta) {
           return {
