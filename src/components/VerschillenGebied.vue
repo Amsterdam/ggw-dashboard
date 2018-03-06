@@ -24,6 +24,7 @@
         Geen cijfers beschikbaar
       </div>
       <div v-else>
+        <h4 v-if="cityCijfers">{{cityCijfers.gebied.naam}}: {{cityCijfers.recent.waarde}}</h4>
         <div v-if="own && own.gebiedType === gebiedType && own.recent">
           <h4>Geselecteerde {{own.gebiedType.toLowerCase()}}</h4>
           <span class="font-weight-bold">{{ownIndex}}</span>
@@ -100,6 +101,7 @@ export default {
       highest: [],
       own: null,
       ownIndex: null,
+      cityCijfers: null,
       highLow: [],
       loading: false,
       drawing: false,
@@ -145,6 +147,9 @@ export default {
         // Unable to specify a search year...
         return this.noCijfers()
       }
+
+      const city = await util.getCity()
+      this.cityCijfers = await util.getGebiedCijfers(this.variable, city, util.CIJFERS.LATEST)
 
       this.own.gebiedType = util.getGebiedType(this.own.recent.gebiedcode15)
 
