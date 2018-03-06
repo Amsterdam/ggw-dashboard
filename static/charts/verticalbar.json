@@ -22,9 +22,9 @@
       "y": {"field": "value", "type": "quantitative", "axis": {"title": null, "tickCount": 5, "offset": 5}},
       "x": {"field": "key", "type": "ordinal", "sort": null, "axis": {"labels": true, "labelPadding": 5, "ticks": false, "title": null}},
       "color": {
-        "field": "key",
+        "field": "i",
         "type": "nominal",
-        "scale": {"range": ["#BED200"]},
+        "scale": {"range": ["red", "blue", "green"]},
         "legend": null
       }
     }
