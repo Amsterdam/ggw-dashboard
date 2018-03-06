@@ -25,6 +25,7 @@ function enhanceGWB (gwb) {
   gwb.gebiedType = getGebiedType(gwb.volledige_code)
   gwb.naam = localGebiedscodes[gwb.vollcode] ? localGebiedscodes[gwb.vollcode].gebiednaam : gwb.naam
   gwb.display = localGebiedscodes[gwb.vollcode] ? localGebiedscodes[gwb.vollcode].gebiedcodenaam : `${gwb.vollcode} ${gwb.naam}`
+  return gwb
 }
 
 function enhancedGWBList (gwbList) {
@@ -95,11 +96,11 @@ export async function getGwbSummary (code) {
   const gebiedType = getGebiedType(code)
   let gwbCollection = []
 
-  if (gebiedType === 'Gebied') {
+  if (gebiedType === GEBIED_TYPE.Gebied) {
     gwbCollection = await getAllGebieden()
-  } else if (gebiedType === 'Wijk') {
+  } else if (gebiedType === GEBIED_TYPE.Wijk) {
     gwbCollection = await getAllWijken()
-  } else if (gebiedType === 'Buurt') {
+  } else if (gebiedType === GEBIED_TYPE.Buurt) {
     gwbCollection = await getAllBuurten()
   } else {
     console.error('Unknown gebied type', gebiedType, code)
@@ -115,6 +116,12 @@ export async function getGwb (code) {
   if (gwb) {
     return getDetail(gwb)
   }
+}
+
+export async function getCity () {
+  return enhanceGWB({
+    vollcode: 'STAD'
+  })
 }
 
 export async function getAllGebieden () {

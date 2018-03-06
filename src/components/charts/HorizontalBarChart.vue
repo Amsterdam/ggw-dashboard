@@ -55,16 +55,15 @@ export default {
     },
 
     updateChart () {
-      vegaSpec.data.values = this.chartdata.map(d => ({
+      vegaSpec.data.values = this.chartdata.map((d, i) => ({
         key: d.label,
         value: (d.recent && d.recent.waarde) || 0,
-        label: (d.recent && d.recent.waarde !== null) ? d.recent.waarde : 'Geen gegevens'
+        label: (d.recent && d.recent.waarde !== null) ? d.recent.waarde : 'Geen gegevens',
+        color: (d.recent && d.recent.color) || COLOR['ams-oranje'],
+        i
       }))
 
-      vegaSpec.layer[0].encoding.color.scale.range = this.chartdata
-        .filter(d => d.recent && d.recent.waarde)
-        .map(d => d.recent.color || COLOR['ams-oranje'])
-
+      vegaSpec.layer[0].encoding.color.scale.range = vegaSpec.data.values.map(v => v.color)
       vegaEmbed(this.$refs[this.chartRef], vegaSpec, vegaEmbedOptions)
     }
   },

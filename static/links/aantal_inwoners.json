@@ -17,18 +17,18 @@
   },
   {
     "label": "Prognose totaal",
-    "variabele": "Bev_prog2018"
+    "variabele": "Bev_prog[LATEST]"
   },
   {
     "label": "Prognose 0-17",
-    "variabele": "Bev0_17_prog2018"
+    "variabele": "Bev0_17_prog[LATEST]"
   },
   {
     "label": "Prognose 18-64",
-    "variabele": "Bev18_64_prog2018"
+    "variabele": "Bev18_64_prog[LATEST]"
   },
   {
     "label": "Prognose 65+",
-    "variabele": "Bev65plus_prog2018"
+    "variabele": "Bev65plus_prog[LATEST]"
   }
 ]
