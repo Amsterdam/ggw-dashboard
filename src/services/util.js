@@ -1,4 +1,4 @@
-import { getAllGebieden, getAllWijken, getAllBuurten, getWijken, getBuurten, getGebiedType, getGwb, getGwbSummary, getDetail, GEBIED_TYPE } from './apis/gebieden'
+import { getAllGebieden, getAllWijken, getAllBuurten, getCity, getWijken, getBuurten, getGebiedType, getGwb, getGwbSummary, getDetail, GEBIED_TYPE } from './apis/gebieden'
 import { getAllMeta, getMeta, getAllCijfers, getGebiedCijfers, CIJFERS } from './apis/bbga'
 import { getGeometries as getGeoGeometries, GEBIED_TYPE as GEO_GEBIED_TYPE } from './apis/map'
 
@@ -96,6 +96,7 @@ export default {
   getAllGebieden,
   getAllWijken,
   getAllBuurten,
+  getCity,
   getWijken,
   getBuurten,
   getDetail,

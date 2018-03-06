@@ -25,6 +25,7 @@ function enhanceGWB (gwb) {
   gwb.gebiedType = getGebiedType(gwb.volledige_code)
   gwb.naam = localGebiedscodes[gwb.vollcode] ? localGebiedscodes[gwb.vollcode].gebiednaam : gwb.naam
   gwb.display = localGebiedscodes[gwb.vollcode] ? localGebiedscodes[gwb.vollcode].gebiedcodenaam : `${gwb.vollcode} ${gwb.naam}`
+  return gwb
 }
 
 function enhancedGWBList (gwbList) {
@@ -115,6 +116,12 @@ export async function getGwb (code) {
   if (gwb) {
     return getDetail(gwb)
   }
+}
+
+export async function getCity () {
+  return enhanceGWB({
+    vollcode: 'STAD'
+  })
 }
 
 export async function getAllGebieden () {
