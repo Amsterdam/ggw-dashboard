@@ -30,7 +30,7 @@
         <h2>Verschillen binnen het gebied</h2>
       </div>
 
-      <verschillen-gebied></verschillen-gebied>
+      <verschillen-gebied :config="kerncijfers"></verschillen-gebied>
 
       <div class="alert">
         <div class="row">
