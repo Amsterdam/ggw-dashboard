@@ -23,6 +23,21 @@ export async function getAllMeta () {
 
 export async function getMeta (variableName) {
   const meta = await getAllMeta()
+
+  // Check for special variables, eg "Bev_prog[LATEST]"
+  const isLatest = new RegExp(/\[LATEST\]$/i)
+  if (isLatest.test(variableName)) {
+    let baseName = variableName.replace(isLatest, '') // Bev_prog
+    baseName = new RegExp('^' + baseName, 'i') // /^Bev_prog/i
+    const vars = Object.keys(meta)
+      .filter(key => baseName.test(key))
+      .sort()
+      .reverse()
+    if (!vars.length) {
+      return
+    }
+    variableName = vars[0]
+  }
   return meta[variableName.toUpperCase()]
 }
 
