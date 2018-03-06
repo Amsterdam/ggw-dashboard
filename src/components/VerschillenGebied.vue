@@ -252,12 +252,19 @@ export default {
         }
       }))
       this.variables = variables
+      this.variable = this.variables[0].variable
     }
 
   },
   watch: {
     'variable' () {
       this.updateData()
+    },
+    'gwb' () {
+      if (this.gwb) {
+        const gebiedType = util.getGebiedType(this.gwb.vollcode)
+        this.setGebiedType(gebiedType)
+      }
     }
   },
 
