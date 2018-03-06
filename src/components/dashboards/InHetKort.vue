@@ -11,8 +11,8 @@
       </div>
 
       <div class="grid-element">
+        <color-legend></color-legend>
         <div class="grid-blok grid_12 card">
-          <color-legend></color-legend>
           <div class="grid-title">
             <h2>Samenstelling woningvoorraad en bevolking van {{gwb.naam}}</h2>
           </div>
