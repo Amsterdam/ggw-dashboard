@@ -15,7 +15,6 @@
     </div>
     <div class="zone-clear clear"></div>
 
-
     <div class="grid-element">
       <div class="grid-blok grid_12">
         <color-legend></color-legend>
@@ -102,9 +101,7 @@
       </div>
     <div class="zone-clear clear"></div>
 
-
     <meer-cijfers-en-informatie></meer-cijfers-en-informatie>
-
 
   </div>
 </template>
@@ -187,6 +184,5 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 </style>

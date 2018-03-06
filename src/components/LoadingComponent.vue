@@ -9,17 +9,17 @@
 </template>
 
 <script>
-  export default {
-    name: 'LoadingComponent',
-    components: {
-    },
-    props: {
-      simple: {
-        default: false,
-        type: Boolean
-      }
+export default {
+  name: 'LoadingComponent',
+  components: {
+  },
+  props: {
+    simple: {
+      default: false,
+      type: Boolean
     }
   }
+}
 </script>
 
 <style lang="scss" scoped>

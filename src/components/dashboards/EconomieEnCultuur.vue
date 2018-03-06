@@ -37,9 +37,7 @@
       </div>
       <div class="zone-clear clear"></div>
 
-
       <div class="grid-element">
-
         <div class="grid-blok grid_8">
           <div class="grid-title">
             <h2>Aantal vestigingen en werkzame personen</h2>
@@ -52,12 +50,11 @@
           </div>
             <woonvormen :config="typeVestiging"></woonvormen>
         </div>
-
       </div>
+
       <div class="zone-clear clear"></div>
 
       <div class="grid-element">
-
         <div class="grid-blok grid_6">
           <div class="grid-title">
             <h2>Vestigingen naar hoofdfunctie</h2>
@@ -148,6 +145,5 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 </style>

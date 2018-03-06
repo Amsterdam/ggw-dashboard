@@ -36,7 +36,6 @@
     </div>
     <div class="zone-clear clear"></div>
 
-
     <div class="grid-element">
       <div class="grid-blok grid_12">
         <div class="grid-title">

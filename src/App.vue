@@ -48,7 +48,7 @@ export default {
     'gwb-map': gwbMap,
     'loading-component': loadingComponent
   },
-  data() {
+  data () {
     return {
       HTTPStatus
     }
