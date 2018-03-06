@@ -28,6 +28,6 @@ export const THEMAS = [
 
 export function getKerncijfers (thema) {
   return kerncijfers
-    .filter(cijfer => cijfer['Thema Kerncijfertabel'] === thema)
-    .sort((c1, c2) => c1['Volgorde kerncijfertabel'] - c2['Volgorde kerncijfertabel'])
+    .filter(cijfer => cijfer.thema === thema)
+    .sort((c1, c2) => c1.volgorde - c2.volgorde)
 }
