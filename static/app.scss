@@ -5,6 +5,20 @@
 
 @import "~stijl/src/styles/ams-stijl";
 
+
+.ams-header {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: -2rem;
+
+  &__logo {
+    &--short {
+      width: 150px;
+      height: 100px;
+    }
+  }
+}
+
 .sticky-top {
   position: sticky;
   top: 0;
