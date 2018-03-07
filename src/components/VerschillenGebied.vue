@@ -32,14 +32,15 @@
           <b>{{cityCijfers.gebied.naam}}: {{cityCijfers.recent | displaywaarde }}</b>
         </span>
 
-        <div v-if="own && own.gebiedType === gebiedType && own.recent" class="pad-top-bottom">
-          <span><b>Geselecteerde {{own.gebiedType.toLowerCase()}}</b></span>
-          <ol :start="ownIndex">
-            <li>
-              {{own.gebied.naam}}: {{own.recent | displaywaarde}}
-            </li>
-          </ol>
-        </div>
+        <div class="pad-top-bottom">
+          <div v-if="own && own.gebiedType === gebiedType && own.recent">
+            <span><b>Geselecteerde {{own.gebiedType.toLowerCase()}}</b></span>
+            <ol :start="ownIndex">
+              <li>
+                {{own.gebied.naam}}: {{own.recent | displaywaarde}}
+              </li>
+            </ol>
+          </div>
 
           <div v-if="highLow.length">
             <span>
@@ -54,7 +55,7 @@
             </div>
           </div>
 
-          <div v-if="highLow.length">
+          <div v-if="highLow.length > FRAGMENT">
             <span>
               <b>Laagst scorende {{gebiedType.toLowerCase()}}</b>
             </span>
@@ -68,6 +69,7 @@
           </div>
         </div>
         </div>
+        </div>
       </div>
       <div class="zone-clear clear"></div>
       <div class="grid-element">
@@ -76,6 +78,11 @@
             <div class="antwoorden checkboxen">
               <div class="label">
                 <label for="gebiedFilter">Filter</label>
+              </div>
+
+              <div class="antwoord">
+                <input :disabled="!variable || loading || drawing" :checked="gebiedType === 'Stadsdeel'" @click="setGebiedType('Stadsdeel')" type="radio" name="gebiedFilter" id="0">
+                <label for="0">Stadsdelen</label>
               </div>
 
               <div class="antwoord">
@@ -106,6 +113,8 @@ import util from '../services/util'
 import { getShapes, drawShapes, amsMap } from '../services/map'
 import { COLOR } from '../services/colorcoding'
 
+const FRAGMENT = 5
+
 let map
 let gwbLayer = null
 
@@ -130,11 +139,12 @@ export default {
   ],
   data () {
     return {
-      FRAGMENT: 5,
+      FRAGMENT,
       variable: null,
       variables: [],
       gebiedType: util.GEBIED_TYPE.Gebied,
       gebiedTypes: [
+        util.GEBIED_TYPE.Stadsdeel,
         util.GEBIED_TYPE.Gebied,
         util.GEBIED_TYPE.Wijk,
         util.GEBIED_TYPE.Buurt
@@ -171,6 +181,8 @@ export default {
       } else if (this.gebiedType === util.GEBIED_TYPE.Wijk && this.wijk) {
         gwb = this.wijk
       } else if (this.gebiedType === util.GEBIED_TYPE.Gebied && this.gebied) {
+        gwb = this.gebied
+      } else if (this.gebiedType === util.GEBIED_TYPE.Stadsdeel) {
         gwb = this.gebied
       }
       return util.getGebiedCijfers(this.variable, gwb, util.CIJFERS.LATEST)
@@ -211,8 +223,7 @@ export default {
       cijfers = cijfers.filter(c => util.getGebiedType(c.gebiedcode15) === this.gebiedType)
       cijfers = cijfers.sort((c1, c2) => c2.waarde - c1.waarde)
 
-      if (cijfers.length < 2 * this.FRAGMENT) {
-        // At least 5 low and high are expected
+      if (cijfers.length <= 0) {
         return this.noCijfers()
       }
 
@@ -223,9 +234,18 @@ export default {
 
       this.ownIndex = cijfers.findIndex(c => c.gebiedcode15 === this.own.recent.gebiedcode15) + 1
 
-      // Get only the lowest and highest values
-      const highest = cijfers.slice(0, this.FRAGMENT)
-      const lowest = cijfers.slice(cijfers.length - this.FRAGMENT)
+      let highest, lowest
+      if (cijfers.length <= 2 * FRAGMENT) {
+        // Show the whole list
+        this.FRAGMENT = cijfers.length
+        highest = cijfers
+        lowest = []
+      } else {
+        // Get only the lowest and highest values
+        this.FRAGMENT = FRAGMENT
+        highest = cijfers.slice(0, this.FRAGMENT)
+        lowest = cijfers.slice(cijfers.length - this.FRAGMENT)
+      }
       const highLow = highest.concat(lowest.reverse())
 
       // Add gebieds info for the 10 remaining cijfers
@@ -339,7 +359,7 @@ export default {
 
   .antwoord {
     display: inline-block;
-    width: 25%;
+    width: 20%;
 
     input, label {
       cursor: pointer;

@@ -1,4 +1,4 @@
-import { getAllGebieden, getAllWijken, getAllBuurten, getCity, getWijken, getBuurten, getGebiedType, getGwb, getGwbSummary, getDetail, GEBIED_TYPE } from './apis/gebieden'
+import { getAllStadsdelen, getAllGebieden, getAllWijken, getAllBuurten, getCity, getWijken, getBuurten, getGebiedType, getGwb, getGwbSummary, getDetail, GEBIED_TYPE } from './apis/gebieden'
 import { getAllMeta, getMeta, getAllCijfers, getGebiedCijfers, CIJFERS } from './apis/bbga'
 import { getGeometries as getGeoGeometries, GEBIED_TYPE as GEO_GEBIED_TYPE } from './apis/map'
 
@@ -71,6 +71,7 @@ function getMaxYear (cijfers) {
 
 async function getGeometries (gebiedType) {
   const geoGebiedType = {
+    [GEBIED_TYPE.Stadsdeel]: GEO_GEBIED_TYPE.Stadsdeel,
     [GEBIED_TYPE.Gebied]: GEO_GEBIED_TYPE.Gebied,
     [GEBIED_TYPE.Wijk]: GEO_GEBIED_TYPE.Wijk,
     [GEBIED_TYPE.Buurt]: GEO_GEBIED_TYPE.Buurt
@@ -81,6 +82,7 @@ async function getGeometries (gebiedType) {
 
 async function getGwbs (gebiedType) {
   const getAll = {
+    [GEBIED_TYPE.Stadsdeel]: getAllStadsdelen,
     [GEBIED_TYPE.Gebied]: getAllGebieden,
     [GEBIED_TYPE.Wijk]: getAllWijken,
     [GEBIED_TYPE.Buurt]: getAllBuurten
@@ -93,6 +95,7 @@ const flatten = list => list.reduce(
 )
 
 export default {
+  getAllStadsdelen,
   getAllGebieden,
   getAllWijken,
   getAllBuurten,
