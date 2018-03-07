@@ -2,7 +2,7 @@
   <div>
     <div @click="showTooltip">
       <slot>
-        {{selectedCijfer && selectedCijfer.label}}
+        <span v-if="selectedCijfer">{{selectedCijfer.label}}</span>
       </slot>
     </div>
 
@@ -13,15 +13,22 @@
       :ref="id"
       :hide-header="true"
       :hide-footer="true">
-      <div v-if="cijfers">
-        <b-form-select @change="selectCijfer"
+      <div>
+        <b-form-select v-if="cijfers"
+                       @change="selectCijfer"
                        v-model="selectedLabel"
                        :options="cijfers"
                        text-field="label"
                        value-field="label">
         </b-form-select>
-        <div v-if="selectedCijfer && selectedCijfer.tooltip" @click="hideTooltip" class="text-center">
-          <div v-html="selectedCijfer.tooltip(true)"></div>
+        <div v-if="selectedCijfer && selectedCijfer.tooltip"
+             @click="hideTooltip"
+             class="text-center">
+          <h2>{{selectedCijfer.label}}</h2>
+          <p v-if="selectedCijfer.recent" class="text-center">
+            {{selectedCijfer.recent.jaar}}: {{selectedCijfer.recent | displaywaarde }}
+          </p>
+          <p v-html="selectedCijfer.tooltip(false)"></p>
         </div>
       </div>
     </b-modal>
@@ -34,8 +41,6 @@ export default {
     'cijfers',
     'cijfer'
   ],
-  components: {
-  },
   data () {
     return {
       id: `${this._uid}.tooltip`,
@@ -52,18 +57,22 @@ export default {
       this.$refs[this.id].hide()
     },
     updateCijfer () {
-      if (this.cijfers) {
-        if (this.cijfer) {
-          this.selectCijfer(this.cijfer.label)
-        } else {
-          this.selectCijfer(this.cijfers[0].label)
-        }
+      if (this.cijfer) {
+        this.selectCijfer(this.cijfer.label)
+      } else if (this.cijfers) {
+        this.selectCijfer(this.cijfers[0].label)
+      } else {
+        this.selectCijfer(null)
       }
     },
     selectCijfer (label) {
-      console.log('selectCijfer', label)
-      this.selectedCijfer = this.cijfers.find(c => c.label === label)
-      this.selectedLabel = this.selectedCijfer.label
+      if (this.cijfers) {
+        this.selectedCijfer = this.cijfers.find(c => c.label === label)
+        this.selectedLabel = this.selectedCijfer.label
+      } else {
+        this.selectedCijfer = null
+        this.selectedLabel = null
+      }
     }
   },
   created () {
