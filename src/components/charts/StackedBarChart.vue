@@ -1,11 +1,14 @@
 <template>
   <div class="chart-container">
+    <tooltip :cijfers="chartdata">
     <div :ref="chartRef"></div>
+    </tooltip>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+import tooltip from '../Tooltip'
 import util from '../../services/util'
 import vegaEmbed from 'vega-embed'
 import vegaSpec from '../../../static/charts/stackedbar5'
@@ -22,6 +25,7 @@ const vegaEmbedOptions = {
 export default {
   name: 'StackedBarChart',
   components: {
+    'tooltip': tooltip
   },
   props: [
     'config',

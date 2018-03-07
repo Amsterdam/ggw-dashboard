@@ -5,13 +5,14 @@
     </div>
     <div class="grid-blok grid_8 horizontal-text__content">
       <div v-for="d in data" :key="d.label">
-        {{d.label}}:
-        <span v-if="d.recent"
-              v-b-tooltip.hover v-b-tooltip.click v-b-tooltip.left title="">
-          <b>
-              {{d.recent | displaywaarde}}
-          </b>
-        </span>
+        <tooltip :cijfers="data" :cijfer="d">
+          {{d.label}}:
+          <span v-if="d.recent">
+            <b>
+                {{d.recent | displaywaarde}}
+            </b>
+          </span>
+        </tooltip>
       </div>
     </div>
   </div>
@@ -19,13 +20,16 @@
 
 <script>
 import { mapGetters } from 'vuex'
+
+import tooltip from '../Tooltip'
 import icon from '../Icon'
 import util from '../../services/util'
 
 export default {
   name: 'HorizontalText',
   components: {
-    'icon': icon
+    'icon': icon,
+    'tooltip': tooltip
   },
   props: [
     'title',
