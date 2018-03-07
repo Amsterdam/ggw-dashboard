@@ -20,6 +20,8 @@ export default {
 
 <style lang="scss" scoped>
 .icon-wrapper {
+  max-width: 8rem;
+  flex-shrink: 0;
   * {
     text-align: center;
   }
@@ -33,11 +35,12 @@ export default {
 .icon-container {
   height: 100px;
   margin-bottom: 5px;
+  padding-top: 0 !important; //override generic grid blok styling
+  justify-content: center;
 }
 
 .icon {
   max-width: 100%;
   max-height: 100%;
-  min-width: 100px;
 }
 </style>
