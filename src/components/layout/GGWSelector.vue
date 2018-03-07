@@ -157,6 +157,7 @@ export default {
       } else {
         const gebied = await util.getCity()
         this.gebiedDetail = gebied
+        this.selection.gebied = null
       }
 
       if (!wijkCode) {
@@ -224,7 +225,7 @@ export default {
       this.selection.thema = thema || IN_HET_KORT
       this.updateThema(this.selection.thema)
 
-      this.selection.gebied = gebied || 'DX01'
+      this.selection.gebied = gebied
       await this.updateGebied(this.selection.gebied, wijk)
 
       if (wijk) {
