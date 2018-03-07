@@ -3,12 +3,14 @@
     <div class="grid-blok grid_4">
       <icon :icon="icon" :title="title"></icon>
     </div>
-    <div class="grid-blok grid_8">
+    <div class="grid-blok grid_8 horizontal-text__content">
       <div v-for="d in data" :key="d.label">
         {{d.label}}:
         <span v-if="d.recent"
               v-b-tooltip.hover v-b-tooltip.click v-b-tooltip.left title="">
+          <b>
               {{d.recent | displaywaarde}}
+          </b>
         </span>
       </div>
     </div>
@@ -59,8 +61,19 @@ export default {
 
 <style lang="scss" scoped>
   // override grid styling for this component
-  .grid_8 {
-    vertical-align: middle;
-    align-items: flex-start;
+  .card .grid-blok.horizontal-text__content {
+    justify-content: center;
+    align-items: stretch;
+    margin: auto 0;
+    padding-top: 0;
+    flex-grow: 2;
+  }
+
+  .block-container {
+    display: flex;
+    align-items: left;
+    align-self: left;
+    justify-content: center;
+    width: 100%;
   }
 </style>
