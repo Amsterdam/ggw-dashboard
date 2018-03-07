@@ -11,9 +11,10 @@
         <td width="50%">
           <tooltip :cijfers="data" :cijfer="d"></tooltip>
         </td>
-        <td width="50%" v-if="d.recent"
-            v-b-tooltip.hover triggers="click" v-b-tooltip.html.left title="">
-          {{d.recent | displaywaarde}}
+        <td width="50%" v-if="d.recent">
+          <tooltip :cijfers="data" :cijfer="d">
+            {{d.recent | displaywaarde}}
+          </tooltip>
         </td>
       </tr>
       </tbody>
