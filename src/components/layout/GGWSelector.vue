@@ -150,7 +150,8 @@ export default {
         const wijken = await util.getWijken(gebied)
         this.selection.wijken = [getSelectNone('wijken')].concat(wijken)
       } else {
-        this.gebiedDetail = null
+        const gebied = await util.getCity()
+        this.gebiedDetail = gebied
       }
 
       if (!wijkCode) {
@@ -238,7 +239,7 @@ export default {
     }
   },
   async created () {
-    this.selection.gebieden = await util.getAllGebieden()
+    this.selection.gebieden = [getSelectNone('gebieden')].concat(await util.getAllGebieden())
 
     this.parseRoute()
   }

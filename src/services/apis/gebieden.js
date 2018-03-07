@@ -96,7 +96,9 @@ export async function getGwbSummary (code) {
   const gebiedType = getGebiedType(code)
   let gwbCollection = []
 
-  if (gebiedType === GEBIED_TYPE.Stadsdeel) {
+  if (gebiedType === GEBIED_TYPE.Stad) {
+    return getCity()
+  } else if (gebiedType === GEBIED_TYPE.Stadsdeel) {
     gwbCollection = await getAllStadsdelen()
   } else if (gebiedType === GEBIED_TYPE.Gebied) {
     gwbCollection = await getAllGebieden()
