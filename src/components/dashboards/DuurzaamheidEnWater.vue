@@ -1,32 +1,30 @@
 <template>
   <div>
     <div v-if="gwb && meta">
-      <div class="alert">
-        <h2>Positie en ontwikkeling van {{gwb.naam}} t.o.v. het stedelijk gemiddelde</h2>
-      </div>
-
-      <div class="row">
-        <div class="col-sm">
-          <data-table :config="kerncijfers"></data-table>
-        </div>
-        <div class="col-sm">
+      <div class="grid-element">
+        <div class="grid-blok grid_12">
+        <color-legend></color-legend>
+          <div class="grid-title">
+            <h2>Positie en ontwikkeling van {{gwb.naam}} t.o.v. het stedelijk gemiddelde</h2>
+          </div>
         </div>
       </div>
-
-      <div class="alert">
-        <h2>Verschillen binnen het gebied</h2>
+      <div class="grid-blok grid_12">
+        <data-table :config="kerncijfers"></data-table>
       </div>
 
+      <div class="grid-element">
+        <div class="grid-blok grid_12">
+          <div class="grid-title">
+            <h2>Verschillen binnen het gebied</h2>
+          </div>
+        </div>
+      </div>
       <verschillen-gebied :config="kerncijfers"></verschillen-gebied>
-
-      <meer-cijfers-en-informatie></meer-cijfers-en-informatie>
-
     </div>
-
-    <div v-else class="text-center">
-      <h2>Gegevens laden...</h2>
-      <img src="../../../static/icons/loading.gif">
-    </div>
+  <div class="clear"></div>
+  <meer-cijfers-en-informatie></meer-cijfers-en-informatie>
+  <div class="clear"></div>
   </div>
 </template>
 
@@ -38,6 +36,7 @@ import dataTable from '../charts/DataTable'
 import verschillenGebied from '../VerschillenGebied'
 
 import meerCijfersEnInformatie from '../MeerCijfersEnInformatie'
+import colorLegend from '../ColorLegend.vue'
 
 const kerncijfers = getKerncijfers(DUURZAAMHEID_EN_WATER)
 
@@ -46,7 +45,8 @@ export default {
   components: {
     'data-table': dataTable,
     'verschillen-gebied': verschillenGebied,
-    'meer-cijfers-en-informatie': meerCijfersEnInformatie
+    'meer-cijfers-en-informatie': meerCijfersEnInformatie,
+    'color-legend': colorLegend
   },
   data () {
     return {

@@ -1,15 +1,12 @@
 <template>
-  <div>
+  <div class="block-container" v-if="gwb">
     <tooltip :cijfers="chartdata">
-      <div class="row">
-        <div class="col-sm-3">
-            <icon :icon="icon" :title="title"></icon>
-        </div>
-        <div class="col-sm-9">
-          <div class="chart-container">
-            <div :ref="chartRef"></div>
-          </div>
-        </div>
+
+      <div class="grid-blok grid_12">
+        <icon :icon="icon" :title="title"></icon>
+      </div>
+      <div class="grid-blok grid_12">
+        <div :ref="chartRef"></div>
       </div>
     </tooltip>
   </div>

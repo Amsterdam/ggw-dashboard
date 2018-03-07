@@ -1,60 +1,95 @@
-<!--Example of a component that uses Leaflet-->
 <template>
-  <div class="row">
-    <div class="col-sm-6">
-      <b-form-select v-model="variable"
-                     :disabled="loading || drawing"
-                     :options="variables"
-                     text-field="label"
-                     value-field="variable">
-      </b-form-select>
-      <div :ref="mapRef" class="map"></div>
-      <div class="text-center">
-        <button v-for="action in gebiedTypes" :key="action"
-                class="btn action-button" :disabled="!variable || loading || drawing"
-                :class="{'btn-primary': gebiedType === action}"
-                @click="setGebiedType(action)">{{action}}en</button>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <div v-if="loading">
-        Laden gegevens...
-      </div>
-      <div v-else-if="gebiedType && variable && !highLow.length">
-        Geen cijfers beschikbaar
-      </div>
-      <div v-else>
-        <h4 v-if="cityCijfers">{{cityCijfers.gebied.naam}}: {{cityCijfers.recent.waarde}}</h4>
-        <div v-if="own && own.gebiedType === gebiedType && own.recent">
-          <h4>Geselecteerde {{own.gebiedType.toLowerCase()}}</h4>
-          <span class="font-weight-bold">{{ownIndex}}</span>
-          {{own.gebied.naam}}:
-          <span
-            v-b-tooltip.hover v-b-tooltip.click v-b-tooltip.left
-            title="">
-            {{own.recent | displaywaarde}}
-          </span>
-        </div>
-
-        <div v-for="(item, index) in highLow" :key="index">
-          <h4 v-if="!(index % FRAGMENT)">
-            {{index === 0 ? 'Hoogst' : 'Laagst'}} scorende {{gebiedType.toLowerCase()}}
-          </h4>
-          <div>
-            <span class="font-weight-bold">{{index % FRAGMENT + 1}}</span>
-            <span :class="{'highlight-own': item.gwb.naam === own.gebied.naam}">
-              {{item.gwb.naam}}:
-              <span
-                v-b-tooltip.hover v-b-tooltip.click v-b-tooltip.left
-                title="">
-                {{item | displaywaarde}}
-              </span>
-            </span>
+  <div>
+    <div class="grid-element">
+      <div class="grid-blok grid_12">
+        <div class="rij mode_input selectie">
+          <div class="invoer">
+            <b-form-select v-model="variable"
+                           :disabled="loading || drawing"
+                           :options="variables"
+                             text-field="label"
+                             value-field="variable">
+                <template slot="first">
+                  <!-- this slot appears above the options from 'options' prop -->
+                  <option :value="null" disabled>-- Selecteer een categorie --</option>
+                </template>
+            </b-form-select>
           </div>
         </div>
       </div>
-
     </div>
+    <div class="zone-clear clear"></div>
+    <div class="grid-element">
+      <div class="grid-blok grid_8 pad-top-bottom pull-up">
+          <div :ref="mapRef" class="map"></div>
+      </div>
+      <div class="grid-blok grid_4 pad-top-bottom marge-left pull-up">
+        <span v-if="cityCijfers" class="pad-top-bottom"><b>{{cityCijfers.gebied.naam}}: {{cityCijfers.recent.waarde}}</b></span>
+
+        <div v-if="own && own.gebiedType === gebiedType && own.recent" class="pad-top-bottom">
+          <span><b>Geselecteerde {{own.gebiedType.toLowerCase()}}</b></span>
+          <ol :start="ownIndex">
+            <li>
+              {{own.gebied.naam}}: {{own.recent | displaywaarde}}
+            </li>
+          </ol>
+        </div>
+
+          <div v-if="highLow.length">
+            <span>
+              <b>Hoogst scorende {{gebiedType.toLowerCase()}}</b>
+            </span>
+            <div>
+              <ol>
+                <li :class="{'highlight-own': item.gwb.naam === own.gebied.naam}" v-for="(item, index) in highLow" :key="index" v-if="index < FRAGMENT">
+                  {{item.gwb.naam}}: {{item | displaywaarde}}
+                </li>
+              </ol>
+            </div>
+          </div>
+
+          <div v-if="highLow.length">
+            <span>
+              <b>Laagst scorende {{gebiedType.toLowerCase()}}</b>
+            </span>
+            <div>
+              <ol>
+                <li :class="{'highlight-own': item.gwb.naam === own.gebied.naam}" v-for="(item, index) in highLow" :key="index" v-if="index >= FRAGMENT">
+                  {{item.gwb.naam}}: {{item | displaywaarde}}
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="zone-clear clear"></div>
+      <div class="grid-element">
+        <div class="grid-blok grid_12">
+          <fieldset class="rij mode_input text rij_verplicht">
+            <div class="antwoorden checkboxen">
+              <div class="label">
+                <label for="gebiedFilter">Filter</label>
+              </div>
+
+              <div class="antwoord">
+                <input :disabled="!variable || loading || drawing" :checked="gebiedType === 'Gebied'" @click="setGebiedType('Gebied')" type="radio" name="gebiedFilter" id="1">
+                <label for="1">Gebieden</label>
+              </div>
+
+              <div class="antwoord">
+                <input :disabled="!variable || loading || drawing" :checked="gebiedType === 'Wijk'" @click="setGebiedType('Wijk')" type="radio" name="gebiedFilter" id="2">
+                <label for="2">Wijken</label>
+              </div>
+
+              <div class="antwoord">
+                <input :disabled="!variable || loading || drawing" :checked="gebiedType === 'Buurt'" @click="setGebiedType('Buurt')" type="radio" name="gebiedFilter" id="3">
+                <label for="3">Buurten</label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    <div class="zone-clear clear"></div>
   </div>
 </template>
 
@@ -285,23 +320,42 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../static/ams.scss";
+@import "~stijl/src/styles/generic/ams-colorpalette.scss";
 
-.map {
-  height: 350px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
+  .map {
+    height: 25rem;
+  }
 
-.select {
-  width: 100%;
-}
+  .highlight-own {
+    color: $ams-blauw;
+  }
 
-.highlight-own {
-  color: $ams-blauw
-}
+  .antwoord {
+    display: inline-block;
+    width: 25%;
 
-.action-button {
-  margin-right: 5px;
-}
+    input, label {
+      cursor: pointer;
+    }
+  }
+
+  .rij_verplicht {
+    +.alert-wrapper {
+      padding-top: 0;
+      margin-top: -1rem;
+    }
+  }
+
+  ol {
+    margin: .33rem;
+  }
+
+  .marge-left {
+    padding-left: .33rem;
+  }
+
+  .pull-up {
+    margin-top: -1rem;
+  }
+
 </style>

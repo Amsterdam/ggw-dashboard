@@ -13,23 +13,20 @@
       :ref="id"
       :hide-header="true"
       :hide-footer="true">
-      <div>
-        <b-form-select v-if="cijfers"
-                       @change="selectCijfer"
-                       v-model="selectedLabel"
-                       :options="cijfers"
-                       text-field="label"
-                       value-field="label">
+      <div v-if="cijfers">
+        <b-form-select @change="selectCijfer"
+                     v-model="selectedLabel"
+                     :options="cijfers"
+                     text-field="label"
+                     value-field="label">
         </b-form-select>
-        <div v-if="selectedCijfer && selectedCijfer.tooltip"
-             @click="hideTooltip"
-             class="text-center">
-          <h2>{{selectedCijfer.label}}</h2>
-          <p v-if="selectedCijfer.recent" class="text-center">
-            {{selectedCijfer.recent.jaar}}: {{selectedCijfer.recent | displaywaarde }}
-          </p>
-          <p v-html="selectedCijfer.tooltip(false)"></p>
-        </div>
+      </div>
+      <div v-if="selectedCijfer && selectedCijfer.tooltip" @click="hideTooltip" class="text-center">
+        <h2>{{selectedCijfer.label}}</h2>
+        <p v-if="selectedCijfer.recent" class="text-center">
+          {{selectedCijfer.recent.jaar}}: {{selectedCijfer.recent | displaywaarde }}
+        </p>
+        <div v-html="selectedCijfer.tooltip(true)"></div>
       </div>
     </b-modal>
   </div>
@@ -57,6 +54,23 @@ export default {
       this.$refs[this.id].hide()
     },
     updateCijfer () {
+      if (this.cijfers) {
+        if (this.cijfer) {
+          this.selectCijfer(this.cijfer.label)
+        } else {
+          this.selectCijfer(this.cijfers[0].label)
+        }
+      }
+    },
+    selectCijfer (label) {
+      console.log('selectCijfer', label)
+      this.selectedCijfer = this.cijfers.find(c => c.label === label)
+      this.selectedLabel = this.selectedCijfer.label
+    },
+    created () {
+      this.updateCijfer()
+    },
+    updateCijfer () {
       if (this.cijfer) {
         this.selectCijfer(this.cijfer.label)
       } else if (this.cijfers) {
@@ -74,9 +88,6 @@ export default {
         this.selectedLabel = null
       }
     }
-  },
-  created () {
-    this.updateCijfer()
   }
 }
 </script>

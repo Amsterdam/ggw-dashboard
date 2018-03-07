@@ -13,8 +13,7 @@
       </td>
       <td
         v-for="y in years" :key="y"
-        :style="{'background-color': d[y].color}"
-        class="text-center"
+        :style="{'background-color': d[y].color, 'color' : d[y].textColor}"
         v-if="d[y]">
         <tooltip :cijfers="data" :cijfer="d">
           {{ d[y] | displaywaarde }}

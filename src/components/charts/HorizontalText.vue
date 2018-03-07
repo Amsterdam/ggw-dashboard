@@ -1,17 +1,15 @@
 <template>
-  <div>
-    <div class="row">
-      <div class="col-sm-4">
-        <icon :icon="icon" :title="title"></icon>
-      </div>
-      <div class="col-sm-8">
-        <div v-for="d in data" :key="d.label">
-          {{d.label}}:
-          <span v-if="d.recent"
-                v-b-tooltip.hover v-b-tooltip.click v-b-tooltip.left title="">
-                {{d.recent | displaywaarde}}
-          </span>
-        </div>
+  <div class="block-container">
+    <div class="grid-blok grid_4">
+      <icon :icon="icon" :title="title"></icon>
+    </div>
+    <div class="grid-blok grid_8">
+      <div v-for="d in data" :key="d.label">
+        {{d.label}}:
+        <span v-if="d.recent"
+              v-b-tooltip.hover v-b-tooltip.click v-b-tooltip.left title="">
+              {{d.recent | displaywaarde}}
+        </span>
       </div>
     </div>
   </div>
@@ -59,5 +57,10 @@ export default {
 
 </script>
 
-<style>
+<style lang="scss" scoped>
+  // override grid styling for this component
+  .grid_8 {
+    vertical-align: middle;
+    align-items: flex-start;
+  }
 </style>
