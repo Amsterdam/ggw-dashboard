@@ -12,7 +12,8 @@
           <tooltip :cijfers="data" :cijfer="d">{{d.label}}</tooltip>
         </td>
         <td width="50%" v-if="d.recent">
-          {{d.recent | displaywaarde}}
+          <tooltip :cijfers="data" :cijfer="d">{{d.recent | displaywaarde}}</tooltip>
+
         </td>
       </tr>
       </tbody>
@@ -22,9 +23,11 @@
 
 <script>
 import { mapGetters } from 'vuex'
+
+import tooltip from './Tooltip'
+
 import util from '../services/util'
 import inAantallen from '../../static/links/in_aantallen'
-import tooltip from './Tooltip'
 
 export default {
   props: [

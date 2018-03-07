@@ -43,7 +43,7 @@
           <h2>Aantal woningen</h2>
         </div>
         <div class="grid-blok grid_8">
-          <line-chart :config="aantalWoningen"></line-chart>
+          <line-chart :config="aantalWoningen" :colors="4"></line-chart>
         </div>
         <div class="grid-blok grid_4">
           <span><b>Andere woonvormen</b></span>
