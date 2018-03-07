@@ -42,7 +42,7 @@
             </ol>
           </div>
 
-          <div v-if="highLow.length">
+          <div v-if="highLow.length > 1">
             <span>
               <b>Hoogst scorende {{gebiedType.toLowerCase()}}</b>
             </span>
@@ -142,7 +142,7 @@ export default {
       FRAGMENT,
       variable: null,
       variables: [],
-      gebiedType: util.GEBIED_TYPE.Gebied,
+      gebiedType: util.GEBIED_TYPE.Stadsdeel,
       gebiedTypes: [
         util.GEBIED_TYPE.Stadsdeel,
         util.GEBIED_TYPE.Gebied,
@@ -285,7 +285,7 @@ export default {
       clearLayers()
       this.drawing = true
 
-      const shapes = await getShapes(this.gebiedType || util.GEBIED_TYPE.Gebied, () => ({
+      const shapes = await getShapes(this.gebiedType || util.GEBIED_TYPE.Stadsdeel, () => ({
         'color': COLOR['ams-donkergrijs'],
         'opacity': 0.5,
         'weight': 1
@@ -329,7 +329,10 @@ export default {
     },
     'gwb' () {
       if (this.gwb) {
-        const gebiedType = util.getGebiedType(this.gwb.vollcode)
+        let gebiedType = util.getGebiedType(this.gwb.vollcode)
+        if (gebiedType === util.GEBIED_TYPE.Stad) {
+          gebiedType = util.GEBIED_TYPE.Stadsdeel
+        }
         this.setGebiedType(gebiedType)
       }
     }

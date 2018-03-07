@@ -87,7 +87,11 @@ async function getGwbs (gebiedType) {
     [GEBIED_TYPE.Wijk]: getAllWijken,
     [GEBIED_TYPE.Buurt]: getAllBuurten
   }
-  return getAll[gebiedType]()
+  if (getAll[gebiedType]) {
+    return getAll[gebiedType]()
+  } else {
+    return []
+  }
 }
 
 const flatten = list => list.reduce(
