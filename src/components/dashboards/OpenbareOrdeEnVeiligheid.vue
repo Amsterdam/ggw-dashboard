@@ -100,7 +100,7 @@ import colorLegend from '../ColorLegend'
 
 import veiligheid from '../../../static/links/veiligheid'
 import overlast from '../../../static/links/overlast'
-import horecagelegenheden from '../../../static/links/horeca'
+import horecagelegenheden from '../../../static/links/horecagelegenheden'
 import drugs from '../../../static/links/drugs'
 import dronkenMensen from '../../../static/links/dronken_mensen'
 import rondhangendeJongeren from '../../../static/links/rondhangende_jongeren'

@@ -74,9 +74,6 @@
       </div>
     </div>
     <div class="zone-clear clear"></div>
-
-    <meer-cijfers-en-informatie></meer-cijfers-en-informatie>
-
   </div>
 </template>
 
@@ -92,7 +89,6 @@ import woonVormen from '../Woonvormen'
 import stackedBarChart from '../charts/StackedBarChart'
 import pieChart from '../charts/PieChart'
 import verticalBarChart from '../charts/VerticalBarChart'
-import meerCijfersEnInformatie from '../MeerCijfersEnInformatie'
 import colorLegend from '../ColorLegend'
 
 import verkeer from '../../../static/links/verkeer'
@@ -103,9 +99,6 @@ import speelvoorzieningen from '../../../static/links/speelvoorzieningen'
 import aantalParkeerplaatsen from '../../../static/links/aantal_parkeerplaatsen'
 import parkeervoorzieningen from '../../../static/links/parkeervoorzieningen'
 import fietsparkeervoorzieningen from '../../../static/links/fietsparkeervoorzieningen'
-
-import meerInformatie from '../../../static/links/meer_informatie'
-import meerCijfers from '../../../static/links/meer_cijfers'
 
 const kerncijfers = getKerncijfers(VERKEER_EN_OPENBARE_RUIMTE)
 
@@ -120,7 +113,6 @@ export default {
     'stacked-bar-chart': stackedBarChart,
     'pie-chart': pieChart,
     'vertical-bar-chart': verticalBarChart,
-    'meer-cijfers-en-informatie': meerCijfersEnInformatie,
     'color-legend': colorLegend
   },
   data () {
@@ -133,9 +125,7 @@ export default {
       speelvoorzieningen,
       aantalParkeerplaatsen,
       parkeervoorzieningen,
-      fietsparkeervoorzieningen,
-      meerInformatie,
-      meerCijfers
+      fietsparkeervoorzieningen
     }
   },
   computed: {

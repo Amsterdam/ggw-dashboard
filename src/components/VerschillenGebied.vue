@@ -24,6 +24,10 @@
           <div :ref="mapRef" class="map"></div>
       </div>
       <div class="grid-blok grid_4 pad-top-bottom marge-left pull-up">
+        <div v-if="gebiedType && variable && !highLow.length">
+          Geen cijfers beschikbaar
+        </div>
+        <div v-else>
         <span v-if="cityCijfers" class="pad-top-bottom">
           <b>{{cityCijfers.gebied.naam}}: {{cityCijfers.recent | displaywaarde }}</b>
         </span>
@@ -62,6 +66,7 @@
               </ol>
             </div>
           </div>
+        </div>
         </div>
       </div>
       <div class="zone-clear clear"></div>
