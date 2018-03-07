@@ -96,7 +96,9 @@ export async function getGwbSummary (code) {
   const gebiedType = getGebiedType(code)
   let gwbCollection = []
 
-  if (gebiedType === GEBIED_TYPE.Gebied) {
+  if (gebiedType === GEBIED_TYPE.Stadsdeel) {
+    gwbCollection = await getAllStadsdelen()
+  } else if (gebiedType === GEBIED_TYPE.Gebied) {
     gwbCollection = await getAllGebieden()
   } else if (gebiedType === GEBIED_TYPE.Wijk) {
     gwbCollection = await getAllWijken()
@@ -122,6 +124,12 @@ export async function getCity () {
   return enhanceGWB({
     vollcode: 'STAD'
   })
+}
+
+export async function getAllStadsdelen () {
+  const url = getUrl('/stadsdeel/')
+  const getData = async () => enhancedGWBList(await readPaginatedData(url))
+  return cacheResponse('allStadsdelen', getData)
 }
 
 export async function getAllGebieden () {
