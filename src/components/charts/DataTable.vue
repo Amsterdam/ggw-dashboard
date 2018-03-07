@@ -9,7 +9,7 @@
     <tbody>
     <tr v-for="d in data" :key="d.label">
       <td>
-        <tooltip :cijfers="data" :cijfer="d"></tooltip>
+        <tooltip :cijfers="data" :cijfer="d">{{d.label}}</tooltip>
       </td>
       <td
         v-for="y in years" :key="y"

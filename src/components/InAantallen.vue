@@ -12,7 +12,8 @@
           <tooltip :cijfers="data" :cijfer="d">{{d.label}}</tooltip>
         </td>
         <td width="50%" v-if="d.recent">
-          {{d.recent | displaywaarde}}
+          <tooltip :cijfers="data" :cijfer="d">{{d.recent | displaywaarde}}</tooltip>
+
         </td>
       </tr>
       </tbody>

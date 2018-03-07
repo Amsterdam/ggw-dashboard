@@ -21,12 +21,14 @@
                      value-field="label">
         </b-form-select>
       </div>
-      <div v-if="selectedCijfer && selectedCijfer.tooltip" @click="hideTooltip" class="text-center">
+      <div v-if="selectedCijfer && selectedCijfer.tooltip"
+           @click="hideTooltip"
+           class="text-center">
         <h2>{{selectedCijfer.label}}</h2>
         <p v-if="selectedCijfer.recent" class="text-center">
           {{selectedCijfer.recent.jaar}}: {{selectedCijfer.recent | displaywaarde }}
         </p>
-        <div v-html="selectedCijfer.tooltip(true)"></div>
+        <div v-html="selectedCijfer.tooltip(false)"></div>
       </div>
     </b-modal>
   </div>
@@ -52,20 +54,6 @@ export default {
     },
     hideTooltip () {
       this.$refs[this.id].hide()
-    },
-    updateCijfer () {
-      if (this.cijfers) {
-        if (this.cijfer) {
-          this.selectCijfer(this.cijfer.label)
-        } else {
-          this.selectCijfer(this.cijfers[0].label)
-        }
-      }
-    },
-    selectCijfer (label) {
-      console.log('selectCijfer', label)
-      this.selectedCijfer = this.cijfers.find(c => c.label === label)
-      this.selectedLabel = this.selectedCijfer.label
     },
     created () {
       this.updateCijfer()
