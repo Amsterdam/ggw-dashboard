@@ -7,8 +7,7 @@
       <div v-for="d in data" :key="d.label">
         <tooltip :cijfers="data" :cijfer="d">
           {{d.label}}:
-          <span v-if="d.recent"
-                v-b-tooltip.hover v-b-tooltip.click v-b-tooltip.left title="">
+          <span v-if="d.recent">
             <b>
                 {{d.recent | displaywaarde}}
             </b>

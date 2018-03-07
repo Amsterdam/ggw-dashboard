@@ -1,11 +1,14 @@
 <template>
   <div class="chart-container">
-    <div :ref="chartRef"></div>
+    <tooltip :cijfers="chartdata">
+      <div :ref="chartRef"></div>
+    </tooltip>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+import tooltip from '../Tooltip'
 import util from '../../services/util'
 import vegaEmbed from 'vega-embed'
 import vegaSpec from '../../../static/charts/linechart5'
@@ -22,6 +25,7 @@ const vegaEmbedOptions = {
 export default {
   name: 'LineChart',
   components: {
+    'tooltip': tooltip
   },
   props: [
     'config',
@@ -40,7 +44,8 @@ export default {
   },
   methods: {
     async updateData () {
-      this.chartdata = await util.getConfigCijfers(this.gwb, this.config)
+      const data = await util.getConfigCijfers(this.gwb, this.config)
+      this.chartdata = data
 
       let cijfers = util.flatten(
         this.chartdata.map(data =>
