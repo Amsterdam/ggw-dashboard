@@ -31,6 +31,11 @@
                                text-field="display"
                                value-field="vollcode"
                                id="selectWijk">
+
+                  <template slot="first" v-if="!selection.wijken">
+                    <!-- this slot appears above the options from 'options' prop -->
+                    <option :value="null" disabled>-- Selecteer een gebied om wijken te zien --</option>
+                  </template>
                 </b-form-select>
               </div>
             </div>
