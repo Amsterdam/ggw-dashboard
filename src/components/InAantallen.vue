@@ -1,18 +1,17 @@
 <template>
   <div>
-    <table class="table table-sm borderless" v-if="gwb">
+    <table v-if="gwb">
       <thead>
-      <tr>
-        <th colspan="2" class="text-center">{{gwb.naam}} in aantallen</th>
-      </tr>
+        <tr>
+          <th colspan="2">{{gwb.naam}} in aantallen</th>
+        </tr>
       </thead>
       <tbody>
       <tr v-for="d in data" :key="d.label">
         <td width="50%">
-          <tooltip :text="d.label" :content="d.tooltip && d.tooltip(true)"></tooltip>
+          <tooltip :cijfers="data" :cijfer="d">{{d.label}}</tooltip>
         </td>
-        <td width="50%" v-if="d.recent"
-            v-b-tooltip.hover triggers="click" v-b-tooltip.html.left title="">
+        <td width="50%" v-if="d.recent">
           {{d.recent | displaywaarde}}
         </td>
       </tr>
@@ -23,11 +22,9 @@
 
 <script>
 import { mapGetters } from 'vuex'
-
-import tooltip from './Tooltip'
-
 import util from '../services/util'
 import inAantallen from '../../static/links/in_aantallen'
+import tooltip from './Tooltip'
 
 export default {
   props: [
@@ -57,7 +54,7 @@ export default {
       this.data = await util.getLatestConfigCijfers(this.gwb, inAantallen)
     }
   },
-  async created () {
+  created () {
     this.data = inAantallen.map(ia => ({label: ia.label}))
     this.updateData()
   }

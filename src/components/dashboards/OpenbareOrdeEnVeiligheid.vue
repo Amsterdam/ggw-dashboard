@@ -1,87 +1,89 @@
 <template>
-  <div>
-    <div v-if="gwb && meta">
+  <div v-if="gwb && meta">
+    <div class="grid-element">
+      <div class="grid-blok grid_12 card">
+        <div class="grid-title">
+          <h2>Bewoners over veiligheid en overlast in hun eigen buurt</h2>
+        </div>
 
-      <div class="alert">
-        <h2>Bewoners over veiligheid en overlast in hun eigen buurt</h2>
-      </div>
+        <div class="grid-blok grid_6">
 
-      <div class="row">
-        <div class="col-sm">
           <horizontal-text title="Veiligheid" icon="veelpleger.jpg" :config="veiligheid"></horizontal-text>
         </div>
-        <div class="col-sm">
+        <div class="grid-blok grid_6">
+
           <horizontal-text title="Overlast" icon="silhouet daders.jpg" :config="overlast"></horizontal-text>
         </div>
       </div>
+    </div>
+    <div class="zone-clear clear"></div>
 
-      <div class="alert">
-        <h2>Positie en ontwikkeling van {{gwb.naam}} t.o.v. het stedelijk gemiddelde</h2>
-      </div>
-
-      <div class="row">
-        <div class="col-sm">
-          <data-table :config="kerncijfers"></data-table>
+    <div class="grid-element">
+      <div class="grid-blok grid_12">
+        <color-legend></color-legend>
+        <div class="grid-title">
+          <h2>Positie en ontwikkeling van {{gwb.naam}} t.o.v. het stedelijk gemiddelde</h2>
         </div>
-        <div class="col-sm">
-        </div>
+        <data-table :config="kerncijfers"></data-table>
       </div>
+    </div>
+    <div class="zone-clear clear"></div>
 
-      <div class="alert">
-        <h2>Verschillen binnen het gebied</h2>
-      </div>
+    <div class="grid-element">
+      <div class="grid-blok grid_12">
+        <div class="grid-title">
+          <h2>Verschillen binnen het gebied</h2>
+        </div>
 
       <verschillen-gebied :config="kerncijfers"></verschillen-gebied>
-
-      <div class="alert">
-        <h2>Aandeel bewoners dat veel overlast ervaart van….</h2>
       </div>
+    </div>
+    <div class="zone-clear clear"></div>
 
-      <div class="row">
-        <div class="col-sm-4">
+    <div class="grid-element">
+      <div class="grid-blok grid_12 card">
+        <div class="grid-title">
+          <h2>Aandeel bewoners dat veel overlast ervaart van….</h2>
+        </div>
+
+        <div class="grid-blok grid_4">
           <vertical-bar-chart :config="horecagelegenheden"></vertical-bar-chart>
         </div>
-        <div class="col-sm-4">
+        <div class="grid-blok grid_4">
           <vertical-bar-chart :config="drugs"></vertical-bar-chart>
         </div>
-        <div class="col-sm-4">
+        <div class="grid-blok grid_4">
           <vertical-bar-chart :config="dronkenMensen"></vertical-bar-chart>
         </div>
-      </div>
-
-      <div class="row">
-        <div class="col-sm-4">
+        <div class="grid-blok grid_4">
           <vertical-bar-chart :config="rondhangendeJongeren"></vertical-bar-chart>
         </div>
-        <div class="col-sm-4">
+        <div class="grid-blok grid_4">
           <vertical-bar-chart :config="lastigVallenOpStraat"></vertical-bar-chart>
         </div>
-        <div class="col-sm-4">
+        <div class="grid-blok grid_4">
           <vertical-bar-chart :config="buurtbewoners"></vertical-bar-chart>
         </div>
       </div>
+    </div>
+    <div class="zone-clear clear"></div>
 
-      <div class="alert">
-        <h2>Aandeel 15-plussers dat de afgelopen 12 maanden slachtoffer is geweest van….</h2>
-      </div>
+    <div class="grid-element">
+      <div class="grid-blok grid_12 card">
+        <div class="grid-title">
+          <h2>Aandeel 15-plussers dat de afgelopen 12 maanden slachtoffer is geweest van….</h2>
+        </div>
 
-      <div class="row">
-        <div class="col-sm-4">
+        <div class="grid-blok grid_4">
           <vertical-bar-chart :config="vermogensDelicten"></vertical-bar-chart>
         </div>
-        <div class="col-sm-4">
+        <div class="grid-blok grid_4">
           <vertical-bar-chart :config="geweldSlachtoffers"></vertical-bar-chart>
         </div>
-        <div class="col-sm-4">
+        <div class="grid-blok grid_4">
           <vertical-bar-chart :config="vandalismeSlachtoffers"></vertical-bar-chart>
         </div>
       </div>
-
-    </div>
-
-    <div v-else class="text-center">
-      <h2>Gegevens laden...</h2>
-      <img src="../../../static/icons/loading.gif">
     </div>
   </div>
 </template>
@@ -94,6 +96,7 @@ import horizontalText from '../charts/HorizontalText'
 import dataTable from '../charts/DataTable'
 import verschillenGebied from '../VerschillenGebied'
 import verticalBarChart from '../charts/VerticalBarChart'
+import colorLegend from '../ColorLegend'
 
 import veiligheid from '../../../static/links/veiligheid'
 import overlast from '../../../static/links/overlast'
@@ -115,7 +118,8 @@ export default {
     'horizontal-text': horizontalText,
     'data-table': dataTable,
     'verschillen-gebied': verschillenGebied,
-    'vertical-bar-chart': verticalBarChart
+    'vertical-bar-chart': verticalBarChart,
+    'color-legend': colorLegend
   },
   data () {
     return {

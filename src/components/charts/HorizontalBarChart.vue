@@ -1,15 +1,14 @@
 <template>
-  <div>
-    <div class="row">
-      <div class="col-sm-3">
+  <div class="block-container" v-if="gwb">
+    <tooltip :cijfers="chartdata">
+
+      <div class="grid-blok grid_12">
         <icon :icon="icon" :title="title"></icon>
       </div>
-      <div class="col-sm-9">
-        <div class="chart-container">
-          <div :ref="chartRef"></div>
-        </div>
+      <div class="grid-blok grid_12">
+        <div :ref="chartRef"></div>
       </div>
-    </div>
+    </tooltip>
   </div>
 </template>
 
@@ -20,6 +19,7 @@ import util from '../../services/util'
 import vegaEmbed from 'vega-embed'
 import vegaSpec from '../../../static/charts/horizontalbar'
 import { COLOR } from '../../services/colorcoding'
+import tooltip from '../Tooltip'
 
 const vegaEmbedOptions = {
   'actions': {
@@ -32,6 +32,7 @@ const vegaEmbedOptions = {
 export default {
   name: 'HorizontalBarChart',
   components: {
+    'tooltip': tooltip,
     'icon': icon
   },
   props: [
@@ -74,7 +75,7 @@ export default {
       this.updateData()
     }
   },
-  async created () {
+  created () {
     this.updateData()
   }
 }

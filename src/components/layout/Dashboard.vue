@@ -13,11 +13,6 @@
       <werk-inkomen-en-participatie v-if="thema === WERK_INKOMEN_EN_PARTICIPATIE"></werk-inkomen-en-participatie>
       <niet-in-mvp v-if="thema === NIET_IN_MVP"></niet-in-mvp>
     </div>
-
-    <div v-else class="text-center">
-      <h2>Gegevens laden...</h2>
-      <img src="../../../static/icons/loading.gif">
-    </div>
   </div>
 </template>
 
