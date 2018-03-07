@@ -14,7 +14,8 @@
       <td
         v-for="y in years" :key="y"
         :style="{'background-color': d[y].color, 'color' : d[y].textColor}"
-        v-if="d[y]">
+        v-if="d[y]"
+        class="text-center">
         {{ d[y] | displaywaarde }}
       </td>
     </tr>
@@ -82,4 +83,7 @@ export default {
 </script>
 
 <style scoped>
+  td.text-center {
+    text-align: center;
+  }
 </style>
