@@ -21,11 +21,11 @@ describe('colorcoding', () => {
       kleurenpalet: 9
     }
 
-    expect(getColor(meta, 1, 2099)).toEqual(CATEGORY_COLORS[0].color)
-    expect(getColor(meta, 0.5, 2099)).toEqual(CATEGORY_COLORS[1].color)
-    expect(getColor(meta, 0, 2099)).toEqual(CATEGORY_COLORS[2].color)
-    expect(getColor(meta, -0.5, 2099)).toEqual(CATEGORY_COLORS[3].color)
-    expect(getColor(meta, -1, 2099)).toEqual(CATEGORY_COLORS[4].color)
+    expect(getColor(meta, 1, 2099).color).toEqual(CATEGORY_COLORS[0].color)
+    expect(getColor(meta, 0.5, 2099).color).toEqual(CATEGORY_COLORS[1].color)
+    expect(getColor(meta, 0, 2099).color).toEqual(CATEGORY_COLORS[2].color)
+    expect(getColor(meta, -0.5, 2099).color).toEqual(CATEGORY_COLORS[3].color)
+    expect(getColor(meta, -1, 2099).color).toEqual(CATEGORY_COLORS[4].color)
   })
 
   it('should provide the correct category for a kleurenpalet 2 color', () => {
@@ -34,11 +34,11 @@ describe('colorcoding', () => {
       kleurenpalet: 2
     }
 
-    expect(getColor(meta, -1, 2099)).toEqual(CATEGORY_COLORS[0].color)
-    expect(getColor(meta, -0.5, 2099)).toEqual(CATEGORY_COLORS[1].color)
-    expect(getColor(meta, 0, 2099)).toEqual(CATEGORY_COLORS[2].color)
-    expect(getColor(meta, 0.5, 2099)).toEqual(CATEGORY_COLORS[3].color)
-    expect(getColor(meta, 1, 2099)).toEqual(CATEGORY_COLORS[4].color)
+    expect(getColor(meta, -1, 2099).color).toEqual(CATEGORY_COLORS[0].color)
+    expect(getColor(meta, -0.5, 2099).color).toEqual(CATEGORY_COLORS[1].color)
+    expect(getColor(meta, 0, 2099).color).toEqual(CATEGORY_COLORS[2].color)
+    expect(getColor(meta, 0.5, 2099).color).toEqual(CATEGORY_COLORS[3].color)
+    expect(getColor(meta, 1, 2099).color).toEqual(CATEGORY_COLORS[4].color)
   })
 
   it('should return undefined for an unknown variable', () => {
