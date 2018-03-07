@@ -16,7 +16,8 @@
         :style="{'background-color': d[y].color, 'color' : d[y].textColor}"
         v-if="d[y]"
         class="text-center">
-        {{ d[y] | displaywaarde }}
+        <tooltip :cijfers="data" :cijfer="d">{{ d[y] | displaywaarde }}</tooltip>
+
       </td>
     </tr>
     </tbody>
