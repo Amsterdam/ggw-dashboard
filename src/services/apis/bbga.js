@@ -58,7 +58,7 @@ async function getCijfers (meta, year = null, gebiedCode = null) {
     waarde: c.waarde === '' || c.waarde === undefined ? null : c.waarde, // Sometimes the API returns '' for null value
     post,
     gebiedcode15: c.gebiedcode15,
-    color: getColor(meta, c.waarde, c.jaar)
+    ...getColor(meta, c.waarde, c.jaar)
   }))
 }
 

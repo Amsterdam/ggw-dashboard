@@ -13,8 +13,7 @@
       </td>
       <td
         v-for="y in years" :key="y"
-        :style="{'background-color': d[y].color}"
-        :class="{ 'invert-text' : d[y].color === '#00A03C' || d[y].color === '#00A0E6' }"
+        :style="{'background-color': d[y].color, 'color' : d[y].textColor}"
         v-if="d[y]">
         {{ d[y] | displaywaarde }}
       </td>
@@ -79,7 +78,4 @@ export default {
 </script>
 
 <style scoped>
-  .invert-text {
-    color: white;
-  }
 </style>

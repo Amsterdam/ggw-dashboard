@@ -52,16 +52,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .loading-component {
-    text-align: center;
-  }
-
-  .progress-wrapper {
-    margin: 1rem;
-    background-color: white;
-    z-index: 99999;
-  }
-
   .fade-enter-active {
     transition: opacity .2s ease-out;
   }

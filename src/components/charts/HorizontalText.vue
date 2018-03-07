@@ -58,6 +58,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  // override grid styling for this component
   .grid_8 {
     vertical-align: middle;
     align-items: flex-start;

@@ -65,9 +65,4 @@ export default {
     border: 1px solid;
     margin-right: 7px;
   }
-
-  .fullwidth {
-    box-shadow: 50vw 0 0 0 $ams-top-menu, -50vw 0 0 0 $ams-top-menu;
-  }
-
 </style>

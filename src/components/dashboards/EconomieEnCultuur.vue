@@ -74,20 +74,6 @@
         </div>
       </div>
       <div class="zone-clear clear"></div>
-
-      <!--<div class="grid-element">-->
-        <!--<div class="grid-blok grid_6">-->
-          <!--<div class="grid-title">-->
-            <!--<h2>Horeca</h2>-->
-          <!--</div>-->
-            <!--<line-chart :config="horeca"></line-chart>-->
-        <!--</div>-->
-        <!--<div class="grid-blok grid_6">-->
-          <!--<div class="grid-title">-->
-            <!--<h2>Leegstand</h2>-->
-          <!--</div>-->
-        <!--</div>-->
-      <!--</div>-->
     </div>
 </template>
 
@@ -150,6 +136,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  // override grid styling for this component
   .grid_4 {
     align-items: flex-start;
   }

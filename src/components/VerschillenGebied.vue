@@ -1,4 +1,3 @@
-<!--Example of a component that uses Leaflet-->
 <template>
   <div>
     <div class="grid-element">
@@ -91,77 +90,6 @@
         </div>
       </div>
     <div class="zone-clear clear"></div>
-
-      <!--<div v-if="!loading && gebiedType && variable && !highLow.length" class="grid-wrapper wrapper_12 alert-wrapper bgcolor_orange">-->
-        <!--<div class="grid-container container_12 grid-alerts ">-->
-          <!--<div class="melding rich-content">-->
-            <!--Geen cijfers beschikbaar-->
-          <!--</div>-->
-        <!--</div>-->
-      <!--</div>-->
-      <!--<div v-else>-->
-        <!--<div class="grid-blok grid_12 align-center">-->
-          <!--<span class="Notification-grijs" v-if="cityCijfers">-->
-            <!--{{cityCijfers.gebied.naam}}: {{cityCijfers.recent.waarde}}-->
-          <!--</span>-->
-          <!--<div class="grid-blok grid_3 align-right">-->
-            <!--<table v-if="own && own.gebiedType === gebiedType && own.recent">-->
-              <!--<thead>-->
-                <!--<tr>-->
-                  <!--<th colspan="3">-->
-                    <!--Geselecteerde {{own.gebiedType.toLowerCase()}}-->
-                  <!--</th>-->
-                <!--</tr>-->
-              <!--</thead>-->
-              <!--<tbody>-->
-                <!--<tr>-->
-                  <!--<td>{{ownIndex}}</td>-->
-                  <!--<td>{{own.gebied.naam}}</td>-->
-                  <!--<td>{{own.recent | displaywaarde}}</td>-->
-                <!--</tr>-->
-              <!--</tbody>-->
-            <!--</table>-->
-          <!--</div>-->
-
-          <!--<div class="grid-blok grid_4 align-right">-->
-            <!--<table v-if="highLow.length">-->
-              <!--<thead>-->
-              <!--<tr>-->
-                <!--<th colspan="3">-->
-                  <!--Hoogst scorende {{gebiedType.toLowerCase()}}-->
-                <!--</th>-->
-              <!--</tr>-->
-              <!--</thead>-->
-              <!--<tbody>-->
-              <!--<tr :class="{'highlight-own': item.gwb.naam === own.gebied.naam}" v-for="(item, index) in highLow" :key="index" v-if="index < FRAGMENT">-->
-                <!--<td>{{index % FRAGMENT + 1}}</td>-->
-                <!--<td>{{item.gwb.naam}}</td>-->
-                <!--<td>{{item | displaywaarde}}</td>-->
-              <!--</tr>-->
-              <!--</tbody>-->
-            <!--</table>-->
-          <!--</div>-->
-
-          <!--<div class="grid-blok grid_4">-->
-            <!--<table v-if="highLow.length">-->
-              <!--<thead>-->
-              <!--<tr>-->
-                <!--<th colspan="3">-->
-                  <!--Laagst scorende {{gebiedType.toLowerCase()}}-->
-                <!--</th>-->
-              <!--</tr>-->
-              <!--</thead>-->
-              <!--<tbody>-->
-              <!--<tr :class="{'highlight-own': item.gwb.naam === own.gebied.naam}" v-for="(item, index) in highLow" :key="index" v-if="index >= FRAGMENT">-->
-                <!--<td>{{index % FRAGMENT + 1}}</td>-->
-                <!--<td>{{item.gwb.naam}}</td>-->
-                <!--<td>{{item | displaywaarde}}</td>-->
-              <!--</tr>-->
-              <!--</tbody>-->
-            <!--</table>-->
-          <!--</div>-->
-        <!--</div>-->
-      <!--</div>-->
   </div>
 </template>
 
@@ -395,12 +323,7 @@ export default {
 @import "~stijl/src/styles/generic/ams-colorpalette.scss";
 
   .map {
-    height: 400px;
-  }
-
-  table {
-    /*override grid*/
-    width: 95% !important;
+    height: 25rem;
   }
 
   .highlight-own {
@@ -423,20 +346,16 @@ export default {
     }
   }
 
-  .Notification-grijs {
-    margin: 0 0 20px;
-  }
-
   ol {
-    margin: 5px;
+    margin: .33rem;
   }
 
   .marge-left {
-    padding-left: 5px;
+    padding-left: .33rem;
   }
 
   .pull-up {
-    margin-top: -15px;
+    margin-top: -1rem;
   }
 
 </style>

@@ -18,7 +18,7 @@
       </div>
     </div>
     <div class="grid-wrapper wrapper_12 contents-wrapper">
-      <div class="grid-container container_12 router-view">
+      <div class="grid-container container_12 main-view">
         <div class="grid-zone grid_12">
             <router-view></router-view>
         </div>
@@ -45,27 +45,3 @@ export default {
   }
 }
 </script>
-
-<!-- Global styling -->
-<style lang="scss">
-
-  .app {
-    margin-top: 5px;
-  }
-
-  .sticky-top {
-    .grid-zone.hasbgcolor{
-      padding-top: 0;
-      padding-bottom: 0;
-    }
-    .grid-wrapper {
-      padding-bottom: 0;
-    }
-  }
-
-  .router-view {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-
-</style>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="gwb && meta">
-      <div class="grid-element align-center">
+      <div class="grid-element">
         <div class="grid-blok grid_6">
             <pano></pano>
         </div>
@@ -55,7 +55,7 @@
         </div>
       </div>
 
-      <div class="grid-blok grid_12 align-center">
+      <div class="grid-blok grid_12">
         <data-table :config="positieOntwikkeling"></data-table>
       </div>
     </div>
@@ -110,12 +110,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "~stijl/src/styles/generic/ams-colorpalette.scss";
-
-  .align-center {
-    text-align: center;
-  }
-
+  // override grid styling for this component
   .grid-blok.grid_6 {
     flex: auto;
   }

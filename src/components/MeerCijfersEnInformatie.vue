@@ -48,14 +48,4 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-  .contents-wrapper .grid-zone.hasbgcolor {
-    padding-top: 0;
-  }
-  .footer-wrapper {
-    padding: 0;
-  }
-
-  .footer-wrapper .grid-footer {
-    padding: 0;
-  }
 </style>

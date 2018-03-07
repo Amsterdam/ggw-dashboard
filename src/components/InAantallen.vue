@@ -8,7 +8,9 @@
       </thead>
       <tbody>
       <tr v-for="d in data" :key="d.label">
-        <td width="50%">{{d.label}}</td>
+        <td width="50%">
+          <tooltip :cijfers="data" :cijfer="d">{{d.label}}</tooltip>
+        </td>
         <td width="50%" v-if="d.recent">
           {{d.recent | displaywaarde}}
         </td>
@@ -22,6 +24,7 @@
 import { mapGetters } from 'vuex'
 import util from '../services/util'
 import inAantallen from '../../static/links/in_aantallen'
+import tooltip from './Tooltip'
 
 export default {
   props: [
@@ -30,6 +33,9 @@ export default {
     return {
       data: null
     }
+  },
+  components: {
+    'tooltip': tooltip
   },
   computed: {
     ...mapGetters([
@@ -48,7 +54,7 @@ export default {
       this.data = await util.getLatestConfigCijfers(this.gwb, inAantallen)
     }
   },
-  async created () {
+  created () {
     this.data = inAantallen.map(ia => ({label: ia.label}))
     this.updateData()
   }

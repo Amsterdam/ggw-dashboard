@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="icon-wrapper">
     <div class="icon-container grid-blok grid_12">
       <img class="icon" :src="`static/icons/${icon}`">
     </div>
@@ -19,9 +19,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
+.icon-wrapper {
   * {
     text-align: center;
+  }
+
+  .title {
+    font-weight: bold;
+    vertical-align: baseline;
   }
 }
 
@@ -34,10 +39,5 @@ export default {
   max-width: 100%;
   max-height: 100%;
   min-width: 100px;
-}
-
-.title {
-  font-weight: bold;
-  vertical-align: baseline;
 }
 </style>
