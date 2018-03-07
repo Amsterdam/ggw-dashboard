@@ -22,9 +22,6 @@
       </div>
       <verschillen-gebied :config="kerncijfers"></verschillen-gebied>
     </div>
-  <div class="clear"></div>
-  <meer-cijfers-en-informatie></meer-cijfers-en-informatie>
-  <div class="clear"></div>
   </div>
 </template>
 
@@ -35,7 +32,6 @@ import { DUURZAAMHEID_EN_WATER, getKerncijfers } from '../../services/thema'
 import dataTable from '../charts/DataTable'
 import verschillenGebied from '../VerschillenGebied'
 
-import meerCijfersEnInformatie from '../MeerCijfersEnInformatie'
 import colorLegend from '../ColorLegend.vue'
 
 const kerncijfers = getKerncijfers(DUURZAAMHEID_EN_WATER)
@@ -45,7 +41,6 @@ export default {
   components: {
     'data-table': dataTable,
     'verschillen-gebied': verschillenGebied,
-    'meer-cijfers-en-informatie': meerCijfersEnInformatie,
     'color-legend': colorLegend
   },
   data () {
