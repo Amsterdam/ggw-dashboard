@@ -56,7 +56,6 @@ export function rdPolygonToWgs84 (geometry) {
   // {
   //   'type': 'Polygon',
   //   'coordinates': [
-  //       [
   //         [-99.028, 46.985], [-99.028, 50.979],
   //         [-82.062, 50.979], [-82.062, 47.002],
   //         [-99.028, 46.985]
