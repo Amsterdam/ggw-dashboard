@@ -47,7 +47,7 @@ export default {
 </script>
 
 <style lang="scss">
-  @import '~stijl/src/styles/generic/ams-colorpalette';
+  @import "~stijl/scss/ams-colorpalette";
 
   .legend {
     display: flex;

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div @click="showTooltip">
+    <div class="more-info" title="Klik hier voor meer informatie" @click="showTooltip">
       <slot>
         <span v-if="selectedCijfer">{{selectedCijfer.label}}</span>
       </slot>
@@ -79,3 +79,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  .more-info {
+    cursor: pointer;
+  }
+</style>
