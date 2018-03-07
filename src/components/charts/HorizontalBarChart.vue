@@ -14,12 +14,12 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import tooltip from '../Tooltip'
 import icon from '../Icon'
 import util from '../../services/util'
 import vegaEmbed from 'vega-embed'
 import vegaSpec from '../../../static/charts/horizontalbar'
 import { COLOR } from '../../services/colorcoding'
-import tooltip from '../Tooltip'
 
 const vegaEmbedOptions = {
   'actions': {

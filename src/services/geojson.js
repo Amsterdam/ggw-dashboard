@@ -51,12 +51,12 @@ export function rdToWgs84 (rdCoordinates) {
 export function rdPolygonToWgs84 (geometry) {
   if (geometry.type !== 'Polygon') {
     console.error('Error in geometry type, "Polygon" was expected', geometry.type)
+    return
   }
 
   // {
   //   'type': 'Polygon',
   //   'coordinates': [
-  //       [
   //         [-99.028, 46.985], [-99.028, 50.979],
   //         [-82.062, 50.979], [-82.062, 47.002],
   //         [-99.028, 46.985]
@@ -74,6 +74,7 @@ export function rdPolygonToWgs84 (geometry) {
 export function rdMultiPolygonToWgs84 (geometry) {
   if (geometry.type !== 'MultiPolygon') {
     console.error('Error in geometry type, "MultiPolygon" was expected', geometry.type)
+    return
   }
 
   // {

@@ -29,7 +29,9 @@ export function drawShapes (shapes, map) {
   const layer = L.featureGroup()
   shapes.forEach(shape => shape.addTo(layer))
   layer.addTo(map)
-  map.fitBounds(layer.getBounds())
+  if (shapes.length) {
+    map.fitBounds(layer.getBounds())
+  }
   return layer
 }
 

@@ -24,7 +24,9 @@
           <div :ref="mapRef" class="map"></div>
       </div>
       <div class="grid-blok grid_4 pad-top-bottom marge-left pull-up">
-        <span v-if="cityCijfers" class="pad-top-bottom"><b>{{cityCijfers.gebied.naam}}: {{cityCijfers.recent.waarde}}</b></span>
+        <span v-if="cityCijfers" class="pad-top-bottom">
+          <b>{{cityCijfers.gebied.naam}}: {{cityCijfers.recent | displaywaarde }}</b>
+        </span>
 
         <div v-if="own && own.gebiedType === gebiedType && own.recent" class="pad-top-bottom">
           <span><b>Geselecteerde {{own.gebiedType.toLowerCase()}}</b></span>

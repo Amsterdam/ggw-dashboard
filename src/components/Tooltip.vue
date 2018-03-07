@@ -2,7 +2,7 @@
   <div>
     <div @click="showTooltip">
       <slot>
-        {{selectedCijfer && selectedCijfer.label}}
+        <span v-if="selectedCijfer">{{selectedCijfer.label}}</span>
       </slot>
     </div>
 
@@ -21,8 +21,14 @@
                      value-field="label">
         </b-form-select>
       </div>
-      <div v-if="selectedCijfer && selectedCijfer.tooltip" @click="hideTooltip" class="text-center">
-        <div v-html="selectedCijfer.tooltip(true)"></div>
+      <div v-if="selectedCijfer && selectedCijfer.tooltip"
+           @click="hideTooltip"
+           class="text-center">
+        <h2>{{selectedCijfer.label}}</h2>
+        <p v-if="selectedCijfer.recent" class="text-center">
+          {{selectedCijfer.recent.jaar}}: {{selectedCijfer.recent | displaywaarde }}
+        </p>
+        <div v-html="selectedCijfer.tooltip(false)"></div>
       </div>
     </b-modal>
   </div>
@@ -49,22 +55,26 @@ export default {
     hideTooltip () {
       this.$refs[this.id].hide()
     },
+    created () {
+      this.updateCijfer()
+    },
     updateCijfer () {
-      if (this.cijfers) {
-        if (this.cijfer) {
-          this.selectCijfer(this.cijfer.label)
-        } else {
-          this.selectCijfer(this.cijfers[0].label)
-        }
+      if (this.cijfer) {
+        this.selectCijfer(this.cijfer.label)
+      } else if (this.cijfers) {
+        this.selectCijfer(this.cijfers[0].label)
+      } else {
+        this.selectCijfer(null)
       }
     },
     selectCijfer (label) {
-      console.log('selectCijfer', label)
-      this.selectedCijfer = this.cijfers.find(c => c.label === label)
-      this.selectedLabel = this.selectedCijfer.label
-    },
-    created () {
-      this.updateCijfer()
+      if (this.cijfers) {
+        this.selectedCijfer = this.cijfers.find(c => c.label === label)
+        this.selectedLabel = this.selectedCijfer.label
+      } else {
+        this.selectedCijfer = null
+        this.selectedLabel = null
+      }
     }
   }
 }

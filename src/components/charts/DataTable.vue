@@ -8,8 +8,8 @@
     </thead>
     <tbody>
     <tr v-for="d in data" :key="d.label">
-      <td v-b-tooltip.hover.click v-b-tooltip.html.topright title="">
-        {{d.label}}
+      <td>
+        <tooltip :cijfers="data" :cijfer="d">{{d.label}}</tooltip>
       </td>
       <td
         v-for="y in years" :key="y"
@@ -24,11 +24,15 @@
 
 <script>
 import { mapGetters } from 'vuex'
+
+import tooltip from '../Tooltip'
+
 import util from '../../services/util'
 
 export default {
   name: 'DataTable',
   components: {
+    'tooltip': tooltip
   },
   props: [
     'config'
