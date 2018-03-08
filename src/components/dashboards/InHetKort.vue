@@ -2,7 +2,7 @@
   <div>
     <div v-if="gwb && meta">
       <div class="grid-element">
-        <div class="grid-blok grid_6">
+        <div class="grid-blok grid_6" style="height: 20rem;">
             <pano></pano>
         </div>
         <div class="grid-blok grid_6">
@@ -11,7 +11,6 @@
       </div>
 
       <div class="grid-element">
-        <color-legend></color-legend>
         <div class="grid-blok grid_12 card">
           <div class="grid-title">
             <h2>Samenstelling woningvoorraad en bevolking van {{gwb.naam}}</h2>
@@ -111,7 +110,7 @@ export default {
 
 <style lang="scss" scoped>
   // override grid styling for this component
-  .grid-blok.grid_6 {
-    flex: auto;
-  }
+   .grid-blok.grid_6 {
+     flex: auto;
+   }
 </style>

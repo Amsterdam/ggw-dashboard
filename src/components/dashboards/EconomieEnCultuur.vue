@@ -15,7 +15,6 @@
           </div>
         </div>
 
-        <color-legend></color-legend>
         <div class="grid-element">
           <div class="grid-blok grid_12">
               <div class="grid-title">
