@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import axios from 'axios'
 
 export const HTTPStatus = {
   pending: 0,
@@ -8,7 +8,7 @@ export const HTTPStatus = {
 
 async function get (url) {
   HTTPStatus.pending++
-  const result = Vue.axios.get(url)
+  const result = axios.get(url)
   result.then(() => {
     HTTPStatus.pending--
     HTTPStatus.success++

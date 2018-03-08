@@ -50,7 +50,7 @@ export function amsMap (el) {
   return map
 }
 
-export function tileLayer () {
+function tileLayer () {
   return L.tileLayer(
     'https://t1.data.amsterdam.nl/topo_rd_zw/{z}/{x}/{y}.png',
     {
