@@ -79,5 +79,6 @@ export default {
     align-self: left;
     justify-content: center;
     width: 100%;
+    padding-bottom: 10px;
   }
 </style>
