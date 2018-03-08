@@ -10,7 +10,6 @@ export const STEDELIJKE_ONTWIKKELING_EN_WONEN = 'Stedelijke ontwikkeling en wone
 export const VERKEER_EN_OPENBARE_RUIMTE = 'Verkeer en Openbare ruimte'
 export const WELZIJN_ZORG_EN_SPORT = 'Welzijn, zorg en sport'
 export const WERK_INKOMEN_EN_PARTICIPATIE = 'Werk, inkomen en participatie'
-export const NIET_IN_MVP = 'Niet in MVP'
 
 export const THEMAS = [
   IN_HET_KORT,
@@ -22,8 +21,7 @@ export const THEMAS = [
   STEDELIJKE_ONTWIKKELING_EN_WONEN,
   VERKEER_EN_OPENBARE_RUIMTE,
   WELZIJN_ZORG_EN_SPORT,
-  WERK_INKOMEN_EN_PARTICIPATIE,
-  NIET_IN_MVP
+  WERK_INKOMEN_EN_PARTICIPATIE
 ]
 
 export function getKerncijfers (thema) {

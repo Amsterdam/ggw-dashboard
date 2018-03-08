@@ -31,6 +31,11 @@
                                text-field="display"
                                value-field="vollcode"
                                id="selectWijk">
+
+                  <template slot="first" v-if="!selection.wijken">
+                    <!-- this slot appears above the options from 'options' prop -->
+                    <option :value="null" disabled>-- Selecteer een gebied om wijken te zien --</option>
+                  </template>
                 </b-form-select>
               </div>
             </div>
@@ -150,7 +155,9 @@ export default {
         const wijken = await util.getWijken(gebied)
         this.selection.wijken = [getSelectNone('wijken')].concat(wijken)
       } else {
-        this.gebiedDetail = null
+        const gebied = await util.getCity()
+        this.gebiedDetail = gebied
+        this.selection.gebied = null
       }
 
       if (!wijkCode) {
@@ -218,7 +225,7 @@ export default {
       this.selection.thema = thema || IN_HET_KORT
       this.updateThema(this.selection.thema)
 
-      this.selection.gebied = gebied || 'DX01'
+      this.selection.gebied = gebied
       await this.updateGebied(this.selection.gebied, wijk)
 
       if (wijk) {
@@ -238,7 +245,7 @@ export default {
     }
   },
   async created () {
-    this.selection.gebieden = await util.getAllGebieden()
+    this.selection.gebieden = [getSelectNone('gebieden')].concat(await util.getAllGebieden())
 
     this.parseRoute()
   }

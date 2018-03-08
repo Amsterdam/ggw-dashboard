@@ -13,7 +13,7 @@
       :ref="id"
       :hide-header="true"
       :hide-footer="true">
-      <div v-if="cijfers">
+      <div v-if="cijfers && cijfers.length > 1">
         <b-form-select @change="selectCijfer"
                      v-model="selectedLabel"
                      :options="cijfers"

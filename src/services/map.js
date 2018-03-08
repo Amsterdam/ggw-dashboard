@@ -19,10 +19,14 @@ export async function getShapes (gebiedType, getStyle) {
 }
 
 export function getGWBShapes (gwb, getStyle) {
-  gwb.wgs84Geometries = gwb.wgs84Geometries || rdMultiPolygonToWgs84(gwb.geometrie) // Polygon[]
-  return gwb.wgs84Geometries.map(geometry =>
-    L.polygon(geometry.coordinates, getStyle(gwb.volledige_code))
-  )
+  if (gwb.geometrie) {
+    gwb.wgs84Geometries = gwb.wgs84Geometries || rdMultiPolygonToWgs84(gwb.geometrie) // Polygon[]
+    return gwb.wgs84Geometries.map(geometry =>
+      L.polygon(geometry.coordinates, getStyle(gwb.volledige_code))
+    )
+  } else {
+    return []
+  }
 }
 
 export function drawShapes (shapes, map) {

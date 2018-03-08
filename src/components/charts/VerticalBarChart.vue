@@ -1,17 +1,20 @@
 <template>
   <div>
-    <h5 class="text-center"
-        v-b-tooltip.hover v-b-tooltip.click v-b-tooltip.top title="">
+    <tooltip :cijfers="chartdata">
+    <h5 class="text-center">
       {{title}}
     </h5>
     <div class="chart-container">
       <div :ref="chartRef"></div>
     </div>
+    </tooltip>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+import tooltip from '../Tooltip'
+
 import util from '../../services/util'
 import vegaEmbed from 'vega-embed'
 import vegaSpec from '../../../static/charts/verticalbar'
@@ -28,6 +31,7 @@ const vegaEmbedOptions = {
 export default {
   name: 'VerticalBarChart',
   components: {
+    'tooltip': tooltip
   },
   props: [
     'config'

@@ -100,9 +100,6 @@
         </div>
       </div>
     <div class="zone-clear clear"></div>
-
-    <meer-cijfers-en-informatie></meer-cijfers-en-informatie>
-
   </div>
 </template>
 
@@ -118,7 +115,6 @@ import woonVormen from '../Woonvormen'
 import stackedBarChart from '../charts/StackedBarChart'
 import pieChart from '../charts/PieChart'
 import verticalBarChart from '../charts/VerticalBarChart'
-import meerCijfersEnInformatie from '../MeerCijfersEnInformatie'
 import colorLegend from '../ColorLegend'
 
 import eigenBuurt from '../../../static/links/eigenbuurt'
@@ -133,8 +129,6 @@ import grootteWoningen from '../../../static/links/grootte_woningen'
 import percNultredewoningen from '../../../static/links/perc_nultrede_woningen'
 import percVerhuisgeneigden from '../../../static/links/perc_verhuisgeneigden_65+'
 import percWoningGeschiktOud from '../../../static/links/perc_woning_geschikt_oud'
-import meerInformatie from '../../../static/links/meer_informatie'
-import meerCijfers from '../../../static/links/meer_cijfers'
 
 const kerncijfers = getKerncijfers(STEDELIJKE_ONTWIKKELING_EN_WONEN)
 
@@ -149,7 +143,6 @@ export default {
     'stacked-bar-chart': stackedBarChart,
     'pie-chart': pieChart,
     'vertical-bar-chart': verticalBarChart,
-    'meer-cijfers-en-informatie': meerCijfersEnInformatie,
     'color-legend': colorLegend
   },
   data () {
@@ -166,9 +159,7 @@ export default {
       percWoningGeschiktOud,
       aantalWoningen,
       typeWoningen,
-      andereWoonvormen,
-      meerInformatie,
-      meerCijfers
+      andereWoonvormen
     }
   },
   computed: {

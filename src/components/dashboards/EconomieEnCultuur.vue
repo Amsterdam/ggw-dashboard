@@ -8,10 +8,10 @@
           </div>
 
           <div class="grid-blok grid_6">
-            <horizontal-text title="Bedrijvigheid" icon="Missing.jpg" :config="bedrijvigheid"></horizontal-text>
+            <horizontal-text title="Bedrijvigheid" icon="bedrijven.png" :config="bedrijvigheid"></horizontal-text>
           </div>
           <div class="grid-blok grid_6">
-            <horizontal-text title="Cultuur" icon="Missing.jpg" :config="cultuur"></horizontal-text>
+            <horizontal-text title="Cultuur" icon="cultuur.jpg" :config="cultuur"></horizontal-text>
           </div>
         </div>
 

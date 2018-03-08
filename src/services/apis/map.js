@@ -13,6 +13,9 @@ function getUrl (endpoint) {
 }
 
 export async function getGeometries (gebiedType) {
+  if (!gebiedType) {
+    return []
+  }
   // buurt, buurtcombinatie (wijk), gebiedsgerichtwerken, stadsdeel
   const url = getUrl() +
     '?request=getfeature' +

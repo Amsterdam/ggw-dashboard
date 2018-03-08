@@ -6,7 +6,7 @@
           <h2>Bevolkingssamenstelling</h2>
         </div>
         <div class="grid-blok grid_6">
-          <horizontal-text title="Inwoners" icon="Missing.jpg" :config="inwoners"></horizontal-text>
+          <horizontal-text title="Inwoners" icon="man.png" :config="inwoners"></horizontal-text>
         </div>
         <div class="grid-blok grid_6">
           <horizontal-text title="Huishoudens" icon="Gezinnetje.svg" :config="huishoudens"></horizontal-text>
