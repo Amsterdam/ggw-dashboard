@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div @click="showTooltip">
+    <div class="more-info" title="Klik hier voor meer informatie" @click="showTooltip">
       <slot>
         <span v-if="selectedCijfer">{{selectedCijfer.label}}</span>
       </slot>
@@ -13,22 +13,42 @@
       :ref="id"
       :hide-header="true"
       :hide-footer="true">
-      <div v-if="cijfers && cijfers.length > 1">
-        <b-form-select @change="selectCijfer"
-                     v-model="selectedLabel"
-                     :options="cijfers"
-                     text-field="label"
-                     value-field="label">
-        </b-form-select>
-      </div>
-      <div v-if="selectedCijfer && selectedCijfer.tooltip"
-           @click="hideTooltip"
-           class="text-center">
-        <h2>{{selectedCijfer.label}}</h2>
-        <p v-if="selectedCijfer.recent" class="text-center">
-          {{selectedCijfer.recent.jaar}}: {{selectedCijfer.recent | displaywaarde }}
-        </p>
-        <div v-html="selectedCijfer.tooltip(false)"></div>
+      <div class="grid-wrapper wrapper_12 contents-wrapper">
+        <div class="grid-container container_12">
+          <span class="close-modal" @click="hideTooltip" title="Sluiten">X</span>
+          <div class="grid-element">
+            <div class="grid-zone grid_12">
+                <div class="rij mode_input selectie" v-if="cijfers && cijfers.length > 1">
+                  <div class="label">
+                    <label for="dropdown" v-if="selectedCijfer && selectedCijfer.gebied">{{selectedCijfer.gebied.naam}}</label>
+                  </div>
+                  <div class="invoer">
+                    <b-form-select @change="selectCijfer"
+                                   v-model="selectedLabel"
+                                   :options="cijfers"
+                                   text-field="label"
+                                   value-field="label"
+                                   id="dropdown">
+                    </b-form-select>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="zone-clear clear"></div>
+          <div class="grid-element">
+            <div class="grid-zone grid_12">
+              <div v-if="selectedCijfer && selectedCijfer.tooltip">
+                <span class="Notification-grijs">
+                  <h2>{{selectedCijfer.label}}</h2>
+                  <span v-if="selectedCijfer.recent" class="text-center">
+                    {{selectedCijfer.recent.jaar}}: <b>{{selectedCijfer.recent | displaywaarde }}</b>
+                  </span>
+                </span>
+                <div v-html="selectedCijfer.tooltip(false)"></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </b-modal>
   </div>
@@ -79,3 +99,24 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  .more-info {
+    cursor: pointer;
+  }
+
+  .close-modal {
+    display: inline-block;
+    padding: 1rem;
+    margin: -1rem;
+    cursor: pointer;
+    float: right;
+  }
+
+  .Notification-grijs {
+    margin-top: 0;
+    h2 {
+      margin-top: 0;
+    }
+  }
+</style>

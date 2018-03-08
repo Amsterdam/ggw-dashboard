@@ -15,7 +15,7 @@
         <h2 class="blok-titel">Meer cijfers</h2>
         <ul class="links">
           <li v-for="info in meerCijfers" :key="info.label">
-            <a :href="info.url" target="_blank" rel="noreferrer"><span class="linklabel">{{info.label}}</span></a>
+            <a :href="info.url" class="outsite" target="_blank" rel="noreferrer"><span class="linklabel">{{info.label}}</span></a>
           </li>
         </ul>
       </div>
