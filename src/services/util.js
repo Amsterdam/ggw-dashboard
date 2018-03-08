@@ -12,11 +12,11 @@ async function getLatestConfigCijfers (gwb, config) {
 
 function getTooltip (cijfers) {
   return withYear => `
-    <h2>Definitie</h2>
+    <h3 class="condensed">Definitie</h3>
     <div>${cijfers.meta.definitie}</div>
-    <h2>Bron</h2>
+    <h3 class="condensed">Bron</h3>
     <div>${cijfers.meta.bron}</div>
-    <h2>Peildatum</h2>
+    <h3 class="condensed">Peildatum</h3>
     <div>${cijfers.meta.peildatum} ${withYear ? cijfers.recent.jaar : ''}</div>
     `
 }
