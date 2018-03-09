@@ -43,7 +43,7 @@ function getUrl (endpoint) {
  * @param gwb
  * @returns {*}
  */
-function enhanceGWB (gwb) {
+export function enhanceGWB (gwb) {
   gwb.vollcode = gwb.vollcode || gwb.volledige_code || gwb._display.match(/\((.*)\)$/)[1] // Gebied and Buurt
   gwb.code = gwb.code || gwb.vollcode
   gwb.volledige_code = gwb.volledige_code || gwb.vollcode
@@ -69,7 +69,7 @@ function enhancedGWBList (gwbList) {
  * This key is not available as a property but is only to be derived from the detail url
  * @param url
  */
-function getKeyFromUrl (url) {
+export function getKeyFromUrl (url) {
   return url.match(/\/([^/]*)\/$/)[1]
 }
 
@@ -141,7 +141,7 @@ export function getGebiedType (gebiedCode) {
     return GEBIED_TYPE.Wijk
   } else if (/^[A-Z]\d\d[a-z]$/.test(gebiedCode)) {
     return GEBIED_TYPE.Buurt
-  } else if (/STAD/.test(gebiedCode)) {
+  } else if (/^STAD$/.test(gebiedCode)) {
     return GEBIED_TYPE.Stad
   } else {
     return '?' + gebiedCode

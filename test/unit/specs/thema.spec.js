@@ -2,7 +2,6 @@ import kerncijfers from '../../../static/tmp/kerncijfers'
 import { getKerncijfers } from '@/services/thema'
 
 describe('thema', () => {
-
   kerncijfers[0] = {
     'variabele': 'XYZ',
     'thema': 'ABC',

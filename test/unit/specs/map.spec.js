@@ -1,7 +1,6 @@
-import { getShapes, getGWBShapes, drawShapes, amsMap } from '@/services/map'
+import { drawShapes, amsMap } from '@/services/map'
 
 describe('map', () => {
-
   it('should provide for a map of Amsterdam', () => {
     document.body.innerHTML =
       '<div id="map">' +
