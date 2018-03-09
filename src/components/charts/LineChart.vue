@@ -53,7 +53,7 @@ export default {
             x: cijfer.jaar,
             y: cijfer.waarde,
             variable: data.label,
-            dash: /prognose/i.test(data.label)
+            dash: /prognose/i.test(data.label) // show prognose variables as dashed lines
           }))))
 
       vegaSpec.data[0].values = cijfers

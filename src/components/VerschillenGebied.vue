@@ -113,11 +113,24 @@ import util from '../services/util'
 import { getShapes, drawShapes, amsMap } from '../services/map'
 import { COLOR } from '../services/colorcoding'
 
+/**
+ * The highest and lowest 5 cijfers are reported
+ * @type {number}
+ */
 const FRAGMENT = 5
 
+/**
+ * The map that can show the results
+ */
 let map
+/**
+ * The layer that holds the results
+ */
 let gwbLayer = null
 
+/**
+ * Utility method to clear any previous results before showing new results
+ */
 function clearLayers () {
   if (gwbLayer) {
     map.removeLayer(gwbLayer)
@@ -161,6 +174,9 @@ export default {
     }
   },
   methods: {
+    /**
+     * Cleaning local data when no cijfers are available
+     */
     noCijfers () {
       this.loading = false
       this.drawing = false
@@ -168,13 +184,22 @@ export default {
       clearLayers()
     },
 
+    /**
+     * Updates the gebied type for which the results should be shown
+     * @param type
+     */
     setGebiedType (type) {
       this.gebiedType = type
       this.updateData()
     },
 
+    /**
+     * The results are compared against the 'own' data
+     * The own data means the 'lowest' choosen value for buurt, wijk, gebied
+     * The type of the shown results should then match the type of the currently selected one
+     * @returns {Promise<*>}
+     */
     async getOwn () {
-      // Try to derive most recent year from the cijfers for the current gwb
       let gwb = this.gwb
       if (this.gebiedType === util.GEBIED_TYPE.Buurt && this.buurt) {
         gwb = this.buurt
@@ -183,11 +208,17 @@ export default {
       } else if (this.gebiedType === util.GEBIED_TYPE.Gebied && this.gebied) {
         gwb = this.gebied
       } else if (this.gebiedType === util.GEBIED_TYPE.Stadsdeel) {
+        // Stadsdeel is not a selection so compare to any selected gebied
         gwb = this.gebied
       }
+      // Return the most actual cijfers to the selected value (own)
       return util.getGebiedCijfers(this.variable, gwb, util.CIJFERS.LATEST)
     },
 
+    /**
+     * Update the shown results (data)
+     * @returns {Promise<*|void>}
+     */
     async updateData () {
       if (!this.variable) {
         return this.noCijfers()
@@ -202,11 +233,17 @@ export default {
         return this.noCijfers()
       }
 
+      /**
+       * Show the cijfers for the whole city
+       */
       const city = await util.getCity()
       this.cityCijfers = await util.getGebiedCijfers(this.variable, city, util.CIJFERS.LATEST)
 
       this.own.gebiedType = util.getGebiedType(this.own.recent.gebiedcode15)
 
+      /**
+       * Show ths cijfers for the current selected gebied
+       */
       const cijfers = await this.getCijfers(this.own.recent.jaar)
 
       this.loading = false
@@ -216,6 +253,11 @@ export default {
       }
     },
 
+    /**
+     * Gets the cijfers for the most recent year (which is the year for the currently selected gebied, wijk, buurt)
+     * @param recentYear
+     * @returns {Promise<*>}
+     */
     async getCijfers (recentYear) {
       // Sort and filter cijfers for gebiedType and waarde
       let cijfers = await util.getAllCijfers(this.variable, recentYear)
@@ -228,12 +270,24 @@ export default {
       }
 
       const variableDetail = this.variables.find(v => v.variable === this.variable)
+      /**
+       * Default is that higher values indicates better
+       * For some variables higher values however mean worse instead of better
+       * So reverse the results for this type of variables
+       */
       if (variableDetail.revert) {
         cijfers = cijfers.reverse()
       }
 
+      /**
+       * Find ranking for the currently selected gwb
+       */
       this.ownIndex = cijfers.findIndex(c => c.gebiedcode15 === this.own.recent.gebiedcode15) + 1
 
+      /**
+       * Divide the list in high-low
+       * If the list gets too small, show all cijfers in one fragment
+       */
       let highest, lowest
       if (cijfers.length <= 2 * FRAGMENT) {
         // Show the whole list
@@ -248,7 +302,7 @@ export default {
       }
       const highLow = highest.concat(lowest.reverse())
 
-      // Add gebieds info for the 10 remaining cijfers
+      // Add gebieds info for the 10 remaining cijfers to show their names
       this.highLow = await Promise.all(highLow.map(async c => {
         const gwb = await util.getGwbSummary(c.gebiedcode15)
         return {
@@ -260,6 +314,11 @@ export default {
       return cijfers
     },
 
+    /**
+     * View the results, showing each geometry in it's z-score color or white if a reference is missing
+     * @param cijfers
+     * @returns {Promise<void>}
+     */
     async cijferView (cijfers) {
       clearLayers()
       this.drawing = true
@@ -281,6 +340,12 @@ export default {
       this.showShapes(shapes)
     },
 
+    /**
+     * Show only the geometries of the current gebied type
+     * Default is stadsdeel if no gebied type is set
+     * The method is used at initialisation of the component only
+     * @returns {Promise<void>}
+     */
     async gwbView () {
       clearLayers()
       this.drawing = true
@@ -294,6 +359,10 @@ export default {
       this.showShapes(shapes)
     },
 
+    /**
+     * Utility method to show shapes on the map
+     * @param shapes
+     */
     showShapes (shapes) {
       clearLayers()
       this.drawing = true
@@ -303,6 +372,11 @@ export default {
       this.drawing = false
     },
 
+    /**
+     * Provide for a list of variable out of which the user can choose
+     * The default variable choosen will be the first variable of the list
+     * @returns {Promise<void>}
+     */
     async showVariables () {
       const variables = await Promise.all(this.config.map(async po => {
         const meta = await util.getMeta(po.variabele)
@@ -339,6 +413,9 @@ export default {
   },
 
   created () {
+    /**
+     * Provide for an intial map and list of variables to select from
+     */
     this.showVariables()
     this.gwbView()
   },
