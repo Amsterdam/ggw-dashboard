@@ -194,6 +194,19 @@ export default {
     },
 
     /**
+     * Allow the gebiedtype to follow the gebiedtype of the selected gwb
+     */
+    followGebiedtype () {
+      if (this.gwb) {
+        let gebiedType = util.getGebiedType(this.gwb.vollcode)
+        if (gebiedType === util.GEBIED_TYPE.Stad) {
+          gebiedType = util.GEBIED_TYPE.Stadsdeel
+        }
+        this.setGebiedType(gebiedType)
+      }
+    },
+
+    /**
      * The results are compared against the 'own' data
      * The own data means the 'lowest' choosen value for buurt, wijk, gebied
      * The type of the shown results should then match the type of the currently selected one
@@ -344,6 +357,7 @@ export default {
      * Show only the geometries of the current gebied type
      * Default is stadsdeel if no gebied type is set
      * The method is used at initialisation of the component only
+     * Not used for now
      * @returns {Promise<void>}
      */
     async gwbView () {
@@ -402,13 +416,7 @@ export default {
       this.updateData()
     },
     'gwb' () {
-      if (this.gwb) {
-        let gebiedType = util.getGebiedType(this.gwb.vollcode)
-        if (gebiedType === util.GEBIED_TYPE.Stad) {
-          gebiedType = util.GEBIED_TYPE.Stadsdeel
-        }
-        this.setGebiedType(gebiedType)
-      }
+      this.followGebiedtype()
     }
   },
 
@@ -417,7 +425,7 @@ export default {
      * Provide for an intial map and list of variables to select from
      */
     this.showVariables()
-    this.gwbView()
+    this.followGebiedtype()
   },
 
   mounted () {

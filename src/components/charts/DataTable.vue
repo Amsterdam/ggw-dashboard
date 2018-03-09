@@ -7,7 +7,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr v-for="d in data" :key="d.label">
+    <tr v-for="d in data" :key="d.variabele">
       <td>
         <tooltip :cijfers="data" :cijfer="d">{{d.label}}</tooltip>
       </td>
@@ -81,7 +81,6 @@ export default {
     }
   },
   created () {
-    this.data = this.config.map(c => ({label: c.label || c.variabele}))
     this.updateData()
   }
 }
