@@ -232,7 +232,7 @@ export default {
       this.$router.push({
         name: 'dashboard',
         query: {
-          gebied: this.selection.gebied,
+          gebied: this.selection.gebied || 'all',
           wijk: this.selection.wijk,
           buurt: this.selection.buurt,
           thema: this.selection.thema
@@ -250,7 +250,7 @@ export default {
       this.selection.thema = thema || IN_HET_KORT
       this.updateThema(this.selection.thema)
 
-      this.selection.gebied = gebied
+      this.selection.gebied = gebied === 'all' ? null : (gebied || 'DX01')
       await this.updateGebied(this.selection.gebied, wijk)
 
       if (wijk) {
