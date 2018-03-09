@@ -1,6 +1,14 @@
+/**
+ * All logic regarding the interface with the maps API
+ */
+
 import { readData } from '../datareader'
 import { rdPolygonToWgs84 } from '../geojson'
 
+/**
+ * Constant to denote the gebied types in the maps API
+ * @type {{Stadsdeel: string, Gebied: string, Wijk: string, Buurt: string}}
+ */
 export const GEBIED_TYPE = {
   Stadsdeel: 'Stadsdeel',
   Gebied: 'Gebiedsgerichtwerken',
@@ -8,10 +16,21 @@ export const GEBIED_TYPE = {
   Buurt: 'Buurt'
 }
 
+/**
+ * Returns the complete url for the maps API given an endpoint
+ * @param endpoint
+ * @returns {string}
+ */
 function getUrl (endpoint) {
   return 'https://map.data.amsterdam.nl/maps/gebieden'
 }
 
+/**
+ * Gets all geometries with a given gebied type (gebied, wijk, buurt, stadsdeel)
+ * The geometries are converted from the rd crs to wgs84
+ * @param gebiedType
+ * @returns {Promise<*>}
+ */
 export async function getGeometries (gebiedType) {
   if (!gebiedType) {
     return []
