@@ -7,7 +7,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr v-for="d in data" :key="d.label">
+    <tr v-for="d in data" :key="d.variabele">
       <td>
         <tooltip :cijfers="data" :cijfer="d">{{d.label}}</tooltip>
       </td>
@@ -54,6 +54,10 @@ export default {
     async updateData () {
       const data = await util.getConfigCijfers(this.gwb, this.config)
 
+      /**
+       * Show the last 4 years only
+       * @type {*}
+       */
       const cijfers = util.getYearCijfers(data)
       const maxYear = util.getMaxYear(cijfers)
       this.years = [3, 2, 1, 0].map(i => maxYear - i)
@@ -76,8 +80,7 @@ export default {
       this.updateData()
     }
   },
-  async created () {
-    this.data = this.config.map(c => ({label: c.label || c.variabele}))
+  created () {
     this.updateData()
   }
 }

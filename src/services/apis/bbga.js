@@ -1,17 +1,32 @@
+/**
+ * All logic regarding the interface with the BBGA API
+ */
+
 import { readPaginatedData } from '../datareader'
 import { getColor } from '../colorcoding'
 import { cacheResponse } from '../cache'
 
+/**
+ * Returns the complete url for the BBGA API given an endpoint
+ * @param endpoint
+ * @returns {string}
+ */
 function getUrl (endpoint) {
   return `https://api.data.amsterdam.nl/bbga${endpoint}`
 }
 
+/**
+ * Get all meta information for the BBGA variables.
+ * The data is transformed into an object for faster access
+ * The data is cached
+ * @returns {Promise<*>}
+ */
 export async function getAllMeta () {
   async function getData () {
     const url = getUrl('/meta/')
     const data = await readPaginatedData(url)
     const dataObject = {}
-    data.forEach(item => { dataObject[item.variabele] = item })
+    data.forEach(item => { dataObject[item.variabele.toUpperCase()] = item })
     return dataObject
   }
 
@@ -21,6 +36,13 @@ export async function getAllMeta () {
   )
 }
 
+/**
+ * Gets the meta information for a given variable name
+ * When the variable name ends with the special value [LATEST] the most recent year variable is used
+ * If meta contains VAR2018 and VAR2019 and the variable name is VAR[LATEST] then the meta for VAR2019 is returned
+ * @param variableName
+ * @returns {Promise<*>}
+ */
 export async function getMeta (variableName) {
   const meta = await getAllMeta()
 
@@ -41,9 +63,21 @@ export async function getMeta (variableName) {
   return meta[variableName.toUpperCase()]
 }
 
+/**
+ * Get the values for a given variable identified by its meta
+ * An optional year can be specified to get only the values for the specified year. Default is to return all years
+ * An optional gebiedCode can be specified to get the values for the given gebied. Default is to return the values for all gebied, wijk, buurten
+ * The result is sorted on year (old to new)
+ * The fact that null values are sometimes reported as empty strings is solved by setting both to null
+ * The values will contain colors that allow for coloring of the cijfers based on the z-score
+ * @param meta
+ * @param year
+ * @param gebiedCode
+ * @returns {Promise<{jaar: *|number|string, waarde: null, post: string, gebiedcode15: *|string, color, textColor: *|textColor}[]>}
+ */
 async function getCijfers (meta, year = null, gebiedCode = null) {
   const isPercentage = /_P$/i // Add auto-post for percentages
-  const post = isPercentage.test(meta.variabele) ? '%' : ''
+  const post = isPercentage.test(meta.variabele) ? '%' : '' // Simple check to see if a percentage is requested
 
   const selectVariable = `variabele=${meta.variabele}`
   const selectYear = year ? `&jaar=${year}` : ''
@@ -62,6 +96,13 @@ async function getCijfers (meta, year = null, gebiedCode = null) {
   }))
 }
 
+/**
+ * Gets all cijfers for a given variable
+ * The values is cached
+ * @param variableName
+ * @param year optional value to get only the cijfers for a given year
+ * @returns {Promise<*>}
+ */
 export async function getAllCijfers (variableName, year) {
   variableName = variableName.toUpperCase()
   const meta = await getMeta(variableName)
@@ -73,11 +114,23 @@ export async function getAllCijfers (variableName, year) {
   )
 }
 
+/**
+ * Constants to denote if all or only the most recent cijfers are requested
+ * @type {{ALL: string, LATEST: string}}
+ */
 export const CIJFERS = {
   ALL: 'all',
   LATEST: 'latest'
 }
 
+/**
+ * Get the cijfers for a given variable and gebied, wijk or buurt
+ * The value is cached
+ * @param variableName
+ * @param gebied
+ * @param recentOrAll
+ * @returns {Promise<*>}
+ */
 export async function getGebiedCijfers (variableName, gebied, recentOrAll = CIJFERS.ALL) {
   variableName = variableName.toUpperCase()
   const meta = await getMeta(variableName)

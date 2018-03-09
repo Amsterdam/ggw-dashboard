@@ -1,5 +1,13 @@
+/**
+ * Import the standard deviations and averages for Amsterdam as provided by OIS
+ * These values are used to calculate z-scores
+ * The z-scores are used to color values so that the color denotes the distance in std's to the average
+ */
 import std from '../../static/tmp/std'
 
+/**
+ * The Amsterdam style guide colors
+ */
 export const COLOR = {
   'ams-geel': '#FFE600',
   'ams-oranje': '#FF9100',
@@ -24,6 +32,10 @@ export const COLOR = {
   'ams-top-menu': '#F3F3F3'
 }
 
+/**
+ * The chart colors for charts that are not colored on z-score
+ * For example pie and stacked bar charts
+ */
 export const CHART_COLORS = [
   COLOR['ams-rood'],
   COLOR['ams-donkergrijs'],
@@ -33,6 +45,11 @@ export const CHART_COLORS = [
   COLOR['ams-geel']
 ]
 
+/**
+ * The colors for charts that are colored on z-score
+ * Foreground color (color) and an optional text color can be specified for each category
+ * @type {*[]}
+ */
 export const CATEGORY_COLORS = [
   {
     text: 'veel meer/beter dan gemiddeld',
@@ -62,6 +79,10 @@ export const CATEGORY_COLORS = [
   }
 ]
 
+/**
+ * Gets the category from CATEGORY_COLORS for the given z-score
+ * @param zScore
+ */
 function getCategory (zScore) {
   const average = 0.5
   const categories = [
@@ -91,6 +112,13 @@ function getCategory (zScore) {
   return categories.find(c => c.inCategory(zScore))
 }
 
+/**
+ * Gets the color and an optional text color for a variable value in a year
+ * @param meta  The variable, denoted by it's meta information
+ * @param value The value for the variable
+ * @param year  The year for which the value is valid
+ * @returns {{color, textColor: *|textColor}}
+ */
 export function getColor (meta, value, year) {
   if (value !== null) {
     const variable = meta.variabele

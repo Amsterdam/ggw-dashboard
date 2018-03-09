@@ -138,6 +138,14 @@ export default {
       setGWB: 'setGWB',
       setThema: 'setThema'
     }),
+
+    /**
+     * When a gebied is choosen
+     * Defaults to Amsterdam when gebied = null
+     * @param gebiedCode
+     * @param wijkCode
+     * @returns {Promise<void>}
+     */
     async updateGebied (gebiedCode, wijkCode = null) {
       this.wijkDetail = null
       this.selection.wijk = null
@@ -164,6 +172,7 @@ export default {
         this.updateState()
       }
     },
+
     async updateWijk (wijkCode, buurtCode = null) {
       this.buurtDetail = null
       this.selection.buurt = null
@@ -184,6 +193,7 @@ export default {
         this.updateState()
       }
     },
+
     async updateBuurt (buurtCode) {
       if (buurtCode) {
         const buurt = this.selection.buurten.find(b => b.vollcode === buurtCode)
@@ -195,11 +205,17 @@ export default {
 
       this.updateState()
     },
+
     async updateThema (themaId) {
       this.selection.thema = themaId
       this.themaDetail = this.selection.thema
       this.updateState()
     },
+
+    /**
+     * The state is updated at the end of the selection of gebied, wijk, buurt
+     * and after selecting a thema
+     */
     updateState () {
       this.setGebied(this.gebiedDetail)
       this.setWijk(this.wijkDetail)
@@ -208,24 +224,33 @@ export default {
       this.setThema(this.themaDetail)
       this.updateUrl()
     },
+
+    /**
+     * To allow for a browser refresh, the url reflects the selected gebied, wijk, buurt and thema
+     */
     updateUrl () {
       this.$router.push({
         name: 'dashboard',
         query: {
-          gebied: this.selection.gebied,
+          gebied: this.selection.gebied || 'all',
           wijk: this.selection.wijk,
           buurt: this.selection.buurt,
           thema: this.selection.thema
         }
       })
     },
+
+    /**
+     * On load the url is parsed to restore the state
+     * @returns {Promise<void>}
+     */
     async parseRoute () {
       let { gebied, wijk, buurt, thema } = this.$route.query
 
       this.selection.thema = thema || IN_HET_KORT
       this.updateThema(this.selection.thema)
 
-      this.selection.gebied = gebied
+      this.selection.gebied = gebied === 'all' ? null : (gebied || 'DX01')
       await this.updateGebied(this.selection.gebied, wijk)
 
       if (wijk) {
