@@ -80,7 +80,7 @@ export default {
       this.updateData()
     }
   },
-  async created () {
+  created () {
     this.data = this.config.map(c => ({label: c.label || c.variabele}))
     this.updateData()
   }

@@ -1,7 +1,7 @@
 /**
  * Each thema has a set of kerncijfers that are supplied by OIS
  */
-import kerncijfers from '../../static/tmp/kerncijfers'
+import kerncijfers from '../../static/links/kerncijfers'
 
 /**
  * Each thema is identied by a string in the UI

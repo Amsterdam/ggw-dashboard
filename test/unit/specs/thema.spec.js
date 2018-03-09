@@ -1,4 +1,4 @@
-import kerncijfers from '../../../static/tmp/kerncijfers'
+import kerncijfers from '../../../static/links/kerncijfers'
 import { getKerncijfers } from '@/services/thema'
 
 describe('thema', () => {
