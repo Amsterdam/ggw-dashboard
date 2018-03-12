@@ -22,6 +22,10 @@ Vue.use(VueAxios, axios)
 Vue.use(BootstrapVue)
 Vue.config.productionTip = false
 
+/**
+ * Simple filter to display a cijfer
+ * The Localestring method is used to correctly display numerical values
+ */
 Vue.filter('displaywaarde', function (cijfer) {
   if (cijfer && cijfer.waarde !== null) {
     return `${cijfer.waarde.toLocaleString()}${cijfer.post || ''}`
@@ -45,6 +49,12 @@ let vueApp = new Vue({
     ...mapActions({
       setMeta: 'setMeta'
     }),
+
+    /**
+     * Meta information is a precondition for the application to work
+     * Without meta no information can be shown
+     * @returns {Promise<void>}
+     */
     async init () {
       const meta = await util.getAllMeta()
       this.setMeta(meta)

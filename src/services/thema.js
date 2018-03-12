@@ -1,4 +1,11 @@
-import kerncijfers from '../../static/tmp/kerncijfers'
+/**
+ * Each thema has a set of kerncijfers that are supplied by OIS
+ */
+import kerncijfers from '../../static/links/kerncijfers'
+
+/**
+ * Each thema is identied by a string in the UI
+ */
 
 export const IN_HET_KORT = 'Gebied in het kort'
 export const BEVOLKING = 'Bevolking'
@@ -11,6 +18,10 @@ export const VERKEER_EN_OPENBARE_RUIMTE = 'Verkeer en Openbare ruimte'
 export const WELZIJN_ZORG_EN_SPORT = 'Welzijn, zorg en sport'
 export const WERK_INKOMEN_EN_PARTICIPATIE = 'Werk, inkomen en participatie'
 
+/**
+ * The total set of available themas of which the user can choose from
+ * @type {*[]}
+ */
 export const THEMAS = [
   IN_HET_KORT,
   BEVOLKING,
@@ -24,6 +35,10 @@ export const THEMAS = [
   WERK_INKOMEN_EN_PARTICIPATIE
 ]
 
+/**
+ * Gets the set of kerncijfers for a given thema
+ * @param thema
+ */
 export function getKerncijfers (thema) {
   return kerncijfers
     .filter(cijfer => cijfer.thema === thema)

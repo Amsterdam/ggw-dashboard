@@ -18,11 +18,11 @@
           <span class="close-modal" @click="hideTooltip" title="Sluiten">X</span>
           <div class="grid-element">
             <div class="grid-zone grid_12">
-                <div class="rij mode_input selectie" v-if="cijfers && cijfers.length > 1">
+                <div class="rij mode_input selectie">
                   <div class="label">
                     <label for="dropdown" v-if="selectedCijfer && selectedCijfer.gebied">{{selectedCijfer.gebied.naam}}</label>
                   </div>
-                  <div class="invoer">
+                  <div class="invoer" v-show="cijfers && cijfers.length > 1">
                     <b-form-select @change="selectCijfer"
                                    v-model="selectedLabel"
                                    :options="cijfers"
