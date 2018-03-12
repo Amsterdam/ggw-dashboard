@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="grid-container">
+    <ams-header>Header</ams-header>
     <div class="sticky-top">
-      <ams-header>Header</ams-header>
       <ggw-selector></ggw-selector>
     </div>
 
