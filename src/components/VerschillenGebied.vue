@@ -20,10 +20,10 @@
     </div>
     <div class="zone-clear clear"></div>
     <div class="grid-element">
-      <div class="grid-blok grid_8 pad-top-bottom pull-up">
+      <div class="grid-blok grid_7 pad-top-bottom pull-up">
           <div :ref="mapRef" class="map"></div>
       </div>
-      <div class="grid-blok grid_4 pad-top-bottom marge-left pull-up">
+      <div class="grid-blok grid_5 pad-top-bottom marge-left pull-up">
         <div v-if="gebiedType && variable && !highLow.length">
           Geen cijfers beschikbaar
         </div>
@@ -35,36 +35,26 @@
         <div class="pad-top-bottom">
           <div v-if="own && own.gebiedType === gebiedType && own.recent">
             <span><b>Geselecteerde {{own.gebiedType.toLowerCase()}}</b></span>
-            <ol :start="ownIndex">
-              <li>
-                {{own.gebied.naam}}: {{own.recent | displaywaarde}}
-              </li>
-            </ol>
+            <div class="listitem">
+              <span class="itemrank">{{ownIndex}}.</span> {{own.gebied.naam}}: {{own.recent | displaywaarde}}
+            </div>
           </div>
 
           <div v-if="highLow.length > 1">
-            <span>
+            <div class="subtitle">
               <b>Hoogst scorende {{gebiedType.toLowerCase()}}</b>
-            </span>
-            <div>
-              <ol>
-                <li :class="{'highlight-own': item.gwb.naam === own.gebied.naam}" v-for="(item, index) in highLow" :key="index" v-if="index < FRAGMENT">
-                  {{item.gwb.naam}}: {{item | displaywaarde}}
-                </li>
-              </ol>
+            </div>
+            <div class="listitem" :class="{'highlight-own': item.gwb.naam === own.gebied.naam}" v-for="(item, index) in highLow" :key="index" v-if="index < FRAGMENT">
+              <span class="itemrank">{{item.ranking}}.</span> {{item.gwb.naam}}: {{item | displaywaarde}}
             </div>
           </div>
 
           <div v-if="highLow.length > FRAGMENT">
-            <span>
+            <div class="subtitle">
               <b>Laagst scorende {{gebiedType.toLowerCase()}}</b>
-            </span>
-            <div>
-              <ol>
-                <li :class="{'highlight-own': item.gwb.naam === own.gebied.naam}" v-for="(item, index) in highLow" :key="index" v-if="index >= FRAGMENT">
-                  {{item.gwb.naam}}: {{item | displaywaarde}}
-                </li>
-              </ol>
+            </div>
+            <div class="listitem" :class="{'highlight-own': item.gwb.naam === own.gebied.naam}" v-for="(item, index) in highLow" :key="index" v-if="index >= FRAGMENT">
+              <span class="itemrank">{{item.ranking}}.</span> {{item.gwb.naam}}: {{item | displaywaarde}}
             </div>
           </div>
         </div>
@@ -293,6 +283,11 @@ export default {
       }
 
       /**
+       * Provide for an index that denotes the ranking of each gebied
+       */
+      cijfers.forEach((c, i) => { c.ranking = i + 1 })
+
+      /**
        * Find ranking for the currently selected gwb
        */
       this.ownIndex = cijfers.findIndex(c => c.gebiedcode15 === this.own.recent.gebiedcode15) + 1
@@ -313,7 +308,7 @@ export default {
         highest = cijfers.slice(0, this.FRAGMENT)
         lowest = cijfers.slice(cijfers.length - this.FRAGMENT)
       }
-      const highLow = highest.concat(lowest.reverse())
+      const highLow = highest.concat(lowest)
 
       // Add gebieds info for the 10 remaining cijfers to show their names
       this.highLow = await Promise.all(highLow.map(async c => {
@@ -471,6 +466,21 @@ export default {
 
   .pull-up {
     margin-top: -1rem;
+  }
+
+  .subtitle {
+    margin-bottom: .33rem;
+    margin-top: .33rem;
+  }
+
+  .listitem {
+    margin-left: .5rem;
+  }
+
+  .itemrank {
+    float: left;
+    width: 2.5rem;
+    font-weight: bold;
   }
 
 </style>
