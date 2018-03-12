@@ -28,7 +28,7 @@ Vue.config.productionTip = false
  */
 Vue.filter('displaywaarde', function (cijfer) {
   if (cijfer && cijfer.waarde !== null) {
-    return `${cijfer.waarde.toLocaleString()}${cijfer.post || ''}`
+    return `${cijfer.waarde.toLocaleString('NL')}${cijfer.post || ''}`
   }
 })
 
