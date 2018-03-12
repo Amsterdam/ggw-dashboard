@@ -112,7 +112,7 @@
       "interactive": false,
       "encode": {
         "enter": {
-          "text": {"field": "y"},
+          "text": {"field": "display"},
           "x": {"scale": "x", "field": "x"},
           "y": {"scale": "y", "field": "y0"},
           "dx": {"value": 15},
