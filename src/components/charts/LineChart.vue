@@ -57,7 +57,7 @@ export default {
           }))))
 
       vegaSpec.data[0].values = cijfers
-      vegaSpec.scales[2].range = LINE_CHART_COLORS
+      vegaSpec.scales[2].range = LINE_CHART_COLORS.slice(0, this.colors || LINE_CHART_COLORS.length)
       vegaEmbed(this.$refs[this.chartRef], vegaSpec, vegaEmbedOptions)
     }
   },

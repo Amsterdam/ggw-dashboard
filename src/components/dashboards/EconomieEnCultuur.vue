@@ -63,17 +63,19 @@
           <div class="grid-title">
             <h2>Vestigingen naar hoofdfunctie</h2>
           </div>
-          <div class="break-out-card">
-            <pie-chart title="" :config="vestigingenHoofdfunctie"></pie-chart>
-          </div>
+          <div class="grid-blok">
+          <pie-chart title="" :config="vestigingenHoofdfunctie"></pie-chart>
         </div>
+        </div>
+      </div>
+      <div class="grid-element">
         <div class="grid-blok grid_6 card">
           <div class="grid-title">
             <h2>Werkzame personen naar hoofdfunctie</h2>
           </div>
-          <div class="break-out-card">
-            <pie-chart title="" :config="werkzamenHoofdfunctie"></pie-chart>
-          </div>
+          <div class="grid-blok">
+          <pie-chart title="" :config="werkzamenHoofdfunctie"></pie-chart>
+        </div>
         </div>
       </div>
     </div>
