@@ -2,7 +2,17 @@ import L from 'leaflet'
 import proj4 from 'proj4'
 import 'proj4leaflet'
 
-// Code copied from Atlas
+/**
+ * The code is this module has been copied from Atlas
+ * Unfortunately the code contains little or no comment.
+ * Also it contains a lot of undocumented magic constants
+ * No effort has been made to compensate for the lack of documentation
+ * The code is included as is
+ */
+
+/**
+ * rd coordinate system configuration
+ */
 const config = {
   rd: {
     code: 'EPSG:28992',
@@ -40,6 +50,11 @@ export const rd = new L.Proj.CRS(
 rd.distance = L.CRS.Earth.distance
 rd.R = config.EARTH_RADIUS
 
+/**
+ * Converts rd coordinates to wgs84 coordinates
+ * @param rdCoordinates [x, y]
+ * @returns {*[]}
+ */
 export function rdToWgs84 (rdCoordinates) {
   const wgs84Coordinates = proj4(config.rd.projection, config.wgs84.projection,
     [rdCoordinates[0], rdCoordinates[1]])
@@ -48,9 +63,43 @@ export function rdToWgs84 (rdCoordinates) {
   ]
 }
 
+/**
+ * Converts a rd polygon to a polygon with wgs84 coordinates
+ * @param geometry
+ * @returns {{type: string, coordinates: *[]}}
+ */
+export function rdPolygonToWgs84 (geometry) {
+  if (geometry.type !== 'Polygon') {
+    console.error('Error in geometry type, "Polygon" was expected', geometry.type)
+    return
+  }
+
+  // {
+  //   'type': 'Polygon',
+  //   'coordinates': [
+  //         [-99.028, 46.985], [-99.028, 50.979],
+  //         [-82.062, 50.979], [-82.062, 47.002],
+  //         [-99.028, 46.985]
+  //       ]
+  // }
+
+  return {
+    type: 'Polygon',
+    coordinates: [
+      geometry.coordinates[0].map(rdCoordinate => rdToWgs84(rdCoordinate))
+    ]
+  }
+}
+
+/**
+ * Converts a rd encoded multi polygon to an array of ws84 polygons
+ * @param geometry
+ * @returns {*}
+ */
 export function rdMultiPolygonToWgs84 (geometry) {
   if (geometry.type !== 'MultiPolygon') {
     console.error('Error in geometry type, "MultiPolygon" was expected', geometry.type)
+    return
   }
 
   // {

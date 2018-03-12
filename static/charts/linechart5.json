@@ -5,7 +5,7 @@
   "padding": 5,
 
   "data":
-    {
+    [{
       "name": "table",
       "values": [
         {"x": 0, "y": 28, "variable":0}, {"x": 0, "y": 20, "variable":1},
@@ -19,7 +19,7 @@
         {"x": 8, "y": 68, "variable":0}, {"x": 8, "y": 16, "variable":1},
         {"x": 9, "y": 49, "variable":0}, {"x": 9, "y": 25, "variable":1}
       ]
-    }
+    }]
   ,
 
   "scales": [
@@ -88,7 +88,16 @@
               "x": {"scale": "x", "field": "x"},
               "y": {"scale": "y", "field": "y"},
               "stroke": {"scale": "variable", "field": "variable"},
-              "strokeWidth": {"value": 2}
+              "strokeWidth": 2,
+              "strokeDash": [
+                {
+                  "test": "datum.dash",
+                  "value": [4, 4]
+                },
+                {
+                  "value": [1, 0]
+                }
+              ]
             },
             "update": {
               "interpolate": {"value": "natural"},

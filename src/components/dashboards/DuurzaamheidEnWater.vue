@@ -1,55 +1,50 @@
 <template>
   <div>
     <div v-if="gwb && meta">
-      <div class="alert">
-        <h2>Positie en ontwikkeling van {{gwb.naam}} t.o.v. het stedelijk gemiddelde</h2>
-      </div>
-
-      <div class="row">
-        <div class="col-sm">
-          <data-table :config="positieOntwikkeling"></data-table>
-        </div>
-        <div class="col-sm">
+      <div class="grid-element">
+        <div class="grid-blok grid_12">
+          <div class="grid-title">
+            <h2>Positie en ontwikkeling van {{gwb.naam}} t.o.v. het stedelijk gemiddelde</h2>
+          </div>
         </div>
       </div>
-
-      <div class="alert">
-        <h2>Verschillen binnen het gebied</h2>
+      <div class="grid-blok grid_12">
+        <data-table :config="kerncijfers"></data-table>
       </div>
 
-      <verschillen-gebied></verschillen-gebied>
-
-      <meer-cijfers-en-informatie></meer-cijfers-en-informatie>
-
-    </div>
-
-    <div v-else class="text-center">
-      <h2>Gegevens laden...</h2>
-      <img src="../../../static/icons/loading.gif">
+      <div class="grid-element">
+        <div class="grid-blok grid_12">
+          <div class="grid-title">
+            <h2>Verschillen binnen het gebied</h2>
+          </div>
+        </div>
+      </div>
+      <verschillen-gebied :config="kerncijfers"></verschillen-gebied>
     </div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+import { DUURZAAMHEID_EN_WATER, getKerncijfers } from '../../services/thema'
 
 import dataTable from '../charts/DataTable'
 import verschillenGebied from '../VerschillenGebied'
 
-import positieOntwikkeling from '../../../static/links/positie_en_ontwikkeling'
+import colorLegend from '../ColorLegend.vue'
 
-import meerCijfersEnInformatie from '../MeerCijfersEnInformatie'
+const kerncijfers = getKerncijfers(DUURZAAMHEID_EN_WATER)
 
 export default {
   name: 'DuurzaamheidEnWater',
   components: {
     'data-table': dataTable,
     'verschillen-gebied': verschillenGebied,
-    'meer-cijfers-en-informatie': meerCijfersEnInformatie
+    'color-legend': colorLegend
   },
   data () {
     return {
-      positieOntwikkeling
+      kerncijfers
     }
   },
   computed: {

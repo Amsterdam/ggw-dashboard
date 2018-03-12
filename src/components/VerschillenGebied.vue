@@ -1,59 +1,109 @@
-<!--Example of a component that uses Leaflet-->
 <template>
-  <div class="row">
-    <div class="col-sm-6">
-      <b-form-select v-model="variable"
-                     :disabled="loading || drawing"
-                     :options="variables"
-                     text-field="label"
-                     value-field="variable">
-      </b-form-select>
-      <div :ref="mapRef" class="map"></div>
-      <div class="text-center">
-        <button v-for="action in gebiedTypes" :key="action"
-                class="btn action-button" :disabled="!variable || loading || drawing"
-                :class="{'btn-primary': gebiedType === action}"
-                @click="setGebiedType(action)">{{action}}en</button>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <div v-if="loading">
-        Laden gegevens...
-      </div>
-      <div v-else-if="gebiedType && variable && !highLow.length">
-        Geen cijfers beschikbaar
-      </div>
-      <div v-else>
-        <div v-if="own && own.gebiedType === gebiedType && own.recent">
-          <h4>Geselecteerde {{own.gebiedType.toLowerCase()}}</h4>
-          <span class="font-weight-bold">{{ownIndex}}</span>
-          {{own.gebied.naam}}:
-          <span
-            v-b-tooltip.hover v-b-tooltip.click v-b-tooltip.left
-            title="">
-            {{own.recent | displaywaarde}}
-          </span>
-        </div>
-
-        <div v-for="(item, index) in highLow" :key="index">
-          <h4 v-if="!(index % FRAGMENT)">
-            {{index === 0 ? 'Hoogst' : 'Laagst'}} scorende {{gebiedType.toLowerCase()}}
-          </h4>
-          <div>
-            <span class="font-weight-bold">{{index % FRAGMENT + 1}}</span>
-            <span :class="{'highlight-own': item.gwb.naam === own.gebied.naam}">
-              {{item.gwb.naam}}:
-              <span
-                v-b-tooltip.hover v-b-tooltip.click v-b-tooltip.left
-                title="">
-                {{item | displaywaarde}}
-              </span>
-            </span>
+  <div>
+    <div class="grid-element">
+      <div class="grid-blok grid_12">
+        <div class="rij mode_input selectie">
+          <div class="invoer">
+            <b-form-select v-model="variable"
+                           :disabled="loading || drawing"
+                           :options="variables"
+                             text-field="label"
+                             value-field="variable">
+                <template slot="first">
+                  <!-- this slot appears above the options from 'options' prop -->
+                  <option :value="null" disabled>-- Selecteer een categorie --</option>
+                </template>
+            </b-form-select>
           </div>
         </div>
       </div>
-
     </div>
+    <div class="zone-clear clear"></div>
+    <div class="grid-element">
+      <div class="grid-blok grid_8 pad-top-bottom pull-up">
+          <div :ref="mapRef" class="map"></div>
+      </div>
+      <div class="grid-blok grid_4 pad-top-bottom marge-left pull-up">
+        <div v-if="gebiedType && variable && !highLow.length">
+          Geen cijfers beschikbaar
+        </div>
+        <div v-else>
+        <span v-if="cityCijfers" class="pad-top-bottom">
+          <b>{{cityCijfers.gebied.naam}}: {{cityCijfers.recent | displaywaarde }}</b>
+        </span>
+
+        <div class="pad-top-bottom">
+          <div v-if="own && own.gebiedType === gebiedType && own.recent">
+            <span><b>Geselecteerde {{own.gebiedType.toLowerCase()}}</b></span>
+            <ol :start="ownIndex">
+              <li>
+                {{own.gebied.naam}}: {{own.recent | displaywaarde}}
+              </li>
+            </ol>
+          </div>
+
+          <div v-if="highLow.length > 1">
+            <span>
+              <b>Hoogst scorende {{gebiedType.toLowerCase()}}</b>
+            </span>
+            <div>
+              <ol>
+                <li :class="{'highlight-own': item.gwb.naam === own.gebied.naam}" v-for="(item, index) in highLow" :key="index" v-if="index < FRAGMENT">
+                  {{item.gwb.naam}}: {{item | displaywaarde}}
+                </li>
+              </ol>
+            </div>
+          </div>
+
+          <div v-if="highLow.length > FRAGMENT">
+            <span>
+              <b>Laagst scorende {{gebiedType.toLowerCase()}}</b>
+            </span>
+            <div>
+              <ol>
+                <li :class="{'highlight-own': item.gwb.naam === own.gebied.naam}" v-for="(item, index) in highLow" :key="index" v-if="index >= FRAGMENT">
+                  {{item.gwb.naam}}: {{item | displaywaarde}}
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+        </div>
+        </div>
+      </div>
+      <div class="zone-clear clear"></div>
+      <div class="grid-element">
+        <div class="grid-blok grid_12">
+          <fieldset class="rij mode_input text rij_verplicht">
+            <div class="antwoorden checkboxen">
+              <div class="label">
+                <label for="gebiedFilter">Filter</label>
+              </div>
+
+              <div class="antwoord">
+                <input :disabled="!variable || loading || drawing" :checked="gebiedType === 'Stadsdeel'" @click="setGebiedType('Stadsdeel')" type="radio" name="gebiedFilter" id="0">
+                <label for="0">Stadsdelen</label>
+              </div>
+
+              <div class="antwoord">
+                <input :disabled="!variable || loading || drawing" :checked="gebiedType === 'Gebied'" @click="setGebiedType('Gebied')" type="radio" name="gebiedFilter" id="1">
+                <label for="1">Gebieden</label>
+              </div>
+
+              <div class="antwoord">
+                <input :disabled="!variable || loading || drawing" :checked="gebiedType === 'Wijk'" @click="setGebiedType('Wijk')" type="radio" name="gebiedFilter" id="2">
+                <label for="2">Wijken</label>
+              </div>
+
+              <div class="antwoord">
+                <input :disabled="!variable || loading || drawing" :checked="gebiedType === 'Buurt'" @click="setGebiedType('Buurt')" type="radio" name="gebiedFilter" id="3">
+                <label for="3">Buurten</label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    <div class="zone-clear clear"></div>
   </div>
 </template>
 
@@ -62,11 +112,25 @@ import { mapGetters } from 'vuex'
 import util from '../services/util'
 import { getShapes, drawShapes, amsMap } from '../services/map'
 import { COLOR } from '../services/colorcoding'
-import positieOntwikkeling from '../../static/links/positie_en_ontwikkeling'
 
+/**
+ * The highest and lowest 5 cijfers are reported
+ * @type {number}
+ */
+const FRAGMENT = 5
+
+/**
+ * The map that can show the results
+ */
 let map
+/**
+ * The layer that holds the results
+ */
 let gwbLayer = null
 
+/**
+ * Utility method to clear any previous results before showing new results
+ */
 function clearLayers () {
   if (gwbLayer) {
     map.removeLayer(gwbLayer)
@@ -83,17 +147,26 @@ export default {
       'buurt'
     ])
   },
+  props: [
+    'config'
+  ],
   data () {
     return {
-      FRAGMENT: 5,
+      FRAGMENT,
       variable: null,
       variables: [],
-      gebiedType: 'Gebied',
-      gebiedTypes: ['Gebied', 'Wijk', 'Buurt'],
+      gebiedType: util.GEBIED_TYPE.Stadsdeel,
+      gebiedTypes: [
+        util.GEBIED_TYPE.Stadsdeel,
+        util.GEBIED_TYPE.Gebied,
+        util.GEBIED_TYPE.Wijk,
+        util.GEBIED_TYPE.Buurt
+      ],
       lowest: [],
       highest: [],
       own: null,
       ownIndex: null,
+      cityCijfers: null,
       highLow: [],
       loading: false,
       drawing: false,
@@ -101,6 +174,9 @@ export default {
     }
   },
   methods: {
+    /**
+     * Cleaning local data when no cijfers are available
+     */
     noCijfers () {
       this.loading = false
       this.drawing = false
@@ -108,24 +184,54 @@ export default {
       clearLayers()
     },
 
+    /**
+     * Updates the gebied type for which the results should be shown
+     * @param type
+     */
     setGebiedType (type) {
       this.gebiedType = type
       this.updateData()
     },
 
+    /**
+     * Allow the gebiedtype to follow the gebiedtype of the selected gwb
+     */
+    followGebiedtype () {
+      if (this.gwb) {
+        let gebiedType = util.getGebiedType(this.gwb.vollcode)
+        if (gebiedType === util.GEBIED_TYPE.Stad) {
+          gebiedType = util.GEBIED_TYPE.Stadsdeel
+        }
+        this.setGebiedType(gebiedType)
+      }
+    },
+
+    /**
+     * The results are compared against the 'own' data
+     * The own data means the 'lowest' choosen value for buurt, wijk, gebied
+     * The type of the shown results should then match the type of the currently selected one
+     * @returns {Promise<*>}
+     */
     async getOwn () {
-      // Try to derive most recent year from the cijfers for the current gwb
       let gwb = this.gwb
-      if (this.gebiedType === 'Buurt' && this.buurt) {
+      if (this.gebiedType === util.GEBIED_TYPE.Buurt && this.buurt) {
         gwb = this.buurt
-      } else if (this.gebiedType === 'Wijk' && this.wijk) {
+      } else if (this.gebiedType === util.GEBIED_TYPE.Wijk && this.wijk) {
         gwb = this.wijk
-      } else if (this.gebiedType === 'Gebied' && this.gebied) {
+      } else if (this.gebiedType === util.GEBIED_TYPE.Gebied && this.gebied) {
+        gwb = this.gebied
+      } else if (this.gebiedType === util.GEBIED_TYPE.Stadsdeel) {
+        // Stadsdeel is not a selection so compare to any selected gebied
         gwb = this.gebied
       }
+      // Return the most actual cijfers to the selected value (own)
       return util.getGebiedCijfers(this.variable, gwb, util.CIJFERS.LATEST)
     },
 
+    /**
+     * Update the shown results (data)
+     * @returns {Promise<*|void>}
+     */
     async updateData () {
       if (!this.variable) {
         return this.noCijfers()
@@ -135,13 +241,22 @@ export default {
       clearLayers()
 
       this.own = await this.getOwn()
-      if (!this.own && this.own.recent && this.own.recent.jaar) {
+      if (!(this.own && this.own.recent && this.own.recent.jaar)) {
         // Unable to specify a search year...
         return this.noCijfers()
       }
 
+      /**
+       * Show the cijfers for the whole city
+       */
+      const city = await util.getCity()
+      this.cityCijfers = await util.getGebiedCijfers(this.variable, city, util.CIJFERS.LATEST)
+
       this.own.gebiedType = util.getGebiedType(this.own.recent.gebiedcode15)
 
+      /**
+       * Show ths cijfers for the current selected gebied
+       */
       const cijfers = await this.getCijfers(this.own.recent.jaar)
 
       this.loading = false
@@ -151,6 +266,11 @@ export default {
       }
     },
 
+    /**
+     * Gets the cijfers for the most recent year (which is the year for the currently selected gebied, wijk, buurt)
+     * @param recentYear
+     * @returns {Promise<*>}
+     */
     async getCijfers (recentYear) {
       // Sort and filter cijfers for gebiedType and waarde
       let cijfers = await util.getAllCijfers(this.variable, recentYear)
@@ -158,24 +278,44 @@ export default {
       cijfers = cijfers.filter(c => util.getGebiedType(c.gebiedcode15) === this.gebiedType)
       cijfers = cijfers.sort((c1, c2) => c2.waarde - c1.waarde)
 
-      if (cijfers.length < 2 * this.FRAGMENT) {
-        // At least 5 low and high are expected
+      if (cijfers.length <= 0) {
         return this.noCijfers()
       }
 
       const variableDetail = this.variables.find(v => v.variable === this.variable)
+      /**
+       * Default is that higher values indicates better
+       * For some variables higher values however mean worse instead of better
+       * So reverse the results for this type of variables
+       */
       if (variableDetail.revert) {
         cijfers = cijfers.reverse()
       }
 
+      /**
+       * Find ranking for the currently selected gwb
+       */
       this.ownIndex = cijfers.findIndex(c => c.gebiedcode15 === this.own.recent.gebiedcode15) + 1
 
-      // Get only the lowest and highest values
-      const highest = cijfers.slice(0, this.FRAGMENT)
-      const lowest = cijfers.slice(cijfers.length - this.FRAGMENT)
+      /**
+       * Divide the list in high-low
+       * If the list gets too small, show all cijfers in one fragment
+       */
+      let highest, lowest
+      if (cijfers.length <= 2 * FRAGMENT) {
+        // Show the whole list
+        this.FRAGMENT = cijfers.length
+        highest = cijfers
+        lowest = []
+      } else {
+        // Get only the lowest and highest values
+        this.FRAGMENT = FRAGMENT
+        highest = cijfers.slice(0, this.FRAGMENT)
+        lowest = cijfers.slice(cijfers.length - this.FRAGMENT)
+      }
       const highLow = highest.concat(lowest.reverse())
 
-      // Add gebieds info for the 10 remaining cijfers
+      // Add gebieds info for the 10 remaining cijfers to show their names
       this.highLow = await Promise.all(highLow.map(async c => {
         const gwb = await util.getGwbSummary(c.gebiedcode15)
         return {
@@ -187,6 +327,11 @@ export default {
       return cijfers
     },
 
+    /**
+     * View the results, showing each geometry in it's z-score color or white if a reference is missing
+     * @param cijfers
+     * @returns {Promise<void>}
+     */
     async cijferView (cijfers) {
       clearLayers()
       this.drawing = true
@@ -208,11 +353,18 @@ export default {
       this.showShapes(shapes)
     },
 
+    /**
+     * Show only the geometries of the current gebied type
+     * Default is stadsdeel if no gebied type is set
+     * The method is used at initialisation of the component only
+     * Not used for now
+     * @returns {Promise<void>}
+     */
     async gwbView () {
       clearLayers()
       this.drawing = true
 
-      const shapes = await getShapes(this.gebiedType || 'Gebied', () => ({
+      const shapes = await getShapes(this.gebiedType || util.GEBIED_TYPE.Stadsdeel, () => ({
         'color': COLOR['ams-donkergrijs'],
         'opacity': 0.5,
         'weight': 1
@@ -221,6 +373,10 @@ export default {
       this.showShapes(shapes)
     },
 
+    /**
+     * Utility method to show shapes on the map
+     * @param shapes
+     */
     showShapes (shapes) {
       clearLayers()
       this.drawing = true
@@ -230,8 +386,13 @@ export default {
       this.drawing = false
     },
 
+    /**
+     * Provide for a list of variable out of which the user can choose
+     * The default variable choosen will be the first variable of the list
+     * @returns {Promise<void>}
+     */
     async showVariables () {
-      const variables = await Promise.all(positieOntwikkeling.map(async po => {
+      const variables = await Promise.all(this.config.map(async po => {
         const meta = await util.getMeta(po.variabele)
         if (meta) {
           return {
@@ -246,18 +407,25 @@ export default {
         }
       }))
       this.variables = variables
+      this.variable = this.variables[0].variable
     }
 
   },
   watch: {
     'variable' () {
       this.updateData()
+    },
+    'gwb' () {
+      this.followGebiedtype()
     }
   },
 
   created () {
+    /**
+     * Provide for an intial map and list of variables to select from
+     */
     this.showVariables()
-    this.gwbView()
+    this.followGebiedtype()
   },
 
   mounted () {
@@ -267,23 +435,42 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../static/ams.scss";
+@import "~stijl/scss/ams-colorpalette";
 
-.map {
-  height: 350px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
+  .map {
+    height: 25rem;
+  }
 
-.select {
-  width: 100%;
-}
+  .highlight-own {
+    color: $ams-blauw;
+  }
 
-.highlight-own {
-  color: $ams-blauw
-}
+  .antwoord {
+    display: inline-block;
+    width: 20%;
 
-.action-button {
-  margin-right: 5px;
-}
+    input, label {
+      cursor: pointer;
+    }
+  }
+
+  .rij_verplicht {
+    +.alert-wrapper {
+      padding-top: 0;
+      margin-top: -1rem;
+    }
+  }
+
+  ol {
+    margin: .33rem;
+  }
+
+  .marge-left {
+    padding-left: .33rem;
+  }
+
+  .pull-up {
+    margin-top: -1rem;
+  }
+
 </style>

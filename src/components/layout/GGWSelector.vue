@@ -1,76 +1,81 @@
-<!--Example of a component that uses D3-->
 <template>
-  <div class="alert">
-    <div class="row">
-      <div class="col-sm">
-        <b-form inline class="row">
-          <div class="col-sm-3">
-            <label for="selectGebied">Gebied</label>
-          </div>
-          <div class="col-sm-9" v-if="selection.gebieden">
-            <b-form-select v-model="selection.gebied"
-                           @change="updateGebied"
-                           :disabled="HTTPStatus.pending > 0"
-                           :options="selection.gebieden"
-                           text-field="display"
-                           value-field="vollcode"
-                           id="selectGebied">
-            </b-form-select>
-          </div>
-        </b-form>
-        <b-form inline class="row">
-          <div class="col-sm-3">
-            <label for="selectWijk">Wijk</label>
-          </div>
-          <div class="col-sm-9" v-if="selection.wijken">
-            <b-form-select v-model="selection.wijk"
-                           @change="updateWijk"
-                           :disabled="HTTPStatus.pending > 0"
-                           :options="selection.wijken"
-                           text-field="display"
-                           value-field="vollcode"
-                           id="selectWijk">
-            </b-form-select>
-          </div>
-        </b-form>
-        <b-form inline class="row">
-          <div class="col-sm-3">
-            <label for="selectBuurt">Buurt</label>
-          </div>
-          <div class="col-sm-9" v-if="selection.buurten">
-            <b-form-select v-model="selection.buurt"
-                           :disabled="HTTPStatus.pending > 0"
-                           @change="updateBuurt"
-                           :options="selection.buurten"
-                           text-field="display"
-                           value-field="vollcode"
-                           id="selectBuurt">
-            </b-form-select>
-          </div>
-        </b-form>
+  <div class="header-filter">
+    <div class="rij mode_input selectie">
+      <div class="label">
+        <label for="selectGebied">Gebied</label>
       </div>
-      <div class="col-sm">
-        <b-form inline class="row">
-          <div class="col-sm-3">
-            <label for="selectThema">Thema</label>
-          </div>
-          <div class="col-sm-9" v-if="selection.themas">
-            <b-form-select v-model="selection.thema"
-                           :disabled="HTTPStatus.pending > 0"
-                           @change="updateThema"
-                           :options="selection.themas"
-                           id="selectThema">
-            </b-form-select>
-          </div>
-        </b-form>
-        <div class="text-right loadinfo">
-          <span v-if="HTTPStatus.error > 0" class="error">Gegevens incompleet!</span>
-          <img v-if="HTTPStatus.pending" class="loader" src="../../../static/icons/loading.gif">
-        </div>
+      <div class="invoer">
+        <b-form-select v-model="selection.gebied"
+                       :disabled="HTTPStatus.pending > 0 || !selection.gebieden"
+                       @change="updateGebied"
+                       :options="selection.gebieden"
+                       text-field="display"
+                       value-field="vollcode"
+                       id="selectGebied">
+        </b-form-select>
       </div>
     </div>
-  </div>
 
+    <div class="rij mode_input selectie">
+      <div class="label">
+        <label for="selectWijk">Wijk</label>
+      </div>
+      <div class="invoer">
+        <b-form-select v-model="selection.wijk"
+                       :disabled="HTTPStatus.pending > 0 || !selection.wijken"
+                       @change="updateWijk"
+                       :options="selection.wijken"
+                       text-field="display"
+                       value-field="vollcode"
+                       id="selectWijk">
+
+          <template slot="first" v-if="!selection.wijken">
+            <!-- this slot appears above the options from 'options' prop -->
+            <option :value="null" disabled>-- Selecteer een gebied om wijken te zien --</option>
+          </template>
+        </b-form-select>
+      </div>
+    </div>
+    <div class="rij mode_input selectie">
+      <div class="label">
+        <label for="selectBuurt">Buurt</label>
+      </div>
+      <div class="invoer">
+        <b-form-select v-model="selection.buurt"
+                       :disabled="HTTPStatus.pending > 0 || !selection.buurten"
+                       @change="updateBuurt"
+                       :options="selection.buurten"
+                       text-field="display"
+                       value-field="vollcode"
+                       id="selectBuurt">
+          <template slot="first" v-if="!selection.buurten">
+            <!-- this slot appears above the options from 'options' prop -->
+            <option :value="null" disabled>-- Selecteer een wijk om buurten te zien --</option>
+          </template>
+
+        </b-form-select>
+      </div>
+    </div>
+
+    <div class="rij mode_input selectie">
+      <div class="label">
+        <label for="selectThema">Thema</label>
+      </div>
+      <div class="invoer">
+        <b-form-select v-model="selection.thema"
+                       :disabled="HTTPStatus.pending > 0 || !selection.themas"
+                       @change="updateThema"
+                       :options="selection.themas"
+                       text-field="text"
+                       value-field="id"
+                       id="selectThema">
+        </b-form-select>
+      </div>
+    </div>
+    <div class="absolute-loader">
+      <span v-if="HTTPStatus.error > 0" class="error">Sommige gegevens kunnen incompleet zijn.</span>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -121,6 +126,14 @@ export default {
       setGWB: 'setGWB',
       setThema: 'setThema'
     }),
+
+    /**
+     * When a gebied is choosen
+     * Defaults to Amsterdam when gebied = null
+     * @param gebiedCode
+     * @param wijkCode
+     * @returns {Promise<void>}
+     */
     async updateGebied (gebiedCode, wijkCode = null) {
       this.wijkDetail = null
       this.selection.wijk = null
@@ -138,13 +151,16 @@ export default {
         const wijken = await util.getWijken(gebied)
         this.selection.wijken = [getSelectNone('wijken')].concat(wijken)
       } else {
-        this.gebiedDetail = null
+        const gebied = await util.getCity()
+        this.gebiedDetail = gebied
+        this.selection.gebied = null
       }
 
       if (!wijkCode) {
         this.updateState()
       }
     },
+
     async updateWijk (wijkCode, buurtCode = null) {
       this.buurtDetail = null
       this.selection.buurt = null
@@ -165,6 +181,7 @@ export default {
         this.updateState()
       }
     },
+
     async updateBuurt (buurtCode) {
       if (buurtCode) {
         const buurt = this.selection.buurten.find(b => b.vollcode === buurtCode)
@@ -176,11 +193,17 @@ export default {
 
       this.updateState()
     },
+
     async updateThema (themaId) {
       this.selection.thema = themaId
       this.themaDetail = this.selection.thema
       this.updateState()
     },
+
+    /**
+     * The state is updated at the end of the selection of gebied, wijk, buurt
+     * and after selecting a thema
+     */
     updateState () {
       this.setGebied(this.gebiedDetail)
       this.setWijk(this.wijkDetail)
@@ -189,24 +212,33 @@ export default {
       this.setThema(this.themaDetail)
       this.updateUrl()
     },
+
+    /**
+     * To allow for a browser refresh, the url reflects the selected gebied, wijk, buurt and thema
+     */
     updateUrl () {
       this.$router.push({
         name: 'dashboard',
         query: {
-          gebied: this.selection.gebied,
+          gebied: this.selection.gebied || 'all',
           wijk: this.selection.wijk,
           buurt: this.selection.buurt,
           thema: this.selection.thema
         }
       })
     },
+
+    /**
+     * On load the url is parsed to restore the state
+     * @returns {Promise<void>}
+     */
     async parseRoute () {
       let { gebied, wijk, buurt, thema } = this.$route.query
 
       this.selection.thema = thema || IN_HET_KORT
       this.updateThema(this.selection.thema)
 
-      this.selection.gebied = gebied || 'DX01'
+      this.selection.gebied = gebied === 'all' ? null : (gebied || 'DX01')
       await this.updateGebied(this.selection.gebied, wijk)
 
       if (wijk) {
@@ -226,7 +258,7 @@ export default {
     }
   },
   async created () {
-    this.selection.gebieden = await util.getAllGebieden()
+    this.selection.gebieden = [getSelectNone('gebieden')].concat(await util.getAllGebieden())
 
     this.parseRoute()
   }
@@ -234,19 +266,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../../static/ams";
+  @import "~stijl/scss/ams-breakpoints";
+  @import "~stijl/scss/ams-colorpalette";
 
-.loadinfo {
-  margin-right: 6px;
-  margin-top: 15px;
-}
+  .invoer {
+    margin-bottom: .5rem;
+  }
 
-.loader {
-  width: 20px;
-}
+  select {
+    width: 100%;
+    padding: .4rem;
+  }
 
-.error {
-  color: $ams-rood;
-  font-weight: bold;
-}
+  .absolute-loader {
+    position: absolute;
+    right: 1rem;
+    top: -3rem;
+    padding: .5rem;
+    color: $ams-oranje;
+  }
+
 </style>

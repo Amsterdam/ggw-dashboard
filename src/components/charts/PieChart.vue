@@ -1,18 +1,21 @@
 <template>
   <div>
     <div class="text-center">
-      <h5 v-b-tooltip.hover v-b-tooltip.click v-b-tooltip.top title="">
+      <tooltip :cijfers="chartdata">
+      <h5>
         {{title}}
       </h5>
       <div class="chart-container">
         <div :ref="chartRef"></div>
       </div>
+      </tooltip>
     </div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+import tooltip from '../Tooltip'
 import util from '../../services/util'
 import vegaEmbed from 'vega-embed'
 import vegaSpec from '../../../static/charts/pie'
@@ -29,6 +32,7 @@ const vegaEmbedOptions = {
 export default {
   name: 'PieChart',
   components: {
+    'tooltip': tooltip
   },
   props: [
     'title',

@@ -1,12 +1,9 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
+
 import 'leaflet/dist/leaflet.css'
 
-import '../static/ams.scss'
-import '../static/ams-bootstrap.scss'
-import '../static/ams-ois.scss'
+import 'stijl/css/ams-stijl.css'
 import '../static/app.scss'
 
 import Vue from 'vue'
@@ -15,7 +12,6 @@ import { mapGetters, mapActions } from 'vuex'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import BootstrapVue from 'bootstrap-vue'
-import * as uiv from 'uiv'
 
 import App from './App'
 import router from './router'
@@ -24,9 +20,12 @@ import util from './services/util'
 
 Vue.use(VueAxios, axios)
 Vue.use(BootstrapVue)
-Vue.use(uiv, {prefix: 'uiv'})
 Vue.config.productionTip = false
 
+/**
+ * Simple filter to display a cijfer
+ * The Localestring method is used to correctly display numerical values
+ */
 Vue.filter('displaywaarde', function (cijfer) {
   if (cijfer && cijfer.waarde !== null) {
     return `${cijfer.waarde.toLocaleString()}${cijfer.post || ''}`
@@ -50,6 +49,12 @@ let vueApp = new Vue({
     ...mapActions({
       setMeta: 'setMeta'
     }),
+
+    /**
+     * Meta information is a precondition for the application to work
+     * Without meta no information can be shown
+     * @returns {Promise<void>}
+     */
     async init () {
       const meta = await util.getAllMeta()
       this.setMeta(meta)

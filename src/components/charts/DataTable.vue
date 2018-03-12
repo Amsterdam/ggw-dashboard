@@ -7,16 +7,17 @@
     </tr>
     </thead>
     <tbody>
-    <tr v-for="d in data" :key="d.label">
-      <td v-b-tooltip.hover.click v-b-tooltip.html.topright title="">
-        {{d.label}}
+    <tr v-for="d in data" :key="d.variabele">
+      <td>
+        <tooltip :cijfers="data" :cijfer="d">{{d.label}}</tooltip>
       </td>
       <td
         v-for="y in years" :key="y"
-        :style="{'background-color': d[y].color}"
-        class="text-center"
-        v-if="d[y]">
-        {{ d[y] | displaywaarde }}
+        :style="{'background-color': d[y].color, 'color' : d[y].textColor}"
+        v-if="d[y]"
+        class="text-center">
+        <tooltip :cijfers="data" :cijfer="d">{{ d[y] | displaywaarde }}</tooltip>
+
       </td>
     </tr>
     </tbody>
@@ -25,11 +26,15 @@
 
 <script>
 import { mapGetters } from 'vuex'
+
+import tooltip from '../Tooltip'
+
 import util from '../../services/util'
 
 export default {
   name: 'DataTable',
   components: {
+    'tooltip': tooltip
   },
   props: [
     'config'
@@ -37,7 +42,7 @@ export default {
   data () {
     return {
       data: null,
-      years: [2014, 2015, 2016, 2017]
+      years: []
     }
   },
   computed: {
@@ -48,6 +53,14 @@ export default {
   methods: {
     async updateData () {
       const data = await util.getConfigCijfers(this.gwb, this.config)
+
+      /**
+       * Show the last 4 years only
+       * @type {*}
+       */
+      const cijfers = util.getYearCijfers(data)
+      const maxYear = util.getMaxYear(cijfers)
+      this.years = [3, 2, 1, 0].map(i => maxYear - i)
 
       for (let item of data) {
         item.tooltipText = item.tooltip ? item.tooltip(false) : ''
@@ -67,12 +80,14 @@ export default {
       this.updateData()
     }
   },
-  async created () {
-    this.data = this.config.map(c => ({label: c.label || c.variabele}))
+  created () {
     this.updateData()
   }
 }
 </script>
 
 <style scoped>
+  td.text-center {
+    text-align: center;
+  }
 </style>

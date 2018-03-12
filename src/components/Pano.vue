@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img v-if="url" :src="url">
+    <img v-if="url" :src="url" height="300px">
   </div>
 </template>
 
@@ -25,6 +25,9 @@ export default {
     ])
   },
   methods: {
+    /**
+     * Find the most mathing pano for the current gwb
+     */
     updatePano () {
       let pano =
         panos.find(p => p.gwb === this.gwb.volledige_code) ||
@@ -42,6 +45,10 @@ export default {
     }
   },
   created () {
+    /**
+     * The default pano is the pano that has an empty gwb field
+     * This value will only be used if no gwb pano can be found
+     */
     PANO_DEFAULT = panos.find(p => !p.gwb)
     this.updatePano()
   }

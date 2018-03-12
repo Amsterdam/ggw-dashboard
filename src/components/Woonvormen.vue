@@ -1,24 +1,25 @@
 <template>
-  <div>
-    <div v-for="(item, index) in data" :key="index">
-      <h4>
-        {{item.label}}
-        <span v-if="item.recent"
-          v-b-tooltip.hover v-b-tooltip.click v-b-tooltip.left title="">
-          {{item.recent | displaywaarde}}
-        </span>
-      </h4>
-    </div>
-  </div>
+  <ul>
+    <li v-for="(item, index) in data" :key="index">
+      <tooltip :cijfers="data" :cijfer="item">
+      {{item.label}}
+      <span v-if="item.recent">
+        {{item.recent | displaywaarde}}
+      </span>
+      </tooltip>
+    </li>
+  </ul>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+import tooltip from './Tooltip'
 import util from '../services/util'
 
 export default {
   name: 'Woonvormen',
   components: {
+    'tooltip': tooltip
   },
   props: [
     'config'

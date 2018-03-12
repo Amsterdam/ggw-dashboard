@@ -1,11 +1,14 @@
 <template>
   <div class="chart-container">
-    <div :ref="chartRef"></div>
+    <tooltip :cijfers="chartdata">
+      <div :ref="chartRef"></div>
+    </tooltip>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+import tooltip from '../Tooltip'
 import util from '../../services/util'
 import vegaEmbed from 'vega-embed'
 import vegaSpec from '../../../static/charts/linechart5'
@@ -22,9 +25,11 @@ const vegaEmbedOptions = {
 export default {
   name: 'LineChart',
   components: {
+    'tooltip': tooltip
   },
   props: [
-    'config'
+    'config',
+    'colors'
   ],
   data () {
     return {
@@ -39,18 +44,20 @@ export default {
   },
   methods: {
     async updateData () {
-      this.chartdata = await util.getConfigCijfers(this.gwb, this.config)
-      vegaSpec.data.values = []
-      this.chartdata.forEach(data => {
-        vegaSpec.data.values = vegaSpec.data.values.concat(
+      const data = await util.getConfigCijfers(this.gwb, this.config)
+      this.chartdata = data
+
+      let cijfers = util.flatten(
+        this.chartdata.map(data =>
           data.cijfers.map(cijfer => ({
             x: cijfer.jaar,
             y: cijfer.waarde,
-            variable: data.label
-          }))
-        )
-      })
-      vegaSpec.scales[2].range = CHART_COLORS
+            variable: data.label,
+            dash: /prognose/i.test(data.label) // show prognose variables as dashed lines
+          }))))
+
+      vegaSpec.data[0].values = cijfers
+      vegaSpec.scales[2].range = CHART_COLORS.slice(0, this.colors || CHART_COLORS.length)
       vegaEmbed(this.$refs[this.chartRef], vegaSpec, vegaEmbedOptions)
     }
   },

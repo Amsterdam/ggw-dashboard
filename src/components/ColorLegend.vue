@@ -1,9 +1,11 @@
 <template>
-  <div>
-    <div>Betekenis kleuren:</div>
-    <div v-for="entry in legend" :key="entry.color" class="legend-entry">
-      <span :style="getBulletStyle(entry)" class="legend-bullet">&#9634;</span>
-      {{entry.text}}
+  <div class="grid_12 marge-left">
+    <h4>Betekenis gebruikte kleuren op deze pagina</h4>
+    <div class="legend">
+      <div v-for="entry in legend" :key="entry.color" class="legend-entry">
+        <span :style="getBulletStyle(entry)" class="legend-bullet">&#9634;</span>
+        {{entry.text}}
+      </div>
     </div>
   </div>
 </template>
@@ -44,9 +46,19 @@ export default {
 
 </script>
 
-<style>
+<style lang="scss" scoped>
+  @import "~stijl/scss/ams-colorpalette";
+
+  .marge-left {
+    margin-left: 1rem;
+  }
+
+  h4 {
+    margin: 0;
+  }
+
   .legend-entry {
-    margin-top: 7px;
+    margin-top: .3rem;
   }
 
   .legend-bullet {

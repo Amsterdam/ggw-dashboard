@@ -1,0 +1,34 @@
+[
+  {
+    "label": "Totaal",
+    "variabele": "Bevtotaal"
+  },
+  {
+    "label": "0-17",
+    "variabele": "Bev0_17"
+  },
+  {
+    "label": "18-64",
+    "variabele": "Bev18_64"
+  },
+  {
+    "label": "65+",
+    "variabele": "Bev65plus"
+  },
+  {
+    "label": "Prognose totaal",
+    "variabele": "Bev_prog[LATEST]"
+  },
+  {
+    "label": "Prognose 0-17",
+    "variabele": "Bev0_17_prog[LATEST]"
+  },
+  {
+    "label": "Prognose 18-64",
+    "variabele": "Bev18_64_prog[LATEST]"
+  },
+  {
+    "label": "Prognose 65+",
+    "variabele": "Bev65plus_prog[LATEST]"
+  }
+]

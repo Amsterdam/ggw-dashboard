@@ -1,0 +1,30 @@
+[
+  {
+    "label": "Suriname",
+    "variabele": "BevSur_p"
+  },
+  {
+    "label": "Antillen",
+    "variabele": "BevAntil_p"
+  },
+  {
+    "label": "Turkije",
+    "variabele": "BevTurk_p"
+  },
+  {
+    "label": "Marokko",
+    "variabele": "BevMarok_p"
+  },
+  {
+    "label": "Niet-Westers",
+    "variabele": "BevovNW_p"
+  },
+  {
+    "label": "Westers",
+    "variabele": "BevWest_p"
+  },
+  {
+    "label": "Autochtoon",
+    "variabele": "BevAutoch_p"
+  }
+]

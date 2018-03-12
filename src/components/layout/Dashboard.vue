@@ -11,12 +11,6 @@
       <verkeer-en-openbare-ruimte v-if="thema === VERKEER_EN_OPENBARE_RUIMTE"></verkeer-en-openbare-ruimte>
       <welzijn-zorg-en-sport v-if="thema === WELZIJN_ZORG_EN_SPORT"></welzijn-zorg-en-sport>
       <werk-inkomen-en-participatie v-if="thema === WERK_INKOMEN_EN_PARTICIPATIE"></werk-inkomen-en-participatie>
-      <niet-in-mvp v-if="thema === NIET_IN_MVP"></niet-in-mvp>
-    </div>
-
-    <div v-else class="text-center">
-      <h2>Gegevens laden...</h2>
-      <img src="../../../static/icons/loading.gif">
     </div>
   </div>
 </template>
@@ -33,8 +27,8 @@ import {
   STEDELIJKE_ONTWIKKELING_EN_WONEN,
   VERKEER_EN_OPENBARE_RUIMTE,
   WELZIJN_ZORG_EN_SPORT,
-  WERK_INKOMEN_EN_PARTICIPATIE,
-  NIET_IN_MVP } from '../../services/thema'
+  WERK_INKOMEN_EN_PARTICIPATIE
+} from '../../services/thema'
 
 import inHetKort from '../dashboards/InHetKort'
 import bevolking from '../dashboards/Bevolking'
@@ -46,7 +40,6 @@ import stedelijkeOntwikkelingEnWonen from '../dashboards/StedelijkeOntwikkelingE
 import verkeerEnOpenbareRuimte from '../dashboards/VerkeerEnOpenbareRuimte'
 import welzijnZorgEnSport from '../dashboards/WelzijnZorgEnSport'
 import werkInkomenEnParticipatie from '../dashboards/WerkInkomenEnParticipatie'
-import nietInMVP from '../dashboards/NietInMVP'
 
 export default {
   name: 'GGWDashboard',
@@ -60,8 +53,7 @@ export default {
     'stedelijke-ontwikkeling-en-wonen': stedelijkeOntwikkelingEnWonen,
     'verkeer-en-openbare-ruimte': verkeerEnOpenbareRuimte,
     'welzijn-zorg-en-sport': welzijnZorgEnSport,
-    'werk-inkomen-en-participatie': werkInkomenEnParticipatie,
-    'niet-in-mvp': nietInMVP
+    'werk-inkomen-en-participatie': werkInkomenEnParticipatie
   },
   data () {
     return {
@@ -74,8 +66,7 @@ export default {
       STEDELIJKE_ONTWIKKELING_EN_WONEN,
       VERKEER_EN_OPENBARE_RUIMTE,
       WELZIJN_ZORG_EN_SPORT,
-      WERK_INKOMEN_EN_PARTICIPATIE,
-      NIET_IN_MVP
+      WERK_INKOMEN_EN_PARTICIPATIE
     }
   },
   computed: {

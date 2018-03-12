@@ -86,7 +86,16 @@
           "width": {"scale": "x", "band": 1, "offset": -1},
           "y": {"scale": "y", "field": "y0"},
           "y2": {"scale": "y", "field": "y1"},
-          "fill": {"scale": "color", "field": "variable"}
+          "fill": [
+            {
+              "test": "false && datum.color",
+              "field": "color"
+            },
+            {
+              "scale": "color",
+              "field": "variable"
+            }
+          ]
         },
         "update": {
           "fillOpacity": {"value": 1}

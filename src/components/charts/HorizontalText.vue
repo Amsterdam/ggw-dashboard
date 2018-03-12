@@ -1,17 +1,18 @@
 <template>
-  <div>
-    <div class="row">
-      <div class="col-sm-4">
-        <icon :icon="icon" :title="title"></icon>
-      </div>
-      <div class="col-sm-8">
-        <div v-for="d in data" :key="d.label">
+  <div class="block-container">
+    <div class="grid-blok grid_4">
+      <icon :icon="icon" :title="title"></icon>
+    </div>
+    <div class="grid-blok grid_8 horizontal-text__content">
+      <div v-for="d in data" :key="d.label">
+        <tooltip :cijfers="data" :cijfer="d">
           {{d.label}}:
-          <span v-if="d.recent"
-                v-b-tooltip.hover v-b-tooltip.click v-b-tooltip.left title="">
+          <span v-if="d.recent">
+            <b>
                 {{d.recent | displaywaarde}}
+            </b>
           </span>
-        </div>
+        </tooltip>
       </div>
     </div>
   </div>
@@ -19,13 +20,16 @@
 
 <script>
 import { mapGetters } from 'vuex'
+
+import tooltip from '../Tooltip'
 import icon from '../Icon'
 import util from '../../services/util'
 
 export default {
   name: 'HorizontalText',
   components: {
-    'icon': icon
+    'icon': icon,
+    'tooltip': tooltip
   },
   props: [
     'title',
@@ -52,12 +56,29 @@ export default {
       this.updateData()
     }
   },
-  async created () {
+  created () {
     this.updateData()
   }
 }
 
 </script>
 
-<style>
+<style lang="scss" scoped>
+  // override grid styling for this component
+  .card .grid-blok.horizontal-text__content {
+    justify-content: center;
+    align-items: stretch;
+    margin: auto 0;
+    padding-top: 0;
+    flex-grow: 2;
+  }
+
+  .block-container {
+    display: flex;
+    align-items: left;
+    align-self: left;
+    justify-content: center;
+    width: 100%;
+    padding-bottom: 10px;
+  }
 </style>
