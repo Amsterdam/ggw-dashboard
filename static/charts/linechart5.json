@@ -104,7 +104,7 @@
               "fillOpacity": {"value": 1}
             },
             "hover": {
-              "fillOpacity": {"value": 0.5}
+              "fillOpacity": {"value": 1}
             }
           }
         }
