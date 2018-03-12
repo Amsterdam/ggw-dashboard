@@ -91,6 +91,7 @@
       "encode": {
         "symbols": {
           "enter": {
+            "shape": {"value": "square"}
           }
         },
         "labels": {
