@@ -41,7 +41,6 @@ import verkeerEnOpenbareRuimte from '../dashboards/VerkeerEnOpenbareRuimte'
 import welzijnZorgEnSport from '../dashboards/WelzijnZorgEnSport'
 import werkInkomenEnParticipatie from '../dashboards/WerkInkomenEnParticipatie'
 
-
 export default {
   name: 'GGWDashboard',
   components: {

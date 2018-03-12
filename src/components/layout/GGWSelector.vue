@@ -1,93 +1,81 @@
 <template>
-  <div class="grid-wrapper wrapper_12 contents-wrapper">
-    <div class="grid-container container_12">
-      <div class="grid-zone grid_12">
-        <div class="grid-blok grid_6">
-          <div class="grid-element">
-            <div class="rij mode_input selectie">
-              <div class="label">
-                <label for="selectGebied">Gebied</label>
-              </div>
-              <div class="invoer">
-                <b-form-select v-model="selection.gebied"
-                               :disabled="HTTPStatus.pending > 0 || !selection.gebieden"
-                               @change="updateGebied"
-                               :options="selection.gebieden"
-                               text-field="display"
-                               value-field="vollcode"
-                               id="selectGebied">
-                </b-form-select>
-              </div>
-            </div>
-            <div class="rij mode_input selectie">
-              <div class="label">
-                <label for="selectWijk">Wijk</label>
-              </div>
-              <div class="invoer">
-                <b-form-select v-model="selection.wijk"
-                               :disabled="HTTPStatus.pending > 0 || !selection.wijken"
-                               @change="updateWijk"
-                               :options="selection.wijken"
-                               text-field="display"
-                               value-field="vollcode"
-                               id="selectWijk">
-
-                  <template slot="first" v-if="!selection.wijken">
-                    <!-- this slot appears above the options from 'options' prop -->
-                    <option :value="null" disabled>-- Selecteer een gebied om wijken te zien --</option>
-                  </template>
-                </b-form-select>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="grid-blok grid_6">
-          <div class="grid-element">
-            <div class="rij mode_input selectie">
-              <div class="label">
-                <label for="selectBuurt">Buurt</label>
-              </div>
-              <div class="invoer">
-                <b-form-select v-model="selection.buurt"
-                               :disabled="HTTPStatus.pending > 0 || !selection.buurten"
-                               @change="updateBuurt"
-                               :options="selection.buurten"
-                               text-field="display"
-                               value-field="vollcode"
-                               id="selectBuurt">
-                  <template slot="first" v-if="!selection.buurten">
-                    <!-- this slot appears above the options from 'options' prop -->
-                    <option :value="null" disabled>-- Selecteer een wijk om buurten te zien --</option>
-                  </template>
-
-                </b-form-select>
-              </div>
-            </div>
-
-            <div class="rij mode_input selectie">
-              <div class="label">
-                <label for="selectThema">Thema</label>
-              </div>
-              <div class="invoer">
-                <b-form-select v-model="selection.thema"
-                               :disabled="HTTPStatus.pending > 0 || !selection.themas"
-                               @change="updateThema"
-                               :options="selection.themas"
-                               text-field="text"
-                               value-field="id"
-                               id="selectThema">
-                </b-form-select>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="absolute-loader">
-          <span v-if="HTTPStatus.error > 0" class="error">Gegevens incompleet!</span>
-        </div>
+  <div class="header-filter">
+    <div class="rij mode_input selectie">
+      <div class="label">
+        <label for="selectGebied">Gebied</label>
+      </div>
+      <div class="invoer">
+        <b-form-select v-model="selection.gebied"
+                       :disabled="HTTPStatus.pending > 0 || !selection.gebieden"
+                       @change="updateGebied"
+                       :options="selection.gebieden"
+                       text-field="display"
+                       value-field="vollcode"
+                       id="selectGebied">
+        </b-form-select>
       </div>
     </div>
-  </div>
 
+    <div class="rij mode_input selectie">
+      <div class="label">
+        <label for="selectWijk">Wijk</label>
+      </div>
+      <div class="invoer">
+        <b-form-select v-model="selection.wijk"
+                       :disabled="HTTPStatus.pending > 0 || !selection.wijken"
+                       @change="updateWijk"
+                       :options="selection.wijken"
+                       text-field="display"
+                       value-field="vollcode"
+                       id="selectWijk">
+
+          <template slot="first" v-if="!selection.wijken">
+            <!-- this slot appears above the options from 'options' prop -->
+            <option :value="null" disabled>-- Selecteer een gebied om wijken te zien --</option>
+          </template>
+        </b-form-select>
+      </div>
+    </div>
+    <div class="rij mode_input selectie">
+      <div class="label">
+        <label for="selectBuurt">Buurt</label>
+      </div>
+      <div class="invoer">
+        <b-form-select v-model="selection.buurt"
+                       :disabled="HTTPStatus.pending > 0 || !selection.buurten"
+                       @change="updateBuurt"
+                       :options="selection.buurten"
+                       text-field="display"
+                       value-field="vollcode"
+                       id="selectBuurt">
+          <template slot="first" v-if="!selection.buurten">
+            <!-- this slot appears above the options from 'options' prop -->
+            <option :value="null" disabled>-- Selecteer een wijk om buurten te zien --</option>
+          </template>
+
+        </b-form-select>
+      </div>
+    </div>
+
+    <div class="rij mode_input selectie">
+      <div class="label">
+        <label for="selectThema">Thema</label>
+      </div>
+      <div class="invoer">
+        <b-form-select v-model="selection.thema"
+                       :disabled="HTTPStatus.pending > 0 || !selection.themas"
+                       @change="updateThema"
+                       :options="selection.themas"
+                       text-field="text"
+                       value-field="id"
+                       id="selectThema">
+        </b-form-select>
+      </div>
+    </div>
+    <div class="absolute-loader">
+      <span v-if="HTTPStatus.error > 0" class="error">Sommige gegevens kunnen incompleet zijn.</span>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -278,4 +266,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  @import "~stijl/scss/ams-breakpoints";
+  @import "~stijl/scss/ams-colorpalette";
+
+  .invoer {
+    margin-bottom: .5rem;
+  }
+
+  select {
+    width: 100%;
+    padding: .4rem;
+  }
+
+  .absolute-loader {
+    position: absolute;
+    right: 1rem;
+    top: -3rem;
+    padding: .5rem;
+    color: $ams-oranje;
+  }
+
 </style>
