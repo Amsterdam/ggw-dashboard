@@ -36,17 +36,37 @@ export const COLOR = {
  * The chart colors for charts that are not colored on z-score
  * For example pie and stacked bar charts
  */
-export const CHART_COLORS = [
-  '#FF0000',
-  '#FFE600',
-  '#FF9100',
-  '#E60082',
-  '#A00078',
-  '#004699',
-  '#00A0E6',
-  '#00A03C',
-  '#BED200'
+
+const EXTRA_CHART_COLORS = [
+  '#FFE600', // Geel
+  '#E60082', // Donkerroze
+  '#000000', // Zwart
+  '#007099', // Donkerblauw
+  '#BED200' // Olijfgroen
 ]
+
+export const STACKED_CHART_COLORS = [
+  '#787878', // Donkergrijs
+  '#FF9100', // Oranje
+  '#BEBEBE', // Grijs
+  '#A00078' // Paars
+].concat(EXTRA_CHART_COLORS)
+
+export const PIE_CHART_COLORS = [
+  '#A00078', // Paars
+  '#BEBEBE', // Grijs
+  '#FF9100', // Oranje
+  '#E8E8E8', // Lichtgrijs
+  '#FF0000' // Rood
+].concat(EXTRA_CHART_COLORS)
+
+export const LINE_CHART_COLORS = [
+  '#FF0000', // Rood
+  '#A00078', // Paars
+  '#787878', // Donkergrijs
+  '#BEBEBE', // Lichter grijs
+  '#FF9100' // Oranje
+].concat(EXTRA_CHART_COLORS)
 
 /**
  * The colors for charts that are colored on z-score

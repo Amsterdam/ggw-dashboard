@@ -12,7 +12,7 @@ import tooltip from '../Tooltip'
 import util from '../../services/util'
 import vegaEmbed from 'vega-embed'
 import vegaSpec from '../../../static/charts/linechart5'
-import { CHART_COLORS } from '../../services/colorcoding'
+import { LINE_CHART_COLORS } from '../../services/colorcoding'
 
 const vegaEmbedOptions = {
   'actions': {
@@ -57,7 +57,7 @@ export default {
           }))))
 
       vegaSpec.data[0].values = cijfers
-      vegaSpec.scales[2].range = CHART_COLORS
+      vegaSpec.scales[2].range = LINE_CHART_COLORS
       vegaEmbed(this.$refs[this.chartRef], vegaSpec, vegaEmbedOptions)
     }
   },

@@ -19,7 +19,7 @@ import tooltip from '../Tooltip'
 import util from '../../services/util'
 import vegaEmbed from 'vega-embed'
 import vegaSpec from '../../../static/charts/pie'
-import { CHART_COLORS } from '../../services/colorcoding'
+import { PIE_CHART_COLORS } from '../../services/colorcoding'
 
 const vegaEmbedOptions = {
   'actions': {
@@ -64,7 +64,7 @@ export default {
         display: util.displayWaarde(d.recent)
       }))
 
-      vegaSpec.scales[0].range = CHART_COLORS
+      vegaSpec.scales[0].range = PIE_CHART_COLORS
       vegaEmbed(this.$refs[this.chartRef], vegaSpec, vegaEmbedOptions)
     }
   },
