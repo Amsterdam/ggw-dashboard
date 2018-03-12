@@ -37,12 +37,15 @@ export const COLOR = {
  * For example pie and stacked bar charts
  */
 export const CHART_COLORS = [
-  COLOR['ams-rood'],
-  COLOR['ams-donkergrijs'],
-  COLOR['ams-middengrijs'],
-  COLOR['ams-oranje'],
-  COLOR['ams-paars'],
-  COLOR['ams-geel']
+  '#FF0000',
+  '#FFE600',
+  '#FF9100',
+  '#E60082',
+  '#A00078',
+  '#004699',
+  '#00A0E6',
+  '#00A03C',
+  '#BED200'
 ]
 
 /**

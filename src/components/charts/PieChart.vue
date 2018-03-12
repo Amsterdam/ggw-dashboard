@@ -60,7 +60,8 @@ export default {
     updateChart () {
       vegaSpec.data[0].values = this.chartdata.map(d => ({
         key: d.label,
-        value: d.recent.waarde
+        value: d.recent.waarde,
+        display: util.displayWaarde(d.recent)
       }))
 
       vegaSpec.scales[0].range = CHART_COLORS
@@ -78,5 +79,8 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+  .chart-container {
+    height: 235px;
+  }
 </style>

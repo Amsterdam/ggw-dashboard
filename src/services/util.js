@@ -157,6 +157,17 @@ const flatten = list => list.reduce(
 )
 
 /**
+ * Provides for a display value for a cijfer, using the NL locale for numbers
+ * @param cijfer
+ * @returns {string}
+ */
+const displayWaarde = cijfer => {
+  if (cijfer && cijfer.waarde !== null) {
+    return `${cijfer.waarde.toLocaleString('NL')}${cijfer.post || ''}`
+  }
+}
+
+/**
  * Util exports het methods in an object. Usage will therefore be like util.getCity instead of import {getCity} from util
  * This has been done for reasons of simplicity only
  */
@@ -184,5 +195,6 @@ export default {
   getGwbSummary,
   GEBIED_TYPE,
   getGeometries,
-  flatten
+  flatten,
+  displayWaarde
 }
