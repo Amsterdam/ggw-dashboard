@@ -73,7 +73,7 @@
       </div>
     </div>
     <div class="absolute-loader">
-      <span v-if="HTTPStatus.error > 0" class="error">Gegevens incompleet!</span>
+      <span v-if="HTTPStatus.error > 0" class="error">Sommige gegevens kunnen incompleet zijn.</span>
     </div>
   </div>
 </template>
@@ -267,6 +267,7 @@ export default {
 
 <style lang="scss" scoped>
   @import "~stijl/scss/ams-breakpoints";
+  @import "~stijl/scss/ams-colorpalette";
 
   .invoer {
     margin-bottom: .5rem;
@@ -276,4 +277,13 @@ export default {
     width: 100%;
     padding: .4rem;
   }
+
+  .absolute-loader {
+    position: absolute;
+    right: 1rem;
+    top: -3rem;
+    padding: .5rem;
+    color: $ams-oranje;
+  }
+
 </style>

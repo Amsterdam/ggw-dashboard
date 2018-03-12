@@ -24,6 +24,13 @@
         </div>
       </div>
     </div>
+    <div class="contents-wrapper">
+      <div class="grid-container container_12 breakout-container">
+        <div class="grid-zone grid_12 z-kolom1-4_1 breakout-zone hasbgcolor bgcolor_darkgrey">
+          <meer-cijfers-en-informatie></meer-cijfers-en-informatie>
+        </div>
+      </div>
+    </div>
 
     <loading-component></loading-component>
   </div>
@@ -35,6 +42,7 @@ import ggwSelector from './components/layout/GGWSelector'
 import gwbMap from './components/GWBMap'
 import loadingComponent from './components/LoadingComponent'
 import colorLegend from './components/ColorLegend'
+import meerCijfersEnInformatie from './components/MeerCijfersEnInformatie'
 
 export default {
   name: 'App',
@@ -43,7 +51,8 @@ export default {
     'ams-header': amsHeader,
     'ggw-selector': ggwSelector,
     'gwb-map': gwbMap,
-    'loading-component': loadingComponent
+    'loading-component': loadingComponent,
+    'meer-cijfers-en-informatie': meerCijfersEnInformatie
   }
 }
 </script>

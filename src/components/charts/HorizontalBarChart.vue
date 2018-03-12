@@ -82,5 +82,16 @@ export default {
 
 </script>
 
-<style>
+<style lang="scss" scoped>
+  .block-container {
+    display: flex;
+    align-items: left;
+    align-self: left;
+    justify-content: center;
+    width: 100%;
+
+    .icon-container {
+      height: 50px !important;
+    }
+  }
 </style>
