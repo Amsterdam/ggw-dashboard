@@ -58,10 +58,12 @@ export default {
     },
 
     updateChart () {
+      const totalWaarde = this.chartdata.reduce((total, value) => total + value.recent.waarde, 0)
+
       vegaSpec.data[0].values = this.chartdata.map(d => ({
         key: d.label,
         value: d.recent.waarde,
-        display: util.displayWaarde(d.recent)
+        display: (d.recent.waarde / totalWaarde) > 0.05 ? util.displayWaarde(d.recent) : ''
       }))
 
       vegaSpec.scales[0].range = PIE_CHART_COLORS
