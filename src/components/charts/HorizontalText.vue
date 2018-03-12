@@ -56,7 +56,7 @@ export default {
       this.updateData()
     }
   },
-  async created () {
+  created () {
     this.updateData()
   }
 }
