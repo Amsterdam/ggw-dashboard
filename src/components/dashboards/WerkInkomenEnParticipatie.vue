@@ -6,10 +6,10 @@
             <h2>Bewoners over het voorzieningenaanbod in hun eigen buurt en hun eigen sportdeelname</h2>
           </div>
           <div class="grid-blok grid_6">
-            <horizontal-text title="Werk en inkomen" icon="GASD_Icoon_Werk en inkomen.png" :config="werkInkomen"></horizontal-text>
+            <horizontal-text title="Werk en inkomen" icon="werk_en_inkomen.png" :config="werkInkomen"></horizontal-text>
           </div>
           <div class="grid-blok grid_6">
-            <horizontal-text title="Participatie" icon="GASD_Icoon_Ondernemen.png" :config="participatie"></horizontal-text>
+            <horizontal-text title="Participatie" icon="ondernemen.png" :config="participatie"></horizontal-text>
           </div>
         </div>
       </div>

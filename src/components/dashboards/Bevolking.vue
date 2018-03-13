@@ -9,7 +9,7 @@
           <horizontal-text title="Inwoners" icon="man.png" :config="inwoners"></horizontal-text>
         </div>
         <div class="grid-blok grid_6">
-          <horizontal-text title="Huishoudens" icon="Gezinnetje.svg" :config="huishoudens"></horizontal-text>
+          <horizontal-text title="Huishoudens" icon="gezinnetje.png" :config="huishoudens"></horizontal-text>
         </div>
       </div>
     </div>

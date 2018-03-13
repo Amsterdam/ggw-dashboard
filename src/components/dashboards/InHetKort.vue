@@ -18,28 +18,28 @@
           <div class="grid-blok grid_6">
             <horizontal-bar-chart
               title="Woningvoorraad"
-              icon="wonen_en_leefomgeving.svg"
+              icon="wonen_en_leefomgeving.png"
               :config="woningVoorraad"
             ></horizontal-bar-chart>
           </div>
           <div class="grid-blok grid_6">
             <horizontal-bar-chart
               title="Sociaal-economisch"
-              icon="werk_en_inkomen.svg"
+              icon="werk_en_inkomen.png"
               :config="sociaalEconomisch"
             ></horizontal-bar-chart>
           </div>
           <div class="grid-blok grid_6">
               <horizontal-bar-chart
                 title="Leeftijd"
-                icon="kind_icoon_met_bal_60.png"
+                icon="kind_icoon_met_bal.png"
                 :config="leeftijd"
               ></horizontal-bar-chart>
           </div>
           <div class="grid-blok grid_6">
               <horizontal-bar-chart
                 title="Migratie-achtergrond"
-                icon="locaties.svg"
+                icon="locaties.png"
                 :config="migratieAchtergrond"
               ></horizontal-bar-chart>
           </div>
