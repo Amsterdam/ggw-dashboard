@@ -58,12 +58,14 @@ export default {
     },
 
     updateChart () {
-      vegaSpec.data.values = this.chartdata[0].cijfers.map((d, i) => ({
-        key: d.jaar,
-        value: d.waarde,
-        color: d.color,
-        i
-      }))
+      vegaSpec.data.values = this.chartdata[0].cijfers
+        .filter(d => d.waarde)
+        .map((d, i) => ({
+          key: d.jaar,
+          value: d.waarde,
+          color: d.color,
+          i
+        }))
       vegaSpec.layer[0].encoding.color.scale.range = vegaSpec.data.values.map(v => v.color || COLOR['ams-groen'])
       vegaEmbed(this.$refs[this.chartRef], vegaSpec, vegaEmbedOptions)
     }
