@@ -31,7 +31,7 @@
 
           <template slot="first" v-if="!selection.wijken">
             <!-- this slot appears above the options from 'options' prop -->
-            <option :value="null" disabled>-- Selecteer een gebied om wijken te zien --</option>
+            <option :value="null" disabled>-- geen wijk geselecteerd --</option>
           </template>
         </b-form-select>
       </div>
@@ -50,7 +50,7 @@
                        id="selectBuurt">
           <template slot="first" v-if="!selection.buurten">
             <!-- this slot appears above the options from 'options' prop -->
-            <option :value="null" disabled>-- Selecteer een wijk om buurten te zien --</option>
+            <option :value="null" disabled>-- geen buurt geselecteerd --</option>
           </template>
 
         </b-form-select>
