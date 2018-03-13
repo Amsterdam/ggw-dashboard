@@ -31,7 +31,7 @@
 
           <template slot="first" v-if="!selection.wijken">
             <!-- this slot appears above the options from 'options' prop -->
-            <option :value="null" disabled>-- Selecteer een gebied om wijken te zien --</option>
+            <option :value="null" disabled>-- geen wijk geselecteerd --</option>
           </template>
         </b-form-select>
       </div>
@@ -50,7 +50,7 @@
                        id="selectBuurt">
           <template slot="first" v-if="!selection.buurten">
             <!-- this slot appears above the options from 'options' prop -->
-            <option :value="null" disabled>-- Selecteer een wijk om buurten te zien --</option>
+            <option :value="null" disabled>-- geen buurt geselecteerd --</option>
           </template>
 
         </b-form-select>
@@ -84,9 +84,15 @@ import util from '../../services/util'
 import { HTTPStatus } from '../../services/datareader'
 import { THEMAS, IN_HET_KORT } from '../../services/thema'
 
-function getSelectNone (title) {
+/**
+ * Provides for a selection of None, for all gebieden, wijken and buurten
+ * @param title gebied, wijk or buurt => gebieden, wijken, buurten
+ * @param display override for derivation of title
+ * @returns {{display: *|string, vollcode: null}}
+ */
+function getSelectNone (title, display = null) {
   return {
-    display: `Alle ${title}`,
+    display: display || `Alle ${title}`,
     vollcode: null
   }
 }
@@ -258,7 +264,7 @@ export default {
     }
   },
   async created () {
-    this.selection.gebieden = [getSelectNone('gebieden')].concat(await util.getAllGebieden())
+    this.selection.gebieden = [getSelectNone('gebieden', 'Amsterdam')].concat(await util.getAllGebieden())
 
     this.parseRoute()
   }

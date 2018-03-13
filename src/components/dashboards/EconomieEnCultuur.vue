@@ -58,22 +58,29 @@
       <div class="zone-clear clear"></div>
 
       <div class="grid-element">
-        <div class="grid-blok grid_6 card break-out-card">
+        <div class="grid-blok grid_6 card">
           <div class="grid-title">
             <h2>Vestigingen naar hoofdfunctie</h2>
           </div>
+          <div class="grid-blok">
           <pie-chart title="" :config="vestigingenHoofdfunctie"></pie-chart>
         </div>
-          <div class="grid-blok grid_6 card break-out-card">
-            <div class="grid-title">
-              <h2>Werkzame personen naar hoofdfunctie</h2>
-            </div>
-          <pie-chart title="" :config="werkzamenHoofdfunctie"></pie-chart>
-          </div>
         </div>
       </div>
-      <div class="zone-clear clear"></div>
+      <div class="grid-element">
+        <div class="grid-blok grid_6 card">
+          <div class="grid-title">
+            <h2>Werkzame personen naar hoofdfunctie</h2>
+          </div>
+          <div class="grid-blok">
+          <pie-chart title="" :config="werkzamenHoofdfunctie"></pie-chart>
+        </div>
+        </div>
+      </div>
     </div>
+
+    <div class="zone-clear clear"></div>
+  </div>
 </template>
 
 <script>

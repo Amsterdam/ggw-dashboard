@@ -60,6 +60,7 @@
       "encode": {
         "symbols": {
           "enter": {
+            "shape": {"value": "square"}
           }
         },
         "labels": {
@@ -101,7 +102,7 @@
           "fillOpacity": {"value": 1}
         },
         "hover": {
-          "fillOpacity": {"value": 0.5}
+          "fillOpacity": {"value": 1}
         }
       }
     },
@@ -111,11 +112,11 @@
       "interactive": false,
       "encode": {
         "enter": {
-          "text": {"field": "y"},
+          "text": {"field": "display"},
           "x": {"scale": "x", "field": "x"},
           "y": {"scale": "y", "field": "y0"},
-          "dx": {"value": 15},
-          "dy": {"value": -5 },
+          "dx": {"value": 8},
+          "dy": {"value": -2 },
           "align": {"value": "left"},
           "baseline": {"value": "bottom"}
         }

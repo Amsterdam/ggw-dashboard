@@ -69,7 +69,7 @@
     <div class="grid-element">
       <div class="grid-blok grid_12 card">
         <div class="grid-title">
-          <h2>Huishoudsamenstelling</h2>
+          <h2>Huishoudenssamenstelling</h2>
         </div>
         <div class="grid-blok grid_7">
           <stacked-bar-chart :config="huishoudsamenstelling" last="7"></stacked-bar-chart>

@@ -11,21 +11,43 @@ export const HTTPStatus = {
 }
 
 /**
+ * Sleep a number of milliseconds
+ * Usage: await sleep(n)
+ * @param ms
+ * @returns {Promise<any>}
+ */
+function sleep (ms) {
+  return new Promise((resolve, reject) => { setTimeout(resolve, ms) })
+}
+
+/**
  * Simple HTTP GET method for a given url
  * @param url
- * @returns {Promise<AxiosPromise<any>>}
+ * @param nTries optional parameter specifying the number of retries, default = 5
+ * @returns {Promise<*>}
  */
-async function get (url) {
-  HTTPStatus.pending++
-  const result = axios.get(url)
-  result.then(() => {
-    HTTPStatus.pending--
+async function get (url, nTries = 5) {
+  HTTPStatus.pending++ // Track pending requests
+  nTries--
+  try {
+    const result = axios.get(url)
     HTTPStatus.success++
-  }, () => {
+    return result
+  } catch (error) {
+    if (nTries > 0) {
+      // Request has failed, retry
+      console.error('Request retry', url)
+      await sleep(100) // Wait a little time before retry
+      return get(url, nTries)
+    } else {
+      // Request has failed, no more retries left
+      console.error('Request failed', url)
+      HTTPStatus.error++
+      throw error // propagate error
+    }
+  } finally {
     HTTPStatus.pending--
-    HTTPStatus.error++
-  })
-  return result
+  }
 }
 
 /**

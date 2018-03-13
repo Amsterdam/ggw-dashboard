@@ -1,7 +1,7 @@
 [
   {
-    "label": "Overig",
-    "variabele": "BevoverigHH_p"
+    "label": "Eenpersoons huishouden",
+    "variabele": "BevalleenHH_p"
   },
   {
     "label": "Eenoudergezin",
@@ -16,7 +16,7 @@
     "variabele": "BevpaarzkindHH_p"
   },
   {
-    "label": "Eenpersoons huishouden",
-    "variabele": "BevalleenHH_p"
+    "label": "Overig",
+    "variabele": "BevoverigHH_p"
   }
 ]
