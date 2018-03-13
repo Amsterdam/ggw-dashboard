@@ -27,26 +27,29 @@ function sleep (ms) {
  * @returns {Promise<*>}
  */
 async function get (url, nTries = 5) {
-  HTTPStatus.pending++ // Track pending requests
-  nTries--
-  try {
-    const result = axios.get(url)
+  let result
+  let nTry = 0
+  do {
+    try {
+      HTTPStatus.pending++ // Track pending requests
+      result = await axios.get(url)
+    } catch (error) {
+      console.error('Retry...', url)
+      nTry++
+      await sleep(nTry * 100) // small sleep before retry request
+    } finally {
+      HTTPStatus.pending--
+    }
+  } while (!result && nTry < nTries)
+
+  if (result) {
     HTTPStatus.success++
     return result
-  } catch (error) {
-    if (nTries > 0) {
-      // Request has failed, retry
-      console.error('Request retry', url)
-      await sleep(100) // Wait a little time before retry
-      return get(url, nTries)
-    } else {
-      // Request has failed, no more retries left
-      console.error('Request failed', url)
-      HTTPStatus.error++
-      throw error // propagate error
-    }
-  } finally {
-    HTTPStatus.pending--
+  } else {
+    // All retries have failed
+    console.error('Request failed', url)
+    HTTPStatus.error++
+    throw new Error('Request failed', url)
   }
 }
 
