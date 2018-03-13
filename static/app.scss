@@ -4,19 +4,26 @@
 //
 
 @import "~stijl/scss/ams-colorpalette";
+@import "~stijl/scss/ams-breakpoints";
 
 // header styling
 .ams-header {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  margin-left: -2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding: .5rem;
 
-  &__logo {
-    &--short {
-      width: 150px;
-      height: 100px;
-    }
+  .header-title {
+    margin-left: 1rem;
+    display: flex;
+    align-items: center;
+    font-size: 1.7rem;
   }
+
+}
+
+body {
+  margin: 0;
 }
 
 // The sticky filter on top
@@ -26,16 +33,49 @@
   background-color: $ams-wit;
   box-shadow: 0 1px 1px 0 $ams-lichtgrijs;
   z-index: 7777;
+  padding: 0;
 
-  .grid-zone.hasbgcolor{
-    padding-top: 0;
-    padding-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  height: 4.5rem;
+  width: 100%;
+
+  > div {
+    padding: .5rem;
   }
 
-  .grid-wrapper {
-    padding-bottom: 0;
+  @media screen and (max-width: #{$grid-mq-small}) {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .header-filter {
+    display: flex;
+    flex-direction: row;
+    min-width: 90%;
+
+    @media screen and (max-width: #{$grid-mq-small}) {
+      flex-direction: column;
+      height: auto;
+    }
+
+
+    .rij {
+      display: flex;
+      flex-direction: column;
+      width: 24%;
+      height: 2rem;
+      margin-right: 1%;
+      margin-bottom: 0;
+
+      @media screen and (max-width: #{$grid-mq-small}) {
+        width: 100%;
+        height: auto;
+      }
+    }
   }
 }
+
 
 .app {
   margin-top: 5px;
@@ -44,4 +84,14 @@
 .main-view {
   padding-top: 1rem;
   padding-bottom: 1rem;
+}
+
+.card {
+  margin-top: 1rem;
+}
+
+.horizontal-text__icon {
+  .icon-container {
+    height: 7rem;
+  }
 }

@@ -1,6 +1,6 @@
 <template>
   <div class="block-container">
-    <div class="grid-blok grid_4">
+    <div class="grid-blok grid_4 horizontal-text__icon">
       <icon :icon="icon" :title="title"></icon>
     </div>
     <div class="grid-blok grid_8 horizontal-text__content">
@@ -79,5 +79,6 @@ export default {
     align-self: left;
     justify-content: center;
     width: 100%;
+    padding-bottom: 10px;
   }
 </style>

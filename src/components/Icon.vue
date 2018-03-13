@@ -3,7 +3,7 @@
     <div class="icon-container grid-blok grid_12">
       <img class="icon" :src="`static/icons/${icon}`">
     </div>
-    <div v-if="title" class="title grid-blok grid_12 pad-top-bottom">
+    <div v-if="title" class="title grid-blok grid_12">
       {{title}}
     </div>
   </div>
@@ -20,8 +20,11 @@ export default {
 
 <style lang="scss" scoped>
 .icon-wrapper {
-  max-width: 8rem;
   flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   * {
     text-align: center;
   }
@@ -33,7 +36,7 @@ export default {
 }
 
 .icon-container {
-  height: 100px;
+  max-width: 8rem;
   margin-bottom: 5px;
   padding-top: 0 !important; //override generic grid blok styling
   justify-content: center;
