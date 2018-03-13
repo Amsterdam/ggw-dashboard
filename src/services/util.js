@@ -54,7 +54,7 @@ function getTooltip (cijfers) {
  * @returns {Promise<any[]>}
  */
 async function getConfigCijfers (gwb, config, recentOrAll = CIJFERS.ALL) {
-  let data = config.map(async c => {
+  let data = config.map(async (c, index) => {
     try {
       const cijfers = await getGebiedCijfers(c.variabele, gwb, recentOrAll)
       if (c.post) {
@@ -63,7 +63,8 @@ async function getConfigCijfers (gwb, config, recentOrAll = CIJFERS.ALL) {
       return {
         ...cijfers,
         label: c.label || cijfers.meta.label,
-        tooltip: getTooltip(cijfers)
+        tooltip: getTooltip(cijfers),
+        index
       }
     } catch (e) {
       console.error('Variable not found', c.variabele)
@@ -104,6 +105,7 @@ function getYearCijfers (data, last = null) {
         x: cijfer.jaar,
         y: cijfer.waarde,
         variable: item.label,
+        index: item.index,
         color: cijfer.color,
         display: (cijfer.waarde / totalWaarde[cijfer.jaar]) > 0.075 ? displayWaarde(cijfer) : '',
         cijfer

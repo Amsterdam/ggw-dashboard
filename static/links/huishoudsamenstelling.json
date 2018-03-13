@@ -1,5 +1,9 @@
 [
   {
+    "label": "Overig",
+    "variabele": "BevoverigHH_p"
+  },
+  {
     "label": "Eenpersoons huishouden",
     "variabele": "BevalleenHH_p"
   },
@@ -14,9 +18,5 @@
   {
     "label": "Stel zonder kinderen",
     "variabele": "BevpaarzkindHH_p"
-  },
-  {
-    "label": "Overig",
-    "variabele": "BevoverigHH_p"
   }
 ]

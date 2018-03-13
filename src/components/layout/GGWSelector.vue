@@ -31,7 +31,7 @@
 
           <template slot="first" v-if="!selection.wijken">
             <!-- this slot appears above the options from 'options' prop -->
-            <option :value="null" disabled>-- geen wijk geselecteerd --</option>
+            <option :value="null" disabled>geen wijk geselecteerd</option>
           </template>
         </b-form-select>
       </div>
@@ -50,9 +50,8 @@
                        id="selectBuurt">
           <template slot="first" v-if="!selection.buurten">
             <!-- this slot appears above the options from 'options' prop -->
-            <option :value="null" disabled>-- geen buurt geselecteerd --</option>
+            <option :value="null" disabled>geen buurt geselecteerd</option>
           </template>
-
         </b-form-select>
       </div>
     </div>
@@ -92,7 +91,7 @@ import { THEMAS, IN_HET_KORT } from '../../services/thema'
  */
 function getSelectNone (title, display = null) {
   return {
-    display: display || `Alle ${title}`,
+    display: display || `geen ${title} geselecteerd`,
     vollcode: null
   }
 }
@@ -155,7 +154,7 @@ export default {
         this.gebiedDetail = await util.getDetail(gebied)
 
         const wijken = await util.getWijken(gebied)
-        this.selection.wijken = [getSelectNone('wijken')].concat(wijken)
+        this.selection.wijken = [getSelectNone('wijk')].concat(wijken)
       } else {
         const gebied = await util.getCity()
         this.gebiedDetail = gebied
@@ -178,7 +177,7 @@ export default {
         this.wijkDetail = await util.getDetail(wijk)
 
         const buurten = await util.getBuurten(wijk)
-        this.selection.buurten = [getSelectNone('buurten')].concat(buurten)
+        this.selection.buurten = [getSelectNone('buurt')].concat(buurten)
       } else {
         this.wijkDetail = null
       }
@@ -264,7 +263,7 @@ export default {
     }
   },
   async created () {
-    this.selection.gebieden = [getSelectNone('gebieden', 'Amsterdam')].concat(await util.getAllGebieden())
+    this.selection.gebieden = [getSelectNone('gebied', 'Amsterdam')].concat(await util.getAllGebieden())
 
     this.parseRoute()
   }
