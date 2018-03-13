@@ -194,6 +194,7 @@ describe('util', () => {
           'waarde': 'waarde'
         },
         'color': 'color',
+        'display': '',
         'variable': 'label',
         'x': 'jaar',
         'y': 'waarde'
@@ -223,6 +224,7 @@ describe('util', () => {
           'waarde': i
         },
         'color': i,
+        'display': `${i}`,
         'variable': 'label',
         'x': i,
         'y': i
