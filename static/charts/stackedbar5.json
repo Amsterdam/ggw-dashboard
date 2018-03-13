@@ -23,7 +23,7 @@
         {
           "type": "stack",
           "groupby": ["x"],
-          "sort": {"field": "variable"},
+          "sort": {"field": "index", "order": "descending"},
           "field": "y"
         }
       ]
