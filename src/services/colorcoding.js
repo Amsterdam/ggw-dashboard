@@ -69,12 +69,28 @@ export const LINE_CHART_COLORS = [
 ].concat(EXTRA_CHART_COLORS)
 
 const ABSOLUTE_COLORS = [
-  '#004699', // Donkerblauw
-  '#00a0e6',
-  '#71BDEE',
-  '#B1D9F5',
-  '#E5F2FC' // Lichtblauw
-]
+  '#E5F2FC',
+  '#D9E9F7',
+  '#CEE0F2',
+  '#C2D8ED',
+  '#B7CFE8',
+  '#ABC7E3',
+  '#A0BEDE',
+  '#94B5D9',
+  '#89ADD4',
+  '#7DA4CF',
+  '#729CCA',
+  '#6793C5',
+  '#5B8AC0',
+  '#5082BB',
+  '#4479B6',
+  '#3971B1',
+  '#2D68AC',
+  '#225FA7',
+  '#1657A2',
+  '#0B4E9D',
+  '#004699'
+].reverse()
 
 /**
  * The colors for charts that are colored on z-score
