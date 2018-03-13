@@ -101,7 +101,7 @@
 import { mapGetters } from 'vuex'
 import util from '../services/util'
 import { getShapes, drawShapes, amsMap } from '../services/map'
-import { COLOR } from '../services/colorcoding'
+import { COLOR, getRankingColor } from '../services/colorcoding'
 
 /**
  * The highest and lowest 5 cijfers are reported
@@ -338,7 +338,7 @@ export default {
         const c = cijfersLookup[gebiedcode15]
         return {
           'fillOpacity': 0.8,
-          'fillColor': (c && c.color) || COLOR['ams-wit'],
+          'fillColor': c ? (c.color || getRankingColor(c.ranking - 1, cijfers.length - 1)) : COLOR['ams-wit'],
           'color': COLOR['ams-donkergrijs'],
           'opacity': 0.5,
           'weight': 1

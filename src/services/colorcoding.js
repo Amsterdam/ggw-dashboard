@@ -68,6 +68,14 @@ export const LINE_CHART_COLORS = [
   '#FF9100' // Oranje
 ].concat(EXTRA_CHART_COLORS)
 
+const ABSOLUTE_COLORS = [
+  '#004699', // Donkerblauw
+  '#00a0e6',
+  '#71BDEE',
+  '#B1D9F5',
+  '#E5F2FC' // Lichtblauw
+]
+
 /**
  * The colors for charts that are colored on z-score
  * Foreground color (color) and an optional text color can be specified for each category
@@ -159,4 +167,9 @@ export function getColor (meta, value, year) {
       }
     }
   }
+}
+
+export function getRankingColor (ranking, maxRanking) {
+  const index = Math.round(((ABSOLUTE_COLORS.length - 1) / maxRanking) * ranking)
+  return ABSOLUTE_COLORS[index]
 }
