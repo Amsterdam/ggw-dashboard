@@ -6,10 +6,10 @@
           <h2>Bewoners over hun eigen buurt en woning</h2>
         </div>
         <div class="grid-blok grid_6">
-          <horizontal-text title="Eigen buurt" icon="buurt60.jpg" :config="eigenBuurt"></horizontal-text>
+          <horizontal-text title="Eigen buurt" icon="buurt.jpg" :config="eigenBuurt"></horizontal-text>
         </div>
         <div class="grid-blok grid_6">
-          <horizontal-text title="Eigen woning" icon="house-icon-vector-png.png" :config="eigenWoning"></horizontal-text>
+          <horizontal-text title="Eigen woning" icon="house.png" :config="eigenWoning"></horizontal-text>
         </div>
       </div>
     </div>
