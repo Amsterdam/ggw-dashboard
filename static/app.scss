@@ -95,3 +95,19 @@ body {
     height: 7rem;
   }
 }
+
+// Loading indicator styling
+$progress-background: $ams-middengrijs;
+
+.progress-wrapper {
+  background: $progress-background !important;
+  border-color: $ams-donkergrijs;
+}
+
+.progress-indicator::before {
+    background-color: $progress-background !important;
+}
+
+.progress-indicator::after {
+  background-color: $progress-background !important;
+}
