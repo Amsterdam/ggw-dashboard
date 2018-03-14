@@ -223,7 +223,7 @@ export default {
      */
     updateUrl () {
       this.$router.push({
-        name: 'dashboard',
+        name: this.$route.name,
         query: {
           gebied: this.selection.gebied || 'all',
           wijk: this.selection.wijk,
