@@ -10,7 +10,7 @@
         </ul>
       </div>
     </div>
-    <div class="grid-blok grid_6">
+    <div class="grid-blok grid_6 lijst">
       <div class="grid-element">
         <h2 class="blok-titel">Meer cijfers</h2>
         <ul class="links">
