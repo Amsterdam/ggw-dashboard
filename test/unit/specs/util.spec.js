@@ -1,5 +1,4 @@
 import util from '@/services/util'
-import axios from 'axios'
 
 jest.mock('axios', () => ({
   get: jest.fn((url) => {
@@ -140,7 +139,6 @@ jest.mock('axios', () => ({
     } else if (url.includes('/bbga/cijfers')) {
       return Promise.resolve(cijfers)
     }
-
   })
 }))
 
@@ -229,7 +227,7 @@ describe('util', () => {
         'x': i,
         'y': i
       })
-    ))
+      ))
   })
 
   it('can flatten arrays', () => {
@@ -245,7 +243,14 @@ describe('util', () => {
     expect(await util.getGeometries(util.GEBIED_TYPE.Gebied)).toEqual(
       {
         'DX11': {
-          'coordinates': [[[52.34467682273214, 4.87839903077145], [52.34468297083656, 4.878583148632961], [52.34492253805448, 4.879061899441137], [52.345963482181645, 4.881308663455767]]],
+          'coordinates': [
+            [
+              [52.344677, 4.878399],
+              [52.344683, 4.878583],
+              [52.344923, 4.879062],
+              [52.345963, 4.881309]
+            ]
+          ],
           'type': 'Polygon'
         }
       }

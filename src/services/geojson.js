@@ -51,6 +51,26 @@ rd.distance = L.CRS.Earth.distance
 rd.R = config.EARTH_RADIUS
 
 /**
+ * Pricision decimals used to convert floats to fixed decimal floats
+ * Primary use is to allow for automated testing on different platforms with different precisions
+ * This can also be solved in the tests, it is easier to do it here
+ * 6 digit coordinate precision is a very acceptable precision for the use in a dashboard that uses
+ * the coordinates to provide for an outline of the geometry of the gebied, wijk, buurt
+ * @type {number}
+ */
+const PRECISION_DECIMALS = 6
+/**
+ * Convert a number to a number with a fixed number of decimals
+ * Example for 2 decimals:
+ * 1.005 => Round(1.005e2)e-2 (1.005 => 1.01)
+ * Note that (1.005 * 10e2) / 10e2 does not work (1.005 => 1)
+ * @param x
+ * @param decimals
+ * @returns {number}
+ */
+export const toPrecision = (x, decimals = PRECISION_DECIMALS) => Number(Math.round(`${x}e${decimals}`) + `e-${decimals}`)
+
+/**
  * Converts rd coordinates to wgs84 coordinates
  * @param rdCoordinates [x, y]
  * @returns {*[]}
@@ -60,7 +80,7 @@ export function rdToWgs84 (rdCoordinates) {
     [rdCoordinates[0], rdCoordinates[1]])
   return [
     wgs84Coordinates[1], wgs84Coordinates[0]
-  ]
+  ].map(x => toPrecision(x))
 }
 
 /**
