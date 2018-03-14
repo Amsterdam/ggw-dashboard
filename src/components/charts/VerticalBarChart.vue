@@ -58,7 +58,7 @@ export default {
     },
 
     updateChart () {
-      vegaSpec.data.values = this.chartdata[0].cijfers
+      vegaSpec.data.values = (this.chartdata[0].cijfers || [])
         .filter(d => d.waarde)
         .map((d, i) => ({
           key: d.jaar,
