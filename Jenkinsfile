@@ -22,6 +22,15 @@ node {
         checkout scm
     }
 
+    stage('Test') {
+        tryStep "test", {
+            sh "docker-compose -f test/docker-compose.yml build && " +
+               "docker-compose -f test/docker-compose.yml run -u root --rm test"
+        }, {
+            sh "docker-compose -f test/docker-compose.yml down"
+        }
+    }
+
     stage("Build image") {
         tryStep "build", {
             def image = docker.build("build.app.amsterdam.nl:5000/ois/ggw:${env.BUILD_NUMBER}",
