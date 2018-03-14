@@ -64,8 +64,8 @@ export const LINE_CHART_COLORS = [
   '#FF0000', // Rood
   '#A00078', // Paars
   '#787878', // Donkergrijs
-  '#BEBEBE', // Lichter grijs
-  '#FF9100' // Oranje
+  '#FF9100', // Oranje
+  '#BEBEBE' // Lichter grijs
 ].concat(EXTRA_CHART_COLORS)
 
 const ABSOLUTE_COLORS = [
