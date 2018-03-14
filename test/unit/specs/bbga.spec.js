@@ -1,5 +1,3 @@
-import axios from 'axios'
-
 import { getAllMeta, getMeta } from '@/services/apis/bbga'
 
 jest.mock('axios', () => ({

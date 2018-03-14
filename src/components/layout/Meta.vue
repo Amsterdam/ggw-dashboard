@@ -1,15 +1,25 @@
 <template>
   <div>
 
-    <form v-on:submit.prevent="filter()">
-      <div class="form-group">
-        <label for="filterMeta">Filter text</label>
-        <input v-on:keyup.enter="filter()" v-model="filterText" type="text" class="form-control" id="filterMeta" aria-describedby="filterHelp" placeholder="Enter filter text">
-        <small id="filterHelp" class="form-text text-muted">Filter on variable, label or definitie</small>
+    <div class="rij mode_input text rij_verplicht">
+      <div class="label">
+        <label for="formInput">Filter on variable, label or definitie</label>
       </div>
-      <button type="submit" class="btn btn-primary" v-on:click="filter()" :disabled="!filterText">Filter</button>
-      <button type="button" class="btn btn-primary" v-on:click="clear()">Clear</button>
-    </form>
+
+      <div class="invoer">
+        <input v-on:keyup.enter="filter()"
+               v-model="filterText"
+               type="text"
+               id="formInput"
+               class="input"
+               placeholder="Enter filter text regular expression">
+      </div>
+
+      <button class="action primary" v-on:click="filter()" :disabled="!filterText">
+        <span class="value"> Filter</span>
+      </button>
+      <button class="action secondary-blue" v-on:click="clear()">Clear</button>
+    </div>
 
     <div v-if="detail" class="row">
       <div class="col-sm-6 offset-3">
@@ -36,6 +46,7 @@
       <table class="table table-sm">
         <thead>
         <tr>
+          <!--Take first meta to get the header keys-->
           <th v-for="(v, p) in meta['BEVTOTAAL']" :key="p">{{p}}</th>
         </tr>
         </thead>
@@ -70,7 +81,7 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'gebied',
+      'gwb',
       'meta'
     ])
   },
@@ -78,7 +89,7 @@ export default {
     ...mapActions({
     }),
     filter () {
-      this.filterRegExp = RegExp(this.filterText, 'i')
+      this.filterRegExp = RegExp(this.filterText, 'i') // case insensitive
       const filteredMeta = {}
       for (let key of Object.keys(this.meta)) {
         if (this.matchesFilter(this.meta[key])) {
@@ -100,16 +111,23 @@ export default {
       this.detail = null
     },
     async getDetails (meta) {
-      const cijfers = await util.getGebiedCijfers(meta.variabele, this.gebied)
-      this.detail = {
-        meta,
-        cijfers: cijfers.cijfers
+      if (meta && this.gwb) {
+        const cijfers = await util.getGebiedCijfers(meta.variabele, this.gwb)
+        this.detail = {
+          meta,
+          cijfers: cijfers.cijfers
+        }
+      } else {
+        this.detail = null
       }
     }
   },
   watch: {
     'meta' () {
       this.filteredMeta = this.meta
+    },
+    'gwb' () {
+      this.getDetails(this.detail && this.detail.meta)
     }
   },
   created () {
