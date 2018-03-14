@@ -76,7 +76,6 @@ export default {
       filterText: null,
       filterRegExp: null,
       filteredMeta: null,
-      detailMeta: null,
       detail: null
     }
   },
@@ -113,8 +112,6 @@ export default {
     },
     async getDetails (meta) {
       if (meta && this.gwb) {
-        console.log('getDetails', meta, this.gwb)
-        this.detailMeta = meta
         const cijfers = await util.getGebiedCijfers(meta.variabele, this.gwb)
         this.detail = {
           meta,
@@ -130,7 +127,7 @@ export default {
       this.filteredMeta = this.meta
     },
     'gwb' () {
-      this.getDetails(this.detailMeta)
+      this.getDetails(this.detail && this.detail.meta)
     }
   },
   created () {
