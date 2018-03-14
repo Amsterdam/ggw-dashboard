@@ -1,10 +1,18 @@
 [
   {
-    "label": "Link naar kerncijfertabel",
-    "url": "http://www.amsterdam.nl"
+    "label": "Basisbestand Gebieden Amsterdam (BBGA)",
+    "url": "https://data.amsterdam.nl/index.html#?dte=catalogus%2Fapi%2F3%2Faction%2Fpackage_show%3Fid%3Db51154d8-2eca-4dd9-932d-63bca9ef0bf2&dtfs=T&dsf=groups::bevolking&mpb=topografie&mpz=11&mpv=52.3731081:4.8932945"
   },
   {
-    "label": "Link naar Wia",
-    "url": "http://www.amsterdam.nl"
+    "label": "Gezondheid in Beeld GGD",
+    "url": "https://www.ggdgezondheidinbeeld.nl/"
+  },
+  {
+    "label": "Staat van de Stad ",
+    "url": "https://www.ois.amsterdam.nl/pdf/2017_staat%20van%20de%20stad%20amsterdam_ix.pdf"
+  },
+  {
+    "label": "Sportmonitor",
+    "url": "https://www.amsterdam.nl/bestuur-organisatie/organisatie/sociaal/sport-bos/sportbeleid/onderzoeken/"
   }
 ]

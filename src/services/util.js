@@ -181,6 +181,31 @@ const displayWaarde = cijfer => {
   }
 }
 
+/*
+ * Code copied from Atlas to decode base62 encoded headings in pano urls
+ */
+const CHARSET = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('')
+
+function decodeString (s, len = s.length) {
+  if (len > 1) {
+    const quotient = s.substr(0, len - 1)
+    const remainder = s.charAt(len - 1)
+    return 62 *
+      decodeString(quotient, len - 1) +
+      decodeString(remainder, 1)
+  } else {
+    return CHARSET.indexOf(s)
+  }
+}
+
+function base62DecodeAngle (s, precision) {
+  if (s[0] === '-') {
+    return 360 - Number(decodeString(s.substring(1))) / Math.pow(10, precision)
+  } else {
+    return Number(decodeString(s)) / Math.pow(10, precision)
+  }
+}
+
 /**
  * Util exports het methods in an object. Usage will therefore be like util.getCity instead of import {getCity} from util
  * This has been done for reasons of simplicity only
@@ -210,5 +235,7 @@ export default {
   GEBIED_TYPE,
   getGeometries,
   flatten,
-  displayWaarde
+  displayWaarde,
+  decodeString,
+  base62DecodeAngle
 }
