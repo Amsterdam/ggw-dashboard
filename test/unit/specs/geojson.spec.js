@@ -1,9 +1,17 @@
-import { rdToWgs84, rdPolygonToWgs84, rdMultiPolygonToWgs84 } from '@/services/geojson'
+import { rdToWgs84, rdPolygonToWgs84, rdMultiPolygonToWgs84, toPrecision } from '@/services/geojson'
 
 describe('geojson', () => {
+  it('should round to 6 digits', () => {
+    expect(toPrecision(1)).toEqual(1)
+    expect(toPrecision(1.005, 2)).toEqual(1.01)
+    expect(toPrecision(1.005, 3)).toEqual(1.005)
+    expect(toPrecision(1.004, 2)).toEqual(1)
+    expect(toPrecision(1.006, 2)).toEqual(1.01)
+    expect(toPrecision(1.1234567, 6)).toEqual(1.123457)
+  })
 
   it('should convert rd coordinates to wgs84 coordinates', () => {
-    expect(rdToWgs84([52.35, 4.9])).toEqual([47.97482289341568, 3.31425581564696])
+    expect(rdToWgs84([52.35, 4.9])).toEqual([47.974823, 3.314256])
   })
 
   it('should convert an rd polygon to wgs84 polygon', () => {
@@ -21,10 +29,10 @@ describe('geojson', () => {
         'type': 'Polygon',
         'coordinates': [
           [
-            [47.97481472613053, 3.314251470198683],
-            [47.97482370394713, 3.3142510989488123],
-            [47.97482395323291, 3.3142644691581133],
-            [47.9748149754163, 3.314264840405596]
+            [47.974815, 3.314251],
+            [47.974824, 3.314251],
+            [47.974824, 3.314264],
+            [47.974815, 3.314265]
           ]
         ]
       })
@@ -58,10 +66,10 @@ describe('geojson', () => {
         'type': 'Polygon',
         'coordinates': [
           [
-            [47.97481472613053, 3.314251470198683],
-            [47.97482370394713, 3.3142510989488123],
-            [47.97482395323291, 3.3142644691581133],
-            [47.9748149754163, 3.314264840405596]
+            [47.974815, 3.314251],
+            [47.974824, 3.314251],
+            [47.974824, 3.314264],
+            [47.974815, 3.314265]
           ]
         ]
       }])
