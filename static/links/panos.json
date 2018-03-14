@@ -1,10 +1,366 @@
 [
   {
-    "gwb": "",
-    "pano": "https://api.data.amsterdam.nl/panorama/thumbnail/TMX7316010203-000353_pano_0002_000059/?width=400&heading=206"
+    "gwb": "DX10",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=11&mpo=pano::T&mpv=52.3620346:4.8797861&sbf=7U&sbh=7G&sbi=TMX7316010203-000258_pano_0002_002262&sbl=ZQtoC:3IsYN&sbp=2"
   },
   {
-    "gwb": "DX01",
-    "pano": "https://api.data.amsterdam.nl/panorama/thumbnail/TMX7316010203-000227_pano_0000_001160/?width=400&heading=135"
+    "gwb": "DX11",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=11&mpo=pano::T&mpv=52.3346544:4.8788876&sbf=BY&sbh=-BX&sbi=TMX7316010203-000257_pano_0000_002018&sbl=ZPuLI:3IiDM&sbp=-b"
+  },
+  {
+    "gwb": "DX12",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=10&mpo=pano::T&mpv=52.3431295:4.9086125&sbf=BM&sbh=-GU&sbi=TMX7316010203-000251_pano_0000_003302&sbl=ZQXxY:3K0fA&sbp=-2J"
+  },
+  {
+    "gwb": "K23",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=10&mpo=pano::T&mpv=52.3360771:4.8621009&sbf=9d&sbh=6M&sbi=TMX7316060226-000013_pano_0001_003132&sbl=ZPvTX:3IG51&sbp=-1K"
+  },
+  {
+    "gwb": "K24",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=12&mpo=pano::T&mpv=52.3571663:4.8995504&sbf=BY&sbh=-IJ&sbi=TMX7316060226-000011_pano_0000_009100&sbl=ZQquF:3JZy4&sbp=-1z"
+  },
+  {
+    "gwb": "K25",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=13&mpo=pano::T&mpv=52.3520769:4.8941556&sbf=BM&sbh=-7e&sbi=TMX7316060226-000011_pano_0000_005116&sbl=ZQenr:3JNdZ&sbp=-20"
+  },
+  {
+    "gwb": "K26",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=12&mpo=pano::T&mpv=52.3505813:4.8990259&sbf=BM&sbh=IQ&sbi=TMX7316010203-000252_pano_0000_003040&sbl=ZQZm9:3JYbT&sbp=-1E"
+  },
+  {
+    "gwb": "K44",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=12&mpo=pano::T&mpv=52.3510436:4.8503401&sbf=BM&sbh=-6a&sbi=TMX7316060226-000013_pano_0000_002274&sbl=ZQayi:3HVwv&sbp=-2K"
+  },
+  {
+    "gwb": "K45",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=12&mpo=pano::T&mpv=52.3515989:4.8535766&sbf=BM&sbh=-9t&sbi=TMX7316060226-000013_pano_0000_002142&sbl=ZQbxI:3HmVV&sbp=-2W"
+  },
+  {
+    "gwb": "K46",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=12&mpo=pano::T&mpv=52.352366:4.8579566&sbf=BM&sbh=Be&sbi=TMX7316060226-000013_pano_0000_001200&sbl=ZQicN:3HrUR&sbp=-j"
+  },
+  {
+    "gwb": "K47",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=12&mpo=pano::T&mpv=52.3589644:4.8821333&sbf=BM&sbh=-BI&sbi=TMX7316010203-000262_pano_0000_000149&sbl=ZQv8F:3J1c6&sbp=-2b"
+  },
+  {
+    "gwb": "K48",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=10&mpo=pano::T&mpv=52.3443226:4.8581407&sbf=9d&sbh=-IP&sbi=TMX7316010203-000264_pano_0000_000779&sbl=ZQJUg:3HqF5&sbp=-2e"
+  },
+  {
+    "gwb": "K49",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=12&mpo=pano::T&mpv=52.3476652:4.8722392&sbf=BM&sbh=Ax&sbi=TMX7316010203-000264_pano_0000_001101&sbl=ZQOwd:3IRkI&sbp=-3U"
+  },
+  {
+    "gwb": "K52",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=12&mpo=pano::T&mpv=52.3441199:4.8888478&sbf=BM&sbh=4H&sbi=TMX7316010203-000255_pano_0000_002720&sbl=ZQISz:3JCOd&sbp=-2d"
+  },
+  {
+    "gwb": "K53",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=13&mpo=pano::T&mpv=52.3472675:4.90139&sbf=BM&sbh=Lu&sbi=TMX7316010203-000252_pano_0000_001483&sbl=ZQT9c:3JgAd&sbp=-1J"
+  },
+  {
+    "gwb": "K54",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=12&mpo=pano::T&mpv=52.3457541:4.9054049&sbf=BM&sbh=Pp&sbi=TMX7316010203-000252_pano_0000_000773&sbl=ZQNDZ:3JpCL&sbp=-1F"
+  },
+  {
+    "gwb": "K59",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=13&mpo=pano::T&mpv=52.3426483:4.8722265&sbf=BM&sbh=-OJ&sbi=TMX7316010203-000257_pano_0000_000214&sbl=ZQGIo:3IS73&sbp=-1c"
+  },
+  {
+    "gwb": "K90",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=12&mpo=pano::T&mpv=52.331394:4.8794343&sbf=9d&sbh=-9R&sbi=TMX7316010203-000257_pano_0000_002055&sbl=ZPlrQ:3IjdX&sbp=-2a"
+  },
+  {
+    "gwb": "K91",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=12&mpo=pano::T&mpv=52.3323341:4.8918274&sbf=BY&sbh=Ct&sbi=TMX7316010203-000367_pano_0000_000014&sbl=ZPoJ3:3JFsQ&sbp=3"
+  },
+  {
+    "gwb": "DX03",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=11&mpo=pano::T&mpv=52.3856442:4.8748279&sbf=Az&sbh=-Jy&sbi=TMX7316010203-000275_pano_0000_003081&sbl=ZS4cm:3IWmw&sbp=2"
+  },
+  {
+    "gwb": "DX04",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=11&mpo=pano::T&mpv=52.3753617:4.8411586&sbf=Ai&sbh=Hm&sbi=TMX7316010203-000535_pano_0000_008606&sbl=ZReb5:3GyBi&sbp=-1z"
+  },
+  {
+    "gwb": "DX05",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=11&mpo=pano::T&mpv=52.366839:4.8706247&sbf=Ai&sbh=-H9&sbi=TMX7316010203-000053_pano_0000_001540&sbl=ZRG4M:3IMid&sbp=-1G"
+  },
+  {
+    "gwb": "E12",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=12&mpo=pano::T&mpv=52.3921399:4.8879934&sbf=Az &sbh=Mv&sbi=TMX7316010203-000172_pano_0000_000501&sbl=ZSMen:3J8bX&sbp=-1w"
+  },
+  {
+    "gwb": "E13",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=12&mpo=pano::T&mpv=52.3912931:4.8788219&sbf=Az &sbh=Mu&sbi=TMX7316010203-000277_pano_0001_000403&sbl=ZSFri:3Ih7d&sbp=-2K"
+  },
+  {
+    "gwb": "E14",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=13&mpo=pano2016::T&mpv=52.383463:4.8742109&sbf=Az&sbh=-7i&sbi=TMX7316010203-000043_pano_0000_000673&sbl=ZRzP2:3IYr5&sbp=-d&sby=5FA"
+  },
+  {
+    "gwb": "E15",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=13&mpo=pano2016::T&mpv=52.383359:4.8687405&sbf=Az&sbh=-7V&sbi=TMX7316010203-000043_pano_0000_002179&sbl=ZRySf:3IJ0m&sbp=-a&sby=5FA"
+  },
+  {
+    "gwb": "E16",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=12&mpo=pano::T&mpv=52.3748088:4.872847&sbf=Az&sbh=59&sbi=TMX7316010203-000280_pano_0000_002299&sbl=ZRano:3ISV4&sbp=-1n"
+  },
+  {
+    "gwb": "E17",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=15&mpo=pano::T&mpv=52.3706703:4.8735798&sbf=Az&sbh=-5h&sbi=TMX7316010203-000044_pano_0000_002611&sbl=ZRP69:3IU8p&sbp=-1g"
+  },
+  {
+    "gwb": "E18",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=13&mpo=pano::T&mpv=52.3670147:4.8695541&sbf=Az&sbh=-Cd&sbi=TMX7316010203-000053_pano_0000_001538&sbl=ZRGAB:3IN4P&sbp=-2"
+  },
+  {
+    "gwb": "E19",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=13&mpo=pano::T&mpv=52.3658145:4.8704746&sbf=Az&sbh=-DM&sbi=TMX7316010203-000053_pano_0000_000014&sbl=ZRDOK:3IP8A&sbp=-1G"
+  },
+  {
+    "gwb": "E20",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=11&mpo=pano::T&mpv=52.3648265:4.8756518&sbf=Az &sbh=D3&sbi=TMX7316010203-000052_pano_0000_000507&sbl=ZRApl:3IZnS&sbp=-D"
+  },
+  {
+    "gwb": "E21",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=12&mpo=pano::T&mpv=52.3600516:4.8578139&sbf=Az &sbh=Hv&sbi=TMX7316010203-000052_pano_0002_002553&sbl=ZQyPc:3HpON&sbp=-1L"
+  },
+  {
+    "gwb": "E22",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=11&mpo=pano::T&mpv=52.3614566:4.8742668&sbf=Az &sbh=-Hl&sbi=TMX7316060226-000022_pano_0006_000697&sbl=ZR24E:3IWC4&sbp=-3R"
+  },
+  {
+    "gwb": "E36",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=11&mpo=pano::T&mpv=52.386905:4.846062&sbf=Az&s bh=MD&sbi=TMX7316010203-000279_pano_0000_003849&sbl=ZS6Go:3HKou&sbp=-1K"
+  },
+  {
+    "gwb": "E37",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=12&mpo=pano::T&mpv=52.377203:4.8609849&sbf=Az& sbh=5S&sbi=TMX7316010203-000274_pano_0002_000825&sbl=ZRhvc:3Hwhv&sbp=-x"
+  },
+  {
+    "gwb": "E38",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=12&mpo=pano::T&mpv=52.3758107:4.8501952&sbf=Az &sbh=-3A&sbi=TMX7316010203-000274_pano_0002_000480&sbl=ZRf58:3HVHx&sbp=-13"
+  },
+  {
+    "gwb": "E39",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=12&mpo=pano::T&mpv=52.3784792:4.838847&sbf=Az& sbh=1x&sbi=TMX7316010203-000305_pano_0000_005960&sbl=ZRkLo:3H23C&sbp=-3S"
+  },
+  {
+    "gwb": "E40",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=12&mpo=pano::T&mpv=52.3723252:4.8593655&sbf=Az &sbh=-2O&sbi=TMX7316010203-000274_pano_0002_001543&sbl=ZRULE:3HtQd"
+  },
+  {
+    "gwb": "E41",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=12&mpo=pano::T&mpv=52.3712527:4.8520978&sbf=Az &sbh=-33&sbi=TMX7316010203-000266_pano_0000_002374&sbl=ZRRJo:3HadQ&sbp=-R"
+  },
+  {
+    "gwb": "E42",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=12&mpo=pano::T&mpv=52.3680502:4.8552666&sbf=Az &sbh=-3X&sbi=TMX7316010203-000266_pano_0000_000130&sbl=ZRI1o:3Hj3M&sbp=-32"
+  },
+  {
+    "gwb": "E43",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=12&mpo=pano::T&mpv=52.3590937:4.8531104&sbf=Az&sbh=-Ks&sbi=TMX7316010203-000265_pano_0000_000199&sbl=ZR1To:3Hjnl&sbp=-1X"
+  },
+  {
+    "gwb": "E75",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=12&mpo=pano::T&mpv=52.3654084:4.8594396&sbf=Az &sbh=-14&sbi=TMX7316010203-000274_pano_0002_001984&sbl=ZRCLc:3Htca&sbp=-19"
+  },
+  {
+    "gwb": "DX20",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=11&mpo=pano::T&mpv=52.3159172:4.9386606&sbf=CK&sbh=NI&sbi=TMX7316010203-000332_pano_0001_011595&sbl=ZP7bA:3LDiA&sbp=-2k"
+  },
+  {
+    "gwb": "DX21",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=10&mpo=pano::T&mpv=52.3220033:4.9741587&sbf=C5&sbh=-4e&sbi=TMX7316010203-000337_pano_0000_004590&sbl=ZPOfj:3Mhul&sbp=-31"
+  },
+  {
+    "gwb": "DX22",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=9&mpo=pano::T&mpv=52.3038114:4.9800991&sbf=C3&sbh=7B&sbi=TMX7316010203-000335_pano_0000_002579&sbl=ZOc6c:3MxVn&sbp=-36"
+  },
+  {
+    "gwb": "T92",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=12&mpo=pano::T&mpv=52.3079701:4.9401179&sbf=CK&sbh=2O&sbi=TMX7316010203-000339_pano_0000_000418&sbl=ZOmvN:3LHVD&sbp=-3x"
+  },
+  {
+    "gwb": "T93",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=11&mpo=pano::T&mpv=52.3118403:4.9528263&sbf=C5&sbh=-Pi&sbi=TMX7316010203-000338_pano_0000_001406&sbl=ZP2U2:3LmFR&sbp=-3h"
+  },
+  {
+    "gwb": "T94",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=12&mpo=pano::T&mpv=52.3187986:4.9720758&sbf=C3&sbh=-6W&sbi=TMX7316010203-000337_pano_0000_006322&sbl=ZPF1V:3MgjQ&sbp=-y"
+  },
+  {
+    "gwb": "T95",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=10&mpo=pano::T&mpv=52.305862:4.9796789&sbf=CK&sbh=-7I&sbi=TMX7315120208-000158_pano_0000_002023&sbl=ZOiXN:3MzTL&sbp=-2c"
+  },
+  {
+    "gwb": "T96",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=11&mpo=pano::T&mpv=52.2958423:4.9760335&sbf=CK&sbh=-Qh&sbi=TMX7316010203-000350_pano_0000_000935&sbl=ZOK7i:3Mlid&sbp=-1m"
+  },
+  {
+    "gwb": "T97",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=10&mpo=pano::T&mpv=52.2983774:4.9919424&sbf=C3&sbh=-Qq&sbi=TMX7316010203-000366_pano_0001_000084&sbl=ZOO0b:3NeEY&sbp=-v"
+  },
+  {
+    "gwb": "T98",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=12&mpo=pano::T&mpv=52.3040853:5.0144923&sbf=CL&sbh=7A&sbi=TMX7316010203-000324_pano_0000_003612&sbl=ZOcon:3OOz5&sbp=-z"
+  },
+  {
+    "gwb": "T92f",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=12&mpo=pano::T&mpv=52.2954194:4.9579244&sbf=CK&sbh=RZ&sbi=TMX7316010203-000366_pano_0000_001578&sbl=ZOHeY:3M0WD&sbp=-19"
+  },
+  {
+    "gwb": "T93g",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=16&mpo=pano::T&mpv=52.3068028:4.9538123&sbf=CL&sbh=-F8&sbi=TMX7316010203-000338_pano_0000_005136&sbl=ZOjv4:3LrJV&sbp=-45"
+  },
+  {
+    "gwb": "DX17",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=9&mpo=pano::T&mpv=52.4147109:4.8858658&sbf=BS&sbh=-FR&sbi=TMX7316010203-000317_pano_0000_004374&sbl=ZTGzH:3J5Kv&sbp=13"
+  },
+  {
+    "gwb": "DX18",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=11&mpo=pano::T&mpv=52.3930784:4.9082617&sbf=BS&sbh=-NR&sbi=TMX7316010203-000353_pano_0000_000902&sbl=ZSMKW:3Jwd7&sbp=-M"
+  },
+  {
+    "gwb": "DX19",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=10&mpo=pano::T&mpv=52.40142:4.9334342&sbf=Bg&sbh=-6Y&sbi=TMX7315120208-000143_pano_0002_000148&sbl=ZSi29:3KzSN&sbp=-9"
+  },
+  {
+    "gwb": "N60",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=9&mpo=pano::T&mpv=52.3866318:4.9082793&sbf=BS&sbh=Q&sbi=TMX7316010203-000306_pano_0000_000370&sbl=ZS5Yk:3Jwfx&sbp=-B"
+  },
+  {
+    "gwb": "N61",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=9&mpo=pano::T&mpv=52.3830355:4.9127612&sbf=BS&sbh=8k&sbi=TMX7316010203-000529_pano_0002_000729&sbl=ZS0rI:3KJv8&sbp=1O"
+  },
+  {
+    "gwb": "N62",
+    "pano": "https://data.amsterdam.nl/#?dte=bag%2Fverblijfsobject%2F03630001002775%2F&mpb=topografie&mpz=16&mpo=pano::T&mpv=52.3913264:4.9431242&sbf=BS&sbh=-Jy&sbi=TMX7316010203-000299_pano_0002_002484&sbl=ZSHlw:3LPK6"
+  },
+  {
+    "gwb": "N63",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=9&mpo=pano::T&mpv=52.3938121:4.9248487&sbf=BS&sbh=RD&sbi=TMX7316010203-000297_pano_0000_002493&sbl=ZSOEr:3KdmR"
+  },
+  {
+    "gwb": "N64",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=10&mpo=pano::T&mpv=52.3912404:4.9374157&sbf=BS&sbh=HB&sbi=TMX7316060226-000015_pano_0000_002050&sbl=ZSHY4:3LATN"
+  },
+  {
+    "gwb": "N65",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=10&mpo=pano::T&mpv=52.4117272:4.8942666&sbf=BS&sbh=L7&sbi=TMX7316010203-000312_pano_0000_003732&sbl=ZTD5q:3JDmy&sbp=C"
+  },
+  {
+    "gwb": "N66",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=12&mpo=pano::T&mpv=52.4179571:4.8900979&sbf=BS&sbh=-2L&sbi=TMX7316060226-000031_pano_0003_003046&sbl=ZTRZj:3JETB&sbp=-1R"
+  },
+  {
+    "gwb": "N67",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=11&mpo=pano::T&mpv=52.4178937:4.9048909&sbf=BS&sbh=-5P&sbi=TMX7316060226-000016_pano_0001_001385&sbl=ZTGn4:3JuPB&sbp=-C"
+  },
+  {
+    "gwb": "N68",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=16&mpo=pano::T&mpv=52.3935789:4.9542069&sbf=7t&sbh=Sc&sbi=TMX7316010203-000299_pano_0002_001837&sbl=ZSNqR:3Ls02&sbp=-1j"
+  },
+  {
+    "gwb": "N69",
+    "pano": "https://data.amsterdam.nl/#?dte=bag%2Fopenbareruimte%2F03630000003041%2F&mpb=topografie&mpz=11&mpo=pano::T&mpv=52.3986866:4.9375225&sbf=9e&sbh=-4R&sbi=TMX7316060226-000015_pano_0000_003625&sbl=ZSav4:3LAkb&sbp=X"
+  },
+  {
+    "gwb": "N70",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=11&mpo=pano::T&mpv=52.4102611:4.9180601&sbf=BS&sbh=Nc&sbi=TMX7316010203-000309_pano_0000_000737&sbl=ZT8Z0:3KSUY&sbp=J"
+  },
+  {
+    "gwb": "N71",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=9&mpo=pano::T&mpv=52.4007493:4.8868843&sbf=BS&sbh=G8&sbi=TMX7316010203-000301_pano_0000_005671&sbl=ZS26T:3Jc2v&sbp=-U"
+  },
+  {
+    "gwb": "N72",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=9&mpo=pano::T&mpv=52.3858603:4.9460252&sbf=BS&sbh=-Ll&sbi=TMX7316010203-000301_pano_0000_002890&sbl=ZS3YJ:3LWs0&sbp=-1K"
+  },
+  {
+    "gwb": "N73",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=14&mpo=pano::T&mpv=52.4068092:4.9664471&sbf=Bg&sbh=Ab&sbi=TMX7315120208-000040_pano_0000_000935&sbl=ZSw3A:3MNzr&sbp=-2Z"
+  },
+  {
+    "gwb": "N74",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=12&mpv=52.4067778:4.9314925&srl=ZSpKH:3KnED"
+  },
+  {
+    "gwb": "DX13",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=11&mpo=pano::T&mpv=52.3601477:4.9252909&sbf=Bj&sbh=-NP&sbi=TMX7315120208-000050_pano_0002_001249&sbl=ZQyf7:3Kevl&sbp=-t"
+  },
+  {
+    "gwb": "DX14",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=10&mpo=pano::T&mpv=52.363675:4.939534&sbf=Bc&sbh=Dy&sbi=TMX7316010203-000243_pano_0001_000079&sbl=ZR7q2:3LFz2&sbp=-x"
+  },
+  {
+    "gwb": "DX15",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=10&mpo=pano::T&mpv=52.3511789:4.934485&sbf=Bj&sbh=-9N&sbi=TMX7315120208-000023_pano_0000_002241&sbl=ZQbKX:3L2qg&sbp=-1S"
+  },
+  {
+    "gwb": "DX16",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=9&mpo=pano::T&mpv=52.3653579:4.969671&sbf=Bj&sbh=FY&sbi=TMX7315120208-000067_pano_0030_000275&sbl=ZQuzJ:3NPwi&sbp=-1J"
+  },
+  {
+    "gwb": "M27",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=11&mpo=pano::T&mpv=52.3517456:4.9113811&sbf=BV&sbh=Sp&sbi=TMX7316010203-000239_pano_0002_000369&sbl=ZQcnw:3K4kF&sbp=-o"
+  },
+  {
+    "gwb": "M28",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=11&mpo=pano::T&mpv=52.3585392:4.922072&sbf=Bj&sbh=-NX&sbi=TMX7315120208-000062_pano_0010_000609&sbl=ZR0f1:3KTT9&sbp=-1t"
+  },
+  {
+    "gwb": "M29",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=10&mpo=pano::T&mpv=52.3628385:4.9273665&sbf=BV&sbh=-16&sbi=TMX7316010203-000085_pano_0001_000076&sbl=ZR5f7:3KkKX&sbp=-k"
+  },
+  {
+    "gwb": "M30",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=11&mpo=pano::T&mpv=52.3554972:4.9233132&sbf=BV&sbh=NV&sbi=TMX7315120208-000071_pano_0006_000059&sbl=ZQmZ2:3KZmm&sbp=-1j"
+  },
+  {
+    "gwb": "M31",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=10&mpo=pano::T&mpv=52.3672526:4.9354517&sbf=BV&sbh=Af&sbi=TMX7315120208-000048_pano_0000_004073&sbl=ZRC5x:3L2nS&sbp=-m"
+  },
+  {
+    "gwb": "M32",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=10&mpo=pano::T&mpv=52.3650036:4.9409404&sbf=Bj&sbh=-Lx&sbi=TMX7315120208-000047_pano_0000_004075&sbl=ZRBIK:3LJds&sbp=-u"
+  },
+  {
+    "gwb": "M33",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=9&mpo=pano::T&mpv=52.3776834:4.9369743&sbf=Bj&sbh=-Cw&sbi=TMX7316010203-000371_pano_0000_002052&sbl=ZRiHS:3L9KB&sbp=-1L"
+  },
+  {
+    "gwb": "M34",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=11&mpo=pano::T&mpv=52.3627743:4.9642773&sbf=Bj&sbh=-6F&sbi=TMX7316010203-000245_pano_0000_000639&sbl=ZRBMw:3M3fh&sbp=-t"
+  },
+  {
+    "gwb": "M35",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=9&mpo=pano::T&mpv=52.3585295:4.9941046&sbf=Bj&sbh=7H&sbi=TMX7316010203-000240_pano_0001_003323&sbl=ZQuS7:3NXwk&sbp=-1F"
+  },
+  {
+    "gwb": "M50",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=9&mpo=pano::T&mpv=52.3503987:5.0070527&sbf=Bj&sbh=LP&sbi=TMX7315120208-000067_pano_0024_000641&sbl=ZQjKV:3OVPX&sbp=-A"
+  },
+  {
+    "gwb": "M51",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=9&mpo=pano::T&mpv=52.3503987:5.0070527&sbf=Bj&sbh=-Ei&sbi=TMX7315120208-000068_pano_0005_002091&sbl=ZQZIh:3O5d9&sbp=-1H"
+  },
+  {
+    "gwb": "M55",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=12&mpo=pano::T&mpv=52.3501358:4.9277169&sbf=Bj&sbh=-z&sbi=TMX7316010203-000232_pano_0000_000026&sbl=ZQVek:3Kviz&sbp=-1e"
+  },
+  {
+    "gwb": "M56",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=11&mpo=pano::T&mpv=52.3520345:4.941728&sbf=Bj&sbh=-Fa&sbi=TMX7316010203-000232_pano_0000_002481&sbl=ZQdYX:3LLgu&sbp=-1J"
+  },
+  {
+    "gwb": "M57",
+    "pano": "https://data.amsterdam.nl/#?dte=bag%2Fopenbareruimte%2F03630000003025%2F&mpb=topografie&mpz=13&mpo=pano::T&mpv=52.3402319:4.9433504&sbf=Bj&sbh=-2c&sbi=TMX7316010203-000233_pano_0002_000743&sbl=ZQ8qt:3LPua&sbp=-4"
+  },
+  {
+    "gwb": "M58",
+    "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=11&mpo=pano::T&mpv=52.3428749:4.9171438&sbf=BV&sbh=-H7&sbi=TMX7316010203-000332_pano_0001_001845&sbl=ZQ9YI:3KKPk&sbp=-v"
   }
 ]

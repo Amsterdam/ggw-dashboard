@@ -1,22 +1,14 @@
 [
   {
-    "label": "Gebiedsanalyse downloaden",
-    "url": "http://www.amsterdam.nl"
+    "label": "In welk gebied woont u?",
+    "url": "https://www.amsterdam.nl/buurten/"
   },
   {
-    "label": "Links naar gemeenteonderdelen",
-    "url": "http://www.amsterdam.nl"
+    "label": "Gebiedsgericht werken",
+    "url": "https://www.amsterdam.nl/bestuur-organisatie/volg-beleid/gebiedsgericht/"
   },
   {
-    "label": "De nieuwbouwkaart",
-    "url": "http://www.amsterdam.nl"
-  },
-  {
-    "label": "Woningnet",
-    "url": "http://www.amsterdam.nl"
-  },
-  {
-    "label": "AFWC",
-    "url": "http://www.amsterdam.nl"
+    "label": "Gebiedsanalyses",
+    "url": "https://www.ois.amsterdam.nl/publicaties/gebiedsanalyses/"
   }
 ]
