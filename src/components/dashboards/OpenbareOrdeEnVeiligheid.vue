@@ -8,11 +8,11 @@
 
         <div class="grid-blok grid_6">
 
-          <horizontal-text title="Veiligheid" icon="veelpleger.jpg" :config="veiligheid"></horizontal-text>
+          <horizontal-text title="Veiligheid" icon="veelpleger.png" :config="veiligheid"></horizontal-text>
         </div>
         <div class="grid-blok grid_6">
 
-          <horizontal-text title="Overlast" icon="silhouet daders.jpg" :config="overlast"></horizontal-text>
+          <horizontal-text title="Overlast" icon="silhouet daders.png" :config="overlast"></horizontal-text>
         </div>
       </div>
     </div>
