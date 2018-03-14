@@ -1,5 +1,3 @@
-import axios from 'axios'
-
 import { GEBIED_TYPE, getGebiedType, enhanceGWB, getKeyFromUrl } from '@/services/apis/gebieden'
 import gebiedscodes from '../../../static/tmp/gebieden'
 

@@ -44,6 +44,14 @@ docker-compose up
 
 The app is exposed at localhost:8080
 
+### Docker tests
+
+cd test
+
+docker-compose build
+
+docker-compose run test
+
 ## Static data
 A few files are retrieved from OIS to cover for missing or erroneous data in any of the API's
 This data is contained in the static/tmp folder
