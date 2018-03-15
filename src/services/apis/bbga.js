@@ -76,8 +76,7 @@ export async function getMeta (variableName) {
  * @returns {Promise<{jaar: *|number|string, waarde: null, post: string, gebiedcode15: *|string, color, textColor: *|textColor}[]>}
  */
 async function getCijfers (meta, year = null, gebiedCode = null) {
-  const isPercentage = /_P$/i // Add auto-post for percentages
-  const post = isPercentage.test(meta.variabele) ? '%' : '' // Simple check to see if a percentage is requested
+  const post = meta.symbool === '%' ? meta.symbool : '' // only copy % symbol
 
   const selectVariable = `variabele=${meta.variabele}`
   const selectYear = year ? `&jaar=${year}` : ''
