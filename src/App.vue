@@ -14,7 +14,7 @@
       </div>
     </div>
 
-    <div class="contents-wrapper" v-if="gwb && meta && thema">
+    <div class="contents-wrapper" v-if="gwb && meta && thema && !HTTPStatus.pending">
       <div class="grid-container container_12 breakout-container">
         <div class="grid-zone grid_12 z-kolom1-4_1 breakout-zone hasbgcolor bgcolor_darkgrey">
           <meer-cijfers-en-informatie></meer-cijfers-en-informatie>
@@ -28,6 +28,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import { HTTPStatus } from './services/datareader'
 
 import amsHeader from './components/layout/AMSHeader'
 import ggwSelector from './components/layout/GGWSelector'
@@ -41,6 +42,11 @@ export default {
     'ggw-selector': ggwSelector,
     'meer-cijfers-en-informatie': meerCijfersEnInformatie,
     'loading-component': loadingComponent
+  },
+  data () {
+    return {
+      HTTPStatus
+    }
   },
   computed: {
     ...mapGetters([
