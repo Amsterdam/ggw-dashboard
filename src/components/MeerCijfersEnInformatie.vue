@@ -39,7 +39,7 @@
         OIS kan in het bijzonder niet aansprakelijk worden gesteld voor eventuele schade of consequenties ontstaan door direct of indirect gebruik van de inhoud van de website.
         </p>
         <p>
-        Alle informatie op Gebied in Beeld valt onder Copyright © van OIS, tenzij een andere bron is vermeld.<br>
+        Alle informatie op Gebied in Beeld valt onder Copyright &copy; van OIS, tenzij een andere bron is vermeld.<br>
         Het overnemen van gegevens is met de volgende bronvermelding toegestaan: <b>OIS Amsterdam</b>.
         </p>
         <p>
