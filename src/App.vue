@@ -14,6 +14,14 @@
       </div>
     </div>
 
+    <div class="contents-wrapper">
+      <div class="grid-container container_12 breakout-container">
+        <div class="grid-zone grid_12 z-kolom1-4_1 breakout-zone hasbgcolor bgcolor_darkgrey">
+          <meer-cijfers-en-informatie></meer-cijfers-en-informatie>
+        </div>
+      </div>
+    </div>
+
     <loading-component></loading-component>
   </div>
 </template>
@@ -21,6 +29,7 @@
 <script>
 import amsHeader from './components/layout/AMSHeader'
 import ggwSelector from './components/layout/GGWSelector'
+import meerCijfersEnInformatie from './components/MeerCijfersEnInformatie'
 import loadingComponent from './components/LoadingComponent'
 
 export default {
@@ -28,6 +37,7 @@ export default {
   components: {
     'ams-header': amsHeader,
     'ggw-selector': ggwSelector,
+    'meer-cijfers-en-informatie': meerCijfersEnInformatie,
     'loading-component': loadingComponent
   }
 }

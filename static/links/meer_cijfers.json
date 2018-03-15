@@ -2,5 +2,13 @@
   {
     "label": "Basisbestand Gebieden Amsterdam (BBGA)",
     "url": "https://data.amsterdam.nl/index.html#?dte=catalogus%2Fapi%2F3%2Faction%2Fpackage_show%3Fid%3Db51154d8-2eca-4dd9-932d-63bca9ef0bf2&dtfs=T&dsf=groups::bevolking&mpb=topografie&mpz=11&mpv=52.3731081:4.8932945"
+  },
+  {
+    "label": "Buurten vergelijken - tabel",
+    "url": "https://statistiek.data.amsterdam.nl/t/PO/views/Kerncijfertabel_v2/Dashtabel?:embed=n&:showAppBanner=false&:showShareOptions=true&:display_count=no&:showVizHome=no    "
+  },
+  {
+    "label": "Buurten vergelijken - trendgrafiek",
+    "url": "https://statistiek.data.amsterdam.nl/t/PO/views/Kerncijfertabel_v2/Dashtijdlijnen?:embed=n&:showAppBanner=false&:showShareOptions=true&:display_count=no&:showVizHome=no"
   }
 ]
