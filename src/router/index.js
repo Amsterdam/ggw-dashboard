@@ -3,6 +3,7 @@ import Router from 'vue-router'
 
 import Dashboard from '../components/layout/Dashboard'
 import Meta from '@/components/layout/Meta'
+import Tableau from '@/components/Tableau'
 
 Vue.use(Router)
 
@@ -22,6 +23,11 @@ export default new Router({
       path: '/meta',
       name: 'meta',
       component: Meta
+    },
+    {
+      path: '/tableau',
+      name: 'tableau',
+      component: Tableau
     }
   ]
 })
