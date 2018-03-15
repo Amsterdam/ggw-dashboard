@@ -7,6 +7,7 @@ import {readData, readPaginatedData} from '../datareader'
  * The list of gebieden is supplied by OIS. If information about a gebied is available in this list it is used instead of the API data
  */
 import gebiedscodes from '../../../static/tmp/gebieden'
+import wijkgebied from '../../../static/tmp/wijkgebied'
 import { cacheResponse } from '../cache'
 
 /**
@@ -99,6 +100,10 @@ export async function getDetail (entity) {
  * @returns {Promise<*>}
  */
 export async function getWijken (gebied) {
+  // Get the wijk codes of all wijken within the gebied
+  const wijkgebieden = wijkgebied
+    .filter(wg => wg.gebied === gebied.vollcode)
+
   const gebiedsDetailUrl = gebied._links.self.href
   const gebiedsDetail = await readData(gebiedsDetailUrl)
 
@@ -106,8 +111,13 @@ export async function getWijken (gebied) {
   const stadsdeelDetailUrl = stadsdeel._links.self.href
   const stadsdeelKey = getKeyFromUrl(stadsdeelDetailUrl)
 
+  // Get all wijken within the stadsdeel
   const wijkenUrl = getUrl('/wijk/?stadsdeel=' + stadsdeelKey)
-  const wijken = await readPaginatedData(wijkenUrl)
+  let wijken = await readPaginatedData(wijkenUrl)
+
+  // Filter the wijken for being a wijk within the gebied
+  wijken = wijken
+    .filter(w => wijkgebieden.find(wg => wg.wijk === w.vollcode))
   return enhancedGWBList(wijken)
 }
 
