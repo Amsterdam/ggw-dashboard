@@ -19,7 +19,7 @@
       <div class="grid-element">
         <div class="grid-blok grid_12">
           <div class="grid-title">
-            <h2>Positie en ontwikkeling van {{gwb.naam}} t.o.v. het stedelijk gemiddelde</h2>
+            <h2>Ontwikkeling van {{gwb.naam}}</h2>
           </div>
 
           <data-table :config="kerncijfers"></data-table>

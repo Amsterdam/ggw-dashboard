@@ -2,7 +2,7 @@
   <ul>
     <li v-for="(item, index) in data" :key="index">
       <tooltip :cijfers="data" :cijfer="item">
-      {{item.label}}
+      {{item.label}}:
       <span v-if="item.recent">
         {{item.recent | displaywaarde}}
       </span>
