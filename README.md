@@ -16,41 +16,35 @@
 
 ## Build Setup, local development
 
-``` bash
-# install dependencies
-npm install
+    # install dependencies
+    npm install
 
-# serve with hot reload at localhost:8080
-npm run dev
+    # serve with hot reload at localhost:8080
+    npm run dev
 
-# build for production with minification
-npm run build
+    # build for production with minification
+    npm run build
 
-# build for production and view the bundle analyzer report
-npm run build --report
+    # build for production and view the bundle analyzer report
+    npm run build --report
 
-# run unit tests
-npm run unit
-
-```
+    # run unit tests
+    npm run unit
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
 ## Deployment
 
-docker-compose build
-
-docker-compose up
+    docker-compose build
+    docker-compose up
 
 The app is exposed at localhost:8080
 
 ### Docker tests
 
-cd test
-
-docker-compose build
-
-docker-compose run test
+    cd test
+    docker-compose build
+    docker-compose run test
 
 ## Static data
 A few files are retrieved from OIS to cover for missing or erroneous data in any of the API's
@@ -70,6 +64,12 @@ When receiving a new file:
 The names of the gebieden is retrieved from static/tmp/gebieden.json.
 If the name cannot be found in this document, the Gebieden API name is used.
 The gebieden.json document has been constructed on the basis of a csv file received from OIS.
+
+### wijkgebied - relation between wijken en gebieden
+
+The gebieden API does not provide for getting wijken with in a gebied
+Instead the wijken within the stadsdeel of the gebied are retrieved and filtered for being a wijk within the gebied
+The wijkgebied.json has been constructed on the basis of a bbga_gebied_hierarchy csv-file of OIS.
 
 ## General structure of the app
 
@@ -100,4 +100,4 @@ An example is the enhancement of gebieden, wijken and buurten for missing proper
 
 ## Styling
 
-[to be added]
+The styling is done by using the stijl repository of Amsterdam.
