@@ -7,7 +7,7 @@
 <script>
 import { mapGetters } from 'vuex'
 import panos from '../../static/links/panos'
-import util from '../services/util'
+import { base62DecodeAngle } from '../services/base62'
 
 let PANO_DEFAULT = null
 
@@ -44,7 +44,7 @@ export default {
       try {
         sbi = panoUrl.match(/&sbi=([^&]*)/)[1]
         sbh = panoUrl.match(/&sbh=([^&]*)/)[1]
-        sbh = Math.round(util.base62DecodeAngle(sbh, 1))
+        sbh = Math.round(base62DecodeAngle(sbh, 1))
       } catch (error) {
         console.error('Missing pano for', this.gwb.volledige_code)
         sbi = 'TMX7316010203-000353_pano_0002_000059'

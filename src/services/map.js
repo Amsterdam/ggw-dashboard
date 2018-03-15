@@ -67,6 +67,7 @@ export function drawShapes (shapes, map) {
 export function amsMap (el) {
   const map = L.map(el, {
     crs: rd,
+    attributionControl: false,
     zoomControl: true,
     scrollWheelZoom: false
   }).setView([52.35, 4.9], 6)

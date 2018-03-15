@@ -230,12 +230,6 @@ describe('util', () => {
       ))
   })
 
-  it('can base62 decode strings', () => {
-    expect(util.decodeString('FR')).toEqual(957)
-    expect(util.base62DecodeAngle('FR', 1)).toEqual(95.7)
-    expect(util.base62DecodeAngle('-FR', 1)).toEqual(264.3)
-  })
-
   it('can flatten arrays', () => {
     expect(util.flatten([1, [2, 3], 4])).toEqual([1, 2, 3, 4])
     expect(util.flatten([1, [2, [3]], 4])).toEqual([1, 2, 3, 4])
