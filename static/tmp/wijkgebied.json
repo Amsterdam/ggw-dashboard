@@ -1,0 +1,402 @@
+[
+  {
+    "wijk": "A00",
+    "gebied": "DX01"
+  },
+  {
+    "wijk": "A01",
+    "gebied": "DX01"
+  },
+  {
+    "wijk": "A02",
+    "gebied": "DX01"
+  },
+  {
+    "wijk": "A03",
+    "gebied": "DX02"
+  },
+  {
+    "wijk": "A04",
+    "gebied": "DX02"
+  },
+  {
+    "wijk": "A05",
+    "gebied": "DX01"
+  },
+  {
+    "wijk": "A06",
+    "gebied": "DX01"
+  },
+  {
+    "wijk": "A07",
+    "gebied": "DX02"
+  },
+  {
+    "wijk": "A08",
+    "gebied": "DX02"
+  },
+  {
+    "wijk": "A09",
+    "gebied": "DX02"
+  },
+  {
+    "wijk": "B10",
+    "gebied": "ZX99"
+  },
+  {
+    "wijk": "E12",
+    "gebied": "DX03"
+  },
+  {
+    "wijk": "E13",
+    "gebied": "DX03"
+  },
+  {
+    "wijk": "E14",
+    "gebied": "DX03"
+  },
+  {
+    "wijk": "E15",
+    "gebied": "DX03"
+  },
+  {
+    "wijk": "E16",
+    "gebied": "DX03"
+  },
+  {
+    "wijk": "E17",
+    "gebied": "DX05"
+  },
+  {
+    "wijk": "E18",
+    "gebied": "DX05"
+  },
+  {
+    "wijk": "E19",
+    "gebied": "DX05"
+  },
+  {
+    "wijk": "E20",
+    "gebied": "DX05"
+  },
+  {
+    "wijk": "E21",
+    "gebied": "DX05"
+  },
+  {
+    "wijk": "E22",
+    "gebied": "DX05"
+  },
+  {
+    "wijk": "E36",
+    "gebied": "DX04"
+  },
+  {
+    "wijk": "E37",
+    "gebied": "DX04"
+  },
+  {
+    "wijk": "E38",
+    "gebied": "DX04"
+  },
+  {
+    "wijk": "E39",
+    "gebied": "DX04"
+  },
+  {
+    "wijk": "E40",
+    "gebied": "DX05"
+  },
+  {
+    "wijk": "E41",
+    "gebied": "DX05"
+  },
+  {
+    "wijk": "E42",
+    "gebied": "DX05"
+  },
+  {
+    "wijk": "E43",
+    "gebied": "DX05"
+  },
+  {
+    "wijk": "E75",
+    "gebied": "DX05"
+  },
+  {
+    "wijk": "F11",
+    "gebied": "DX06"
+  },
+  {
+    "wijk": "F76",
+    "gebied": "DX06"
+  },
+  {
+    "wijk": "F77",
+    "gebied": "DX06"
+  },
+  {
+    "wijk": "F78",
+    "gebied": "DX06"
+  },
+  {
+    "wijk": "F79",
+    "gebied": "DX06"
+  },
+  {
+    "wijk": "F80",
+    "gebied": "DX07"
+  },
+  {
+    "wijk": "F81",
+    "gebied": "DX07"
+  },
+  {
+    "wijk": "F82",
+    "gebied": "DX07"
+  },
+  {
+    "wijk": "F83",
+    "gebied": "DX07"
+  },
+  {
+    "wijk": "F84",
+    "gebied": "DX08"
+  },
+  {
+    "wijk": "F85",
+    "gebied": "DX09"
+  },
+  {
+    "wijk": "F86",
+    "gebied": "DX09"
+  },
+  {
+    "wijk": "F87",
+    "gebied": "DX09"
+  },
+  {
+    "wijk": "F88",
+    "gebied": "DX08"
+  },
+  {
+    "wijk": "F89",
+    "gebied": "DX09"
+  },
+  {
+    "wijk": "K23",
+    "gebied": "DX11"
+  },
+  {
+    "wijk": "K24",
+    "gebied": "DX12"
+  },
+  {
+    "wijk": "K25",
+    "gebied": "DX12"
+  },
+  {
+    "wijk": "K26",
+    "gebied": "DX12"
+  },
+  {
+    "wijk": "K44",
+    "gebied": "DX10"
+  },
+  {
+    "wijk": "K45",
+    "gebied": "DX10"
+  },
+  {
+    "wijk": "K46",
+    "gebied": "DX10"
+  },
+  {
+    "wijk": "K47",
+    "gebied": "DX10"
+  },
+  {
+    "wijk": "K48",
+    "gebied": "DX10"
+  },
+  {
+    "wijk": "K49",
+    "gebied": "DX10"
+  },
+  {
+    "wijk": "K52",
+    "gebied": "DX12"
+  },
+  {
+    "wijk": "K53",
+    "gebied": "DX12"
+  },
+  {
+    "wijk": "K54",
+    "gebied": "DX12"
+  },
+  {
+    "wijk": "K59",
+    "gebied": "DX11"
+  },
+  {
+    "wijk": "K90",
+    "gebied": "DX11"
+  },
+  {
+    "wijk": "K91",
+    "gebied": "DX11"
+  },
+  {
+    "wijk": "M27",
+    "gebied": "DX13"
+  },
+  {
+    "wijk": "M28",
+    "gebied": "DX13"
+  },
+  {
+    "wijk": "M29",
+    "gebied": "DX13"
+  },
+  {
+    "wijk": "M30",
+    "gebied": "DX13"
+  },
+  {
+    "wijk": "M31",
+    "gebied": "DX14"
+  },
+  {
+    "wijk": "M32",
+    "gebied": "DX14"
+  },
+  {
+    "wijk": "M33",
+    "gebied": "DX14"
+  },
+  {
+    "wijk": "M34",
+    "gebied": "DX16"
+  },
+  {
+    "wijk": "M35",
+    "gebied": "DX16"
+  },
+  {
+    "wijk": "M50",
+    "gebied": "DX16"
+  },
+  {
+    "wijk": "M51",
+    "gebied": "DX16"
+  },
+  {
+    "wijk": "M55",
+    "gebied": "DX15"
+  },
+  {
+    "wijk": "M56",
+    "gebied": "DX15"
+  },
+  {
+    "wijk": "M57",
+    "gebied": "DX15"
+  },
+  {
+    "wijk": "M58",
+    "gebied": "DX15"
+  },
+  {
+    "wijk": "N60",
+    "gebied": "DX18"
+  },
+  {
+    "wijk": "N61",
+    "gebied": "DX18"
+  },
+  {
+    "wijk": "N62",
+    "gebied": "DX18"
+  },
+  {
+    "wijk": "N63",
+    "gebied": "DX18"
+  },
+  {
+    "wijk": "N64",
+    "gebied": "DX18"
+  },
+  {
+    "wijk": "N65",
+    "gebied": "DX17"
+  },
+  {
+    "wijk": "N66",
+    "gebied": "DX17"
+  },
+  {
+    "wijk": "N67",
+    "gebied": "DX17"
+  },
+  {
+    "wijk": "N68",
+    "gebied": "DX19"
+  },
+  {
+    "wijk": "N69",
+    "gebied": "DX19"
+  },
+  {
+    "wijk": "N70",
+    "gebied": "DX17"
+  },
+  {
+    "wijk": "N71",
+    "gebied": "DX18"
+  },
+  {
+    "wijk": "N72",
+    "gebied": "DX18"
+  },
+  {
+    "wijk": "N73",
+    "gebied": "DX19"
+  },
+  {
+    "wijk": "N74",
+    "gebied": "DX19"
+  },
+  {
+    "wijk": "T92",
+    "gebied": "DX20"
+  },
+  {
+    "wijk": "T93",
+    "gebied": "DX20"
+  },
+  {
+    "wijk": "T94",
+    "gebied": "DX21"
+  },
+  {
+    "wijk": "T95",
+    "gebied": "DX22"
+  },
+  {
+    "wijk": "T96",
+    "gebied": "DX22"
+  },
+  {
+    "wijk": "T97",
+    "gebied": "DX22"
+  },
+  {
+    "wijk": "T98",
+    "gebied": "DX22"
+  },
+  {
+    "wijk": "Z99",
+    "gebied": "ZX99"
+  }
+]
