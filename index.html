@@ -4,10 +4,46 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Gebiedsgericht Werken Dashboard</title>
+
+    <style>
+      #ggw-dashboard-intro {
+        margin-top: 50px;
+        text-align: center;
+      }
+    </style>
   </head>
   <body>
     <!--The content is described in the App component-->
     <div id="app"></div>
+
+    <!--A message to show when loading fails-->
+    <div id="ggw-dashboard-intro"></div>
+
+    <script>
+      function getIntro () {
+        return document.querySelector('#ggw-dashboard-intro')
+      }
+
+      // When hideIntro has not been called by the app (load failure) a message will be displayed
+      function showIntro () {
+        var intro = getIntro()
+        intro && (intro.textContent = 'Deze applicatie is geschikt voor recente versies van Chrome, Firefox en Safari');
+      }
+
+      // Function to be called on app start to prevent intro message
+      function hideIntro () {
+        var intro = getIntro()
+        intro && intro.remove()
+      }
+
+      // Wait for load complete. When this state is reached schedule the display of an intro message
+      // When the app successfully loaded and has called hideIntro() this message will not be displayed
+      function onReadyStateChange () {
+        document.readyState === 'complete' && showIntro();
+      }
+
+      document.onreadystatechange = onReadyStateChange
+    </script>
 
     <!-- built files will be auto injected -->
   </body>
