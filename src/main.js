@@ -52,6 +52,8 @@ let vueApp = new Vue({
      * @returns {Promise<void>}
      */
     async init () {
+      window.hideIntro && window.hideIntro() // Hide any introduction message
+
       const meta = await util.getAllMeta()
       this.setMeta(meta)
     }
