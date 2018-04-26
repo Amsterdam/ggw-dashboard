@@ -6,7 +6,7 @@
           <div class="invoer">
             <b-form-select v-model="variable"
                            :disabled="loading || drawing"
-                           :options="variables"
+                           :options="variables || []"
                              text-field="label"
                              value-field="variable">
                 <template slot="first">
@@ -430,7 +430,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~stijl/scss/ams-colorpalette";
+@import "~stijl/dist/scss/ams-colorpalette";
 
   .map {
     height: 25rem;
