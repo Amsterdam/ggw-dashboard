@@ -3,8 +3,14 @@
 //  specific
 //
 
-@import "~stijl/scss/ams-colorpalette";
-@import "~stijl/scss/ams-breakpoints";
+@import "~stijl/dist/scss/ams-colorpalette";
+@import "~stijl/dist/scss/ams-breakpoints";
+
+.rij + .rij,
+.rij + .knoppen {
+  margin-top: 0;
+}
+
 
 // header styling
 .ams-header {

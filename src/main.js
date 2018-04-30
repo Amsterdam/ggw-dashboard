@@ -3,7 +3,7 @@
 
 import 'leaflet/dist/leaflet.css'
 
-import 'stijl/css/ams-stijl.css'
+import 'stijl/dist/css/ams-stijl.css'
 import '../static/app.scss'
 
 import Vue from 'vue'

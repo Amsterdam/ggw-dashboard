@@ -25,7 +25,7 @@
                   <div class="invoer" v-show="cijfers && cijfers.length > 1">
                     <b-form-select @change="selectCijfer"
                                    v-model="selectedLabel"
-                                   :options="cijfers"
+                                   :options="cijfers || []"
                                    text-field="label"
                                    value-field="label"
                                    id="dropdown">

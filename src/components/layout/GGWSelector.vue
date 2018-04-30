@@ -8,7 +8,7 @@
         <b-form-select v-model="selection.gebied"
                        :disabled="HTTPStatus.pending > 0 || !selection.gebieden"
                        @change="updateGebied"
-                       :options="selection.gebieden"
+                       :options="selection.gebieden || []"
                        text-field="display"
                        value-field="vollcode"
                        id="selectGebied">
@@ -24,7 +24,7 @@
         <b-form-select v-model="selection.wijk"
                        :disabled="HTTPStatus.pending > 0 || !selection.wijken"
                        @change="updateWijk"
-                       :options="selection.wijken"
+                       :options="selection.wijken || []"
                        text-field="display"
                        value-field="vollcode"
                        id="selectWijk">
@@ -36,6 +36,7 @@
         </b-form-select>
       </div>
     </div>
+
     <div class="rij mode_input selectie">
       <div class="label">
         <label for="selectBuurt">Buurt</label>
@@ -44,7 +45,7 @@
         <b-form-select v-model="selection.buurt"
                        :disabled="HTTPStatus.pending > 0 || !selection.buurten"
                        @change="updateBuurt"
-                       :options="selection.buurten"
+                       :options="selection.buurten || []"
                        text-field="display"
                        value-field="vollcode"
                        id="selectBuurt">
@@ -64,7 +65,7 @@
         <b-form-select v-model="selection.thema"
                        :disabled="HTTPStatus.pending > 0 || !selection.themas"
                        @change="updateThema"
-                       :options="selection.themas"
+                       :options="selection.themas || []"
                        text-field="text"
                        value-field="id"
                        id="selectThema">
@@ -271,8 +272,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "~stijl/scss/ams-breakpoints";
-  @import "~stijl/scss/ams-colorpalette";
+  @import "~stijl/dist/scss/ams-breakpoints";
+  @import "~stijl/dist/scss/ams-colorpalette";
 
   .invoer {
     margin-bottom: .5rem;

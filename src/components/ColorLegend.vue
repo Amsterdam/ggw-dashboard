@@ -47,7 +47,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "~stijl/scss/ams-colorpalette";
+  @import "~stijl/dist/scss/ams-colorpalette";
 
   .marge-left {
     margin-left: 1rem;
