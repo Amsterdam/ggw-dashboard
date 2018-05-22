@@ -1,19 +1,19 @@
 <template>
   <div>
     <div v-if="gwb && meta">
-      <div class="grid-element">
-        <div class="grid-blok grid_12">
+      <div class="row">
+        <div class="col-12">
           <div class="grid-title">
             <h2>Ontwikkeling van {{gwb.naam}}</h2>
           </div>
         </div>
       </div>
-      <div class="grid-blok grid_12">
+      <div class="col-12">
         <data-table :config="kerncijfers"></data-table>
       </div>
 
-      <div class="grid-element">
-        <div class="grid-blok grid_12">
+      <div class="row">
+        <div class="col-12">
           <div class="grid-title">
             <h2>Verschillen binnen het gebied</h2>
           </div>

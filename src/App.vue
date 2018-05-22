@@ -1,28 +1,23 @@
 <template>
-  <div id="app" class="grid-container">
-    <ams-header>Header</ams-header>
-
+  <div id="app">
+    <div class="container-fluid">
+      <ams-header>Header</ams-header>
+    </div>
     <div class="sticky-top">
       <ggw-selector></ggw-selector>
     </div>
 
-    <div class="grid-wrapper wrapper_12 contents-wrapper">
-      <div class="grid-container container_12 main-view">
-        <div class="grid-zone grid_12">
-            <router-view></router-view>
-        </div>
-      </div>
-    </div>
-
-    <div class="contents-wrapper" v-if="gwb && meta && thema && !HTTPStatus.pending">
-      <div class="grid-container container_12 breakout-container">
-        <div class="grid-zone grid_12 z-kolom1-4_1 breakout-zone hasbgcolor bgcolor_darkgrey">
-          <meer-cijfers-en-informatie></meer-cijfers-en-informatie>
-        </div>
-      </div>
+    <div class="container">
+      <router-view></router-view>
     </div>
 
     <loading-component></loading-component>
+    <div class="container-fluid" v-if="gwb && meta && thema && !HTTPStatus.pending">
+      <div class="row bg-darkgrey footer">
+        <meer-cijfers-en-informatie></meer-cijfers-en-informatie>
+      </div>
+    </div>
+
   </div>
 </template>
 

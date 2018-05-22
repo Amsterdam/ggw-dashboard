@@ -1,6 +1,6 @@
 <template>
   <div class="header-filter">
-    <div class="rij mode_input selectie">
+    <div class="row mode_input selectie">
       <div class="label">
         <label for="selectGebied">Gebied</label>
       </div>
@@ -16,7 +16,7 @@
       </div>
     </div>
 
-    <div class="rij mode_input selectie">
+    <div class="row mode_input selectie">
       <div class="label">
         <label for="selectWijk">Wijk</label>
       </div>
@@ -37,7 +37,7 @@
       </div>
     </div>
 
-    <div class="rij mode_input selectie">
+    <div class="row mode_input selectie">
       <div class="label">
         <label for="selectBuurt">Buurt</label>
       </div>
@@ -57,7 +57,7 @@
       </div>
     </div>
 
-    <div class="rij mode_input selectie">
+    <div class="row mode_input selectie">
       <div class="label">
         <label for="selectThema">Thema</label>
       </div>

@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="grid-element">
-      <div class="grid-blok grid_12">
-        <div class="rij mode_input selectie">
+    <div class="row">
+      <div class="col-12">
+        <div class="row mode_input selectie">
           <div class="invoer">
             <b-form-select v-model="variable"
                            :disabled="loading || drawing"
@@ -19,11 +19,11 @@
       </div>
     </div>
     <div class="zone-clear clear"></div>
-    <div class="grid-element">
-      <div class="grid-blok grid_7 pad-top-bottom pull-up">
+    <div class="row">
+      <div class="col-7 pad-top-bottom pull-up">
           <div :ref="mapRef" class="map"></div>
       </div>
-      <div class="grid-blok grid_5 pad-top-bottom marge-left pull-up">
+      <div class="col-5 pad-top-bottom marge-left pull-up">
         <div v-if="gebiedType && variable && !highLow.length">
           Geen cijfers beschikbaar
         </div>
@@ -62,9 +62,9 @@
         </div>
       </div>
       <div class="zone-clear clear"></div>
-      <div class="grid-element">
-        <div class="grid-blok grid_12">
-          <fieldset class="rij mode_input text rij_verplicht">
+      <div class="row">
+        <div class="col-12">
+          <fieldset class="row mode_input text row_verplicht">
             <div class="antwoorden checkboxen">
               <div class="label">
                 <label for="gebiedFilter">Filter</label>
@@ -449,7 +449,7 @@ export default {
     }
   }
 
-  .rij_verplicht {
+  .row_verplicht {
     +.alert-wrapper {
       padding-top: 0;
       margin-top: -1rem;

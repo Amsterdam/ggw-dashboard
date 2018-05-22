@@ -1,7 +1,7 @@
 <template>
   <div>
 
-    <div class="rij mode_input text rij_verplicht">
+    <div class="row mode_input text row_verplicht">
       <div class="label">
         <label for="formInput">Filter on variable, label or definitie</label>
       </div>

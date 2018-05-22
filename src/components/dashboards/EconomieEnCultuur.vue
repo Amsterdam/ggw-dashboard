@@ -1,22 +1,22 @@
 <template>
   <div>
     <div v-if="gwb && meta">
-      <div class="grid-element">
-        <div class="grid-blok grid_12 card">
+      <div class="row">
+        <div class="col-12 card">
           <div class="grid-title">
             <h2>Bewoners over hun eigen buurt en woning</h2>
           </div>
 
-          <div class="grid-blok grid_6">
+          <div class="col-6">
             <horizontal-text title="Bedrijvigheid" icon="bedrijven.png" :config="bedrijvigheid"></horizontal-text>
           </div>
-          <div class="grid-blok grid_6">
+          <div class="col-6">
             <horizontal-text title="Cultuur" icon="cultuur.png" :config="cultuur"></horizontal-text>
           </div>
         </div>
 
-        <div class="grid-element">
-          <div class="grid-blok grid_12">
+        <div class="row">
+          <div class="col-12">
               <div class="grid-title">
                 <h2>Ontwikkeling van {{gwb.naam}}</h2>
               </div>
@@ -27,8 +27,8 @@
         </div>
       <div class="zone-clear clear"></div>
 
-      <div class="grid-element">
-        <div class="grid-blok grid_12">
+      <div class="row">
+        <div class="col-12">
           <div class="grid-title">
             <h2>Verschillen binnen het gebied</h2>
           </div>
@@ -38,15 +38,15 @@
       </div>
       <div class="zone-clear clear"></div>
 
-      <div class="grid-element">
-        <div class="grid-blok grid_12 card">
+      <div class="row">
+        <div class="col-12 card">
           <div class="grid-title">
             <h2>Aantal vestigingen en werkzame personen</h2>
           </div>
-          <div class="grid-blok grid_8">
+          <div class="col-8">
             <line-chart :config="aantalVestigingenEnWerkzamePersonen"></line-chart>
           </div>
-          <div class="grid-blok grid_4">
+          <div class="col-4">
             <div class="grid-title">
               <span><b>Van de vestigingen is…</b></span>
             </div>
@@ -57,8 +57,8 @@
 
       <div class="zone-clear clear"></div>
 
-      <div class="grid-element">
-        <div class="grid-blok grid_6 card">
+      <div class="row">
+        <div class="col-6 card">
           <div class="grid-title">
             <h2>Vestigingen naar hoofdfunctie</h2>
           </div>
@@ -67,8 +67,8 @@
         </div>
         </div>
       </div>
-      <div class="grid-element">
-        <div class="grid-blok grid_6 card">
+      <div class="row">
+        <div class="col-6 card">
           <div class="grid-title">
             <h2>Werkzame personen naar hoofdfunctie</h2>
           </div>

@@ -1,22 +1,22 @@
 <template>
   <div v-if="gwb && meta">
-    <div class="grid-element">
-      <div class="grid-blok grid_12 card">
+    <div class="row">
+      <div class="col-12 card">
         <div class="grid-title">
           <h2>Bevolkingssamenstelling</h2>
         </div>
-        <div class="grid-blok grid_6">
+        <div class="col-6">
           <horizontal-text title="Inwoners" icon="man.png" :config="inwoners"></horizontal-text>
         </div>
-        <div class="grid-blok grid_6">
+        <div class="col-6">
           <horizontal-text title="Huishoudens" icon="gezinnetje.png" :config="huishoudens"></horizontal-text>
         </div>
       </div>
     </div>
     <div class="zone-clear clear"></div>
 
-    <div class="grid-element">
-      <div class="grid-blok grid_12">
+    <div class="row">
+      <div class="col-12">
         <div class="grid-title">
           <h2>Ontwikkeling van {{gwb.naam}}</h2>
         </div>
@@ -25,8 +25,8 @@
       </div>
     </div>
     <div class="zone-clear clear"></div>
-    <div class="grid-element">
-      <div class="grid-blok grid_12">
+    <div class="row">
+      <div class="col-12">
         <div class="grid-title">
           <h2>Verschillen binnen het gebied</h2>
         </div>
@@ -35,15 +35,15 @@
     </div>
     <div class="zone-clear clear"></div>
 
-    <div class="grid-element">
-      <div class="grid-blok grid_12 card">
+    <div class="row">
+      <div class="col-12 card">
         <div class="grid-title">
             <h2>Aantal inwoners</h2>
         </div>
-        <div class="grid-blok grid_8">
+        <div class="col-8">
           <line-chart :config="aantalInwoners" colors="4"></line-chart>
         </div>
-        <div class="grid-blok grid_4">
+        <div class="col-4">
             <span><b>De aantallen zijn inclusief…</b></span>
             <woonvormen :config="andereInwoners"></woonvormen>
         </div>
@@ -51,27 +51,27 @@
     </div>
     <div class="zone-clear clear"></div>
 
-    <div class="grid-element">
-      <div class="grid-blok grid_12 card">
+    <div class="row">
+      <div class="col-12 card">
         <div class="grid-title">
           <h2>Migratieachtergrond</h2>
         </div>
-        <div class="grid-blok grid_6">
+        <div class="col-6">
           <line-chart :config="migratieachtergrond"></line-chart>
         </div>
-        <div class="grid-blok grid_6">
+        <div class="col-6">
           <pie-chart title="" :config="migratieVerdeling"></pie-chart>
         </div>
       </div>
     </div>
     <div class="zone-clear clear"></div>
 
-    <div class="grid-element">
-      <div class="grid-blok grid_12 card">
+    <div class="row">
+      <div class="col-12 card">
         <div class="grid-title">
           <h2>Huishoudenssamenstelling</h2>
         </div>
-        <div class="grid-blok grid_7">
+        <div class="col-7">
           <stacked-bar-chart :config="huishoudsamenstelling" last="7"></stacked-bar-chart>
         </div>
       </div>

@@ -1,23 +1,23 @@
 <template>
     <div v-if="gwb && meta">
-      <div class="grid-element">
-        <div class="grid-blok grid_12 card">
+      <div class="row">
+        <div class="col-12 card">
           <div class="grid-title">
             <h2>Bewoners over het voorzieningenaanbod in hun eigen buurt en hun eigen sportdeelname</h2>
           </div>
-          <div class="grid-blok grid_6">
+          <div class="col-6">
             <horizontal-text title="Welzijn en zorg" icon="Eva_oma_rollator.png" :config="welzijnZorg"></horizontal-text>
 
           </div>
-          <div class="grid-blok grid_6">
+          <div class="col-6">
             <horizontal-text title="Sport" icon="Adam_sport_WT_voetbal.png" :config="sport"></horizontal-text>
           </div>
         </div>
       </div>
       <div class="zone-clear clear"></div>
 
-      <div class="grid-element">
-        <div class="grid-blok grid_12">
+      <div class="row">
+        <div class="col-12">
           <div class="grid-title">
             <h2>Ontwikkeling van {{gwb.naam}}</h2>
           </div>
@@ -26,8 +26,8 @@
       </div>
       <div class="zone-clear clear"></div>
 
-      <div class="grid-element">
-        <div class="grid-blok grid_12">
+      <div class="row">
+        <div class="col-12">
           <div class="grid-title">
             <h2>Verschillen binnen het gebied</h2>
           </div>

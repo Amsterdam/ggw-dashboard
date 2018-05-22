@@ -1,22 +1,22 @@
 <template>
   <div v-if="gwb && meta">
-    <div class="grid-element">
-      <div class="grid-blok grid_12 card">
+    <div class="row">
+      <div class="col-12 card">
         <div class="grid-title">
           <h2>Bewoners over het verkeer en de openbare ruimte in hun eigen buurt</h2>
         </div>
-        <div class="grid-blok grid_6">
+        <div class="col-6">
           <horizontal-text title="Verkeer" icon="GASD_Icoon_Parkeren en beheer.png" :config="verkeer"></horizontal-text>
         </div>
-        <div class="grid-blok grid_6">
+        <div class="col-6">
           <horizontal-text title="Openbare ruimte" icon="GASD_Icoon_Melding openbare ruimte.png" :config="openbareRuimte"></horizontal-text>
         </div>
       </div>
     </div>
     <div class="zone-clear clear"></div>
 
-    <div class="grid-element">
-      <div class="grid-blok grid_12">
+    <div class="row">
+      <div class="col-12">
         <div class="grid-title">
           <h2>Ontwikkeling van {{gwb.naam}}</h2>
         </div>
@@ -25,8 +25,8 @@
     </div>
     <div class="zone-clear clear"></div>
 
-    <div class="grid-element">
-      <div class="grid-blok grid_12">
+    <div class="row">
+      <div class="col-12">
         <div class="grid-title">
           <h2>Verschillen binnen het gebied</h2>
         </div>
@@ -35,39 +35,39 @@
     </div>
     <div class="zone-clear clear"></div>
 
-    <div class="grid-element">
-      <div class="grid-blok grid_12 card">
+    <div class="row">
+      <div class="col-12 card">
         <div class="grid-title">
           <h2>Rapportcijfer bewoners voor schoonhouden openbare Ruimte</h2>
         </div>
-        <div class="grid-blok grid_4">
+        <div class="col-4">
           <vertical-bar-chart :config="stratenEnStoepen"></vertical-bar-chart>
         </div>
-        <div class="grid-blok grid_4">
+        <div class="col-4">
           <vertical-bar-chart :config="groen"></vertical-bar-chart>
         </div>
-        <div class="grid-blok grid_4">
+        <div class="col-4">
           <vertical-bar-chart :config="speelvoorzieningen"></vertical-bar-chart>
         </div>
       </div>
     </div>
     <div class="zone-clear clear"></div>
 
-    <div class="grid-element">
-      <div class="grid-blok grid_12 card">
+    <div class="row">
+      <div class="col-12 card">
         <div class="grid-title">
           <h2>Parkeren</h2>
         </div>
-        <div class="grid-blok grid_10">
+        <div class="col-10">
           <line-chart :config="aantalParkeerplaatsen"></line-chart>
         </div>
       </div>
 
-      <div class="grid-blok grid_12 card">
-        <div class="grid-blok grid_6">
+      <div class="col-12 card">
+        <div class="col-6">
           <vertical-bar-chart :config="parkeervoorzieningen"></vertical-bar-chart>
         </div>
-        <div class="grid-blok grid_6">
+        <div class="col-6">
           <vertical-bar-chart :config="fietsparkeervoorzieningen"></vertical-bar-chart>
         </div>
       </div>

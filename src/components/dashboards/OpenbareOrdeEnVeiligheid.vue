@@ -1,16 +1,16 @@
 <template>
   <div v-if="gwb && meta">
-    <div class="grid-element">
-      <div class="grid-blok grid_12 card">
+    <div class="row">
+      <div class="col-12 card">
         <div class="grid-title">
           <h2>Bewoners over veiligheid en overlast in hun eigen buurt</h2>
         </div>
 
-        <div class="grid-blok grid_6">
+        <div class="col-6">
 
           <horizontal-text title="Veiligheid" icon="veelpleger.png" :config="veiligheid"></horizontal-text>
         </div>
-        <div class="grid-blok grid_6">
+        <div class="col-6">
 
           <horizontal-text title="Overlast" icon="silhouet daders.png" :config="overlast"></horizontal-text>
         </div>
@@ -18,8 +18,8 @@
     </div>
     <div class="zone-clear clear"></div>
 
-    <div class="grid-element">
-      <div class="grid-blok grid_12">
+    <div class="row">
+      <div class="col-12">
         <div class="grid-title">
           <h2>Ontwikkeling van {{gwb.naam}}</h2>
         </div>
@@ -28,8 +28,8 @@
     </div>
     <div class="zone-clear clear"></div>
 
-    <div class="grid-element">
-      <div class="grid-blok grid_12">
+    <div class="row">
+      <div class="col-12">
         <div class="grid-title">
           <h2>Verschillen binnen het gebied</h2>
         </div>
@@ -39,47 +39,47 @@
     </div>
     <div class="zone-clear clear"></div>
 
-    <div class="grid-element">
-      <div class="grid-blok grid_12 card">
+    <div class="row">
+      <div class="col-12 card">
         <div class="grid-title">
           <h2>Aandeel bewoners dat veel overlast ervaart van….</h2>
         </div>
 
-        <div class="grid-blok grid_4">
+        <div class="col-4">
           <vertical-bar-chart :config="horecagelegenheden"></vertical-bar-chart>
         </div>
-        <div class="grid-blok grid_4">
+        <div class="col-4">
           <vertical-bar-chart :config="drugs"></vertical-bar-chart>
         </div>
-        <div class="grid-blok grid_4">
+        <div class="col-4">
           <vertical-bar-chart :config="dronkenMensen"></vertical-bar-chart>
         </div>
-        <div class="grid-blok grid_4">
+        <div class="col-4">
           <vertical-bar-chart :config="rondhangendeJongeren"></vertical-bar-chart>
         </div>
-        <div class="grid-blok grid_4">
+        <div class="col-4">
           <vertical-bar-chart :config="lastigVallenOpStraat"></vertical-bar-chart>
         </div>
-        <div class="grid-blok grid_4">
+        <div class="col-4">
           <vertical-bar-chart :config="buurtbewoners"></vertical-bar-chart>
         </div>
       </div>
     </div>
     <div class="zone-clear clear"></div>
 
-    <div class="grid-element">
-      <div class="grid-blok grid_12 card">
+    <div class="row">
+      <div class="col-12 card">
         <div class="grid-title">
           <h2>Aandeel 15-plussers dat de afgelopen 12 maanden slachtoffer is geweest van….</h2>
         </div>
 
-        <div class="grid-blok grid_4">
+        <div class="col-4">
           <vertical-bar-chart :config="vermogensDelicten"></vertical-bar-chart>
         </div>
-        <div class="grid-blok grid_4">
+        <div class="col-4">
           <vertical-bar-chart :config="geweldSlachtoffers"></vertical-bar-chart>
         </div>
-        <div class="grid-blok grid_4">
+        <div class="col-4">
           <vertical-bar-chart :config="vandalismeSlachtoffers"></vertical-bar-chart>
         </div>
       </div>
