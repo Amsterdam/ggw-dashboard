@@ -17,7 +17,6 @@
         <meer-cijfers-en-informatie></meer-cijfers-en-informatie>
       </div>
     </div>
-
   </div>
 </template>
 

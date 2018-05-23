@@ -6,135 +6,137 @@
 @import "~stijl/dist/scss/ams-colorpalette";
 @import "~stijl/dist/scss/ams-breakpoints";
 
-.row + .row,
-.row + .knoppen {
-  margin-top: 0;
-}
-
-// header styling
-.ams-header {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  padding: .5rem;
-
-  .header-title {
-    margin-left: 1rem;
-    display: flex;
-    align-items: center;
-    font-size: 1.7rem;
-  }
-}
-
-body {
-  margin: 0;
-}
-
-// The sticky filter on top
-.sticky-top {
-  position: sticky;
-  top: 0;
-  background-color: $ams-wit;
-  box-shadow: 0 1px 1px 0 $ams-lichtgrijs;
-  z-index: 7777;
-  padding: 0;
-
-  display: flex;
-  flex-direction: column;
-  height: 4.5rem;
-  width: 100%;
-
-  > div {
-    padding: .5rem;
+#app {
+  .row + .row,
+  .row + .knoppen {
+    margin-top: 0;
   }
 
-  @media screen and (max-width: #{$grid-mq-medium}) {
-    flex-direction: column;
-    height: auto;
-  }
-
-  .header-filter {
+  // header styling
+  .ams-header {
+    width: 100%;
     display: flex;
     flex-direction: row;
-    min-width: 90%;
+    padding: .5rem;
+
+    .header-title {
+      margin-left: 1rem;
+      display: flex;
+      align-items: center;
+      font-size: 1.7rem;
+    }
+  }
+
+  body {
+    margin: 0;
+  }
+
+  // The sticky filter on top
+  .sticky-top {
+    position: sticky;
+    top: 0;
+    background-color: $ams-wit;
+    box-shadow: 0 1px 1px 0 $ams-lichtgrijs;
+    z-index: 7777;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    height: 4.5rem;
+    width: 100%;
+
+    > div {
+      padding: .5rem;
+    }
 
     @media screen and (max-width: #{$grid-mq-medium}) {
       flex-direction: column;
       height: auto;
     }
 
-    .row {
+    .header-filter {
       display: flex;
-      flex-direction: column;
-      flex-wrap: nowrap;
-      width: 24%;
-      height: 2rem;
-      margin-right: 1%;
-      margin-bottom: 0;
-      margin-left: 0;
+      flex-direction: row;
+      min-width: 90%;
 
       @media screen and (max-width: #{$grid-mq-medium}) {
-        width: 100%;
+        flex-direction: column;
         height: auto;
+      }
+
+      .row {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        width: 24%;
+        height: 2rem;
+        margin-right: 1%;
+        margin-bottom: 0;
+        margin-left: 0;
+
+        @media screen and (max-width: #{$grid-mq-medium}) {
+          width: 100%;
+          height: auto;
+        }
       }
     }
   }
-}
 
-.app {
-  margin-top: 5px;
-}
-
-.main-view {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
-.card {
-  margin-top: 1rem;
-}
-
-.horizontal-text__icon {
-  .icon-container {
-    height: 7rem;
+  .app {
+    margin-top: 5px;
   }
-}
 
-.row.footer {
-  margin-top: 1rem;
-  padding-bottom: 1rem;
-}
+  .main-view {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
 
-.content-centered {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  align-items: center;
-}
+  .card {
+    margin-top: 1rem;
+  }
 
-.leaflet-control-zoom {
-  border: none !important;
-}
-
-.modal-body {
-  *[class*="col"]:not(.grid-title) {
-    &:hover {
-      background-color: inherit;
+  .horizontal-text__icon {
+    .icon-container {
+      height: 7rem;
     }
   }
-}
-// Loading indicator styling
-$progress-background: $ams-middengrijs;
 
-.progress-wrapper {
-  //background: $progress-background !important;
-  border-color: $ams-donkergrijs;
-}
+  .row.footer {
+    margin-top: 1rem;
+    padding-bottom: 1rem;
+  }
 
-.progress-indicator::before {
-  //background-color: $progress-background !important;
-}
+  .content-centered {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+  }
 
-.progress-indicator::after {
-  //background-color: $progress-background !important;
+  .leaflet-control-zoom {
+    border: none !important;
+  }
+
+  .modal-body {
+    *[class*="col"]:not(.grid-title) {
+      &:hover {
+        background-color: inherit;
+      }
+    }
+  }
+  // Loading indicator styling
+  $progress-background: $ams-middengrijs;
+
+  .progress-wrapper {
+    //background: $progress-background !important;
+    border-color: $ams-donkergrijs;
+  }
+
+  .progress-indicator::before {
+    //background-color: $progress-background !important;
+  }
+
+  .progress-indicator::after {
+    //background-color: $progress-background !important;
+  }
 }
