@@ -1,9 +1,9 @@
 <template>
   <div class="block-container">
-    <div class="col-4 horizontal-text__icon">
+    <div class="col-lg-4 horizontal-text__icon">
       <icon :icon="icon" :title="title"></icon>
     </div>
-    <div class="col-8 horizontal-text__content">
+    <div class="col-lg-8 horizontal-text__content">
       <div v-for="d in data" :key="d.label">
         <tooltip :cijfers="data" :cijfer="d">
           {{d.label}}:

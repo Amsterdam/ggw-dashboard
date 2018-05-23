@@ -6,7 +6,7 @@
           <div class="col-lg-6">
               <pano></pano>
           </div>
-          <div class="col-lg-6">
+          <div class="col-lg-6 content-centered">
               <in-aantallen></in-aantallen>
           </div>
         </div>
@@ -61,8 +61,8 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-12">
-            <data-table :config="positieOntwikkeling"></data-table>
+          <div class="col-12 content-centered">
+            <data-table :config="positieOntwikkeling" :isCentered="true"></data-table>
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 <template>
-  <div class="centered">
+  <div>
     <table class="table table-sm table-bordered" v-if="data">
       <thead>
       <tr>

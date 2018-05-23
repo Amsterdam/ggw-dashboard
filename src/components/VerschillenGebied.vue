@@ -2,7 +2,7 @@
   <div>
     <div class="row">
       <div class="col-12">
-        <div class="row mode_input selectie">
+        <div class="mode_input selectie">
           <div class="invoer">
             <b-form-select v-model="variable"
                            :disabled="loading || drawing"
@@ -18,12 +18,11 @@
         </div>
       </div>
     </div>
-    <div class="zone-clear clear"></div>
     <div class="row">
-      <div class="col-7 pad-top-bottom pull-up">
+      <div class="col-lg-7 pad-top-bottom ">
           <div :ref="mapRef" class="map"></div>
       </div>
-      <div class="col-5 pad-top-bottom marge-left pull-up">
+      <div class="col-lg-5 pad-top-bottom marge-left ">
         <div v-if="gebiedType && variable && !highLow.length">
           Geen cijfers beschikbaar
         </div>
@@ -61,10 +60,9 @@
         </div>
         </div>
       </div>
-      <div class="zone-clear clear"></div>
       <div class="row">
         <div class="col-12">
-          <fieldset class="row mode_input text row_verplicht">
+          <fieldset class="mode_input text row_verplicht">
             <div class="antwoorden checkboxen">
               <div class="label">
                 <label for="gebiedFilter">Filter</label>
@@ -93,7 +91,6 @@
           </fieldset>
         </div>
       </div>
-    <div class="zone-clear clear"></div>
   </div>
 </template>
 
@@ -462,10 +459,6 @@ export default {
 
   .marge-left {
     padding-left: .33rem;
-  }
-
-  .pull-up {
-    margin-top: -1rem;
   }
 
   .subtitle {

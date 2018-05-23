@@ -2,38 +2,49 @@
     <div v-if="gwb && meta">
       <div class="row">
         <div class="col-12 card">
-          <div class="grid-title">
-            <h2>Bewoners over veiligheid en overlast in hun eigen buurt</h2>
+          <div class="row">
+            <div class="col-12 grid-title">
+              <h2>Bewoners over veiligheid en overlast in hun eigen buurt</h2>
+            </div>
           </div>
-
-          <div class="col-6">
-            <horizontal-text title="Onderwijs en jeugd" icon="Middelbare scholier jongen-01.png" :config="onderwijsJeugd"></horizontal-text>
-          </div>
-          <div class="col-6">
-            <horizontal-text title="Diversiteit" icon="GASD_Icoon_Bestuur en organisatie.png" :config="diversiteit"></horizontal-text>
+          <div class="row">
+            <div class="col-lg-6">
+              <horizontal-text title="Onderwijs en jeugd" icon="Middelbare scholier jongen-01.png" :config="onderwijsJeugd"></horizontal-text>
+            </div>
+            <div class="col-lg-6">
+              <horizontal-text title="Diversiteit" icon="GASD_Icoon_Bestuur en organisatie.png" :config="diversiteit"></horizontal-text>
+            </div>
           </div>
         </div>
       </div>
-      <div class="zone-clear clear"></div>
 
       <div class="row">
         <div class="col-12">
-          <div class="grid-title">
-            <h2>Ontwikkeling van {{gwb.naam}}</h2>
+          <div class="row">
+            <div class="col-12 grid-title">
+              <h2>Ontwikkeling van {{gwb.naam}}</h2>
+            </div>
           </div>
-
-          <data-table :config="kerncijfers"></data-table>
+          <div class="row">
+            <div class="col-12">
+              <data-table :config="kerncijfers"></data-table>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="zone-clear clear"></div>
 
       <div class="row">
         <div class="col-12">
-          <div class="grid-title">
-            <h2>Verschillen binnen het gebied</h2>
+          <div class="row">
+            <div class="col-12 grid-title">
+              <h2>Verschillen binnen het gebied</h2>
+            </div>
           </div>
-
-        <verschillen-gebied :config="kerncijfers"></verschillen-gebied>
+          <div class="row">
+            <div class="col-12">
+              <verschillen-gebied :config="kerncijfers"></verschillen-gebied>
+            </div>
+          </div>
         </div>
       </div>
     </div>

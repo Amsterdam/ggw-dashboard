@@ -6,12 +6,10 @@
 @import "~stijl/dist/scss/ams-colorpalette";
 @import "~stijl/dist/scss/ams-breakpoints";
 
-
 .row + .row,
 .row + .knoppen {
   margin-top: 0;
 }
-
 
 // header styling
 .ams-header {
@@ -26,7 +24,6 @@
     align-items: center;
     font-size: 1.7rem;
   }
-
 }
 
 body {
@@ -65,7 +62,6 @@ body {
       flex-direction: column;
       height: auto;
     }
-
 
     .row {
       display: flex;
@@ -106,26 +102,39 @@ body {
 
 .row.footer {
   margin-top: 1rem;
+  padding-bottom: 1rem;
 }
 
-.centered {
+.content-centered {
   display: flex;
   flex: 1;
   flex-direction: column;
   align-items: center;
 }
+
+.leaflet-control-zoom {
+  border: none !important;
+}
+
+.modal-body {
+  *[class*="col"]:not(.grid-title) {
+    &:hover {
+      background-color: inherit;
+    }
+  }
+}
 // Loading indicator styling
 $progress-background: $ams-middengrijs;
 
 .progress-wrapper {
-  background: $progress-background !important;
+  //background: $progress-background !important;
   border-color: $ams-donkergrijs;
 }
 
 .progress-indicator::before {
-    background-color: $progress-background !important;
+  //background-color: $progress-background !important;
 }
 
 .progress-indicator::after {
-  background-color: $progress-background !important;
+  //background-color: $progress-background !important;
 }
