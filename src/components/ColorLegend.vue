@@ -1,5 +1,5 @@
 <template>
-  <div class="grid_12 marge-left">
+  <div class="col-12">
     <h4>Betekenis gebruikte kleuren op deze pagina</h4>
     <div class="legend">
       <div v-for="entry in legend" :key="entry.color" class="legend-entry">

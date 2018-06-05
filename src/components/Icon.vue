@@ -1,9 +1,9 @@
 <template>
   <div class="icon-wrapper">
-    <div class="icon-container grid-blok grid_12">
+    <div class="icon-container col-12">
       <img class="icon" :src="`static/icons/${icon}`">
     </div>
-    <div v-if="title" class="title grid-blok grid_12">
+    <div v-if="title" class="title col-12">
       {{title}}
     </div>
   </div>

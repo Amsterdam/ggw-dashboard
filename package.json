@@ -21,7 +21,7 @@
     "proj4": "^2.4.4",
     "proj4leaflet": "^1.0.2",
     "sass-loader": "^6.0.7",
-    "stijl": "git+https://git@github.com/Amsterdam/stijl.git",
+    "stijl": "Amsterdam/stijl.git",
     "vega": "^3.2.1",
     "vega-embed": "^3.1.1",
     "vega-lite": "^2.2.0",

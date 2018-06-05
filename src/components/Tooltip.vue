@@ -13,12 +13,11 @@
       :ref="id"
       :hide-header="true"
       :hide-footer="true">
-      <div class="grid-wrapper wrapper_12 contents-wrapper">
-        <div class="grid-container container_12">
+        <div class="container">
           <span class="close-modal" @click="hideTooltip" title="Sluiten">X</span>
-          <div class="grid-element">
-            <div class="grid-zone grid_12">
-                <div class="rij mode_input selectie">
+          <div class="row">
+            <div class="col-12">
+                <div class="mode_input selectie">
                   <div class="label">
                     <label for="dropdown" v-if="selectedCijfer && selectedCijfer.gebied">{{selectedCijfer.gebied.naam}}</label>
                   </div>
@@ -34,9 +33,9 @@
                 </div>
               </div>
           </div>
-          <div class="zone-clear clear"></div>
-          <div class="grid-element">
-            <div class="grid-zone grid_12">
+
+          <div class="row">
+            <div class="col-12">
               <div v-if="selectedCijfer && selectedCijfer.tooltip">
                 <span class="Notification-grijs">
                   <h2>{{selectedCijfer.label}}</h2>
@@ -49,7 +48,6 @@
             </div>
           </div>
         </div>
-      </div>
     </b-modal>
   </div>
 </template>

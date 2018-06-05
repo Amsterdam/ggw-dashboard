@@ -1,36 +1,50 @@
 <template>
     <div v-if="gwb && meta">
-      <div class="grid-element">
-        <div class="grid-blok grid_12 card">
-          <div class="grid-title">
-            <h2>Bewoners over het voorzieningenaanbod in hun eigen buurt en hun eigen sportdeelname</h2>
+      <div class="row">
+        <div class="col-12 card">
+          <div class="row">
+            <div class="col-12 grid-title">
+              <h2>Bewoners over het voorzieningenaanbod in hun eigen buurt en hun eigen sportdeelname</h2>
+            </div>
           </div>
-          <div class="grid-blok grid_6">
-            <horizontal-text title="Werk en inkomen" icon="werk_en_inkomen.png" :config="werkInkomen"></horizontal-text>
-          </div>
-          <div class="grid-blok grid_6">
-            <horizontal-text title="Participatie" icon="ondernemen.png" :config="participatie"></horizontal-text>
+          <div class="row">
+            <div class="col-lg-6">
+              <horizontal-text title="Werk en inkomen" icon="werk_en_inkomen.png" :config="werkInkomen"></horizontal-text>
+            </div>
+            <div class="col-lg-6">
+              <horizontal-text title="Participatie" icon="ondernemen.png" :config="participatie"></horizontal-text>
+            </div>
           </div>
         </div>
       </div>
-      <div class="zone-clear clear"></div>
 
-      <div class="grid-element">
-        <div class="grid-blok grid_12">
-          <div class="grid-title">
-            <h2>Ontwikkeling van {{gwb.naam}}</h2>
+      <div class="row">
+        <div class="col-12">
+          <div class="row">
+            <div class="col-12 grid-title">
+              <h2>Ontwikkeling van {{gwb.naam}}</h2>
+            </div>
           </div>
-          <data-table :config="kerncijfers"></data-table>
+          <div class="row">
+            <div class="col-12">
+              <data-table :config="kerncijfers"></data-table>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="zone-clear clear"></div>
 
-      <div class="grid-element">
-        <div class="grid-blok grid_12">
-          <div class="grid-title">
-            <h2>Verschillen binnen het gebied</h2>
+      <div class="row">
+        <div class="col-12">
+          <div class="row">
+            <div class="col-12 grid-title">
+              <h2>Verschillen binnen het gebied</h2>
+            </div>
           </div>
-          <verschillen-gebied :config="kerncijfers"></verschillen-gebied>
+          <div class="row">
+            <div class="col-12">
+              <verschillen-gebied :config="kerncijfers"></verschillen-gebied>
+            </div>
+          </div>
         </div>
       </div>
     </div>

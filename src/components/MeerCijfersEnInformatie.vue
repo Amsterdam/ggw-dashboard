@@ -1,37 +1,55 @@
 <template>
-  <div class="grid_12">
-    <div class="grid-blok grid_6 lijst">
-      <div class="grid-element">
-        <h2 class="blok-titel">Meer informatie</h2>
-        <ul class="links">
-          <li v-for="info in meerInformatie" :key="info.label">
-            <a :href="info.url" class="outsite" target="_blank" rel="noreferrer"><span class="linklabel">{{info.label}}</span></a>
-          </li>
-        </ul>
-      </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+          <div class="row">
+            <div class="col-12">
+              <h2>
+                Meer informatie
+              </h2>
+            </div>
+            <div class="col-12">
+              <ul class="links">
+                <li v-for="info in meerInformatie" :key="info.label">
+                  <a :href="info.url" class="outsite" target="_blank" rel="noreferrer"><span class="linklabel">{{info.label}}</span></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="row">
+            <div class="col-12">
+              <h2>
+                Meer cijfers
+              </h2>
+            </div>
+            <div class="col-12">
+              <ul class="links">
+                <li v-for="info in meerCijfers" :key="info.label">
+                  <a :href="info.url" class="outsite" target="_blank" rel="noreferrer"><span class="linklabel">{{info.label}}</span></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
     </div>
-    <div class="grid-blok grid_6 lijst">
-      <div class="grid-element">
-        <h2 class="blok-titel">Meer cijfers</h2>
-        <ul class="links">
-          <li v-for="info in meerCijfers" :key="info.label">
-            <a :href="info.url" class="outsite" target="_blank" rel="noreferrer"><span class="linklabel">{{info.label}}</span></a>
-          </li>
-        </ul>
+    <div class="col-12">
+      <div class="row">
+        <h2>Colofon</h2>
       </div>
-    </div>
-    <div class="grid-blok grid_12">
-      <div class="grid-element">
-        <h2 class="blok-titel">Colofon</h2>
+      <div class="row">
         <p>
-        Gebied in Beeld is gemaakt door OIS in opdracht van de samenwerkende stadsdelen.<br>
-        Contact: <a href="mailto:algemeen.OIS@amsterdam.nl">algemeen.OIS@amsterdam.nl</a>
+          Gebied in Beeld is gemaakt door OIS in opdracht van de samenwerkende stadsdelen.<br>
+          Contact: <a href="mailto:algemeen.OIS@amsterdam.nl">algemeen.OIS@amsterdam.nl</a>
         </p>
       </div>
     </div>
-    <div class="grid-blok grid_12">
-      <div class="grid-element">
-        <h2 class="blok-titel">Disclaimer</h2>
+    <div class="col-12">
+      <div class="row">
+        <h2>Disclaimer</h2>
+      </div>
+      <div class="row">
         <p>
         De inhoud van Gebied in Beeld is met uiterste zorgvuldigheid tot stand gebracht.
         De inhoud wordt regelmatig gecontroleerd en geactualiseerd.

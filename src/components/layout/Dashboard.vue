@@ -1,15 +1,11 @@
 <template>
   <div>
-    <div class="contents-wrapper">
-      <div class="grid-container container_12 breakout-container">
-        <div class="grid-zone grid_12 z-kolom1-4_1 breakout-zone hasbgcolor bgcolor_superlightgrey">
-          <div class="grid-blok grid_6">
-            <gwb-map></gwb-map>
-          </div>
-          <div class="grid-blok grid_6">
-            <color-legend></color-legend>
-          </div>
-        </div>
+    <div class="row bg-superlightgrey pad-top-bottom margin-top-bottom">
+      <div class="col-lg-6">
+        <gwb-map></gwb-map>
+      </div>
+      <div class="col-lg-6">
+        <color-legend></color-legend>
       </div>
     </div>
 
@@ -25,7 +21,7 @@
       <welzijn-zorg-en-sport v-if="thema === WELZIJN_ZORG_EN_SPORT"></welzijn-zorg-en-sport>
       <werk-inkomen-en-participatie v-if="thema === WERK_INKOMEN_EN_PARTICIPATIE"></werk-inkomen-en-participatie>
     </div>
-  </div>
+    </div>
 </template>
 
 <script>

@@ -1,85 +1,99 @@
 <template>
-  <div>
     <div v-if="gwb && meta">
-      <div class="grid-element">
-        <div class="grid-blok grid_12 card">
-          <div class="grid-title">
-            <h2>Bewoners over hun eigen buurt en woning</h2>
+      <div class="row">
+        <div class="col-12 card">
+          <div class="row">
+            <div class="col-12 grid-title">
+              <h2>Bewoners over hun eigen buurt en woning</h2>
+            </div>
           </div>
-
-          <div class="grid-blok grid_6">
-            <horizontal-text title="Bedrijvigheid" icon="bedrijven.png" :config="bedrijvigheid"></horizontal-text>
-          </div>
-          <div class="grid-blok grid_6">
-            <horizontal-text title="Cultuur" icon="cultuur.png" :config="cultuur"></horizontal-text>
+          <div class="row">
+            <div class="col-lg-6">
+              <horizontal-text title="Bedrijvigheid" icon="bedrijven.png" :config="bedrijvigheid"></horizontal-text>
+            </div>
+            <div class="col-lg-6">
+              <horizontal-text title="Cultuur" icon="cultuur.png" :config="cultuur"></horizontal-text>
+            </div>
           </div>
         </div>
+      </div>
 
-        <div class="grid-element">
-          <div class="grid-blok grid_12">
-              <div class="grid-title">
-                <h2>Ontwikkeling van {{gwb.naam}}</h2>
-              </div>
-
+      <div class="row">
+        <div class="col-12">
+          <div class="row">
+            <div class="col-12 grid-title">
+              <h2>Ontwikkeling van {{gwb.naam}}</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
               <data-table :config="kerncijfers"></data-table>
             </div>
           </div>
         </div>
-      <div class="zone-clear clear"></div>
-
-      <div class="grid-element">
-        <div class="grid-blok grid_12">
-          <div class="grid-title">
-            <h2>Verschillen binnen het gebied</h2>
-          </div>
-
-          <verschillen-gebied :config="kerncijfers"></verschillen-gebied>
-        </div>
       </div>
-      <div class="zone-clear clear"></div>
 
-      <div class="grid-element">
-        <div class="grid-blok grid_12 card">
-          <div class="grid-title">
-            <h2>Aantal vestigingen en werkzame personen</h2>
-          </div>
-          <div class="grid-blok grid_8">
-            <line-chart :config="aantalVestigingenEnWerkzamePersonen"></line-chart>
-          </div>
-          <div class="grid-blok grid_4">
-            <div class="grid-title">
-              <span><b>Van de vestigingen is…</b></span>
+      <div class="row">
+        <div class="col-12">
+          <div class="row">
+            <div class="col-12 grid-title">
+              <h2>Verschillen binnen het gebied</h2>
             </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <verschillen-gebied :config="kerncijfers"></verschillen-gebied>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 card">
+          <div class="row">
+            <div class="col-12 grid-title">
+              <h2>Aantal vestigingen en werkzame personen</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-8">
+              <line-chart :config="aantalVestigingenEnWerkzamePersonen"></line-chart>
+            </div>
+            <div class="col-lg-4">
+              <span><b>Van de vestigingen is…</b></span>
               <woonvormen :config="typeVestiging"></woonvormen>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="zone-clear clear"></div>
-
-      <div class="grid-element">
-        <div class="grid-blok grid_6 card">
-          <div class="grid-title">
-            <h2>Vestigingen naar hoofdfunctie</h2>
+      <div class="row">
+        <div class="col-lg-6 card">
+          <div class="row">
+            <div class="col-12 grid-title">
+              <h2>Vestigingen naar hoofdfunctie</h2>
+            </div>
           </div>
-          <div class="grid-blok">
-          <pie-chart title="" :config="vestigingenHoofdfunctie"></pie-chart>
+          <div class="row">
+            <div class="col-12 content-centered">
+              <pie-chart title="" :config="vestigingenHoofdfunctie"></pie-chart>
+            </div>
+          </div>
         </div>
+
+        <div class="col-lg-6 card">
+          <div class="row">
+            <div class="col-12 grid-title">
+              <h2>Werkzame personen naar hoofdfunctie</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 content-centered">
+              <pie-chart title="" :config="werkzamenHoofdfunctie"></pie-chart>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="grid-element">
-        <div class="grid-blok grid_6 card">
-          <div class="grid-title">
-            <h2>Werkzame personen naar hoofdfunctie</h2>
-          </div>
-          <div class="grid-blok">
-          <pie-chart title="" :config="werkzamenHoofdfunctie"></pie-chart>
-        </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="zone-clear clear"></div>
   </div>
 </template>
 

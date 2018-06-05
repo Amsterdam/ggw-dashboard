@@ -2,10 +2,10 @@
   <div class="block-container" v-if="gwb">
     <tooltip :cijfers="chartdata">
 
-      <div class="grid-blok grid_12">
+      <div class="col-12">
         <icon :icon="icon" :title="title"></icon>
       </div>
-      <div class="grid-blok grid_12">
+      <div class="col-12">
         <div :ref="chartRef"></div>
       </div>
     </tooltip>

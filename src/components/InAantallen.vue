@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="centered">
     <table v-if="gwb">
       <thead>
         <tr>
@@ -13,7 +13,6 @@
         </td>
         <td width="50%" v-if="d.recent">
           <tooltip :cijfers="data" :cijfer="d">{{d.recent | displaywaarde}}</tooltip>
-
         </td>
       </tr>
       </tbody>
@@ -65,4 +64,5 @@ export default {
 </script>
 
 <style scoped>
+
 </style>

@@ -1,59 +1,69 @@
 <template>
   <div v-if="gwb && meta">
-    <div class="grid-element">
-      <div class="grid-blok grid_12 card">
-      <div class="grid-blok grid_6">
-          <pano></pano>
-      </div>
-      <div class="grid-blok grid_6">
-          <in-aantallen></in-aantallen>
-      </div>
-    </div>
-    </div>
-
-    <div class="grid-element">
-      <div class="grid-blok grid_12 card">
-        <div class="grid-title">
-          <h2>Samenstelling woningvoorraad en bevolking van {{gwb.naam}}</h2>
-        </div>
-        <div class="grid-blok grid_6">
-          <horizontal-bar-chart
-            title="Woningvoorraad"
-            icon="wonen_en_leefomgeving.png"
-            :config="woningVoorraad"
-          ></horizontal-bar-chart>
-        </div>
-        <div class="grid-blok grid_6">
-          <horizontal-bar-chart
-            title="Sociaal-economisch"
-            icon="werk_en_inkomen.png"
-            :config="sociaalEconomisch"
-          ></horizontal-bar-chart>
-        </div>
-        <div class="grid-blok grid_6">
-            <horizontal-bar-chart
-              title="Leeftijd"
-              icon="kind_icoon_met_bal.png"
-              :config="leeftijd"
-            ></horizontal-bar-chart>
-        </div>
-        <div class="grid-blok grid_6">
-            <horizontal-bar-chart
-              title="Migratie-achtergrond"
-              icon="locaties.png"
-              :config="migratieAchtergrond"
-            ></horizontal-bar-chart>
+    <div class="row">
+      <div class="col-12 card">
+        <div class="row">
+          <div class="col-lg-6">
+              <pano></pano>
+          </div>
+          <div class="col-lg-6 content-centered">
+              <in-aantallen></in-aantallen>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="grid-element">
-      <div class="grid-blok grid_12 card">
-        <div class="grid-title">
-          <h2>Ontwikkeling van {{gwb.naam}}</h2>
+    <div class="row">
+      <div class="col-12 card">
+        <div class="row">
+          <div class="col-12 grid-title">
+            <h2>Samenstelling woningvoorraad en bevolking van {{gwb.naam}}</h2>
+          </div>
         </div>
-        <div class="grid-blok grid_12">
-          <data-table :config="positieOntwikkeling"></data-table>
+        <div class="row">
+          <div class="col-lg-6">
+            <horizontal-bar-chart
+              title="Woningvoorraad"
+              icon="wonen_en_leefomgeving.png"
+              :config="woningVoorraad"
+            ></horizontal-bar-chart>
+          </div>
+          <div class="col-lg-6">
+            <horizontal-bar-chart
+              title="Sociaal-economisch"
+              icon="werk_en_inkomen.png"
+              :config="sociaalEconomisch"
+            ></horizontal-bar-chart>
+          </div>
+          <div class="col-lg-6">
+              <horizontal-bar-chart
+                title="Leeftijd"
+                icon="kind_icoon_met_bal.png"
+                :config="leeftijd"
+              ></horizontal-bar-chart>
+          </div>
+          <div class="col-lg-6">
+              <horizontal-bar-chart
+                title="Migratie-achtergrond"
+                icon="locaties.png"
+                :config="migratieAchtergrond"
+              ></horizontal-bar-chart>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 card">
+        <div class="row">
+          <div class="col-12 grid-title">
+            <h2>Ontwikkeling van {{gwb.naam}}</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 content-centered">
+            <data-table :config="positieOntwikkeling" :isCentered="true"></data-table>
+          </div>
         </div>
       </div>
     </div>
@@ -109,8 +119,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  // override grid styling for this component
-   .grid-blok.grid_6 {
-     flex: auto;
-   }
 </style>
