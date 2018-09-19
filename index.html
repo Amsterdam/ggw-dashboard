@@ -8,6 +8,7 @@
     <style>
       #ggw-dashboard-intro {
         margin-top: 50px;
+        white-space: pre-wrap;
         text-align: center;
       }
     </style>
@@ -31,7 +32,9 @@
     <div id="app"></div>
 
     <!--A message to show when loading fails-->
-    <div id="ggw-dashboard-intro"></div>
+    <div class="container">
+      <div id="ggw-dashboard-intro"></div>
+    </div>
 
     <script>
       function getIntro () {
@@ -41,7 +44,7 @@
       // When hideIntro has not been called by the app (load failure) a message will be displayed
       function showIntro () {
         var intro = getIntro()
-        intro && (intro.textContent = 'Deze applicatie is geschikt voor recente versies van Chrome, Firefox en Safari');
+        intro && (intro.textContent = 'De site die u wilt bezoeken werkt niet op uw browser. De applicatie is geschikt voor recente versies van Chrome, Firefox en Safari.\n\nVoor ambtenaren van de gemeente Amsterdam is Mozilla Firefox beschikbaar op ADW. Druk hiervoor linksonder op uw scherm op de knop “start” en selecteer vervolgens Mozilla Firefox.');
       }
 
       // Function to be called on app start to prevent intro message
