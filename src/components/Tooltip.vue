@@ -8,6 +8,7 @@
 
     <!-- Modal Component -->
     <b-modal
+      class="tooltip"
       centered
       no-fade
       :ref="id"
@@ -16,22 +17,22 @@
         <div class="container">
           <span class="close-modal" @click="hideTooltip" title="Sluiten">X</span>
           <div class="row">
-            <div class="col-12">
-                <div class="mode_input selectie">
-                  <div class="label">
-                    <label for="dropdown" v-if="selectedCijfer && selectedCijfer.gebied">{{selectedCijfer.gebied.naam}}</label>
-                  </div>
-                  <div class="invoer" v-show="cijfers && cijfers.length > 1">
-                    <b-form-select @change="selectCijfer"
-                                   v-model="selectedLabel"
-                                   :options="cijfers || []"
-                                   text-field="label"
-                                   value-field="label"
-                                   id="dropdown">
-                    </b-form-select>
-                  </div>
+            <div class="tooltip-header col-12">
+              <div class="mode_input selectie">
+                <div class="label">
+                  <label for="dropdown" v-if="selectedCijfer && selectedCijfer.gebied">{{selectedCijfer.gebied.naam}}</label>
+                </div>
+                <div class="invoer" v-show="cijfers && cijfers.length > 1">
+                  <b-form-select @change="selectCijfer"
+                                  v-model="selectedLabel"
+                                  :options="cijfers || []"
+                                  text-field="label"
+                                  value-field="label"
+                                  id="dropdown">
+                  </b-form-select>
                 </div>
               </div>
+            </div>
           </div>
 
           <div class="row">
@@ -99,8 +100,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  @import "~stijl/dist/scss/ams-colorpalette";
+
   .more-info {
     cursor: pointer;
+  }
+
+  .tooltip {
+    text-align: left;
+    color: $ams-zwart;
+  }
+
+  .tooltip-header {
+    padding: 15px;
   }
 
   .close-modal {
@@ -112,7 +124,9 @@ export default {
   }
 
   .Notification-grijs {
+    padding-left: 0;
     margin-top: 0;
+    border: none;
     h2 {
       margin-top: 0;
     }
