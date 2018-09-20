@@ -1,6 +1,6 @@
 <template>
   <div class="col-12">
-    <h4>Betekenis gebruikte kleuren op deze pagina</h4>
+    <h4>Betekenis kleuren</h4>
     <div class="legend">
       <div v-for="entry in legend" :key="entry.color" class="legend-entry">
         <span :style="getBulletStyle(entry)" class="legend-bullet">&#9634;</span>
