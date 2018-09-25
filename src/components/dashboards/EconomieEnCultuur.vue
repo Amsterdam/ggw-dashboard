@@ -71,12 +71,12 @@
         <div class="col-lg-6 card">
           <div class="row">
             <div class="col-12 grid-title">
-              <h2>Vestigingen naar hoofdfunctie</h2>
+              <h2>Vestigingen</h2>
             </div>
           </div>
           <div class="row">
             <div class="col-12 content-centered">
-              <pie-chart title="" :config="vestigingenHoofdfunctie"></pie-chart>
+              <pie-chart title="" legend-title="Hoofdfunctie" :config="vestigingenHoofdfunctie"></pie-chart>
             </div>
           </div>
         </div>
@@ -84,12 +84,12 @@
         <div class="col-lg-6 card">
           <div class="row">
             <div class="col-12 grid-title">
-              <h2>Werkzame personen naar hoofdfunctie</h2>
+              <h2>Werkzame personen</h2>
             </div>
           </div>
           <div class="row">
             <div class="col-12 content-centered">
-              <pie-chart title="" :config="werkzamenHoofdfunctie"></pie-chart>
+              <pie-chart title="" legend-title="Hoofdfunctie" :config="werkzamenHoofdfunctie"></pie-chart>
             </div>
           </div>
         </div>

@@ -36,6 +36,7 @@ export default {
   },
   props: [
     'title',
+    'legendTitle',
     'config'
   ],
   data () {
@@ -67,6 +68,7 @@ export default {
       }))
 
       vegaSpec.scales[0].range = PIE_CHART_COLORS
+      vegaSpec.legends[0].title = this.legendTitle
       vegaEmbed(this.$refs[this.chartRef], vegaSpec, vegaEmbedOptions)
     }
   },
