@@ -49,7 +49,8 @@ export const STACKED_CHART_COLORS = [
   '#A00078', // Paars
   '#BEBEBE', // Grijs
   '#FF9100', // Oranje
-  '#787878' // Donkergrijs
+  '#787878', // Donkergrijs
+  '#FF0000' // Rood
 ].concat(EXTRA_CHART_COLORS)
 
 export const PIE_CHART_COLORS = [
