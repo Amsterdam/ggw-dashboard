@@ -1,6 +1,6 @@
 <template>
   <div class="centered">
-    <table v-if="gwb">
+    <table class="in-aantallen-table" v-if="gwb">
       <thead>
         <tr>
           <th colspan="2">{{gwb.naam}} in aantallen</th>
@@ -64,5 +64,7 @@ export default {
 </script>
 
 <style scoped>
-
+  .in-aantallen-table {
+    white-space: nowrap;
+  }
 </style>

@@ -4,7 +4,7 @@
         <div class="col-12 card">
           <div class="row">
             <div class="col-12 grid-title">
-              <h2>Bewoners over het voorzieningenaanbod in hun eigen buurt en hun eigen sportdeelname</h2>
+              <h2>Bewoners over voorzieningenaanbod in de buurt en hun eigen sportdeelname</h2>
             </div>
           </div>
           <div class="row">
