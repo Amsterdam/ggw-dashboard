@@ -272,8 +272,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "~stijl/dist/scss/ams-breakpoints";
-  @import "~stijl/dist/scss/ams-colorpalette";
+  @import "~amsterdam-stijl/dist/scss/ams-breakpoints";
+  @import "~amsterdam-stijl/dist/scss/ams-colorpalette";
 
   .invoer {
     margin-bottom: .5rem;
