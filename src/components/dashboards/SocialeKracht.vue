@@ -1,7 +1,7 @@
 <template>
   <div v-if="gwb && meta">
-    <div class="row">
-      <div class="col-12 card">
+    <b-row>
+      <b-col cols="12" class="card">
         <b-row>
           <b-col cols="12" class="grid-title">
             <h2>Aantal kwetsbare bewoners</h2>
@@ -16,6 +16,7 @@
 
             <horizontal-text title="Lage SES" icon="onderwijs_scholingslening.png" :config="lageSES"></horizontal-text>
           </b-col>
+
           <b-col>
             <b-col cols="8" align-h="end">
               <p>lage score op inkomen, opleiding, werk én gezondheid:</p>
@@ -24,8 +25,8 @@
             <horizontal-text title="Meest kwetsbaar" icon="adams_sociaal_rood.png" :config="meestKwetsbaar"></horizontal-text>
           </b-col>
         </b-row>
-      </div>
-    </div>
+      </b-col>
+    </b-row>
 
     <b-row>
       <b-col cols="12">
