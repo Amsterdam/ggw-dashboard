@@ -43,7 +43,7 @@
             <div class="subtitle">
               <b>Hoogst scorende {{gebiedType.toLowerCase()}}</b>
             </div>
-            <div class="listitem" :class="{'highlight-own': item.gwb.naam === own.gebied.naam}" v-for="(item, index) in highestScore(highLow)" :key="index">
+            <div class="listitem" :class="{'highlight-own': item.gwb.naam === own.gebied.naam}" v-for="(item, index) in highestScore" :key="index">
               <span class="itemrank">{{item.ranking}}.</span> {{item.gwb.naam}}: {{item | displaywaarde}}
             </div>
           </div>
@@ -52,7 +52,7 @@
             <div class="subtitle">
               <b>Laagst scorende {{gebiedType.toLowerCase()}}</b>
             </div>
-            <div class="listitem" :class="{'highlight-own': item.gwb.naam === own.gebied.naam}" v-for="(item, index) in lowestScore(highLow)" :key="index">
+            <div class="listitem" :class="{'highlight-own': item.gwb.naam === own.gebied.naam}" v-for="(item, index) in lowestScore" :key="index">
               <span class="itemrank">{{item.ranking}}.</span> {{item.gwb.naam}}: {{item | displaywaarde}}
             </div>
           </div>
@@ -131,7 +131,15 @@ export default {
       'gebied',
       'wijk',
       'buurt'
-    ])
+    ]),
+
+    highestScore  () {
+      return this.highLow.filter((number, index) => index < FRAGMENT)
+    },
+
+    lowestScore () {
+      return this.highLow.filter((number, index) => index >= FRAGMENT)
+    }
   },
   props: [
     'config'
@@ -400,14 +408,6 @@ export default {
       }))
       this.variables = variables
       this.variable = this.variables[0].variable
-    },
-
-    highestScore (numbers) {
-      return numbers.filter((number, index) => index < FRAGMENT)
-    },
-
-    lowestScore (numbers) {
-      return numbers.filter((number, index) => index >= FRAGMENT)
     }
   },
   watch: {
