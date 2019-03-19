@@ -4,7 +4,7 @@
         <div class="col-12 card">
           <div class="row">
             <div class="col-12 grid-title">
-              <h2>Bewoners over veiligheid en overlast in hun eigen buurt</h2>
+              <h2>Bewoners over {{ONDERWIJS_JEUGD_EN_DIVERSITEIT}}</h2>
             </div>
           </div>
           <div class="row">
@@ -78,7 +78,8 @@ export default {
     return {
       onderwijsJeugd,
       diversiteit,
-      kerncijfers
+      kerncijfers,
+      ONDERWIJS_JEUGD_EN_DIVERSITEIT
     }
   },
   computed: {
