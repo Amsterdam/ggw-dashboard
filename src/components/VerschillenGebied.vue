@@ -43,7 +43,7 @@
             <div class="subtitle">
               <b>Hoogst scorende {{gebiedType.toLowerCase()}}</b>
             </div>
-            <div class="listitem" :class="{'highlight-own': item.gwb.naam === own.gebied.naam}" v-for="(item, index) in highLow" :key="index" v-if="index < FRAGMENT">
+            <div class="listitem" :class="{'highlight-own': item.gwb.naam === own.gebied.naam}" v-for="(item, index) in highestScores" :key="index">
               <span class="itemrank">{{item.ranking}}.</span> {{item.gwb.naam}}: {{item | displaywaarde}}
             </div>
           </div>
@@ -52,7 +52,7 @@
             <div class="subtitle">
               <b>Laagst scorende {{gebiedType.toLowerCase()}}</b>
             </div>
-            <div class="listitem" :class="{'highlight-own': item.gwb.naam === own.gebied.naam}" v-for="(item, index) in highLow" :key="index" v-if="index >= FRAGMENT">
+            <div class="listitem" :class="{'highlight-own': item.gwb.naam === own.gebied.naam}" v-for="(item, index) in lowestScores" :key="index">
               <span class="itemrank">{{item.ranking}}.</span> {{item.gwb.naam}}: {{item | displaywaarde}}
             </div>
           </div>
@@ -60,37 +60,36 @@
         </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-12">
-          <fieldset class="mode_input text row_verplicht">
-            <div class="antwoorden checkboxen">
-              <div class="label">
-                <label for="gebiedFilter">Filter</label>
-              </div>
 
-              <div class="antwoord">
+      <b-row>
+        <b-col cols="12">
+          <fieldset class="mode_input text row_verplicht">
+            <b-row class="antwoorden checkboxen">
+              <div class="label">Filter</div>
+
+              <b-col sm="12" lg="auto" class="antwoord">
                 <input :disabled="!variable || loading || drawing" :checked="gebiedType === 'Stadsdeel'" @click="setGebiedType('Stadsdeel')" type="radio" name="gebiedFilter" id="0">
                 <label for="0">Stadsdelen</label>
-              </div>
+              </b-col>
 
-              <div class="antwoord">
+              <b-col sm="12" lg="auto" class="antwoord">
                 <input :disabled="!variable || loading || drawing" :checked="gebiedType === 'Gebied'" @click="setGebiedType('Gebied')" type="radio" name="gebiedFilter" id="1">
                 <label for="1">Gebieden</label>
-              </div>
+              </b-col>
 
-              <div class="antwoord">
+              <b-col sm="12" lg="auto" class="antwoord">
                 <input :disabled="!variable || loading || drawing" :checked="gebiedType === 'Wijk'" @click="setGebiedType('Wijk')" type="radio" name="gebiedFilter" id="2">
                 <label for="2">Wijken</label>
-              </div>
+              </b-col>
 
-              <div class="antwoord">
+              <b-col sm="12" lg="auto" class="antwoord">
                 <input :disabled="!variable || loading || drawing" :checked="gebiedType === 'Buurt'" @click="setGebiedType('Buurt')" type="radio" name="gebiedFilter" id="3">
                 <label for="3">Buurten</label>
-              </div>
-            </div>
+              </b-col>
+            </b-row>
           </fieldset>
-        </div>
-      </div>
+        </b-col>
+      </b-row>
   </div>
 </template>
 
@@ -132,7 +131,15 @@ export default {
       'gebied',
       'wijk',
       'buurt'
-    ])
+    ]),
+
+    highestScores () {
+      return this.highLow.filter((number, index) => index < FRAGMENT)
+    },
+
+    lowestScores () {
+      return this.highLow.filter((number, index) => index >= FRAGMENT)
+    }
   },
   props: [
     'config'
@@ -261,6 +268,7 @@ export default {
     async getCijfers (recentYear) {
       // Sort and filter cijfers for gebiedType and waarde
       let cijfers = await util.getAllCijfers(this.variable, recentYear)
+
       cijfers = cijfers.filter(c => c.waarde !== null)
       cijfers = cijfers.filter(c => util.getGebiedType(c.gebiedcode15) === this.gebiedType)
       cijfers = cijfers.sort((c1, c2) => c2.waarde - c1.waarde)
@@ -401,7 +409,6 @@ export default {
       this.variables = variables
       this.variable = this.variables[0].variable
     }
-
   },
   watch: {
     'variable' () {

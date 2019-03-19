@@ -498,5 +498,76 @@
     "variabele": "Pgodshuis_p",
     "thema": "Werk, inkomen en participatie",
     "volgorde": 12
+  },
+
+  {
+    "variabele": "IHHINK_GEM",
+    "thema": "Sociale kracht",
+    "volgorde": 1
+  },
+  {
+    "variabele": "IINKQ1_p",
+    "thema": "Sociale kracht",
+    "volgorde": 2
+  },
+  {
+    "variabele": "IMINJONG120_p",
+    "thema": "Sociale kracht",
+    "volgorde": 3
+  },
+  {
+    "variabele": "ILANGMINJONG120_p",
+    "thema": "Sociale kracht",
+    "volgorde": 4
+  },
+  {
+    "variabele": "IMINVOLW120_p",
+    "thema": "Sociale kracht",
+    "volgorde": 5
+  },
+  {
+    "variabele": "IMINOUD120_p",
+    "thema": "Sociale kracht",
+    "volgorde": 6
+  },
+  {
+    "variabele": "IHHINK_GEM",
+    "thema": "Sociale kracht",
+    "volgorde": 7
+  },
+  {
+    "variabele": "IINKQ1_p",
+    "thema": "Sociale kracht",
+    "volgorde": 8
+  },
+  {
+    "variabele": "IMINJONG120_p",
+    "thema": "Sociale kracht",
+    "volgorde": 9
+  },
+  {
+    "variabele": "ILANGMINJONG120_p",
+    "thema": "Sociale kracht",
+    "volgorde": 10
+  },
+  {
+    "variabele": "IMINVOLW120_p",
+    "thema": "Sociale kracht",
+    "volgorde": 11
+  },
+  {
+    "variabele": "IMINOUD120_p",
+    "thema": "Sociale kracht",
+    "volgorde": 12
+  },
+  {
+    "variabele": "LSOCCOH_R",
+    "thema": "Sociale kracht",
+    "volgorde": 13
+  },
+  {
+    "variabele": "SRCULTUUR_1000INW",
+    "thema": "Sociale kracht",
+    "volgorde": 14
   }
 ]

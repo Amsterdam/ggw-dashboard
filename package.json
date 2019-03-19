@@ -14,7 +14,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "amsterdam-stijl": "^3.0.2",
+    "amsterdam-stijl": "^3.0.5",
     "axios": "^0.17.1",
     "bootstrap-vue": "^2.0.0-rc.2",
     "leaflet": "^1.3.1",

@@ -4,6 +4,10 @@
       <icon :icon="icon" :title="title"></icon>
     </div>
     <div class="col-lg-8 horizontal-text__content">
+      <p v-if="caption">
+        <small>{{caption}}</small>
+      </p>
+
       <div v-for="d in data" :key="d.label">
         <tooltip :cijfers="data" :cijfer="d">
           {{d.label}}:
@@ -34,7 +38,8 @@ export default {
   props: [
     'title',
     'icon',
-    'config'
+    'config',
+    'caption'
   ],
   data () {
     return {
