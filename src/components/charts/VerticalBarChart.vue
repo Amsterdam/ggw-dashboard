@@ -54,6 +54,7 @@ export default {
       this.chartdata = await util.getConfigCijfers(this.gwb, this.config)
       this.title = this.chartdata[0].label
       this.tooltip = this.chartdata[0].meta && this.chartdata[0].meta.bron
+
       this.updateChart()
     },
 

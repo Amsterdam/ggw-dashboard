@@ -10,19 +10,20 @@
 
         <b-row>
           <b-col>
-            <b-col cols="8" align-h="end">
-              <p>lage score op inkomen én opleiding:</p>
-            </b-col>
-
-            <horizontal-text title="Lage SES" icon="onderwijs_scholingslening.png" :config="lageSES"></horizontal-text>
+            <horizontal-text
+              title="Lage SES"
+              icon="onderwijs_scholingslening.png"
+              caption="lage score op inkomen én opleiding:"
+              :config="lageSES"
+            />
           </b-col>
 
           <b-col>
-            <b-col cols="8" align-h="end">
-              <p>lage score op inkomen, opleiding, werk én gezondheid:</p>
-            </b-col>
-
-            <horizontal-text title="Meest kwetsbaar" icon="adams_sociaal_rood.png" :config="meestKwetsbaar"></horizontal-text>
+            <horizontal-text
+              title="Meest kwetsbaar"
+              icon="adams_sociaal_rood.png"
+              caption="lage score op inkomen, opleiding, werk én gezondheid:"
+              :config="meestKwetsbaar" />
           </b-col>
         </b-row>
       </b-col>
