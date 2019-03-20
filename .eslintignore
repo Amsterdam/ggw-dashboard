@@ -1,6 +1,0 @@
-/build/
-/config/
-/dist/
-/*.js
-runner.js
-/test/unit/coverage/
