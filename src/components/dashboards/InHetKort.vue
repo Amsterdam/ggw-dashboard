@@ -83,7 +83,6 @@ import sociaalEconomisch from '../../../static/links/sociaaleconomisch'
 import leeftijd from '../../../static/links/leeftijd'
 import migratieAchtergrond from '../../../static/links/migratieachtergrond'
 import positieOntwikkeling from '../../../static/links/positie_en_ontwikkeling'
-import colorLegend from '../ColorLegend'
 
 export default {
   name: 'InHetKort',
@@ -91,8 +90,7 @@ export default {
     'horizontal-bar-chart': horizontalBarChart,
     'in-aantallen': inAantallen,
     'pano': pano,
-    'data-table': dataTable,
-    'color-legend': colorLegend
+    'data-table': dataTable
   },
   data () {
     return {

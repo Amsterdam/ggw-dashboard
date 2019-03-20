@@ -58,8 +58,6 @@ import { WELZIJN_ZORG_EN_SPORT, getKerncijfers } from '../../services/thema'
 import horizontalText from '../charts/HorizontalText'
 import dataTable from '../charts/DataTable'
 import verschillenGebied from '../VerschillenGebied'
-import verticalBarChart from '../charts/VerticalBarChart'
-import colorLegend from '../ColorLegend'
 
 import welzijnZorg from '../../../static/links/welzijn_zorg'
 import sport from '../../../static/links/sport'
@@ -71,9 +69,7 @@ export default {
   components: {
     'horizontal-text': horizontalText,
     'data-table': dataTable,
-    'verschillen-gebied': verschillenGebied,
-    'vertical-bar-chart': verticalBarChart,
-    'color-legend': colorLegend
+    'verschillen-gebied': verschillenGebied
   },
   data () {
     return {

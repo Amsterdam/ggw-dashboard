@@ -115,7 +115,6 @@ import typeVestiging from '../../../static/links/type_vestiging'
 import vestigingenHoofdfunctie from '../../../static/links/vestigingen_hoofdfunctie'
 import werkzamenHoofdfunctie from '../../../static/links/werkzamen_hoofdfunctie'
 import horeca from '../../../static/links/horeca'
-import colorLegend from '../ColorLegend'
 
 const kerncijfers = getKerncijfers(ECONOMIE_EN_CULTUUR)
 
@@ -127,8 +126,7 @@ export default {
     'verschillen-gebied': verschillenGebied,
     'line-chart': lineChart,
     'woonvormen': woonVormen,
-    'pie-chart': pieChart,
-    'color-legend': colorLegend
+    'pie-chart': pieChart
   },
   data () {
     return {

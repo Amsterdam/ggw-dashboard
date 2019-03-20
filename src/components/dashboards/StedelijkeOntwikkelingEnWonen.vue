@@ -136,7 +136,6 @@ import woonVormen from '../Woonvormen'
 import stackedBarChart from '../charts/StackedBarChart'
 import pieChart from '../charts/PieChart'
 import verticalBarChart from '../charts/VerticalBarChart'
-import colorLegend from '../ColorLegend'
 
 import eigenBuurt from '../../../static/links/eigenbuurt'
 import eigenWoning from '../../../static/links/eigenwoning'
@@ -163,8 +162,7 @@ export default {
     'woonvormen': woonVormen,
     'stacked-bar-chart': stackedBarChart,
     'pie-chart': pieChart,
-    'vertical-bar-chart': verticalBarChart,
-    'color-legend': colorLegend
+    'vertical-bar-chart': verticalBarChart
   },
   data () {
     return {

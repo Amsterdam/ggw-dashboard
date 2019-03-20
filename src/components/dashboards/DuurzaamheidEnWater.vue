@@ -41,16 +41,13 @@ import { DUURZAAMHEID_EN_WATER, getKerncijfers } from '../../services/thema'
 import dataTable from '../charts/DataTable'
 import verschillenGebied from '../VerschillenGebied'
 
-import colorLegend from '../ColorLegend.vue'
-
 const kerncijfers = getKerncijfers(DUURZAAMHEID_EN_WATER)
 
 export default {
   name: 'DuurzaamheidEnWater',
   components: {
     'data-table': dataTable,
-    'verschillen-gebied': verschillenGebied,
-    'color-legend': colorLegend
+    'verschillen-gebied': verschillenGebied
   },
   data () {
     return {

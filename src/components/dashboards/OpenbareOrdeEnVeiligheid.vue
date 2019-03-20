@@ -109,7 +109,6 @@ import horizontalText from '../charts/HorizontalText'
 import dataTable from '../charts/DataTable'
 import verschillenGebied from '../VerschillenGebied'
 import verticalBarChart from '../charts/VerticalBarChart'
-import colorLegend from '../ColorLegend'
 
 import veiligheid from '../../../static/links/veiligheid'
 import overlast from '../../../static/links/overlast'
@@ -131,8 +130,7 @@ export default {
     'horizontal-text': horizontalText,
     'data-table': dataTable,
     'verschillen-gebied': verschillenGebied,
-    'vertical-bar-chart': verticalBarChart,
-    'color-legend': colorLegend
+    'vertical-bar-chart': verticalBarChart
   },
   data () {
     return {
