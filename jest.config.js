@@ -1,4 +1,7 @@
+const path = require('path')
+
 module.exports = {
+  rootDir: path.resolve(__dirname),
   moduleFileExtensions: [
     'js',
     'jsx',
@@ -8,7 +11,7 @@ module.exports = {
   transform: {
     '^.+\\.vue$': 'vue-jest',
     '.+\\.(css|styl|less|sass|scss|svg|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub',
-    '^.+\\.jsx?$': 'babel-jest'
+    '^.+\\.js?$': 'babel-jest'
   },
   transformIgnorePatterns: [
     '/node_modules/'
@@ -16,11 +19,24 @@ module.exports = {
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1'
   },
+  testPathIgnorePatterns: [
+    '<rootDir>/test/e2e'
+  ],
+  setupFiles: [
+    '<rootDir>/test/unit/setup'
+  ],
   snapshotSerializers: [
     'jest-serializer-vue'
   ],
   testMatch: [
-    '**/tests/unit/**/*.spec.(js|jsx|ts|tsx)|**/__tests__/*.(js|jsx|ts|tsx)'
+    '<rootDir>/test/unit/specs/**/*.spec.(js|jsx|ts|tsx)|**/__tests__/*.(js|jsx|ts|tsx)'
   ],
-  testURL: 'http://localhost/'
+  testURL: 'http://localhost/',
+  coverageDirectory: '<rootDir>/test/unit/coverage',
+  collectCoverageFrom: [
+    'src/**/*.{js,vue}',
+    '!src/main.js',
+    '!src/router/index.js',
+    '!**/node_modules/**'
+  ]
 }
