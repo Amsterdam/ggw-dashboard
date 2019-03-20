@@ -27,7 +27,7 @@ export async function getAllMeta () {
     const data = await readPaginatedData(url)
     const dataObject = {}
 
-    data.forEach((item) => {
+    data.forEach(item => {
       dataObject[item.variabele.toUpperCase()] = item
     })
 
