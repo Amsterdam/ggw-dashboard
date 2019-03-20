@@ -1,4 +1,4 @@
-import { getAllMeta, getMeta } from '@/services/apis/bbga'
+import { getAllMeta, getMeta } from '../../../src/services/apis/bbga'
 
 jest.mock('axios', () => ({
   get: jest.fn((url) => {

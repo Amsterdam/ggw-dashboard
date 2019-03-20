@@ -1,4 +1,4 @@
-import util from '@/services/util'
+import util from '../../../src/services/util'
 
 jest.mock('axios', () => ({
   get: jest.fn((url) => {

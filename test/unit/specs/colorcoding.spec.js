@@ -1,5 +1,5 @@
 import std from '../../../static/tmp/std'
-import { getColor, CATEGORY_COLORS } from '@/services/colorcoding'
+import { getColor, CATEGORY_COLORS } from '../../../src/services/colorcoding'
 
 describe('colorcoding', () => {
   std[0] = {

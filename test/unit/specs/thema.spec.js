@@ -1,5 +1,5 @@
 import kerncijfers from '../../../static/links/kerncijfers'
-import { getKerncijfers } from '@/services/thema'
+import { getKerncijfers } from '../../../src/services/thema'
 
 describe('thema', () => {
   kerncijfers[0] = {
