@@ -28,32 +28,32 @@
         </div>
         <div v-else>
         <span v-if="cityCijfers" class="pad-top-bottom">
-          <b>{{cityCijfers.gebied.naam}}: {{cityCijfers.recent | displaywaarde }}</b>
+          <b>{{ cityCijfers.gebied.naam }}: {{ cityCijfers.recent | displaywaarde }}</b>
         </span>
 
         <div class="pad-top-bottom">
           <div v-if="own && own.gebiedType === gebiedType && own.recent">
-            <span><b>Geselecteerde {{own.gebiedType.toLowerCase()}}</b></span>
+            <span><b>Geselecteerde {{ own.gebiedType.toLowerCase() }}</b></span>
             <div class="listitem">
-              <span class="itemrank">{{ownIndex}}.</span> {{own.gebied.naam}}: {{own.recent | displaywaarde}}
+              <span class="itemrank">{{ ownIndex }}.</span> {{ own.gebied.naam }}: {{ own.recent | displaywaarde }}
             </div>
           </div>
 
           <div v-if="highLow.length > 1">
             <div class="subtitle">
-              <b>Hoogst scorende {{gebiedType.toLowerCase()}}</b>
+              <b>Hoogst scorende {{ gebiedType.toLowerCase() }}</b>
             </div>
             <div class="listitem" :class="{'highlight-own': item.gwb.naam === own.gebied.naam}" v-for="(item, index) in highestScores" :key="index">
-              <span class="itemrank">{{item.ranking}}.</span> {{item.gwb.naam}}: {{item | displaywaarde}}
+              <span class="itemrank">{{ item.ranking }}.</span> {{ item.gwb.naam }}: {{ item | displaywaarde }}
             </div>
           </div>
 
           <div v-if="highLow.length > FRAGMENT">
             <div class="subtitle">
-              <b>Laagst scorende {{gebiedType.toLowerCase()}}</b>
+              <b>Laagst scorende {{ gebiedType.toLowerCase() }}</b>
             </div>
             <div class="listitem" :class="{'highlight-own': item.gwb.naam === own.gebied.naam}" v-for="(item, index) in lowestScores" :key="index">
-              <span class="itemrank">{{item.ranking}}.</span> {{item.gwb.naam}}: {{item | displaywaarde}}
+              <span class="itemrank">{{ item.ranking }}.</span> {{ item.gwb.naam }}: {{ item | displaywaarde }}
             </div>
           </div>
         </div>

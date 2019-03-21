@@ -57,11 +57,9 @@ import { ONDERWIJS_JEUGD_EN_DIVERSITEIT, getKerncijfers } from '../../services/t
 import horizontalText from '../charts/HorizontalText'
 import dataTable from '../charts/DataTable'
 import verschillenGebied from '../VerschillenGebied'
-import verticalBarChart from '../charts/VerticalBarChart'
 
 import onderwijsJeugd from '../../../static/links/onderwijs_jeugd'
 import diversiteit from '../../../static/links/diversiteit'
-import colorLegend from '../ColorLegend'
 
 const kerncijfers = getKerncijfers(ONDERWIJS_JEUGD_EN_DIVERSITEIT)
 
@@ -70,9 +68,7 @@ export default {
   components: {
     'horizontal-text': horizontalText,
     'data-table': dataTable,
-    'verschillen-gebied': verschillenGebied,
-    'vertical-bar-chart': verticalBarChart,
-    'color-legend': colorLegend
+    'verschillen-gebied': verschillenGebied
   },
   data () {
     return {

@@ -108,11 +108,7 @@ import horizontalText from '../charts/HorizontalText'
 import dataTable from '../charts/DataTable'
 import verschillenGebied from '../VerschillenGebied'
 import lineChart from '../charts/LineChart'
-import woonVormen from '../Woonvormen'
-import stackedBarChart from '../charts/StackedBarChart'
-import pieChart from '../charts/PieChart'
 import verticalBarChart from '../charts/VerticalBarChart'
-import colorLegend from '../ColorLegend'
 
 import verkeer from '../../../static/links/verkeer'
 import openbareRuimte from '../../../static/links/openbare_ruimte'
@@ -132,11 +128,7 @@ export default {
     'data-table': dataTable,
     'verschillen-gebied': verschillenGebied,
     'line-chart': lineChart,
-    'woonvormen': woonVormen,
-    'stacked-bar-chart': stackedBarChart,
-    'pie-chart': pieChart,
-    'vertical-bar-chart': verticalBarChart,
-    'color-legend': colorLegend
+    'vertical-bar-chart': verticalBarChart
   },
   data () {
     return {

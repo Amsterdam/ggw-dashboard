@@ -2,7 +2,7 @@
   <div>
     <div class="more-info" title="Klik hier voor meer informatie" @click="showTooltip">
       <slot>
-        <span v-if="selectedCijfer">{{selectedCijfer.label}}</span>
+        <span v-if="selectedCijfer">{{ selectedCijfer.label }}</span>
       </slot>
     </div>
 
@@ -20,7 +20,7 @@
             <div class="tooltip-header col-12">
               <div class="mode_input selectie">
                 <div class="label">
-                  <label for="dropdown" v-if="selectedCijfer && selectedCijfer.gebied">{{selectedCijfer.gebied.naam}}</label>
+                  <label for="dropdown" v-if="selectedCijfer && selectedCijfer.gebied">{{ selectedCijfer.gebied.naam }}</label>
                 </div>
                 <div class="invoer" v-show="cijfers && cijfers.length > 1">
                   <b-form-select @change="selectCijfer"
@@ -39,9 +39,9 @@
             <div class="col-12">
               <div v-if="selectedCijfer && selectedCijfer.tooltip">
                 <span class="Notification-grijs">
-                  <h2>{{selectedCijfer.label}}</h2>
+                  <h2>{{ selectedCijfer.label }}</h2>
                   <span v-if="selectedCijfer.recent" class="text-center">
-                    {{selectedCijfer.recent.jaar}}: <b>{{selectedCijfer.recent | displaywaarde }}</b>
+                    {{ selectedCijfer.recent.jaar }}: <b>{{ selectedCijfer.recent | displaywaarde }}</b>
                   </span>
                 </span>
                 <div v-html="selectedCijfer.tooltip(false)"></div>

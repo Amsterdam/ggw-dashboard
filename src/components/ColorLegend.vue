@@ -4,7 +4,7 @@
     <div class="legend">
       <div v-for="entry in legend" :key="entry.color" class="legend-entry">
         <span :style="getBulletStyle(entry)" class="legend-bullet">&#9634;</span>
-        {{entry.text}}
+        {{ entry.text }}
       </div>
     </div>
   </div>

@@ -4,7 +4,7 @@
       <img class="icon" :src="`static/icons/${icon}`">
     </div>
     <div v-if="title" class="title col-12">
-      {{title}}
+      {{ title }}
     </div>
   </div>
 </template>

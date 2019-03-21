@@ -58,8 +58,6 @@ import { WERK_INKOMEN_EN_PARTICIPATIE, getKerncijfers } from '../../services/the
 import horizontalText from '../charts/HorizontalText'
 import dataTable from '../charts/DataTable'
 import verschillenGebied from '../VerschillenGebied'
-import verticalBarChart from '../charts/VerticalBarChart'
-import colorLegend from '../ColorLegend'
 
 import werkInkomen from '../../../static/links/werk_inkomen'
 import participatie from '../../../static/links/participatie'
@@ -71,9 +69,7 @@ export default {
   components: {
     'horizontal-text': horizontalText,
     'data-table': dataTable,
-    'verschillen-gebied': verschillenGebied,
-    'vertical-bar-chart': verticalBarChart,
-    'color-legend': colorLegend
+    'verschillen-gebied': verschillenGebied
   },
   data () {
     return {

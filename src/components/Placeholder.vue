@@ -2,7 +2,7 @@
   <div :style="'height: ' + height + 'px'">
     <div class="text-center">
       <img v-if="pic" :src="'../../static/placeholders/' + pic">
-      <div v-else>{{title}}</div>
+      <div v-else>{{ title }}</div>
     </div>
   </div>
 </template>

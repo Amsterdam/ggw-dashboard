@@ -18,7 +18,8 @@ const vegaEmbedOptions = {
   'actions': {
     'export': false,
     'source': false,
-    'editor': false},
+    'editor': false
+  },
   'renderer': 'svg'
 }
 
