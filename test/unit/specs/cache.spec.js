@@ -1,4 +1,4 @@
-import { cacheResponse } from '@/services/cache'
+import { cacheResponse } from '../../../src/services/cache'
 
 describe('cache', () => {
   it('should cache a value once', async () => {

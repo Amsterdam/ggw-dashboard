@@ -1,4 +1,4 @@
-import { drawShapes, amsMap } from '@/services/map'
+import { drawShapes, amsMap } from '../../../src/services/map'
 
 describe('map', () => {
   it('should provide for a map of Amsterdam', () => {

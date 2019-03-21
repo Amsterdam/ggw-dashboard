@@ -1,4 +1,4 @@
-import { GEBIED_TYPE, getGebiedType, enhanceGWB, getKeyFromUrl } from '@/services/apis/gebieden'
+import { GEBIED_TYPE, getGebiedType, enhanceGWB, getKeyFromUrl } from '../../../src/services/apis/gebieden'
 import gebiedscodes from '../../../static/tmp/gebieden'
 
 jest.mock('axios', () => ({

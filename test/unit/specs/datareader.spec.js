@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import { readData, readPaginatedData, HTTPStatus } from '@/services/datareader'
+import { readData, readPaginatedData, HTTPStatus } from '../../../src/services/datareader'
 
 const mockData = {
   x: 0
@@ -56,6 +56,7 @@ describe('datareader', async () => {
   })
 
   it('should retry reading data', async () => {
+    global.console.error = jest.fn()
     let data
     try {
       data = await readData('retry')
@@ -64,10 +65,13 @@ describe('datareader', async () => {
     }
     expect(axios.get).toBeCalledWith('retry')
     expect(axios.get).toHaveBeenCalledTimes(5)
+    expect(global.console.error).toHaveBeenCalledTimes(6)
 
     expect(HTTPStatus.error).toEqual(1)
     expect(HTTPStatus.pending).toEqual(0)
     expect(HTTPStatus.success).toEqual(0)
+
+    global.console.error.mockRestore()
   })
 
   it('should retry n times reading data', async () => {

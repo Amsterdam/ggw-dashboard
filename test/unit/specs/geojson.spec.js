@@ -1,4 +1,4 @@
-import { rdToWgs84, rdPolygonToWgs84, rdMultiPolygonToWgs84, toPrecision } from '@/services/geojson'
+import { rdToWgs84, rdPolygonToWgs84, rdMultiPolygonToWgs84, toPrecision } from '../../../src/services/geojson'
 
 describe('geojson', () => {
   it('should round to 6 digits', () => {
@@ -39,6 +39,7 @@ describe('geojson', () => {
   })
 
   it('should check the type of an rd polygon', () => {
+    global.console.error = jest.fn()
     const geometry = {
       'type': 'Something',
       'coordinates': [
@@ -49,6 +50,8 @@ describe('geojson', () => {
     }
 
     expect(rdPolygonToWgs84(geometry)).toEqual(undefined)
+    expect(global.console.error).toHaveBeenCalled()
+    global.console.error.mockRestore()
   })
 
   it('should convert an rd multipolygon to wgs84 polygon collection', () => {
