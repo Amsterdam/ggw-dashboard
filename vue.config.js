@@ -16,28 +16,21 @@ module.exports = {
 
     if (process.env.NODE_ENV === 'production') {
       config.optimization.splitChunks = {
-        chunks: 'initial',
+        chunks: 'all',
         minSize: 55000,
         maxSize: 128000,
-        // minChunks: 2,
-        // maxAsyncRequests: 2,
-        // maxInitialRequests: 1,
-        // automaticNameDelimiter: '~',
-        // name: true,
         cacheGroups: {
           vendorVue: {
             name: 'vue',
             test: /[\\/]node_modules[\\/](.*vue.*)[\\/]/,
             chunks: 'all',
-            priority: -10,
-            // enforce: true
+            priority: -10
           },
           vendorVega: {
             name: 'vega',
             test: /[\\/]node_modules[\\/](.*vega.*)[\\/]/,
             chunks: 'all',
-            priority: -20,
-            // enforce: true
+            priority: -20
           },
           commons: {
             name: 'commons',
