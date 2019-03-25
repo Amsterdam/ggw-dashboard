@@ -17,22 +17,27 @@ module.exports = {
     if (process.env.NODE_ENV === 'production') {
       config.optimization.splitChunks = {
         chunks: 'all',
-        minSize: 20000,
-        maxSize: 70000,
-        minChunks: 2,
-        maxAsyncRequests: 5,
-        maxInitialRequests: 3,
-        automaticNameDelimiter: '~',
-        name: true,
+        minSize: 55000,
+        maxSize: 128000,
         cacheGroups: {
-          vendors: {
-            test: /[\\/]node_modules[\\/](proj4|leaflet|proj4leaflet)[\\/]/,
+          vendorVue: {
+            name: 'vue',
+            test: /[\\/]node_modules[\\/](.*vue.*)[\\/]/,
+            chunks: 'all',
             priority: -10
           },
-          default: {
+          vendorVega: {
+            name: 'vega',
+            test: /[\\/]node_modules[\\/](.*vega.*)[\\/]/,
+            chunks: 'all',
+            priority: -20
+          },
+          commons: {
+            name: 'commons',
+            chunks: 'initial',
             minChunks: 2,
-            priority: -20,
-            reuseExistingChunk: true
+            reuseExistingChunk: true,
+            priority: -30
           }
         }
       }
