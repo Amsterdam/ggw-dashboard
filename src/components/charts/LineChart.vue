@@ -15,11 +15,7 @@ import vegaSpec from '../../../static/charts/linechart5'
 import { LINE_CHART_COLORS } from '../../services/colorcoding'
 
 const vegaEmbedOptions = {
-  'actions': {
-    'export': false,
-    'source': false,
-    'editor': false
-  },
+  'actions': false,
   'renderer': 'svg'
 }
 
