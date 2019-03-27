@@ -43,16 +43,24 @@ export default {
     async updateData () {
       const data = await util.getConfigCijfers(this.gwb, this.config)
       this.chartdata = data
+      const legend = []
 
       let cijfers = util.flatten(
         this.chartdata.map(data =>
-          data.cijfers.map(cijfer => ({
-            x: cijfer.jaar,
-            y: cijfer.waarde,
-            variable: data.label,
-            dash: /prognose/i.test(data.label) // show prognose variables as dashed lines
-          }))))
+          data.cijfers.map(cijfer => {
+            if (data.showInLegend && !legend.includes(data.label)) {
+              legend.push(data.label)
+            }
 
+            return {
+              x: cijfer.jaar,
+              y: cijfer.waarde,
+              variable: data.label,
+              dash: /prognose/i.test(data.label) // show prognose variables as dashed lines
+            }
+          })))
+
+      vegaSpec.legends[0].values = legend
       vegaSpec.data[0].values = cijfers
       vegaSpec.scales[2].range = LINE_CHART_COLORS.slice(0, this.colors || LINE_CHART_COLORS.length)
       vegaEmbed(this.$refs[this.chartRef], vegaSpec, vegaEmbedOptions)

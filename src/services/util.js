@@ -48,9 +48,10 @@ function getTooltip (cijfers) {
  * Get the cijfers for a gebied, wijk or buurt given a configuration
  * Optionally one can specify to receive only the most recent cijfers
  * Default the cijfers for all years are returned
- * @param gwb gebied, wijk, buurt
- * @param config
- * @param recentOrAll Only the most recent year or all years (default)
+ *
+ * @param {Object} gwb gebied, wijk, buurt
+ * @param {Object} config
+ * @param {String} [recentOrAll=CIJFERS.ALL] Only the most recent year or all years (default)
  * @returns {Promise<any[]>}
  */
 async function getConfigCijfers (gwb, config, recentOrAll = CIJFERS.ALL) {
@@ -63,6 +64,7 @@ async function getConfigCijfers (gwb, config, recentOrAll = CIJFERS.ALL) {
       return {
         ...cijfers,
         label: c.label || cijfers.meta.label,
+        showInLegend: c.showInLegend !== undefined ? c.showInLegend : true,
         tooltip: getTooltip(cijfers),
         index
       }
