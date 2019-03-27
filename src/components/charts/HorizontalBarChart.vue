@@ -22,11 +22,7 @@ import vegaSpec from '../../../static/charts/horizontalbar'
 import { COLOR } from '../../services/colorcoding'
 
 const vegaEmbedOptions = {
-  'actions': {
-    'export': false,
-    'source': false,
-    'editor': false
-  },
+  'actions': false,
   'renderer': 'svg'
 }
 

@@ -22,11 +22,7 @@ import vegaSpec from '../../../static/charts/pie'
 import { PIE_CHART_COLORS } from '../../services/colorcoding'
 
 const vegaEmbedOptions = {
-  'actions': {
-    'export': false,
-    'source': false,
-    'editor': false
-  },
+  'actions': false,
   'renderer': 'svg'
 }
 
