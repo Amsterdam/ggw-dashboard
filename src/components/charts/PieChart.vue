@@ -66,6 +66,7 @@ export default {
 
       vegaSpec.scales[0].range = PIE_CHART_COLORS
       vegaSpec.legends[0].title = this.legendTitle
+      vegaSpec.legends[0].values = util.getLegendLabels(this.chartdata)
       vegaEmbed(this.$refs[this.chartRef], vegaSpec, vegaEmbedOptions)
     }
   },

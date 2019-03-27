@@ -205,34 +205,49 @@ const displayWaarde = cijfer => {
   }
 }
 
+const getLegendLabels = (configCijfers) => {
+  const legendLabels = []
+
+  configCijfers
+    .filter(({ showInLegend }) => showInLegend)
+    .forEach(({ label }) => {
+      if (!legendLabels.includes(label)) {
+        legendLabels.push(label)
+      }
+    })
+
+  return legendLabels
+}
+
 /**
  * Util exports het methods in an object. Usage will therefore be like util.getCity instead of import {getCity} from util
  * This has been done for reasons of simplicity only
  */
 export default {
-  getAllStadsdelen,
-  getAllGebieden,
-  getAllWijken,
-  getAllBuurten,
-  getCity,
-  getWijken,
-  getBuurten,
-  getDetail,
-  getAllMeta,
-  getMeta,
-  getConfigCijfers,
-  getLatestConfigCijfers,
-  getYearCijfers,
-  getMaxYear,
   CIJFERS,
+  displayWaarde,
+  flatten,
+  GEBIED_TYPE,
+  getAllBuurten,
   getAllCijfers,
+  getAllGebieden,
+  getAllMeta,
+  getAllStadsdelen,
+  getAllWijken,
+  getBuurten,
+  getCity,
+  getConfigCijfers,
+  getDetail,
   getGebiedCijfers,
   getGebiedType,
+  getGeometries,
   getGwb,
   getGwbs,
   getGwbSummary,
-  GEBIED_TYPE,
-  getGeometries,
-  flatten,
-  displayWaarde
+  getLatestConfigCijfers,
+  getLegendLabels,
+  getMaxYear,
+  getMeta,
+  getWijken,
+  getYearCijfers
 }

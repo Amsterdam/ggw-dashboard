@@ -49,8 +49,11 @@ export default {
       this.chartdata = await util.getConfigCijfers(this.gwb, this.config)
       const cijfers = util.getYearCijfers(this.chartdata, this.last, this.excludeYears)
 
+      if (!vegaSpec.legends) vegaSpec.legends = [{}]
+
       vegaSpec.data.values = cijfers
       vegaSpec.scales[2].range = STACKED_CHART_COLORS
+      vegaSpec.legends[0].values = util.getLegendLabels(this.chartdata)
       vegaEmbed(this.$refs[this.chartRef], vegaSpec, vegaEmbedOptions)
     }
   },
