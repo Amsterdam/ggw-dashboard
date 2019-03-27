@@ -106,7 +106,7 @@ export default {
 
       for (let item of data) {
         // temp var for demo purposes; will be removed after client approval
-        const randomTussenkopje = tussenKopjesSlice[Math.floor(Math.random() * tussenKopjesSlice.length)]
+        const randomTussenkopje = '' // tussenKopjesSlice[Math.floor(Math.random() * tussenKopjesSlice.length)]
         // temp var for demo purposes; will be removed after client approval
         const index = tussenKopjesSlice.indexOf(randomTussenkopje)
 
