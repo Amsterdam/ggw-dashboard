@@ -230,6 +230,95 @@ describe('util', () => {
       ))
   })
 
+  describe('get selection from given dataset', () => {
+    const sourceYears = [2011, 2012, 2013, 2014, 2015, 2016]
+    const data = sourceYears.map(i =>
+      ({
+        label: 'label',
+        cijfers: [
+          {
+            jaar: i,
+            waarde: i,
+            color: i
+          }
+        ]
+      })
+    )
+
+    const getYears = data => data.map(({ x }) => x)
+
+    it('can get odd years for a given dataset', () => {
+      const yearCijfers = util.getYearCijfers(data, null, { even: true })
+      const years = getYears(yearCijfers)
+
+      expect(years).toEqual([2011, 2013, 2015])
+    })
+
+    it('can get even years for a given dataset', () => {
+      const yearCijfersEven = util.getYearCijfers(data, null, { odd: true })
+      const yearsEven = getYears(yearCijfersEven)
+
+      expect(yearsEven).toEqual([2012, 2014, 2016])
+
+      // 'odd' takes precedence over 'even'
+      const yearCijfersEven2 = util.getYearCijfers(data, null, { odd: true, even: true })
+      const yearsEven2 = getYears(yearCijfersEven2)
+
+      expect(yearsEven2).toEqual([2012, 2014, 2016])
+    })
+
+    it('can get years before a given year for a given dataset', () => {
+      const yearCijfers = util.getYearCijfers(data, null, { after: 2014 })
+      const years = getYears(yearCijfers)
+
+      expect(years).toEqual([2011, 2012, 2013])
+
+      // exclude the 'odd' years
+      const yearCijfersOdd = util.getYearCijfers(data, null, { odd: true, after: 2014 })
+      const yearsOdd = getYears(yearCijfersOdd)
+
+      expect(yearsOdd).toEqual([2012])
+
+      // exclude the 'even' years
+      const yearCijfersEven = util.getYearCijfers(data, null, { even: true, after: 2014 })
+      const yearsEven = getYears(yearCijfersEven)
+
+      expect(yearsEven).toEqual([2011, 2013])
+    })
+
+    it('can get years after a given year for a given dataset', () => {
+      const yearCijfers = util.getYearCijfers(data, null, { before: 2014 })
+      const years = getYears(yearCijfers)
+
+      expect(years).toEqual([2015, 2016])
+
+      // exclude the 'odd' years
+      const yearCijfersOdd = util.getYearCijfers(data, null, { odd: true, before: 2014 })
+      const yearsOdd = getYears(yearCijfersOdd)
+
+      expect(yearsOdd).toEqual([2016])
+
+      // exclude the 'even' years
+      const yearCijfersEven = util.getYearCijfers(data, null, { even: true, before: 2014 })
+      const yearsEven = getYears(yearCijfersEven)
+
+      expect(yearsEven).toEqual([2015])
+    })
+
+    it('can get specific years for a given dataset', () => {
+      const yearCijfers = util.getYearCijfers(data, null, { exact: [2012, 2013, 2014] })
+      const years = getYears(yearCijfers)
+
+      expect(years).toEqual([2011, 2015, 2016])
+
+      // each value in the exclusion array has to be a number
+      const yearCijfersWrongFilter = util.getYearCijfers(data, null, { exact: [2012, 2013, 'a'] })
+      const yearsWrongFilter = getYears(yearCijfersWrongFilter)
+
+      expect(yearsWrongFilter).toEqual([2011, 2012, 2013, 2014, 2015, 2016])
+    })
+  })
+
   it('can flatten arrays', () => {
     expect(util.flatten([1, [2, 3], 4])).toEqual([1, 2, 3, 4])
     expect(util.flatten([1, [2, [3]], 4])).toEqual([1, 2, 3, 4])
