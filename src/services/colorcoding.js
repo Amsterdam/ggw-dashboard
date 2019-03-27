@@ -158,7 +158,7 @@ function getCategory (zScore) {
     }
   ]
 
-  const defaultCategory = { color: CATEGORY_COLORS[5].color }
+  const defaultCategory = { color: CATEGORY_COLORS[2].color }
 
   return categories.find(c => c.inCategory(zScore)) || defaultCategory
 }
@@ -174,14 +174,18 @@ export function getColor (meta, value, year) {
   if (value !== null) {
     const variable = meta.variabele
     const varStd = std
-      .filter(item => item.variabele === variable && item.jaar <= year)
+      .filter(({ jaar, variabele }) => variabele === variable && jaar <= year)
       .sort((item1, item2) => item2.jaar - item1.jaar)
 
     if (varStd.length) {
       const ref = varStd[0] // most recent year
-      const zScore = (value - ref.gem) / ref.SD
-      const paletScore = meta.kleurenpalet === 2 ? 0 - zScore : zScore
-      const category = getCategory(paletScore)
+      let zScore = (value - ref.gem) / ref.SD
+
+      if (meta.kleurenpalet === 2) {
+        zScore = (0 - zScore)
+      }
+
+      const category = getCategory(zScore)
 
       return {
         color: category.color,
