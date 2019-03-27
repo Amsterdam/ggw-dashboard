@@ -83,17 +83,25 @@ async function getConfigCijfers (gwb, config, recentOrAll = CIJFERS.ALL) {
  * Utility method for charts
  * Based upon a data set (retrieved from getConfigCijfers) it returns a chart data set with x, y, color and variable values
  * Optionally one can specify to retrieve only the last n years
- * @param data
- * @param last Optional parameter to retrieve only the last n cijfers
- * @returns {*}
+ *
+ * @param {Object} data
+ * @param {Number} last Optional parameter to retrieve only the last n cijfers
+ * @param {Object} [exclude={}] Options for excluding specific years from the dataset
+ * @param {Boolean} exclude.odd - Exclude all odd years from the dataset
+ * @param {Boolean} exclude.even - Exclude all even years from the dataset
+ * @param {Number} exclude.before - Exclude all years before the given value
+ * @param {Number} exclude.after - Exclude all years after the given value
+ * @param {Number[]} exclude.exact - Exclude all years in the list of gives values
+ * @returns {Object}
  */
-function getYearCijfers (data, last = null) {
-  data = data.filter(item => item.cijfers)
+function getYearCijfers (data, last = null, exclude = {}) {
+  const { odd, even, before, after, exact } = exclude
+  const cijferData = data.filter(({ cijfers }) => cijfers)
 
   /**
    * Compute year totals to supress the display of insignificant values
    */
-  const totalWaarde = data.reduce((total, item) => {
+  const totalWaarde = cijferData.reduce((total, item) => {
     item.cijfers.forEach(cijfer => {
       total[cijfer.jaar] = total[cijfer.jaar] || 0
       total[cijfer.jaar] += cijfer.waarde
@@ -102,7 +110,7 @@ function getYearCijfers (data, last = null) {
   }, {})
 
   let cijfers = flatten(
-    data.map(item =>
+    cijferData.map(item =>
       item.cijfers.map(cijfer => ({
         x: cijfer.jaar,
         y: cijfer.waarde,
@@ -111,7 +119,21 @@ function getYearCijfers (data, last = null) {
         color: cijfer.color,
         display: (cijfer.waarde / totalWaarde[cijfer.jaar]) > 0.075 ? displayWaarde(cijfer) : '',
         cijfer
-      }))))
+      })))
+  ).filter(({ x }) => {
+    if (odd) return x % 2 === 0
+    if (even) return x % 2 > 0
+    return true
+  }).filter(({ x }) => {
+    if (before) return x > before
+    if (after) return x < after
+    return true
+  }).filter(({ x }) => {
+    if (Array.isArray(exact) && exact.every(year => !Number.isNaN(+year))) {
+      return !exact.includes(x)
+    }
+    return true
+  })
 
   if (last) {
     const maxYear = getMaxYear(cijfers)
