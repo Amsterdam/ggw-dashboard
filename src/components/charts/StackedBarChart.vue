@@ -1,6 +1,9 @@
 <template>
   <div class="chart-container">
     <tooltip :cijfers="chartdata">
+      <h5>
+        {{title}}
+      </h5>
     <div :ref="chartRef"></div>
     </tooltip>
   </div>
@@ -25,8 +28,10 @@ export default {
     'tooltip': tooltip
   },
   props: [
+    'title',
     'config',
-    'last'
+    'last',
+    'excludeYears'
   ],
   data () {
     return {
@@ -42,8 +47,7 @@ export default {
   methods: {
     async updateData () {
       this.chartdata = await util.getConfigCijfers(this.gwb, this.config)
-
-      const cijfers = util.getYearCijfers(this.chartdata, this.last)
+      const cijfers = util.getYearCijfers(this.chartdata, this.last, this.excludeYears)
 
       vegaSpec.data.values = cijfers
       vegaSpec.scales[2].range = STACKED_CHART_COLORS
