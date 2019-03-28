@@ -63,6 +63,11 @@ export default {
         i
       }))
 
+      if (!vegaSpec.legends) {
+        vegaSpec.legends = [{}]
+      }
+
+      vegaSpec.legends[0].values = util.getLegendLabels(this.chartdata)
       vegaSpec.layer[0].encoding.color.scale.range = vegaSpec.data.values.map(v => v.color)
       vegaEmbed(this.$refs[this.chartRef], vegaSpec, vegaEmbedOptions)
     }

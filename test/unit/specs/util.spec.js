@@ -2,7 +2,7 @@ import util from '../../../src/services/util'
 
 jest.mock('axios', () => ({
   get: jest.fn((url) => {
-    // console.log('get', url)
+    console.log('get', url)
 
     const gebieden = {
       data: {
@@ -155,7 +155,7 @@ describe('util', () => {
     'volledige_code': 'DX20'
   }
 
-  it('gets the max year from an array of cijfers', () => {
+  it.only('gets the max year from an array of cijfers', () => {
     const max = util.getMaxYear([
       {
         x: 1
@@ -228,6 +228,95 @@ describe('util', () => {
         'y': i
       })
       ))
+  })
+
+  describe('get selection from given dataset', () => {
+    const sourceYears = [2011, 2012, 2013, 2014, 2015, 2016]
+    const data = sourceYears.map(i =>
+      ({
+        label: 'label',
+        cijfers: [
+          {
+            jaar: i,
+            waarde: i,
+            color: i
+          }
+        ]
+      })
+    )
+
+    const getYears = data => data.map(({ x }) => x)
+
+    it('can get odd years for a given dataset', () => {
+      const yearCijfers = util.getYearCijfers(data, null, { even: true })
+      const years = getYears(yearCijfers)
+
+      expect(years).toEqual([2012, 2014, 2016])
+    })
+
+    it('can get even years for a given dataset', () => {
+      const yearCijfersEven = util.getYearCijfers(data, null, { odd: true })
+      const yearsEven = getYears(yearCijfersEven)
+
+      expect(yearsEven).toEqual([2011, 2013, 2015])
+
+      // 'odd' takes precedence over 'even'
+      const yearCijfersEven2 = util.getYearCijfers(data, null, { odd: true, even: true })
+      const yearsEven2 = getYears(yearCijfersEven2)
+
+      expect(yearsEven2).toEqual([2011, 2013, 2015])
+    })
+
+    it('can get years before a given year for a given dataset', () => {
+      const yearCijfers = util.getYearCijfers(data, null, { after: 2014 })
+      const years = getYears(yearCijfers)
+
+      expect(years).toEqual([2015, 2016])
+
+      // exclude the 'odd' years
+      const yearCijfersOdd = util.getYearCijfers(data, null, { odd: true, after: 2014 })
+      const yearsOdd = getYears(yearCijfersOdd)
+
+      expect(yearsOdd).toEqual([2015])
+
+      // exclude the 'even' years
+      const yearCijfersEven = util.getYearCijfers(data, null, { even: true, after: 2014 })
+      const yearsEven = getYears(yearCijfersEven)
+
+      expect(yearsEven).toEqual([2016])
+    })
+
+    it('can get years after a given year for a given dataset', () => {
+      const yearCijfers = util.getYearCijfers(data, null, { before: 2014 })
+      const years = getYears(yearCijfers)
+
+      expect(years).toEqual([2011, 2012, 2013])
+
+      // exclude the 'odd' years
+      const yearCijfersOdd = util.getYearCijfers(data, null, { odd: true, before: 2014 })
+      const yearsOdd = getYears(yearCijfersOdd)
+
+      expect(yearsOdd).toEqual([2011, 2013])
+
+      // exclude the 'even' years
+      const yearCijfersEven = util.getYearCijfers(data, null, { even: true, before: 2014 })
+      const yearsEven = getYears(yearCijfersEven)
+
+      expect(yearsEven).toEqual([2012])
+    })
+
+    it('can get specific years for a given dataset', () => {
+      const yearCijfers = util.getYearCijfers(data, null, { exact: [2012, 2013, 2014] })
+      const years = getYears(yearCijfers)
+
+      expect(years).toEqual([2012, 2013, 2014])
+
+      // each value in the exclusion array has to be a number
+      const yearCijfersWrongFilter = util.getYearCijfers(data, null, { exact: [2012, 2013, 'a'] })
+      const yearsWrongFilter = getYears(yearCijfersWrongFilter)
+
+      expect(yearsWrongFilter).toEqual([2011, 2012, 2013, 2014, 2015, 2016])
+    })
   })
 
   it('can flatten arrays', () => {
@@ -351,5 +440,27 @@ describe('util', () => {
         },
         'recent': {'gebiedcode15': 'DX20', 'jaar': 2018, 'post': '', 'waarde': 25008}
       }])
+  })
+
+  it('returns a set of legend labels', () => {
+    const configCijfers = [{
+      label: 'Foo',
+      showInLegend: false
+    },
+    {
+      label: 'Bar',
+      showInLegend: true
+    },
+    {
+      label: 'Baz',
+      showInLegend: undefined
+    },
+    {
+      label: 'Qux',
+      showInLegend: null
+    }]
+
+    const labels = util.getLegendLabels(configCijfers)
+    expect(labels).toEqual(['Bar', 'Baz', 'Qux'])
   })
 })

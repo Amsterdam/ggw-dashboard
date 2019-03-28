@@ -92,10 +92,10 @@
       <div class="col-12 card">
         <div class="row">
           <div class="col-lg-6 content-centered">
-            <stacked-bar-chart title="Type woningen" :config="typeWoningen"></stacked-bar-chart>
+            <stacked-bar-chart title="Type woningen" :config="typeWoningen" :includeYears="includeYears" />
           </div>
           <div class="col-lg-6 content-centered">
-            <pie-chart title="Grootte van de woningen" :config="grootteWoningen"></pie-chart>
+            <pie-chart title="Grootte van de woningen" :config="grootteWoningen" />
           </div>
         </div>
       </div>
@@ -178,7 +178,8 @@ export default {
       percWoningGeschiktOud,
       aantalWoningen,
       typeWoningen,
-      andereWoonvormen
+      andereWoonvormen,
+      includeYears: { odd: true, after: 2009 }
     }
   },
   computed: {

@@ -53,6 +53,11 @@ export default {
             dash: /prognose/i.test(data.label) // show prognose variables as dashed lines
           }))))
 
+      if (!vegaSpec.legends) {
+        vegaSpec.legends = [{}]
+      }
+
+      vegaSpec.legends[0].values = util.getLegendLabels(this.chartdata)
       vegaSpec.data[0].values = cijfers
       vegaSpec.scales[2].range = LINE_CHART_COLORS.slice(0, this.colors || LINE_CHART_COLORS.length)
       vegaEmbed(this.$refs[this.chartRef], vegaSpec, vegaEmbedOptions)

@@ -1,10 +1,10 @@
 {
-  "$schema": "https://vega.github.io/schema/vega/v3.json",
+  "$schema": "https://vega.github.io/schema/vega/v4.4.json",
   "width": 325,
   "height": 200,
   "padding": 5,
 
-  "data":
+  "data": [
     {
       "name": "table",
       "values": [
@@ -28,7 +28,7 @@
         }
       ]
     }
-  ,
+  ],
 
   "scales": [
     {
@@ -57,7 +57,9 @@
     {
       "fill": "color",
       "title": "",
-      "orient": "right",
+      "orient": "bottom",
+      "direction": "horizontal",
+      "columns": 2,
       "encode": {
         "symbols": {
           "enter": {
