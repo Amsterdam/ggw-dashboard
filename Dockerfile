@@ -1,6 +1,5 @@
-FROM node:8.9
-
-MAINTAINER datapunt.ois@amsterdam.nl
+FROM node:8.15-stretch AS builder
+LABEL maintainer="datapunt@amsterdam.nl"
 
 EXPOSE 80
 
