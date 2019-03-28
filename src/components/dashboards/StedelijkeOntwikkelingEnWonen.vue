@@ -92,7 +92,7 @@
       <div class="col-12 card">
         <div class="row">
           <div class="col-lg-6 content-centered">
-            <stacked-bar-chart title="Type woningen" :config="typeWoningen" :excludeYears="excludeYears" />
+            <stacked-bar-chart title="Type woningen" :config="typeWoningen" :includeYears="includeYears" />
           </div>
           <div class="col-lg-6 content-centered">
             <pie-chart title="Grootte van de woningen" :config="grootteWoningen" />
@@ -179,7 +179,7 @@ export default {
       aantalWoningen,
       typeWoningen,
       andereWoonvormen,
-      excludeYears: { even: true, before: 2010 }
+      includeYears: { odd: true, after: 2009 }
     }
   },
   computed: {

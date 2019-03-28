@@ -86,16 +86,16 @@ async function getConfigCijfers (gwb, config, recentOrAll = CIJFERS.ALL) {
  *
  * @param {Object} data
  * @param {Number} last Optional parameter to retrieve only the last n cijfers
- * @param {Object} [exclude={}] Options for excluding specific years from the dataset
- * @param {Boolean} exclude.odd - Exclude all odd years from the dataset
- * @param {Boolean} exclude.even - Exclude all even years from the dataset
- * @param {Number} exclude.before - Exclude all years before the given value
- * @param {Number} exclude.after - Exclude all years after the given value
- * @param {Number[]} exclude.exact - Exclude all years in the list of gives values
+ * @param {Object} [include={}] Options for including specific years from the dataset
+ * @param {Boolean} include.odd - Include only odd years from the dataset
+ * @param {Boolean} include.even - Include only even years from the dataset
+ * @param {Number} include.before - Include only years before the given value
+ * @param {Number} include.after - Include only years after the given value
+ * @param {Number[]} include.exact - Include only years in the list of gives values
  * @returns {Object}
  */
-function getYearCijfers (data, last = null, exclude = {}) {
-  const { odd, even, before, after, exact } = exclude
+function getYearCijfers (data, last = null, include = {}) {
+  const { odd, even, before, after, exact } = include
   const cijferData = data.filter(({ cijfers }) => cijfers)
 
   /**
@@ -121,16 +121,24 @@ function getYearCijfers (data, last = null, exclude = {}) {
         cijfer
       })))
   ).filter(({ x }) => {
-    if (odd) return x % 2 === 0
-    if (even) return x % 2 > 0
+    if (odd) {
+      return x % 2 > 0
+    }
+    if (even) {
+      return x % 2 === 0
+    }
     return true
   }).filter(({ x }) => {
-    if (before) return x > before
-    if (after) return x < after
+    if (before) {
+      return x < before
+    }
+    if (after) {
+      return x > after
+    }
     return true
   }).filter(({ x }) => {
     if (Array.isArray(exact) && exact.every(year => !Number.isNaN(+year))) {
-      return !exact.includes(x)
+      return exact.includes(x)
     }
     return true
   })
@@ -205,18 +213,20 @@ const displayWaarde = cijfer => {
   }
 }
 
+/**
+ * Gets a list of labels that need to be displayed in a graph's legend
+ *
+ * @param {Object[]} configCijfers - Result set from call to getConfigCijfers function
+ * @returns {String[]}
+ */
 const getLegendLabels = (configCijfers) => {
-  const legendLabels = []
-
-  configCijfers
+  const config = [...configCijfers]
     .filter(({ showInLegend }) => showInLegend)
-    .forEach(({ label }) => {
-      if (!legendLabels.includes(label)) {
-        legendLabels.push(label)
-      }
-    })
+    .map(({ label }) => label)
 
-  return legendLabels
+  const legendLabels = new Set(config)
+
+  return Array.from(legendLabels)
 }
 
 /**

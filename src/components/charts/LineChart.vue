@@ -43,7 +43,6 @@ export default {
     async updateData () {
       const data = await util.getConfigCijfers(this.gwb, this.config)
       this.chartdata = data
-      const legend = []
 
       let cijfers = util.flatten(
         this.chartdata.map(data =>
@@ -54,7 +53,9 @@ export default {
             dash: /prognose/i.test(data.label) // show prognose variables as dashed lines
           }))))
 
-      if (!vegaSpec.legends) vegaSpec.legends = [{}]
+      if (!vegaSpec.legends) {
+        vegaSpec.legends = [{}]
+      }
 
       vegaSpec.legends[0].values = util.getLegendLabels(this.chartdata)
       vegaSpec.data[0].values = cijfers

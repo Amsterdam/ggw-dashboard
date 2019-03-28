@@ -31,7 +31,7 @@ export default {
     'title',
     'config',
     'last',
-    'excludeYears'
+    'includeYears'
   ],
   data () {
     return {
@@ -47,11 +47,13 @@ export default {
   methods: {
     async updateData () {
       this.chartdata = await util.getConfigCijfers(this.gwb, this.config)
-      const cijfers = util.getYearCijfers(this.chartdata, this.last, this.excludeYears)
+      const cijfers = util.getYearCijfers(this.chartdata, this.last, this.includeYears)
 
-      if (!vegaSpec.legends) vegaSpec.legends = [{}]
+      if (!vegaSpec.legends) {
+        vegaSpec.legends = [{}]
+      }
 
-      vegaSpec.data.values = cijfers
+      vegaSpec.data[0].values = cijfers
       vegaSpec.scales[2].range = STACKED_CHART_COLORS
       vegaSpec.legends[0].values = util.getLegendLabels(this.chartdata)
       vegaEmbed(this.$refs[this.chartRef], vegaSpec, vegaEmbedOptions)
