@@ -12,7 +12,7 @@ const allGeometries = {}
  * @param getStyle styling method that is invoked for each polygon
  * @returns {Promise<void>}
  */
-export async function getShapes (gebiedType, getStyle) {
+export async function getShapes (gebiedType, getStyle, getTooltip) {
   const gwbs = await util.getGwbs(gebiedType)
 
   allGeometries[gebiedType] = allGeometries[gebiedType] || await util.getGeometries(gebiedType)
@@ -21,7 +21,9 @@ export async function getShapes (gebiedType, getStyle) {
 
   return gwbs.map(gwb => {
     const geometry = geometries[gwb.vollcode] || geometries[gwb.code]
-    return L.polygon(geometry.coordinates, getStyle(gwb.vollcode))
+    const polygon = L.polygon(geometry.coordinates, getStyle(gwb.vollcode))
+    getTooltip(polygon, gwb.vollcode)
+    return polygon
   })
 }
 

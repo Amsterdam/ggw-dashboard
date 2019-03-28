@@ -339,16 +339,33 @@ export default {
       const cijfersLookup = {}
       cijfers.forEach(cijfer => { cijfersLookup[cijfer.gebiedcode15] = cijfer })
 
-      const shapes = await getShapes(this.gebiedType, (gebiedcode15) => {
+      const getStyles = (gebiedcode15) => {
         const c = cijfersLookup[gebiedcode15]
         return {
-          'fillOpacity': 0.8,
-          'fillColor': c ? (c.color || getRankingColor(c.ranking - 1, cijfers.length - 1)) : COLOR['ams-wit'],
-          'color': COLOR['ams-donkergrijs'],
-          'opacity': 0.5,
-          'weight': 1
+          fillOpacity: 0.8,
+          fillColor: c ? (c.color || getRankingColor(c.ranking - 1, cijfers.length - 1)) : COLOR['ams-wit'],
+          color: COLOR['ams-donkergrijs'],
+          opacity: 0.5,
+          weight: 1
         }
-      })
+      }
+
+      const getTooltip = (polygon, gebiedcode15) => {
+        const c = cijfersLookup[gebiedcode15]
+
+        if (!c) {
+          return
+        }
+
+        const { ranking, waarde } = c
+
+        polygon.bindTooltip(`
+          ranking: ${ranking}<br />
+          score: ${waarde}
+        `, { direction: 'top' })
+      }
+
+      const shapes = await getShapes(this.gebiedType, getStyles, getTooltip)
 
       this.showShapes(shapes)
     },
