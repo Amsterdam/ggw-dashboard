@@ -1,27 +1,24 @@
 {
-  "$schema": "https://vega.github.io/schema/vega/v4.json",
+  "$schema": "https://vega.github.io/schema/vega/v4.4.json",
   "width": 350,
   "height": 200,
   "padding": 5,
 
-  "data":
-    [{
-      "name": "table",
-      "values": [
-        {"x": 0, "y": 28, "variable":0}, {"x": 0, "y": 20, "variable":1},
-        {"x": 1, "y": 43, "variable":0}, {"x": 1, "y": 35, "variable":1},
-        {"x": 2, "y": 81, "variable":0}, {"x": 2, "y": 10, "variable":1},
-        {"x": 3, "y": 19, "variable":0}, {"x": 3, "y": 15, "variable":1},
-        {"x": 4, "y": 52, "variable":0}, {"x": 4, "y": 48, "variable":1},
-        {"x": 5, "y": 24, "variable":0}, {"x": 5, "y": 28, "variable":1},
-        {"x": 6, "y": 87, "variable":0}, {"x": 6, "y": 66, "variable":1},
-        {"x": 7, "y": 17, "variable":0}, {"x": 7, "y": 27, "variable":1},
-        {"x": 8, "y": 68, "variable":0}, {"x": 8, "y": 16, "variable":1},
-        {"x": 9, "y": 49, "variable":0}, {"x": 9, "y": 25, "variable":1}
-      ]
-    }]
-  ,
-
+  "data": [{
+    "name": "table",
+    "values": [
+      {"x": 0, "y": 28, "variable":0}, {"x": 0, "y": 20, "variable":1},
+      {"x": 1, "y": 43, "variable":0}, {"x": 1, "y": 35, "variable":1},
+      {"x": 2, "y": 81, "variable":0}, {"x": 2, "y": 10, "variable":1},
+      {"x": 3, "y": 19, "variable":0}, {"x": 3, "y": 15, "variable":1},
+      {"x": 4, "y": 52, "variable":0}, {"x": 4, "y": 48, "variable":1},
+      {"x": 5, "y": 24, "variable":0}, {"x": 5, "y": 28, "variable":1},
+      {"x": 6, "y": 87, "variable":0}, {"x": 6, "y": 66, "variable":1},
+      {"x": 7, "y": 17, "variable":0}, {"x": 7, "y": 27, "variable":1},
+      {"x": 8, "y": 68, "variable":0}, {"x": 8, "y": 16, "variable":1},
+      {"x": 9, "y": 49, "variable":0}, {"x": 9, "y": 25, "variable":1}
+    ]
+  }],
   "scales": [
     {
       "name": "x",
