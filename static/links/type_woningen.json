@@ -4,11 +4,11 @@
     "variabele": "WKOOP_P"
   },
   {
-    "label": "Vrij sector (particulier)",
+    "label": "Vrije sector (particulier)",
     "variabele": "WHUURVRIJPART_P"
   },
   {
-    "label": "Vrij sector (corporatie)",
+    "label": "Vrije sector (corporatie)",
     "variabele": "WHUURVRIJCORP_P"
   },
   {
@@ -16,7 +16,7 @@
     "variabele": "WHUURSOCPART_P"
   },
   {
-    "label": "Socialehuur (corporatie)",
+    "label": "Sociale huur (corporatie)",
     "variabele": "WHUURSOCCORP_P"
   }
 ]

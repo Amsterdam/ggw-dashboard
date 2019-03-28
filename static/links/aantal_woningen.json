@@ -17,6 +17,7 @@
   },
   {
     "label": "",
+    "showInLegend": false,
     "variabele": "W_prog[LATEST]"
   }
 ]
