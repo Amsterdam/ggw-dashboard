@@ -16,19 +16,23 @@
     "variabele": "Bev65plus"
   },
   {
-    "label": "Prognose totaal",
+    "label": "",
+    "showInLegend": false,
     "variabele": "Bev_prog[LATEST]"
   },
   {
-    "label": "Prognose 0-17",
+    "label": "",
+    "showInLegend": false,
     "variabele": "Bev0_17_prog[LATEST]"
   },
   {
-    "label": "Prognose 18-64",
+    "label": "",
+    "showInLegend": false,
     "variabele": "Bev18_64_prog[LATEST]"
   },
   {
-    "label": "Prognose 65+",
+    "label": "",
+    "showInLegend": false,
     "variabele": "Bev65plus_prog[LATEST]"
   }
 ]

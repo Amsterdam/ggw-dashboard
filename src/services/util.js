@@ -48,9 +48,10 @@ function getTooltip (cijfers) {
  * Get the cijfers for a gebied, wijk or buurt given a configuration
  * Optionally one can specify to receive only the most recent cijfers
  * Default the cijfers for all years are returned
- * @param gwb gebied, wijk, buurt
- * @param config
- * @param recentOrAll Only the most recent year or all years (default)
+ *
+ * @param {Object} gwb gebied, wijk, buurt
+ * @param {Object} config
+ * @param {String} [recentOrAll=CIJFERS.ALL] Only the most recent year or all years (default)
  * @returns {Promise<any[]>}
  */
 async function getConfigCijfers (gwb, config, recentOrAll = CIJFERS.ALL) {
@@ -63,6 +64,7 @@ async function getConfigCijfers (gwb, config, recentOrAll = CIJFERS.ALL) {
       return {
         ...cijfers,
         label: c.label || cijfers.meta.label,
+        showInLegend: c.showInLegend !== undefined ? c.showInLegend : true,
         tooltip: getTooltip(cijfers),
         index
       }
@@ -81,17 +83,25 @@ async function getConfigCijfers (gwb, config, recentOrAll = CIJFERS.ALL) {
  * Utility method for charts
  * Based upon a data set (retrieved from getConfigCijfers) it returns a chart data set with x, y, color and variable values
  * Optionally one can specify to retrieve only the last n years
- * @param data
- * @param last Optional parameter to retrieve only the last n cijfers
- * @returns {*}
+ *
+ * @param {Object} data
+ * @param {Number} last Optional parameter to retrieve only the last n cijfers
+ * @param {Object} [include={}] Options for including specific years from the dataset
+ * @param {Boolean} include.odd - Include only odd years from the dataset
+ * @param {Boolean} include.even - Include only even years from the dataset
+ * @param {Number} include.before - Include only years before the given value
+ * @param {Number} include.after - Include only years after the given value
+ * @param {Number[]} include.exact - Include only years in the list of gives values
+ * @returns {Object}
  */
-function getYearCijfers (data, last = null) {
-  data = data.filter(item => item.cijfers)
+function getYearCijfers (data, last = null, include = {}) {
+  const { odd, even, before, after, exact } = include
+  const cijferData = data.filter(({ cijfers }) => cijfers)
 
   /**
    * Compute year totals to supress the display of insignificant values
    */
-  const totalWaarde = data.reduce((total, item) => {
+  const totalWaarde = cijferData.reduce((total, item) => {
     item.cijfers.forEach(cijfer => {
       total[cijfer.jaar] = total[cijfer.jaar] || 0
       total[cijfer.jaar] += cijfer.waarde
@@ -100,7 +110,7 @@ function getYearCijfers (data, last = null) {
   }, {})
 
   let cijfers = flatten(
-    data.map(item =>
+    cijferData.map(item =>
       item.cijfers.map(cijfer => ({
         x: cijfer.jaar,
         y: cijfer.waarde,
@@ -109,7 +119,29 @@ function getYearCijfers (data, last = null) {
         color: cijfer.color,
         display: (cijfer.waarde / totalWaarde[cijfer.jaar]) > 0.075 ? displayWaarde(cijfer) : '',
         cijfer
-      }))))
+      })))
+  ).filter(({ x }) => {
+    if (odd) {
+      return x % 2 > 0
+    }
+    if (even) {
+      return x % 2 === 0
+    }
+    return true
+  }).filter(({ x }) => {
+    if (before) {
+      return x < before
+    }
+    if (after) {
+      return x > after
+    }
+    return true
+  }).filter(({ x }) => {
+    if (Array.isArray(exact) && exact.every(year => !Number.isNaN(+year))) {
+      return exact.includes(x)
+    }
+    return true
+  })
 
   if (last) {
     const maxYear = getMaxYear(cijfers)
@@ -182,33 +214,50 @@ const displayWaarde = cijfer => {
 }
 
 /**
+ * Gets a list of labels that need to be displayed in a graph's legend
+ *
+ * @param {Object[]} configCijfers - Result set from call to getConfigCijfers function
+ * @returns {String[]}
+ */
+const getLegendLabels = (configCijfers) => {
+  const config = [...configCijfers]
+    .filter(({ showInLegend }) => showInLegend)
+    .map(({ label }) => label)
+
+  const legendLabels = new Set(config)
+
+  return Array.from(legendLabels)
+}
+
+/**
  * Util exports het methods in an object. Usage will therefore be like util.getCity instead of import {getCity} from util
  * This has been done for reasons of simplicity only
  */
 export default {
-  getAllStadsdelen,
-  getAllGebieden,
-  getAllWijken,
-  getAllBuurten,
-  getCity,
-  getWijken,
-  getBuurten,
-  getDetail,
-  getAllMeta,
-  getMeta,
-  getConfigCijfers,
-  getLatestConfigCijfers,
-  getYearCijfers,
-  getMaxYear,
   CIJFERS,
+  displayWaarde,
+  flatten,
+  GEBIED_TYPE,
+  getAllBuurten,
   getAllCijfers,
+  getAllGebieden,
+  getAllMeta,
+  getAllStadsdelen,
+  getAllWijken,
+  getBuurten,
+  getCity,
+  getConfigCijfers,
+  getDetail,
   getGebiedCijfers,
   getGebiedType,
+  getGeometries,
   getGwb,
   getGwbs,
   getGwbSummary,
-  GEBIED_TYPE,
-  getGeometries,
-  flatten,
-  displayWaarde
+  getLatestConfigCijfers,
+  getLegendLabels,
+  getMaxYear,
+  getMeta,
+  getWijken,
+  getYearCijfers
 }

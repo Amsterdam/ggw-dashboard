@@ -14,7 +14,7 @@ module.exports = {
     '^.+\\.js?$': 'babel-jest'
   },
   transformIgnorePatterns: [
-    '/node_modules/'
+    '<rootDir>/node_modules/(?:@babel|core-js)/'
   ],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1'

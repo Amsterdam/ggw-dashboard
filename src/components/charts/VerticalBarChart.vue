@@ -21,11 +21,7 @@ import vegaSpec from '../../../static/charts/verticalbar'
 import { COLOR } from '../../services/colorcoding'
 
 const vegaEmbedOptions = {
-  'actions': {
-    'export': false,
-    'source': false,
-    'editor': false
-  },
+  'actions': false,
   'renderer': 'svg'
 }
 
@@ -68,6 +64,12 @@ export default {
           color: d.color,
           i
         }))
+
+      if (!vegaSpec.legends) {
+        vegaSpec.legends = [{}]
+      }
+
+      vegaSpec.legends[0].values = util.getLegendLabels(this.chartdata)
       vegaSpec.layer[0].encoding.color.scale.range = vegaSpec.data.values.map(v => v.color || COLOR['ams-groen'])
       vegaEmbed(this.$refs[this.chartRef], vegaSpec, vegaEmbedOptions)
     }

@@ -1,6 +1,9 @@
 <template>
   <div class="chart-container">
     <tooltip :cijfers="chartdata">
+      <h5>
+        {{title}}
+      </h5>
     <div :ref="chartRef"></div>
     </tooltip>
   </div>
@@ -15,11 +18,7 @@ import vegaSpec from '../../../static/charts/stackedbar5'
 import { STACKED_CHART_COLORS } from '../../services/colorcoding'
 
 const vegaEmbedOptions = {
-  'actions': {
-    'export': false,
-    'source': false,
-    'editor': false
-  },
+  'actions': false,
   'renderer': 'svg'
 }
 
@@ -29,8 +28,10 @@ export default {
     'tooltip': tooltip
   },
   props: [
+    'title',
     'config',
-    'last'
+    'last',
+    'includeYears'
   ],
   data () {
     return {
@@ -46,11 +47,15 @@ export default {
   methods: {
     async updateData () {
       this.chartdata = await util.getConfigCijfers(this.gwb, this.config)
+      const cijfers = util.getYearCijfers(this.chartdata, this.last, this.includeYears)
 
-      const cijfers = util.getYearCijfers(this.chartdata, this.last)
+      if (!vegaSpec.legends) {
+        vegaSpec.legends = [{}]
+      }
 
-      vegaSpec.data.values = cijfers
+      vegaSpec.data[0].values = cijfers
       vegaSpec.scales[2].range = STACKED_CHART_COLORS
+      vegaSpec.legends[0].values = util.getLegendLabels(this.chartdata)
       vegaEmbed(this.$refs[this.chartRef], vegaSpec, vegaEmbedOptions)
     }
   },

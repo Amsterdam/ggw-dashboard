@@ -135,7 +135,7 @@ function getCategory (zScore) {
   const average = 0.5
   const categories = [
     {
-      inCategory: s => s >= 2 * average,
+      inCategory: s => 2 * average <= s,
       color: CATEGORY_COLORS[0].color,
       textColor: CATEGORY_COLORS[0].textColor
     },
@@ -144,20 +144,23 @@ function getCategory (zScore) {
       color: CATEGORY_COLORS[1].color
     },
     {
-      inCategory: s => (-average < s && s < average),
+      inCategory: s => (average < s && s < -average),
       color: CATEGORY_COLORS[2].color
     },
     {
-      inCategory: s => (-2 * average < s && s <= -average),
+      inCategory: s => (-average >= s && s > 2 * -average),
       color: CATEGORY_COLORS[3].color
     },
     {
-      inCategory: s => s <= -2 * average,
+      inCategory: s => -2 * average >= s,
       color: CATEGORY_COLORS[4].color,
       textColor: CATEGORY_COLORS[4].textColor
     }
   ]
-  return categories.find(c => c.inCategory(zScore))
+
+  const defaultCategory = { color: CATEGORY_COLORS[2].color }
+
+  return categories.find(c => c.inCategory(zScore)) || defaultCategory
 }
 
 /**
@@ -170,14 +173,20 @@ function getCategory (zScore) {
 export function getColor (meta, value, year) {
   if (value !== null) {
     const variable = meta.variabele
-    const revert = meta.kleurenpalet === 2 ? -1 : 1
     const varStd = std
-      .filter(item => item.variabele === variable && item.jaar <= year)
+      .filter(({ jaar, variabele }) => variabele === variable && jaar <= year)
       .sort((item1, item2) => item2.jaar - item1.jaar)
+
     if (varStd.length) {
       const ref = varStd[0] // most recent year
-      const zScore = (value - ref.gem) / ref.SD
-      const category = getCategory(zScore * revert)
+      let zScore = (value - ref.gem) / ref.SD
+
+      if (meta.kleurenpalet === 2) {
+        zScore = (0 - zScore)
+      }
+
+      const category = getCategory(zScore)
+
       return {
         color: category.color,
         textColor: category.textColor

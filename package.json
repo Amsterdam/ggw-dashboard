@@ -20,6 +20,7 @@
     "proj4leaflet": "^1.0.2",
     "sass-loader": "^7.1.0",
     "vega-embed": "^3.30.0",
+    "vega-lite": "^2.2.0",
     "vue": "^2.6.6",
     "vue-axios": "^2.1.4",
     "vue-router": "^3.0.1",
