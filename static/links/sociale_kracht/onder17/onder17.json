@@ -1,6 +1,6 @@
 [
   {
-    "label": "% 0-17 jaar",
-    "variabele": "IHHINK_GEM"
+    "label": "aantal 0-17 jaar",
+    "variabele": "BEV0_17"
   }
 ]
