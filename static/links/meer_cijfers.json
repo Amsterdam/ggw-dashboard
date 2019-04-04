@@ -8,6 +8,10 @@
     "url": "https://statistiek.data.amsterdam.nl/t/PO/views/Kerncijfertabel_v2/Dashtijdlijnen?:embed=n&:showAppBanner=false&:showShareOptions=true&:display_count=no&:showVizHome=no"
   },
   {
+    "label": "Buurten vergelijken - zelf kaart maken",
+    "url": "https://statistiek.data.amsterdam.nl/t/PO/views/Kerncijfertabel_v2/Dashkaart?iframeSizedToWindow=true&:embed=y&:showAppBanner=false&:display_count=no&:showVizHome=no"
+  },
+  {
     "label": "Basisbestand Gebieden Amsterdam (BBGA)",
     "url": "https://data.amsterdam.nl/#?dte=dcatd%2Fdatasets%2Fbasisbestand-gebieden-amsterdam-bbga&dtfs=T&mpb=topografie&mpz=11&mpv=52.3731081:4.8932945"
   }
