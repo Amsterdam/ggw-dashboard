@@ -80,9 +80,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-  .chart-container {
-    height: 235px;
-  }
-</style>
