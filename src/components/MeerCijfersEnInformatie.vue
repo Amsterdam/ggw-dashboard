@@ -11,7 +11,7 @@
             <div class="col-12">
               <ul class="links">
                 <li v-for="info in meerInformatie" :key="info.label">
-                  <a :href="info.url" class="outsite" target="_blank" rel="noreferrer"><span class="linklabel">{{ info.label }}</span></a>
+                  <a :href="info.url" class="outsite" target="_blank" rel="noopener noreferrer"><span class="linklabel">{{ info.label }}</span></a>
                 </li>
               </ul>
             </div>
@@ -27,7 +27,7 @@
             <div class="col-12">
               <ul class="links">
                 <li v-for="info in meerCijfers" :key="info.label">
-                  <a :href="info.url" class="outsite" target="_blank" rel="noreferrer"><span class="linklabel">{{ info.label }}</span></a>
+                  <a :href="info.url" class="outsite" target="_blank" rel="noopener noreferrer"><span class="linklabel">{{ info.label }}</span></a>
                 </li>
               </ul>
             </div>
