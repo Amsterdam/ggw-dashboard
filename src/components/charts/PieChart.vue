@@ -2,7 +2,7 @@
   <div>
     <div class="text-center">
       <tooltip :cijfers="chartdata">
-      <h5>
+      <h5 :v-if="title">
         {{title}}
       </h5>
       <div class="chart-container">
