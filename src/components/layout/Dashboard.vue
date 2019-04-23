@@ -20,6 +20,7 @@
       <verkeer-en-openbare-ruimte v-if="thema === VERKEER_EN_OPENBARE_RUIMTE"></verkeer-en-openbare-ruimte>
       <welzijn-zorg-en-sport v-if="thema === WELZIJN_ZORG_EN_SPORT"></welzijn-zorg-en-sport>
       <werk-inkomen-en-participatie v-if="thema === WERK_INKOMEN_EN_PARTICIPATIE"></werk-inkomen-en-participatie>
+      <sociale-kracht v-if="thema === SOCIALE_KRACHT"></sociale-kracht>
     </div>
     </div>
 </template>
@@ -36,7 +37,8 @@ import {
   STEDELIJKE_ONTWIKKELING_EN_WONEN,
   VERKEER_EN_OPENBARE_RUIMTE,
   WELZIJN_ZORG_EN_SPORT,
-  WERK_INKOMEN_EN_PARTICIPATIE
+  WERK_INKOMEN_EN_PARTICIPATIE,
+  SOCIALE_KRACHT
 } from '../../services/thema'
 
 import gwbMap from '../GWBMap'
@@ -52,6 +54,7 @@ import stedelijkeOntwikkelingEnWonen from '../dashboards/StedelijkeOntwikkelingE
 import verkeerEnOpenbareRuimte from '../dashboards/VerkeerEnOpenbareRuimte'
 import welzijnZorgEnSport from '../dashboards/WelzijnZorgEnSport'
 import werkInkomenEnParticipatie from '../dashboards/WerkInkomenEnParticipatie'
+import socialeKracht from '../dashboards/SocialeKracht'
 
 export default {
   name: 'GGWDashboard',
@@ -67,7 +70,8 @@ export default {
     'stedelijke-ontwikkeling-en-wonen': stedelijkeOntwikkelingEnWonen,
     'verkeer-en-openbare-ruimte': verkeerEnOpenbareRuimte,
     'welzijn-zorg-en-sport': welzijnZorgEnSport,
-    'werk-inkomen-en-participatie': werkInkomenEnParticipatie
+    'werk-inkomen-en-participatie': werkInkomenEnParticipatie,
+    'sociale-kracht': socialeKracht
   },
   data () {
     return {
@@ -80,7 +84,8 @@ export default {
       STEDELIJKE_ONTWIKKELING_EN_WONEN,
       VERKEER_EN_OPENBARE_RUIMTE,
       WELZIJN_ZORG_EN_SPORT,
-      WERK_INKOMEN_EN_PARTICIPATIE
+      WERK_INKOMEN_EN_PARTICIPATIE,
+      SOCIALE_KRACHT
     }
   },
   computed: {
