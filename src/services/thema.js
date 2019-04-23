@@ -17,6 +17,7 @@ export const STEDELIJKE_ONTWIKKELING_EN_WONEN = 'Stedelijke ontwikkeling en wone
 export const VERKEER_EN_OPENBARE_RUIMTE = 'Verkeer en Openbare ruimte'
 export const WELZIJN_ZORG_EN_SPORT = 'Welzijn, zorg en sport'
 export const WERK_INKOMEN_EN_PARTICIPATIE = 'Werk, inkomen en participatie'
+export const SOCIALE_KRACHT = 'Sociale kracht'
 
 /**
  * The total set of available themas of which the user can choose from
@@ -32,7 +33,8 @@ export const THEMAS = [
   OPENBARE_ORDE_EN_VEILIGHEID,
   ONDERWIJS_JEUGD_EN_DIVERSITEIT,
   WERK_INKOMEN_EN_PARTICIPATIE,
-  WELZIJN_ZORG_EN_SPORT
+  WELZIJN_ZORG_EN_SPORT,
+  SOCIALE_KRACHT
 ]
 
 /**
