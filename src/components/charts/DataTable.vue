@@ -8,15 +8,19 @@
         </tr>
       </thead>
 
-      <tbody v-for="(d, tussenkopje) of data" :key="tussenkopje">
+      <tbody v-for="(d, tussenkop) of data" :key="tussenkop">
         <tr v-for="item of d" :key="item.meta.variabele">
           <th
             scope="row"
             :rowspan="d.length"
-            v-if="item.meta.tussenkopje_kerncijfertabel"
+            v-if="item.meta.tussenkop_kerncijfertabel"
             valign="top"
           >
-            {{item.meta.tussenkopje_kerncijfertabel}}
+            <span v-if="tussenkop != 'empty'">
+              {{item.meta.tussenkop_kerncijfertabel}}
+            </span>
+
+            <span v-if-else>&nbsp;</span>
           </th>
           <td>
             <tooltip :cijfers="d" :cijfer="item">{{item.label}}</tooltip>
@@ -65,36 +69,6 @@ export default {
     async updateData () {
       const data = await util.getConfigCijfers(this.gwb, this.config)
 
-      // temp var for demo purposes; will be removed after client approval
-      const tussenkopjes = [
-        'Brandveiligheid',
-        'Cultuur',
-        'Diversiteit',
-        'Duurzaamheid',
-        'Huishoudens',
-        'Inkomen',
-        'Jeugd',
-        'Onderwijs',
-        'Oordeel buurt',
-        'Openbare ruimte',
-        'Overlast',
-        'Participatie',
-        'Personen',
-        'Sport',
-        'Veiligheid',
-        'Verkeer',
-        'Vestigingen',
-        'Welzijn',
-        'Werk',
-        'Werkgelegenheid',
-        'Wonen',
-        'Woningprijzen',
-        'Woningvoorraad',
-        'Zorg'
-      ]
-      // temp var for demo purposes; will be removed after client approval
-      const tussenKopjesSlice = tussenkopjes.sort(() => 0.5 - Math.random()).slice(0, Math.floor((Math.random() * 4 + 1)))
-
       /**
        * Show the last 4 years only
        * @type {*}
@@ -105,24 +79,21 @@ export default {
       const categorizedData = {}
 
       for (let item of data) {
-        // temp var for demo purposes; will be removed after client approval
-        const randomTussenkopje = '' // tussenKopjesSlice[Math.floor(Math.random() * tussenKopjesSlice.length)]
-        // temp var for demo purposes; will be removed after client approval
-        const index = tussenKopjesSlice.indexOf(randomTussenkopje)
-
-        // temp var for demo purposes; will be removed after client approval
-        item.meta.tussenkopje_kerncijfertabel = randomTussenkopje
-        // temp var for demo purposes; will be removed after client approval
-        item.meta.volgorde_kerncijfertabel = index
+        let tussenKop = item.meta && item.meta.tussenkop_kerncijfertabel
         item.tooltipText = item.tooltip ? item.tooltip(false) : ''
 
-        if (!Object.keys(categorizedData).includes(randomTussenkopje)) {
-          categorizedData[randomTussenkopje] = []
-        } else {
-          item.meta.tussenkopje_kerncijfertabel = undefined
+        if (!tussenKop) {
+          item.meta.tussenkop_kerncijfertabel = 'empty'
+          tussenKop = 'empty'
         }
 
-        categorizedData[randomTussenkopje].push(item)
+        if (!Object.keys(categorizedData).includes(tussenKop)) {
+          categorizedData[tussenKop] = []
+        } else {
+          item.meta.tussenkop_kerncijfertabel = undefined
+        }
+
+        categorizedData[tussenKop].push(item)
 
         for (let year of this.years) {
           item[year] = { jaar: year, waarde: '' }
