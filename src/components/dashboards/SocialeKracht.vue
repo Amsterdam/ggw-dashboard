@@ -71,29 +71,29 @@
 
         <b-row>
           <b-col lg="4" class="content-centered">
-            <vertical-bar-chart :config="skOnder17"></vertical-bar-chart>
+            <vertical-bar-chart :config="skOnder17" />
           </b-col>
 
           <b-col lg="4" class="content-centered">
-            <vertical-bar-chart :config="skOnder17Minimajongeren"></vertical-bar-chart>
+            <vertical-bar-chart :config="skOnder17Minimajongeren" />
           </b-col>
 
           <b-col lg="4" class="content-centered">
-            <vertical-bar-chart :config="skOnder17Eenoudergezinnen"></vertical-bar-chart>
+            <vertical-bar-chart :config="skOnder17Eenoudergezinnen" />
           </b-col>
         </b-row>
 
         <b-row>
           <b-col lg="4" class="content-centered">
-            <vertical-bar-chart :config="skOnder17LaagOpgeleideOuders"></vertical-bar-chart>
+            <vertical-bar-chart :config="skOnder17LaagOpgeleideOuders" />
           </b-col>
 
           <b-col lg="4" class="content-centered">
-            <vertical-bar-chart :config="skOnder17BasisschoolAdvies"></vertical-bar-chart>
+            <vertical-bar-chart :config="skOnder17BasisschoolAdvies" />
           </b-col>
 
           <b-col lg="4" class="content-centered">
-            <vertical-bar-chart :config="skOnder17HogeKostenGezondheidszorg"></vertical-bar-chart>
+            <vertical-bar-chart :config="skOnder17Overgewicht" />
           </b-col>
         </b-row>
       </b-col>
@@ -109,15 +109,15 @@
 
         <b-row>
           <b-col lg="4" class="content-centered">
-            <vertical-bar-chart :config="sk1827"></vertical-bar-chart>
+            <vertical-bar-chart :config="sk1826" />
           </b-col>
 
           <b-col lg="4" class="content-centered">
-            <vertical-bar-chart :config="sk1827LSV"></vertical-bar-chart>
+            <vertical-bar-chart :config="sk1826LSV" />
           </b-col>
 
           <b-col lg="4" class="content-centered">
-            <vertical-bar-chart :config="sk1827HogeKostenGezondheidszorg"></vertical-bar-chart>
+            <vertical-bar-chart :config="sk1826Arbeidsparticipatie" />
           </b-col>
         </b-row>
       </b-col>
@@ -133,29 +133,25 @@
 
         <b-row>
           <b-col lg="4" class="content-centered">
-            <vertical-bar-chart :config="sk2865"></vertical-bar-chart>
+            <vertical-bar-chart :config="sk2765" />
           </b-col>
 
           <b-col lg="4" class="content-centered">
-            <vertical-bar-chart :config="sk2865Minimavolwassenen"></vertical-bar-chart>
+            <vertical-bar-chart :config="sk2765Minimavolwassenen" />
           </b-col>
 
           <b-col lg="4" class="content-centered">
-            <vertical-bar-chart :config="sk2865VroegEropafMelding"></vertical-bar-chart>
+            <vertical-bar-chart :config="sk2765VroegEropafMelding" />
           </b-col>
         </b-row>
 
         <b-row>
           <b-col lg="4" class="content-centered">
-            <vertical-bar-chart :config="sk2865LaagOpgeleid"></vertical-bar-chart>
+            <vertical-bar-chart :config="sk2765LaagOpgeleid" />
           </b-col>
 
           <b-col lg="4" class="content-centered">
-            <vertical-bar-chart :config="sk2865GeenWerk"></vertical-bar-chart>
-          </b-col>
-
-          <b-col lg="4" class="content-centered">
-            <vertical-bar-chart :config="sk2865HogeKostenGezondheidszorg"></vertical-bar-chart>
+            <vertical-bar-chart :config="sk2765GeenWerk" />
           </b-col>
         </b-row>
       </b-col>
@@ -171,29 +167,14 @@
 
         <b-row>
           <b-col lg="4" class="content-centered">
-            <vertical-bar-chart :config="sk66Plus"></vertical-bar-chart>
+            <vertical-bar-chart :config="sk66Plus" />
           </b-col>
 
           <b-col lg="4" class="content-centered">
-            <vertical-bar-chart :config="sk66Plus80Plus"></vertical-bar-chart>
+            <vertical-bar-chart :config="sk66Plus80PlusAlleenwonend" />
           </b-col>
-
           <b-col lg="4" class="content-centered">
-            <vertical-bar-chart :config="sk66Plus80PlusAlleenwonend"></vertical-bar-chart>
-          </b-col>
-        </b-row>
-
-        <b-row>
-          <b-col lg="4" class="content-centered">
-            <vertical-bar-chart :config="sk66PlusMinimaOuderen"></vertical-bar-chart>
-          </b-col>
-
-          <b-col lg="4" class="content-centered">
-            <vertical-bar-chart :config="sk66PlusLaagOpgeleid"></vertical-bar-chart>
-          </b-col>
-
-          <b-col lg="4" class="content-centered">
-            <vertical-bar-chart :config="sk66PlusHogeKostenGezondheidszorg"></vertical-bar-chart>
+            <vertical-bar-chart :config="sk66PlusMinimaOuderen" />
           </b-col>
         </b-row>
       </b-col>
@@ -217,25 +198,21 @@ import skOnder17Minimajongeren from '../../../static/links/sociale_kracht/onder1
 import skOnder17Eenoudergezinnen from '../../../static/links/sociale_kracht/onder17/eenoudergezinnen.json'
 import skOnder17LaagOpgeleideOuders from '../../../static/links/sociale_kracht/onder17/laag_opgeleide_ouders.json'
 import skOnder17BasisschoolAdvies from '../../../static/links/sociale_kracht/onder17/basisschool_advies.json'
-import skOnder17HogeKostenGezondheidszorg from '../../../static/links/sociale_kracht/onder17/hoge_kosten_gezondheidszorg.json'
+import skOnder17Overgewicht from '../../../static/links/sociale_kracht/onder17/overgewicht.json'
 
-import sk1827 from '../../../static/links/sociale_kracht/18_27/18_27.json'
-import sk1827LSV from '../../../static/links/sociale_kracht/18_27/lsv.json'
-import sk1827HogeKostenGezondheidszorg from '../../../static/links/sociale_kracht/18_27/hoge_kosten_gezondheidszorg.json'
+import sk1826 from '../../../static/links/sociale_kracht/18_26/18_26.json'
+import sk1826LSV from '../../../static/links/sociale_kracht/18_26/lsv.json'
+import sk1826Arbeidsparticipatie from '../../../static/links/sociale_kracht/18_26/netto_arbeidsparticipatie.json'
 
-import sk2865 from '../../../static/links/sociale_kracht/28_65/28_65.json'
-import sk2865Minimavolwassenen from '../../../static/links/sociale_kracht/28_65/minimavolwassenen.json'
-import sk2865VroegEropafMelding from '../../../static/links/sociale_kracht/28_65/vroeg_eropaf_melding.json'
-import sk2865LaagOpgeleid from '../../../static/links/sociale_kracht/28_65/laag_opgeleid.json'
-import sk2865GeenWerk from '../../../static/links/sociale_kracht/28_65/geen_werk.json'
-import sk2865HogeKostenGezondheidszorg from '../../../static/links/sociale_kracht/28_65/hoge_kosten_gezondheidszorg.json'
+import sk2765 from '../../../static/links/sociale_kracht/27_65/27_65.json'
+import sk2765Minimavolwassenen from '../../../static/links/sociale_kracht/27_65/minimavolwassenen.json'
+import sk2765VroegEropafMelding from '../../../static/links/sociale_kracht/27_65/vroeg_eropaf_melding.json'
+import sk2765LaagOpgeleid from '../../../static/links/sociale_kracht/27_65/laag_opgeleid.json'
+import sk2765GeenWerk from '../../../static/links/sociale_kracht/27_65/geen_werk.json'
 
 import sk66Plus from '../../../static/links/sociale_kracht/66+/66+.json'
-import sk66Plus80Plus from '../../../static/links/sociale_kracht/66+/80+.json'
 import sk66Plus80PlusAlleenwonend from '../../../static/links/sociale_kracht/66+/80+_alleenwonend.json'
 import sk66PlusMinimaOuderen from '../../../static/links/sociale_kracht/66+/minima_ouderen.json'
-import sk66PlusLaagOpgeleid from '../../../static/links/sociale_kracht/66+/laag_opgeleid.json'
-import sk66PlusHogeKostenGezondheidszorg from '../../../static/links/sociale_kracht/66+/hoge_kosten_gezondheidszorg.json'
 
 const kerncijfers = getKerncijfers(SOCIALE_KRACHT)
 
@@ -257,25 +234,21 @@ export default {
       skOnder17Eenoudergezinnen,
       skOnder17LaagOpgeleideOuders,
       skOnder17BasisschoolAdvies,
-      skOnder17HogeKostenGezondheidszorg,
+      skOnder17Overgewicht,
 
-      sk1827,
-      sk1827LSV,
-      sk1827HogeKostenGezondheidszorg,
+      sk1826,
+      sk1826LSV,
+      sk1826Arbeidsparticipatie,
 
-      sk2865,
-      sk2865Minimavolwassenen,
-      sk2865VroegEropafMelding,
-      sk2865LaagOpgeleid,
-      sk2865GeenWerk,
-      sk2865HogeKostenGezondheidszorg,
+      sk2765,
+      sk2765Minimavolwassenen,
+      sk2765VroegEropafMelding,
+      sk2765LaagOpgeleid,
+      sk2765GeenWerk,
 
       sk66Plus,
-      sk66Plus80Plus,
       sk66Plus80PlusAlleenwonend,
-      sk66PlusMinimaOuderen,
-      sk66PlusLaagOpgeleid,
-      sk66PlusHogeKostenGezondheidszorg
+      sk66PlusMinimaOuderen
     }
   },
   computed: {
