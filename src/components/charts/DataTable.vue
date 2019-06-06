@@ -20,7 +20,7 @@
               {{item.meta.tussenkop_kerncijfertabel}}
             </span>
 
-            <span v-if-else>&nbsp;</span>
+            <span v-else>&nbsp;</span>
           </th>
           <td>
             <tooltip :cijfers="d" :cijfer="item">{{item.label}}</tooltip>
