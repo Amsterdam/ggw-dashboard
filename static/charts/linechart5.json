@@ -46,7 +46,7 @@
     {
       "fill": "variable",
       "title": "",
-      "orient": "right",
+      "orient": "bottom",
       "encode": {
         "symbols": {
           "enter": {

@@ -55,7 +55,7 @@ function getTooltip (cijfers) {
  * @returns {Promise<any[]>}
  */
 async function getConfigCijfers (gwb, config, recentOrAll = CIJFERS.ALL) {
-  let data = config.map(async (c, index) => {
+  const data = config.map(async (c, index) => {
     try {
       const cijfers = await getGebiedCijfers(c.variabele, gwb, recentOrAll)
       if (c.post) {
@@ -109,7 +109,7 @@ function getYearCijfers (data, last = null, include = {}) {
     return total
   }, {})
 
-  let cijfers = flatten(
+  const cijfers = flatten(
     cijferData.map(item =>
       item.cijfers.map(cijfer => ({
         x: cijfer.jaar,
@@ -145,7 +145,7 @@ function getYearCijfers (data, last = null, include = {}) {
 
   if (last) {
     const maxYear = getMaxYear(cijfers)
-    cijfers = cijfers.filter(cijfer => cijfer.x > maxYear - last)
+    return cijfers.filter(cijfer => cijfer.x > maxYear - last)
   }
 
   return cijfers

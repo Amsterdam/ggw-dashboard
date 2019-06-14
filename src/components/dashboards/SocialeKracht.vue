@@ -21,7 +21,7 @@
           <b-col>
             <horizontal-text
               title="Meest kwetsbaar"
-              icon="adams_sociaal_rood.png"
+              icon="rolstoel.png"
               caption="lage score op inkomen, opleiding, werk én gezondheid:"
               :config="meestKwetsbaar" />
           </b-col>

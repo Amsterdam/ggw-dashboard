@@ -65,8 +65,6 @@
         <b-col cols="12">
           <fieldset class="mode_input text row_verplicht">
             <b-row class="antwoorden checkboxen">
-              <div class="label">Filter</div>
-
               <b-col sm="12" lg="auto" class="antwoord">
                 <input :disabled="!variable || loading || drawing" :checked="gebiedType === 'Stadsdeel'" @click="setGebiedType('Stadsdeel')" type="radio" name="gebiedFilter" id="0">
                 <label for="0">Stadsdelen</label>
@@ -444,9 +442,18 @@ export default {
     color: $ams-blauw;
   }
 
+  .antwoorden {
+    margin: 0 auto;
+
+    @media (max-width: 640px) {
+      flex-direction: column;
+    }
+  }
+
   .antwoord {
     display: inline-block;
-    width: 20%;
+    flex: 1;
+    margin-bottom: 0;
 
     input, label {
       cursor: pointer;
