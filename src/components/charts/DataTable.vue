@@ -79,15 +79,14 @@ export default {
       const categorizedData = {}
 
       for (const dataItem of data) {
-        const item = Object.assign({}, dataItem);
-        const meta = Object.assign({}, dataItem.meta);
+        const item = Object.assign({}, dataItem)
+        const meta = Object.assign({}, dataItem.meta)
         const tussenKop = (meta && meta.tussenkop_kerncijfertabel) || 'empty'
 
         item.tooltipText = item.tooltip ? item.tooltip(false) : ''
 
         if (tussenKop === 'empty') {
           meta.tussenkop_kerncijfertabel = 'empty'
-        //   tussenKop = 'empty'
         }
 
         if (!Object.keys(categorizedData).includes(tussenKop)) {
@@ -96,7 +95,7 @@ export default {
           meta.tussenkop_kerncijfertabel = undefined
         }
 
-        item.meta = meta;
+        item.meta = meta
         categorizedData[tussenKop].push(item)
 
         for (const year of this.years) {
