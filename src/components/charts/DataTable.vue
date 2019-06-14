@@ -78,24 +78,28 @@ export default {
       this.years = [3, 2, 1, 0].map(i => maxYear - i)
       const categorizedData = {}
 
-      for (let item of data) {
-        let tussenKop = item.meta && item.meta.tussenkop_kerncijfertabel
+      for (const dataItem of data) {
+        const item = Object.assign({}, dataItem);
+        const meta = Object.assign({}, dataItem.meta);
+        const tussenKop = (meta && meta.tussenkop_kerncijfertabel) || 'empty'
+
         item.tooltipText = item.tooltip ? item.tooltip(false) : ''
 
-        if (!tussenKop) {
-          item.meta.tussenkop_kerncijfertabel = 'empty'
-          tussenKop = 'empty'
+        if (tussenKop === 'empty') {
+          meta.tussenkop_kerncijfertabel = 'empty'
+        //   tussenKop = 'empty'
         }
 
         if (!Object.keys(categorizedData).includes(tussenKop)) {
           categorizedData[tussenKop] = []
         } else {
-          item.meta.tussenkop_kerncijfertabel = undefined
+          meta.tussenkop_kerncijfertabel = undefined
         }
 
+        item.meta = meta;
         categorizedData[tussenKop].push(item)
 
-        for (let year of this.years) {
+        for (const year of this.years) {
           item[year] = { jaar: year, waarde: '' }
 
           if (item.cijfers) {

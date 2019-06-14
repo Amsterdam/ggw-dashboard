@@ -87,7 +87,6 @@
       "fill": "scale_color",
       "title": "",
       "orient": "bottom",
-      "direction": "horizontal",
       "columns": 3,
       "offset": 60,
       "encode": {

@@ -56,10 +56,10 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-lg-8 content-centered">
+          <div class="col-lg-6 content-centered">
             <line-chart :config="aantalInwoners" colors="4"></line-chart>
           </div>
-          <div class="col-lg-4 content-centered">
+          <div class="col-lg-6 content-centered">
               <span><b>De aantallen zijn inclusief…</b></span>
               <woonvormen :config="andereInwoners"></woonvormen>
           </div>
