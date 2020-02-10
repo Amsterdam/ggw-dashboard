@@ -1,58 +1,160 @@
 {
-  "$schema": "https://vega.github.io/schema/vega/v4.4.json",
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
   "width": 325,
   "height": 200,
   "padding": 5,
-
   "data": [
     {
       "name": "table",
       "values": [
-        {"x": 0, "y": 28, "variable":0}, {"x": 0, "y": 55, "variable":1},
-        {"x": 1, "y": 43, "variable":0}, {"x": 1, "y": 91, "variable":1},
-        {"x": 2, "y": 81, "variable":0}, {"x": 2, "y": 53, "variable":1},
-        {"x": 3, "y": 19, "variable":0}, {"x": 3, "y": 87, "variable":1},
-        {"x": 4, "y": 52, "variable":0}, {"x": 4, "y": 48, "variable":1},
-        {"x": 5, "y": 24, "variable":0}, {"x": 5, "y": 49, "variable":1},
-        {"x": 6, "y": 87, "variable":0}, {"x": 6, "y": 66, "variable":1},
-        {"x": 7, "y": 17, "variable":0}, {"x": 7, "y": 27, "variable":1},
-        {"x": 8, "y": 68, "variable":0}, {"x": 8, "y": 16, "variable":1},
-        {"x": 9, "y": 49, "variable":0}, {"x": 9, "y": 15, "variable":1}
+        {
+          "x": 0,
+          "y": 28,
+          "variable": 0
+        },
+        {
+          "x": 0,
+          "y": 55,
+          "variable": 1
+        },
+        {
+          "x": 1,
+          "y": 43,
+          "variable": 0
+        },
+        {
+          "x": 1,
+          "y": 91,
+          "variable": 1
+        },
+        {
+          "x": 2,
+          "y": 81,
+          "variable": 0
+        },
+        {
+          "x": 2,
+          "y": 53,
+          "variable": 1
+        },
+        {
+          "x": 3,
+          "y": 19,
+          "variable": 0
+        },
+        {
+          "x": 3,
+          "y": 87,
+          "variable": 1
+        },
+        {
+          "x": 4,
+          "y": 52,
+          "variable": 0
+        },
+        {
+          "x": 4,
+          "y": 48,
+          "variable": 1
+        },
+        {
+          "x": 5,
+          "y": 24,
+          "variable": 0
+        },
+        {
+          "x": 5,
+          "y": 49,
+          "variable": 1
+        },
+        {
+          "x": 6,
+          "y": 87,
+          "variable": 0
+        },
+        {
+          "x": 6,
+          "y": 66,
+          "variable": 1
+        },
+        {
+          "x": 7,
+          "y": 17,
+          "variable": 0
+        },
+        {
+          "x": 7,
+          "y": 27,
+          "variable": 1
+        },
+        {
+          "x": 8,
+          "y": 68,
+          "variable": 0
+        },
+        {
+          "x": 8,
+          "y": 16,
+          "variable": 1
+        },
+        {
+          "x": 9,
+          "y": 49,
+          "variable": 0
+        },
+        {
+          "x": 9,
+          "y": 15,
+          "variable": 1
+        }
       ],
       "transform": [
         {
           "type": "stack",
-          "groupby": ["x"],
-          "sort": {"field": "index", "order": "descending"},
+          "groupby": [
+            "x"
+          ],
+          "sort": {
+            "field": "index",
+            "order": "descending"
+          },
           "field": "y"
         }
       ]
     }
   ],
-
   "scales": [
     {
       "name": "x",
       "type": "band",
       "range": "width",
       "padding": 0.1,
-      "domain": {"data": "table", "field": "x"}
+      "domain": {
+        "data": "table",
+        "field": "x"
+      }
     },
     {
       "name": "y",
       "type": "linear",
       "range": "height",
-      "nice": true, "zero": true,
-      "domain": {"data": "table", "field": "y1"}
+      "nice": true,
+      "zero": true,
+      "domain": {
+        "data": "table",
+        "field": "y1"
+      }
     },
     {
       "name": "color",
       "type": "ordinal",
       "range": "category",
-      "domain": {"data": "table", "field": "variable"}
+      "domain": {
+        "data": "table",
+        "field": "variable"
+      }
     }
   ],
-
   "legends": [
     {
       "fill": "color",
@@ -63,33 +165,71 @@
       "encode": {
         "symbols": {
           "enter": {
-            "shape": {"value": "square"}
+            "shape": {
+              "value": "square"
+            }
           }
         },
         "labels": {
           "update": {
-            "text": {"field": "value"}
+            "text": {
+              "field": "value"
+            }
           }
         }
       }
     }
   ],
-
   "axes": [
-    {"orient": "bottom", "scale": "x", "zindex": 1},
-    {"orient": "left", "scale": "y", "zindex": 1, "values": [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]}
+    {
+      "orient": "bottom",
+      "scale": "x",
+      "zindex": 1
+    },
+    {
+      "orient": "left",
+      "scale": "y",
+      "zindex": 1,
+      "values": [
+        0,
+        10,
+        20,
+        30,
+        40,
+        50,
+        60,
+        70,
+        80,
+        90,
+        100
+      ]
+    }
   ],
-
   "marks": [
     {
       "type": "rect",
-      "from": {"data": "table"},
+      "from": {
+        "data": "table"
+      },
       "encode": {
         "enter": {
-          "x": {"scale": "x", "field": "x"},
-          "width": {"scale": "x", "band": 1, "offset": -1},
-          "y": {"scale": "y", "field": "y0"},
-          "y2": {"scale": "y", "field": "y1"},
+          "x": {
+            "scale": "x",
+            "field": "x"
+          },
+          "width": {
+            "scale": "x",
+            "band": 1,
+            "offset": -1
+          },
+          "y": {
+            "scale": "y",
+            "field": "y0"
+          },
+          "y2": {
+            "scale": "y",
+            "field": "y1"
+          },
           "fill": [
             {
               "test": "false && datum.color",
@@ -102,26 +242,48 @@
           ]
         },
         "update": {
-          "fillOpacity": {"value": 1}
+          "fillOpacity": {
+            "value": 1
+          }
         },
         "hover": {
-          "fillOpacity": {"value": 1}
+          "fillOpacity": {
+            "value": 1
+          }
         }
       }
     },
     {
       "type": "text",
-      "from": {"data": "table"},
+      "from": {
+        "data": "table"
+      },
       "interactive": false,
       "encode": {
         "enter": {
-          "text": {"field": "display"},
-          "x": {"scale": "x", "field": "x"},
-          "y": {"scale": "y", "field": "y0"},
-          "dx": {"value": 8},
-          "dy": {"value": -2 },
-          "align": {"value": "left"},
-          "baseline": {"value": "bottom"}
+          "text": {
+            "field": "display"
+          },
+          "x": {
+            "scale": "x",
+            "field": "x"
+          },
+          "y": {
+            "scale": "y",
+            "field": "y0"
+          },
+          "dx": {
+            "value": 8
+          },
+          "dy": {
+            "value": -2
+          },
+          "align": {
+            "value": "left"
+          },
+          "baseline": {
+            "value": "bottom"
+          }
         }
       }
     }
