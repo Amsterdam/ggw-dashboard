@@ -8,7 +8,7 @@
 
     node >= 6.0
     npm >= 3.0
-    
+
 ### for deployment
 
     docker
@@ -19,8 +19,8 @@
     # install dependencies
     npm install
 
-    # serve with hot reload at localhost:8080
-    npm run dev
+    # start with hot reload at localhost:8080
+    npm run start
 
     # build for production with minification
     npm run build
@@ -29,7 +29,7 @@
     npm run build --report
 
     # run unit tests
-    npm run unit
+    npm run test:unit
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
@@ -58,6 +58,9 @@ This file is refreshed at least every year.
 When receiving a new file:
 - Convert the new std file to json using a csv2json utility (e.g. https://www.csvjson.com/csv2json)
 - Copy the std.json to static/tmp/std.json
+
+Reed the extra information from this [Readme file](./static/tmp/README.md)
+
 
 ### gebieden - Names of gebieden
 

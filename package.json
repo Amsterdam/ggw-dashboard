@@ -5,26 +5,26 @@
   "author": "Datapunt Amsterdam",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "start": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
     "amsterdam-stijl": "^3.0.5",
-    "axios": "^0.18.0",
-    "bootstrap-vue": "^2.0.0-rc.15",
-    "copy-webpack-plugin": "^5.0.1",
-    "leaflet": "^1.4.0",
-    "proj4": "^2.5.0",
+    "axios": "^0.18.1",
+    "bootstrap-vue": "^2.2.0",
+    "copy-webpack-plugin": "^5.1.1",
+    "leaflet": "^1.6.0",
+    "proj4": "^2.6.0",
     "proj4leaflet": "^1.0.2",
     "sass-loader": "^7.1.0",
     "vega-embed": "^3.30.0",
     "vega-lite": "^2.2.0",
-    "vue": "^2.6.6",
-    "vue-axios": "^2.1.4",
-    "vue-router": "^3.0.1",
-    "vuex": "^3.0.1"
+    "vue": "^2.6.11",
+    "vue-axios": "^2.1.5",
+    "vue-router": "^3.1.3",
+    "vuex": "^3.1.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.5.0",
@@ -34,12 +34,12 @@
     "@vue/eslint-config-standard": "^4.0.0",
     "@vue/test-utils": "1.0.0-beta.29",
     "babel-core": "7.0.0-bridge.0",
-    "babel-eslint": "^10.0.1",
+    "babel-eslint": "^10.0.3",
     "babel-jest": "^23.6.0",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
-    "node-sass": "^4.11.0",
-    "vue-template-compiler": "^2.5.21"
+    "node-sass": "^4.13.0",
+    "vue-template-compiler": "^2.6.11"
   },
   "browserslist": [
     "> 1%",
