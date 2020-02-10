@@ -19,7 +19,7 @@ import util from '../services/util'
 export default {
   name: 'Woonvormen',
   components: {
-    'tooltip': tooltip
+    tooltip: tooltip
   },
   props: [
     'config'

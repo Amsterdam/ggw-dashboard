@@ -29,7 +29,7 @@ Vue.config.productionTip = false
 Vue.filter('displaywaarde', util.displayWaarde)
 
 /* eslint-disable no-new */
-let vueApp = new Vue({
+const vueApp = new Vue({
   el: '#app',
   router,
   store,

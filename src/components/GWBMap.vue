@@ -33,7 +33,7 @@ export default {
       }
 
       const shapes = getGWBShapes(this.gwb, () => ({
-        'color': COLOR['ams-rood']
+        color: COLOR['ams-rood']
       }))
       gwbLayer = drawShapes(shapes, map)
     }

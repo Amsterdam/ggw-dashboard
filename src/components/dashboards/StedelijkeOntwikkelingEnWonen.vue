@@ -159,7 +159,7 @@ export default {
     'data-table': dataTable,
     'verschillen-gebied': verschillenGebied,
     'line-chart': lineChart,
-    'woonvormen': woonVormen,
+    woonvormen: woonVormen,
     'stacked-bar-chart': stackedBarChart,
     'pie-chart': pieChart,
     'vertical-bar-chart': verticalBarChart
