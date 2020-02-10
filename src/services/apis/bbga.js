@@ -87,7 +87,7 @@ async function getCijfers (meta, year = null, gebiedCode = null) {
   const selectGebiedCode = gebiedCode ? `&gebiedcode15=${gebiedCode}` : ''
 
   const url = getUrl(`/cijfers/?${selectVariable}${selectYear}${selectGebiedCode}`)
-  let cijfers = await readPaginatedData(url)
+  const cijfers = await readPaginatedData(url)
 
   cijfers.sort((a, b) => a.jaar - b.jaar) // oldest first
   return cijfers.map(c => ({

@@ -340,11 +340,11 @@ export default {
       const shapes = await getShapes(this.gebiedType, (gebiedcode15) => {
         const c = cijfersLookup[gebiedcode15]
         return {
-          'fillOpacity': 0.8,
-          'fillColor': c ? (c.color || getRankingColor(c.ranking - 1, cijfers.length - 1)) : COLOR['ams-wit'],
-          'color': COLOR['ams-donkergrijs'],
-          'opacity': 0.5,
-          'weight': 1
+          fillOpacity: 0.8,
+          fillColor: c ? (c.color || getRankingColor(c.ranking - 1, cijfers.length - 1)) : COLOR['ams-wit'],
+          color: COLOR['ams-donkergrijs'],
+          opacity: 0.5,
+          weight: 1
         }
       })
 
@@ -363,9 +363,9 @@ export default {
       this.drawing = true
 
       const shapes = await getShapes(this.gebiedType || util.GEBIED_TYPE.Stadsdeel, () => ({
-        'color': COLOR['ams-donkergrijs'],
-        'opacity': 0.5,
-        'weight': 1
+        color: COLOR['ams-donkergrijs'],
+        opacity: 0.5,
+        weight: 1
       }))
 
       this.showShapes(shapes)

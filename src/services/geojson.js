@@ -38,7 +38,7 @@ const config = {
   earthRadius: 6378137 // The radius in meters
 }
 
-let rdSettings = config.rd
+const rdSettings = config.rd
 rdSettings.transformation.bounds = L.bounds.apply(null, rdSettings.transformation.bounds)
 
 export const rd = new L.Proj.CRS(

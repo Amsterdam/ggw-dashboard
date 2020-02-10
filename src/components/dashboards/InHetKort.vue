@@ -89,7 +89,7 @@ export default {
   components: {
     'horizontal-bar-chart': horizontalBarChart,
     'in-aantallen': inAantallen,
-    'pano': pano,
+    pano: pano,
     'data-table': dataTable
   },
   data () {

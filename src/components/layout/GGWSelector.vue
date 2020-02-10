@@ -239,7 +239,7 @@ export default {
      * @returns {Promise<void>}
      */
     async parseRoute () {
-      let { gebied, wijk, buurt, thema } = this.$route.query
+      const { gebied, wijk, buurt, thema } = this.$route.query
 
       this.selection.thema = thema || IN_HET_KORT
       this.updateThema(this.selection.thema)

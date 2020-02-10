@@ -22,14 +22,14 @@ import vegaSpec from '../../../static/charts/pie'
 import { PIE_CHART_COLORS } from '../../services/colorcoding'
 
 const vegaEmbedOptions = {
-  'actions': false,
-  'renderer': 'svg'
+  actions: false,
+  renderer: 'svg'
 }
 
 export default {
   name: 'PieChart',
   components: {
-    'tooltip': tooltip
+    tooltip: tooltip
   },
   props: [
     'title',
