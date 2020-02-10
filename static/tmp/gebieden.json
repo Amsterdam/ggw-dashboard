@@ -85,14 +85,14 @@
   },
   {
     "gebiedcode": "DX05",
-    "gebiedcodenaam": "DX05 Oud-West/De Baarsjes",
-    "gebiednaam": "Oud-West/De Baarsjes",
+    "gebiedcodenaam": "DX05 Oud-West, De Baarsjes",
+    "gebiednaam": "Oud-West, De Baarsjes",
     "Niveaunaam": "22 gebieden"
   },
   {
     "gebiedcode": "DX06",
-    "gebiedcodenaam": "DX06 Geuzenveld-Slotermeer-Sloterdijken",
-    "gebiednaam": "Geuzenveld-Slotermeer-Sloterdijken",
+    "gebiedcodenaam": "DX06 Geuzenveld, Slotermeer, Sloterdijken",
+    "gebiednaam": "Geuzenveld,Slotermeer,Sloterdijken",
     "Niveaunaam": "22 gebieden"
   },
   {
@@ -103,8 +103,8 @@
   },
   {
     "gebiedcode": "DX08",
-    "gebiedcodenaam": "DX08 De Aker, Sloten en Nieuw Sloten",
-    "gebiednaam": "De Aker, Sloten en Nieuw Sloten",
+    "gebiedcodenaam": "DX08 De Aker, Sloten en Nieuw-Sloten",
+    "gebiednaam": "De Aker, Sloten en Nieuw-Sloten",
     "Niveaunaam": "22 gebieden"
   },
   {
@@ -121,14 +121,14 @@
   },
   {
     "gebiedcode": "DX11",
-    "gebiedcodenaam": "DX11 Buitenveldert/Zuidas",
-    "gebiednaam": "Buitenveldert/Zuidas",
+    "gebiedcodenaam": "DX11 Buitenveldert, Zuidas",
+    "gebiednaam": "Buitenveldert, Zuidas",
     "Niveaunaam": "22 gebieden"
   },
   {
     "gebiedcode": "DX12",
-    "gebiedcodenaam": "DX12 De Pijp/Rivierenbuurt",
-    "gebiednaam": "De Pijp/Rivierenbuurt",
+    "gebiedcodenaam": "DX12 De Pijp, Rivierenbuurt",
+    "gebiednaam": "De Pijp, Rivierenbuurt",
     "Niveaunaam": "22 gebieden"
   },
   {
@@ -139,8 +139,8 @@
   },
   {
     "gebiedcode": "DX14",
-    "gebiedcodenaam": "DX14 Indische Buurt/Oostelijk Havengebied",
-    "gebiednaam": "Indische Buurt/Oostelijk Havengebied",
+    "gebiedcodenaam": "DX14 Indische Buurt, Oostelijk Havengebied",
+    "gebiednaam": "Indische Buurt, Oostelijk Havengebied",
     "Niveaunaam": "22 gebieden"
   },
   {
@@ -151,32 +151,32 @@
   },
   {
     "gebiedcode": "DX16",
-    "gebiedcodenaam": "DX16 IJburg/Zeeburgereiland",
-    "gebiednaam": "IJburg/Zeeburgereiland",
+    "gebiedcodenaam": "DX16 IJburg, Zeeburgereiland",
+    "gebiednaam": "IJburg, Zeeburgereiland",
     "Niveaunaam": "22 gebieden"
   },
   {
     "gebiedcode": "DX17",
-    "gebiedcodenaam": "DX17 Noord West",
-    "gebiednaam": "Noord West",
+    "gebiedcodenaam": "DX17 Noord-West",
+    "gebiednaam": "Noord-West",
     "Niveaunaam": "22 gebieden"
   },
   {
     "gebiedcode": "DX18",
-    "gebiedcodenaam": "DX18 Oud Noord",
-    "gebiednaam": "Oud Noord",
+    "gebiedcodenaam": "DX18 Oud-Noord",
+    "gebiednaam": "Oud-Noord",
     "Niveaunaam": "22 gebieden"
   },
   {
     "gebiedcode": "DX19",
-    "gebiedcodenaam": "DX19 Noord Oost",
-    "gebiednaam": "Noord Oost",
+    "gebiedcodenaam": "DX19 Noord-Oost",
+    "gebiednaam": "Noord-Oost",
     "Niveaunaam": "22 gebieden"
   },
   {
     "gebiedcode": "DX20",
-    "gebiedcodenaam": "DX20 Bijlmer-Centrum",
-    "gebiednaam": "Bijlmer-Centrum",
+    "gebiedcodenaam": "DX20 Bijlmer-Centrum, Amstel III",
+    "gebiednaam": "Bijlmer-Centrum, Amstel III",
     "Niveaunaam": "22 gebieden"
   },
   {
@@ -187,8 +187,8 @@
   },
   {
     "gebiedcode": "DX22",
-    "gebiedcodenaam": "DX22 Gaasperdam/Driemond",
-    "gebiednaam": "Gaasperdam/Driemond",
+    "gebiedcodenaam": "DX22 Gaasperdam, Driemond",
+    "gebiednaam": "Gaasperdam, Driemond",
     "Niveaunaam": "22 gebieden"
   },
   {
