@@ -1,87 +1,138 @@
 {
-  "$schema": "https://vega.github.io/schema/vega/v4.4.json",
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
   "width": 150,
   "height": 200,
   "data": [
-    {	"name": "data_table",
+    {
+      "name": "data_table",
       "values": [
-        {"key": "Chrome", "value": 5},
-        {"key": "Chrome Mobile", "value": 10},
-        {"key": "Mobile Safari", "value": 5},
-        {"key": "IE", "value": 10},
-        {"key": "Other", "value": 5}
+        {
+          "key": "Chrome",
+          "value": 5
+        },
+        {
+          "key": "Chrome Mobile",
+          "value": 10
+        },
+        {
+          "key": "Mobile Safari",
+          "value": 5
+        },
+        {
+          "key": "IE",
+          "value": 10
+        },
+        {
+          "key": "Other",
+          "value": 5
+        }
       ],
       "transform": [
-        {	"type": "collect"
+        {
+          "type": "collect"
         }
       ]
     },
-
     {
       "name": "data_table_pie",
       "source": "data_table",
       "transform": [
-        {	"type": "pie",
+        {
+          "type": "pie",
           "field": "value",
-          "as": ["ff_outer_startAngle", "ff_outer_endAngle"]
+          "as": [
+            "ff_outer_startAngle",
+            "ff_outer_endAngle"
+          ]
         }
       ]
     }
   ],
-
   "scales": [
-    {	"name": "scale_color",
+    {
+      "name": "scale_color",
       "type": "ordinal",
-      "range": ["#00A03C", "#009DE6", "#E8E8E8"],
-      "domain": {"data": "data_table", "field": "key"}
+      "range": [
+        "#00A03C",
+        "#009DE6",
+        "#E8E8E8"
+      ],
+      "domain": {
+        "data": "data_table",
+        "field": "key"
+      }
     }
   ],
-
   "marks": [
-
     {
       "name": "mark_outer_ring",
       "type": "arc",
-      "from": {"data": "data_table_pie"},
+      "from": {
+        "data": "data_table_pie"
+      },
       "encode": {
         "enter": {
-          "x": {"signal": "width / 2"},
-          "y": {"signal": "height / 2"},
-
-          "fill": {"scale": "scale_color", "field": "key"},
-          "stroke": {"value": "white"},
-
-          "startAngle": {"field": "ff_outer_startAngle"},
-          "endAngle": {"field": "ff_outer_endAngle"},
-          "innerRadius": {"value": 0},
-          "outerRadius": {"value": 90}
+          "x": {
+            "signal": "width / 2"
+          },
+          "y": {
+            "signal": "height / 2"
+          },
+          "fill": {
+            "scale": "scale_color",
+            "field": "key"
+          },
+          "stroke": {
+            "value": "white"
+          },
+          "startAngle": {
+            "field": "ff_outer_startAngle"
+          },
+          "endAngle": {
+            "field": "ff_outer_endAngle"
+          },
+          "innerRadius": {
+            "value": 0
+          },
+          "outerRadius": {
+            "value": 90
+          }
         }
       }
     },
-
     {
       "name": "mark_text",
       "type": "text",
-      "from": {"data": "data_table_pie"},
+      "from": {
+        "data": "data_table_pie"
+      },
       "encode": {
         "enter": {
-
-          "text": {"signal": "datum['display']"},
-
-          "x": {"signal": "width / 2"},
-          "y": {"signal": "height / 2"},
-
-          "radius": {"value": 110},
-          "theta": {"signal": "(datum['ff_outer_startAngle'] + datum['ff_outer_endAngle'])/2"},
-
-          "align": {"value": "center"},
-          "baseline": {"value": "middle"}
+          "text": {
+            "signal": "datum['display']"
+          },
+          "x": {
+            "signal": "width / 2"
+          },
+          "y": {
+            "signal": "height / 2"
+          },
+          "radius": {
+            "value": 110
+          },
+          "theta": {
+            "signal": "(datum['ff_outer_startAngle'] + datum['ff_outer_endAngle'])/2"
+          },
+          "align": {
+            "value": "center"
+          },
+          "baseline": {
+            "value": "middle"
+          }
         }
       }
     }
-
   ],
-
   "legends": [
     {
       "fill": "scale_color",
@@ -92,12 +143,16 @@
       "encode": {
         "symbols": {
           "enter": {
-            "shape": {"value": "square"}
+            "shape": {
+              "value": "square"
+            }
           }
         },
         "labels": {
           "update": {
-            "text": {"field": "value"}
+            "text": {
+              "field": "value"
+            }
           }
         }
       }
