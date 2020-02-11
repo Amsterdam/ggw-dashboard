@@ -1,4 +1,4 @@
-# Gebiedsgericht Werken Dashboard
+# Gebiedsgericht Werken Dashboard (Gebied in beeld)
 
 > A Vue.js project
 
@@ -6,8 +6,8 @@
 
 ### for development
 
-    node >= 6.0
-    npm >= 3.0
+    node >= 10.0
+    npm >= 6.0
 
 ### for deployment
 
@@ -47,6 +47,7 @@ The app is exposed at localhost:8080
     docker-compose run test
 
 ## Static data
+
 A few files are retrieved from OIS to cover for missing or erroneous data in any of the API's
 This data is contained in the static/tmp folder
 
@@ -56,11 +57,11 @@ The std file contains the averages and standard deviations for each BBGA variabl
 This file is refreshed at least every year.
 
 When receiving a new file:
+
 - Convert the new std file to json using a csv2json utility (e.g. https://www.csvjson.com/csv2json)
 - Copy the std.json to static/tmp/std.json
 
 Reed the extra information from this [Readme file](./static/tmp/README.md)
-
 
 ### gebieden - Names of gebieden
 
