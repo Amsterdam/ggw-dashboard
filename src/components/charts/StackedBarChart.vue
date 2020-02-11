@@ -1,10 +1,8 @@
 <template>
   <div class="chart-container">
     <tooltip :cijfers="chartdata">
-      <h5>
-        {{title}}
-      </h5>
-    <div :ref="chartRef"></div>
+      <h5>{{title}}</h5>
+      <div :ref="chartRef"></div>
     </tooltip>
   </div>
 </template>
@@ -25,27 +23,20 @@ const vegaEmbedOptions = {
 export default {
   name: 'StackedBarChart',
   components: {
-    tooltip: tooltip
+    tooltip
   },
-  props: [
-    'title',
-    'config',
-    'last',
-    'includeYears'
-  ],
-  data () {
+  props: ['title', 'config', 'last', 'includeYears'],
+  data() {
     return {
       chartdata: null,
       chartRef: `${this._uid}.pieChart`
     }
   },
   computed: {
-    ...mapGetters([
-      'gwb'
-    ])
+    ...mapGetters(['gwb'])
   },
   methods: {
-    async updateData () {
+    async updateData() {
       this.chartdata = await util.getConfigCijfers(this.gwb, this.config)
       const cijfers = util.getYearCijfers(this.chartdata, this.last, this.includeYears)
 
@@ -60,15 +51,14 @@ export default {
     }
   },
   watch: {
-    'gwb' () {
+    gwb() {
       this.updateData()
     }
   },
-  created () {
+  created() {
     this.updateData()
   }
 }
-
 </script>
 
 <style>

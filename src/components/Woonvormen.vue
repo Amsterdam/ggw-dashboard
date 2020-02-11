@@ -2,10 +2,8 @@
   <ul>
     <li v-for="(item, index) in data" :key="index">
       <tooltip :cijfers="data" :cijfer="item">
-      {{item.label}}:
-      <span v-if="item.recent">
-        {{item.recent | displaywaarde}}
-      </span>
+        {{item.label}}:
+        <span v-if="item.recent">{{item.recent | displaywaarde}}</span>
       </tooltip>
     </li>
   </ul>
@@ -19,36 +17,32 @@ import util from '../services/util'
 export default {
   name: 'Woonvormen',
   components: {
-    tooltip: tooltip
+    tooltip
   },
-  props: [
-    'config'
-  ],
-  data () {
+  props: ['config'],
+
+  data() {
     return {
       data: null
     }
   },
   computed: {
-    ...mapGetters([
-      'gwb'
-    ])
+    ...mapGetters(['gwb'])
   },
   methods: {
-    async updateData () {
+    async updateData() {
       this.data = await util.getLatestConfigCijfers(this.gwb, this.config)
     }
   },
   watch: {
-    'gwb' () {
+    gwb() {
       this.updateData()
     }
   },
-  created () {
+  created() {
     this.updateData()
   }
 }
-
 </script>
 
 <style>
