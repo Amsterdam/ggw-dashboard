@@ -6,8 +6,8 @@
 
 ### for development
 
-    node >= 6.0
-    npm >= 3.0
+    node >= 10.0
+    npm >= 6.0
 
 ### for deployment
 
