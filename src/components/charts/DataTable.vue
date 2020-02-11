@@ -16,9 +16,7 @@
             v-if="item.meta.tussenkop_kerncijfertabel"
             valign="top"
           >
-            <span v-if="tussenkop != 'empty'">
-              {{item.meta.tussenkop_kerncijfertabel}}
-            </span>
+            <span v-if="tussenkop != 'empty'">{{item.meta.tussenkop_kerncijfertabel}}</span>
 
             <span v-else>&nbsp;</span>
           </th>
@@ -26,7 +24,8 @@
             <tooltip :cijfers="d" :cijfer="item">{{item.label}}</tooltip>
           </td>
           <td
-            v-for="y in years" :key="y"
+            v-for="y in years"
+            :key="y"
             :style="{'background-color': item[y].color, 'color' : item[y].textColor}"
             class="text-center"
           >
@@ -49,24 +48,20 @@ import util from '../../services/util'
 export default {
   name: 'DataTable',
   components: {
-    tooltip: tooltip
+    tooltip
   },
-  props: [
-    'config'
-  ],
-  data () {
+  props: ['config'],
+  data() {
     return {
       data: null,
       years: []
     }
   },
   computed: {
-    ...mapGetters([
-      'gwb'
-    ])
+    ...mapGetters(['gwb'])
   },
   methods: {
-    async updateData () {
+    async updateData() {
       const data = await util.getConfigCijfers(this.gwb, this.config)
 
       /**
@@ -111,38 +106,38 @@ export default {
     }
   },
   watch: {
-    'gwb' () {
+    gwb() {
       this.updateData()
     }
   },
-  created () {
+  created() {
     this.updateData()
   }
 }
 </script>
 
 <style scoped>
-  td.text-center {
-    text-align: center;
-  }
+td.text-center {
+  text-align: center;
+}
 
-  table tbody {
-    border-bottom: 1px solid #bebebe;
-  }
+table tbody {
+  border-bottom: 1px solid #bebebe;
+}
 
-  table tbody th {
-    font-family: "AvenirNextLTW01-Regular", verdana, sans-serif;
-  }
+table tbody th {
+  font-family: 'AvenirNextLTW01-Regular', verdana, sans-serif;
+}
 
-  table tbody tr:first-child td {
-    border-top: 1px solid black;
-  }
+table tbody tr:first-child td {
+  border-top: 1px solid black;
+}
 
-  table tr:hover {
-    background-color: transparent;
-  }
+table tr:hover {
+  background-color: transparent;
+}
 
-  table tr:hover td:not([rowspan]) {
-    background-color: #f3f3f3;
-  }
+table tr:hover td:not([rowspan]) {
+  background-color: #f3f3f3;
+}
 </style>

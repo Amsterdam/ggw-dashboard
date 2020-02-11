@@ -22,25 +22,20 @@ const vegaEmbedOptions = {
 export default {
   name: 'LineChart',
   components: {
-    tooltip: tooltip
+    tooltip
   },
-  props: [
-    'config',
-    'colors'
-  ],
-  data () {
+  props: ['config', 'colors'],
+  data() {
     return {
       chartdata: null,
       chartRef: `${this._uid}.lineChart`
     }
   },
   computed: {
-    ...mapGetters([
-      'gwb'
-    ])
+    ...mapGetters(['gwb'])
   },
   methods: {
-    async updateData () {
+    async updateData() {
       const data = await util.getConfigCijfers(this.gwb, this.config)
       this.chartdata = data
 
@@ -51,7 +46,9 @@ export default {
             y: cijfer.waarde,
             variable: data.label,
             dash: /prognose/i.test(data.label) // show prognose variables as dashed lines
-          }))))
+          }))
+        )
+      )
 
       if (!vegaSpec.legends) {
         vegaSpec.legends = [{}]
@@ -64,15 +61,14 @@ export default {
     }
   },
   watch: {
-    'gwb' () {
+    gwb() {
       this.updateData()
     }
   },
-  created () {
+  created() {
     this.updateData()
   }
 }
-
 </script>
 
 <style>

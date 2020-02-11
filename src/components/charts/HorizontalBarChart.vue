@@ -1,7 +1,6 @@
 <template>
   <div class="block-container" v-if="gwb">
     <tooltip :cijfers="chartdata">
-
       <div class="col-12">
         <icon :icon="icon" :title="title"></icon>
       </div>
@@ -29,36 +28,33 @@ const vegaEmbedOptions = {
 export default {
   name: 'HorizontalBarChart',
   components: {
-    tooltip: tooltip,
+    tooltip,
     icon: icon
   },
-  props: [
-    'title',
-    'icon',
-    'config'
-  ],
-  data () {
+  props: ['title', 'icon', 'config'],
+  data() {
     return {
       chartdata: null,
       chartRef: `${this._uid}.horzBarChart`
     }
   },
   computed: {
-    ...mapGetters([
-      'gwb'
-    ])
+    ...mapGetters(['gwb'])
   },
   methods: {
-    async updateData () {
+    async updateData() {
       this.chartdata = await util.getLatestConfigCijfers(this.gwb, this.config)
       this.updateChart()
     },
 
-    updateChart () {
+    updateChart() {
       vegaSpec.data.values = this.chartdata.map((d, i) => ({
         key: d.label,
         value: (d.recent && d.recent.waarde) || 0,
-        label: (d.recent && d.recent.waarde !== null) ? d.recent.waarde : 'Geen gegevens',
+        label:
+          d.recent && d.recent.waarde !== null
+            ? d.recent.waarde
+            : 'Geen gegevens',
         color: (d.recent && d.recent.color) || COLOR['ams-oranje'],
         i
       }))
@@ -68,32 +64,33 @@ export default {
       }
 
       vegaSpec.legends[0].values = util.getLegendLabels(this.chartdata)
-      vegaSpec.layer[0].encoding.color.scale.range = vegaSpec.data.values.map(v => v.color)
+      vegaSpec.layer[0].encoding.color.scale.range = vegaSpec.data.values.map(
+        v => v.color
+      )
       vegaEmbed(this.$refs[this.chartRef], vegaSpec, vegaEmbedOptions)
     }
   },
   watch: {
-    'gwb' () {
+    gwb() {
       this.updateData()
     }
   },
-  created () {
+  created() {
     this.updateData()
   }
 }
-
 </script>
 
 <style lang="scss" scoped>
-  .block-container {
-    display: flex;
-    align-items: left;
-    align-self: left;
-    justify-content: center;
-    width: 100%;
+.block-container {
+  display: flex;
+  align-items: left;
+  align-self: left;
+  justify-content: center;
+  width: 100%;
 
-    .icon-container {
-      height: 50px !important;
-    }
+  .icon-container {
+    height: 50px !important;
   }
+}
 </style>

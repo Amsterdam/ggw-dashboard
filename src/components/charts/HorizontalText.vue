@@ -12,9 +12,7 @@
         <tooltip :cijfers="data" :cijfer="d">
           {{d.label}}:
           <span v-if="d.recent">
-            <b>
-                {{d.recent | displaywaarde}}
-            </b>
+            <b>{{d.recent | displaywaarde}}</b>
           </span>
         </tooltip>
       </div>
@@ -33,57 +31,49 @@ export default {
   name: 'HorizontalText',
   components: {
     icon: icon,
-    tooltip: tooltip
+    tooltip
   },
-  props: [
-    'title',
-    'icon',
-    'config',
-    'caption'
-  ],
-  data () {
+  props: ['title', 'icon', 'config', 'caption'],
+  data() {
     return {
       data: []
     }
   },
   computed: {
-    ...mapGetters([
-      'gwb'
-    ])
+    ...mapGetters(['gwb'])
   },
   methods: {
-    async updateData () {
+    async updateData() {
       this.data = await util.getLatestConfigCijfers(this.gwb, this.config)
     }
   },
   watch: {
-    'gwb' () {
+    gwb() {
       this.updateData()
     }
   },
-  created () {
+  created() {
     this.updateData()
   }
 }
-
 </script>
 
 <style lang="scss" scoped>
-  // override grid styling for this component
-  .card .grid-blok.horizontal-text__content {
-    justify-content: center;
-    align-items: stretch;
-    margin: auto 0;
-    padding-top: 0;
-    flex-grow: 2;
-  }
+// override grid styling for this component
+.card .grid-blok.horizontal-text__content {
+  justify-content: center;
+  align-items: stretch;
+  margin: auto 0;
+  padding-top: 0;
+  flex-grow: 2;
+}
 
-  .block-container {
-    display: flex;
-    align-items: left;
-    align-self: left;
-    justify-content: center;
-    width: 100%;
-    padding-bottom: 10px;
-  }
+.block-container {
+  display: flex;
+  align-items: left;
+  align-self: left;
+  justify-content: center;
+  width: 100%;
+  padding-bottom: 10px;
+}
 </style>

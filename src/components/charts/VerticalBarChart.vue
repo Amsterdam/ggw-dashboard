@@ -1,12 +1,10 @@
 <template>
   <div>
     <tooltip :cijfers="chartdata">
-    <h5 class="text-center">
-      {{title}}
-    </h5>
-    <div class="chart-container">
-      <div :ref="chartRef"></div>
-    </div>
+      <h5 class="text-center">{{title}}</h5>
+      <div class="chart-container">
+        <div :ref="chartRef"></div>
+      </div>
     </tooltip>
   </div>
 </template>
@@ -28,12 +26,10 @@ const vegaEmbedOptions = {
 export default {
   name: 'VerticalBarChart',
   components: {
-    tooltip: tooltip
+    tooltip
   },
-  props: [
-    'config'
-  ],
-  data () {
+  props: ['config'],
+  data() {
     return {
       chartdata: null,
       title: null,
@@ -42,12 +38,10 @@ export default {
     }
   },
   computed: {
-    ...mapGetters([
-      'gwb'
-    ])
+    ...mapGetters(['gwb'])
   },
   methods: {
-    async updateData () {
+    async updateData() {
       this.chartdata = await util.getConfigCijfers(this.gwb, this.config)
       this.title = this.chartdata[0].label
       this.tooltip = this.chartdata[0].meta && this.chartdata[0].meta.bron
@@ -55,7 +49,7 @@ export default {
       this.updateChart()
     },
 
-    updateChart () {
+    updateChart() {
       vegaSpec.data.values = (this.chartdata[0].cijfers || [])
         .filter(d => d.waarde)
         .map((d, i) => ({
@@ -75,15 +69,14 @@ export default {
     }
   },
   watch: {
-    'gwb' () {
+    gwb() {
       this.updateData()
     }
   },
-  created () {
+  created() {
     this.updateData()
   }
 }
-
 </script>
 
 <style>
