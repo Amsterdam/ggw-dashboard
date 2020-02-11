@@ -37,7 +37,7 @@ export default {
     }
   },
   components: {
-    'tooltip': tooltip
+    tooltip: tooltip
   },
   computed: {
     ...mapGetters([

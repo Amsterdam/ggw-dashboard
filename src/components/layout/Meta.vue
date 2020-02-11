@@ -91,7 +91,7 @@ export default {
     filter () {
       this.filterRegExp = RegExp(this.filterText, 'i') // case insensitive
       const filteredMeta = {}
-      for (let key of Object.keys(this.meta)) {
+      for (const key of Object.keys(this.meta)) {
         if (this.matchesFilter(this.meta[key])) {
           filteredMeta[key] = this.meta[key]
         }

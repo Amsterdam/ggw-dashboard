@@ -131,7 +131,7 @@ export default {
     'data-table': dataTable,
     'verschillen-gebied': verschillenGebied,
     'line-chart': lineChart,
-    'woonvormen': woonVormen,
+    woonvormen: woonVormen,
     'pie-chart': pieChart,
     'stacked-bar-chart': stackedBarChart
   },

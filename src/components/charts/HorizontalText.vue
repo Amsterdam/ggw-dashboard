@@ -32,8 +32,8 @@ import util from '../../services/util'
 export default {
   name: 'HorizontalText',
   components: {
-    'icon': icon,
-    'tooltip': tooltip
+    icon: icon,
+    tooltip: tooltip
   },
   props: [
     'title',

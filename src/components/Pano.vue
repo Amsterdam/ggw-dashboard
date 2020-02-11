@@ -30,7 +30,7 @@ export default {
      * Find the most mathing pano for the current gwb
      */
     updatePano () {
-      let pano =
+      const pano =
         panos.find(p => p.gwb === this.gwb.volledige_code) ||
         (this.wijk && panos.find(p => p.gwb === this.wijk.volledige_code)) ||
         (this.gebied && panos.find(p => p.gwb === this.gebied.volledige_code)) ||

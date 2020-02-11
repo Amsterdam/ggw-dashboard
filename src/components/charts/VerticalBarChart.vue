@@ -21,14 +21,14 @@ import vegaSpec from '../../../static/charts/verticalbar'
 import { COLOR } from '../../services/colorcoding'
 
 const vegaEmbedOptions = {
-  'actions': false,
-  'renderer': 'svg'
+  actions: false,
+  renderer: 'svg'
 }
 
 export default {
   name: 'VerticalBarChart',
   components: {
-    'tooltip': tooltip
+    tooltip: tooltip
   },
   props: [
     'config'

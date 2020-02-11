@@ -18,14 +18,14 @@ import vegaSpec from '../../../static/charts/stackedbar5'
 import { STACKED_CHART_COLORS } from '../../services/colorcoding'
 
 const vegaEmbedOptions = {
-  'actions': false,
-  'renderer': 'svg'
+  actions: false,
+  renderer: 'svg'
 }
 
 export default {
   name: 'StackedBarChart',
   components: {
-    'tooltip': tooltip
+    tooltip: tooltip
   },
   props: [
     'title',

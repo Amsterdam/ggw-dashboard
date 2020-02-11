@@ -22,15 +22,15 @@ import vegaSpec from '../../../static/charts/horizontalbar'
 import { COLOR } from '../../services/colorcoding'
 
 const vegaEmbedOptions = {
-  'actions': false,
-  'renderer': 'svg'
+  actions: false,
+  renderer: 'svg'
 }
 
 export default {
   name: 'HorizontalBarChart',
   components: {
-    'tooltip': tooltip,
-    'icon': icon
+    tooltip: tooltip,
+    icon: icon
   },
   props: [
     'title',

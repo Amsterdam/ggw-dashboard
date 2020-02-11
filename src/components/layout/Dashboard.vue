@@ -62,7 +62,7 @@ export default {
     'color-legend': colorLegend,
     'gwb-map': gwbMap,
     'in-het-kort': inHetKort,
-    'bevolking': bevolking,
+    bevolking: bevolking,
     'duurzaamheid-en-water': duurzaamheidEnWater,
     'economie-en-cultuur': economieEnCultuur,
     'onderwijs-jeugd-en-diversiteit': onderwijsJeugdEnDiversiteit,

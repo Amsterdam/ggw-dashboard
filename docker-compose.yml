@@ -1,8 +1,14 @@
-version: '3.0'
+version: "3.5"
 services:
-  ggwdashboard:
+  web:
     build:
       context: .
     ports:
       - "8080:80"
     ipc: host
+
+  test-unit:
+    build:
+      context: .
+      target: builder
+    command: npm run test

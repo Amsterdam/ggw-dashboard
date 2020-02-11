@@ -15,14 +15,14 @@ import vegaSpec from '../../../static/charts/linechart5'
 import { LINE_CHART_COLORS } from '../../services/colorcoding'
 
 const vegaEmbedOptions = {
-  'actions': false,
-  'renderer': 'svg'
+  actions: false,
+  renderer: 'svg'
 }
 
 export default {
   name: 'LineChart',
   components: {
-    'tooltip': tooltip
+    tooltip: tooltip
   },
   props: [
     'config',
@@ -44,7 +44,7 @@ export default {
       const data = await util.getConfigCijfers(this.gwb, this.config)
       this.chartdata = data
 
-      let cijfers = util.flatten(
+      const cijfers = util.flatten(
         this.chartdata.map(data =>
           data.cijfers.map(cijfer => ({
             x: cijfer.jaar,
