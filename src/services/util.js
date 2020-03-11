@@ -10,7 +10,7 @@
  */
 
 import { getAllStadsdelen, getAllGebieden, getAllWijken, getAllBuurten, getCity, getWijken, getBuurten, getGebiedType, getGwb, getGwbSummary, getDetail, GEBIED_TYPE } from './apis/gebieden'
-import { getAllMeta, getMeta, getAllCijfers, getGebiedCijfers, CIJFERS } from './apis/bbga'
+import { getAllMeta, getMeta, getAllCijfers, getGebiedCijfers, CIJFERS, getStd } from './apis/bbga'
 import { getGeometries as getGeoGeometries, GEBIED_TYPE as GEO_GEBIED_TYPE } from './apis/map'
 
 /**
@@ -259,5 +259,6 @@ export default {
   getMaxYear,
   getMeta,
   getWijken,
-  getYearCijfers
+  getYearCijfers,
+  getStd
 }

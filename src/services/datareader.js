@@ -26,13 +26,13 @@ function sleep (ms) {
  * @param nTries optional parameter specifying the number of retries, default = 5
  * @returns {Promise<*>}
  */
-async function get (url, nTries = 5) {
+async function get (url, options, nTries = 5) {
   let result
   let nTry = 0
   do {
     try {
       HTTPStatus.pending++ // Track pending requests
-      result = await axios.get(url)
+      result = await axios.get(url, options)
     } catch (error) {
       console.error('Retry...', url)
       nTry++
@@ -60,7 +60,7 @@ async function get (url, nTries = 5) {
  * @param url
  * @returns {Promise<Array>}
  */
-export async function readPaginatedData (url) {
+export async function readPaginatedData(url, options = {}) {
   let next = url
   let results = []
   let page = 1
@@ -69,7 +69,7 @@ export async function readPaginatedData (url) {
   while (next) {
     try {
       const requestUrl = `${url}${concatParam}page=${page}&page_size=${pageSize}`
-      const response = await get(requestUrl)
+      const response = await get(requestUrl, options)
       next = response.data._links.next.href
       results = results.concat(response.data.results)
       page += 1
@@ -86,7 +86,7 @@ export async function readPaginatedData (url) {
  * @param resolve
  * @returns {Promise<*>}
  */
-export async function readData (url, resolve = d => d.data) {
-  const response = await get(url)
+export async function readData(url, options = {}, resolve = d => d.data) {
+  const response = await get(url, options)
   return resolve(response)
 }

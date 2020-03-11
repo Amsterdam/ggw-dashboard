@@ -3,7 +3,6 @@
  * These values are used to calculate z-scores
  * The z-scores are used to color values so that the color denotes the distance in std's to the average
  */
-import std from '../../static/tmp/std'
 
 /**
  * The Amsterdam style guide colors
@@ -170,10 +169,10 @@ function getCategory (zScore) {
  * @param year  The year for which the value is valid
  * @returns {{color, textColor: *|textColor}}
  */
-export function getColor (meta, value, year) {
+export function getColor (meta, value, year, stdValue) {
   if (value !== null) {
     const variable = meta.variabele
-    const varStd = std
+    const varStd = stdValue
       .filter(({ jaar, variabele }) => variabele === variable && jaar <= year)
       .sort((item1, item2) => item2.jaar - item1.jaar)
 
