@@ -65,29 +65,21 @@ export async function getMeta(variableName) {
 }
 
 /**
- * Gets all the std values
+ * This is a fixed static url published in dcatd. The maintainers can publish updates of the data in
+ *  https://data.amsterdam.nl/datasets/G5JpqNbhweXZSw/basisbestand-gebieden-amsterdam-bbga/
+ *
+*/
+const STD_DATAL_LOCATION_URL = 'https://api.data.amsterdam.nl/dcatd/datasets/G5JpqNbhweXZSw/purls/3'
+
+/**
+ * Gets all the std values. This is an fixed url published in dcatd.
+ * The condition for this
  * The result is cached
  * @returns {Promise<*>}
  */
 export async function getStd() {
-  console.log('getStd')
-  // const url = 'https://acc.api.data.amsterdam.nl/dcatd/datasets/G5JpqNbhweXZSw/purls/3'
-  const url = '/static/tmp/std.json'
-  // const url =
-  //   'https://e85bcf2124fb4437b1bc6eb75dfc3abf.objectstore.eu/dcatd-acc/7c82056b27f44928bd87ccf5e5c0aae8'
-  const getData = () =>
-    readData(url, {
-      // headers: {
-      //   'Access-Control-Allow-Headers': '*',
-      //   'Access-Control-Allow-Origin': '*',
-      //   'Access-Control-Allow-Credentials': true,
-      //   // 'Content-Type': 'application/json',
-      //   Accept: 'text/plain'
-      //   // Accept: 'application/json'
-      // },
-      mode: 'no-cors',
-      credentials: 'include'
-    })
+  const url = STD_DATAL_LOCATION_URL
+  const getData = () => readData(url)
   return cacheResponse('std', getData)
 }
 
