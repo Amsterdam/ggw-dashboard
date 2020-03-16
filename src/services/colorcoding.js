@@ -1,10 +1,4 @@
 /**
- * Import the standard deviations and averages for Amsterdam as provided by OIS
- * These values are used to calculate z-scores
- * The z-scores are used to color values so that the color denotes the distance in std's to the average
- */
-
-/**
  * The Amsterdam style guide colors
  */
 export const COLOR = {

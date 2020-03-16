@@ -72,14 +72,16 @@ export async function getMeta(variableName) {
 const STD_DATAL_LOCATION_URL = 'https://api.data.amsterdam.nl/dcatd/datasets/G5JpqNbhweXZSw/purls/3'
 
 /**
- * Gets all the std values. This is an fixed url published in dcatd.
- * The condition for this
+ * Import the standard deviations and averages for Amsterdam as provided by OIS
+ * This is an fixed url published in dcatd.
+ * These values are used to calculate z-scores
+ * The z-scores are used to color values so that the color denotes the distance in std's to the average
  * The result is cached
  * @returns {Promise<*>}
  */
 export async function getStd() {
   const url = STD_DATAL_LOCATION_URL
-  const getData = () => readData(url)
+  const getData = async () => readData(url)
   return cacheResponse('std', getData)
 }
 
