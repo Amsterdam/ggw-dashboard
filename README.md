@@ -53,15 +53,7 @@ This data is contained in the static/tmp folder
 
 ### std - reference data
 
-The std file contains the averages and standard deviations for each BBGA variable at STAD level.
-This file is refreshed at least every year.
-
-When receiving a new file:
-
-- Convert the new std file to json using a csv2json utility (e.g. https://www.csvjson.com/csv2json)
-- Copy the std.json to static/tmp/std.json
-
-Reed the extra information from this [Readme file](./static/tmp/README.md)
+For the maintainance for the standard deviations file please see this [Readme file](./static/tmp/README.md)
 
 ### gebieden - Names of gebieden
 

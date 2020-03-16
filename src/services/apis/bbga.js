@@ -2,7 +2,7 @@
  * All logic regarding the interface with the BBGA API
  */
 
-import { readPaginatedData } from '../datareader'
+import { readPaginatedData, readData } from '../datareader'
 import { getColor } from '../colorcoding'
 import { cacheResponse } from '../cache'
 
@@ -11,7 +11,7 @@ import { cacheResponse } from '../cache'
  * @param endpoint
  * @returns {string}
  */
-function getUrl (endpoint) {
+function getUrl(endpoint) {
   return `https://api.data.amsterdam.nl/bbga${endpoint}`
 }
 
@@ -21,8 +21,8 @@ function getUrl (endpoint) {
  * The data is cached
  * @returns {Promise<*>}
  */
-export async function getAllMeta () {
-  async function getData () {
+export async function getAllMeta() {
+  async function getData() {
     const url = getUrl('/meta/')
     const data = await readPaginatedData(url)
     const dataObject = {}
@@ -34,10 +34,7 @@ export async function getAllMeta () {
     return dataObject
   }
 
-  return cacheResponse(
-    'allMeta',
-    getData
-  )
+  return cacheResponse('allMeta', getData)
 }
 
 /**
@@ -47,7 +44,7 @@ export async function getAllMeta () {
  * @param variableName
  * @returns {Promise<*>}
  */
-export async function getMeta (variableName) {
+export async function getMeta(variableName) {
   const meta = await getAllMeta()
 
   // Check for special variables, eg "Bev_prog[LATEST]"
@@ -68,6 +65,27 @@ export async function getMeta (variableName) {
 }
 
 /**
+ * This is a fixed static url published in dcatd. The maintainers can publish updates of the data in
+ *  https://data.amsterdam.nl/datasets/G5JpqNbhweXZSw/basisbestand-gebieden-amsterdam-bbga/
+ *
+*/
+const STD_DATAL_LOCATION_URL = 'https://api.data.amsterdam.nl/dcatd/datasets/G5JpqNbhweXZSw/purls/3'
+
+/**
+ * Import the standard deviations and averages for Amsterdam as provided by OIS
+ * This is an fixed url published in dcatd.
+ * These values are used to calculate z-scores
+ * The z-scores are used to color values so that the color denotes the distance in std's to the average
+ * The result is cached
+ * @returns {Promise<*>}
+ */
+export async function getStd() {
+  const url = STD_DATAL_LOCATION_URL
+  const getData = async () => readData(url)
+  return cacheResponse('std', getData)
+}
+
+/**
  * Get the values for a given variable identified by its meta
  * An optional year can be specified to get only the values for the specified year. Default is to return all years
  * An optional gebiedCode can be specified to get the values for the given gebied. Default is to return the values for all gebied, wijk, buurten
@@ -79,15 +97,18 @@ export async function getMeta (variableName) {
  * @param gebiedCode
  * @returns {Promise<{jaar: *|number|string, waarde: null, post: string, gebiedcode15: *|string, color, textColor: *|textColor}[]>}
  */
-async function getCijfers (meta, year = null, gebiedCode = null) {
+async function getCijfers(meta, year = null, gebiedCode = null) {
   const post = meta.symbool === '%' ? meta.symbool : '' // only copy % symbol
 
   const selectVariable = `variabele=${meta.variabele}`
   const selectYear = year ? `&jaar=${year}` : ''
   const selectGebiedCode = gebiedCode ? `&gebiedcode15=${gebiedCode}` : ''
 
-  const url = getUrl(`/cijfers/?${selectVariable}${selectYear}${selectGebiedCode}`)
+  const url = getUrl(
+    `/cijfers/?${selectVariable}${selectYear}${selectGebiedCode}`
+  )
   const cijfers = await readPaginatedData(url)
+  const std = await getStd()
 
   cijfers.sort((a, b) => a.jaar - b.jaar) // oldest first
   return cijfers.map(c => ({
@@ -95,7 +116,7 @@ async function getCijfers (meta, year = null, gebiedCode = null) {
     waarde: c.waarde === '' || c.waarde === undefined ? null : c.waarde, // Sometimes the API returns '' for null value
     post,
     gebiedcode15: c.gebiedcode15,
-    ...getColor(meta, c.waarde, c.jaar)
+    ...getColor(meta, c.waarde, c.jaar, std)
   }))
 }
 
@@ -106,15 +127,12 @@ async function getCijfers (meta, year = null, gebiedCode = null) {
  * @param year optional value to get only the cijfers for a given year
  * @returns {Promise<*>}
  */
-export async function getAllCijfers (variableName, year) {
+export async function getAllCijfers(variableName, year) {
   variableName = variableName.toUpperCase()
   const meta = await getMeta(variableName)
   const getData = async () => getCijfers(meta, year)
 
-  return cacheResponse(
-    `allCijfers.${variableName}.${year}`,
-    getData
-  )
+  return cacheResponse(`allCijfers.${variableName}.${year}`, getData)
 }
 
 /**
@@ -134,17 +152,17 @@ export const CIJFERS = {
  * @param recentOrAll
  * @returns {Promise<*>}
  */
-export async function getGebiedCijfers (variableName, gebied, recentOrAll = CIJFERS.ALL) {
+export async function getGebiedCijfers(
+  variableName,
+  gebied,
+  recentOrAll = CIJFERS.ALL
+) {
   variableName = variableName.toUpperCase()
   const meta = await getMeta(variableName)
   const jaar = recentOrAll === CIJFERS.ALL ? null : recentOrAll
 
-  async function getData () {
-    const cijfers = await getCijfers(
-      meta,
-      jaar,
-      gebied.volledige_code
-    )
+  async function getData() {
+    const cijfers = await getCijfers(meta, jaar, gebied.volledige_code)
     return {
       gebied,
       meta,
