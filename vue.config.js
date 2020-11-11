@@ -3,6 +3,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   runtimeCompiler: true,
+  productionSourceMap: true,
   configureWebpack: config => {
     config.plugins.push(
       new CopyWebpackPlugin([
