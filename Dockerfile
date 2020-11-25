@@ -5,6 +5,8 @@ EXPOSE 80
 
 WORKDIR /app
 
+RUN npm -v
+
 COPY package.json \
   package-lock.json \
   .eslintrc.js \
