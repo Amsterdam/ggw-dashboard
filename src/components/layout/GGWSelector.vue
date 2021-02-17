@@ -272,8 +272,6 @@ export default {
       .concat(await util.getAllStadsdelen())
       .concat(await util.getAllGebieden())
 
-    console.log('-', this.selection.gebieden)
-
     this.parseRoute()
   }
 }
