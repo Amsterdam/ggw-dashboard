@@ -148,14 +148,15 @@ export default {
       this.buurtDetail = null
       this.selection.buurt = null
       this.selection.buurten = null
-
       if (gebiedCode) {
         const gebied = this.selection.gebieden.find(g => g.vollcode === gebiedCode)
 
         this.gebiedDetail = await util.getDetail(gebied)
 
-        const wijken = await util.getWijken(gebied)
-        this.selection.wijken = [getSelectNone('wijk')].concat(wijken)
+        if (gebied.gebiedType !== 'Stadsdeel') {
+          const wijken = await util.getWijken(gebied)
+          this.selection.wijken = [getSelectNone('wijk')].concat(wijken)
+        }
       } else {
         const gebied = await util.getCity()
         this.gebiedDetail = gebied
@@ -264,7 +265,12 @@ export default {
     }
   },
   async created () {
-    this.selection.gebieden = [getSelectNone('gebied', 'Amsterdam')].concat(await util.getAllGebieden())
+    // const allStadsdelen = await util.getAllStadsdelen()
+
+    this.selection.gebieden = [getSelectNone('gebied', 'Amsterdam')]
+      // .concat({ display: 'Centrum', gebiedType: 'Stadsdeel', vollcode: 'A', _links: { self: { href: 'https://api.data.amsterdam.nl/gebieden/stadsdeel/03630000000018/' } } })
+      .concat(await util.getAllStadsdelen())
+      .concat(await util.getAllGebieden())
 
     this.parseRoute()
   }
