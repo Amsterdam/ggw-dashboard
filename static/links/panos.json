@@ -1,5 +1,9 @@
 [
   {
+    "gwb": "STAD",
+    "file": "../../../static/panos/amsterdam.jpg"
+  },
+  {
     "gwb": "A",
     "file": "../../../static/panos/centrum.jpg"
   },
