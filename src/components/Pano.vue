@@ -36,6 +36,7 @@ export default {
         (this.gebied && panos.find(p => p.gwb === this.gebied.volledige_code)) ||
         PANO_DEFAULT
       const panoUrl = pano && pano.pano
+      const panoFile = pano && pano.file
 
       // https://api.data.amsterdam.nl/panorama/thumbnail/TMX7316010203-000227_pano_0000_001160/?width=400&heading=135
       // https://data.amsterdam.nl/#?mpb=topografie&mpz=9&mpo=pano::T&mpv=52.4147109:4.8858658&sbf=BS&sbh=-FR&sbi=TMX7316010203-000317_pano_0000_004374&sbl=ZTGzH:3J5Kv&sbp=13
@@ -52,7 +53,8 @@ export default {
       }
       const width = 500
       const url = `https://api.data.amsterdam.nl/panorama/thumbnail/${sbi}/?width=${width}&heading=${sbh}`
-      this.url = url
+
+      this.url = panoFile || url
     }
   },
   watch: {
