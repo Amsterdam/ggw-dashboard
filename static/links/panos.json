@@ -1,5 +1,37 @@
 [
   {
+    "gwb": "A",
+    "file": "../../../static/panos/centrum.jpg"
+  },
+  {
+    "gwb": "B",
+    "file": "../../../static/panos/westpoort.jpg"
+  },
+  {
+    "gwb": "E",
+    "file": "../../../static/panos/west.jpg"
+  },
+  {
+    "gwb": "F",
+    "file": "../../../static/panos/nieuw-west.jpg"
+  },
+  {
+    "gwb": "K",
+    "file": "../../../static/panos/zuid.jpg"
+  },
+  {
+    "gwb": "M",
+    "file": "../../../static/panos/oost.jpg"
+  },
+  {
+    "gwb": "N",
+    "file": "../../../static/panos/noord.jpg"
+  },
+  {
+    "gwb": "T",
+    "file": "../../../static/panos/zuid-oost.jpg"
+  },
+  {
     "gwb": "A00",
     "pano": "https://data.amsterdam.nl/#?mpb=topografie&mpz=15&mpo=pano::T&mpv=52.3723821:4.8979473&sbf=BS&sbh=9X&sbi=TMX7316010203-000227_pano_0000_000686&sbl=ZRUUP:3JVnV&sbp=3"
   },
