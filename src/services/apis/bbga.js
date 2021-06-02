@@ -12,7 +12,6 @@ import { cacheResponse } from '../cache'
  * @returns {string}
  */
 function getUrl(endpoint) {
-  console.log('getUrl', endpoint)
   return `https://api.data.amsterdam.nl/v1/bbga${endpoint}`
 }
 
@@ -27,7 +26,6 @@ export async function getAllMeta() {
     const url = getUrl('/indicatoren_definities/')
     const data = await readData(url)
     const dataObject = {}
-    console.log('getAllMeta', data)
 
     data._embedded.indicatoren_definities.forEach(item => {
       dataObject[item.variabele.toUpperCase()] = item
@@ -102,20 +100,16 @@ export async function getStd() {
 async function getCijfers(meta, year = null, gebiedCode = null) {
   const post = meta.symbool === '%' ? meta.symbool : '' // only copy % symbol
 
-  // console.log('getCijfers', meta, year, gebiedCode)
   const selectVariable = `indicatorDefinitieId=${meta.variabele.toUpperCase()}`
   const selectYear = year ? `&jaar=${year}` : ''
   const selectGebiedCode = gebiedCode ? `&gebiedcode15=${gebiedCode.toUpperCase()}` : ''
 
   // indicatorDefinitieId
-  console.log('getCijfers gebiedCode', gebiedCode)
   const url = getUrl(
     `/kerncijfers/?${selectVariable}${selectYear}${selectGebiedCode}`
   )
   const cijfers = await readPaginatedData(url)
   const std = await getStd()
-
-  console.log('yo', cijfers)
 
   cijfers.sort((a, b) => a.jaar - b.jaar) // oldest first
   return cijfers.map(c => ({

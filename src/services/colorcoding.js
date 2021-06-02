@@ -153,8 +153,6 @@ function getCategory (zScore) {
 
   const defaultCategory = { color: CATEGORY_COLORS[2].color }
 
-  // console.log('getCategory', categories.find(c => c.inCategory(zScore)) || defaultCategory)
-
   return categories.find(c => c.inCategory(zScore)) || defaultCategory
 }
 
@@ -166,7 +164,6 @@ function getCategory (zScore) {
  * @returns {{color, textColor: *|textColor}}
  */
 export function getColor (meta, value, year, stdValue) {
-  // console.log('getColor', meta, year, year)
   if (value !== null) {
     const variable = meta.variabele
     const varStd = stdValue
@@ -175,13 +172,11 @@ export function getColor (meta, value, year, stdValue) {
 
     if (varStd.length) {
       const ref = varStd[0] // most recent year
-      // console.log('getColor ref', ref)
       let zScore = (value - ref.gem) / ref.SD
 
       if (meta.kleurenpalet === 2) {
         zScore = (0 - zScore)
       }
-      // console.log('getColor zScore', zScore)
 
       const category = getCategory(zScore)
 
