@@ -31,7 +31,6 @@ export async function getAllMeta() {
     const url = getUrlv1('/indicatoren_definities/?page_size=1000')
     const data = await readData(url)
     const dataObject = {}
-    console.log('getAllMeta data', data)
 
     data._embedded.indicatoren_definities.forEach(item => {
       dataObject[item.variabele.toUpperCase()] = item
