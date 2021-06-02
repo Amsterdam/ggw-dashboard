@@ -15,6 +15,11 @@ function getUrl(endpoint) {
   return `https://api.data.amsterdam.nl/bbga${endpoint}`
 }
 
+function getUrlv1(endpoint) {
+  console.log('getUrl', endpoint)
+  return `https://api.data.amsterdam.nl/v1/bbga${endpoint}`
+}
+
 /**
  * Get all meta information for the BBGA variables.
  * The data is transformed into an object for faster access
@@ -23,11 +28,12 @@ function getUrl(endpoint) {
  */
 export async function getAllMeta() {
   async function getData() {
-    const url = getUrl('/meta/')
-    const data = await readPaginatedData(url)
+    const url = getUrlv1('/indicatoren_definities/')
+    const data = await readData(url)
     const dataObject = {}
+    console.log('getAllMeta data', data)
 
-    data.forEach(item => {
+    data._embedded.indicatoren_definities.forEach(item => {
       dataObject[item.variabele.toUpperCase()] = item
     })
 
