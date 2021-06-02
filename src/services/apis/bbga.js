@@ -28,7 +28,7 @@ function getUrlv1(endpoint) {
  */
 export async function getAllMeta() {
   async function getData() {
-    const url = getUrlv1('/indicatoren_definities/')
+    const url = getUrlv1('/indicatoren_definities/?page_size=1000')
     const data = await readData(url)
     const dataObject = {}
     console.log('getAllMeta data', data)
