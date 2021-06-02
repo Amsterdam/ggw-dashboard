@@ -20,10 +20,11 @@ import { getGeometries as getGeoGeometries, GEBIED_TYPE as GEO_GEBIED_TYPE } fro
  * @returns {Promise<*>}
  */
 async function getLatestConfigCijfers (gwb, config) {
-  const latestCijfers = await getConfigCijfers(gwb, config, CIJFERS.LATEST)
-  if (latestCijfers.recent && latestCijfers.recent.waarde !== null) {
-    return latestCijfers
-  }
+  console.log('getLatestConfigCijfers')
+  // const latestCijfers = await getConfigCijfers(gwb, config, CIJFERS.LATEST)
+  // if (latestCijfers.recent && latestCijfers.recent.waarde !== null) {
+  //   return latestCijfers
+  // }
   return getConfigCijfers(gwb, config, CIJFERS.ALL)
 }
 
@@ -55,9 +56,13 @@ function getTooltip (cijfers) {
  * @returns {Promise<any[]>}
  */
 async function getConfigCijfers (gwb, config, recentOrAll = CIJFERS.ALL) {
+  // console.log('getConfigCijfers')
   const data = config.map(async (c, index) => {
+    console.log('getConfigCijfers each', c.variabele, recentOrAll, c)
+
     try {
-      const cijfers = await getGebiedCijfers(c.variabele, gwb, recentOrAll)
+      const cijfers = await getGebiedCijfers(c.variabele, gwb, 'all')
+      // console.log('--------------------------------------')
       if (c.post) {
         cijfers.cijfers.forEach(cijfer => { cijfer.post = c.post })
       }

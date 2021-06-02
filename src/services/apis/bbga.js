@@ -22,6 +22,7 @@ function getUrl(endpoint) {
  * @returns {Promise<*>}
  */
 export async function getAllMeta() {
+  console.log('getAllMeta')
   async function getData() {
     const url = getUrl('/indicatoren_definities/')
     const data = await readData(url)
@@ -45,10 +46,12 @@ export async function getAllMeta() {
  * @returns {Promise<*>}
  */
 export async function getMeta(variableName) {
+  console.log('getMeta', variableName)
   const meta = await getAllMeta()
 
   // Check for special variables, eg "Bev_prog[LATEST]"
   const isLatest = new RegExp(/\[LATEST\]$/i)
+  console.log('getMeta', isLatest.test(variableName))
   if (isLatest.test(variableName)) {
     let baseName = variableName.replace(isLatest, '') // Bev_prog
     baseName = new RegExp('^' + baseName, 'i') // /^Bev_prog/i
@@ -108,7 +111,9 @@ async function getCijfers(meta, year = null, gebiedCode = null) {
   const url = getUrl(
     `/kerncijfers/?${selectVariable}${selectYear}${selectGebiedCode}`
   )
+
   const cijfers = await readPaginatedData(url)
+  console.log('-------------------------- cijfers', url, cijfers)
   const std = await getStd()
 
   cijfers.sort((a, b) => a.jaar - b.jaar) // oldest first
@@ -161,9 +166,12 @@ export async function getGebiedCijfers(
   variableName = variableName.toUpperCase()
   const meta = await getMeta(variableName)
   const jaar = recentOrAll === CIJFERS.ALL ? null : recentOrAll
+  console.log('getGebiedCijfers', variableName, jaar)
 
   async function getData() {
+    console.log('getGebiedCijfers getData', jaar)
     const cijfers = await getCijfers(meta, jaar, gebied.volledige_code)
+    console.log('getGebiedCijfers cijfers', cijfers)
     return {
       gebied,
       meta,
@@ -171,6 +179,7 @@ export async function getGebiedCijfers(
       recent: cijfers.length ? cijfers[cijfers.length - 1] : undefined
     }
   }
+  // console.log('getGebiedCijfers meta', meta)
 
   return cacheResponse(
     `gebiedCijfers.${variableName}.${gebied.volledige_code}.${recentOrAll}`,
