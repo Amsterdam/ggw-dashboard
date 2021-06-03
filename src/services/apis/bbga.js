@@ -12,7 +12,6 @@ import { cacheResponse } from '../cache'
  * @returns {string}
  */
 function getUrlv1(endpoint) {
-  console.log('getUrl', endpoint)
   return `https://api.data.amsterdam.nl/v1/bbga${endpoint}`
 }
 
