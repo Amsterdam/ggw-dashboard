@@ -2,7 +2,7 @@
  * All logic regarding the interface with the BBGA API
  */
 
-import { readPaginatedData, readData } from '../datareader'
+import { readData } from '../datareader'
 import { getColor } from '../colorcoding'
 import { cacheResponse } from '../cache'
 
@@ -11,10 +11,6 @@ import { cacheResponse } from '../cache'
  * @param endpoint
  * @returns {string}
  */
-function getUrl(endpoint) {
-  return `https://api.data.amsterdam.nl/bbga${endpoint}`
-}
-
 function getUrlv1(endpoint) {
   console.log('getUrl', endpoint)
   return `https://api.data.amsterdam.nl/v1/bbga${endpoint}`
@@ -105,26 +101,24 @@ export async function getStd() {
 async function getCijfers(meta, year = null, gebiedCode = null) {
   const post = meta.symbool === '%' ? meta.symbool : '' // only copy % symbol
 
-  const selectVariable = `variabele=${meta.variabele}`
-  // const selectYear = year ? `&jaar=${year}` : ''
+  const selectVariable = `indicatorDefinitieId=${meta.variabele}`
   const selectGebiedCode = gebiedCode ? `&gebiedcode15=${gebiedCode}` : ''
   const isLatest = year === 'latest'
-  const url = getUrl(
-    `/cijfers/?${selectVariable}${selectGebiedCode}`
+  const url = getUrlv1(
+    `/kerncijfers/?${selectVariable}${selectGebiedCode}`
   )
-  const cijfers = await readPaginatedData(url)
+  const cijfers = await readData(url)
   const std = await getStd()
 
-  cijfers.sort((a, b) => a.jaar - b.jaar) // oldest first
-  const results = cijfers.map(c => ({
+  const array = cijfers._embedded.kerncijfers
+  array.sort((a, b) => a.jaar - b.jaar) // oldest first
+  const results = array.map(c => ({
     jaar: c.jaar,
     waarde: c.waarde === '' || c.waarde === undefined ? null : c.waarde, // Sometimes the API returns '' for null value
     post,
     gebiedcode15: c.gebiedcode15,
     ...getColor(meta, c.waarde, c.jaar, std)
   }))
-
-  console.log('getCijfers cijfers', meta.variabele, year, results)
 
   return isLatest ? results.pop() : results
 }
