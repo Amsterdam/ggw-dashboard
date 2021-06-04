@@ -13,10 +13,10 @@
           <th
             scope="row"
             :rowspan="d.length"
-            v-if="item.meta.tussenkop_kerncijfertabel"
+            v-if="item.meta.tussenkopjeKerncijfertabel"
             valign="top"
           >
-            <span v-if="tussenkop != 'empty'">{{item.meta.tussenkop_kerncijfertabel}}</span>
+            <span v-if="tussenkop != 'empty'">{{item.meta.tussenkopjeKerncijfertabel}}</span>
 
             <span v-else>&nbsp;</span>
           </th>
@@ -76,18 +76,18 @@ export default {
       for (const dataItem of data) {
         const item = Object.assign({}, dataItem)
         const meta = Object.assign({}, dataItem.meta)
-        const tussenKop = (meta && meta.tussenkop_kerncijfertabel) || 'empty'
+        const tussenKop = (meta && meta.tussenkopjeKerncijfertabel) || 'empty'
 
         item.tooltipText = item.tooltip ? item.tooltip(false) : ''
 
         if (tussenKop === 'empty') {
-          meta.tussenkop_kerncijfertabel = 'empty'
+          meta.tussenkopjeKerncijfertabel = 'empty'
         }
 
         if (!Object.keys(categorizedData).includes(tussenKop)) {
           categorizedData[tussenKop] = []
         } else {
-          meta.tussenkop_kerncijfertabel = undefined
+          meta.tussenkopjeKerncijfertabel = undefined
         }
 
         item.meta = meta
