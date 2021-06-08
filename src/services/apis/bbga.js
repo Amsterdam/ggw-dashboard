@@ -104,7 +104,7 @@ async function getCijfers(meta, year = null, gebiedCode = null) {
   const selectGebiedCode = gebiedCode ? `&gebiedcode15=${gebiedCode}` : ''
   const isLatest = year === 'latest'
   const url = getUrlv1(
-    `/kerncijfers/?${selectVariable}${selectGebiedCode}`
+    `/kerncijfers/?${selectVariable}${selectGebiedCode}&page_size=1000`
   )
   const cijfers = await readData(url)
   const std = await getStd()
