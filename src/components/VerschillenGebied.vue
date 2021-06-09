@@ -217,7 +217,8 @@ export default {
         gwb = this.gebied
       }
       // Return the most actual cijfers to the selected value (own)
-      return util.getGebiedCijfers(this.variable, gwb, util.CIJFERS.LATEST)
+      const result = await util.getGebiedCijfers(this.variable, gwb, util.CIJFERS.LATEST)
+      return { ...result, recent: result.cijfers }
     },
 
     /**
