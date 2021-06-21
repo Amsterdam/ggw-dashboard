@@ -59,7 +59,11 @@ async function getConfigCijfers (gwb, config, recentOrAll = CIJFERS.ALL) {
     try {
       const cijfers = await getGebiedCijfers(c.variabele, gwb, recentOrAll)
       if (c.post) {
-        cijfers.cijfers.forEach(cijfer => { cijfer.post = c.post })
+        if (Array.isArray(cijfers.cijfers)) {
+          cijfers.cijfers.forEach(cijfer => { cijfer.post = c.post })
+        } else {
+          cijfers.cijfers.post = c.post
+        }
       }
       return {
         ...cijfers,
