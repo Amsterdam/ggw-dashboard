@@ -4,7 +4,7 @@
 
 import { readData } from '../datareader'
 import { getColor } from '../colorcoding'
-import { cacheResponse } from '../cache'
+import { cacheResponse, cacheResponseSync, checkResponse } from '../cache'
 
 /**
  * Returns the complete url for the BBGA API given an endpoint
@@ -68,8 +68,8 @@ export async function getMeta(variableName) {
  * This is a fixed static url published in dcatd. The maintainers can publish updates of the data in
  *  https://data.amsterdam.nl/datasets/G5JpqNbhweXZSw/basisbestand-gebieden-amsterdam-bbga/
  *
-*/
-const STD_DATAL_LOCATION_URL = 'https://api.data.amsterdam.nl/dcatd/datasets/G5JpqNbhweXZSw/purls/3'
+// */
+// const STD_DATAL_LOCATION_URL = 'https://api.data.amsterdam.nl/v1/bbga/statistieken/?_pageSize=10000&_format=json'
 
 /**
  * Import the standard deviations and averages for Amsterdam as provided by OIS
@@ -80,9 +80,26 @@ const STD_DATAL_LOCATION_URL = 'https://api.data.amsterdam.nl/dcatd/datasets/G5J
  * @returns {Promise<*>}
  */
 export async function getStd() {
-  const url = STD_DATAL_LOCATION_URL
-  const getData = async () => readData(url)
-  return cacheResponse('std', getData)
+  console.log('===', checkResponse('std'))
+  // if (!checkResponse('std')) return
+
+  const url = getUrlv1('/statistieken/?_pageSize=10000&_format=json')
+  const data = await readData(url)
+  // const url = STD_DATAL_LOCATION_URL
+  // const getData = async () => readData(url)
+  // const response = await get(url)
+  // return resolve(response)
+  const result = data._embedded.statistieken.map((item) => ({
+    variabele: item.indicatorDefinitieId,
+    gem: item.gemiddelde,
+    SD: item.standaardafwijking,
+    bron: item.bron,
+    jaar: item.jaar
+  }))
+
+  console.log('getStd result --------------------')
+  const getData = () => result
+  return cacheResponseSync('std', getData)
 }
 
 /**
