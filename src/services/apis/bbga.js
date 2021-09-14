@@ -4,7 +4,7 @@
 
 import { readData } from '../datareader'
 import { getColor } from '../colorcoding'
-import { cacheResponse, cacheResponseSync, checkResponse } from '../cache'
+import { cacheResponse } from '../cache'
 
 /**
  * Returns the complete url for the BBGA API given an endpoint
@@ -65,13 +65,6 @@ export async function getMeta(variableName) {
 }
 
 /**
- * This is a fixed static url published in dcatd. The maintainers can publish updates of the data in
- *  https://data.amsterdam.nl/datasets/G5JpqNbhweXZSw/basisbestand-gebieden-amsterdam-bbga/
- *
-// */
-// const STD_DATAL_LOCATION_URL = 'https://api.data.amsterdam.nl/v1/bbga/statistieken/?_pageSize=10000&_format=json'
-
-/**
  * Import the standard deviations and averages for Amsterdam as provided by OIS
  * This is an fixed url published in dcatd.
  * These values are used to calculate z-scores
@@ -80,28 +73,15 @@ export async function getMeta(variableName) {
  * @returns {Promise<*>}
  */
 export async function getStd() {
-  // console.log('===', checkResponse('std'))
-  // if (checkResponse('std')) return checkResponse('std')
+  const url = getUrlv1('/statistieken/?_pageSize=10000')
 
-  const url = getUrlv1('/statistieken/?_pageSize=10000&_format=json')
-  const data = await readData(url)
-  // const url = STD_DATAL_LOCATION_URL
-  // const getData = async () => readData(url)
-  // const response = await get(url)
-  // return resolve(response)
-  const result = data._embedded.statistieken
+  async function getData () {
+    const data = await readData(url)
 
-  // const result = data._embedded.statistieken.map((item) => ({
-  //   variabele: item.indicatorDefinitieId,
-  //   gem: item.gemiddelde,
-  //   SD: item.standaardafwijking,
-  //   bron: item.bron,
-  //   jaar: item.jaar
-  // }))
+    return data._embedded.statistieken
+  }
 
-  console.log('getStd result --------------------', result)
-  const getData = () => result
-  return cacheResponseSync('std', getData)
+  return cacheResponse('std', getData)
 }
 
 /**
@@ -126,7 +106,7 @@ async function getCijfers(meta, year = null, gebiedCode = null) {
     `/kerncijfers/?${selectVariable}${selectGebiedCode}&page_size=1000`
   )
   const cijfers = await readData(url)
-  const std = checkResponse('std') || await getStd()
+  const std = await getStd()
 
   const array = cijfers._embedded.kerncijfers
   array.sort((a, b) => a.jaar - b.jaar) // oldest first
