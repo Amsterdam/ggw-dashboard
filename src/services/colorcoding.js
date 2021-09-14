@@ -167,12 +167,12 @@ export function getColor (meta, value, year, stdValue) {
   if (value !== null) {
     const variable = meta.variabele
     const varStd = stdValue
-      .filter(({ jaar, variabele }) => variabele === variable && jaar <= year)
+      .filter(({ jaar, indicatorDefinitieId }) => indicatorDefinitieId === variable && jaar <= year)
       .sort((item1, item2) => item2.jaar - item1.jaar)
 
     if (varStd.length) {
       const ref = varStd[0] // most recent year
-      let zScore = (value - ref.gem) / ref.SD
+      let zScore = (value - ref.gemiddelde) / ref.standaardafwijking
 
       if (meta.kleurenpalet === 2) {
         zScore = (0 - zScore)

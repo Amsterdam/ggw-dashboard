@@ -5,7 +5,6 @@
 import { readData } from '../datareader'
 import { getColor } from '../colorcoding'
 import { cacheResponse } from '../cache'
-import stdDevs from '../../../static/tmp/bbga-std'
 
 /**
  * Returns the complete url for the BBGA API given an endpoint
@@ -66,13 +65,6 @@ export async function getMeta(variableName) {
 }
 
 /**
- * This is a fixed static url published in dcatd. The maintainers can publish updates of the data in
- *  https://data.amsterdam.nl/datasets/G5JpqNbhweXZSw/basisbestand-gebieden-amsterdam-bbga/
- *
-*/
-// const STD_DATAL_LOCATION_URL = 'https://api.data.amsterdam.nl/dcatd/datasets/G5JpqNbhweXZSw/purls/3'
-
-/**
  * Import the standard deviations and averages for Amsterdam as provided by OIS
  * This is an fixed url published in dcatd.
  * These values are used to calculate z-scores
@@ -80,11 +72,16 @@ export async function getMeta(variableName) {
  * The result is cached
  * @returns {Promise<*>}
  */
+export async function getStd() {
+  const url = getUrlv1('/statistieken/?_pageSize=10000')
 
-export function getStd() {
-  // const url = STD_DATAL_LOCATION_URL
-  // const getData = () => stdDevs
-  return stdDevs
+  async function getData () {
+    const data = await readData(url)
+
+    return data._embedded.statistieken
+  }
+
+  return cacheResponse('std', getData)
 }
 
 /**
@@ -109,7 +106,7 @@ async function getCijfers(meta, year = null, gebiedCode = null) {
     `/kerncijfers/?${selectVariable}${selectGebiedCode}&page_size=1000`
   )
   const cijfers = await readData(url)
-  const std = getStd()
+  const std = await getStd()
 
   const array = cijfers._embedded.kerncijfers
   array.sort((a, b) => a.jaar - b.jaar) // oldest first
