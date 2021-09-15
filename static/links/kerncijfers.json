@@ -110,11 +110,6 @@
     "volgorde": 9
   },
   {
-    "variabele": "SRuit4_p",
-    "thema": "Economie en cultuur",
-    "volgorde": 10
-  },
-  {
     "variabele": "O_oplPO_l_p",
     "thema": "Onderwijs, jeugd en diversiteit",
     "volgorde": 1
@@ -168,11 +163,6 @@
     "variabele": "Vjeugdige_p",
     "thema": "Onderwijs, jeugd en diversiteit",
     "volgorde": 11
-  },
-  {
-    "variabele": "WzVT_p",
-    "thema": "Onderwijs, jeugd en diversiteit",
-    "volgorde": 12
   },
   {
     "variabele": "Lsockwal_p",
@@ -435,11 +425,6 @@
     "volgorde": 14
   },
   {
-    "variabele": "SRsportdln_p",
-    "thema": "Welzijn, zorg en sport",
-    "volgorde": 15
-  },
-  {
     "variabele": "Pregwerkl_p",
     "thema": "Werk, inkomen en participatie",
     "volgorde": 1
@@ -448,11 +433,6 @@
     "variabele": "Iwwb_p",
     "thema": "Werk, inkomen en participatie",
     "volgorde": 2
-  },
-  {
-    "variabele": "Iwwb12_p",
-    "thema": "Werk, inkomen en participatie",
-    "volgorde": 3
   },
   {
     "variabele": "Bevopllaag_p",
