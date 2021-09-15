@@ -9,7 +9,7 @@
       </thead>
 
       <tbody v-for="(d, tussenkop) of data" :key="tussenkop">
-        <tr v-for="item of d" :key="item.meta.variabele">
+        <tr v-for="item of d" :key="item.meta.indicatorDefinitieId">
           <th
             scope="row"
             :rowspan="d.length"

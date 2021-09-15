@@ -1,14 +1,14 @@
 [
   {
     "label": "",
-    "variabele": "Vveiligvoelen_p"
+    "indicatorDefinitieId": "Vveiligvoelen_p"
   },
   {
     "label": "",
-    "variabele": "Vcrimitoe_p"
+    "indicatorDefinitieId": "Vcrimitoe_p"
   },
   {
     "label": "",
-    "variabele": "Vcrimiaf_p"
+    "indicatorDefinitieId": "Vcrimiaf_p"
   }
 ]

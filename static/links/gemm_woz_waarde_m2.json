@@ -1,6 +1,6 @@
 [
   {
     "label": "Gemiddelde WOZ-waarde/m2",
-    "variabele": "Wwoz_m2"
+    "indicatorDefinitieId": "Wwoz_m2"
   }
 ]

@@ -1,10 +1,10 @@
 [
   {
     "label": "",
-    "variabele": "BHVest"
+    "indicatorDefinitieId": "BHVest"
   },
   {
     "label": "",
-    "variabele": "BHwp"
+    "indicatorDefinitieId": "BHwp"
   }
 ]

@@ -165,7 +165,7 @@ function getCategory (zScore) {
  */
 export function getColor (meta, value, year, stdValue) {
   if (value !== null) {
-    const variable = meta.variabele
+    const variable = meta.indicatorDefinitieId
     const varStd = stdValue
       .filter(({ jaar, indicatorDefinitieId }) => indicatorDefinitieId === variable && jaar <= year)
       .sort((item1, item2) => item2.jaar - item1.jaar)

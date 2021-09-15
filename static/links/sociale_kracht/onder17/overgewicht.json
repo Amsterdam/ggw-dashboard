@@ -1,6 +1,6 @@
 [
     {
       "label": "% 10-jarigen met overgewicht/obesitas",
-      "variabele": "WZZWAAR_P"
+      "indicatorDefinitieId": "WZZWAAR_P"
     }
 ]

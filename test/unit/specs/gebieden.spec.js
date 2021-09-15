@@ -12,16 +12,16 @@ jest.mock('axios', () => ({
         },
         results: [
           {
-            variabele: 'x'
+            indicatorDefinitieId: 'x'
           },
           {
-            variabele: 'x2'
+            indicatorDefinitieId: 'x2'
           },
           {
-            variabele: 'x1'
+            indicatorDefinitieId: 'x1'
           },
           {
-            variabele: 'y'
+            indicatorDefinitieId: 'y'
           }
         ]
       }

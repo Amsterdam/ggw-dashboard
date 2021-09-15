@@ -1,14 +1,14 @@
 [
   {
     "label": "Koop",
-    "variabele": "Wkoop_p"
+    "indicatorDefinitieId": "Wkoop_p"
   },
   {
     "label": "Particuliere huur",
-    "variabele": "Wparthuur_p"
+    "indicatorDefinitieId": "Wparthuur_p"
   },
   {
     "label": "Corporatiebezit",
-    "variabele": "Wcorhuur_p"
+    "indicatorDefinitieId": "Wcorhuur_p"
   }
 ]

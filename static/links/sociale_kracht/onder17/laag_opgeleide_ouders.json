@@ -1,6 +1,6 @@
 [
     {
       "label": "% laag opgeleide ouders (PO)",
-      "variabele": "O_OPLPO_L_P"
+      "indicatorDefinitieId": "O_OPLPO_L_P"
     }
 ]

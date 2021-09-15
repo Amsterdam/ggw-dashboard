@@ -1,10 +1,10 @@
 [
   {
     "label": "",
-    "variabele": "BHwinkelaanbod_r"
+    "indicatorDefinitieId": "BHwinkelaanbod_r"
   },
   {
     "label": "",
-    "variabele": "BHhorecaaanbod_r"
+    "indicatorDefinitieId": "BHhorecaaanbod_r"
   }
 ]

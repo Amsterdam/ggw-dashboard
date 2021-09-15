@@ -1,14 +1,14 @@
 [
   {
     "label": "",
-    "variabele": "VKov_r"
+    "indicatorDefinitieId": "VKov_r"
   },
   {
     "label": "",
-    "variabele": "VKoverlastverkeer_r"
+    "indicatorDefinitieId": "VKoverlastverkeer_r"
   },
   {
     "label": "",
-    "variabele": "VKparkeeroverlast_r"
+    "indicatorDefinitieId": "VKparkeeroverlast_r"
   }
 ]

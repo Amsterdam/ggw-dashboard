@@ -1,18 +1,18 @@
 [
   {
     "label": "",
-    "variabele": "VKptotaal"
+    "indicatorDefinitieId": "VKptotaal"
   },
   {
     "label": "",
-    "variabele": "VKpfiscaal"
+    "indicatorDefinitieId": "VKpfiscaal"
   },
   {
     "label": "",
-    "variabele": "VKpnietfisc"
+    "indicatorDefinitieId": "VKpnietfisc"
   },
   {
     "label": "",
-    "variabele": "VKpmulder"
+    "indicatorDefinitieId": "VKpmulder"
   }
 ]

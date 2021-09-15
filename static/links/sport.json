@@ -1,10 +1,6 @@
 [
   {
     "label": "",
-    "variabele": "Srsportgelegenheden_r"
-  },
-  {
-    "label": "",
-    "variabele": "SRsportdln_p"
+    "indicatorDefinitieId": "Srsportgelegenheden_r"
   }
 ]

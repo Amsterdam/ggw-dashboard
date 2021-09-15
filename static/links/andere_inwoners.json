@@ -1,10 +1,10 @@
 [
   {
     "label": "",
-    "variabele": "Bevinst"
+    "indicatorDefinitieId": "Bevinst"
   },
   {
     "label": "",
-    "variabele": "Bevbrief"
+    "indicatorDefinitieId": "Bevbrief"
   }
 ]
