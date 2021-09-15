@@ -1,547 +1,547 @@
 [
   {
-    "variabele": "Bevtotaal",
+    "indicatorDefinitieId": "Bevtotaal",
     "thema": "Bevolking",
     "volgorde": 1
   },
   {
-    "variabele": "Bev0_17_p",
+    "indicatorDefinitieId": "Bev0_17_p",
     "thema": "Bevolking",
     "volgorde": 3
   },
   {
-    "variabele": "Bev65plus_p",
+    "indicatorDefinitieId": "Bev65plus_p",
     "thema": "Bevolking",
     "volgorde": 4
   },
   {
-    "variabele": "Bev80plus_p",
+    "indicatorDefinitieId": "Bev80plus_p",
     "thema": "Bevolking",
     "volgorde": 5
   },
   {
-    "variabele": "BevNW_p",
+    "indicatorDefinitieId": "BevNW_p",
     "thema": "Bevolking",
     "volgorde": 6
   },
   {
-    "variabele": "BevNstedeling_p",
+    "indicatorDefinitieId": "BevNstedeling_p",
     "thema": "Bevolking",
     "volgorde": 7
   },
   {
-    "variabele": "BevhuishoudenHH",
+    "indicatorDefinitieId": "BevhuishoudenHH",
     "thema": "Bevolking",
     "volgorde": 8
   },
   {
-    "variabele": "BevpaarmkindHH_p",
+    "indicatorDefinitieId": "BevpaarmkindHH_p",
     "thema": "Bevolking",
     "volgorde": 9
   },
   {
-    "variabele": "BeveenouderHH_p",
+    "indicatorDefinitieId": "BeveenouderHH_p",
     "thema": "Bevolking",
     "volgorde": 10
   },
   {
-    "variabele": "BevalleenHH_p",
+    "indicatorDefinitieId": "BevalleenHH_p",
     "thema": "Bevolking",
     "volgorde": 11
   },
   {
-    "variabele": "Wdubbelglas_p",
+    "indicatorDefinitieId": "Wdubbelglas_p",
     "thema": "Duurzaamheid en water",
     "volgorde": 1
   },
   {
-    "variabele": "Dlabel_i",
+    "indicatorDefinitieId": "Dlabel_i",
     "thema": "Duurzaamheid en water",
     "volgorde": 2
   },
   {
-    "variabele": "Dzon_1000won",
+    "indicatorDefinitieId": "Dzon_1000won",
     "thema": "Duurzaamheid en water",
     "volgorde": 3
   },
   {
-    "variabele": "BHVest",
+    "indicatorDefinitieId": "BHVest",
     "thema": "Economie en cultuur",
     "volgorde": 1
   },
   {
-    "variabele": "BHkantruim_m2leeg_p",
+    "indicatorDefinitieId": "BHkantruim_m2leeg_p",
     "thema": "Economie en cultuur",
     "volgorde": 2
   },
   {
-    "variabele": "Bhhoreca_1000inw",
+    "indicatorDefinitieId": "Bhhoreca_1000inw",
     "thema": "Economie en cultuur",
     "volgorde": 3
   },
   {
-    "variabele": "Bhhotbed_1000inw",
+    "indicatorDefinitieId": "Bhhotbed_1000inw",
     "thema": "Economie en cultuur",
     "volgorde": 4
   },
   {
-    "variabele": "BHwink_1000inw",
+    "indicatorDefinitieId": "BHwink_1000inw",
     "thema": "Economie en cultuur",
     "volgorde": 5
   },
   {
-    "variabele": "BHBGWwvo_1000inw",
+    "indicatorDefinitieId": "BHBGWwvo_1000inw",
     "thema": "Economie en cultuur",
     "volgorde": 6
   },
   {
-    "variabele": "BHwp",
+    "indicatorDefinitieId": "BHwp",
     "thema": "Economie en cultuur",
     "volgorde": 7
   },
   {
-    "variabele": "BHwp_1000inw",
+    "indicatorDefinitieId": "BHwp_1000inw",
     "thema": "Economie en cultuur",
     "volgorde": 8
   },
   {
-    "variabele": "SRcultuur_1000inw",
+    "indicatorDefinitieId": "SRcultuur_1000inw",
     "thema": "Economie en cultuur",
     "volgorde": 9
   },
   {
-    "variabele": "O_oplPO_l_p",
+    "indicatorDefinitieId": "O_oplPO_l_p",
     "thema": "Onderwijs, jeugd en diversiteit",
     "volgorde": 1
   },
   {
-    "variabele": "Ocitoscore_gem",
+    "indicatorDefinitieId": "Ocitoscore_gem",
     "thema": "Onderwijs, jeugd en diversiteit",
     "volgorde": 2
   },
   {
-    "variabele": "OPROVMBOBK_p",
+    "indicatorDefinitieId": "OPROVMBOBK_p",
     "thema": "Onderwijs, jeugd en diversiteit",
     "volgorde": 3
   },
   {
-    "variabele": "OLSV_p",
+    "indicatorDefinitieId": "OLSV_p",
     "thema": "Onderwijs, jeugd en diversiteit",
     "volgorde": 4
   },
   {
-    "variabele": "Iminjong120_p",
+    "indicatorDefinitieId": "Iminjong120_p",
     "thema": "Onderwijs, jeugd en diversiteit",
     "volgorde": 5
   },
   {
-    "variabele": "WZzwaar10_p",
+    "indicatorDefinitieId": "WZzwaar10_p",
     "thema": "Onderwijs, jeugd en diversiteit",
     "volgorde": 6
   },
   {
-    "variabele": "SRclub10_p",
+    "indicatorDefinitieId": "SRclub10_p",
     "thema": "Onderwijs, jeugd en diversiteit",
     "volgorde": 7
   },
   {
-    "variabele": "Wzdepress_p",
+    "indicatorDefinitieId": "Wzdepress_p",
     "thema": "Onderwijs, jeugd en diversiteit",
     "volgorde": 8
   },
   {
-    "variabele": "WZcannaregVO4_p",
+    "indicatorDefinitieId": "WZcannaregVO4_p",
     "thema": "Onderwijs, jeugd en diversiteit",
     "volgorde": 9
   },
   {
-    "variabele": "WzgedwongenV04_p",
+    "indicatorDefinitieId": "WzgedwongenV04_p",
     "thema": "Onderwijs, jeugd en diversiteit",
     "volgorde": 10
   },
   {
-    "variabele": "Vjeugdige_p",
+    "indicatorDefinitieId": "Vjeugdige_p",
     "thema": "Onderwijs, jeugd en diversiteit",
     "volgorde": 11
   },
   {
-    "variabele": "Lsockwal_p",
+    "indicatorDefinitieId": "Lsockwal_p",
     "thema": "Onderwijs, jeugd en diversiteit",
     "volgorde": 13
   },
   {
-    "variabele": "Lomganggroepenb_r",
+    "indicatorDefinitieId": "Lomganggroepenb_r",
     "thema": "Onderwijs, jeugd en diversiteit",
     "volgorde": 14
   },
   {
-    "variabele": "Ldiscri_p",
+    "indicatorDefinitieId": "Ldiscri_p",
     "thema": "Onderwijs, jeugd en diversiteit",
     "volgorde": 15
   },
   {
-    "variabele": "Vveiligh_i",
+    "indicatorDefinitieId": "Vveiligh_i",
     "thema": "Openbare orde en veiligheid",
     "volgorde": 1
   },
   {
-    "variabele": "Vcrimin_i",
+    "indicatorDefinitieId": "Vcrimin_i",
     "thema": "Openbare orde en veiligheid",
     "volgorde": 2
   },
   {
-    "variabele": "Vbeleving_i",
+    "indicatorDefinitieId": "Vbeleving_i",
     "thema": "Openbare orde en veiligheid",
     "volgorde": 3
   },
   {
-    "variabele": "Voverlast_i",
+    "indicatorDefinitieId": "Voverlast_i",
     "thema": "Openbare orde en veiligheid",
     "volgorde": 4
   },
   {
-    "variabele": "Vpersonovl_i",
+    "indicatorDefinitieId": "Vpersonovl_i",
     "thema": "Openbare orde en veiligheid",
     "volgorde": 5
   },
   {
-    "variabele": "Vveiligvoelen_p",
+    "indicatorDefinitieId": "Vveiligvoelen_p",
     "thema": "Openbare orde en veiligheid",
     "volgorde": 6
   },
   {
-    "variabele": "Lburenoverlast_r",
+    "indicatorDefinitieId": "Lburenoverlast_r",
     "thema": "Openbare orde en veiligheid",
     "volgorde": 7
   },
   {
-    "variabele": "Lhoreca_p",
+    "indicatorDefinitieId": "Lhoreca_p",
     "thema": "Openbare orde en veiligheid",
     "volgorde": 8
   },
   {
-    "variabele": "Ljongerenovl_p",
+    "indicatorDefinitieId": "Ljongerenovl_p",
     "thema": "Openbare orde en veiligheid",
     "volgorde": 9
   },
   {
-    "variabele": "VBRAND_1000WON",
+    "indicatorDefinitieId": "VBRAND_1000WON",
     "thema": "Openbare orde en veiligheid",
     "volgorde": 10
   },
   {
-    "variabele": "Lbuurt_r",
+    "indicatorDefinitieId": "Lbuurt_r",
     "thema": "Stedelijke ontwikkeling en wonen",
     "volgorde": 1
   },
   {
-    "variabele": "Lverwachtingbuurt_r",
+    "indicatorDefinitieId": "Lverwachtingbuurt_r",
     "thema": "Stedelijke ontwikkeling en wonen",
     "volgorde": 2
   },
   {
-    "variabele": "Lbuurtvoor_p",
+    "indicatorDefinitieId": "Lbuurtvoor_p",
     "thema": "Stedelijke ontwikkeling en wonen",
     "volgorde": 3
   },
   {
-    "variabele": "Wverhuis_p",
+    "indicatorDefinitieId": "Wverhuis_p",
     "thema": "Stedelijke ontwikkeling en wonen",
     "volgorde": 4
   },
   {
-    "variabele": "Bevmuttot_p",
+    "indicatorDefinitieId": "Bevmuttot_p",
     "thema": "Stedelijke ontwikkeling en wonen",
     "volgorde": 5
   },
   {
-    "variabele": "WvoorrBAG",
+    "indicatorDefinitieId": "WvoorrBAG",
     "thema": "Stedelijke ontwikkeling en wonen",
     "volgorde": 6
   },
   {
-    "variabele": "Wkoop_p",
+    "indicatorDefinitieId": "Wkoop_p",
     "thema": "Stedelijke ontwikkeling en wonen",
     "volgorde": 7
   },
   {
-    "variabele": "Wcorhuur_p",
+    "indicatorDefinitieId": "Wcorhuur_p",
     "thema": "Stedelijke ontwikkeling en wonen",
     "volgorde": 8
   },
   {
-    "variabele": "Whuurtslg_p",
+    "indicatorDefinitieId": "Whuurtslg_p",
     "thema": "Stedelijke ontwikkeling en wonen",
     "volgorde": 9
   },
   {
-    "variabele": "Whuurmidden_p",
+    "indicatorDefinitieId": "Whuurmidden_p",
     "thema": "Stedelijke ontwikkeling en wonen",
     "volgorde": 10
   },
   {
-    "variabele": "Wwoz_m2",
+    "indicatorDefinitieId": "Wwoz_m2",
     "thema": "Stedelijke ontwikkeling en wonen",
     "volgorde": 11
   },
   {
-    "variabele": "Wopp0040_p",
+    "indicatorDefinitieId": "Wopp0040_p",
     "thema": "Stedelijke ontwikkeling en wonen",
     "volgorde": 12
   },
   {
-    "variabele": "Wopp100plus_p",
+    "indicatorDefinitieId": "Wopp100plus_p",
     "thema": "Stedelijke ontwikkeling en wonen",
     "volgorde": 13
   },
   {
-    "variabele": "Wbezet",
+    "indicatorDefinitieId": "Wbezet",
     "thema": "Stedelijke ontwikkeling en wonen",
     "volgorde": 14
   },
   {
-    "variabele": "Wwoning_r",
+    "indicatorDefinitieId": "Wwoning_r",
     "thema": "Stedelijke ontwikkeling en wonen",
     "volgorde": 15
   },
   {
-    "variabele": "ORverloed_p",
+    "indicatorDefinitieId": "ORverloed_p",
     "thema": "Verkeer en Openbare ruimte",
     "volgorde": 1
   },
   {
-    "variabele": "ORonderhoudstraten_r",
+    "indicatorDefinitieId": "ORonderhoudstraten_r",
     "thema": "Verkeer en Openbare ruimte",
     "volgorde": 2
   },
   {
-    "variabele": "ORonderhoudgroen_r",
+    "indicatorDefinitieId": "ORonderhoudgroen_r",
     "thema": "Verkeer en Openbare ruimte",
     "volgorde": 3
   },
   {
-    "variabele": "OR_fijn_p",
+    "indicatorDefinitieId": "OR_fijn_p",
     "thema": "Verkeer en Openbare ruimte",
     "volgorde": 4
   },
   {
-    "variabele": "ORaanbodspelen_r",
+    "indicatorDefinitieId": "ORaanbodspelen_r",
     "thema": "Verkeer en Openbare ruimte",
     "volgorde": 5
   },
   {
-    "variabele": "ORverblijf_i",
+    "indicatorDefinitieId": "ORverblijf_i",
     "thema": "Verkeer en Openbare ruimte",
     "volgorde": 6
   },
   {
-    "variabele": "VKparkeren_r",
+    "indicatorDefinitieId": "VKparkeren_r",
     "thema": "Verkeer en Openbare ruimte",
     "volgorde": 7
   },
   {
-    "variabele": "VKfietsparkeren_r",
+    "indicatorDefinitieId": "VKfietsparkeren_r",
     "thema": "Verkeer en Openbare ruimte",
     "volgorde": 8
   },
   {
-    "variabele": "VKhard_p",
+    "indicatorDefinitieId": "VKhard_p",
     "thema": "Verkeer en Openbare ruimte",
     "volgorde": 9
   },
   {
-    "variabele": "VKov_r",
+    "indicatorDefinitieId": "VKov_r",
     "thema": "Verkeer en Openbare ruimte",
     "volgorde": 10
   },
   {
-    "variabele": "WZSLI_i",
+    "indicatorDefinitieId": "WZSLI_i",
     "thema": "Welzijn, zorg en sport",
     "volgorde": 1
   },
   {
-    "variabele": "WZzorgvoorzieningen_r",
+    "indicatorDefinitieId": "WZzorgvoorzieningen_r",
     "thema": "Welzijn, zorg en sport",
     "volgorde": 2
   },
   {
-    "variabele": "Peenz_p",
+    "indicatorDefinitieId": "Peenz_p",
     "thema": "Welzijn, zorg en sport",
     "volgorde": 3
   },
   {
-    "variabele": "Pregie_p",
+    "indicatorDefinitieId": "Pregie_p",
     "thema": "Welzijn, zorg en sport",
     "volgorde": 4
   },
   {
-    "variabele": "WZgezond_p",
+    "indicatorDefinitieId": "WZgezond_p",
     "thema": "Welzijn, zorg en sport",
     "volgorde": 5
   },
   {
-    "variabele": "WZADL_p",
+    "indicatorDefinitieId": "WZADL_p",
     "thema": "Welzijn, zorg en sport",
     "volgorde": 6
   },
   {
-    "variabele": "WZdepr_p",
+    "indicatorDefinitieId": "WZdepr_p",
     "thema": "Welzijn, zorg en sport",
     "volgorde": 7
   },
   {
-    "variabele": "Pmantel_p",
+    "indicatorDefinitieId": "Pmantel_p",
     "thema": "Welzijn, zorg en sport",
     "volgorde": 8
   },
   {
-    "variabele": "WZrook_p",
+    "indicatorDefinitieId": "WZrook_p",
     "thema": "Welzijn, zorg en sport",
     "volgorde": 9
   },
   {
-    "variabele": "Wzalc_p",
+    "indicatorDefinitieId": "Wzalc_p",
     "thema": "Welzijn, zorg en sport",
     "volgorde": 10
   },
   {
-    "variabele": "WZzwaar_p",
+    "indicatorDefinitieId": "WZzwaar_p",
     "thema": "Welzijn, zorg en sport",
     "volgorde": 11
   },
   {
-    "variabele": "WZbeweeg_p",
+    "indicatorDefinitieId": "WZbeweeg_p",
     "thema": "Welzijn, zorg en sport",
     "volgorde": 12
   },
   {
-    "variabele": "SRsportgelegenheden_r",
+    "indicatorDefinitieId": "SRsportgelegenheden_r",
     "thema": "Welzijn, zorg en sport",
     "volgorde": 13
   },
   {
-    "variabele": "SRsport_1000inw",
+    "indicatorDefinitieId": "SRsport_1000inw",
     "thema": "Welzijn, zorg en sport",
     "volgorde": 14
   },
   {
-    "variabele": "Pregwerkl_p",
+    "indicatorDefinitieId": "Pregwerkl_p",
     "thema": "Werk, inkomen en participatie",
     "volgorde": 1
   },
   {
-    "variabele": "Iwwb_p",
+    "indicatorDefinitieId": "Iwwb_p",
     "thema": "Werk, inkomen en participatie",
     "volgorde": 2
   },
   {
-    "variabele": "Bevopllaag_p",
+    "indicatorDefinitieId": "Bevopllaag_p",
     "thema": "Werk, inkomen en participatie",
     "volgorde": 4
   },
   {
-    "variabele": "Ihhink_gem",
+    "indicatorDefinitieId": "Ihhink_gem",
     "thema": "Werk, inkomen en participatie",
     "volgorde": 5
   },
   {
-    "variabele": "Ilangminhh120_p",
+    "indicatorDefinitieId": "Ilangminhh120_p",
     "thema": "Werk, inkomen en participatie",
     "volgorde": 6
   },
   {
-    "variabele": "Iveoa_p",
+    "indicatorDefinitieId": "Iveoa_p",
     "thema": "Werk, inkomen en participatie",
     "volgorde": 7
   },
   {
-    "variabele": "Ishv_p",
+    "indicatorDefinitieId": "Ishv_p",
     "thema": "Werk, inkomen en participatie",
     "volgorde": 8
   },
   {
-    "variabele": "Pmaatschap_p",
+    "indicatorDefinitieId": "Pmaatschap_p",
     "thema": "Werk, inkomen en participatie",
     "volgorde": 9
   },
   {
-    "variabele": "Pvrijwil_p",
+    "indicatorDefinitieId": "Pvrijwil_p",
     "thema": "Werk, inkomen en participatie",
     "volgorde": 10
   },
   {
-    "variabele": "Lbetrokken_r",
+    "indicatorDefinitieId": "Lbetrokken_r",
     "thema": "Werk, inkomen en participatie",
     "volgorde": 11
   },
   {
-    "variabele": "Pgodshuis_p",
+    "indicatorDefinitieId": "Pgodshuis_p",
     "thema": "Werk, inkomen en participatie",
     "volgorde": 12
   },
 
   {
-    "variabele": "SKses_gem",
+    "indicatorDefinitieId": "SKses_gem",
     "thema": "Sociale kracht",
     "volgorde": 1
   },
   {
-    "variabele": "Skses234_p",
+    "indicatorDefinitieId": "Skses234_p",
     "thema": "Sociale kracht",
     "volgorde": 2
   },
   {
-    "variabele": "Sk017_ses234_p",
+    "indicatorDefinitieId": "Sk017_ses234_p",
     "thema": "Sociale kracht",
     "volgorde": 3
   },
   {
-    "variabele": "Sk1826_ses234_p",
+    "indicatorDefinitieId": "Sk1826_ses234_p",
     "thema": "Sociale kracht",
     "volgorde": 4
   },
   {
-    "variabele": "Sk2765_ses234_p",
+    "indicatorDefinitieId": "Sk2765_ses234_p",
     "thema": "Sociale kracht",
     "volgorde": 5
   },
   {
-    "variabele": "Sk66plus_ses234_p",
+    "indicatorDefinitieId": "Sk66plus_ses234_p",
     "thema": "Sociale kracht",
     "volgorde": 6
   },
   {
-    "variabele": "Skkwets34_p",
+    "indicatorDefinitieId": "Skkwets34_p",
     "thema": "Sociale kracht",
     "volgorde": 7
   },
   {
-    "variabele": "Sk017_kwets34_p",
+    "indicatorDefinitieId": "Sk017_kwets34_p",
     "thema": "Sociale kracht",
     "volgorde": 8
   },
   {
-    "variabele": "Sk1826_kwets34_p",
+    "indicatorDefinitieId": "Sk1826_kwets34_p",
     "thema": "Sociale kracht",
     "volgorde": 9
   },
   {
-    "variabele": "Sk2765_kwets34_p",
+    "indicatorDefinitieId": "Sk2765_kwets34_p",
     "thema": "Sociale kracht",
     "volgorde": 10
   },
   {
-    "variabele": "Sk66plus_kwets34_p",
+    "indicatorDefinitieId": "Sk66plus_kwets34_p",
     "thema": "Sociale kracht",
     "volgorde": 11
   },
   {
-    "variabele": "LSOCCOH_R",
+    "indicatorDefinitieId": "LSOCCOH_R",
     "thema": "Sociale kracht",
     "volgorde": 12
   },
   {
-    "variabele": "Skacti_1000inw",
+    "indicatorDefinitieId": "Skacti_1000inw",
     "thema": "Sociale kracht",
     "volgorde": 13
   }

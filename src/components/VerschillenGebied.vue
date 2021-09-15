@@ -392,16 +392,16 @@ export default {
      */
     async showVariables () {
       const variables = await Promise.all(this.config.map(async po => {
-        const meta = await util.getMeta(po.variabele)
+        const meta = await util.getMeta(po.indicatorDefinitieId)
         if (meta) {
           return {
             label: po.label || meta.label,
-            variable: meta.variabele,
+            variable: meta.indicatorDefinitieId,
             revert: meta.kleurenpalet === 2
           }
         } else {
           return {
-            label: po.label || po.variabele
+            label: po.label || po.indicatorDefinitieId
           }
         }
       }))

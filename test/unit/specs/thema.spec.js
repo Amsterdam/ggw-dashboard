@@ -3,17 +3,17 @@ import { getKerncijfers } from '../../../src/services/thema'
 
 describe('thema', () => {
   kerncijfers[0] = {
-    'variabele': 'XYZ',
+    'indicatorDefinitieId': 'XYZ',
     'thema': 'ABC',
     'volgorde': 1
   }
   kerncijfers[1] = {
-    'variabele': 'XYZ',
+    'indicatorDefinitieId': 'XYZ',
     'thema': 'ABC1',
     'volgorde': 2
   }
   kerncijfers[2] = {
-    'variabele': 'XYZ',
+    'indicatorDefinitieId': 'XYZ',
     'thema': 'ABC1',
     'volgorde': 1
   }

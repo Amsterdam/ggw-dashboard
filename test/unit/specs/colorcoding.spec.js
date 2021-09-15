@@ -4,20 +4,20 @@ import { getColor, CATEGORY_COLORS } from '../../../src/services/colorcoding'
 describe('colorcoding', () => {
   std[0] = {
     'jaar': 2098,
-    'variabele': 'XYZ',
+    'indicatorDefinitieId': 'XYZ',
     'gem': 123,
     'SD': 456 // This one should not match
   }
   std[1] = {
     'jaar': 2099,
-    'variabele': 'XYZ',
+    'indicatorDefinitieId': 'XYZ',
     'gem': 0,
     'SD': 1 // Make z-score even to value
   }
 
   it('should provide the correct category for a color', () => {
     const meta = {
-      variabele: 'XYZ',
+      indicatorDefinitieId: 'XYZ',
       kleurenpalet: 9
     }
 
@@ -30,7 +30,7 @@ describe('colorcoding', () => {
 
   it('should provide the correct category for a kleurenpalet 2 color', () => {
     const meta = {
-      variabele: 'XYZ',
+      indicatorDefinitieId: 'XYZ',
       kleurenpalet: 2
     }
 
@@ -43,7 +43,7 @@ describe('colorcoding', () => {
 
   it('should return undefined for an unknown variable', () => {
     const meta = {
-      variabele: 'ABC',
+      indicatorDefinitieId: 'ABC',
       kleurenpalet: 2
     }
 
@@ -52,7 +52,7 @@ describe('colorcoding', () => {
 
   it('should return undefined for an unkown year', () => {
     const meta = {
-      variabele: 'XYZ',
+      indicatorDefinitieId: 'XYZ',
       kleurenpalet: 2
     }
 
@@ -61,7 +61,7 @@ describe('colorcoding', () => {
 
   it('should return undefined for a null value', () => {
     const meta = {
-      variabele: 'XYZ',
+      indicatorDefinitieId: 'XYZ',
       kleurenpalet: 9
     }
 

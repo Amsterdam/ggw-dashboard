@@ -1,6 +1,6 @@
 [
   {
     "label": "Aantal alleenwonend 80+",
-    "variabele": "BEV1P80PLUS"
+    "indicatorDefinitieId": "BEV1P80PLUS"
   }
 ]

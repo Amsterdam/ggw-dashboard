@@ -1,14 +1,14 @@
 [
   {
     "label": "",
-    "variabele": "BevhuishoudenHH"
+    "indicatorDefinitieId": "BevhuishoudenHH"
   },
   {
     "label": "",
-    "variabele": "BevalleenHH_p"
+    "indicatorDefinitieId": "BevalleenHH_p"
   },
   {
     "label": "",
-    "variabele": "BevHHmkind_p"
+    "indicatorDefinitieId": "BevHHmkind_p"
   }
 ]

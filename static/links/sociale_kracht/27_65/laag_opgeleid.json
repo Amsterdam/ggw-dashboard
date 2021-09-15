@@ -1,6 +1,6 @@
 [
   {
     "label": "% laag opgeleid (15-75)",
-    "variabele": "BEVOPLLAAG_P"
+    "indicatorDefinitieId": "BEVOPLLAAG_P"
   }
 ]

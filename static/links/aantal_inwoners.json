@@ -1,38 +1,38 @@
 [
   {
     "label": "Totaal",
-    "variabele": "Bevtotaal"
+    "indicatorDefinitieId": "Bevtotaal"
   },
   {
     "label": "0-17",
-    "variabele": "Bev0_17"
+    "indicatorDefinitieId": "Bev0_17"
   },
   {
     "label": "18-64",
-    "variabele": "Bev18_64"
+    "indicatorDefinitieId": "Bev18_64"
   },
   {
     "label": "65+",
-    "variabele": "Bev65plus"
+    "indicatorDefinitieId": "Bev65plus"
   },
   {
     "label": "",
     "showInLegend": false,
-    "variabele": "Bev_prog[LATEST]"
+    "indicatorDefinitieId": "Bev_prog[LATEST]"
   },
   {
     "label": "",
     "showInLegend": false,
-    "variabele": "Bev0_17_prog[LATEST]"
+    "indicatorDefinitieId": "Bev0_17_prog[LATEST]"
   },
   {
     "label": "",
     "showInLegend": false,
-    "variabele": "Bev18_64_prog[LATEST]"
+    "indicatorDefinitieId": "Bev18_64_prog[LATEST]"
   },
   {
     "label": "",
     "showInLegend": false,
-    "variabele": "Bev65plus_prog[LATEST]"
+    "indicatorDefinitieId": "Bev65plus_prog[LATEST]"
   }
 ]

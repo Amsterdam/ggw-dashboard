@@ -1,10 +1,10 @@
 [
   {
     "label": "",
-    "variabele": "WZzorgvoorzieningen_r"
+    "indicatorDefinitieId": "WZzorgvoorzieningen_r"
   },
   {
     "label": "",
-    "variabele": "WZbuurthuizen_r"
+    "indicatorDefinitieId": "WZbuurthuizen_r"
   }
 ]

@@ -28,9 +28,8 @@ export async function getAllMeta() {
     const dataObject = {}
 
     data._embedded.indicatoren_definities.forEach(item => {
-      dataObject[item.variabele.toUpperCase()] = item
+      dataObject[item.variabele.toUpperCase()] = { ...item, indicatorDefinitieId: item.variabele }
     })
-
     return dataObject
   }
 
@@ -99,7 +98,7 @@ export async function getStd() {
 async function getCijfers(meta, year = null, gebiedCode = null) {
   const post = meta.symbool === '%' ? meta.symbool : '' // only copy % symbol
 
-  const selectVariable = `indicatorDefinitieId=${meta.variabele}`
+  const selectVariable = `indicatorDefinitieId=${meta.indicatorDefinitieId}`
   const selectGebiedCode = gebiedCode ? `&gebiedcode15=${gebiedCode}` : ''
   const isLatest = year === 'latest'
   const url = getUrlv1(

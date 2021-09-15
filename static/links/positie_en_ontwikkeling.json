@@ -1,50 +1,50 @@
 [
   {
     "label": "",
-    "variabele": "Lbuurt_r"
+    "indicatorDefinitieId": "Lbuurt_r"
   },
   {
     "label": "",
-    "variabele": "Lverwachtingbuurt_r"
+    "indicatorDefinitieId": "Lverwachtingbuurt_r"
   },
   {
     "label": "",
-    "variabele": "Lsoccoh_r"
+    "indicatorDefinitieId": "Lsoccoh_r"
   },
   {
     "label": "",
-    "variabele": "Vveiligh_i"
+    "indicatorDefinitieId": "Vveiligh_i"
   },
   {
     "label": "",
-    "variabele": "ORverloed_p"
+    "indicatorDefinitieId": "ORverloed_p"
   },
   {
     "label": "",
-    "variabele": "Pregwerkl_p"
+    "indicatorDefinitieId": "Pregwerkl_p"
   },
   {
     "label": "",
-    "variabele": "Ilangminhh120_p"
+    "indicatorDefinitieId": "Ilangminhh120_p"
   },
   {
     "label": "",
-    "variabele": "Wwoz_m2"
+    "indicatorDefinitieId": "Wwoz_m2"
   },
   {
     "label": "",
-    "variabele": "Dlabel_i"
+    "indicatorDefinitieId": "Dlabel_i"
   },
   {
     "label": "",
-    "variabele": "OHVWO_p"
+    "indicatorDefinitieId": "OHVWO_p"
   },
   {
     "label": "",
-    "variabele": "WZzwaar10_p"
+    "indicatorDefinitieId": "WZzwaar10_p"
   },
   {
     "label": "",
-    "variabele": "BHwink_1000inw"
+    "indicatorDefinitieId": "BHwink_1000inw"
   }
 ]

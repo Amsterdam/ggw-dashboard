@@ -1,22 +1,22 @@
 [
   {
     "label": "Overig",
-    "variabele": "BevoverigHH_p"
+    "indicatorDefinitieId": "BevoverigHH_p"
   },
   {
     "label": "Eenpersoons huishouden",
-    "variabele": "BevalleenHH_p"
+    "indicatorDefinitieId": "BevalleenHH_p"
   },
   {
     "label": "Eenoudergezin",
-    "variabele": "BeveenouderHH_p"
+    "indicatorDefinitieId": "BeveenouderHH_p"
   },
   {
     "label": "Stel met kinderen",
-    "variabele": "BevpaarmkindHH_p"
+    "indicatorDefinitieId": "BevpaarmkindHH_p"
   },
   {
     "label": "Stel zonder kinderen",
-    "variabele": "BevpaarzkindHH_p"
+    "indicatorDefinitieId": "BevpaarzkindHH_p"
   }
 ]

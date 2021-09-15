@@ -1,14 +1,14 @@
 [
   {
     "label": "",
-    "variabele": "Winstituut"
+    "indicatorDefinitieId": "Winstituut"
   },
   {
     "label": "",
-    "variabele": "Wligplaats"
+    "indicatorDefinitieId": "Wligplaats"
   },
   {
     "label": "",
-    "variabele": "Wstandplaats"
+    "indicatorDefinitieId": "Wstandplaats"
   }
 ]

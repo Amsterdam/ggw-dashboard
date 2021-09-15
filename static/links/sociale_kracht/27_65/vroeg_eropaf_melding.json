@@ -1,6 +1,6 @@
 [
   {
     "label": "% Vroeg eropaf-melding",
-    "variabele": "IVEOA_P"
+    "indicatorDefinitieId": "IVEOA_P"
   }
 ]

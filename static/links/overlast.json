@@ -1,14 +1,14 @@
 [
   {
     "label": "",
-    "variabele": "Loverl_p"
+    "indicatorDefinitieId": "Loverl_p"
   },
   {
     "label": "",
-    "variabele": "Loverltoe_p"
+    "indicatorDefinitieId": "Loverltoe_p"
   },
   {
     "label": "",
-    "variabele": "Loverlaf_p"
+    "indicatorDefinitieId": "Loverlaf_p"
   }
 ]

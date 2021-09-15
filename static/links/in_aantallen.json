@@ -1,36 +1,36 @@
 [
   {
     "label": "Inwoners",
-    "variabele": "Bevtotaal"
+    "indicatorDefinitieId": "Bevtotaal"
   },
   {
     "label": "Woningen",
-    "variabele": "WvoorrBAG"
+    "indicatorDefinitieId": "WvoorrBAG"
   },
   {
     "label": "Vestigingen",
-    "variabele": "BHVest"
+    "indicatorDefinitieId": "BHVest"
   },
   {
     "label": "Winkels food",
-    "variabele": "BHVest_BGWDG"
+    "indicatorDefinitieId": "BHVest_BGWDG"
   },
   {
     "label": "Werkzame personen",
-    "variabele": "BHwp"
+    "indicatorDefinitieId": "BHwp"
   },
   {
     "label": "Scholen PO",
-    "variabele": "OschBAO"
+    "indicatorDefinitieId": "OschBAO"
   },
   {
     "label": "Oppervlakte land",
-    "variabele": "ORland",
+    "indicatorDefinitieId": "ORland",
     "post": " hectare"
   },
   {
     "label": "Bevolkingsdichtheid",
-    "variabele": "Bevdicht",
+    "indicatorDefinitieId": "Bevdicht",
     "post": " inw./km2"
   }
 ]

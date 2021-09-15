@@ -1,23 +1,23 @@
 [
   {
     "label": "",
-    "variabele": "WvoorrBAG"
+    "indicatorDefinitieId": "WvoorrBAG"
   },
   {
     "label": "Koop",
-    "variabele": "Wkoop"
+    "indicatorDefinitieId": "Wkoop"
   },
   {
     "label": "Corporatie huur",
-    "variabele": "wcorhuur"
+    "indicatorDefinitieId": "wcorhuur"
   },
   {
     "label": "Particulier huur",
-    "variabele": "Wparthuur"
+    "indicatorDefinitieId": "Wparthuur"
   },
   {
     "label": "",
     "showInLegend": false,
-    "variabele": "W_prog[LATEST]"
+    "indicatorDefinitieId": "W_prog[LATEST]"
   }
 ]

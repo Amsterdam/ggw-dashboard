@@ -23,7 +23,7 @@
 
     <div v-if="detail" class="row">
       <div class="col-sm-6 offset-3">
-        <h3>{{detail.meta.variabele}}</h3>
+        <h3>{{detail.meta.indicatorDefinitieId}}</h3>
         <p>{{detail.meta.definitie}}</p>
         <table class="table table-sm">
           <thead>
@@ -100,7 +100,7 @@ export default {
     },
     matchesFilter (meta) {
       return this.filterRegExp === null || (
-        this.filterRegExp.test(meta.variabele) ||
+        this.filterRegExp.test(meta.indicatorDefinitieId) ||
         this.filterRegExp.test(meta.label) ||
         this.filterRegExp.test(meta.definitie))
     },
@@ -112,7 +112,7 @@ export default {
     },
     async getDetails (meta) {
       if (meta && this.gwb) {
-        const cijfers = await util.getGebiedCijfers(meta.variabele, this.gwb)
+        const cijfers = await util.getGebiedCijfers(meta.indicatorDefinitieId, this.gwb)
         this.detail = {
           meta,
           cijfers: cijfers.cijfers

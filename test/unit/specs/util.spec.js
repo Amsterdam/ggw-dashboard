@@ -86,7 +86,7 @@ jest.mock('axios', () => ({
             '_display': 'Meta object',
             'sort': '1',
             'thema': 'Bevolking',
-            'variabele': 'BEVTOTAAL',
+            'indicatorDefinitieId': 'BEVTOTAAL',
             'label': 'Bevolking totaal',
             'definitie': 'Personen die op 1 januari zijn opgenomen in het bevolkingsregister van de gemeente Amsterdam (inclusief briefadreshoudenden). Personen die niet legaal in Nederland verblijven worden buiten beschouwing gelaten.',
             'bron': 'Afd. Basisinformatie / OIS',
@@ -109,7 +109,7 @@ jest.mock('axios', () => ({
       data: {
         '_links': {
           'self': {
-            'href': 'https://api.data.amsterdam.nl/bbga/cijfers/?variabele=BEVTOTAAL&gebiedcode15=DX20&page=1&page_size=5'
+            'href': 'https://api.data.amsterdam.nl/bbga/cijfers/?indicatorDefinitieId=BEVTOTAAL&gebiedcode15=DX20&page=1&page_size=5'
           },
           'next': {
             'href': ''
@@ -124,7 +124,7 @@ jest.mock('axios', () => ({
             'id': 84583,
             'jaar': 2018,
             'gebiedcode15': 'DX20',
-            'variabele': 'BEVTOTAAL',
+            'indicatorDefinitieId': 'BEVTOTAAL',
             'waarde': 25008.0
           }]
       }
@@ -350,7 +350,7 @@ describe('util', () => {
     const config = [
       {
         'label': 'Totaal',
-        'variabele': 'Bevtotaal'
+        'indicatorDefinitieId': 'Bevtotaal'
       }
     ]
 
@@ -387,7 +387,7 @@ describe('util', () => {
           'symbool': '',
           'thema': 'Bevolking',
           'thema_kleurentabel': 'Bevolking',
-          'variabele': 'BEVTOTAAL',
+          'indicatorDefinitieId': 'BEVTOTAAL',
           'verschijningsfrequentie': '1 keer per jaar'
         },
         'recent': {'gebiedcode15': 'DX20', 'jaar': 2018, 'post': '', 'waarde': 25008}
@@ -398,7 +398,7 @@ describe('util', () => {
     const config = [
       {
         'label': 'Totaal',
-        'variabele': 'Bevtotaal'
+        'indicatorDefinitieId': 'Bevtotaal'
       }
     ]
 
@@ -435,7 +435,7 @@ describe('util', () => {
           'symbool': '',
           'thema': 'Bevolking',
           'thema_kleurentabel': 'Bevolking',
-          'variabele': 'BEVTOTAAL',
+          'indicatorDefinitieId': 'BEVTOTAAL',
           'verschijningsfrequentie': '1 keer per jaar'
         },
         'recent': {'gebiedcode15': 'DX20', 'jaar': 2018, 'post': '', 'waarde': 25008}

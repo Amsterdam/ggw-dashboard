@@ -1,6 +1,6 @@
 [
   {
     "label": "Gemiddelde huur vrije sector",
-    "variabele": "WHUURVRIJ_GEM"
+    "indicatorDefinitieId": "WHUURVRIJ_GEM"
   }
 ]

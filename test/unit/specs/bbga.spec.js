@@ -11,16 +11,16 @@ jest.mock('axios', () => ({
         },
         results: [
           {
-            variabele: 'x'
+            indicatorDefinitieId: 'x'
           },
           {
-            variabele: 'x2'
+            indicatorDefinitieId: 'x2'
           },
           {
-            variabele: 'x1'
+            indicatorDefinitieId: 'x1'
           },
           {
-            variabele: 'y'
+            indicatorDefinitieId: 'y'
           }
         ]
       }
@@ -37,11 +37,11 @@ describe('BBGA', () => {
 
   it('should return meta information given a variable name', async () => {
     const meta = await getMeta('x')
-    expect(meta.variabele).toEqual('x')
+    expect(meta.indicatorDefinitieId).toEqual('x')
   })
 
   it('should return latest meta information given a variable name ending at [LATEST]', async () => {
     const meta = await getMeta('x[LATEST]')
-    expect(meta.variabele).toEqual('x2')
+    expect(meta.indicatorDefinitieId).toEqual('x2')
   })
 })

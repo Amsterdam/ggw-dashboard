@@ -1,26 +1,26 @@
 [
   {
     "label": "Kantoor",
-    "variabele": "BHwp_kant"
+    "indicatorDefinitieId": "BHwp_kant"
   },
   {
     "label": "Winkel",
-    "variabele": "BHwp_wink"
+    "indicatorDefinitieId": "BHwp_wink"
   },
   {
     "label": "Voorzieningen",
-    "variabele": "BHwp_voorz"
+    "indicatorDefinitieId": "BHwp_voorz"
   },
   {
     "label": "Horeca",
-    "variabele": "BHwp_horeca"
+    "indicatorDefinitieId": "BHwp_horeca"
   },
   {
     "label": "Bedrijf",
-    "variabele": "BHwp_bedr"
+    "indicatorDefinitieId": "BHwp_bedr"
   },
   {
     "label": "Overig",
-    "variabele": "BHwp_ovg"
+    "indicatorDefinitieId": "BHwp_ovg"
   }
 ]

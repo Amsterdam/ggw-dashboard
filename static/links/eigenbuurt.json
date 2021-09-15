@@ -1,14 +1,14 @@
 [
   {
     "label": "Tevredenheid met buurt",
-    "variabele": "Lbuurt_r"
+    "indicatorDefinitieId": "Lbuurt_r"
   },
   {
     "label": "Buurt gaat vooruit",
-    "variabele": "Lbuurtvoor_p"
+    "indicatorDefinitieId": "Lbuurtvoor_p"
   },
   {
     "label": "Buurt gaat achteruit",
-    "variabele": "Lbuurtacht_p"
+    "indicatorDefinitieId": "Lbuurtacht_p"
   }
 ]
