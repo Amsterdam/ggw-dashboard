@@ -14,14 +14,3 @@ export async function cacheResponse (key, getData) {
   }
   return cache[key]
 }
-
-export function cacheResponseSync (key, getData) {
-  if (!cache[key]) {
-    cache[key] = getData()
-  }
-  return cache[key]
-}
-
-export function checkResponse (key, getData) {
-  return cache[key]
-}
