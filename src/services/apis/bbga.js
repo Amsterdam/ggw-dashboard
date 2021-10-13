@@ -74,11 +74,8 @@ export async function getMeta(variableName) {
 export async function getStd() {
   const url = getUrlv1('/statistieken/?pageSize=100000')
 
-  console.log('url', url)
-
   async function getData () {
     const data = await readData(url)
-    console.log('data', data)
 
     return data._embedded.statistieken
   }
