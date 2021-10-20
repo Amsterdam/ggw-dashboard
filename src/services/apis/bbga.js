@@ -28,7 +28,10 @@ export async function getAllMeta() {
     const dataObject = {}
 
     data._embedded.indicatoren_definities.forEach(item => {
-      dataObject[item.variabele.toUpperCase()] = { ...item, indicatorDefinitieId: item.variabele }
+      dataObject[item.variabele.toUpperCase()] = {
+        ...item,
+        indicatorDefinitieId: item.variabele
+      }
     })
     return dataObject
   }
@@ -72,9 +75,11 @@ export async function getMeta(variableName) {
  * @returns {Promise<*>}
  */
 export async function getStd() {
-  const url = getUrlv1('/statistieken/?pageSize=100000')
+  const url = getUrlv1(
+    '/statistieken/?_pageSize=10000&_format=json&_fields=indicatorDefinitieId,jaar,gemiddelde,standaardafwijking'
+  )
 
-  async function getData () {
+  async function getData() {
     const data = await readData(url)
 
     return data._embedded.statistieken
