@@ -1,7 +1,7 @@
 import { getAllMeta, getMeta } from '../../../src/services/apis/bbga'
 
 jest.mock('axios', () => ({
-  get: jest.fn((url) => {
+  get: jest.fn(url => {
     const meta = {
       data: {
         _links: {
@@ -9,20 +9,22 @@ jest.mock('axios', () => ({
             href: ''
           }
         },
-        results: [
-          {
-            indicatorDefinitieId: 'x'
-          },
-          {
-            indicatorDefinitieId: 'x2'
-          },
-          {
-            indicatorDefinitieId: 'x1'
-          },
-          {
-            indicatorDefinitieId: 'y'
-          }
-        ]
+        _embedded: {
+          indicatoren_definities: [
+            {
+              variabele: 'x'
+            },
+            {
+              variabele: 'x2'
+            },
+            {
+              variabele: 'x1'
+            },
+            {
+              variabele: 'y'
+            }
+          ]
+        }
       }
     }
     return Promise.resolve(meta)
