@@ -124,7 +124,7 @@ export const CATEGORY_COLORS = [
  * Gets the category from CATEGORY_COLORS for the given z-score
  * @param zScore
  */
-function getCategory (zScore) {
+function getCategory(zScore) {
   const average = 0.5
   const categories = [
     {
@@ -133,15 +133,15 @@ function getCategory (zScore) {
       textColor: CATEGORY_COLORS[0].textColor
     },
     {
-      inCategory: s => (average <= s && s < 2 * average),
+      inCategory: s => average <= s && s < 2 * average,
       color: CATEGORY_COLORS[1].color
     },
     {
-      inCategory: s => (average < s && s < -average),
+      inCategory: s => average < s && s < -average,
       color: CATEGORY_COLORS[2].color
     },
     {
-      inCategory: s => (-average >= s && s > 2 * -average),
+      inCategory: s => -average >= s && s > 2 * -average,
       color: CATEGORY_COLORS[3].color
     },
     {
@@ -163,11 +163,14 @@ function getCategory (zScore) {
  * @param year  The year for which the value is valid
  * @returns {{color, textColor: *|textColor}}
  */
-export function getColor (meta, value, year, stdValue) {
+export function getColor(meta, value, year, stdValue) {
   if (value !== null) {
     const variable = meta.indicatorDefinitieId
     const varStd = stdValue
-      .filter(({ jaar, indicatorDefinitieId }) => indicatorDefinitieId === variable && jaar <= year)
+      .filter(
+        ({ jaar, indicatorDefinitieId }) =>
+          indicatorDefinitieId === variable && jaar <= year
+      )
       .sort((item1, item2) => item2.jaar - item1.jaar)
 
     if (varStd.length) {
@@ -175,7 +178,7 @@ export function getColor (meta, value, year, stdValue) {
       let zScore = (value - ref.gemiddelde) / ref.standaardafwijking
 
       if (meta.kleurenpalet === 2) {
-        zScore = (0 - zScore)
+        zScore = 0 - zScore
       }
 
       const category = getCategory(zScore)
@@ -188,7 +191,9 @@ export function getColor (meta, value, year, stdValue) {
   }
 }
 
-export function getRankingColor (ranking, maxRanking) {
-  const index = Math.round(((ABSOLUTE_COLORS.length - 1) / maxRanking) * ranking)
+export function getRankingColor(ranking, maxRanking) {
+  const index = Math.round(
+    ((ABSOLUTE_COLORS.length - 1) / maxRanking) * ranking
+  )
   return ABSOLUTE_COLORS[index]
 }

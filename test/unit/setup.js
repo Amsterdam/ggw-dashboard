@@ -6,6 +6,8 @@ import VueAxios from 'vue-axios'
 
 import BootstrapVue from 'bootstrap-vue'
 
+import 'regenerator-runtime/runtime'
+
 Vue.use(Vuex)
 Vue.use(VueAxios, axios)
 Vue.use(BootstrapVue)
