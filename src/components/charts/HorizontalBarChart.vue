@@ -19,6 +19,7 @@ import util from '../../services/util'
 import vegaEmbed from 'vega-embed'
 import vegaSpec from '../../../static/charts/horizontalbar'
 import { COLOR } from '../../services/colorcoding'
+import cloneDeep from 'lodash/cloneDeep'
 
 const vegaEmbedOptions = {
   actions: false,
@@ -42,41 +43,46 @@ export default {
     ...mapGetters(['gwb'])
   },
   methods: {
-    async updateData() {
+    async updateChart() {
       this.chartdata = await util.getLatestConfigCijfers(this.gwb, this.config)
-      this.updateChart()
-    },
 
-    updateChart() {
-      vegaSpec.data.values = this.chartdata.map((d, i) => ({
-        key: d.label,
-        value: (d.recent && d.recent.waarde) || 0,
-        label:
+      const spec = cloneDeep(vegaSpec)
+
+      spec.data.values = this.chartdata.map((d, i) => {
+        return (
+          {
+            key: d.label,
+            value: (d.recent && d.recent.waarde) || 0,
+            label:
           d.recent && d.recent.waarde !== null
             ? d.recent.waarde
             : 'Geen gegevens',
-        color: (d.recent && d.recent.color) || COLOR['ams-oranje'],
-        i
-      }))
+            color: (d.recent && d.recent.color) || COLOR['ams-oranje'],
+            i
+          }
+        )
+      })
 
-      if (!vegaSpec.legends) {
-        vegaSpec.legends = [{}]
+      if (!spec.legends) {
+        spec.legends = [{}]
       }
 
-      vegaSpec.legends[0].values = util.getLegendLabels(this.chartdata)
-      vegaSpec.layer[0].encoding.color.scale.range = vegaSpec.data.values.map(
+      spec.legends[0].values = util.getLegendLabels(this.chartdata)
+
+      spec.layer[0].encoding.color.scale.range = spec.data.values.map(
         v => v.color
       )
-      vegaEmbed(this.$refs[this.chartRef], vegaSpec, vegaEmbedOptions)
+
+      vegaEmbed(this.$refs[this.chartRef], spec, vegaEmbedOptions)
     }
   },
   watch: {
     gwb() {
-      this.updateData()
+      this.updateChart()
     }
   },
   created() {
-    this.updateData()
+    this.updateChart()
   }
 }
 </script>
