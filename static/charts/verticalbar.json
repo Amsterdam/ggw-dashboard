@@ -48,6 +48,14 @@
           "legend": null
         }
       }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 0
+      },
+      "encoding": { "text": { "field": "value", "type": "quantitative" } }
     }
   ]
 }
