@@ -43,11 +43,7 @@
           "field": "i",
           "type": "nominal",
           "scale": {
-            "range": [
-              "red",
-              "blue",
-              "green"
-            ]
+            "range": ["red", "blue", "green"]
           },
           "legend": null
         }
