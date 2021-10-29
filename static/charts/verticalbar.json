@@ -50,12 +50,34 @@
       }
     },
     {
+      "encoding": {
+        "text": { "field": "value", "type": "quantitative" },
+        "x": {
+          "field": "key",
+          "type": "ordinal",
+          "sort": null,
+          "axis": {
+            "labels": true,
+            "labelPadding": 5,
+            "ticks": false,
+            "title": null
+          }
+        },
+        "y": {
+          "field": "value",
+          "type": "quantitative",
+          "axis": {
+            "title": null,
+            "tickCount": 5,
+            "offset": 5
+          }
+        }
+      },
       "mark": {
         "type": "text",
-        "align": "left",
-        "dx": 0
-      },
-      "encoding": { "text": { "field": "value", "type": "quantitative" } }
+        "align": "center",
+        "dy": 10
+      }
     }
   ]
 }
