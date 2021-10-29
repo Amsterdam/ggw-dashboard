@@ -66,6 +66,22 @@
         "align": "center",
         "dy": 10
       }
+    },
+    {
+      "encoding": {
+        "x": {
+          "field": "key",
+          "type": "ordinal"
+        },
+        "y": {
+          "field": "gemiddelde",
+          "type": "quantitative"
+        }
+      },
+      "mark": {
+        "type": "line",
+        "color": "#EC0000"
+      }
     }
   ]
 }
