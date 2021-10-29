@@ -54,23 +54,11 @@
         "text": { "field": "value", "type": "quantitative" },
         "x": {
           "field": "key",
-          "type": "ordinal",
-          "sort": null,
-          "axis": {
-            "labels": true,
-            "labelPadding": 5,
-            "ticks": false,
-            "title": null
-          }
+          "type": "ordinal"
         },
         "y": {
           "field": "value",
-          "type": "quantitative",
-          "axis": {
-            "title": null,
-            "tickCount": 5,
-            "offset": 5
-          }
+          "type": "quantitative"
         }
       },
       "mark": {
