@@ -14,6 +14,7 @@ import { mapGetters } from 'vuex'
 import tooltip from '../Tooltip'
 
 import util from '../../services/util'
+import { getOneStd } from '../../services/apis/bbga'
 import vegaEmbed from 'vega-embed'
 import vegaSpec from '../../../static/charts/verticalbar'
 import { COLOR } from '../../services/colorcoding'
@@ -45,17 +46,17 @@ export default {
       this.chartdata = await util.getConfigCijfers(this.gwb, this.config)
       this.title = this.chartdata[0].label
       this.tooltip = this.chartdata[0].meta && this.chartdata[0].meta.bron
+      const variabele = this.chartdata[0].meta && this.chartdata[0].meta.variabele
 
-      this.updateChart()
-    },
-
-    updateChart() {
+      const stdevs = await getOneStd(variabele) // .filter((item) => item.indicatorDefinitieId === variabele)
+      console.log('sd', stdevs)
       vegaSpec.data.values = (this.chartdata[0].cijfers || [])
         .filter(d => d.waarde)
         .map((d, i) => ({
           key: d.jaar,
           value: d.waarde,
           color: d.color,
+          gemiddelde: stdevs.find(sd => sd.jaar === d.jaar).gemiddelde,
           i
         }))
 
