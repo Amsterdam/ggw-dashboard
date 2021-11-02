@@ -51,6 +51,22 @@
     },
     {
       "encoding": {
+        "x": {
+          "field": "key",
+          "type": "ordinal"
+        },
+        "y": {
+          "field": "gemiddelde",
+          "type": "quantitative"
+        }
+      },
+      "mark": {
+        "type": "line",
+        "color": "#EC0000"
+      }
+    },
+    {
+      "encoding": {
         "text": { "field": "value", "type": "quantitative" },
         "x": {
           "field": "key",
@@ -69,22 +85,6 @@
     },
     {
       "encoding": {
-        "x": {
-          "field": "key",
-          "type": "ordinal"
-        },
-        "y": {
-          "field": "gemiddelde",
-          "type": "quantitative"
-        }
-      },
-      "mark": {
-        "type": "line",
-        "color": "#EC0000"
-      }
-    },
-    {
-      "encoding": {
         "text": { "field": "gemiddelde", "type": "quantitative" },
         "x": {
           "field": "key",
@@ -99,8 +99,9 @@
         "type": "text",
         "align": "left",
         "color": "#EC0000",
+        "fontSize": 0,
         "dx": 0,
-        "dy": 0
+        "opacity": 0
       }
     }
   ]
