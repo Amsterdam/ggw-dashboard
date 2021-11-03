@@ -2,9 +2,9 @@
  * All logic regarding the interface with the BBGA API
  */
 
-import { readData } from '../datareader'
-import { getColor } from '../colorcoding'
-import { cacheResponse } from '../cache'
+import { readData } from "../datareader";
+import { getColor } from "../colorcoding";
+import { cacheResponse } from "../cache";
 
 /**
  * Returns the complete url for the BBGA API given an endpoint
@@ -12,7 +12,7 @@ import { cacheResponse } from '../cache'
  * @returns {string}
  */
 function getUrlv1(endpoint) {
-  return `https://api.data.amsterdam.nl/v1/bbga${endpoint}`
+  return `https://api.data.amsterdam.nl/v1/bbga${endpoint}`;
 }
 
 /**
@@ -23,20 +23,20 @@ function getUrlv1(endpoint) {
  */
 export async function getAllMeta() {
   async function getData() {
-    const url = getUrlv1('/indicatoren_definities/?page_size=100000')
-    const data = await readData(url)
-    const dataObject = {}
+    const url = getUrlv1("/indicatoren_definities/?page_size=100000");
+    const data = await readData(url);
+    const dataObject = {};
 
-    data._embedded.indicatoren_definities.forEach(item => {
+    data._embedded.indicatoren_definities.forEach((item) => {
       dataObject[item.variabele.toUpperCase()] = {
         ...item,
-        indicatorDefinitieId: item.variabele
-      }
-    })
-    return dataObject
+        indicatorDefinitieId: item.variabele,
+      };
+    });
+    return dataObject;
   }
 
-  return cacheResponse('allMeta', getData)
+  return cacheResponse("allMeta", getData);
 }
 
 /**
@@ -47,23 +47,23 @@ export async function getAllMeta() {
  * @returns {Promise<*>}
  */
 export async function getMeta(variableName) {
-  const meta = await getAllMeta()
+  const meta = await getAllMeta();
 
   // Check for special variables, eg "Bev_prog[LATEST]"
-  const isLatest = new RegExp(/\[LATEST\]$/i)
+  const isLatest = new RegExp(/\[LATEST\]$/i);
   if (isLatest.test(variableName)) {
-    let baseName = variableName.replace(isLatest, '') // Bev_prog
-    baseName = new RegExp('^' + baseName, 'i') // /^Bev_prog/i
+    let baseName = variableName.replace(isLatest, ""); // Bev_prog
+    baseName = new RegExp("^" + baseName, "i"); // /^Bev_prog/i
     const vars = Object.keys(meta)
-      .filter(key => baseName.test(key))
+      .filter((key) => baseName.test(key))
       .sort()
-      .reverse()
+      .reverse();
     if (!vars.length) {
-      return
+      return;
     }
-    variableName = vars[0]
+    variableName = vars[0];
   }
-  return meta[variableName.toUpperCase()]
+  return meta[variableName.toUpperCase()];
 }
 
 /**
@@ -76,16 +76,16 @@ export async function getMeta(variableName) {
  */
 export async function getStd() {
   const url = getUrlv1(
-    '/statistieken/?_pageSize=10000&_format=json&_fields=indicatorDefinitieId,jaar,gemiddelde,standaardafwijking'
-  )
+    "/statistieken/?_pageSize=10000&_format=json&_fields=indicatorDefinitieId,jaar,gemiddelde,standaardafwijking"
+  );
 
   async function getData() {
-    const data = await readData(url)
+    const data = await readData(url);
 
-    return data._embedded.statistieken
+    return data._embedded.statistieken;
   }
 
-  return cacheResponse('std', getData)
+  return cacheResponse("std", getData);
 }
 
 /**
@@ -100,29 +100,48 @@ export async function getStd() {
  * @param gebiedCode
  * @returns {Promise<{jaar: *|number|string, waarde: null, post: string, gebiedcode15: *|string, color, textColor: *|textColor}[]>}
  */
-async function getCijfers(meta, year = null, gebiedCode = null) {
-  const post = meta.symbool === '%' ? meta.symbool : '' // only copy % symbol
+async function getCijfers(
+  meta,
+  year = null,
+  gebiedCode = null,
+  indicatorDefinitieId = null
+) {
+  const post = meta?.symbool === "%" ? meta.symbool : ""; // only copy % symbol
 
-  const selectVariable = `indicatorDefinitieId=${meta.indicatorDefinitieId}`
-  const selectGebiedCode = gebiedCode ? `&gebiedcode15=${gebiedCode}` : ''
-  const isLatest = year === 'latest'
+  const selectVariable = `indicatorDefinitieId=${
+    meta?.indicatorDefinitieId
+      ? meta?.indicatorDefinitieId
+      : indicatorDefinitieId
+  }`;
+  const selectGebiedCode = gebiedCode ? `&gebiedcode15=${gebiedCode}` : "";
+  const isLatest = year === "latest";
   const url = getUrlv1(
     `/kerncijfers/?${selectVariable}${selectGebiedCode}&page_size=100000`
-  )
-  const cijfers = await readData(url)
-  const std = await getStd()
+  );
+  const cijfers = await readData(url);
+  const std = await getStd();
 
-  const array = cijfers._embedded.kerncijfers
-  array.sort((a, b) => a.jaar - b.jaar) // oldest first
-  const results = array.map(c => ({
+  const array = cijfers._embedded.kerncijfers;
+  array.sort((a, b) => a.jaar - b.jaar); // oldest first
+  const results = array.map((c) => ({
     jaar: c.jaar,
-    waarde: c.waarde === '' || c.waarde === undefined ? null : c.waarde, // Sometimes the API returns '' for null value
+    waarde: c.waarde === "" || c.waarde === undefined ? null : c.waarde, // Sometimes the API returns '' for null value
     post,
     gebiedcode15: c.gebiedcode15,
-    ...getColor(meta, c.waarde, c.jaar, std)
-  }))
+    ...getColor(
+      {
+        indicatorDefinitieId: meta?.indicatorDefinitieId
+          ? meta.indicatorDefinitieId
+          : indicatorDefinitieId,
+        kleurenpalet: meta?.kleurenpalet ? meta.kleurenpalet : "",
+      },
+      c.waarde,
+      c.jaar,
+      std
+    ),
+  }));
 
-  return isLatest ? results.pop() : results
+  return isLatest ? results.pop() : results;
 }
 
 /**
@@ -133,11 +152,11 @@ async function getCijfers(meta, year = null, gebiedCode = null) {
  * @returns {Promise<*>}
  */
 export async function getAllCijfers(variableName, year) {
-  variableName = variableName.toUpperCase()
-  const meta = await getMeta(variableName)
-  const getData = async () => getCijfers(meta, year)
+  variableName = variableName.toUpperCase();
+  const meta = await getMeta(variableName);
+  const getData = async () => getCijfers(meta, year);
 
-  return cacheResponse(`allCijfers.${variableName}.${year}`, getData)
+  return cacheResponse(`allCijfers.${variableName}.${year}`, getData);
 }
 
 /**
@@ -145,9 +164,9 @@ export async function getAllCijfers(variableName, year) {
  * @type {{ALL: string, LATEST: string}}
  */
 export const CIJFERS = {
-  ALL: 'all',
-  LATEST: 'latest'
-}
+  ALL: "all",
+  LATEST: "latest",
+};
 
 /**
  * Get the cijfers for a given variable and gebied, wijk or buurt
@@ -162,22 +181,28 @@ export async function getGebiedCijfers(
   gebied,
   recentOrAll = CIJFERS.ALL
 ) {
-  variableName = variableName.toUpperCase()
-  const meta = await getMeta(variableName)
-  const jaar = recentOrAll === CIJFERS.ALL ? null : recentOrAll
+  variableName = variableName.toUpperCase();
+  const meta = await getMeta(variableName);
+  const jaar = recentOrAll === CIJFERS.ALL ? null : recentOrAll;
 
   async function getData() {
-    const cijfers = await getCijfers(meta, jaar, gebied.volledige_code)
+    const cijfers = await getCijfers(
+      meta,
+      jaar,
+      gebied.volledige_code,
+      variableName
+    );
+
     return {
       gebied,
       meta,
       cijfers: cijfers,
-      recent: cijfers.length ? cijfers[cijfers.length - 1] : undefined
-    }
+      recent: cijfers?.length ? cijfers[cijfers.length - 1] : undefined,
+    };
   }
 
   return cacheResponse(
     `gebiedCijfers.${variableName}.${gebied.volledige_code}.${recentOrAll}`,
     getData
-  )
+  );
 }
