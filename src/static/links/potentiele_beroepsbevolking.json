@@ -1,0 +1,26 @@
+[
+  {
+    "label": "Werknemer",
+    "indicatorDefinitieId": "PWERKNEMER_1874_P"
+  },
+  {
+    "label": "Ondernemer",
+    "indicatorDefinitieId": "PONDERNEMER_1874_P"
+  },
+  {
+    "label": "Uitkering",
+    "indicatorDefinitieId": "PUITKERING_1874_P"
+  },
+  {
+    "label": "Student",
+    "indicatorDefinitieId": "PSTUDENT_1874_P"
+  },
+  {
+    "label": "Pensioen",
+    "indicatorDefinitieId": "PPENSIOEN_1874_P"
+  },
+  {
+    "label": "Geen inkomen",
+    "indicatorDefinitieId": "PGEENINK_1874_P"
+  }
+]

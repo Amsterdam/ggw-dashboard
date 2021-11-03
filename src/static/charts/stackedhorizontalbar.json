@@ -1,0 +1,52 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 200,
+  "height": 100,
+  "data": { "values": [] },
+  "encoding": {
+    "x": {
+      "field": "value",
+      "title": null
+    },
+    "y": {
+      "field": "gebied",
+      "title": null,
+      "sort": { "order": "descending" }
+    }
+  },
+  "layer": [
+    {
+      "mark": "bar",
+      "encoding": {
+        "x": { "aggregate": "sum", "field": "value", "title": null },
+        "y": { "field": "gebied", "title": "Gebied" },
+        "color": {
+          "field": "key",
+          "title": "Legenda",
+          "legend": {
+            "orient": "top-left",
+            "direction": "horizontal",
+            "offset": -40
+          }
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "baseline": "middle"
+      },
+      "encoding": {
+        "text": { "field": "value", "type": "nominal" },
+        "x": {
+          "field": "position",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "gebied",
+          "type": "nominal"
+        }
+      }
+    }
+  ]
+}
