@@ -8,7 +8,6 @@ import {
   List,
   ListItem,
   Link,
-  Paragraph,
   themeSpacing,
 } from "@amsterdam/asc-ui";
 
