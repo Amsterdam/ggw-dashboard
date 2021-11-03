@@ -273,7 +273,7 @@ const getLegendLabels = (configCijfers) => {
  * Util exports het methods in an object. Usage will therefore be like util.getCity instead of import {getCity} from util
  * This has been done for reasons of simplicity only
  */
-export default {
+const util = {
   CIJFERS,
   displayWaarde,
   flatten,
@@ -302,3 +302,5 @@ export default {
   getYearCijfers,
   getStd,
 };
+
+export default util;
