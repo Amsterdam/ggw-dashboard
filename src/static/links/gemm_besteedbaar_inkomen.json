@@ -1,0 +1,22 @@
+[
+  {
+    "label": "Inkomen 1e 20% NL",
+    "indicatorDefinitieId": "IINKQ1_P"
+  },
+  {
+    "label": "Inkomen 2e 20% NL",
+    "indicatorDefinitieId": "IINKQ2_P"
+  },
+  {
+    "label": "Inkomen 3e 20% NL",
+    "indicatorDefinitieId": "IINKQ3_P"
+  },
+  {
+    "label": "Inkomen 4e 20% NL",
+    "indicatorDefinitieId": "IINKQ4_P"
+  },
+  {
+    "label": "Inkomen 5e 20% NL",
+    "indicatorDefinitieId": "IINKQ5_P"
+  }
+]

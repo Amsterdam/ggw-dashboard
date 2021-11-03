@@ -1,0 +1,18 @@
+[
+  {
+    "label": "0-3 jaar",
+    "indicatorDefinitieId": "BEV0_3_P"
+  },
+  {
+    "label": "4-12",
+    "indicatorDefinitieId": "BEV4_12_P"
+  },
+  {
+    "label": "12-17",
+    "indicatorDefinitieId": "Niet in BBGA"
+  },
+  {
+    "label": "18-26",
+    "indicatorDefinitieId": "BEV18_26_P"
+  }
+]
