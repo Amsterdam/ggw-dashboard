@@ -3,9 +3,9 @@ import vegaEmbed from "vega-embed";
 import cloneDeep from "lodash/cloneDeep";
 
 import util from "../services/util";
-import vegaSpec from "../static/charts/verticalbar.json";
-import kleurenTabel from "../static/kleurcodetabel.json";
+import { getOneStd } from "../services/apis/bbga";
 import { getColorsUsingStaticDefinition } from "../services/colorcoding";
+import vegaSpec from "../static/charts/verticalbar.json";
 
 const vegaEmbedOptions = {
   actions: false,
@@ -20,6 +20,9 @@ const VerticalBarChart = ({ title, gwb, config }) => {
     const colors = getColorsUsingStaticDefinition(config);
     const chartdata = await util.getConfigCijfers(gwb, config);
     const chartBase = cloneDeep(vegaSpec);
+    const variabele = chartdata[0].meta && chartdata[0].meta.variabele;
+
+    const stdevs = await getOneStd(variabele);
 
     // const tooltip = chartdata[0].meta && chartdata[0].meta.bron;
 
@@ -32,6 +35,7 @@ const VerticalBarChart = ({ title, gwb, config }) => {
             value: d.waarde,
             color: colors[i],
             i,
+            gemiddelde: stdevs.find((sd) => sd.jaar === d.jaar).gemiddelde,
           } as MapResult)
       ) as MapResult[];
 

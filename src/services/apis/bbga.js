@@ -89,6 +89,21 @@ export async function getStd() {
 }
 
 /**
+ * Get one standard deviations of a specific variable for Amsterdam as provided by OIS
+ * This is an fixed url published in dcatd.
+ * These values are used to calculate z-scores
+ * The z-scores are used to color values so that the color denotes the distance in std's to the average
+ * The result is cached
+ * @returns {Promise<[array of stddes]>}
+ */
+export async function getOneStd(variabele) {
+  const sdvars = await getStd();
+  return sdvars
+    .filter((sd) => sd.indicatorDefinitieId === variabele.toUpperCase())
+    .map((sd) => ({ jaar: sd.jaar, gemiddelde: sd.gemiddelde }));
+}
+
+/**
  * Get the values for a given variable identified by its meta
  * An optional year can be specified to get only the values for the specified year. Default is to return all years
  * An optional gebiedCode can be specified to get the values for the given gebied. Default is to return the values for all gebied, wijk, buurten
