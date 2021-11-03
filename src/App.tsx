@@ -11,13 +11,6 @@ const OuterWrapper = styled("div")`
   background-color: ${themeColor("tint", "level3")};
 `;
 
-const WhiteWrapper = styled("div")`
-  background-color: ${themeColor("tint", "level1")};
-  max-width: 1430px;
-  margin-left: auto;
-  margin-right: auto;
-`;
-
 const InnerWrapper = styled("div")`
   background-color: ${themeColor("tint", "level1")};
 `;
