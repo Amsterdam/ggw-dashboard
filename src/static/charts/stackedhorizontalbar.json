@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 200,
-  "height": 100,
+  "width": 250,
+  "height": 120,
   "data": { "values": [] },
   "encoding": {
     "x": {
