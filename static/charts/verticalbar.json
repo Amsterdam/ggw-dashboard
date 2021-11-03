@@ -101,7 +101,6 @@
         "color": "#EC0000",
         "baseline": "middle",
         "dx": 16,
-        "dy": 0,
         "opacity": { "expr": "datum.last ? 1 : 0 " }
       }
     }
