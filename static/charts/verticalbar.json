@@ -99,9 +99,9 @@
         "type": "text",
         "align": "left",
         "color": "#EC0000",
-        "fontSize": 0,
-        "dx": 0,
-        "opacity": 0
+        "dx": 16,
+        "dy": 0,
+        "opacity": { "expr": "datum.last ? 1 : 0 " }
       }
     }
   ]

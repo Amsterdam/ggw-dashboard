@@ -49,13 +49,13 @@ export default {
       const variabele = this.chartdata[0].meta && this.chartdata[0].meta.variabele
 
       const stdevs = await getOneStd(variabele) // .filter((item) => item.indicatorDefinitieId === variabele)
-      console.log('sd', stdevs)
       vegaSpec.data.values = (this.chartdata[0].cijfers || [])
         .filter(d => d.waarde)
         .map((d, i) => ({
           key: d.jaar,
           value: d.waarde,
           color: d.color,
+          last: this.chartdata[0].cijfers.length === i + 1,
           gemiddelde: stdevs.find(sd => sd.jaar === d.jaar).gemiddelde,
           i
         }))
