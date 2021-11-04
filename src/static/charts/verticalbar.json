@@ -1,5 +1,5 @@
 {
-  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "",
   "height": 100,
   "width": 250,
@@ -51,6 +51,22 @@
     },
     {
       "encoding": {
+        "x": {
+          "field": "key",
+          "type": "ordinal"
+        },
+        "y": {
+          "field": "gemiddelde",
+          "type": "quantitative"
+        }
+      },
+      "mark": {
+        "type": "line",
+        "color": "#EC0000"
+      }
+    },
+    {
+      "encoding": {
         "text": { "field": "value", "type": "quantitative" },
         "x": {
           "field": "key",
@@ -69,6 +85,7 @@
     },
     {
       "encoding": {
+        "text": { "field": "gemiddelde", "type": "quantitative" },
         "x": {
           "field": "key",
           "type": "ordinal"
@@ -79,8 +96,12 @@
         }
       },
       "mark": {
-        "type": "line",
-        "color": "#EC0000"
+        "type": "text",
+        "align": "left",
+        "color": "#EC0000",
+        "baseline": "middle",
+        "dx": 20,
+        "opacity": { "expr": "datum.last ? 1 : 0 " }
       }
     }
   ]
