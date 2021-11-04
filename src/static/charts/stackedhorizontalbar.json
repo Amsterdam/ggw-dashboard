@@ -45,6 +45,16 @@
         "y": {
           "field": "gebied",
           "type": "nominal"
+        },
+        "color": {
+          "condition": {
+            "test": {
+              "field": "color",
+              "oneOf": ["#004699", "#787878", "#00A03C", "#FF0000"]
+            },
+            "value": "#FFFFFF"
+          },
+          "value": "#000000"
         }
       }
     }
