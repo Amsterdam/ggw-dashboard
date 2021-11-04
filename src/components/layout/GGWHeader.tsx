@@ -1,4 +1,4 @@
-import { Header } from "@amsterdam/asc-ui";
+import { Header, MenuToggle } from "@amsterdam/asc-ui";
 
 const GGWHeader = () => {
   return (
@@ -8,6 +8,11 @@ const GGWHeader = () => {
       homeLink=""
       fullWidth
       css={{ zIndex: 1200 }}
+      navigation={
+        <MenuToggle open>
+          <p>Test</p>
+        </MenuToggle>
+      }
     />
   );
 };
