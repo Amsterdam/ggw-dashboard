@@ -1,3 +1,4 @@
+import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import styled from "styled-components";
 import { Column, Row, themeColor } from "@amsterdam/asc-ui";
@@ -16,16 +17,18 @@ const InnerWrapper = styled("div")`
 `;
 
 function App() {
+  const [gwb, setGWB] = React.useState(null);
+
   return (
     <OuterWrapper>
       <Row>
         <Column span={12}>
           <InnerWrapper>
-            <GGWHeader />
+            <GGWHeader gwb={gwb} setGwb={setGWB} />
             <Router>
               <Switch>
                 <Route path="/">
-                  <Dashboard />
+                  <Dashboard gwb={gwb} />
                 </Route>
               </Switch>
             </Router>

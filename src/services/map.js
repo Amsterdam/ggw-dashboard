@@ -1,30 +1,6 @@
 import L from "leaflet";
 
-import util from "../services/util";
-import { rd, rdMultiPolygonToWgs84 } from "../services/geojson";
-
-const allGeometries = {};
-
-/**
- * Retuns the geometries (polygons) for a given gebied type (STAD, Stadsdeel, ...)
- * Each polygon is styled according to the given styling method
- * @param gebiedType
- * @param getStyle styling method that is invoked for each polygon
- * @returns {Promise<void>}
- */
-export async function getShapes(gebiedType, getStyle) {
-  const gwbs = await util.getGwbs(gebiedType);
-
-  allGeometries[gebiedType] =
-    allGeometries[gebiedType] || (await util.getGeometries(gebiedType));
-
-  const geometries = allGeometries[gebiedType];
-
-  return gwbs.map((gwb) => {
-    const geometry = geometries[gwb.vollcode] || geometries[gwb.code];
-    return L.polygon(geometry.coordinates, getStyle(gwb.vollcode));
-  });
-}
+import { rd, rdPolygonToWgs84 } from "../services/geojson";
 
 /**
  * Returns the geometries (polygons) for a given gebied, wijk or buurt
@@ -35,8 +11,10 @@ export async function getShapes(gebiedType, getStyle) {
  */
 export function getGWBShapes(gwb, getStyle) {
   if (gwb.geometrie) {
-    gwb.wgs84Geometries =
-      gwb.wgs84Geometries || rdMultiPolygonToWgs84(gwb.geometrie); // Polygon[]
+    gwb.wgs84Geometries = gwb.wgs84Geometries || [
+      rdPolygonToWgs84(gwb.geometrie),
+    ];
+
     return gwb.wgs84Geometries.map((geometry) =>
       L.polygon(geometry.coordinates, getStyle(gwb.volledige_code))
     );

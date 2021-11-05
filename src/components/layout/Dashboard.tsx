@@ -1,10 +1,8 @@
-import { useState } from "react";
 import styled from "styled-components";
 import { Column, Row, themeColor, themeSpacing } from "@amsterdam/asc-ui";
 import GebiedInHetKort from "../../themas/GebiedInHetKort";
 import GWBMap from "../GWBMap";
 import ColorLegend from "../ColorLegend";
-import GWBSelector from "../GWBSelector";
 import ThemaSelector from "../ThemaSelector";
 
 const StyledDiv = styled("div")`
@@ -18,14 +16,12 @@ const DashboardDiv = styled("div")`
   padding-top: ${themeSpacing(8)};
 `;
 
-const Dashboard = () => {
-  const [gwb, setGWB] = useState(null);
-
+const Dashboard = ({ gwb }) => {
   return (
     <DashboardDiv>
       <Row>
         <Column span={4}>
-          <GWBSelector gwb={gwb} setGWB={setGWB} />
+          {/* <GWBSelector gwb={gwb} setGWB={setGWB} /> */}
         </Column>
         <Column span={4}>
           <GWBMap gwb={gwb} />
