@@ -1,4 +1,5 @@
 import axios from "axios";
+import get from "lodash/get";
 
 /**
  * Register HTTP status
@@ -28,7 +29,7 @@ function sleep(ms) {
  * @param nTries optional parameter specifying the number of retries, default = 5
  * @returns {Promise<*>}
  */
-async function get(url, options, nTries = 5) {
+async function fetchData(url, options, nTries = 5) {
   let result;
   let nTry = 0;
   do {
@@ -62,7 +63,11 @@ async function get(url, options, nTries = 5) {
  * @param url
  * @returns {Promise<Array>}
  */
-export async function readPaginatedData(url, options = {}) {
+export async function readPaginatedData(
+  url,
+  options = {},
+  dataSelector = "results"
+) {
   let next = url;
   let results = [];
   let page = 1;
@@ -76,9 +81,11 @@ export async function readPaginatedData(url, options = {}) {
       results = results.concat(response.data.results)
       page += 1
     } catch (e) {
+      console.error(e);
       next = null;
     }
   }
+
   return results;
 }
 
@@ -89,6 +96,6 @@ export async function readPaginatedData(url, options = {}) {
  * @returns {Promise<*>}
  */
 export async function readData(url, options = {}, resolve = (d) => d.data) {
-  const response = await get(url, options);
+  const response = await fetchData(url, options);
   return resolve(response);
 }
