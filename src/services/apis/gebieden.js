@@ -6,17 +6,9 @@ import { readData, readPaginatedData } from "../datareader";
 /**
  * The list of gebieden is supplied by OIS. If information about a gebied is available in this list it is used instead of the API data
  */
-import gebiedscodes from "../../static/tmp/gebieden.json";
+
 import wijkgebied from "../../static/tmp/wijkgebied.json";
 import { cacheResponse } from "../cache";
-
-/**
- * Transform list of gebiedscodes into object
- */
-const localGebiedscodes = {};
-gebiedscodes.forEach((g) => {
-  localGebiedscodes[g.gebiedcode] = g;
-});
 
 /**
  * Constant to denote the gebied types in the Gebieden API
@@ -36,7 +28,7 @@ export const GEBIED_TYPE = {
  * @returns {string}
  */
 function getUrl(endpoint) {
-  return `https://api.data.amsterdam.nl/gebieden${endpoint}`;
+  return `https://api.data.amsterdam.nl/v1/gebieden${endpoint}?eindGeldigheid[isnull]=true`;
 }
 
 /**
@@ -47,17 +39,10 @@ function getUrl(endpoint) {
  * @returns {*}
  */
 export function enhanceGWB(gwb) {
-  gwb.vollcode =
-    gwb.vollcode || gwb.volledige_code || gwb._display.match(/\((.*)\)$/)[1]; // Gebied and Buurt
-  gwb.code = gwb.code || gwb.vollcode;
-  gwb.volledige_code = gwb.volledige_code || gwb.vollcode;
-  gwb.gebiedType = getGebiedType(gwb.volledige_code);
-  gwb.naam = localGebiedscodes[gwb.vollcode]
-    ? localGebiedscodes[gwb.vollcode].gebiednaam
-    : gwb.naam;
-  gwb.display = localGebiedscodes[gwb.vollcode]
-    ? localGebiedscodes[gwb.vollcode].gebiedcodenaam
-    : `${gwb.vollcode} ${gwb.naam}`;
+  gwb.vollcode = gwb.code;
+  gwb.volledige_code = gwb.code;
+  gwb.gebiedType = getGebiedType(gwb.code);
+  gwb.display = `${gwb.code} ${gwb.naam}`;
   return gwb;
 }
 
@@ -94,7 +79,7 @@ export async function getDetail(entity) {
   }
 
   async function getData() {
-    const url = entity?._links.self.href;
+    const url = entity._links.self.href;
     const data = await readData(url);
     enhanceGWB(data);
     return data;
@@ -237,8 +222,9 @@ export async function getCity() {
  * @returns {Promise<*>}
  */
 export async function getAllStadsdelen() {
-  const url = getUrl("/stadsdeel/");
-  const getData = async () => enhancedGWBList(await readPaginatedData(url));
+  const url = getUrl("/stadsdelen/");
+  const getData = async () =>
+    enhancedGWBList(await readPaginatedData(url, {}, "_embedded.stadsdelen"));
   return cacheResponse("allStadsdelen", getData);
 }
 
@@ -248,8 +234,9 @@ export async function getAllStadsdelen() {
  * @returns {Promise<*>}
  */
 export async function getAllGebieden() {
-  const url = getUrl("/gebiedsgerichtwerken/");
-  const getData = async () => enhancedGWBList(await readPaginatedData(url));
+  const url = getUrl("/ggpgebieden/");
+  const getData = async () =>
+    enhancedGWBList(await readPaginatedData(url, {}, "_embedded.ggpgebieden"));
   return cacheResponse("allGebieden", getData);
 }
 
@@ -259,8 +246,9 @@ export async function getAllGebieden() {
  * @returns {Promise<*>}
  */
 export async function getAllWijken() {
-  const url = getUrl("/wijk/");
-  const getData = async () => enhancedGWBList(await readPaginatedData(url));
+  const url = getUrl("/wijken/");
+  const getData = async () =>
+    enhancedGWBList(await readPaginatedData(url, {}, "_embedded.wijken"));
   return cacheResponse("allWijken", getData);
 }
 
@@ -270,7 +258,8 @@ export async function getAllWijken() {
  * @returns {Promise<*>}
  */
 export async function getAllBuurten() {
-  const url = getUrl("/buurt/");
-  const getData = async () => enhancedGWBList(await readPaginatedData(url));
+  const url = getUrl("/buurten/");
+  const getData = async () =>
+    enhancedGWBList(await readPaginatedData(url, {}, "_embedded.buurten"));
   return cacheResponse("allBuurten", getData);
 }
