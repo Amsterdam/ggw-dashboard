@@ -78,6 +78,8 @@ const GWBSelector = ({ gwb, setGWB }) => {
   const updateStadsDeel = async (stadsDeelCode) => {
     let stadsDeelDetail = null;
 
+    console.log("stadsDeelCode", stadsDeelCode);
+
     if (stadsDeelCode && stadsDeelCode !== "deel") {
       const deel = allData.stadsDelen.find((d) => d.code === stadsDeelCode);
       stadsDeelDetail = deel;
@@ -130,6 +132,8 @@ const GWBSelector = ({ gwb, setGWB }) => {
         gebieden: allData.gebieden,
       });
     }
+
+    console.log("stadsDeelDetail", stadsDeelDetail);
 
     setGWB(stadsDeelDetail);
   };
