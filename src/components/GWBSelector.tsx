@@ -1,82 +1,187 @@
 import { FormEvent, useEffect, useState } from "react";
-import { Select } from "@amsterdam/asc-ui";
+import styled from "styled-components";
+import { Select, Row, Column, themeSpacing } from "@amsterdam/asc-ui";
 import util from "../services/util";
 
-type GwbItem = { display: string; vollcode: string; gebiedType: string | null };
+type GwbItem = {
+  display: string;
+  code: string;
+  gebiedType: string | null;
+  id: string;
+};
 
-/**
- * Provides for a selection of None, for all gebieden, wijken and buurten
- * @param title gebied, wijk or buurt => gebieden, wijken, buurten
- * @param display override for derivation of title
- */
-function getSelectNone(title: string, display: string | null = null): GwbItem {
-  return {
-    display: display || `geen ${title} geselecteerd`,
-    vollcode: title,
-    gebiedType: null,
-  };
-}
+const GWBWrapper = styled("div")`
+  width: 100%;
+  padding-bottom: ${themeSpacing(5)};
+`;
+
+const FullWidth = styled("div")`
+  width: 100%;
+`;
+
+const getParsedItemId = (item: { id: string }) => {
+  return item?.id?.split(".")[0] + "";
+};
 
 const GWBSelector = ({ gwb, setGWB }) => {
   const emptyState: {
+    stadsDelen: GwbItem[];
+    stadsDeel: string;
+
     gebied: string;
     gebieden: GwbItem[];
 
-    wijk: string | null;
+    wijk: string;
     wijken: GwbItem[];
 
-    buurt: string | null;
+    buurt: string;
     buurten: GwbItem[];
   } = {
-    gebied: "DX01",
+    stadsDelen: [],
+    stadsDeel: "deel",
+
+    gebied: "gebied",
     gebieden: [],
 
-    wijk: null,
+    wijk: "wijk",
     wijken: [],
 
-    buurt: null,
+    buurt: "buurt",
     buurten: [],
   };
   const [gwbSelection, setGwbSelection] = useState<{
-    gebied: string | null;
+    stadsDelen: any[];
+    stadsDeel: string;
+
+    gebied: string;
     gebieden: any[];
 
-    wijk: string | null;
+    wijk: string;
     wijken: any[];
 
-    buurt: string | null;
+    buurt: string;
     buurten: any[];
   }>(emptyState);
+
+  const [allData, setAllData] = useState<{
+    stadsDelen: any[];
+    gebieden: any[];
+    wijken: any[];
+    buurten: any[];
+  }>({
+    stadsDelen: [],
+    gebieden: [],
+    wijken: [],
+    buurten: [],
+  });
+
+  const updateStadsDeel = async (stadsDeelCode) => {
+    let stadsDeelDetail = null;
+
+    console.log("stadsDeelCode", stadsDeelCode);
+
+    if (stadsDeelCode && stadsDeelCode !== "deel") {
+      const deel = allData.stadsDelen.find((d) => d.code === stadsDeelCode);
+      stadsDeelDetail = deel;
+
+      const gebieden = allData.gebieden.filter(
+        (g) => g.ligtInStadsdeelId === getParsedItemId(deel)
+      );
+
+      if (gebieden.length > 0) {
+        const buurtIds = gebieden
+          .map((g) => g._links.bestaatUitBuurten.map((b) => b.identificatie))
+          .flat();
+
+        const buurten = allData.buurten.filter((b) =>
+          buurtIds.includes(getParsedItemId(b))
+        );
+
+        const wijkIds = buurten.map((b) => b.ligtInWijkId);
+
+        const wijken = allData.wijken.filter((w) =>
+          wijkIds.includes(getParsedItemId(w))
+        );
+
+        setGwbSelection({
+          ...emptyState,
+          stadsDelen: allData.stadsDelen,
+          stadsDeel: stadsDeelCode,
+          gebieden,
+          wijken,
+          buurten,
+        });
+      } else {
+        setGwbSelection({
+          ...emptyState,
+          stadsDelen: allData.stadsDelen,
+          stadsDeel: stadsDeelCode,
+          gebieden: allData.gebieden,
+          wijken: allData.wijken,
+          buurten: allData.buurten,
+        });
+      }
+    } else {
+      const deel = await util.getCity();
+      stadsDeelDetail = deel;
+
+      setGwbSelection({
+        ...emptyState,
+        stadsDeel: deel,
+        stadsDelen: allData.stadsDelen,
+        gebieden: allData.gebieden,
+      });
+    }
+
+    console.log("stadsDeelDetail", stadsDeelDetail);
+
+    setGWB(stadsDeelDetail);
+  };
 
   const updateGebied = async (gebiedCode) => {
     let gebiedDetail = null;
 
-    if (gebiedCode) {
-      const gebied = gwbSelection.gebieden.find(
-        (g) => g.vollcode === gebiedCode
-      );
+    console.log("gebiedCode", gebiedCode);
 
+    if (gebiedCode && gebiedCode !== "gebied") {
+      const gebied = allData?.gebieden.find((g) => g.code === gebiedCode);
+
+      // TODO: Remove getDetail call.
       gebiedDetail = await util.getDetail(gebied);
 
-      if (gebied && gebied.gebiedType !== "Stadsdeel") {
-        const wijken = await util.getWijken(gebied);
+      const buurtIds = gebied._links.bestaatUitBuurten.map(
+        (b) => b.identificatie
+      );
+      const buurten = allData.buurten.filter((b) =>
+        buurtIds.includes(getParsedItemId(b))
+      );
 
-        setGwbSelection({
-          ...emptyState,
-          gebied: gwbSelection.gebied,
-          gebieden: gwbSelection.gebieden,
-          wijken: [getSelectNone("wijk")].concat(wijken),
-        });
-      }
-    } else {
-      const gebied = await util.getCity();
-      gebiedDetail = gebied;
+      const wijkIds = buurten.map((b) => b.ligtInWijkId);
+
+      const wijken = allData.wijken.filter((w) =>
+        wijkIds.includes(getParsedItemId(w))
+      );
 
       setGwbSelection({
         ...emptyState,
-        gebied,
-        gebieden: gwbSelection.gebieden,
+        stadsDeel: gwbSelection.stadsDeel,
+        stadsDelen: allData.stadsDelen,
+        gebied: gebiedCode,
+        gebieden: allData?.gebieden,
+        wijken,
+        buurten,
       });
+    } else {
+      // TODO: Convert to call to updateStadsDeel
+      // setGwbSelection({
+      //   ...emptyState,
+      //   gebied: gebiedCode,
+      //   stadsDelen: allData.stadsDelen,
+      //   gebieden: allData.gebieden,
+      //   wijken: allData.wijken,
+      //   buurten: allData.buurten,
+      // });
+      updateStadsDeel(gwbSelection.stadsDeel);
     }
 
     setGWB(gebiedDetail);
@@ -86,19 +191,20 @@ const GWBSelector = ({ gwb, setGWB }) => {
     let wijkDetail = null;
 
     if (wijkCode && wijkCode !== "wijk") {
-      const wijk = gwbSelection.wijken.find((w) => w.vollcode === wijkCode);
+      const wijk = allData?.wijken.find((w) => w.code === wijkCode);
 
+      //TODO: Remove getDetail code
       wijkDetail = await util.getDetail(wijk);
 
-      const buurten = [getSelectNone("buurt")].concat(
-        await util.getBuurten(wijk)
+      const buurten = allData.buurten.filter(
+        (b) => b.ligtInWijkId === getParsedItemId(wijk)
       );
 
       setGwbSelection({
         ...gwbSelection,
-        buurt: null,
+        wijk: wijkCode,
+        buurt: "buurt",
         buurten,
-        wijk,
       });
 
       setGWB(wijkDetail);
@@ -111,9 +217,16 @@ const GWBSelector = ({ gwb, setGWB }) => {
     let buurtDetail = null;
 
     if (buurtCode && buurtCode !== "buurt") {
-      const buurt = gwbSelection.buurten.find((b) => b.vollcode === buurtCode);
+      const buurt = allData?.buurten.find((b) => b.code === buurtCode);
 
+      //TODO remove getDetail call
       buurtDetail = await util.getDetail(buurt);
+
+      setGwbSelection({
+        ...gwbSelection,
+        buurt: buurtCode,
+      });
+
       setGWB(buurtDetail);
     } else {
       updateWijk(gwbSelection.wijk);
@@ -121,79 +234,130 @@ const GWBSelector = ({ gwb, setGWB }) => {
   };
 
   useEffect(() => {
-    updateGebied(gwbSelection.gebied);
-  }, [gwbSelection.gebieden]);
-
-  useEffect(() => {
     async function loadInitialData() {
-      const gebieden = [getSelectNone("gebied", "Amsterdam")]
-        .concat(await util.getAllStadsdelen())
-        .concat(await util.getAllGebieden());
+      const results = await Promise.all([
+        util.getAllStadsdelen(),
+        util.getAllGebieden(),
+        util.getAllWijken(),
+        util.getAllBuurten(),
+      ]);
 
-      setGwbSelection({ ...emptyState, gebieden });
+      const stadsDelen = results[0];
+
+      const gebieden = results[1];
+
+      const wijken = results[2];
+
+      const buurten = results[3];
+
+      setAllData({ wijken, buurten, gebieden, stadsDelen });
+      setGwbSelection({ ...emptyState, wijken, buurten, gebieden, stadsDelen });
     }
 
     loadInitialData();
   }, []);
 
   return (
-    <div style={{ width: "100%" }}>
-      {gwbSelection && gwbSelection?.gebieden?.length > 0 && (
-        <Select
-          id="gebieden"
-          label="Gebieden"
-          defaultValue={emptyState.gebied}
-          onChange={(event: FormEvent<HTMLSelectElement>) => {
-            updateGebied(event.currentTarget.value);
-          }}
-        >
-          {gwbSelection.gebieden.map((gebied) => {
-            return (
-              <option key={gebied.vollcode} value={gebied.vollcode}>
-                {gebied.display}
-              </option>
-            );
-          })}
-        </Select>
-      )}
+    <GWBWrapper>
+      <Row>
+        {gwbSelection && gwbSelection?.stadsDelen?.length > 0 && (
+          <Column span={3}>
+            <FullWidth>
+              <Select
+                id="stadsdelen"
+                label="Stadsdeel"
+                value={gwbSelection.stadsDeel}
+                onChange={(event: FormEvent<HTMLSelectElement>) => {
+                  updateStadsDeel(event.currentTarget.value);
+                }}
+              >
+                <option value="deel">Amsterdam</option>
+                {gwbSelection.stadsDelen.map((stadsDeel) => {
+                  return (
+                    <option key={stadsDeel.code} value={stadsDeel.code}>
+                      {stadsDeel.display}
+                    </option>
+                  );
+                })}
+              </Select>
+            </FullWidth>
+          </Column>
+        )}
 
-      {gwbSelection && gwbSelection?.wijken?.length > 0 && (
-        <Select
-          id="wijk"
-          label="Wijk"
-          defaultValue="wijk"
-          onChange={(event: FormEvent<HTMLSelectElement>) => {
-            updateWijk(event.currentTarget.value);
-          }}
-        >
-          {gwbSelection.wijken.map((wijk) => {
-            return (
-              <option key={wijk.vollcode} value={wijk.vollcode}>
-                {wijk.display}
-              </option>
-            );
-          })}
-        </Select>
-      )}
+        {gwbSelection && gwbSelection?.gebieden?.length > 0 && (
+          <Column span={3}>
+            <FullWidth>
+              <Select
+                id="gebieden"
+                label="Gebieden"
+                value={gwbSelection.gebied}
+                onChange={(event: FormEvent<HTMLSelectElement>) => {
+                  updateGebied(event.currentTarget.value);
+                }}
+              >
+                <option value="gebied">Selecteer een gebied</option>
+                {gwbSelection.gebieden.map((gebied) => {
+                  return (
+                    <option key={gebied.code} value={gebied.code}>
+                      {gebied.display}
+                    </option>
+                  );
+                })}
+              </Select>
+            </FullWidth>
+          </Column>
+        )}
 
-      <Select
-        id="buurt"
-        label="Buurt"
-        defaultValue="buurt"
-        onChange={(event: FormEvent<HTMLSelectElement>) => {
-          updateBuurt(event.currentTarget.value);
-        }}
-        disabled={gwbSelection.buurten.length < 1}
-      >
-        {gwbSelection.buurten.map((buurt) => {
-          return (
-            <option key={buurt.vollcode} value={buurt.vollcode}>
-              {buurt.display}
-            </option>
-          );
-        })}
-      </Select>
-    </div>
+        {gwbSelection && gwbSelection?.wijken?.length > 0 && (
+          <Column span={3}>
+            <FullWidth>
+              <Select
+                id="wijk"
+                label="Wijk"
+                value={gwbSelection.wijk}
+                onChange={(event: FormEvent<HTMLSelectElement>) => {
+                  updateWijk(event.currentTarget.value);
+                }}
+              >
+                <option value="wijk">Selecteer een wijk</option>
+                {gwbSelection.wijken.map((wijk) => {
+                  return (
+                    <option key={wijk.code} value={wijk.code}>
+                      {wijk.display}
+                    </option>
+                  );
+                })}
+              </Select>
+            </FullWidth>
+          </Column>
+        )}
+
+        {gwbSelection && gwbSelection?.buurten?.length > 0 && (
+          <Column span={3}>
+            <FullWidth>
+              <Select
+                id="buurt"
+                label="Buurt"
+                value={gwbSelection.buurt}
+                onChange={(event: FormEvent<HTMLSelectElement>) => {
+                  updateBuurt(event.currentTarget.value);
+                }}
+                disabled={gwbSelection.buurten.length < 1}
+              >
+                <option value="buurt">Selecteer een buurt</option>
+                {gwbSelection.buurten.map((buurt) => {
+                  return (
+                    <option key={buurt.vollcode} value={buurt.vollcode}>
+                      {buurt.display}
+                    </option>
+                  );
+                })}
+              </Select>
+            </FullWidth>
+          </Column>
+        )}
+      </Row>
+    </GWBWrapper>
   );
 };
 

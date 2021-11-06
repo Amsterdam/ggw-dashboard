@@ -31,10 +31,6 @@ import {
   CIJFERS,
   getStd,
 } from "./apis/bbga";
-import {
-  getGeometries as getGeoGeometries,
-  GEBIED_TYPE as GEO_GEBIED_TYPE,
-} from "./apis/map";
 
 /**
  * Gets the most recent cijfers for a given configuration
@@ -201,22 +197,6 @@ function getMaxYear(cijfers) {
 }
 
 /**
- * Returns the geometries (set of leaflet Polygons) for a given gebied type
- * @param gebiedType
- * @returns {Promise<*>}
- */
-async function getGeometries(gebiedType) {
-  const geoGebiedType = {
-    [GEBIED_TYPE.Stadsdeel]: GEO_GEBIED_TYPE.Stadsdeel,
-    [GEBIED_TYPE.Gebied]: GEO_GEBIED_TYPE.Gebied,
-    [GEBIED_TYPE.Wijk]: GEO_GEBIED_TYPE.Wijk,
-    [GEBIED_TYPE.Buurt]: GEO_GEBIED_TYPE.Buurt,
-  }[gebiedType];
-
-  return getGeoGeometries(geoGebiedType);
-}
-
-/**
  * Returns the set of gebied, wijk or buurten for a given gebied type
  * @param gebiedType
  * @returns {Promise<*>}
@@ -290,7 +270,6 @@ const util = {
   getDetail,
   getGebiedCijfers,
   getGebiedType,
-  getGeometries,
   getGwb,
   getGwbs,
   getGwbSummary,
