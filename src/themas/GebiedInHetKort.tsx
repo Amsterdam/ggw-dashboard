@@ -1,5 +1,4 @@
-import styled from "styled-components";
-import { Column, Row, themeSpacing } from "@amsterdam/asc-ui";
+import { Column, Row } from "@amsterdam/asc-ui";
 
 import HorizontalBarChart from "../components/HorizontalBarChart";
 import InAantallen from "../components/InAantallen";
@@ -14,15 +13,9 @@ import migratieAchtergrond from "../static/links/migratieachtergrond.json";
 import gemmInkomen from "../static/links/gemm_besteedbaar_inkomen.json";
 import vandalismeSlachtoffers from "../static/links/vandalisme_slachtoffers.json";
 
-const ContainerDiv = styled("div")`
-  margin-top: ${themeSpacing(3)};
-  margin-bottom: ${themeSpacing(3)};
-  width: 100%;
-`;
-
 const GebiedInHetKort = ({ gwb }) => {
   return (
-    <ContainerDiv>
+    <>
       <Row>
         <Column span={6}>
           <p>Pano</p>
@@ -144,7 +137,7 @@ const GebiedInHetKort = ({ gwb }) => {
           <p>Leeg</p>
         </Column>
       </Row>
-    </ContainerDiv>
+    </>
   );
 };
 
