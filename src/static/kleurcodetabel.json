@@ -1,5 +1,7 @@
 {
   "kleur": {
+    "primary": "#004699",
+    "secondary": "#EC0000",
     "grafiek_1": ["#004699"],
     "grafiek_2": ["#004699", "#BEBEBE"],
     "grafiek_3": ["#004699", "#BEBEBE", "#B4E600"],
@@ -19,7 +21,12 @@
     "hoog_is_blauw": ["#004699", "#71BDEE", "#E8E8E8", "#BEBEBE", "#787878"],
     "amsterdam_rood": "#FF0000"
   },
-  "tekst_kleur": {"#004699": "#FFFFFF", "#787878": "#FFFFFF", "#00A03C": "#FFFFFF", "#FF0000": "#FFFFFF"},
+  "tekst_kleur": {
+    "#004699": "#FFFFFF",
+    "#787878": "#FFFFFF",
+    "#00A03C": "#FFFFFF",
+    "#FF0000": "#FFFFFF"
+  },
   "legenda": {
     "beter_slechter": [
       "> 1 SD beter dan gemiddeld",
