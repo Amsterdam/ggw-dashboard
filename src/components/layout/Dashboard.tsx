@@ -3,7 +3,6 @@ import { Column, Row, themeColor, themeSpacing } from "@amsterdam/asc-ui";
 import GebiedInHetKort from "../../themas/GebiedInHetKort";
 import GWBMap from "../GWBMap";
 import ColorLegend from "../ColorLegend";
-import ThemaSelector from "../ThemaSelector";
 
 const StyledDiv = styled("div")`
   background-color: ${themeColor("tint", "level2")};
@@ -21,13 +20,10 @@ const Dashboard = ({ gwb }) => {
     <DashboardDiv>
       <Row>
         <Column span={4}>
-          {/* <GWBSelector gwb={gwb} setGWB={setGWB} /> */}
+          <></>
         </Column>
         <Column span={4}>
           <GWBMap gwb={gwb} />
-        </Column>
-        <Column span={4}>
-          <ThemaSelector />
         </Column>
       </Row>
       <Row>
