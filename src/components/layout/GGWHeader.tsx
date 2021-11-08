@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import { Header, MenuToggle } from "@amsterdam/asc-ui";
+import { Header, MenuToggle, themeSpacing } from "@amsterdam/asc-ui";
 
 import GWBSelector from "../GWBSelector";
+import ThemaSelector from "../ThemaSelector";
 
 // Minor tweak to the layout of the MenuToggle Component.
 const WideMenu = styled("div")`
@@ -16,6 +17,11 @@ const WideMenu = styled("div")`
   }
 `;
 
+const MenuItemWrapper = styled("div")`
+  width: 100%;
+  padding-bottom: ${themeSpacing(5)};
+`;
+
 const GGWHeader = ({ gwb, setGwb }) => {
   return (
     <Header
@@ -27,7 +33,10 @@ const GGWHeader = ({ gwb, setGwb }) => {
       navigation={
         <WideMenu>
           <MenuToggle open>
-            <GWBSelector gwb={gwb} setGWB={setGwb} />
+            <MenuItemWrapper>
+              <GWBSelector gwb={gwb} setGWB={setGwb} />
+              <ThemaSelector />
+            </MenuItemWrapper>
           </MenuToggle>
         </WideMenu>
       }

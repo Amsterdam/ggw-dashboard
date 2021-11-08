@@ -1,6 +1,6 @@
 import { FormEvent, useEffect, useState } from "react";
 import styled from "styled-components";
-import { Select, Row, Column, themeSpacing } from "@amsterdam/asc-ui";
+import { Select, Row, Column } from "@amsterdam/asc-ui";
 import util from "../services/util";
 
 type GwbItem = {
@@ -9,11 +9,6 @@ type GwbItem = {
   gebiedType: string | null;
   id: string;
 };
-
-const GWBWrapper = styled("div")`
-  width: 100%;
-  padding-bottom: ${themeSpacing(5)};
-`;
 
 const FullWidth = styled("div")`
   width: 100%;
@@ -172,15 +167,6 @@ const GWBSelector = ({ gwb, setGWB }) => {
         buurten,
       });
     } else {
-      // TODO: Convert to call to updateStadsDeel
-      // setGwbSelection({
-      //   ...emptyState,
-      //   gebied: gebiedCode,
-      //   stadsDelen: allData.stadsDelen,
-      //   gebieden: allData.gebieden,
-      //   wijken: allData.wijken,
-      //   buurten: allData.buurten,
-      // });
       updateStadsDeel(gwbSelection.stadsDeel);
     }
 
@@ -255,109 +241,108 @@ const GWBSelector = ({ gwb, setGWB }) => {
     }
 
     loadInitialData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <GWBWrapper>
-      <Row>
-        {gwbSelection && gwbSelection?.stadsDelen?.length > 0 && (
-          <Column span={3}>
-            <FullWidth>
-              <Select
-                id="stadsdelen"
-                label="Stadsdeel"
-                value={gwbSelection.stadsDeel}
-                onChange={(event: FormEvent<HTMLSelectElement>) => {
-                  updateStadsDeel(event.currentTarget.value);
-                }}
-              >
-                <option value="deel">Amsterdam</option>
-                {gwbSelection.stadsDelen.map((stadsDeel) => {
-                  return (
-                    <option key={stadsDeel.code} value={stadsDeel.code}>
-                      {stadsDeel.display}
-                    </option>
-                  );
-                })}
-              </Select>
-            </FullWidth>
-          </Column>
-        )}
+    <Row>
+      {gwbSelection && gwbSelection?.stadsDelen?.length > 0 && (
+        <Column span={3}>
+          <FullWidth>
+            <Select
+              id="stadsdelen"
+              label="Stadsdeel"
+              value={gwbSelection.stadsDeel}
+              onChange={(event: FormEvent<HTMLSelectElement>) => {
+                updateStadsDeel(event.currentTarget.value);
+              }}
+            >
+              <option value="deel">Amsterdam</option>
+              {gwbSelection.stadsDelen.map((stadsDeel) => {
+                return (
+                  <option key={stadsDeel.code} value={stadsDeel.code}>
+                    {stadsDeel.display}
+                  </option>
+                );
+              })}
+            </Select>
+          </FullWidth>
+        </Column>
+      )}
 
-        {gwbSelection && gwbSelection?.gebieden?.length > 0 && (
-          <Column span={3}>
-            <FullWidth>
-              <Select
-                id="gebieden"
-                label="Gebieden"
-                value={gwbSelection.gebied}
-                onChange={(event: FormEvent<HTMLSelectElement>) => {
-                  updateGebied(event.currentTarget.value);
-                }}
-              >
-                <option value="gebied">Selecteer een gebied</option>
-                {gwbSelection.gebieden.map((gebied) => {
-                  return (
-                    <option key={gebied.code} value={gebied.code}>
-                      {gebied.display}
-                    </option>
-                  );
-                })}
-              </Select>
-            </FullWidth>
-          </Column>
-        )}
+      {gwbSelection && gwbSelection?.gebieden?.length > 0 && (
+        <Column span={3}>
+          <FullWidth>
+            <Select
+              id="gebieden"
+              label="Gebieden"
+              value={gwbSelection.gebied}
+              onChange={(event: FormEvent<HTMLSelectElement>) => {
+                updateGebied(event.currentTarget.value);
+              }}
+            >
+              <option value="gebied">Selecteer een gebied</option>
+              {gwbSelection.gebieden.map((gebied) => {
+                return (
+                  <option key={gebied.code} value={gebied.code}>
+                    {gebied.display}
+                  </option>
+                );
+              })}
+            </Select>
+          </FullWidth>
+        </Column>
+      )}
 
-        {gwbSelection && gwbSelection?.wijken?.length > 0 && (
-          <Column span={3}>
-            <FullWidth>
-              <Select
-                id="wijk"
-                label="Wijk"
-                value={gwbSelection.wijk}
-                onChange={(event: FormEvent<HTMLSelectElement>) => {
-                  updateWijk(event.currentTarget.value);
-                }}
-              >
-                <option value="wijk">Selecteer een wijk</option>
-                {gwbSelection.wijken.map((wijk) => {
-                  return (
-                    <option key={wijk.code} value={wijk.code}>
-                      {wijk.display}
-                    </option>
-                  );
-                })}
-              </Select>
-            </FullWidth>
-          </Column>
-        )}
+      {gwbSelection && gwbSelection?.wijken?.length > 0 && (
+        <Column span={3}>
+          <FullWidth>
+            <Select
+              id="wijk"
+              label="Wijk"
+              value={gwbSelection.wijk}
+              onChange={(event: FormEvent<HTMLSelectElement>) => {
+                updateWijk(event.currentTarget.value);
+              }}
+            >
+              <option value="wijk">Selecteer een wijk</option>
+              {gwbSelection.wijken.map((wijk) => {
+                return (
+                  <option key={wijk.code} value={wijk.code}>
+                    {wijk.display}
+                  </option>
+                );
+              })}
+            </Select>
+          </FullWidth>
+        </Column>
+      )}
 
-        {gwbSelection && gwbSelection?.buurten?.length > 0 && (
-          <Column span={3}>
-            <FullWidth>
-              <Select
-                id="buurt"
-                label="Buurt"
-                value={gwbSelection.buurt}
-                onChange={(event: FormEvent<HTMLSelectElement>) => {
-                  updateBuurt(event.currentTarget.value);
-                }}
-                disabled={gwbSelection.buurten.length < 1}
-              >
-                <option value="buurt">Selecteer een buurt</option>
-                {gwbSelection.buurten.map((buurt) => {
-                  return (
-                    <option key={buurt.vollcode} value={buurt.vollcode}>
-                      {buurt.display}
-                    </option>
-                  );
-                })}
-              </Select>
-            </FullWidth>
-          </Column>
-        )}
-      </Row>
-    </GWBWrapper>
+      {gwbSelection && gwbSelection?.buurten?.length > 0 && (
+        <Column span={3}>
+          <FullWidth>
+            <Select
+              id="buurt"
+              label="Buurt"
+              value={gwbSelection.buurt}
+              onChange={(event: FormEvent<HTMLSelectElement>) => {
+                updateBuurt(event.currentTarget.value);
+              }}
+              disabled={gwbSelection.buurten.length < 1}
+            >
+              <option value="buurt">Selecteer een buurt</option>
+              {gwbSelection.buurten.map((buurt) => {
+                return (
+                  <option key={buurt.vollcode} value={buurt.vollcode}>
+                    {buurt.display}
+                  </option>
+                );
+              })}
+            </Select>
+          </FullWidth>
+        </Column>
+      )}
+    </Row>
   );
 };
 
