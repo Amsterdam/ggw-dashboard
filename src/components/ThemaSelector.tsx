@@ -8,7 +8,7 @@ const SpacingDiv = styled("div")`
   padding-top: ${themeSpacing(3)};
 `;
 
-const ThemaSelector = () => {
+const ThemaSelector = ({ thema, setThema }) => {
   return (
     <Row>
       <Column span={3}>
@@ -16,14 +16,14 @@ const ThemaSelector = () => {
           <Select
             id="thema"
             label="Thema"
-            value={""}
+            value={thema}
             onChange={(event: FormEvent<HTMLSelectElement>) => {
-              console.log(event);
+              setThema(event.currentTarget.value);
             }}
           >
             {THEMAS &&
               THEMAS.map((t, i) => (
-                <option key={t} value={i}>
+                <option key={t} value={t}>
                   {t}
                 </option>
               ))}
