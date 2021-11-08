@@ -7,6 +7,7 @@ import "./App.scss";
 import Dashboard from "./components/layout/Dashboard";
 import GGWFooter from "./components/layout/GGWFooter";
 import GGWHeader from "./components/layout/GGWHeader";
+import { THEMAS } from "./services/thema";
 
 const OuterWrapper = styled("div")`
   background-color: ${themeColor("tint", "level3")};
@@ -18,17 +19,23 @@ const InnerWrapper = styled("div")`
 
 function App() {
   const [gwb, setGWB] = React.useState(null);
+  const [thema, setThema] = React.useState(THEMAS[0]);
 
   return (
     <OuterWrapper>
       <Row>
         <Column span={12}>
           <InnerWrapper>
-            <GGWHeader gwb={gwb} setGwb={setGWB} />
+            <GGWHeader
+              gwb={gwb}
+              setGwb={setGWB}
+              thema={thema}
+              setThema={setThema}
+            />
             <Router>
               <Switch>
                 <Route path="/">
-                  <Dashboard gwb={gwb} />
+                  <Dashboard gwb={gwb} thema={thema} />
                 </Route>
               </Switch>
             </Router>

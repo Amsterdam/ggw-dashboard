@@ -22,7 +22,7 @@ const MenuItemWrapper = styled("div")`
   padding-bottom: ${themeSpacing(5)};
 `;
 
-const GGWHeader = ({ gwb, setGwb }) => {
+const GGWHeader = ({ gwb, setGwb, thema, setThema }) => {
   return (
     <Header
       tall
@@ -35,7 +35,7 @@ const GGWHeader = ({ gwb, setGwb }) => {
           <MenuToggle open>
             <MenuItemWrapper>
               <GWBSelector gwb={gwb} setGWB={setGwb} />
-              <ThemaSelector />
+              <ThemaSelector thema={thema} setThema={setThema} />
             </MenuItemWrapper>
           </MenuToggle>
         </WideMenu>
