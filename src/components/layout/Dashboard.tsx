@@ -21,13 +21,10 @@ const Dashboard = ({ gwb }) => {
     <DashboardDiv>
       <Row>
         <Column span={4}>
-          {/* <GWBSelector gwb={gwb} setGWB={setGWB} /> */}
+          <></>
         </Column>
         <Column span={4}>
           <GWBMap gwb={gwb} />
-        </Column>
-        <Column span={4}>
-          <ThemaSelector />
         </Column>
       </Row>
       <Row>
