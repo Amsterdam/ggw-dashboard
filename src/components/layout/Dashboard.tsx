@@ -3,7 +3,6 @@ import { Column, Row, themeColor, themeSpacing } from "@amsterdam/asc-ui";
 import GebiedInHetKort from "../../themas/GebiedInHetKort";
 import GWBMap from "../GWBMap";
 import ColorLegend from "../ColorLegend";
-import ThemaSelector from "../ThemaSelector";
 
 const StyledDiv = styled("div")`
   background-color: ${themeColor("tint", "level2")};
