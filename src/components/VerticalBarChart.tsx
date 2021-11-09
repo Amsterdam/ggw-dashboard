@@ -32,7 +32,7 @@ const VerticalBarChart = ({ title, gwb, config }) => {
         (d, i) =>
           ({
             key: d.jaar,
-            value: d.waarde,
+            value: d.waarde ? d.waarde : "Geen gegevens",
             color: colors[i],
             i,
             gemiddelde: stdevs.find((sd) => sd.jaar === d.jaar).gemiddelde,

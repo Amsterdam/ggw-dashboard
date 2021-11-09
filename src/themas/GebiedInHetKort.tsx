@@ -14,6 +14,7 @@ import gemmInkomen from "../static/links/gemm_besteedbaar_inkomen.json";
 import vandalismeSlachtoffers from "../static/links/vandalisme_slachtoffers.json";
 
 const GebiedInHetKort = ({ gwb }) => {
+  console.log("Thema gwb: ", gwb);
   return (
     <>
       <Row>

@@ -212,7 +212,8 @@ export async function getGwb(code) {
  */
 export async function getCity() {
   return enhanceGWB({
-    vollcode: "STAD",
+    code: "STAD",
+    naam: "Amsterdam",
   });
 }
 
@@ -234,9 +235,9 @@ export async function getAllStadsdelen() {
  * @returns {Promise<*>}
  */
 export async function getAllGebieden() {
-  const url = getUrl("/ggpgebieden/");
+  const url = getUrl("/ggwgebieden/");
   const getData = async () =>
-    enhancedGWBList(await readPaginatedData(url, {}, "_embedded.ggpgebieden"));
+    enhancedGWBList(await readPaginatedData(url, {}, "_embedded.ggwgebieden"));
   return cacheResponse("allGebieden", getData);
 }
 
