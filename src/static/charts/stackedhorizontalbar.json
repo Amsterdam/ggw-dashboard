@@ -1,12 +1,24 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 250,
-  "height": 120,
+  "width": 400,
+  "height": 150,
+  "config": {
+    "axis": {
+      "labelFontSize": 12,
+      "labelLimit": 100
+    },
+    "legend": {
+      "labelFontSize": 12
+    }
+  },
   "data": { "values": [] },
   "encoding": {
     "x": {
       "field": "value",
-      "title": null
+      "title": null,
+      "scale": {
+        "domain": [0, 100]
+      }
     },
     "y": {
       "field": "gebied",
@@ -34,7 +46,8 @@
     {
       "mark": {
         "type": "text",
-        "baseline": "middle"
+        "baseline": "middle",
+        "fontSize": 12
       },
       "encoding": {
         "text": { "field": "value", "type": "nominal" },
