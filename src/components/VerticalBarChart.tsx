@@ -11,7 +11,7 @@ const vegaEmbedOptions = {
   actions: false,
 };
 
-type MapResult = { key: Number; value: String; color: String };
+type MapResult = { key: number; value: string; color: string };
 
 const VerticalBarChart = ({ title, gwb, config }) => {
   const chartRef = useRef<HTMLDivElement>(null);
