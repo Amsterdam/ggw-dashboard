@@ -36,6 +36,7 @@ const VerticalBarChart = ({ title, gwb, config }) => {
             color: colors[i],
             i,
             gemiddelde: stdevs.find((sd) => sd.jaar === d.jaar).gemiddelde,
+            last: chartdata[0].cijfers.length === i + 1        
           } as MapResult)
       ) as MapResult[];
 
@@ -57,6 +58,7 @@ const VerticalBarChart = ({ title, gwb, config }) => {
     }
 
     updateData();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gwb]);
 
   return (
