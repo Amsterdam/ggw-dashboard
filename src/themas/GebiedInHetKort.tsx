@@ -13,7 +13,7 @@ import sociaalEconomisch from "../static/links/sociaaleconomisch.json";
 import migratieAchtergrond from "../static/links/migratieachtergrond.json";
 import gemmInkomen from "../static/links/gemm_besteedbaar_inkomen.json";
 import vandalismeSlachtoffers from "../static/links/vandalisme_slachtoffers.json";
-
+import wozWaarde from "../static/links/gemm_woz_waarde.json";
 const ContainerDiv = styled("div")`
   margin-top: ${themeSpacing(3)};
   margin-bottom: ${themeSpacing(3)};
@@ -141,7 +141,12 @@ const GebiedInHetKort = ({ gwb }) => {
           ></VerticalBarChart>
         </Column>
         <Column span={6}>
-          <p>Leeg</p>
+        <VerticalBarChart
+            title="Gemiddelde WOZ-waarde"
+            config={wozWaarde}
+            gwb={gwb}
+          ></VerticalBarChart>
+
         </Column>
       </Row>
     </ContainerDiv>
