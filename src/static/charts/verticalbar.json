@@ -73,6 +73,9 @@
         "y": {
           "field": "value",
           "type": "quantitative"
+        },
+        "color": {
+          "value": "#FFFFFF"
         }
       },
       "mark": {

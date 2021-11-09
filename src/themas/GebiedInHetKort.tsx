@@ -14,6 +14,7 @@ import migratieAchtergrond from "../static/links/migratieachtergrond.json";
 import gemmInkomen from "../static/links/gemm_besteedbaar_inkomen.json";
 import vandalismeSlachtoffers from "../static/links/vandalisme_slachtoffers.json";
 import wozWaarde from "../static/links/gemm_woz_waarde.json";
+
 const ContainerDiv = styled("div")`
   margin-top: ${themeSpacing(3)};
   margin-bottom: ${themeSpacing(3)};
