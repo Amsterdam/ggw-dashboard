@@ -17,7 +17,7 @@
     {
       "mark": {
         "type": "bar",
-        "color": "#95aafc"
+        "color": { "expr": "datum.color ? datum.color : '#eeeeee' " }
       },
       "encoding": {
         "y": {
