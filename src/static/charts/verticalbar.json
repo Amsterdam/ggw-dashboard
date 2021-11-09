@@ -16,7 +16,8 @@
   "layer": [
     {
       "mark": {
-        "type": "bar"
+        "type": "bar",
+        "color": "#95aafc"
       },
       "encoding": {
         "y": {
@@ -38,14 +39,6 @@
             "ticks": false,
             "title": null
           }
-        },
-        "color": {
-          "field": "i",
-          "type": "nominal",
-          "scale": {
-            "range": ["red", "blue", "green"]
-          },
-          "legend": null
         }
       }
     },
@@ -67,7 +60,36 @@
     },
     {
       "encoding": {
-        "text": { "field": "value", "type": "quantitative" },
+        "text": {
+          "field": "value",
+          "type": "quantitative",
+
+          "formatType": "number"
+        },
+        "x": {
+          "field": "key",
+          "type": "ordinal"
+        },
+        "y": {
+          "field": "value",
+          "type": "quantitative"
+        }
+      },
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "dy": 10,
+        "opacity": { "expr": "datum.value <= 999 ? 1 : 0 " }
+      }
+    },
+    {
+      "encoding": {
+        "text": {
+          "field": "value",
+          "type": "quantitative",
+          "format": ".3s",
+          "formatType": "number"
+        },
         "x": {
           "field": "key",
           "type": "ordinal"
@@ -83,12 +105,18 @@
       "mark": {
         "type": "text",
         "align": "center",
-        "dy": 10
+        "dy": 10,
+        "opacity": { "expr": "datum.value > 999 ? 1 : 0 " }
       }
     },
     {
       "encoding": {
-        "text": { "field": "gemiddelde", "type": "quantitative" },
+        "text": {
+          "field": "gemiddelde",
+          "type": "quantitative",
+          "format": ",.2r",
+          "formatType": "number"
+        },
         "x": {
           "field": "key",
           "type": "ordinal"
