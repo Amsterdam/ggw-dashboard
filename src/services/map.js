@@ -61,7 +61,7 @@ export function amsMap(el) {
  * This tyle layer can be used to show a given shape on the map of Amsterdam
  * @returns {*}
  */
-function tileLayer(map) {
+function tileLayer() {
   return L.tileLayer(
     "https://t1.data.amsterdam.nl/topo_rd_zw/{z}/{x}/{y}.png",
     {

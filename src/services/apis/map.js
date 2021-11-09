@@ -21,7 +21,7 @@ export const GEBIED_TYPE = {
  * @param endpoint
  * @returns {string}
  */
-function getUrl(endpoint) {
+function getUrl() {
   return "https://map.data.amsterdam.nl/maps/gebieden";
 }
 
