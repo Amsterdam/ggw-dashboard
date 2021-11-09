@@ -1,26 +1,26 @@
-import { useEffect, useRef, useState } from "react";
-import vegaEmbed from "vega-embed";
-import cloneDeep from "lodash/cloneDeep";
-import { Spinner } from "@amsterdam/asc-ui";
+import { useEffect, useRef, useState } from 'react';
+import vegaEmbed from 'vega-embed';
+import cloneDeep from 'lodash/cloneDeep';
+import { Spinner } from '@amsterdam/asc-ui';
 
-import util from "../services/util";
-import { getOneStd } from "../services/apis/bbga";
-import { getColor } from "../services/colorcoding";
+import util from '../services/util';
+import { getOneStd } from '../services/apis/bbga';
+import { getColor } from '../services/colorcoding';
 
-import { getColorsUsingStaticDefinition } from "../services/colorcoding";
-import vegaSpec from "../static/charts/verticalbar.json";
+import { getColorsUsingStaticDefinition } from '../services/colorcoding';
+import vegaSpec from '../static/charts/verticalbar.json';
 
 const vegaEmbedOptions = {
   actions: false,
 };
 
-type MapResult = { key: number; value: string; color: string, gemiddelde: number  };
+type MapResult = { key: number; value: string; color: string; gemiddelde: number };
 
 const VerticalBarChart = ({ title, gwb, config }) => {
   const chartRef = useRef<HTMLDivElement>(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  util.setVegaLocale()
+  util.setVegaLocale();
 
   async function updateData() {
     setIsLoading(true);
@@ -37,15 +37,16 @@ const VerticalBarChart = ({ title, gwb, config }) => {
         (d, i) =>
           ({
             key: d.jaar,
-            value: d.waarde ? d.waarde : "Geen gegevens",
-            color: getColor({indicatorDefinitieId: variabele, kleurenpalet: 1}, d.waarde, d.jaar, stdevs).color,
-            textColor: getColor({indicatorDefinitieId: variabele, kleurenpalet: 1}, d.waarde, d.jaar, stdevs).textColor,
+            value: d.waarde ? d.waarde : 'Geen gegevens',
+            color: getColor({ indicatorDefinitieId: variabele, kleurenpalet: 1 }, d.waarde, d.jaar, stdevs).color,
+            textColor: getColor({ indicatorDefinitieId: variabele, kleurenpalet: 1 }, d.waarde, d.jaar, stdevs)
+              .textColor,
             gemiddelde: stdevs.find((sd) => sd.jaar === d.jaar).gemiddelde,
             last: chartdata[0].cijfers.length === i + 1,
-          } as MapResult)
+          } as MapResult),
       ) as MapResult[];
 
-    vegaSpec["legends"] = [{}];
+    vegaSpec['legends'] = [{}];
 
     if (chartBase.layer[0].encoding.color) {
       chartBase.layer[0].encoding.color.scale.range = colors;
