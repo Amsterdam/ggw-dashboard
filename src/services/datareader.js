@@ -18,7 +18,7 @@ export const HTTPStatus = {
  * @returns {Promise<any>}
  */
 function sleep(ms) {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     setTimeout(resolve, ms);
   });
 }
@@ -65,6 +65,7 @@ async function fetchData(url, options, nTries = 5) {
  */
 export async function readPaginatedData(
   url,
+  // eslint-disable-next-line no-unused-vars
   options = {},
   dataSelector = "results"
 ) {
