@@ -5,7 +5,7 @@ import cloneDeep from "lodash/cloneDeep";
 import util from "../services/util";
 import { getOneStd } from "../services/apis/bbga";
 import { getColorsUsingStaticDefinition } from "../services/colorcoding";
-import vegaSpec from "../static/charts/verticalbar.json";
+import vegaSpec from "../static/charts/verticalbar";
 
 const vegaEmbedOptions = {
   actions: false,
