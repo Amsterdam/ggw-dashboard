@@ -135,7 +135,11 @@ const GebiedInHetKort = ({ gwb }) => {
           ></VerticalBarChart>
         </Column>
         <Column span={6}>
-          <p>Leeg</p>
+          <VerticalBarChart
+            title="Gemiddelde WOZ-waarde"
+            config={wozWaarde}
+            gwb={gwb}
+          ></VerticalBarChart>
         </Column>
       </Row>
     </>
