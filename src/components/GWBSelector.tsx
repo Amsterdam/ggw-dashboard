@@ -125,6 +125,8 @@ const GWBSelector = ({ gwb, setGWB }) => {
         stadsDeel: deel,
         stadsDelen: allData.stadsDelen,
         gebieden: allData.gebieden,
+        wijken: allData.wijken,
+        buurten: allData.buurten,
       });
     }
 
@@ -237,7 +239,16 @@ const GWBSelector = ({ gwb, setGWB }) => {
       const buurten = results[3];
 
       setAllData({ wijken, buurten, gebieden, stadsDelen });
-      setGwbSelection({ ...emptyState, wijken, buurten, gebieden, stadsDelen });
+      setGwbSelection({
+        ...emptyState,
+        wijken,
+        buurten,
+        gebieden,
+        stadsDelen,
+      });
+
+      const allCity = await util.getCity();
+      setGWB(allCity);
     }
 
     loadInitialData();
