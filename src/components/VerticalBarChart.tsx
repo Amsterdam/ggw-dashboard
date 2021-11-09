@@ -58,6 +58,7 @@ const VerticalBarChart = ({ title, gwb, config }) => {
     }
 
     updateData();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gwb]);
 
   return (
