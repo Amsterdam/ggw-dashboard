@@ -9,6 +9,8 @@
  * Configurations provide for a data-driven user interface
  */
 
+ import { vega } from "vega-embed";
+
 import {
   getAllStadsdelen,
   getAllGebieden,
@@ -249,6 +251,16 @@ const getLegendLabels = (configCijfers) => {
   return Array.from(legendLabels);
 };
 
+const setVegaLocale = () => {
+  vega.formatLocale({
+    "decimal": ",",
+    "thousands": ".",
+    "grouping": [3],
+    "currency": ["", "\u00a0€"]
+  });
+}
+
+
 /**
  * Util exports het methods in an object. Usage will therefore be like util.getCity instead of import {getCity} from util
  * This has been done for reasons of simplicity only
@@ -280,6 +292,7 @@ const util = {
   getWijken,
   getYearCijfers,
   getStd,
+  setVegaLocale,
 };
 
 export default util;
