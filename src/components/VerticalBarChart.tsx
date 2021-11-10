@@ -46,7 +46,6 @@ const VerticalBarChart = ({ title, gwb, config }) => {
       ) as MapResult[];
 
     vegaSpec["legends"] = [{}];
-    console.log('VerticalBarChart', chartBase);
 
     if (chartBase.layer[0].encoding.color) {
       chartBase.layer[0].encoding.color.scale.range = colors;
