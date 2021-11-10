@@ -5,10 +5,16 @@
   "config": {
     "axis": {
       "labelFontSize": 12,
-      "labelLimit": 100
+      "labelLimit": 100,
+      "labelFont": "Avenir Next"
     },
     "legend": {
-      "labelFontSize": 12
+      "labelFontSize": 12,
+      "columns": 4,
+      "labelFont": "Avenir Next"
+    },
+    "title": {
+      "font": "Avenir Next"
     }
   },
   "data": { "values": [] },
@@ -34,11 +40,12 @@
         "y": { "field": "gebied", "title": "Gebied" },
         "color": {
           "field": "key",
-          "title": "Legenda",
+          "title": "",
           "legend": {
-            "orient": "top-left",
-            "direction": "horizontal",
-            "offset": -40
+            "orient": "none",
+            "legendX": -70,
+            "legendY": -40,
+            "direction": "horizontal"
           }
         }
       }

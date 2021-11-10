@@ -9,6 +9,12 @@ const MapDiv = styled("div")`
   width: 100%;
 `;
 
+const MapWrapper = styled("div")`
+  position: relative;
+  width: 100%;
+  height: 200px;
+`;
+
 const GWBMap = ({ gwb }) => {
   const mapRef = React.useRef<HTMLDivElement>(null);
   const map = React.useRef<{
@@ -44,14 +50,14 @@ const GWBMap = ({ gwb }) => {
 
   return (
     <MapDiv>
-      <h2 style={{ marginTop: 0 }}>Gebied {gwb?.naam}</h2>
-      <div style={{ position: "relative", width: "100%", height: "200px" }}>
+      <h2>Gebied {gwb?.naam}</h2>
+      <MapWrapper>
         <div
           className="map"
           style={{ height: "100%", width: "100%" }}
           ref={mapRef}
         ></div>
-      </div>
+      </MapWrapper>
     </MapDiv>
   );
 };

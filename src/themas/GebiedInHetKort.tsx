@@ -1,8 +1,6 @@
-import styled from "styled-components";
-import { Column, Row, themeSpacing } from "@amsterdam/asc-ui";
+import { Column, Row } from "@amsterdam/asc-ui";
 
 import HorizontalBarChart from "../components/HorizontalBarChart";
-import InAantallen from "../components/InAantallen";
 import StackedHorizontalBarChart from "../components/StackedHorizontalBarChart";
 import VerticalBarChart from "../components/VerticalBarChart";
 import SocialeKlasseStackedBar from "../components/charts/SocialeKlasseStackedBar";
@@ -14,25 +12,15 @@ import migratieAchtergrond from "../static/links/migratieachtergrond.json";
 import gemmInkomen from "../static/links/gemm_besteedbaar_inkomen.json";
 import vandalismeSlachtoffers from "../static/links/vandalisme_slachtoffers.json";
 import wozWaarde from "../static/links/gemm_woz_waarde.json";
-
-const ContainerDiv = styled("div")`
-  margin-top: ${themeSpacing(3)};
-  margin-bottom: ${themeSpacing(3)};
-  width: 100%;
-`;
+import ThemeHeader from "../components/ThemeHeader";
+import Car from "../components/Icons/Car";
 
 const GebiedInHetKort = ({ gwb }) => {
   console.log("Thema gwb: ", gwb);
   return (
-    <ContainerDiv>
+    <>
+      <ThemeHeader gwb={gwb} themeTitle="Gebied in het kort" Icon={Car} />
       <Row>
-        <Column span={6}>
-          <p>Pano</p>
-        </Column>
-        <Column span={6}>
-          {" "}
-          <InAantallen></InAantallen>
-        </Column>
         <Column span={12}>
           <h2>Samenstelling woningvoorraad en bevolking van {gwb?.naam}</h2>
         </Column>
@@ -143,15 +131,14 @@ const GebiedInHetKort = ({ gwb }) => {
           ></VerticalBarChart>
         </Column>
         <Column span={6}>
-        <VerticalBarChart
+          <VerticalBarChart
             title="Gemiddelde WOZ-waarde"
             config={wozWaarde}
             gwb={gwb}
           ></VerticalBarChart>
-
         </Column>
       </Row>
-    </ContainerDiv>
+    </>
   );
 };
 
