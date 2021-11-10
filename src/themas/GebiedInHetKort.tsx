@@ -1,7 +1,6 @@
 import { Column, Row } from "@amsterdam/asc-ui";
 
 import HorizontalBarChart from "../components/HorizontalBarChart";
-import InAantallen from "../components/InAantallen";
 import StackedHorizontalBarChart from "../components/StackedHorizontalBarChart";
 import VerticalBarChart from "../components/VerticalBarChart";
 import SocialeKlasseStackedBar from "../components/charts/SocialeKlasseStackedBar";
@@ -12,19 +11,16 @@ import sociaalEconomisch from "../static/links/sociaaleconomisch.json";
 import migratieAchtergrond from "../static/links/migratieachtergrond.json";
 import gemmInkomen from "../static/links/gemm_besteedbaar_inkomen.json";
 import vandalismeSlachtoffers from "../static/links/vandalisme_slachtoffers.json";
+import wozWaarde from "../static/links/gemm_woz_waarde.json";
+import ThemeHeader from "../components/ThemeHeader";
+import Car from "../components/Icons/Car";
 
 const GebiedInHetKort = ({ gwb }) => {
   console.log("Thema gwb: ", gwb);
   return (
     <>
+      <ThemeHeader gwb={gwb} themeTitle="Gebied in het kort" Icon={Car} />
       <Row>
-        <Column span={6}>
-          <p>Pano</p>
-        </Column>
-        <Column span={6}>
-          {" "}
-          <InAantallen></InAantallen>
-        </Column>
         <Column span={12}>
           <h2>Samenstelling woningvoorraad en bevolking van {gwb?.naam}</h2>
         </Column>
