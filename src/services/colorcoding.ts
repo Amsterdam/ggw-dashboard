@@ -167,7 +167,19 @@ function getCategory(zScore: number)
  * @returns {{color, textColor: *|textColSDor}}
  */
 
-export function getColor(meta: any, value: number, year: number, stdValue: any) 
+ interface StdType {
+  indicatorDefinitieId: string
+  gemiddelde: number
+  jaar: number
+  standaardafwijking: number
+}
+
+interface MetaType {
+  indicatorDefinitieId: string
+  kleurenpalet: number
+}
+
+export function getColor(meta: MetaType, value: number, year: number, stdValue: StdType[]) 
 : { color: string, textColor?: string }
 {
   if (value !== null) {
