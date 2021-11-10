@@ -102,7 +102,7 @@ export async function getOneStd(variabele) {
   const sdvars = await getStd();
   return sdvars
     .filter((sd) => sd.indicatorDefinitieId === variabele.toUpperCase())
-    .map((sd) => ({ jaar: sd.jaar, gemiddelde: sd.gemiddelde }));
+    .map((sd) => ({ ...sd, jaar: sd.jaar, gemiddelde: sd.gemiddelde }));
 }
 
 /**
