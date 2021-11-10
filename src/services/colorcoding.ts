@@ -126,7 +126,8 @@ export const CATEGORY_COLORS = [
  * Gets the category from CATEGORY_COLORS for the given z-score
  * @param zScore
  */
-function getCategory(zScore: number) {
+function getCategory(zScore: number) 
+  : { color: string, textColor?: string } {
   const average = 0.5;
   const categories = [
     {
@@ -167,7 +168,7 @@ function getCategory(zScore: number) {
  */
 
 export function getColor(meta: any, value: number, year: number, stdValue: any) 
-: { color: string, textColor: string }
+: { color: string, textColor?: string }
 {
   if (value !== null) {
     const variable = meta.indicatorDefinitieId;
