@@ -126,7 +126,7 @@ export const CATEGORY_COLORS = [
  * Gets the category from CATEGORY_COLORS for the given z-score
  * @param zScore
  */
-function getCategory(zScore) {
+function getCategory(zScore: number) {
   const average = 0.5;
   const categories = [
     {
@@ -163,9 +163,12 @@ function getCategory(zScore) {
  * @param meta  The variable, denoted by it's meta information
  * @param value The value for the variable
  * @param year  The year for which the value is valid
- * @returns {{color, textColor: *|textColor}}
+ * @returns {{color, textColor: *|textColSDor}}
  */
-export function getColor(meta, value, year, stdValue) {
+
+export function getColor(meta: any, value: number, year: number, stdValue: any) 
+: { color: string, textColor: string }
+{
   if (value !== null) {
     const variable = meta.indicatorDefinitieId;
     const varStd = stdValue
@@ -191,9 +194,14 @@ export function getColor(meta, value, year, stdValue) {
       };
     }
   }
+
+  return {
+    color: "",
+    textColor: "",
+  };
 }
 
-export function getRankingColor(ranking, maxRanking) {
+export function getRankingColor(ranking: number, maxRanking: number) {
   const index = Math.round(
     ((ABSOLUTE_COLORS.length - 1) / maxRanking) * ranking
   );
@@ -204,7 +212,7 @@ export function getRankingColor(ranking, maxRanking) {
  * Given a config (a list of indicatorId's) return the static color list found in kleurcodetabel.json
  *
  */
-export function getColorsUsingStaticDefinition(config) {
+export function getColorsUsingStaticDefinition(config: any) {
   const indexMax = Math.min(config?.length, 6); // The maximum number of distict items is 6
   const indexMin = Math.max(1, indexMax); // The minimum number of distinct items is 1.
 
