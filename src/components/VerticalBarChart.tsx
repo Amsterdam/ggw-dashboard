@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import vegaEmbed, { vega } from "vega-embed";
+import vegaEmbed from "vega-embed";
 import cloneDeep from "lodash/cloneDeep";
 import { Spinner } from "@amsterdam/asc-ui";
 
@@ -19,6 +19,8 @@ type MapResult = { key: number; value: string; color: string, gemiddelde: number
 const VerticalBarChart = ({ title, gwb, config }) => {
   const chartRef = useRef<HTMLDivElement>(null);
   const [isLoading, setIsLoading] = useState(true);
+
+  util.setVegaLocale()
 
   async function updateData() {
     setIsLoading(true);
