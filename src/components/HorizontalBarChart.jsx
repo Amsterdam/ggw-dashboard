@@ -13,6 +13,7 @@ const vegaEmbedOptions = {
   renderer: "svg",
 };
 
+// eslint-disable-next-line react/prop-types
 const HorizontalBarChart = ({ title, icon, config, gwb }) => {
   const chartRef = React.useRef();
 
@@ -42,8 +43,8 @@ const HorizontalBarChart = ({ title, icon, config, gwb }) => {
     if (!gwb) {
       return;
     }
-
     updateData();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gwb]);
 
   return (

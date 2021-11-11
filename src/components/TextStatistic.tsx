@@ -37,7 +37,8 @@ const TextStatistic = ({ title, gwb, indicatorId }) => {
     }
 
     updateData();
-  }, [gwb]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+}, [gwb]);
 
   return (
     <Wrapper>

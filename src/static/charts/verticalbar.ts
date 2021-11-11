@@ -1,4 +1,4 @@
-{
+export default {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "",
   "height": 125,
@@ -36,6 +36,7 @@
         "y": {
           "field": "value",
           "type": "quantitative",
+          
           "axis": {
             "title": null,
             "tickCount": 5,
