@@ -1,6 +1,7 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import vegaEmbed from "vega-embed";
 import cloneDeep from "lodash/cloneDeep";
+import { Spinner } from "@amsterdam/asc-ui";
 
 import util from "../services/util";
 import { getOneStd } from "../services/apis/bbga";
@@ -15,16 +16,16 @@ type MapResult = { key: number; value: string; color: string };
 
 const VerticalBarChart = ({ title, gwb, config }) => {
   const chartRef = useRef<HTMLDivElement>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   async function updateData() {
+    setIsLoading(true);
     const colors = getColorsUsingStaticDefinition(config);
     const chartdata = await util.getConfigCijfers(gwb, config);
     const chartBase = cloneDeep(vegaSpec);
     const variabele = chartdata[0].meta && chartdata[0].meta.variabele;
 
     const stdevs = await getOneStd(variabele);
-
-    // const tooltip = chartdata[0].meta && chartdata[0].meta.bron;
 
     chartBase.data.values = (chartdata[0].cijfers || [])
       .filter((d) => d.waarde)
@@ -36,18 +37,18 @@ const VerticalBarChart = ({ title, gwb, config }) => {
             color: colors[i],
             i,
             gemiddelde: stdevs.find((sd) => sd.jaar === d.jaar).gemiddelde,
-            last: chartdata[0].cijfers.length === i + 1        
+            last: chartdata[0].cijfers.length === i + 1,
           } as MapResult)
       ) as MapResult[];
 
     vegaSpec["legends"] = [{}];
 
-    // vegaSpec.legends[0].values = util.getLegendLabels(chartdata);
     if (chartBase.layer[0].encoding.color) {
       chartBase.layer[0].encoding.color.scale.range = colors;
     }
 
     if (chartRef.current) {
+      setIsLoading(false);
       vegaEmbed(chartRef.current, chartBase, vegaEmbedOptions);
     }
   }
@@ -58,13 +59,14 @@ const VerticalBarChart = ({ title, gwb, config }) => {
     }
 
     updateData();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gwb]);
 
   return (
     <div>
       <h5 className="text-center">{title}</h5>
       <div className="chart-container">
+        {isLoading ? <Spinner /> : null}
         <div ref={chartRef}></div>
       </div>
     </div>

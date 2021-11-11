@@ -1,6 +1,8 @@
 import { CATEGORY_COLORS, COLOR } from "../services/colorcoding";
 import "./ColorLegend.scss";
 
+// TOOD: Remove component.
+
 const ColorLegend = () => {
   const getBulletStyle = (entry) => {
     const style = {
