@@ -5,6 +5,8 @@ import { Spinner } from "@amsterdam/asc-ui";
 
 import util from "../services/util";
 import { getOneStd } from "../services/apis/bbga";
+import { getColor } from "../services/colorcoding";
+
 import { getColorsUsingStaticDefinition } from "../services/colorcoding";
 import vegaSpec from "../static/charts/verticalbar";
 
@@ -12,11 +14,13 @@ const vegaEmbedOptions = {
   actions: false,
 };
 
-type MapResult = { key: number; value: string; color: string };
+type MapResult = { key: number; value: string; color: string, gemiddelde: number  };
 
 const VerticalBarChart = ({ title, gwb, config }) => {
   const chartRef = useRef<HTMLDivElement>(null);
   const [isLoading, setIsLoading] = useState(true);
+
+  util.setVegaLocale()
 
   async function updateData() {
     setIsLoading(true);
@@ -34,8 +38,8 @@ const VerticalBarChart = ({ title, gwb, config }) => {
           ({
             key: d.jaar,
             value: d.waarde ? d.waarde : "Geen gegevens",
-            color: colors[i],
-            i,
+            color: getColor({indicatorDefinitieId: variabele, kleurenpalet: 1}, d.waarde, d.jaar, stdevs).color,
+            textColor: getColor({indicatorDefinitieId: variabele, kleurenpalet: 1}, d.waarde, d.jaar, stdevs).textColor,
             gemiddelde: stdevs.find((sd) => sd.jaar === d.jaar).gemiddelde,
             last: chartdata[0].cijfers.length === i + 1,
           } as MapResult)

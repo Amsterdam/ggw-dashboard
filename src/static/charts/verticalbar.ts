@@ -93,7 +93,7 @@ export default {
         "align": "center",
         "dy": 10,
         "opacity": { "expr": "datum.value <= 999 ? 1 : 0 " },
-        "color": { "expr": "datum.color ? '#ffffff' : '#000000'" }
+        "color": { "expr": "datum.textColor ? datum.textColor : '#000000'" }
       }
     },
     {
@@ -118,7 +118,7 @@ export default {
         "align": "center",
         "dy": 10,
         "opacity": { "expr": "datum.value > 999 ? 1 : 0 " },
-        "color": { "expr": "datum.color ? '#ffffff' : '#000000'" }
+        "color": { "expr": "datum.textColor ? datum.textColor : '#000000'" }
       }
     },
     {
