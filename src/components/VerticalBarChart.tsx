@@ -6,13 +6,13 @@ import { Spinner } from "@amsterdam/asc-ui";
 import util from "../services/util";
 import { getOneStd } from "../services/apis/bbga";
 import { getColorsUsingStaticDefinition } from "../services/colorcoding";
-import vegaSpec from "../static/charts/verticalbar.json";
+import vegaSpec from "../static/charts/verticalbar";
 
 const vegaEmbedOptions = {
   actions: false,
 };
 
-type MapResult = { key: Number; value: String; color: String };
+type MapResult = { key: number; value: string; color: string };
 
 const VerticalBarChart = ({ title, gwb, config }) => {
   const chartRef = useRef<HTMLDivElement>(null);
