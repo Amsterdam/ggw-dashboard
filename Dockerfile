@@ -33,7 +33,7 @@ RUN npm run build
 
 # Deploy
 FROM nginx:stable-alpine
-COPY --from=builder /app/dist/. /var/www/html/
+COPY --from=builder /app/build/. /var/www/html/
 
 COPY default.conf /etc/nginx/conf.d/
 
