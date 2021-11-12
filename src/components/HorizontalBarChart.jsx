@@ -17,6 +17,8 @@ const vegaEmbedOptions = {
 const HorizontalBarChart = ({ title, icon, config, gwb }) => {
   const chartRef = React.useRef();
 
+  util.setVegaLocale()
+
   async function updateData() {
     const chartdata = await util.getLatestConfigCijfers(gwb, config);
     const chartBase = cloneDeep(vegaSpec);
