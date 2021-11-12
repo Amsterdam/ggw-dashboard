@@ -1,4 +1,5 @@
-FROM node:12.20.0-stretch  AS builder
+FROM node:10.15-stretch AS builder
+
 LABEL maintainer="datapunt@amsterdam.nl"
 
 EXPOSE 80
@@ -35,3 +36,4 @@ FROM nginx:stable-alpine
 COPY --from=builder /app/dist/. /var/www/html/
 
 COPY default.conf /etc/nginx/conf.d/
+
