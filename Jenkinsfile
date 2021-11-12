@@ -17,14 +17,14 @@ node {
     stage("Checkout") {
         checkout scm
     }
-    stage('Test') {
-        tryStep "test", {
-            sh "docker-compose build && " +
-               "docker-compose run -u root --rm test-unit"
-        }, {
-            sh "docker-compose down"
-        }
-    }
+    // stage('Test') {
+    //     tryStep "test", {
+    //         sh "docker-compose build && " +
+    //            "docker-compose run -u root --rm test-unit"
+    //     }, {
+    //         sh "docker-compose down"
+    //     }
+    // }
     stage("Build image") {
         tryStep "build", {
             def image = docker.build("docker-registry.secure.amsterdam.nl/ois/ggw:${env.BUILD_NUMBER}",
