@@ -1,4 +1,5 @@
 import cloneDeep from "lodash/cloneDeep";
+import util from "../../services/util";
 
 import StackedHorizontalBarChart from "../StackedHorizontalBarChart";
 import jeugd from "../../static/links/jeugd.json";
@@ -9,6 +10,8 @@ import { getColorsUsingStaticDefinition } from "../../services/colorcoding";
 const LeeftijdJeugdStackedBar = ({ gwb }) => {
   const customSpec = cloneDeep(stackedVegaSpec);
   const colors = getColorsUsingStaticDefinition(jeugd);
+
+  util.setVegaLocale()
 
   customSpec.layer[0].encoding.color["field"] = "i";
   customSpec.layer[0].encoding.color.legend["labelExpr"] =
