@@ -18,6 +18,7 @@ const getParsedItemId = (item: { id: string }) => {
   return item?.id?.split(".")[0] + "";
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const GWBSelector = ({ gwb, setGWB }) => {
   const emptyState: {
     stadsDelen: GwbItem[];
