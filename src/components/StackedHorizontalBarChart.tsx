@@ -96,7 +96,7 @@ const StackedHorizontalBarChart = ({
 
     chartBase.data.values = chartdata.concat(cityAverage);
 
-    chartBase.data.values = chartBase.data.values.map((d, i) => ({
+    chartBase.data.values = chartBase.data.values.map((d) => ({
       ...d,
       position: calcPosition(d, chartBase.data.values),
     }));
