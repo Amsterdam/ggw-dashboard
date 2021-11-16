@@ -52,23 +52,14 @@ const getVegaChartData = async (gwb, config, scaleToHundred) => {
       i,
       key: d.label,
       value: scaledValue ? scaledValue : "Geen gegevens",
-      label:
-        d.recent && d.recent.waarde !== null
-          ? d.recent.waarde
-          : "Geen gegevens",
+      label: d.recent && d.recent.waarde !== null ? d.recent.waarde : "Geen gegevens",
       color: colors[i],
       gebied: d?.gebied?.naam,
     };
   });
 };
 
-const StackedHorizontalBarChart = ({
-  title,
-  config,
-  gwb,
-  customVegaSpec = null,
-  scaleToHundred = false,
-}) => {
+const StackedHorizontalBarChart = ({ title, config, gwb, customVegaSpec = null, scaleToHundred = false }) => {
   const chartRef = React.useRef<HTMLDivElement>(null);
   const [isLoading, setIsLoading] = React.useState(true);
 
@@ -79,20 +70,12 @@ const StackedHorizontalBarChart = ({
     const showCityAverage = gwb?.code !== "STAD";
     const colors = getColorsUsingStaticDefinition(config);
 
-    console.log("showCityAverage", showCityAverage, gwb?.code);
-
     const chartdata = await getVegaChartData(gwb, config, scaleToHundred);
     const cityAverage = showCityAverage
-      ? await getVegaChartData(
-          { volledige_code: "STAD", naam: "Amsterdam" },
-          config,
-          scaleToHundred
-        )
+      ? await getVegaChartData({ volledige_code: "STAD", naam: "Amsterdam" }, config, scaleToHundred)
       : [];
 
-    const chartBase = cloneDeep(
-      customVegaSpec ? customVegaSpec : stackedVegaSpec
-    );
+    const chartBase = cloneDeep(customVegaSpec ? customVegaSpec : stackedVegaSpec);
 
     chartBase.data.values = chartdata.concat(cityAverage);
 
@@ -120,7 +103,7 @@ const StackedHorizontalBarChart = ({
     }
 
     updateData();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gwb]);
 
   return (

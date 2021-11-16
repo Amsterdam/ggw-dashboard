@@ -4,7 +4,7 @@ import { Spinner, themeSpacing } from "@amsterdam/asc-ui";
 
 import util from "../services/util";
 
-const Wrapper = styled("div")`
+const Wrapper = styled.div`
   margin-top: ${themeSpacing(6)};
   margin-bottom: ${themeSpacing(14)};
 `;
@@ -37,8 +37,8 @@ const TextStatistic = ({ title, gwb, indicatorId }) => {
     }
 
     updateData();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-}, [gwb]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [gwb]);
 
   return (
     <Wrapper>

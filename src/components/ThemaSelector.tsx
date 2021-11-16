@@ -4,7 +4,7 @@ import { Select, Row, Column, themeSpacing } from "@amsterdam/asc-ui";
 
 import { THEMAS } from "../services/thema";
 
-const SpacingDiv = styled("div")`
+const SpacingDiv = styled.div`
   padding-top: ${themeSpacing(3)};
 `;
 
