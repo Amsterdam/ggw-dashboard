@@ -5,7 +5,7 @@ import GWBSelector from "../GWBSelector";
 import ThemaSelector from "../ThemaSelector";
 
 // Minor tweak to the layout of the MenuToggle Component.
-const WideMenu = styled("div")`
+const WideMenu = styled.div`
   width: 100%;
 
   & > div {
@@ -17,7 +17,7 @@ const WideMenu = styled("div")`
   }
 `;
 
-const MenuItemWrapper = styled("div")`
+const MenuItemWrapper = styled.div`
   width: 100%;
   padding-bottom: ${themeSpacing(5)};
 `;
