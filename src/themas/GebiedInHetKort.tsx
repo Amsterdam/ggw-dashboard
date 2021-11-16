@@ -1,10 +1,15 @@
-import { Column, Row } from "@amsterdam/asc-ui";
+import styled from "styled-components";
+import { Column, Row, themeSpacing } from "@amsterdam/asc-ui";
 
 import HorizontalBarChart from "../components/HorizontalBarChart";
 import StackedHorizontalBarChart from "../components/StackedHorizontalBarChart";
 import VerticalBarChart from "../components/VerticalBarChart";
+import DataTable from "../components/DataTable";
 import SocialeKlasseStackedBar from "../components/charts/SocialeKlasseStackedBar";
 import LeeftijdJeugdStackedBar from "../components/charts/LeeftijdJeudStackedBar";
+import ThemeHeader from "../components/ThemeHeader";
+import Car from "../components/Icons/Car";
+import LegendTable from "../components/LegendTable";
 
 import woningVoorraad from "../static/links/woningvoorraad.json";
 import sociaalEconomisch from "../static/links/sociaaleconomisch.json";
@@ -12,11 +17,14 @@ import migratieAchtergrond from "../static/links/migratieachtergrond.json";
 import gemmInkomen from "../static/links/gemm_besteedbaar_inkomen.json";
 import vandalismeSlachtoffers from "../static/links/vandalisme_slachtoffers.json";
 import wozWaarde from "../static/links/gemm_woz_waarde.json";
-import ThemeHeader from "../components/ThemeHeader";
-import Car from "../components/Icons/Car";
+import gebiedInHetKortConfig from "../static/links/gebiedinhetkort_tabel.json";
+
+const SpacingDiv = styled.div`
+  padding-top: ${themeSpacing(4)};
+  padding-bottom: ${themeSpacing(4)};
+`;
 
 const GebiedInHetKort = ({ gwb }) => {
-  console.log("Thema gwb: ", gwb);
   return (
     <>
       <ThemeHeader gwb={gwb} themeTitle="Gebied in het kort" Icon={Car} />
@@ -131,11 +139,23 @@ const GebiedInHetKort = ({ gwb }) => {
           ></VerticalBarChart>
         </Column>
         <Column span={6}>
-          <VerticalBarChart
-            title="Gemiddelde WOZ-waarde"
-            config={wozWaarde}
-            gwb={gwb}
-          ></VerticalBarChart>
+          <VerticalBarChart title="Gemiddelde WOZ-waarde" config={wozWaarde} gwb={gwb}></VerticalBarChart>
+        </Column>
+      </Row>
+
+      <Row>
+        <Column span={12}>
+          <SpacingDiv>
+            <DataTable gwb={gwb} config={gebiedInHetKortConfig} />
+          </SpacingDiv>
+        </Column>
+      </Row>
+
+      <Row>
+        <Column span={12}>
+          <SpacingDiv>
+            <LegendTable gwb={gwb} config={gebiedInHetKortConfig} />
+          </SpacingDiv>
         </Column>
       </Row>
     </>

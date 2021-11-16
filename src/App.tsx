@@ -9,11 +9,11 @@ import GGWFooter from "./components/layout/GGWFooter";
 import GGWHeader from "./components/layout/GGWHeader";
 import { THEMAS } from "./services/thema";
 
-const OuterWrapper = styled("div")`
+const OuterWrapper = styled.div`
   background-color: ${themeColor("tint", "level3")};
 `;
 
-const InnerWrapper = styled("div")`
+const InnerWrapper = styled.div`
   background-color: ${themeColor("tint", "level1")};
 `;
 
@@ -26,12 +26,7 @@ function App() {
       <Row>
         <Column span={12}>
           <InnerWrapper>
-            <GGWHeader
-              gwb={gwb}
-              setGwb={setGWB}
-              thema={thema}
-              setThema={setThema}
-            />
+            <GGWHeader gwb={gwb} setGwb={setGWB} thema={thema} setThema={setThema} />
             <Router>
               <Switch>
                 <Route path="/">

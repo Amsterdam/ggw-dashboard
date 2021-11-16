@@ -3,13 +3,13 @@ import styled from "styled-components";
 import { getGWBShapes, drawShapes, amsMap } from "../services/map";
 import { COLOR } from "../services/colorcoding";
 
-const MapDiv = styled("div")`
+const MapDiv = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
 `;
 
-const MapWrapper = styled("div")`
+const MapWrapper = styled.div`
   position: relative;
   width: 100%;
   height: 200px;
@@ -46,18 +46,14 @@ const GWBMap = ({ gwb }) => {
     }
 
     updateData();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gwb]);
 
   return (
     <MapDiv>
       <h2>Gebied {gwb?.naam}</h2>
       <MapWrapper>
-        <div
-          className="map"
-          style={{ height: "100%", width: "100%" }}
-          ref={mapRef}
-        ></div>
+        <div className="map" style={{ height: "100%", width: "100%" }} ref={mapRef}></div>
       </MapWrapper>
     </MapDiv>
   );

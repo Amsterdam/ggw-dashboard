@@ -10,7 +10,7 @@ type GwbItem = {
   id: string;
 };
 
-const FullWidth = styled("div")`
+const FullWidth = styled.div`
   width: 100%;
 `;
 
@@ -80,24 +80,16 @@ const GWBSelector = ({ gwb, setGWB }) => {
       const deel = allData.stadsDelen.find((d) => d.code === stadsDeelCode);
       stadsDeelDetail = deel;
 
-      const gebieden = allData.gebieden.filter(
-        (g) => g.ligtInStadsdeelId === getParsedItemId(deel)
-      );
+      const gebieden = allData.gebieden.filter((g) => g.ligtInStadsdeelId === getParsedItemId(deel));
 
       if (gebieden.length > 0) {
-        const buurtIds = gebieden
-          .map((g) => g._links.bestaatUitBuurten.map((b) => b.identificatie))
-          .flat();
+        const buurtIds = gebieden.map((g) => g._links.bestaatUitBuurten.map((b) => b.identificatie)).flat();
 
-        const buurten = allData.buurten.filter((b) =>
-          buurtIds.includes(getParsedItemId(b))
-        );
+        const buurten = allData.buurten.filter((b) => buurtIds.includes(getParsedItemId(b)));
 
         const wijkIds = buurten.map((b) => b.ligtInWijkId);
 
-        const wijken = allData.wijken.filter((w) =>
-          wijkIds.includes(getParsedItemId(w))
-        );
+        const wijken = allData.wijken.filter((w) => wijkIds.includes(getParsedItemId(w)));
 
         setGwbSelection({
           ...emptyState,
@@ -147,18 +139,12 @@ const GWBSelector = ({ gwb, setGWB }) => {
       // TODO: Remove getDetail call.
       gebiedDetail = await util.getDetail(gebied);
 
-      const buurtIds = gebied._links.bestaatUitBuurten.map(
-        (b) => b.identificatie
-      );
-      const buurten = allData.buurten.filter((b) =>
-        buurtIds.includes(getParsedItemId(b))
-      );
+      const buurtIds = gebied._links.bestaatUitBuurten.map((b) => b.identificatie);
+      const buurten = allData.buurten.filter((b) => buurtIds.includes(getParsedItemId(b)));
 
       const wijkIds = buurten.map((b) => b.ligtInWijkId);
 
-      const wijken = allData.wijken.filter((w) =>
-        wijkIds.includes(getParsedItemId(w))
-      );
+      const wijken = allData.wijken.filter((w) => wijkIds.includes(getParsedItemId(w)));
 
       setGwbSelection({
         ...emptyState,
@@ -185,9 +171,7 @@ const GWBSelector = ({ gwb, setGWB }) => {
       //TODO: Remove getDetail code
       wijkDetail = await util.getDetail(wijk);
 
-      const buurten = allData.buurten.filter(
-        (b) => b.ligtInWijkId === getParsedItemId(wijk)
-      );
+      const buurten = allData.buurten.filter((b) => b.ligtInWijkId === getParsedItemId(wijk));
 
       setGwbSelection({
         ...gwbSelection,
