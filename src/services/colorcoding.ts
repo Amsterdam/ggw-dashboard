@@ -1,4 +1,4 @@
-import { StdType, MetaType } from '../types'
+import { StdType, MetaType } from "../types";
 import kleurenTabel from "../static/kleurcodetabel.json";
 
 /**
@@ -127,37 +127,42 @@ export const CATEGORY_COLORS = [
  * Gets the category from CATEGORY_COLORS for the given z-score
  * @param zScore
  */
-function getCategory(zScore: number) 
-  : { color: string, textColor?: string } {
+function getCategory(zScore: number, kleurenpalet: number): { color: string; textColor?: string } {
+  const colors = kleurenTabel.kleur[kleurenTabel.kleurenpalet[kleurenpalet].kleur];
+
   const average = 0.5;
   const categories = [
     {
-      inCategory: (s) => 2 * average <= s,
-      color: CATEGORY_COLORS[0].color,
-      textColor: CATEGORY_COLORS[0].textColor,
+      inCategory: (s) => 2 * average <= s, // s groter dan of gelijk aan 1
+      color: colors[0],
+      textColor: kleurenTabel.tekst_kleur[colors[0]] || "#000000",
     },
     {
-      inCategory: (s) => average <= s && s < 2 * average,
-      color: CATEGORY_COLORS[1].color,
+      inCategory: (s) => average <= s && s < 2 * average, // s groter dan of gelijk aan 0.5 en s kleiner dan 1
+      color: colors[1],
+      textColor: kleurenTabel.tekst_kleur[colors[1]] || "#000000",
     },
     {
-      inCategory: (s) => average < s && s < -average,
-      color: CATEGORY_COLORS[2].color,
+      inCategory: (s) => average > s && s > -average, // s kleiner dan 0,5 en s groter dan -0,5
+      color: colors[2],
+      textColor: kleurenTabel.tekst_kleur[colors[2]] || "#000000",
     },
     {
-      inCategory: (s) => -average >= s && s > 2 * -average,
-      color: CATEGORY_COLORS[3].color,
+      inCategory: (s) => -average >= s && s > 2 * -average, // s kleiner dan of gelijk aan -0,5 en s groter dan -1
+      color: colors[3],
+      textColor: kleurenTabel.tekst_kleur[colors[3]] || "#000000",
     },
     {
-      inCategory: (s) => -2 * average >= s,
-      color: CATEGORY_COLORS[4].color,
-      textColor: CATEGORY_COLORS[4].textColor,
+      inCategory: (s) => -2 * average >= s, // s kleiner dan -1
+      color: colors[4],
+      textColor: kleurenTabel.tekst_kleur[colors[4]] || "#000000",
     },
   ];
 
-  const defaultCategory = { color: CATEGORY_COLORS[2].color };
+  const defaultCategory = { color: "FFF498", textColor: "#000000" };
+  const result = categories.find((c) => c.inCategory(zScore));
 
-  return categories.find((c) => c.inCategory(zScore)) || defaultCategory;
+  return result || defaultCategory;
 }
 
 /**
@@ -167,18 +172,16 @@ function getCategory(zScore: number)
  * @param year  The year for which the value is valid
  * @returns {{color, textColor: *|textColSDor}}
  */
-
-
-export function getColor(meta: MetaType, value: number, year: number, stdValue: StdType[]) 
-: { color: string, textColor?: string }
-{
+export function getColor(
+  meta: MetaType,
+  value: number,
+  year: number,
+  stdValue: StdType[],
+): { color: string; textColor?: string } {
   if (value !== null) {
     const variable = meta.indicatorDefinitieId;
     const varStd = stdValue
-      .filter(
-        ({ jaar, indicatorDefinitieId }) =>
-          indicatorDefinitieId === variable && jaar <= year
-      )
+      .filter(({ jaar, indicatorDefinitieId }) => indicatorDefinitieId === variable && jaar <= year)
       .sort((item1, item2) => item2.jaar - item1.jaar);
 
     if (varStd.length) {
@@ -189,7 +192,7 @@ export function getColor(meta: MetaType, value: number, year: number, stdValue: 
         zScore = 0 - zScore;
       }
 
-      const category = getCategory(zScore);
+      const category = getCategory(zScore, meta.kleurenpalet);
 
       return {
         color: category.color,
@@ -205,9 +208,7 @@ export function getColor(meta: MetaType, value: number, year: number, stdValue: 
 }
 
 export function getRankingColor(ranking: number, maxRanking: number) {
-  const index = Math.round(
-    ((ABSOLUTE_COLORS.length - 1) / maxRanking) * ranking
-  );
+  const index = Math.round(((ABSOLUTE_COLORS.length - 1) / maxRanking) * ranking);
   return ABSOLUTE_COLORS[index];
 }
 
@@ -220,4 +221,16 @@ export function getColorsUsingStaticDefinition(config: any) {
   const indexMin = Math.max(1, indexMax); // The minimum number of distinct items is 1.
 
   return kleurenTabel.kleur[`grafiek_${indexMin}`];
+}
+
+export function getColorGivenValueAndColorPalet(kleurenpalet: number, waarde: number | "-") {
+  if (waarde === "-") {
+    return "#ffffff";
+  }
+
+  if (kleurenpalet === 1) {
+    return waarde < 0 ? kleurenTabel.kleur.amsterdam_rood : kleurenTabel.kleur.amsterdam_groen;
+  }
+
+  return waarde <= 0 ? kleurenTabel.kleur.amsterdam_groen : kleurenTabel.kleur.amsterdam_rood;
 }

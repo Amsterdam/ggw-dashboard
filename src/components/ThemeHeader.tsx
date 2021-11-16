@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Column, Row, themeSpacing, themeColor } from "@amsterdam/asc-ui";
 import GWBMap from "../components/GWBMap";
 
-const StyledDiv = styled("div")`
+const StyledDiv = styled.div`
   background-color: ${themeColor("tint", "level2")};
   padding-bottom: ${themeSpacing(5)};
   width: 100%;

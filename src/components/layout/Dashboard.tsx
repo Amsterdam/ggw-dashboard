@@ -14,11 +14,11 @@ import Werk from "../../themas/Werk";
 import Welzijn from "../../themas/Welzijn";
 import SocialeKracht from "../../themas/SocialeKracht";
 
-const DashboardDiv = styled("div")`
+const DashboardDiv = styled.div`
   padding-top: ${themeSpacing(8)};
 `;
 
-const ContainerDiv = styled("div")`
+const ContainerDiv = styled.div`
   margin-top: ${themeSpacing(3)};
   margin-bottom: ${themeSpacing(3)};
   width: 100%;

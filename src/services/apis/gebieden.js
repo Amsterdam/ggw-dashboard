@@ -111,9 +111,7 @@ export async function getWijken(gebied) {
   let wijken = await readPaginatedData(wijkenUrl);
 
   // Filter the wijken for being a wijk within the gebied
-  wijken = wijken.filter((w) =>
-    wijkgebieden.find((wg) => wg.wijk === w.vollcode)
-  );
+  wijken = wijken.filter((w) => wijkgebieden.find((wg) => wg.wijk === w.vollcode));
   return enhancedGWBList(wijken);
 }
 
@@ -224,8 +222,7 @@ export async function getCity() {
  */
 export async function getAllStadsdelen() {
   const url = getUrl("/stadsdelen/");
-  const getData = async () =>
-    enhancedGWBList(await readPaginatedData(url, {}, "_embedded.stadsdelen"));
+  const getData = async () => enhancedGWBList(await readPaginatedData(url, {}, "_embedded.stadsdelen"));
   return cacheResponse("allStadsdelen", getData);
 }
 
@@ -236,8 +233,7 @@ export async function getAllStadsdelen() {
  */
 export async function getAllGebieden() {
   const url = getUrl("/ggwgebieden/");
-  const getData = async () =>
-    enhancedGWBList(await readPaginatedData(url, {}, "_embedded.ggwgebieden"));
+  const getData = async () => enhancedGWBList(await readPaginatedData(url, {}, "_embedded.ggwgebieden"));
   return cacheResponse("allGebieden", getData);
 }
 
@@ -248,8 +244,7 @@ export async function getAllGebieden() {
  */
 export async function getAllWijken() {
   const url = getUrl("/wijken/");
-  const getData = async () =>
-    enhancedGWBList(await readPaginatedData(url, {}, "_embedded.wijken"));
+  const getData = async () => enhancedGWBList(await readPaginatedData(url, {}, "_embedded.wijken"));
   return cacheResponse("allWijken", getData);
 }
 
@@ -260,7 +255,6 @@ export async function getAllWijken() {
  */
 export async function getAllBuurten() {
   const url = getUrl("/buurten/");
-  const getData = async () =>
-    enhancedGWBList(await readPaginatedData(url, {}, "_embedded.buurten"));
+  const getData = async () => enhancedGWBList(await readPaginatedData(url, {}, "_embedded.buurten"));
   return cacheResponse("allBuurten", getData);
 }

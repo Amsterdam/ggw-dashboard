@@ -9,7 +9,7 @@
  * Configurations provide for a data-driven user interface
  */
 
- import { vega } from "vega-embed";
+import { vega } from "vega-embed";
 
 import {
   getAllStadsdelen,
@@ -25,14 +25,7 @@ import {
   getDetail,
   GEBIED_TYPE,
 } from "./apis/gebieden";
-import {
-  getAllMeta,
-  getMeta,
-  getAllCijfers,
-  getGebiedCijfers,
-  CIJFERS,
-  getStd,
-} from "./apis/bbga";
+import { getAllMeta, getMeta, getAllCijfers, getGebiedCijfers, CIJFERS, getStd } from "./apis/bbga";
 
 /**
  * Gets the most recent cijfers for a given configuration
@@ -49,23 +42,6 @@ async function getLatestConfigCijfers(gwb, config) {
 }
 
 /**
- * Gets the tooltip (which is actually a modal dialog) for the given cijfers
- * A cijfer contains a reference to it's meta data that allows for a verbose description of the meaning and source for the given cijfer.
- * @param cijfers
- * @returns {function(*): string}
- */
-function getTooltip(cijfers) {
-  return (withYear) => `
-    <h3 class="condensed">Definitie</h3>
-    <div>${cijfers.meta.definitie}</div>
-    <h3 class="condensed">Bron</h3>
-    <div>${cijfers.meta.bron}</div>
-    <h3 class="condensed">Peildatum</h3>
-    <div>${cijfers.meta.peildatum} ${withYear ? cijfers.recent.jaar : ""}</div>
-    `;
-}
-
-/**
  * Get the cijfers for a gebied, wijk or buurt given a configuration
  * Optionally one can specify to receive only the most recent cijfers
  * Default the cijfers for all years are returned
@@ -78,11 +54,7 @@ function getTooltip(cijfers) {
 async function getConfigCijfers(gwb, config, recentOrAll = CIJFERS.ALL) {
   const data = config.map(async (c, index) => {
     try {
-      const cijfers = await getGebiedCijfers(
-        c.indicatorDefinitieId,
-        gwb,
-        recentOrAll
-      );
+      const cijfers = await getGebiedCijfers(c.indicatorDefinitieId, gwb, recentOrAll);
       if (c.post) {
         if (Array.isArray(cijfers.cijfers)) {
           cijfers.cijfers.forEach((cijfer) => {
@@ -96,7 +68,6 @@ async function getConfigCijfers(gwb, config, recentOrAll = CIJFERS.ALL) {
         ...cijfers,
         label: c.label || cijfers.meta.label,
         showInLegend: c.showInLegend !== undefined ? c.showInLegend : true,
-        tooltip: getTooltip(cijfers),
         index,
       };
     } catch (e) {
@@ -149,13 +120,10 @@ function getYearCijfers(data, last = null, include = {}) {
         variable: item.label,
         index: item.index,
         color: cijfer.color,
-        display:
-          cijfer.waarde / totalWaarde[cijfer.jaar] > 0.075
-            ? displayWaarde(cijfer)
-            : "",
+        display: cijfer.waarde / totalWaarde[cijfer.jaar] > 0.075 ? displayWaarde(cijfer) : "",
         cijfer,
-      }))
-    )
+      })),
+    ),
   )
     .filter(({ x }) => {
       if (odd) {
@@ -221,8 +189,7 @@ async function getGwbs(gebiedType) {
  * Flattens an array
  * @param list
  */
-const flatten = (list) =>
-  list.reduce((a, b) => a.concat(Array.isArray(b) ? flatten(b) : b), []);
+const flatten = (list) => list.reduce((a, b) => a.concat(Array.isArray(b) ? flatten(b) : b), []);
 
 /**
  * Provides for a display value for a cijfer, using the NL locale for numbers
@@ -242,9 +209,7 @@ const displayWaarde = (cijfer) => {
  * @returns {String[]}
  */
 const getLegendLabels = (configCijfers) => {
-  const config = [...configCijfers]
-    .filter(({ showInLegend }) => showInLegend)
-    .map(({ label }) => label);
+  const config = [...configCijfers].filter(({ showInLegend }) => showInLegend).map(({ label }) => label);
 
   const legendLabels = new Set(config);
 
@@ -253,13 +218,12 @@ const getLegendLabels = (configCijfers) => {
 
 const setVegaLocale = () => {
   vega.formatLocale({
-    "decimal": ",",
-    "thousands": ".",
-    "grouping": [3],
-    "currency": ["", "\u00a0€"]
+    decimal: ",",
+    thousands: ".",
+    grouping: [3],
+    currency: ["", "\u00a0€"],
   });
-}
-
+};
 
 /**
  * Util exports het methods in an object. Usage will therefore be like util.getCity instead of import {getCity} from util
