@@ -269,6 +269,7 @@ export default {
       let cijfers = await util.getAllCijfers(this.variable, recentYear)
 
       cijfers = cijfers.filter(c => c.waarde !== null)
+      cijfers = cijfers.filter(c => c.jaar === recentYear)
       cijfers = cijfers.filter(c => util.getGebiedType(c.gebiedcode15) === this.gebiedType)
       cijfers = cijfers.sort((c1, c2) => c2.waarde - c1.waarde)
 
