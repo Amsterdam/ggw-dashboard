@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { TableContainer, Table, TableHeader, TableRow, TableCell, TableBody } from "@amsterdam/asc-ui";
+import { Table, TableHeader, TableRow, TableCell, TableBody } from "@amsterdam/asc-ui";
 import util from "../services/util";
 import { getColor, getColorGivenValueAndColorPalet } from "../services/colorcoding";
 
@@ -10,7 +10,7 @@ const DataTable = ({
   gwb: any;
   config: {
     label: string;
-    categorie: string;
+    categorie?: string;
     indicatorDefinitieId: string;
   }[];
 }) => {
@@ -50,21 +50,33 @@ const DataTable = ({
     }
 
     getData();
-  }, [gwb]);
+  }, [gwb, needCityAverage, config]);
 
   const getSd = (indicator) => {
-    return sd?.find((s) => s.indicatorDefinitieId === indicator);
+    return sd?.filter((s) => s.indicatorDefinitieId === indicator);
   };
 
-  const getFirstYearData = (indicator): { waarde: any; jaar: number } | null => {
+  const getFirstYearData = (indicator, finalYear): { waarde: any; jaar: number } | null => {
     let dataFirstYear;
-    for (let index = 0; index < years.length; index++) {
-      const year = years[index];
+    const indicatorYears = indicator.cijfers.map((c) => c.jaar);
+    const fourYearsAgo = indicator.cijfers.find((c) => c.jaar === finalYear - 3 && c.waarde !== null);
 
-      dataFirstYear = indicator.cijfers.find((c) => c.jaar === year && c.waarde !== null);
+    if (fourYearsAgo !== undefined) {
+      return fourYearsAgo;
+    }
 
-      if (dataFirstYear !== undefined) {
-        break;
+    for (let yearDifference = 3; yearDifference >= 0; yearDifference--) {
+      for (let index = indicatorYears.length - 1; index >= 0; index--) {
+        const year = indicatorYears[index];
+
+        // if the difference is more than 4 years
+        if (finalYear - year > yearDifference) {
+          dataFirstYear = indicator.cijfers.find((c) => c.jaar === year && c.waarde !== null);
+
+          if (dataFirstYear !== undefined) {
+            return dataFirstYear;
+          }
+        }
       }
     }
 
@@ -86,16 +98,21 @@ const DataTable = ({
     return dataLastYear;
   };
 
+  /**
+   * Get indicator development in past 4 years.
+   * @param indicator
+   * @returns
+   */
   const getIndicatorDevelopment = (indicator) => {
     if (!indicator || !indicator?.cijfers) {
       return "-";
     }
 
-    const dataFirstYear = getFirstYearData(indicator);
     const dataFinalYear = getFinalYearsData(indicator);
+    const dataFirstYear = getFirstYearData(indicator, dataFinalYear?.jaar);
 
     if (dataFirstYear?.jaar === dataFinalYear?.jaar) {
-      return 0;
+      return "-";
     }
 
     return Math.round((dataFinalYear?.waarde - dataFirstYear?.waarde) * 100) / 100;
@@ -103,111 +120,118 @@ const DataTable = ({
 
   return (
     <>
-      {data && years && sd && (
-        <TableContainer>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableCell colSpan={8 + (needCityAverage ? 1 : 0)} style={{ borderBottom: "none", textAlign: "right" }}>
-                  Ontwikkeling laatste {years.length} jaar
+      {data && gwb && years && sd && (
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableCell colSpan={8 + (needCityAverage ? 1 : 0)} style={{ borderBottom: "none", textAlign: "right" }}>
+                Ontwikkeling laatste 4 jaar
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell as="th">&nbsp;</TableCell>
+              <TableCell as="th">&nbsp;</TableCell>
+              {years.map((year) => (
+                <TableCell as="th" key={year} style={{ textAlign: "right" }}>
+                  {year}
                 </TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell as="th">&nbsp;</TableCell>
-                <TableCell as="th">&nbsp;</TableCell>
-                {years.map((year) => (
-                  <TableCell as="th" key={year}>
-                    {year}
-                  </TableCell>
-                ))}
-                {gwb?.code !== "STAD" && <TableCell as="th">Selectie</TableCell>}
-                <TableCell as="th">Amsterdam</TableCell>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {config &&
-                config.map((c) => {
-                  const indicator = data.find((d) => d?.meta?.variabele === c.indicatorDefinitieId);
-                  const stdevs = getSd(c.indicatorDefinitieId);
+              ))}
+              {gwb?.code !== "STAD" && (
+                <TableCell as="th" style={{ textAlign: "right" }}>
+                  {gwb?.naam}
+                </TableCell>
+              )}
+              <TableCell as="th" style={{ textAlign: "right" }}>
+                Amsterdam
+              </TableCell>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {config &&
+              config.map((c) => {
+                const indicator = data.find((d) => d?.meta?.variabele === c.indicatorDefinitieId);
+                const stdevs = getSd(c.indicatorDefinitieId);
 
-                  if (!indicator) {
-                    return;
-                  }
+                if (!indicator) {
+                  return;
+                }
 
-                  const symbool = indicator?.meta?.symbool;
+                const indicatorDevelopment = getIndicatorDevelopment(indicator);
+                const developmentColor = getColorGivenValueAndColorPalet(
+                  indicator.meta.kleurenpalet,
+                  indicatorDevelopment,
+                );
 
-                  const indicatorDevelopment = getIndicatorDevelopment(indicator);
-                  const developmentColor = getColorGivenValueAndColorPalet(
-                    indicator.meta.kleurenpalet,
-                    indicatorDevelopment,
-                  );
+                const cityIndicatorDevelopment = needCityAverage
+                  ? getIndicatorDevelopment(cityAvgData?.find((d) => d?.meta?.variabele === c.indicatorDefinitieId))
+                  : indicatorDevelopment;
+                const cityDevelopmentColor = getColorGivenValueAndColorPalet(
+                  indicator.meta.kleurenpalet,
+                  cityIndicatorDevelopment,
+                );
 
-                  const cityIndicatorDevelopment = needCityAverage
-                    ? getIndicatorDevelopment(cityAvgData?.find((d) => d?.meta?.variabele === c.indicatorDefinitieId))
-                    : indicatorDevelopment;
-                  const cityDevelopmentColor = getColorGivenValueAndColorPalet(
-                    indicator.meta.kleurenpalet,
-                    cityIndicatorDevelopment,
-                  );
+                // console.log("stdevs", stdevs);
+                // console.log(indicator);
 
-                  console.log(indicator);
+                return (
+                  <TableRow key={c.indicatorDefinitieId}>
+                    <TableCell as="th">{c?.categorie}</TableCell>
+                    <TableCell>{indicator?.meta?.labelKort}</TableCell>
+                    {years.map((year) => {
+                      const yearData = indicator.cijfers.find((c) => c.jaar === year && c.waarde !== null);
 
-                  return (
-                    <TableRow key={c.indicatorDefinitieId}>
-                      <TableCell as="th">{c.categorie}</TableCell>
-                      <TableCell>{c.label}</TableCell>
-                      {years.map((year) => {
-                        const yearData = indicator.cijfers.find((c) => c.jaar === year && c.waarde !== null);
+                      if (!yearData) {
+                        return <TableCell key={year}>-</TableCell>;
+                      }
 
-                        if (!yearData) {
-                          return <TableCell key={year}>-</TableCell>;
-                        }
-
-                        const colors =
-                          stdevs &&
-                          getColor(
-                            {
-                              indicatorDefinitieId: c.indicatorDefinitieId,
-                              kleurenpalet: indicator?.meta?.kleurenpalet,
-                            },
-                            yearData?.waarde,
-                            year,
-                            [stdevs],
-                          );
-
-                        return (
-                          <TableCell
-                            key={year}
-                            style={{ backgroundColor: needCityAverage ? colors?.color : "#ffffff" }}
-                          >
-                            {`${yearData?.waarde}${symbool ? symbool : ""}` || "-"}
-                          </TableCell>
+                      const colors =
+                        stdevs &&
+                        getColor(
+                          {
+                            indicatorDefinitieId: c.indicatorDefinitieId,
+                            kleurenpalet: indicator?.meta?.kleurenpalet,
+                          },
+                          yearData?.waarde,
+                          year,
+                          stdevs,
                         );
-                      })}
-                      {needCityAverage && (
+
+                      return (
                         <TableCell
+                          key={year}
                           style={{
-                            color: developmentColor,
+                            backgroundColor: needCityAverage ? colors?.color : "#ffffff",
+                            color: colors?.textColor,
+                            textAlign: "right",
                           }}
                         >
-                          {indicatorDevelopment}
-                          {symbool}
+                          {yearData?.waarde || "-"}
                         </TableCell>
-                      )}
+                      );
+                    })}
+                    {needCityAverage && (
                       <TableCell
                         style={{
-                          color: cityDevelopmentColor,
+                          color: developmentColor,
+                          textAlign: "right",
                         }}
                       >
-                        {cityIndicatorDevelopment}
-                        {symbool}
+                        {indicatorDevelopment > 0 ? `+${indicatorDevelopment}` : indicatorDevelopment}
                       </TableCell>
-                    </TableRow>
-                  );
-                })}
-            </TableBody>
-          </Table>
-        </TableContainer>
+                    )}
+                    <TableCell
+                      style={{
+                        color: cityDevelopmentColor,
+                        textAlign: "right",
+                      }}
+                    >
+                      {cityIndicatorDevelopment > 0 ? `+${cityIndicatorDevelopment}` : cityIndicatorDevelopment}
+                    </TableCell>
+                  </TableRow>
+                );
+              })}
+          </TableBody>
+        </Table>
       )}
     </>
   );

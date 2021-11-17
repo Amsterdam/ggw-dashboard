@@ -186,11 +186,7 @@ export function getColor(
 
     if (varStd.length) {
       const ref = varStd[0]; // most recent year
-      let zScore = (value - ref.gemiddelde) / ref.standaardafwijking;
-
-      if (meta.kleurenpalet === 2) {
-        zScore = 0 - zScore;
-      }
+      const zScore = (value - ref.gemiddelde) / ref.standaardafwijking;
 
       const category = getCategory(zScore, meta.kleurenpalet);
 
