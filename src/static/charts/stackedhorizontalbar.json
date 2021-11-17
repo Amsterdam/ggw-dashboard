@@ -4,12 +4,12 @@
   "height": 150,
   "config": {
     "axis": {
-      "labelFontSize": 12,
+      "labelFontSize": 13,
       "labelLimit": 100,
       "labelFont": "Avenir Next"
     },
     "legend": {
-      "labelFontSize": 12,
+      "labelFontSize": 13,
       "columns": 4,
       "labelFont": "Avenir Next"
     },
@@ -54,7 +54,7 @@
       "mark": {
         "type": "text",
         "baseline": "middle",
-        "fontSize": 12
+        "fontSize": 13
       },
       "encoding": {
         "text": { "field": "value", "type": "nominal" },

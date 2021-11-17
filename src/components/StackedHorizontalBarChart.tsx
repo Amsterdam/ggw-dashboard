@@ -91,6 +91,8 @@ const StackedHorizontalBarChart = ({ title, config, gwb, customVegaSpec = null, 
       };
     }
 
+    // console.log(JSON.stringify(chartBase));
+
     if (chartRef.current) {
       setIsLoading(false);
       vegaEmbed(chartRef.current, chartBase, vegaEmbedOptions);

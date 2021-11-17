@@ -1,0 +1,30 @@
+[
+  {
+    "label": "Woningbezetting",
+    "indicatorDefinitieId": "WBEZET"
+  },
+  {
+    "label": "Verhuisgeneigdheid",
+    "indicatorDefinitieId": "WVERHUIS_P"
+  },
+  {
+    "label": "Woonduur gemiddeld",
+    "indicatorDefinitieId": "BEVWOONDUUR"
+  },
+  {
+    "label": "Gemiddelde WOZ-waarde",
+    "indicatorDefinitieId": "WWOZ_GEM"
+  },
+  {
+    "label": "% woningen met sociale huur",
+    "indicatorDefinitieId": "WHUURTSLG_P"
+  },
+  {
+    "label": "% woningen met midden huur",
+    "indicatorDefinitieId": "WHUURMIDDEN_P"
+  },
+  {
+    "label": "% woningen met een hoge huur",
+    "indicatorDefinitieId": "WHUURHOOG_P"
+  }
+]

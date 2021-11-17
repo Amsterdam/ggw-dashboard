@@ -1,0 +1,26 @@
+[
+  {
+    "label": "Rapportcijfer eigen buurt",
+    "indicatorDefinitieId": "Lbuurt_r"
+  },
+  {
+    "label": "Rapportcijfer verwachte buurtontwikkeling",
+    "indicatorDefinitieId": "LVERWACHTINGBUURT_R"
+  },
+  {
+    "label": "Rapportcijfer eigen woning",
+    "indicatorDefinitieId": "WWONING_R"
+  },
+  {
+    "label": "WOZ-waarde per m2 ",
+    "indicatorDefinitieId": "WWOZ_M2"
+  },
+  {
+    "label": "Gemiddelde huur vrije sector",
+    "indicatorDefinitieId": "WHUURVRIJ_GEM"
+  },
+  {
+    "label": "Mutatiegraad",
+    "indicatorDefinitieId": "BEVMUTTOT_P"
+  }
+]

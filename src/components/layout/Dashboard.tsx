@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Column, Row, themeSpacing } from "@amsterdam/asc-ui";
+import { themeSpacing } from "@amsterdam/asc-ui";
 import GebiedInHetKort from "../../themas/GebiedInHetKort";
 import { THEMAS } from "../../services/thema";
 
@@ -13,6 +13,7 @@ import Onderwijs from "../../themas/Onderwijs";
 import Werk from "../../themas/Werk";
 import Welzijn from "../../themas/Welzijn";
 import SocialeKracht from "../../themas/SocialeKracht";
+import Wonen from "../../themas/Wonen";
 
 const DashboardDiv = styled.div`
   padding-top: ${themeSpacing(8)};
@@ -35,7 +36,8 @@ const themaMapping = {
   [THEMAS[7]]: Onderwijs,
   [THEMAS[8]]: Werk,
   [THEMAS[9]]: Welzijn,
-  [THEMAS[10]]: SocialeKracht,
+  [THEMAS[10]]: Wonen,
+  [THEMAS[11]]: SocialeKracht,
 };
 
 const Dashboard = ({ gwb, thema }) => {
@@ -43,13 +45,9 @@ const Dashboard = ({ gwb, thema }) => {
 
   return (
     <DashboardDiv>
-      <Row>
-        <Column span={12}>
-          <ContainerDiv>
-            <Thema gwb={gwb} />
-          </ContainerDiv>
-        </Column>
-      </Row>
+      <ContainerDiv>
+        <Thema gwb={gwb} />
+      </ContainerDiv>
     </DashboardDiv>
   );
 };
