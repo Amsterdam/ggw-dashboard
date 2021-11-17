@@ -22,6 +22,8 @@ import gebiedInHetKortConfig from "../static/links/gebiedinhetkort_tabel.json";
 const SpacingDiv = styled.div`
   padding-top: ${themeSpacing(4)};
   padding-bottom: ${themeSpacing(4)};
+
+  width: 100%;
 `;
 
 const GebiedInHetKort = ({ gwb }) => {

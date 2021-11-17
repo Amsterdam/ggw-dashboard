@@ -51,7 +51,9 @@ const GWBMap = ({ gwb }) => {
 
   return (
     <MapDiv>
-      <h2>Gebied {gwb?.naam}</h2>
+      <h2>
+        {gwb?.gebiedType} {gwb?.naam}
+      </h2>
       <MapWrapper>
         <div className="map" style={{ height: "100%", width: "100%" }} ref={mapRef}></div>
       </MapWrapper>
