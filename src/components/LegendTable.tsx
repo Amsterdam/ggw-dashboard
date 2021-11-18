@@ -1,11 +1,45 @@
 import { useEffect, useState } from "react";
-import { Table, TableHeader, TableRow, TableCell, TableBody } from "@amsterdam/asc-ui";
+import styled from "styled-components";
+import { List, ListItem, Paragraph, themeSpacing } from "@amsterdam/asc-ui";
 
 import util from "../services/util";
 import { getColor } from "../services/colorcoding";
 import kleurenTabel from "../static/kleurcodetabel.json";
 
-type DataTable = { [key: string]: string | null }[];
+const colorLegend = kleurenTabel.kleur.hoog_is_groen;
+
+const LegendWrapper = styled.div`
+  border: 1px solid black;
+`;
+
+const LegendColumn = styled.div`
+  width: 20%;
+  padding: ${themeSpacing(2)};
+  border-right: 1px solid black;
+`;
+
+const LegendRow = styled.div`
+  display: flex;
+  flex-direction: row;
+
+  ${LegendColumn}:last-child {
+    border-right: none;
+  }
+`;
+
+const ColumnHeading = styled(Paragraph)`
+  text-align: center;
+  margin-bottom: 0px;
+  font-weight: 500;
+`;
+
+const listItems = colorLegend.map((color) => {
+  return styled(ListItem)`
+    &::before {
+      background-color: ${color} !important;
+    }
+  `;
+});
 
 const LegendTable = ({
   gwb,
@@ -18,8 +52,7 @@ const LegendTable = ({
     indicatorDefinitieId: string;
   }[];
 }) => {
-  const colorLegend = kleurenTabel.kleur.hoog_is_groen;
-  const [dataTable, setDataTable] = useState<DataTable>();
+  const [dataTable, setDataTable] = useState<{ [key: string]: string[] }>();
 
   useEffect(() => {
     if (!gwb || gwb?.code === "STAD") {
@@ -37,9 +70,7 @@ const LegendTable = ({
     async function fetchData() {
       const sdvars = await util.getStd();
       const data = await util.getLatestConfigCijfers(gwb, config);
-      const newDataTable = [] as DataTable;
-
-      newDataTable.push(newRow());
+      const row = newRow();
 
       config.map((c) => {
         const indicator = data.find((d) => d?.meta?.variabele === c.indicatorDefinitieId);
@@ -61,20 +92,14 @@ const LegendTable = ({
           [stdevs],
         );
 
-        // Search first empty row
-        const row = newDataTable.find((row) => row[colorDef.color] === null);
-
-        if (row === undefined) {
-          const rowToAdd = newRow();
-          rowToAdd[colorDef.color] = indicator.label;
-
-          return newDataTable.push(rowToAdd);
+        if (row[colorDef.color] !== null) {
+          return row[colorDef.color].push(indicator.label);
         }
 
-        return (row[colorDef.color] = indicator.label);
+        return (row[colorDef.color] = [indicator.label]);
       });
 
-      setDataTable(newDataTable);
+      setDataTable(row);
     }
 
     fetchData();
@@ -83,38 +108,42 @@ const LegendTable = ({
   return (
     <>
       {dataTable && (
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableCell style={{ backgroundColor: colorLegend[0] }} as="th">
-                Veel beter dan Amsterdam gemiddeld
-              </TableCell>
-              <TableCell style={{ backgroundColor: colorLegend[1] }} as="th">
-                Beter
-              </TableCell>
-              <TableCell style={{ backgroundColor: colorLegend[2] }} as="th">
-                Gemiddeld voor Amsterdam
-              </TableCell>
-              <TableCell style={{ backgroundColor: colorLegend[3] }} as="th">
-                Slechter
-              </TableCell>
-              <TableCell style={{ backgroundColor: colorLegend[4] }} as="th">
-                Veel slechter dan Amsterdam gemiddeld
-              </TableCell>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {dataTable.map((row, index) => (
-              <TableRow key={index}>
-                <TableCell>{row[colorLegend[0]]}</TableCell>
-                <TableCell>{row[colorLegend[1]]}</TableCell>
-                <TableCell>{row[colorLegend[2]]}</TableCell>
-                <TableCell>{row[colorLegend[3]]}</TableCell>
-                <TableCell>{row[colorLegend[4]]}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
+        <LegendWrapper>
+          <LegendRow>
+            <LegendColumn style={{ backgroundColor: colorLegend[0], color: "white" }}>
+              <ColumnHeading>Veel beter dan Amsterdam gemiddeld</ColumnHeading>
+            </LegendColumn>
+            <LegendColumn style={{ backgroundColor: colorLegend[1] }}>
+              <ColumnHeading>Beter</ColumnHeading>
+            </LegendColumn>
+            <LegendColumn style={{ backgroundColor: colorLegend[2] }}>
+              <ColumnHeading>Gemiddeld voor Amsterdam</ColumnHeading>
+            </LegendColumn>
+            <LegendColumn style={{ backgroundColor: colorLegend[3] }}>
+              <ColumnHeading>Slechter</ColumnHeading>
+            </LegendColumn>
+            <LegendColumn style={{ backgroundColor: colorLegend[4], color: "white" }}>
+              <ColumnHeading>Veel slechter dan Amsterdam gemiddeld</ColumnHeading>
+            </LegendColumn>
+          </LegendRow>
+
+          <LegendRow>
+            {Object.keys(dataTable).map((key, index) => {
+              const row = dataTable[key];
+              const ColoredListItem = listItems[index];
+
+              return (
+                <LegendColumn key={key}>
+                  <List variant="bullet">
+                    {row?.map((label) => (
+                      <ColoredListItem key={label}>{label}</ColoredListItem>
+                    ))}
+                  </List>
+                </LegendColumn>
+              );
+            })}
+          </LegendRow>
+        </LegendWrapper>
       )}
     </>
   );

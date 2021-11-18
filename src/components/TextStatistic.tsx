@@ -6,26 +6,37 @@ import util from "../services/util";
 
 const Wrapper = styled.div`
   margin-top: ${themeSpacing(6)};
-  margin-bottom: ${themeSpacing(14)};
+  margin-bottom: ${themeSpacing(10)};
 `;
 
-const TextStatistic = ({ title, gwb, indicatorId }) => {
+const TextStatistic = ({
+  title,
+  gwb,
+  indicatorId,
+  titleLeft = true,
+}: {
+  title: string;
+  gwb: any;
+  indicatorId: string;
+  titleLeft?: boolean;
+}) => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState<string | null>(null);
 
   async function updateData() {
     setIsLoading(true);
 
-    const apiData = await util.getLatestConfigCijfers(gwb, [
-      {
-        indicatorDefinitieId: indicatorId,
-      },
-    ]);
+    try {
+      const apiData = await util.getLatestConfigCijfers(gwb, [
+        {
+          indicatorDefinitieId: indicatorId,
+        },
+      ]);
 
-    if (apiData?.length > 0) {
-      setData(apiData[apiData.length - 1]?.recent?.waarde);
-    } else {
-      setData("geen gegevens");
+      setData(apiData[apiData.length - 1]?.recent?.waarde || "-");
+    } catch (e) {
+      console.error(e);
+      setData("-");
     }
 
     setIsLoading(false);
@@ -43,7 +54,16 @@ const TextStatistic = ({ title, gwb, indicatorId }) => {
   return (
     <Wrapper>
       <h3>
-        {title} {isLoading ? <Spinner /> : data}
+        {titleLeft && (
+          <>
+            {title} {isLoading ? <Spinner /> : data}
+          </>
+        )}
+        {!titleLeft && (
+          <>
+            {isLoading ? <Spinner /> : data} {title}
+          </>
+        )}
       </h3>
     </Wrapper>
   );
