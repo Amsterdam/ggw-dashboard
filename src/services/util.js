@@ -64,9 +64,10 @@ async function getConfigCijfers(gwb, config, recentOrAll = CIJFERS.ALL) {
           cijfers.cijfers.post = c.post;
         }
       }
+
       return {
         ...cijfers,
-        label: c.label || cijfers.meta.label,
+        label: c.label || cijfers?.meta?.label,
         showInLegend: c.showInLegend !== undefined ? c.showInLegend : true,
         index,
       };
@@ -74,7 +75,7 @@ async function getConfigCijfers(gwb, config, recentOrAll = CIJFERS.ALL) {
       console.error("Variable not found", c.indicatorDefinitieId);
       console.error(e);
       return {
-        label: c.label || c.indicatorDefinitieId,
+        label: c?.label || c?.indicatorDefinitieId,
       };
     }
   });
