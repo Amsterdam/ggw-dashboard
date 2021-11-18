@@ -15,36 +15,23 @@ import geregistreerdeWerkloosheid from "../static/links/geregistreerd_werklooshe
 import vroegErOpAf from "../static/links/vroeg_er_op_af.json";
 import ThemeHeader from "../components/ThemeHeader";
 import Car from "../components/Icons/Car";
+import HeaderRow from "../components/layout/HeaderRow";
 
 const Werk = ({ gwb }) => {
   return (
     <>
-      <ThemeHeader
-        gwb={gwb}
-        themeTitle={WERK_INKOMEN_EN_PARTICIPATIE}
-        Icon={Car}
-      />
+      <ThemeHeader gwb={gwb} themeTitle={WERK_INKOMEN_EN_PARTICIPATIE} Icon={Car} />
       <Row>
         <Column span={12}>
-          <h2>
-            Samenstelling {WERK_INKOMEN_EN_PARTICIPATIE} in {gwb?.naam}
-          </h2>
+          <HeaderRow title={`Samenstelling ${WERK_INKOMEN_EN_PARTICIPATIE} in ${gwb?.naam}`} />
         </Column>
       </Row>
       <Row>
         <Column span={6}>
-          <TextStatistic
-            title="Potentiële beroepsbevolking (18-74 jaar):"
-            gwb={gwb}
-            indicatorId="BEVPOTBBV18_74"
-          />
+          <TextStatistic title="Potentiële beroepsbevolking (18-74 jaar):" gwb={gwb} indicatorId="BEVPOTBBV18_74" />
         </Column>
         <Column span={6}>
-          <TextStatistic
-            title="Gemiddeld besteedbaar huishoudinkomen: €"
-            gwb={gwb}
-            indicatorId="IHHINK_GEM"
-          />
+          <TextStatistic title="Gemiddeld besteedbaar huishoudinkomen: €" gwb={gwb} indicatorId="IHHINK_GEM" />
         </Column>
       </Row>
       <Row>
@@ -61,26 +48,18 @@ const Werk = ({ gwb }) => {
       </Row>
       <Row>
         <Column span={12}>
-          <h2>
-            De ontwikkeling van {WERK_INKOMEN_EN_PARTICIPATIE} in {gwb?.naam} en
-            Amsterdam
-          </h2>
+          <HeaderRow
+            title={`De ontwikkeling van ${WERK_INKOMEN_EN_PARTICIPATIE} in ${gwb?.naam} en
+            Amsterdam`}
+          />
         </Column>
       </Row>
       <Row>
         <Column span={4}>
-          <VerticalBarChart
-            title={werkloosheid[0].label}
-            config={werkloosheid}
-            gwb={gwb}
-          ></VerticalBarChart>
+          <VerticalBarChart title={werkloosheid[0].label} config={werkloosheid} gwb={gwb}></VerticalBarChart>
         </Column>
         <Column span={4}>
-          <VerticalBarChart
-            title={minimahuishoudens[0].label}
-            config={minimahuishoudens}
-            gwb={gwb}
-          ></VerticalBarChart>
+          <VerticalBarChart title={minimahuishoudens[0].label} config={minimahuishoudens} gwb={gwb}></VerticalBarChart>
         </Column>
         <Column span={4}>
           <VerticalBarChart
@@ -93,11 +72,7 @@ const Werk = ({ gwb }) => {
 
       <Row>
         <Column span={4}>
-          <VerticalBarChart
-            title={bijstand[0].label}
-            config={bijstand}
-            gwb={gwb}
-          ></VerticalBarChart>
+          <VerticalBarChart title={bijstand[0].label} config={bijstand} gwb={gwb}></VerticalBarChart>
         </Column>
         <Column span={4}>
           <VerticalBarChart
@@ -107,17 +82,13 @@ const Werk = ({ gwb }) => {
           ></VerticalBarChart>
         </Column>
         <Column span={4}>
-          <VerticalBarChart
-            title={vroegErOpAf[0].label}
-            config={vroegErOpAf}
-            gwb={gwb}
-          ></VerticalBarChart>
+          <VerticalBarChart title={vroegErOpAf[0].label} config={vroegErOpAf} gwb={gwb}></VerticalBarChart>
         </Column>
       </Row>
 
       <Row>
         <Column span={12}>
-          <h2>{gwb?.naam} vergeleken met andere gebieden</h2>
+          <HeaderRow title={`${gwb?.naam} vergeleken met andere gebieden`} />
         </Column>
       </Row>
     </>
