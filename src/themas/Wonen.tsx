@@ -25,10 +25,10 @@ const Wonen = ({ gwb }) => {
       </Row>
       <Row>
         <Column span={6}>
-          <TextStatistic title="Woningen" gwb={gwb} indicatorId="WVOORRBAG" />
+          <TextStatistic title="Woningen" gwb={gwb} indicatorId="WVOORRBAG" titleLeft={false} />
         </Column>
         <Column span={6}>
-          <TextStatistic title="% krappe woningen" gwb={gwb} indicatorId="W_KRAP_P" />
+          <TextStatistic title="% krappe woningen" gwb={gwb} indicatorId="W_KRAP_P" titleLeft={false} />
         </Column>
       </Row>
       <Row>

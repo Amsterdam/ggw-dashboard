@@ -8,6 +8,7 @@ import Dashboard from "./components/layout/Dashboard";
 import GGWFooter from "./components/layout/GGWFooter";
 import GGWHeader from "./components/layout/GGWHeader";
 import { THEMAS } from "./services/thema";
+import util from "./services/util";
 
 const OuterWrapper = styled.div`
   background-color: ${themeColor("tint", "level3")};
@@ -20,6 +21,8 @@ const InnerWrapper = styled.div`
 function App() {
   const [gwb, setGWB] = React.useState(null);
   const [thema, setThema] = React.useState(THEMAS[0]);
+
+  util.setVegaLocale();
 
   return (
     <OuterWrapper>

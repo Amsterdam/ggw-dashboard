@@ -59,13 +59,13 @@ const DataTable = ({
   const getFirstYearData = (indicator, finalYear): { waarde: any; jaar: number } | null => {
     let dataFirstYear;
     const indicatorYears = indicator.cijfers.map((c) => c.jaar);
-    const fourYearsAgo = indicator.cijfers.find((c) => c.jaar === finalYear - 3 && c.waarde !== null);
+    const fourYearsAgo = indicator.cijfers.find((c) => c.jaar === finalYear - 4 && c.waarde !== null);
 
     if (fourYearsAgo !== undefined) {
       return fourYearsAgo;
     }
 
-    for (let yearDifference = 3; yearDifference >= 0; yearDifference--) {
+    for (let yearDifference = 4; yearDifference >= 0; yearDifference--) {
       for (let index = indicatorYears.length - 1; index >= 0; index--) {
         const year = indicatorYears[index];
 
@@ -118,30 +118,41 @@ const DataTable = ({
     return Math.round((dataFinalYear?.waarde - dataFirstYear?.waarde) * 100) / 100;
   };
 
+  const formatValue = (value) => {
+    return new Intl.NumberFormat("nl-NL", { maximumSignificantDigits: 6 }).format(value);
+  };
+
   return (
     <>
       {data && gwb && years && sd && (
-        <Table>
+        <Table style={{ borderBottom: "2px solid black" }}>
           <TableHeader>
             <TableRow>
-              <TableCell colSpan={8 + (needCityAverage ? 1 : 0)} style={{ borderBottom: "none", textAlign: "right" }}>
+              <TableCell
+                colSpan={8 + (needCityAverage ? 1 : 0)}
+                style={{ borderBottom: "none", textAlign: "right", paddingBottom: "0px" }}
+              >
                 Ontwikkeling laatste 4 jaar
               </TableCell>
             </TableRow>
             <TableRow>
-              <TableCell as="th">&nbsp;</TableCell>
-              <TableCell as="th">&nbsp;</TableCell>
+              <TableCell as="th" style={{ borderBottom: "2px solid black" }}>
+                &nbsp;
+              </TableCell>
+              <TableCell as="th" style={{ borderBottom: "2px solid black" }}>
+                &nbsp;
+              </TableCell>
               {years.map((year) => (
-                <TableCell as="th" key={year} style={{ textAlign: "right" }}>
+                <TableCell as="th" key={year} style={{ textAlign: "right", borderBottom: "2px solid black" }}>
                   {year}
                 </TableCell>
               ))}
               {gwb?.code !== "STAD" && (
-                <TableCell as="th" style={{ textAlign: "right" }}>
+                <TableCell as="th" style={{ textAlign: "right", borderBottom: "2px solid black" }}>
                   {gwb?.naam}
                 </TableCell>
               )}
-              <TableCell as="th" style={{ textAlign: "right" }}>
+              <TableCell as="th" style={{ textAlign: "right", borderBottom: "2px solid black" }}>
                 Amsterdam
               </TableCell>
             </TableRow>
@@ -181,7 +192,11 @@ const DataTable = ({
                       const yearData = indicator.cijfers.find((c) => c.jaar === year && c.waarde !== null);
 
                       if (!yearData) {
-                        return <TableCell key={year}>-</TableCell>;
+                        return (
+                          <TableCell key={year} style={{ textAlign: "right" }}>
+                            -
+                          </TableCell>
+                        );
                       }
 
                       const colors =
@@ -205,7 +220,7 @@ const DataTable = ({
                             textAlign: "right",
                           }}
                         >
-                          {yearData?.waarde || "-"}
+                          {formatValue(yearData?.waarde) || "-"}
                         </TableCell>
                       );
                     })}
@@ -216,7 +231,9 @@ const DataTable = ({
                           textAlign: "right",
                         }}
                       >
-                        {indicatorDevelopment > 0 ? `+${indicatorDevelopment}` : indicatorDevelopment}
+                        {indicatorDevelopment > 0
+                          ? `+${formatValue(indicatorDevelopment)}`
+                          : formatValue(indicatorDevelopment)}
                       </TableCell>
                     )}
                     <TableCell
@@ -225,7 +242,9 @@ const DataTable = ({
                         textAlign: "right",
                       }}
                     >
-                      {cityIndicatorDevelopment > 0 ? `+${cityIndicatorDevelopment}` : cityIndicatorDevelopment}
+                      {cityIndicatorDevelopment > 0
+                        ? `+${formatValue(cityIndicatorDevelopment)}`
+                        : formatValue(cityIndicatorDevelopment)}
                     </TableCell>
                   </TableRow>
                 );
