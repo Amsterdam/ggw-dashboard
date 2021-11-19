@@ -219,9 +219,9 @@ export function getColorsUsingStaticDefinition(config: any) {
   return kleurenTabel.kleur[`grafiek_${indexMin}`];
 }
 
-export function getColorGivenValueAndColorPalet(kleurenpalet: number, waarde: number | "-") {
-  if (waarde === "-") {
-    return "#ffffff";
+export function getColorGivenValueAndColorPalet(kleurenpalet: number, waarde: number | string) {
+  if (typeof waarde === "string") {
+    return "#000000";
   }
 
   if (kleurenpalet === 1) {

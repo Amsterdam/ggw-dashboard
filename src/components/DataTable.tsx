@@ -57,30 +57,7 @@ const DataTable = ({
   };
 
   const getFirstYearData = (indicator, finalYear): { waarde: any; jaar: number } | null => {
-    let dataFirstYear;
-    const indicatorYears = indicator.cijfers.map((c) => c.jaar);
-    const fourYearsAgo = indicator.cijfers.find((c) => c.jaar === finalYear - 4 && c.waarde !== null);
-
-    if (fourYearsAgo !== undefined) {
-      return fourYearsAgo;
-    }
-
-    for (let yearDifference = 4; yearDifference >= 0; yearDifference--) {
-      for (let index = indicatorYears.length - 1; index >= 0; index--) {
-        const year = indicatorYears[index];
-
-        // if the difference is more than 4 years
-        if (finalYear - year > yearDifference) {
-          dataFirstYear = indicator.cijfers.find((c) => c.jaar === year && c.waarde !== null);
-
-          if (dataFirstYear !== undefined) {
-            return dataFirstYear;
-          }
-        }
-      }
-    }
-
-    return dataFirstYear;
+    return indicator.cijfers.find((c) => c.jaar === finalYear - 4 && c.waarde !== null);
   };
 
   const getFinalYearsData = (indicator): { waarde: any; jaar: number } | null => {
@@ -111,6 +88,10 @@ const DataTable = ({
     const dataFinalYear = getFinalYearsData(indicator);
     const dataFirstYear = getFirstYearData(indicator, dataFinalYear?.jaar);
 
+    if (dataFirstYear === undefined) {
+      return "n.b.";
+    }
+
     if (dataFirstYear?.jaar === dataFinalYear?.jaar) {
       return "-";
     }
@@ -119,7 +100,11 @@ const DataTable = ({
   };
 
   const formatValue = (value) => {
-    return new Intl.NumberFormat("nl-NL", { maximumSignificantDigits: 6 }).format(value);
+    if (typeof value === "number") {
+      return new Intl.NumberFormat("nl-NL", { maximumSignificantDigits: 6 }).format(value);
+    }
+
+    return value;
   };
 
   return (
