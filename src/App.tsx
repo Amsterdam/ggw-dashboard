@@ -1,12 +1,13 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import styled from "styled-components";
 import { Column, Row, themeColor } from "@amsterdam/asc-ui";
 
 import "./App.scss";
 import Dashboard from "./components/layout/Dashboard";
 import GGWFooter from "./components/layout/GGWFooter";
-import GGWHeader from "./components/layout/GGWHeader";
+import { GWBProvider } from "./components/context/GWBContext";
+
 import { THEMAS } from "./services/thema";
 import util from "./services/util";
 
@@ -19,9 +20,6 @@ const InnerWrapper = styled.div`
 `;
 
 function App() {
-  const [gwb, setGWB] = React.useState(null);
-  const [thema, setThema] = React.useState(THEMAS[0]);
-
   util.setVegaLocale();
 
   return (
@@ -29,14 +27,15 @@ function App() {
       <Row>
         <Column span={12}>
           <InnerWrapper>
-            <GGWHeader gwb={gwb} setGwb={setGWB} thema={thema} setThema={setThema} />
-            <Router>
-              <Switch>
-                <Route path="/">
-                  <Dashboard gwb={gwb} thema={thema} />
-                </Route>
-              </Switch>
-            </Router>
+            <GWBProvider>
+              <Router>
+                <Routes>
+                  <Route path="/" element={<Dashboard thema={THEMAS[0]} />}>
+                    <Route path="/:thema" element={<Dashboard />} />
+                  </Route>
+                </Routes>
+              </Router>
+            </GWBProvider>
             <GGWFooter />
           </InnerWrapper>
         </Column>

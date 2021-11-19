@@ -34,7 +34,7 @@ const DataTable = ({
 
     async function getData() {
       if (needCityAverage) {
-        const cityData = await util.getConfigCijfers(await util.getCity(), config);
+        const cityData = await util.getConfigCijfers(util.getCity(), config);
 
         setCityAvgData(cityData);
       }

@@ -10,6 +10,7 @@ import LeeftijdJeugdStackedBar from "../components/charts/LeeftijdJeudStackedBar
 import ThemeHeader from "../components/ThemeHeader";
 import Car from "../components/Icons/Car";
 import LegendTable from "../components/LegendTable";
+import { useGWBSelection } from "../components/context/GWBContext";
 
 import woningVoorraad from "../static/links/woningvoorraad.json";
 import sociaalEconomisch from "../static/links/sociaaleconomisch.json";
@@ -26,7 +27,9 @@ const SpacingDiv = styled.div`
   width: 100%;
 `;
 
-const GebiedInHetKort = ({ gwb }) => {
+const GebiedInHetKort = () => {
+  const gwb = useGWBSelection();
+
   return (
     <>
       <ThemeHeader gwb={gwb} themeTitle="Gebied in het kort" Icon={Car} />
