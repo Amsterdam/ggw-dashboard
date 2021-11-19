@@ -21,7 +21,7 @@ const ThemeHeader = ({ gwb, themeTitle, Icon }) => {
             <Column span={6}>
               <div>
                 <h2>{themeTitle}</h2>
-                <Icon />
+                <Icon width="200" height="200" />
               </div>
             </Column>
           </Row>

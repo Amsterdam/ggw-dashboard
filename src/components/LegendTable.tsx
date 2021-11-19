@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { List, ListItem, Paragraph, themeSpacing } from "@amsterdam/asc-ui";
+import { List, ListItem, Paragraph, themeColor, themeSpacing } from "@amsterdam/asc-ui";
 
 import util from "../services/util";
 import { getColor } from "../services/colorcoding";
@@ -9,13 +9,13 @@ import kleurenTabel from "../static/kleurcodetabel.json";
 const colorLegend = kleurenTabel.kleur.hoog_is_groen;
 
 const LegendWrapper = styled.div`
-  border: 1px solid black;
+  border: 1px solid ${themeColor("tint", "level7")};
 `;
 
 const LegendColumn = styled.div`
   width: 20%;
   padding: ${themeSpacing(2)};
-  border-right: 1px solid black;
+  border-right: 1px solid ${themeColor("tint", "level7")};
 `;
 
 const LegendRow = styled.div`
@@ -37,6 +37,7 @@ const listItems = colorLegend.map((color) => {
   return styled(ListItem)`
     &::before {
       background-color: ${color} !important;
+      border: 1px solid ${themeColor("tint", "level7")};
     }
   `;
 });
