@@ -1,6 +1,6 @@
 import { FormEvent, useEffect, useState } from "react";
 import styled from "styled-components";
-import { Select, Row, Column } from "@amsterdam/asc-ui";
+import { Select, Row, Column, Spinner } from "@amsterdam/asc-ui";
 import util from "../services/util";
 
 type GwbItem = {
@@ -236,8 +236,8 @@ const GWBSelector = ({ gwb, setGWB }) => {
 
   return (
     <Row>
-      {gwbSelection && gwbSelection?.stadsDelen?.length > 0 && (
-        <Column span={3}>
+      <Column span={3}>
+        {gwbSelection && gwbSelection?.stadsDelen?.length > 0 ? (
           <FullWidth>
             <Select
               id="stadsdelen"
@@ -257,11 +257,13 @@ const GWBSelector = ({ gwb, setGWB }) => {
               })}
             </Select>
           </FullWidth>
-        </Column>
-      )}
+        ) : (
+          <Spinner />
+        )}
+      </Column>
 
-      {gwbSelection && gwbSelection?.gebieden?.length > 0 && (
-        <Column span={3}>
+      <Column span={3}>
+        {gwbSelection && gwbSelection?.gebieden?.length > 0 ? (
           <FullWidth>
             <Select
               id="gebieden"
@@ -281,11 +283,13 @@ const GWBSelector = ({ gwb, setGWB }) => {
               })}
             </Select>
           </FullWidth>
-        </Column>
-      )}
+        ) : (
+          <Spinner />
+        )}
+      </Column>
 
-      {gwbSelection && gwbSelection?.wijken?.length > 0 && (
-        <Column span={3}>
+      <Column span={3}>
+        {gwbSelection && gwbSelection?.wijken?.length > 0 ? (
           <FullWidth>
             <Select
               id="wijk"
@@ -305,11 +309,13 @@ const GWBSelector = ({ gwb, setGWB }) => {
               })}
             </Select>
           </FullWidth>
-        </Column>
-      )}
+        ) : (
+          <Spinner />
+        )}
+      </Column>
 
-      {gwbSelection && gwbSelection?.buurten?.length > 0 && (
-        <Column span={3}>
+      <Column span={3}>
+        {gwbSelection && gwbSelection?.buurten?.length > 0 ? (
           <FullWidth>
             <Select
               id="buurt"
@@ -330,8 +336,10 @@ const GWBSelector = ({ gwb, setGWB }) => {
               })}
             </Select>
           </FullWidth>
-        </Column>
-      )}
+        ) : (
+          <Spinner />
+        )}
+      </Column>
     </Row>
   );
 };
