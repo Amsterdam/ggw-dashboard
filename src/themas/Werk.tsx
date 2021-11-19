@@ -16,8 +16,11 @@ import vroegErOpAf from "../static/links/vroeg_er_op_af.json";
 import ThemeHeader from "../components/ThemeHeader";
 import Car from "../components/Icons/Car";
 import HeaderRow from "../components/layout/HeaderRow";
+import { useGWBSelection } from "../components/context/GWBContext";
 
-const Werk = ({ gwb }) => {
+const Werk = () => {
+  const gwb = useGWBSelection();
+
   return (
     <>
       <ThemeHeader gwb={gwb} themeTitle={WERK_INKOMEN_EN_PARTICIPATIE} Icon={Car} />

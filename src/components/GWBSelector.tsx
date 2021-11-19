@@ -1,7 +1,12 @@
 import { FormEvent, useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import styled from "styled-components";
 import { Select, Row, Column, Spinner } from "@amsterdam/asc-ui";
+
 import util from "../services/util";
+import { useNavigate } from "react-router";
+import { useParams } from "react-router";
+import { useGWBContext } from "./context/GWBContext";
 
 type GwbItem = {
   display: string;
@@ -14,12 +19,19 @@ const FullWidth = styled.div`
   width: 100%;
 `;
 
+enum GebiedType {
+  Stadsdeel = "Stadsdeel",
+  Gebied = "Gebied",
+  Wijk = "Wijk",
+  Buurt = "Buurt",
+}
+
 const getParsedItemId = (item: { id: string }) => {
   return item?.id?.split(".")[0] + "";
 };
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const GWBSelector = ({ gwb, setGWB }) => {
+const GWBSelector = () => {
   const emptyState: {
     stadsDelen: GwbItem[];
     stadsDeel: string;
@@ -71,6 +83,19 @@ const GWBSelector = ({ gwb, setGWB }) => {
     buurten: [],
   });
 
+  const { gwb, setGWB } = useGWBContext();
+
+  // Update URL after changing gwb selection.
+  const navigate = useNavigate();
+  const { thema } = useParams();
+  useEffect(() => {
+    if (gwb) {
+      navigate(`${thema ? thema : ""}/?code=${gwb.code}`);
+    }
+  }, [gwb, navigate, thema]);
+
+  const [searchParams] = useSearchParams();
+
   const updateStadsDeel = async (stadsDeelCode) => {
     let stadsDeelDetail = null;
 
@@ -108,7 +133,7 @@ const GWBSelector = ({ gwb, setGWB }) => {
         });
       }
     } else {
-      const deel = await util.getCity();
+      const deel = util.getCity();
       stadsDeelDetail = deel;
 
       setGwbSelection({
@@ -121,7 +146,7 @@ const GWBSelector = ({ gwb, setGWB }) => {
       });
     }
 
-    setGWB(stadsDeelDetail);
+    setGWB && setGWB(stadsDeelDetail);
   };
 
   const updateGebied = async (gebiedCode) => {
@@ -153,7 +178,7 @@ const GWBSelector = ({ gwb, setGWB }) => {
       updateStadsDeel(gwbSelection.stadsDeel);
     }
 
-    setGWB(gebiedDetail);
+    setGWB && setGWB(gebiedDetail);
   };
 
   const updateWijk = async (wijkCode) => {
@@ -174,7 +199,7 @@ const GWBSelector = ({ gwb, setGWB }) => {
         buurten,
       });
 
-      setGWB(wijkDetail);
+      setGWB && setGWB(wijkDetail);
     } else {
       updateGebied(gwbSelection.gebied);
     }
@@ -194,7 +219,7 @@ const GWBSelector = ({ gwb, setGWB }) => {
         buurt: buurtCode,
       });
 
-      setGWB(buurtDetail);
+      setGWB && setGWB(buurtDetail);
     } else {
       updateWijk(gwbSelection.wijk);
     }
@@ -210,14 +235,10 @@ const GWBSelector = ({ gwb, setGWB }) => {
       ]);
 
       const stadsDelen = results[0];
-
       const gebieden = results[1];
-
       const wijken = results[2];
-
       const buurten = results[3];
 
-      setAllData({ wijken, buurten, gebieden, stadsDelen });
       setGwbSelection({
         ...emptyState,
         wijken,
@@ -225,14 +246,51 @@ const GWBSelector = ({ gwb, setGWB }) => {
         gebieden,
         stadsDelen,
       });
-
-      const allCity = await util.getCity();
-      setGWB(allCity);
+      setAllData({ wijken, buurten, gebieden, stadsDelen });
     }
 
     loadInitialData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    // One time only when loading the component update the selection using the query param code (if present)
+    function updateSelectionBasedOnQuery() {
+      const allAreas = [allData.gebieden, allData.stadsDelen, allData.wijken, allData.buurten].flat();
+
+      if (allAreas.length === 0) {
+        return;
+      }
+
+      const code = searchParams.get("code");
+      let currentSelection = util.getCity();
+
+      if (code) {
+        const foundSelection = allAreas.find((a) => a.code === code);
+
+        if (foundSelection !== undefined) {
+          currentSelection = foundSelection;
+
+          switch (currentSelection.gebiedType) {
+            case GebiedType.Stadsdeel:
+              return updateStadsDeel(code);
+            case GebiedType.Gebied:
+              return updateGebied(code);
+            case GebiedType.Wijk:
+              return updateWijk(code);
+            case GebiedType.Buurt:
+              return updateBuurt(code);
+          }
+        }
+      }
+
+      // No code, initialize using the entire city.
+      setGWB && setGWB(currentSelection);
+    }
+
+    updateSelectionBasedOnQuery();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [allData.gebieden, allData.stadsDelen, allData.wijken, allData.buurten]);
 
   return (
     <Row>

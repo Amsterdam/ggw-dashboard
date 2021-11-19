@@ -206,9 +206,9 @@ export async function getGwb(code) {
  * The city as such is not exposed by the gebieden API
  * The method compensates for the ommission by providing a faked Amsterdam stad object
  * Note that any call to getDetail, summary or whatever will fail because it does only exist internally
- * @returns {Promise<*>}
+ *
  */
-export async function getCity() {
+export function getCity() {
   return enhanceGWB({
     code: "STAD",
     naam: "Amsterdam",

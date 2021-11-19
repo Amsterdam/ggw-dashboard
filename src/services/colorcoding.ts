@@ -197,9 +197,10 @@ export function getColor(
     }
   }
 
+  // No data or something went wrong so just use white and black.
   return {
-    color: "",
-    textColor: "",
+    color: "#FFFFFF",
+    textColor: "#000000",
   };
 }
 
