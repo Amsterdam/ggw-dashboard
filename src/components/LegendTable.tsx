@@ -37,7 +37,6 @@ const listItems = colorLegend.map((color) => {
   return styled(ListItem)`
     &::before {
       background-color: ${color} !important;
-      border: 1px solid ${themeColor("tint", "level7")};
     }
   `;
 });
@@ -83,6 +82,11 @@ const LegendTable = ({
         }
 
         const yearData = filterdData[filterdData?.length - 1];
+
+        if (!yearData || !yearData?.waarde) {
+          return;
+        }
+
         const colorDef = getColor(
           {
             indicatorDefinitieId: c.indicatorDefinitieId,
