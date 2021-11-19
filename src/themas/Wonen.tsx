@@ -13,8 +13,11 @@ import wonenaanvullend from "../static/links/wonenaanvullend.json";
 import WoningVoorraadStackedBar from "../components/charts/WoningVoorraadStackedBar";
 import GrootteWoningenStackedBar from "../components/charts/GrootteWoningenStackedBar";
 import HeaderRow from "../components/layout/HeaderRow";
+import { useGWBSelection } from "../components/context/GWBContext";
 
-const Wonen = ({ gwb }) => {
+const Wonen = () => {
+  const gwb = useGWBSelection();
+
   return (
     <>
       <ThemeHeader gwb={gwb} themeTitle={WONEN} Icon={Car} />

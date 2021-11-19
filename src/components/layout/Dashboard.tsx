@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { themeSpacing } from "@amsterdam/asc-ui";
 import GebiedInHetKort from "../../themas/GebiedInHetKort";
-import { THEMAS } from "../../services/thema";
+import { THEMAS, URL_THEMA_MAPPING } from "../../services/thema";
 
 import Bevolking from "../../themas/Bevolking";
 import StedelijkeOntwikkeling from "../../themas/StedelijkeOntwikkeling";
@@ -14,6 +14,8 @@ import Werk from "../../themas/Werk";
 import Welzijn from "../../themas/Welzijn";
 import SocialeKracht from "../../themas/SocialeKracht";
 import Wonen from "../../themas/Wonen";
+import { useParams } from "react-router";
+import PageTemplate from "./PageTemplate";
 
 const DashboardDiv = styled.div`
   padding-top: ${themeSpacing(8)};
@@ -40,15 +42,28 @@ const themaMapping = {
   [THEMAS[11]]: SocialeKracht,
 };
 
-const Dashboard = ({ gwb, thema }) => {
-  const Thema = themaMapping[thema] || GebiedInHetKort;
+const Dashboard = ({ thema: propThema = THEMAS[0] }: { thema?: string }) => {
+  let { thema } = useParams();
+
+  if (!thema && propThema) {
+    thema = propThema;
+  }
+
+  if (!thema) {
+    console.error("No theme found");
+    return null;
+  }
+
+  const Thema = themaMapping[URL_THEMA_MAPPING[thema]] || GebiedInHetKort;
 
   return (
-    <DashboardDiv>
-      <ContainerDiv>
-        <Thema gwb={gwb} />
-      </ContainerDiv>
-    </DashboardDiv>
+    <PageTemplate>
+      <DashboardDiv>
+        <ContainerDiv>
+          <Thema />
+        </ContainerDiv>
+      </DashboardDiv>
+    </PageTemplate>
   );
 };
 

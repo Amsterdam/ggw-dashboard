@@ -22,7 +22,6 @@ export const SOCIALE_KRACHT = "Sociale kracht";
 
 /**
  * The total set of available themas of which the user can choose from
- * @type {*[]}
  */
 export const THEMAS = [
   IN_HET_KORT,
@@ -38,6 +37,28 @@ export const THEMAS = [
   WONEN,
   SOCIALE_KRACHT,
 ];
+
+export const THEMA_URL_MAPPING = {
+  [IN_HET_KORT]: "in-het-kort",
+  [BEVOLKING]: "bevolking",
+  [STEDELIJKE_ONTWIKKELING_EN_WONEN]: "stedelijke-ontwikkeling-en-wonen",
+  [VERKEER_EN_OPENBARE_RUIMTE]: "verkeer-en-openbare-ruimte",
+  [DUURZAAMHEID_EN_WATER]: "duurzaamheid-en-water",
+  [ECONOMIE_EN_CULTUUR]: "economie-en-cultuur",
+  [OPENBARE_ORDE_EN_VEILIGHEID]: "openbare-orde-en-veiligheid",
+  [ONDERWIJS_JEUGD_EN_DIVERSITEIT]: "onderwijs-jeugd-en-diversiteit",
+  [WERK_INKOMEN_EN_PARTICIPATIE]: "werk-inkomen-en-participatie",
+  [WELZIJN_ZORG_EN_SPORT]: "welzijn-zorg-en-sport",
+  [WONEN]: "wonen",
+  [SOCIALE_KRACHT]: "sociale-kracht",
+};
+
+export const URL_THEMA_MAPPING = THEMAS.reduce((acc, curr) => {
+  return {
+    ...acc,
+    [THEMA_URL_MAPPING[curr]]: curr,
+  };
+}, {});
 
 /**
  * Gets the set of kerncijfers for a given thema
