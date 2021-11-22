@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { themeSpacing } from "@amsterdam/asc-ui";
+import { Spinner, themeSpacing } from "@amsterdam/asc-ui";
 import GebiedInHetKort from "../../themas/GebiedInHetKort";
 import { THEMAS, URL_THEMA_MAPPING } from "../../services/thema";
 
@@ -16,6 +16,7 @@ import SocialeKracht from "../../themas/SocialeKracht";
 import Wonen from "../../themas/Wonen";
 import { useParams } from "react-router";
 import PageTemplate from "./PageTemplate";
+import { useGWBSelection } from "../context/GWBContext";
 
 const DashboardDiv = styled.div`
   padding-top: ${themeSpacing(8)};
@@ -44,6 +45,7 @@ const themaMapping = {
 
 const Dashboard = ({ thema: propThema = THEMAS[0] }: { thema?: string }) => {
   let { thema } = useParams();
+  const gwb = useGWBSelection();
 
   if (!thema && propThema) {
     thema = propThema;
@@ -59,9 +61,7 @@ const Dashboard = ({ thema: propThema = THEMAS[0] }: { thema?: string }) => {
   return (
     <PageTemplate>
       <DashboardDiv>
-        <ContainerDiv>
-          <Thema />
-        </ContainerDiv>
+        <ContainerDiv>{gwb ? <Thema /> : <Spinner />}</ContainerDiv>
       </DashboardDiv>
     </PageTemplate>
   );
