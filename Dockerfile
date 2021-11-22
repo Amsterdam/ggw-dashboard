@@ -1,4 +1,4 @@
-FROM node:10.15-stretch AS builder
+FROM node:14.18-stretch AS builder
 
 LABEL maintainer="datapunt@amsterdam.nl"
 
@@ -10,10 +10,6 @@ COPY package.json \
   package-lock.json \
   .eslintrc.js \
   .gitignore \
-  # babel.config.js \
-  # jest.config.js \
-  # postcss.config.js \
-  # vue.config.js \
   /app/
 
 #  Changing git URL because network is blocking git protocol...
