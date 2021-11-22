@@ -8,7 +8,7 @@ import { getOneStd } from "../services/apis/bbga";
 import { getColor } from "../services/colorcoding";
 
 import { getColorsUsingStaticDefinition } from "../services/colorcoding";
-import vegaSpec from "../static/charts/verticalbar.json";
+import vegaSpec from "../static/charts/verticalbar";
 
 const vegaEmbedOptions = {
   actions: false,
