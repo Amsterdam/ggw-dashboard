@@ -108,7 +108,7 @@ const LegendTable = ({
     }
 
     fetchData();
-  }, [gwb, config, colorLegend]);
+  }, [gwb, config]);
 
   return (
     <>
