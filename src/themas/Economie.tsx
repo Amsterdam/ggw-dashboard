@@ -7,11 +7,15 @@ import Car from "../components/Icons/Car";
 
 import { ECONOMIE } from "../services/thema";
 
-import economiecijfers from "../static/links/economie_kerncijfers.json";
 import WerkzamePersonenHoofdfunctieStackedBar from "../components/charts/WerkzamePersonenHoofdfunctieStackedBar";
 import VestigingenNaarFunctiegroep from "../components/charts/VestigingenNaarFunctiegroepStackedBar";
 import HeaderRow from "../components/layout/HeaderRow";
 import { useGWBSelection } from "../components/context/GWBContext";
+import LineChart from "../components/LineChart";
+
+import economiecijfers from "../static/links/economie_kerncijfers.json";
+import vestigingenOntwikkeling from "../static/links/vestigingen_ontwikkeling.json";
+import werkzamepersonenOntwikkeling from "../static/links/werkzamepersonen_ontwikkeling.json";
 
 const Economie = () => {
   const gwb = useGWBSelection();
@@ -45,6 +49,23 @@ const Economie = () => {
           <HeaderRow title={`De ontwikkeling van ${ECONOMIE} in ${gwb?.naam} en Amsterdam`} />
         </Column>
       </Row>
+      <Row>
+        <Column span={6}>
+          <LineChart
+            title="Aantal vestigingen naar functie groep"
+            config={vestigingenOntwikkeling}
+            gwb={gwb}
+          ></LineChart>
+        </Column>
+        <Column span={6}>
+          <LineChart
+            title="Werkzame personen naar functiegroep"
+            config={werkzamepersonenOntwikkeling}
+            gwb={gwb}
+          ></LineChart>
+        </Column>
+      </Row>
+
       <Row>
         <Column span={4}>
           <VerticalBarChart title={economiecijfers[0].label} config={[economiecijfers[0]]} gwb={gwb}></VerticalBarChart>
