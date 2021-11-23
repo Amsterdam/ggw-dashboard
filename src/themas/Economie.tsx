@@ -26,10 +26,10 @@ const Economie = () => {
       </Row>
       <Row>
         <Column span={6}>
-          <TextStatistic title="Vestigingen" gwb={gwb} indicatorId="BHVEST" titleLeft={false} />
+          <TextStatistic title="vestigingen" gwb={gwb} indicatorId="BHVEST" titleLeft={false} />
         </Column>
         <Column span={6}>
-          <TextStatistic title="Werkzame personen" gwb={gwb} indicatorId="BHWP" titleLeft={false} />
+          <TextStatistic title="werkzame personen" gwb={gwb} indicatorId="BHWP" titleLeft={false} />
         </Column>
       </Row>
       <Row>
