@@ -110,7 +110,7 @@ const StackedHorizontalBarChart = ({ title, config, gwb, customVegaSpec = null, 
 
   return (
     <div className="block-container">
-      <h3>{title}</h3>
+      <h5>{title}</h5>
       {isLoading ? <Spinner /> : null}
       <div ref={chartRef}></div>
     </div>
