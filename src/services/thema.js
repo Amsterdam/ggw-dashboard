@@ -48,7 +48,7 @@ export const THEMA_URL_MAPPING = {
   [STEDELIJKE_ONTWIKKELING_EN_WONEN]: "stedelijke-ontwikkeling-en-wonen",
   [VERKEER_EN_OPENBARE_RUIMTE]: "verkeer-en-openbare-ruimte",
   [DUURZAAMHEID_EN_WATER]: "duurzaamheid-en-water",
-  [ECONOMIE]: "economie-en-cultuur",
+  [ECONOMIE]: "economie",
   [OPENBARE_ORDE_EN_VEILIGHEID]: "openbare-orde-en-veiligheid",
   [ONDERWIJS_JEUGD_EN_DIVERSITEIT]: "onderwijs-jeugd-en-diversiteit",
   [WERK_INKOMEN_EN_PARTICIPATIE]: "werk-inkomen-en-participatie",
