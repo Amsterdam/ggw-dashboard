@@ -1,0 +1,26 @@
+[
+  {
+    "label": "Veiligheidsindex totaal",
+    "indicatorDefinitieId": "VVEILIGH_I"
+  },
+  {
+    "label": "Slachtoffers criminaliteit (%)",
+    "indicatorDefinitieId": "VSLACHT_P"
+  },
+  {
+    "label": "Criminaliteit toegenomen",
+    "indicatorDefinitieId": "VCRIMITOE_P"
+  },
+  {
+    "label": "Jeugdige verdachten (% 12-24 jaar)",
+    "indicatorDefinitieId": "VJEUGDIGE_P"
+  },
+  {
+    "label": "Volwassen verdachten (% 25+)",
+    "indicatorDefinitieId": "VVOLWASSEN_P"
+  },
+  {
+    "label": "Wel eens onveilig voelen in eigen buurt (%)",
+    "indicatorDefinitieId": "VVEILIGVOELEN_P"
+  }
+]

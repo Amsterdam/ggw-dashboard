@@ -1,0 +1,26 @@
+[
+  {
+    "label": "Overlastindex",
+    "indicatorDefinitieId": "VOVERLAST_I"
+  },
+  {
+    "label": "Overlast toegenomen (%)",
+    "indicatorDefinitieId": "LOVERLTOE_P"
+  },
+  {
+    "label": "Veel horecaoverlast (%)",
+    "indicatorDefinitieId": "LHORECA_P"
+  },
+  {
+    "label": "Veel drugsoverlast (%)",
+    "indicatorDefinitieId": "LDRUGSOVL_P"
+  },
+  {
+    "label": "Veel overlast rondhangende jongeren (%)",
+    "indicatorDefinitieId": "LJONGERENOVL_P"
+  },
+  {
+    "label": "Burenoverlast (1-10)",
+    "indicatorDefinitieId": "LBURENOVERLAST_R"
+  }
+]

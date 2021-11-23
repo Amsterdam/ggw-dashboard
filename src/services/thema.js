@@ -10,7 +10,7 @@ import kerncijfers from "../static/links/kerncijfers.json";
 export const IN_HET_KORT = "Gebied in het kort";
 export const BEVOLKING = "Bevolking";
 export const DUURZAAMHEID_EN_WATER = "Duurzaamheid en water";
-export const ECONOMIE_EN_CULTUUR = "Economie en cultuur";
+export const ECONOMIE = "Economie";
 export const ONDERWIJS_JEUGD_EN_DIVERSITEIT = "Onderwijs, jeugd en diversiteit";
 export const OPENBARE_ORDE_EN_VEILIGHEID = "Openbare orde en veiligheid";
 export const STEDELIJKE_ONTWIKKELING_EN_WONEN = "Stedelijke ontwikkeling en wonen";
@@ -19,6 +19,8 @@ export const WELZIJN_ZORG_EN_SPORT = "Welzijn, zorg en sport";
 export const WERK_INKOMEN_EN_PARTICIPATIE = "Werk, inkomen en participatie";
 export const WONEN = "Wonen";
 export const SOCIALE_KRACHT = "Sociale kracht";
+export const OPENBARE_RUIMTE = "Openbare ruimte";
+export const VEILIGHEID = "Veiligheid en Overlast";
 
 /**
  * The total set of available themas of which the user can choose from
@@ -29,13 +31,15 @@ export const THEMAS = [
   STEDELIJKE_ONTWIKKELING_EN_WONEN,
   VERKEER_EN_OPENBARE_RUIMTE,
   DUURZAAMHEID_EN_WATER,
-  ECONOMIE_EN_CULTUUR,
+  ECONOMIE,
   OPENBARE_ORDE_EN_VEILIGHEID,
   ONDERWIJS_JEUGD_EN_DIVERSITEIT,
   WERK_INKOMEN_EN_PARTICIPATIE,
   WELZIJN_ZORG_EN_SPORT,
   WONEN,
   SOCIALE_KRACHT,
+  OPENBARE_RUIMTE,
+  VEILIGHEID,
 ];
 
 export const THEMA_URL_MAPPING = {
@@ -44,13 +48,15 @@ export const THEMA_URL_MAPPING = {
   [STEDELIJKE_ONTWIKKELING_EN_WONEN]: "stedelijke-ontwikkeling-en-wonen",
   [VERKEER_EN_OPENBARE_RUIMTE]: "verkeer-en-openbare-ruimte",
   [DUURZAAMHEID_EN_WATER]: "duurzaamheid-en-water",
-  [ECONOMIE_EN_CULTUUR]: "economie-en-cultuur",
+  [ECONOMIE]: "economie-en-cultuur",
   [OPENBARE_ORDE_EN_VEILIGHEID]: "openbare-orde-en-veiligheid",
   [ONDERWIJS_JEUGD_EN_DIVERSITEIT]: "onderwijs-jeugd-en-diversiteit",
   [WERK_INKOMEN_EN_PARTICIPATIE]: "werk-inkomen-en-participatie",
   [WELZIJN_ZORG_EN_SPORT]: "welzijn-zorg-en-sport",
   [WONEN]: "wonen",
   [SOCIALE_KRACHT]: "sociale-kracht",
+  [OPENBARE_RUIMTE]: "openbare-ruimte",
+  [VEILIGHEID]: "veiligheid",
 };
 
 export const URL_THEMA_MAPPING = THEMAS.reduce((acc, curr) => {

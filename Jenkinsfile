@@ -56,8 +56,6 @@ node {
 }
 String BRANCH = "${env.BRANCH_NAME}"
 if (BRANCH == "master") {
-  
-
     stage('Waiting for approval') {
         slackSend channel: '#ci-channel', color: 'warning', message: 'GGW Dashboard is waiting for Production Release - please confirm'
         input "Deploy to Production?"
