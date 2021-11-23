@@ -1,0 +1,18 @@
+[
+  {
+    "label": "",
+    "indicatorDefinitieId": "ORVERBLIJFWOON_P"
+  },
+  {
+    "label": "",
+    "indicatorDefinitieId": "ORVERBLIJFWERK_P"
+  },
+  {
+    "label": "",
+    "indicatorDefinitieId": "ORVERBLIJFSTUD_P"
+  },
+  {
+    "label": "",
+    "indicatorDefinitieId": "ORVERBLIJFBEZOEK_P"
+  }
+]

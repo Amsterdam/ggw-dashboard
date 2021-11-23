@@ -1,0 +1,26 @@
+[
+  {
+    "label": "Winkelaanbod dagelijkse boodschappen",
+    "indicatorDefinitieId": "BHWINKELAANBOD_R"
+  },
+  {
+    "label": "Rapportcijfer horeca",
+    "indicatorDefinitieId": "BHHORECAAANBOD_R"
+  },
+  {
+    "label": "Aantal hotelbedden per 1.000 inwoners",
+    "indicatorDefinitieId": "BHHOTBED_1000INW"
+  },
+  {
+    "label": "Winkelruimtes per 1.000 inwoners",
+    "indicatorDefinitieId": "BHWINK_1000INW"
+  },
+  {
+    "label": "Leegstand kantoorruimtes m2 %",
+    "indicatorDefinitieId": "BHKANTRUIM_M2LEEG_P"
+  },
+  {
+    "label": "ZZP’ers (% van vestigingen)",
+    "indicatorDefinitieId": "BHZZP_P"
+  }
+]

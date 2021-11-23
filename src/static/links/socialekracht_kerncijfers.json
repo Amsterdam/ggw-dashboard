@@ -1,0 +1,26 @@
+[
+  {
+    "label": "Meest kwetsbare bewoners",
+    "indicatorDefinitieId": "SKKWETS34_P"
+  },
+  {
+    "label": "% met lage SES",
+    "indicatorDefinitieId": "SKSES234_P"
+  },
+  {
+    "label": "Meest kwetsbare kinderen (% 0-17)",
+    "indicatorDefinitieId": "SK017_KWETS34_P"
+  },
+  {
+    "label": "Meest kwetsbare jongeren (% 18-26)",
+    "indicatorDefinitieId": "SK1826_KWETS34_P"
+  },
+  {
+    "label": "Meest kwetsbare volwassenen (%27-65)",
+    "indicatorDefinitieId": "SK2765_KWETS34_P"
+  },
+  {
+    "label": "Meest kwetsbare ouderen (%66+)",
+    "indicatorDefinitieId": "SK66PLUS_KWETS34_P"
+  }
+]
