@@ -1,0 +1,26 @@
+[
+  {
+    "label": "Verloederingsscore",
+    "indicatorDefinitieId": "ORVERLOED_P"
+  },
+  {
+    "label": "Onderhoud straten en stoepen",
+    "indicatorDefinitieId": "ORONDERHOUDSTRATEN_R"
+  },
+  {
+    "label": "Onderhoud speelvoorzieningen",
+    "indicatorDefinitieId": "ORONDERHOUDSPELEN_R"
+  },
+  {
+    "label": "Schoon straten en stoepen",
+    "indicatorDefinitieId": "ORSCHOONSTRATEN_R"
+  },
+  {
+    "label": "Zwerfvuil fijn",
+    "indicatorDefinitieId": "OR_FIJN_P"
+  },
+  {
+    "label": "Zwerfvuil grof",
+    "indicatorDefinitieId": "OR_GROF_P"
+  }
+]

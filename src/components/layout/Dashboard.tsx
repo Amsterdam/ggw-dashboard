@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import { Spinner, themeSpacing } from "@amsterdam/asc-ui";
-import GebiedInHetKort from "../../themas/GebiedInHetKort";
-import { THEMAS, URL_THEMA_MAPPING } from "../../services/thema";
+import { Column, Row, Spinner, themeSpacing } from "@amsterdam/asc-ui";
+import { useParams } from "react-router";
 
 import Bevolking from "../../themas/Bevolking";
 import StedelijkeOntwikkeling from "../../themas/StedelijkeOntwikkeling";
@@ -9,14 +8,18 @@ import Verkeer from "../../themas/Verkeer";
 import Duurzaamheid from "../../themas/Duurzaamheid";
 import Economie from "../../themas/Economie";
 import OpenbareOrde from "../../themas/OpenbareOrde";
+import GebiedInHetKort from "../../themas/GebiedInHetKort";
 import Onderwijs from "../../themas/Onderwijs";
 import Werk from "../../themas/Werk";
 import Welzijn from "../../themas/Welzijn";
 import SocialeKracht from "../../themas/SocialeKracht";
 import Wonen from "../../themas/Wonen";
-import { useParams } from "react-router";
-import PageTemplate from "./PageTemplate";
+import OpenbareRuimte from "../../themas/OpenbareRuimte";
 import { useGWBSelection } from "../context/GWBContext";
+import { THEMAS, URL_THEMA_MAPPING } from "../../services/thema";
+import PageTemplate from "./PageTemplate";
+import GGWInformation from "../GGWInformation";
+import Veiligheid from "../../themas/Veiligheid";
 
 const DashboardDiv = styled.div`
   padding-top: ${themeSpacing(8)};
@@ -41,6 +44,8 @@ const themaMapping = {
   [THEMAS[9]]: Welzijn,
   [THEMAS[10]]: Wonen,
   [THEMAS[11]]: SocialeKracht,
+  [THEMAS[12]]: OpenbareRuimte,
+  [THEMAS[13]]: Veiligheid,
 };
 
 const Dashboard = ({ thema: propThema = THEMAS[0] }: { thema?: string }) => {
@@ -61,7 +66,20 @@ const Dashboard = ({ thema: propThema = THEMAS[0] }: { thema?: string }) => {
   return (
     <PageTemplate>
       <DashboardDiv>
-        <ContainerDiv>{gwb ? <Thema /> : <Spinner />}</ContainerDiv>
+        <ContainerDiv>
+          {gwb ? (
+            <>
+              <Thema />
+              <GGWInformation />
+            </>
+          ) : (
+            <Row>
+              <Column span={12}>
+                <Spinner />
+              </Column>
+            </Row>
+          )}
+        </ContainerDiv>
       </DashboardDiv>
     </PageTemplate>
   );

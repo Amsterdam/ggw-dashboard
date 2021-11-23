@@ -1,0 +1,26 @@
+[
+  {
+    "label": "Uiterlijk woonomgeving",
+    "indicatorDefinitieId": "OROMGEVINGMOOI_R"
+  },
+  {
+    "label": "Uiterlijk woningen",
+    "indicatorDefinitieId": "ORWONINGENMOOI_R"
+  },
+  {
+    "label": "Aanbod speelvoorzieningen",
+    "indicatorDefinitieId": "ORAANBODSPELEN_R"
+  },
+  {
+    "label": "Verblijversdichtheidsindex",
+    "indicatorDefinitieId": "ORVERBLIJF_I"
+  },
+  {
+    "label": "Aanbod groen",
+    "indicatorDefinitieId": "ORGROEN_R"
+  },
+  {
+    "label": "Uiterlijk groen",
+    "indicatorDefinitieId": "ORGROENMOOOI_R"
+  }
+]

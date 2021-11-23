@@ -1,5 +1,87 @@
+import { Column, Row } from "@amsterdam/asc-ui";
+
+import VerticalBarChart from "../components/VerticalBarChart";
+import TextStatistic from "../components/TextStatistic";
+import ThemeHeader from "../components/ThemeHeader";
+import Car from "../components/Icons/Car";
+
+import { ECONOMIE } from "../services/thema";
+
+import economiecijfers from "../static/links/economie_kerncijfers.json";
+import WerkzamePersonenHoofdfunctieStackedBar from "../components/charts/WerkzamePersonenHoofdfunctieStackedBar";
+import VestigingenNaarFunctiegroep from "../components/charts/VestigingenNaarFunctiegroepStackedBar";
+import HeaderRow from "../components/layout/HeaderRow";
+import { useGWBSelection } from "../components/context/GWBContext";
+
 const Economie = () => {
-  return <p>Economie</p>;
+  const gwb = useGWBSelection();
+
+  return (
+    <>
+      <ThemeHeader gwb={gwb} themeTitle={ECONOMIE} Icon={Car} />
+      <Row>
+        <Column span={12}>
+          <HeaderRow title={`Samenstelling ${ECONOMIE} in ${gwb?.naam}`} />
+        </Column>
+      </Row>
+      <Row>
+        <Column span={6}>
+          <TextStatistic title="Vestigingen" gwb={gwb} indicatorId="BHVEST" titleLeft={false} />
+        </Column>
+        <Column span={6}>
+          <TextStatistic title="Werkzame personen" gwb={gwb} indicatorId="BHWP" titleLeft={false} />
+        </Column>
+      </Row>
+      <Row>
+        <Column span={6}>
+          <VestigingenNaarFunctiegroep gwb={gwb} />
+        </Column>
+        <Column span={6}>
+          <WerkzamePersonenHoofdfunctieStackedBar gwb={gwb} />
+        </Column>
+      </Row>
+      <Row>
+        <Column span={12}>
+          <HeaderRow title={`De ontwikkeling van ${ECONOMIE} in ${gwb?.naam} en Amsterdam`} />
+        </Column>
+      </Row>
+      <Row>
+        <Column span={4}>
+          <VerticalBarChart title={economiecijfers[0].label} config={[economiecijfers[0]]} gwb={gwb}></VerticalBarChart>
+        </Column>
+        <Column span={4}>
+          <VerticalBarChart title={economiecijfers[1].label} config={[economiecijfers[1]]} gwb={gwb}></VerticalBarChart>
+        </Column>
+        <Column span={4}>
+          <VerticalBarChart title={economiecijfers[2].label} config={[economiecijfers[2]]} gwb={gwb}></VerticalBarChart>
+        </Column>
+      </Row>
+
+      <Row>
+        <Column span={4}>
+          <VerticalBarChart title={economiecijfers[3].label} config={[economiecijfers[3]]} gwb={gwb}></VerticalBarChart>
+        </Column>
+        <Column span={4}>
+          <VerticalBarChart title={economiecijfers[4].label} config={[economiecijfers[4]]} gwb={gwb}></VerticalBarChart>
+        </Column>
+        <Column span={4}>
+          <VerticalBarChart title={economiecijfers[5].label} config={[economiecijfers[5]]} gwb={gwb}></VerticalBarChart>
+        </Column>
+      </Row>
+
+      <Row>
+        <Column span={12}>
+          <HeaderRow title={`${gwb?.naam} vergeleken met andere gebieden`} />
+        </Column>
+
+        <Column span={12}>
+          <div style={{ width: "100%" }}>
+            <p>TODO</p>
+          </div>
+        </Column>
+      </Row>
+    </>
+  );
 };
 
 export default Economie;
