@@ -8,6 +8,7 @@ import DataTable from "../components/DataTable";
 import SocialeKlasseStackedBar from "../components/charts/SocialeKlasseStackedBar";
 import LeeftijdJeugdStackedBar from "../components/charts/LeeftijdJeudStackedBar";
 import ThemeHeader from "../components/ThemeHeader";
+import VerschillenBarChart from "../components/VerschillenBarChart"
 import Car from "../components/Icons/Car";
 import LegendTable from "../components/LegendTable";
 import { useGWBSelection } from "../components/context/GWBContext";
@@ -19,6 +20,7 @@ import gemmInkomen from "../static/links/gemm_besteedbaar_inkomen.json";
 import vandalismeSlachtoffers from "../static/links/vandalisme_slachtoffers.json";
 import wozWaarde from "../static/links/gemm_woz_waarde.json";
 import gebiedInHetKortConfig from "../static/links/gebiedinhetkort_tabel.json";
+
 
 const SpacingDiv = styled.div`
   padding-top: ${themeSpacing(4)};
@@ -38,6 +40,16 @@ const GebiedInHetKort = () => {
           <h2>Samenstelling woningvoorraad en bevolking van {gwb?.naam}</h2>
         </Column>
       </Row>
+
+      <Row>
+        <Column span={12}>
+          <VerschillenBarChart 
+            gwb={gwb}
+            variabele="BEVTOTAAL"
+          />
+        </Column>
+      </Row>
+
       <Row>
         <Column
           wrap
