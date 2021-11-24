@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Column, Row, themeSpacing } from "@amsterdam/asc-ui";
+import { Heading, Column, Row, themeSpacing } from "@amsterdam/asc-ui";
 
 import HorizontalBarChart from "../components/HorizontalBarChart";
 import StackedHorizontalBarChart from "../components/StackedHorizontalBarChart";
@@ -37,16 +37,29 @@ const GebiedInHetKort = () => {
       <ThemeHeader gwb={gwb} themeTitle="Gebied in het kort" Icon={Car} />
       <Row>
         <Column span={12}>
-          <h2>Samenstelling woningvoorraad en bevolking van {gwb?.naam}</h2>
+          <Heading as="h2">Samenstelling woningvoorraad en bevolking van {gwb?.naam}</Heading>
         </Column>
       </Row>
 
       <Row>
         <Column span={12}>
-          <VerschillenBarChart 
-            gwb={gwb}
-            variabele="BEVTOTAAL"
-          />
+          <Heading as="h2">Verschillen in {gwb?.naam}</Heading>
+        </Column>
+      </Row>
+
+      <Row>
+        <Column span={6}>
+          <div>
+            kaart van verschillen in {gwb?.naam}
+          </div>
+        </Column>
+        <Column span={6}>
+          <div>
+            <VerschillenBarChart 
+              gwb={gwb}
+              variabele="ORVERLOED_P"
+            />
+          </div>
         </Column>
       </Row>
 
