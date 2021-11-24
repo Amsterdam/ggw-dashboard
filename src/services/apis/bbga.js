@@ -5,6 +5,7 @@
 import { readData } from "../datareader";
 import { getColor } from "../colorcoding";
 import { cacheResponse } from "../cache";
+import { getGebiedType } from "../apis/gebieden"
 
 /**
  * Returns the complete url for the BBGA API given an endpoint
@@ -171,6 +172,34 @@ export const CIJFERS = {
   ALL: "all",
   LATEST: "latest",
 };
+
+/**
+ * Gets the cijfers for the most recent year (which is the year for the currently selected gebied, wijk, buurt)
+ * @param variable
+ * @param gebiedType
+ * @param recentYear
+ * @returns {Promise<*>}
+ */
+export async function getVerschillenCijfers (variable, gebiedType, recentYear) {
+  console.log('getVerschillenCijfers', variable, gebiedType, recentYear)
+  // Sort and filter cijfers for gebiedType and waarde
+  let cijfers = await getAllCijfers(variable, recentYear);
+
+  cijfers = cijfers.filter(c => c.waarde !== null);
+  cijfers = cijfers.filter(c => c.jaar === recentYear);
+  cijfers = cijfers.filter(c => getGebiedType(c.gebiedcode15) === gebiedType);
+  cijfers = cijfers.sort((c1, c2) => c2.waarde - c1.waarde);
+
+  console.log('cijfers', cijfers);
+
+  /**
+   * Provide for an index that denotes the ranking of each gebied
+   */
+  cijfers.forEach((c, i) => { c.ranking = i + 1 });
+
+  return cijfers;
+};
+
 
 /**
  * Get the cijfers for a given variable and gebied, wijk or buurt

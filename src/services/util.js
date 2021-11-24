@@ -25,7 +25,7 @@ import {
   getDetail,
   GEBIED_TYPE,
 } from "./apis/gebieden";
-import { getAllMeta, getMeta, getAllCijfers, getGebiedCijfers, CIJFERS, getStd } from "./apis/bbga";
+import { getAllMeta, getMeta, getAllCijfers, getVerschillenCijfers, getGebiedCijfers, CIJFERS, getStd } from "./apis/bbga";
 
 /**
  * Gets the most recent cijfers for a given configuration
@@ -239,6 +239,7 @@ const util = {
   getConfigCijfers,
   getDetail,
   getGebiedCijfers,
+  getVerschillenCijfers,
   getGebiedType,
   getGwb,
   getGwbs,
