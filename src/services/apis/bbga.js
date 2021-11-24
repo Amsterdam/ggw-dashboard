@@ -23,9 +23,7 @@ function getUrlv1(endpoint) {
  */
 export async function getAllMeta() {
   async function getData() {
-    const url = getUrlv1(
-      "/indicatoren_definities/?_pageSize=100000&_format=json"
-    );
+    const url = getUrlv1("/indicatoren_definities/?_pageSize=100000&_format=json");
     const data = await readData(url);
     const dataObject = {};
 
@@ -74,11 +72,11 @@ export async function getMeta(variableName) {
  * These values are used to calculate z-scores
  * The z-scores are used to color values so that the color denotes the distance in std's to the average
  * The result is cached
- * @returns {Promise<*>}
+ * @returns {Promise<{indicatorDefinitieId}[]>}
  */
 export async function getStd() {
   const url = getUrlv1(
-    "/statistieken/?_pageSize=10000&_format=json&_fields=indicatorDefinitieId,jaar,gemiddelde,standaardafwijking"
+    "/statistieken/?_pageSize=10000&_format=json&_fields=indicatorDefinitieId,jaar,gemiddelde,standaardafwijking",
   );
 
   async function getData() {
@@ -117,24 +115,15 @@ export async function getOneStd(variabele) {
  * @param gebiedCode
  * @returns {Promise<{jaar: *|number|string, waarde: null, post: string, gebiedcode15: *|string, color, textColor: *|textColor}[]>}
  */
-async function getCijfers(
-  meta,
-  year = null,
-  gebiedCode = null,
-  indicatorDefinitieId = null
-) {
+async function getCijfers(meta, year = null, gebiedCode = null, indicatorDefinitieId = null) {
   const post = meta?.symbool === "%" ? meta.symbool : ""; // only copy % symbol
 
   const selectVariable = `indicatorDefinitieId=${
-    meta?.indicatorDefinitieId
-      ? meta?.indicatorDefinitieId
-      : indicatorDefinitieId
+    meta?.indicatorDefinitieId ? meta?.indicatorDefinitieId : indicatorDefinitieId
   }`;
   const selectGebiedCode = gebiedCode ? `&gebiedcode15=${gebiedCode}` : "";
   const isLatest = year === "latest";
-  const url = getUrlv1(
-    `/kerncijfers/?${selectVariable}${selectGebiedCode}&_pageSize=100000&_format=json`
-  );
+  const url = getUrlv1(`/kerncijfers/?${selectVariable}${selectGebiedCode}&_pageSize=100000&_format=json`);
   const cijfers = await readData(url);
   const std = await getStd();
 
@@ -147,14 +136,12 @@ async function getCijfers(
     gebiedcode15: c.gebiedcode15,
     ...getColor(
       {
-        indicatorDefinitieId: meta?.indicatorDefinitieId
-          ? meta.indicatorDefinitieId
-          : indicatorDefinitieId,
+        indicatorDefinitieId: meta?.indicatorDefinitieId ? meta.indicatorDefinitieId : indicatorDefinitieId,
         kleurenpalet: meta?.kleurenpalet ? meta.kleurenpalet : "",
       },
       c.waarde,
       c.jaar,
-      std
+      std,
     ),
   }));
 
@@ -193,22 +180,13 @@ export const CIJFERS = {
  * @param recentOrAll
  * @returns {Promise<*>}
  */
-export async function getGebiedCijfers(
-  variableName,
-  gebied,
-  recentOrAll = CIJFERS.ALL
-) {
+export async function getGebiedCijfers(variableName, gebied, recentOrAll = CIJFERS.ALL) {
   variableName = variableName.toUpperCase();
   const meta = await getMeta(variableName);
   const jaar = recentOrAll === CIJFERS.ALL ? null : recentOrAll;
 
   async function getData() {
-    const cijfers = await getCijfers(
-      meta,
-      jaar,
-      gebied.volledige_code,
-      variableName
-    );
+    const cijfers = await getCijfers(meta, jaar, gebied.volledige_code, variableName);
 
     return {
       gebied,
@@ -218,8 +196,5 @@ export async function getGebiedCijfers(
     };
   }
 
-  return cacheResponse(
-    `gebiedCijfers.${variableName}.${gebied.volledige_code}.${recentOrAll}`,
-    getData
-  );
+  return cacheResponse(`gebiedCijfers.${variableName}.${gebied.volledige_code}.${recentOrAll}`, getData);
 }

@@ -9,6 +9,13 @@ const StyledDiv = styled.div`
   height: 100%;
 `;
 
+const CenteredContent = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+`;
+
 const ThemeHeader = ({ gwb, themeTitle, Icon }) => {
   return (
     <Row>
@@ -19,10 +26,10 @@ const ThemeHeader = ({ gwb, themeTitle, Icon }) => {
               <GWBMap gwb={gwb} />
             </Column>
             <Column span={6}>
-              <div>
+              <CenteredContent>
                 <h2>{themeTitle}</h2>
                 <Icon width="200" height="200" />
-              </div>
+              </CenteredContent>
             </Column>
           </Row>
         </StyledDiv>

@@ -113,8 +113,8 @@ function getYearCijfers(data, last = null, include = {}) {
     return total;
   }, {});
 
-  const cijfers = flatten(
-    cijferData.map((item) =>
+  const cijfers = cijferData
+    .map((item) =>
       item.cijfers.map((cijfer) => ({
         x: cijfer.jaar,
         y: cijfer.waarde,
@@ -124,8 +124,8 @@ function getYearCijfers(data, last = null, include = {}) {
         display: cijfer.waarde / totalWaarde[cijfer.jaar] > 0.075 ? displayWaarde(cijfer) : "",
         cijfer,
       })),
-    ),
-  )
+    )
+    .flat()
     .filter(({ x }) => {
       if (odd) {
         return x % 2 > 0;
@@ -187,12 +187,6 @@ async function getGwbs(gebiedType) {
 }
 
 /**
- * Flattens an array
- * @param list
- */
-const flatten = (list) => list.reduce((a, b) => a.concat(Array.isArray(b) ? flatten(b) : b), []);
-
-/**
  * Provides for a display value for a cijfer, using the NL locale for numbers
  * @param cijfer
  * @returns {string}
@@ -233,7 +227,6 @@ const setVegaLocale = () => {
 const util = {
   CIJFERS,
   displayWaarde,
-  flatten,
   GEBIED_TYPE,
   getAllBuurten,
   getAllCijfers,
