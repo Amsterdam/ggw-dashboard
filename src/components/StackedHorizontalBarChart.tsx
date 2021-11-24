@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useState, useRef, useEffect } from "react";
 import vegaEmbed from "vega-embed";
 import cloneDeep from "lodash/cloneDeep";
 import { Spinner } from "@amsterdam/asc-ui";
@@ -60,11 +60,13 @@ const getVegaChartData = async (gwb, config, scaleToHundred) => {
 };
 
 const StackedHorizontalBarChart = ({ title, config, gwb, customVegaSpec = null, scaleToHundred = false }) => {
-  const chartRef = React.useRef<HTMLDivElement>(null);
-  const [isLoading, setIsLoading] = React.useState(true);
+  const chartRef = useRef<HTMLDivElement>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [showError, setShowError] = useState(false);
 
   async function updateData() {
     setIsLoading(true);
+    setShowError(false);
 
     // Only show city average when the selected gwb is not the city.
     const showCityAverage = gwb?.code !== "STAD";
@@ -93,13 +95,16 @@ const StackedHorizontalBarChart = ({ title, config, gwb, customVegaSpec = null, 
 
     // console.log(JSON.stringify(chartBase));
 
-    if (chartRef.current) {
+    if (chartRef.current && chartdata.length > 0) {
       setIsLoading(false);
       vegaEmbed(chartRef.current, chartBase, vegaEmbedOptions);
+    } else {
+      setIsLoading(false);
+      setShowError(true);
     }
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!gwb) {
       return;
     }
@@ -109,9 +114,10 @@ const StackedHorizontalBarChart = ({ title, config, gwb, customVegaSpec = null, 
   }, [gwb]);
 
   return (
-    <div className="block-container">
+    <div>
       <h5>{title}</h5>
       {isLoading ? <Spinner /> : null}
+      {showError && <p>Op dit schaalniveau is helaas geen informatie beschikbaar.</p>}
       <div ref={chartRef}></div>
     </div>
   );

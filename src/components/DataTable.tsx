@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Table, TableHeader, TableRow, TableCell, TableBody } from "@amsterdam/asc-ui";
 import util from "../services/util";
 import { getColor, getColorGivenValueAndColorPalet } from "../services/colorcoding";
+import { StdType } from "../types";
 
 const DataTable = ({
   gwb,
@@ -44,7 +45,7 @@ const DataTable = ({
       const cijfers = util.getYearCijfers(data);
       const maxYear = util.getMaxYear(cijfers);
 
-      setSd(sdvars);
+      setSd(sdvars as StdType[]);
       setYears([4, 3, 2, 1, 0].map((i) => maxYear - i));
       setData(data);
     }

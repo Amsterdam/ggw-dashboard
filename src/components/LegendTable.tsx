@@ -5,6 +5,7 @@ import { List, ListItem, Paragraph, themeColor, themeSpacing } from "@amsterdam/
 import util from "../services/util";
 import { getColor } from "../services/colorcoding";
 import kleurenTabel from "../static/kleurcodetabel.json";
+import { StdType } from "../types";
 
 const colorLegend = kleurenTabel.kleur.hoog_is_groen;
 
@@ -74,8 +75,8 @@ const LegendTable = ({
 
       config.map((c) => {
         const indicator = data.find((d) => d?.meta?.variabele === c.indicatorDefinitieId);
-        const stdevs = sdvars.find((s) => s.indicatorDefinitieId === c.indicatorDefinitieId);
         const filterdData = indicator?.cijfers?.filter((c) => c.waarde !== null);
+        const stdevs = sdvars.filter((s) => s.indicatorDefinitieId === c.indicatorDefinitieId);
 
         if (!stdevs || !filterdData) {
           return;
@@ -87,6 +88,8 @@ const LegendTable = ({
           return;
         }
 
+        console.log(indicator, yearData, stdevs);
+
         const colorDef = getColor(
           {
             indicatorDefinitieId: c.indicatorDefinitieId,
@@ -94,14 +97,14 @@ const LegendTable = ({
           },
           yearData?.waarde,
           yearData?.jaar,
-          [stdevs],
+          stdevs as StdType[],
         );
 
         if (row[colorDef.color] !== null) {
-          return row[colorDef.color].push(indicator.label);
+          return row[colorDef.color].push(indicator?.meta?.labelKort);
         }
 
-        return (row[colorDef.color] = [indicator.label]);
+        return (row[colorDef.color] = [indicator?.meta?.labelKort]);
       });
 
       setDataTable(row);

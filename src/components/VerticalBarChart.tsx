@@ -19,9 +19,12 @@ type MapResult = { key: number; value: string; color: string; gemiddelde: number
 const VerticalBarChart = ({ title, gwb, config }) => {
   const chartRef = useRef<HTMLDivElement>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [showError, setShowError] = useState(false);
 
   async function updateData() {
     setIsLoading(true);
+    setShowError(false);
+
     const colors = getColorsUsingStaticDefinition(config);
     const chartdata = await util.getConfigCijfers(gwb, config);
     const chartBase = cloneDeep(vegaSpec);
@@ -53,9 +56,12 @@ const VerticalBarChart = ({ title, gwb, config }) => {
 
     // console.log(JSON.stringify(chartBase));
 
-    if (chartRef.current) {
+    if (chartRef.current && chartBase.data.values.length > 0) {
       setIsLoading(false);
       vegaEmbed(chartRef.current, chartBase, vegaEmbedOptions);
+    } else {
+      setIsLoading(false);
+      setShowError(true);
     }
   }
 
@@ -73,6 +79,7 @@ const VerticalBarChart = ({ title, gwb, config }) => {
       <h5 className="text-center">{title}</h5>
       <div className="chart-container">
         {isLoading ? <Spinner /> : null}
+        {showError && <p>Op dit schaalniveau is helaas geen informatie beschikbaar.</p>}
         <div ref={chartRef}></div>
       </div>
     </div>
