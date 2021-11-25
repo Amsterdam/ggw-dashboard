@@ -58,7 +58,6 @@ const GebiedInHetKort = () => {
             <VerschillenBarChart 
               gwb={gwb}
               variabele="ORVERLOED_P"
-              title="Verloederingsscore"
             />
           </div>
         </Column>

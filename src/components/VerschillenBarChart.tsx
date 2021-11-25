@@ -15,7 +15,7 @@ const vegaEmbedOptions = {
 
 type MapResult = { gebied: string; value: string; color: string; };
 
-const VerschillenBarChart = ({ gwb, variabele, title }) => {
+const VerschillenBarChart = ({ gwb, variabele }) => {
   const chartRef = useRef<HTMLDivElement>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [showError, setShowError] = useState(false);
@@ -27,6 +27,7 @@ const VerschillenBarChart = ({ gwb, variabele, title }) => {
     const chartBase = cloneDeep(vegaSpec);
 
     const gebied = await util.getGebiedCijfers(variabele, gwb, util.CIJFERS.LATEST)
+console.log('gebied', gebied);
 
     const gebiedType = util.getGebiedType(gwb.vollcode, true)
 
@@ -40,7 +41,8 @@ const VerschillenBarChart = ({ gwb, variabele, title }) => {
         (d) =>
           ({
             gebied: d.gebiedcode15,
-            title: title,
+            naam: gebied.gebied.naam,
+            label: gebied.meta.label,
             value: d.waarde ? d.waarde : "Geen gegevens",
             color: getColor({ indicatorDefinitieId: variabele, kleurenpalet: 1 }, d.waarde, d.jaar, stdevs).color,
           } as MapResult),
