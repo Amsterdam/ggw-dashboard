@@ -11,7 +11,7 @@ export const IN_HET_KORT = "Gebied in het kort";
 export const BEVOLKING = "Bevolking";
 export const DUURZAAMHEID_EN_WATER = "Duurzaamheid en water";
 export const ECONOMIE = "Economie";
-export const ONDERWIJS_JEUGD_EN_DIVERSITEIT = "Onderwijs, jeugd en diversiteit";
+export const ONDERWIJS = "Onderwijs";
 export const OPENBARE_ORDE_EN_VEILIGHEID = "Openbare orde en veiligheid";
 export const STEDELIJKE_ONTWIKKELING_EN_WONEN = "Stedelijke ontwikkeling en wonen";
 export const VERKEER_EN_OPENBARE_RUIMTE = "Verkeer en Openbare ruimte";
@@ -33,7 +33,7 @@ export const THEMAS = [
   DUURZAAMHEID_EN_WATER,
   ECONOMIE,
   OPENBARE_ORDE_EN_VEILIGHEID,
-  ONDERWIJS_JEUGD_EN_DIVERSITEIT,
+  ONDERWIJS,
   WERK_INKOMEN_EN_PARTICIPATIE,
   WELZIJN_ZORG_EN_SPORT,
   WONEN,
@@ -50,7 +50,7 @@ export const THEMA_URL_MAPPING = {
   [DUURZAAMHEID_EN_WATER]: "duurzaamheid-en-water",
   [ECONOMIE]: "economie",
   [OPENBARE_ORDE_EN_VEILIGHEID]: "openbare-orde-en-veiligheid",
-  [ONDERWIJS_JEUGD_EN_DIVERSITEIT]: "onderwijs-jeugd-en-diversiteit",
+  [ONDERWIJS]: "onderwijs",
   [WERK_INKOMEN_EN_PARTICIPATIE]: "werk-inkomen-en-participatie",
   [WELZIJN_ZORG_EN_SPORT]: "welzijn-zorg-en-sport",
   [WONEN]: "wonen",
