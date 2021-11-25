@@ -53,6 +53,11 @@ export default {
             title: null,
           },
         },
+        tooltip: [
+          { field: "gebied", type: "ordinal" , title: "gebied" },
+          { field: "title", type: "ordinal", title: "titel" },
+          { field: "value", type: "quantitative", title: "waarde" }
+        ]
       },
     },
   ],
