@@ -5,7 +5,7 @@
 import { readData } from "../datareader";
 import { getColor } from "../colorcoding";
 import { cacheResponse } from "../cache";
-import { getGebiedType } from "../apis/gebieden"
+import { getGebiedType, getGwbSummary } from "../apis/gebieden"
 
 /**
  * Returns the complete url for the BBGA API given an endpoint
@@ -130,22 +130,27 @@ async function getCijfers(meta, year = null, gebiedCode = null, indicatorDefinit
 
   const array = cijfers._embedded.kerncijfers;
   array.sort((a, b) => a.jaar - b.jaar); // oldest first
-  const results = array.map((c) => ({
-    jaar: c.jaar,
-    waarde: c.waarde === "" || c.waarde === undefined ? null : c.waarde, // Sometimes the API returns '' for null value
-    post,
-    gebiedcode15: c.gebiedcode15,
-    ...getColor(
-      {
-        indicatorDefinitieId: meta?.indicatorDefinitieId ? meta.indicatorDefinitieId : indicatorDefinitieId,
-        kleurenpalet: meta?.kleurenpalet ? meta.kleurenpalet : "",
-      },
-      c.waarde,
-      c.jaar,
-      std,
-    ),
-  }));
+  const results = array.map(async (c) => {
+    const gebied = await getGwbSummary(c.gebiedcode15);
+    return {
+      jaar: c.jaar,
+      waarde: c.waarde === "" || c.waarde === undefined ? null : c.waarde, // Sometimes the API returns '' for null value
+      post,
+      gebiedcode15: c.gebiedcode15,
+      gebiedNaam: gebied?.naam,
+      ...getColor(
+        {
+          indicatorDefinitieId: meta?.indicatorDefinitieId ? meta.indicatorDefinitieId : indicatorDefinitieId,
+          kleurenpalet: meta?.kleurenpalet ? meta.kleurenpalet : "",
+        },
+        c.waarde,
+        c.jaar,
+        std,
+      ),
+    };
+  });
 
+  console.log('getCijfers', meta?.indicatorDefinitieId, results );
   return isLatest ? results.pop() : results;
 }
 

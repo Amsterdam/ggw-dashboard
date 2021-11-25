@@ -165,6 +165,9 @@ const GWB = {};
  * @returns {Promise<*>}
  */
 export async function getGwbSummary(code) {
+  if (!code) {
+    return;
+  }
   if (GWB[code]) {
     return GWB[code];
   }
@@ -183,7 +186,7 @@ export async function getGwbSummary(code) {
   } else if (gebiedType === GEBIED_TYPE.Buurt) {
     gwbCollection = await getAllBuurten();
   } else {
-    console.error("Unknown gebied type", gebiedType, code);
+    // console.error("Unknown gebied type", gebiedType, code);
     return null;
   }
 
