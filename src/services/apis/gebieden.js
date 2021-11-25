@@ -136,7 +136,7 @@ export async function getBuurten(wijk) {
  * @param gebiedCode
  * @returns {*}
  */
-export function getGebiedType(gebiedCode) {
+export function getGebiedType(gebiedCode, notUrl)  {
   if (/^[A-Z]$/.test(gebiedCode)) {
     return GEBIED_TYPE.Stadsdeel;
   } else if (/^DX\d\d$/.test(gebiedCode)) {
@@ -148,9 +148,10 @@ export function getGebiedType(gebiedCode) {
   } else if (/^STAD$/.test(gebiedCode)) {
     return GEBIED_TYPE.Stad;
   } else {
-    return "?" + gebiedCode;
+    return (notUrl ? "" : "?") + gebiedCode;
   }
 }
+
 
 /**
  * Local object to cache the getGWBSummary responses
