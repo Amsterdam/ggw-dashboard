@@ -15,7 +15,7 @@ const vegaEmbedOptions = {
 
 type MapResult = { gebied: string; value: string; color: string; };
 
-const VerschillenBarChart = ({ gwb, variabele }) => {
+const VerschillenBarChart = ({ gwb, variabele, title }) => {
   const chartRef = useRef<HTMLDivElement>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [showError, setShowError] = useState(false);
@@ -40,6 +40,7 @@ const VerschillenBarChart = ({ gwb, variabele }) => {
         (d) =>
           ({
             gebied: d.gebiedcode15,
+            title: title,
             value: d.waarde ? d.waarde : "Geen gegevens",
             color: getColor({ indicatorDefinitieId: variabele, kleurenpalet: 1 }, d.waarde, d.jaar, stdevs).color,
           } as MapResult),
