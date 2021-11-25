@@ -1,8 +1,8 @@
 export default {
   $schema: "https://vega.github.io/schema/vega-lite/v5.json",
   description: "",
-  height: 125,
-  width: 300,
+  height: 300,
+  width: 500,
   data: {
     values: [],
   },
@@ -38,18 +38,17 @@ export default {
           type: "quantitative",
 
           axis: {
+            labels: false,
+            ticks: false,
             title: null,
-            tickCount: 5,
-            offset: 5,
           },
         },
         x: {
-          field: "key",
+          field: "gebied",
           type: "ordinal",
           sort: null,
           axis: {
-            labels: true,
-            labelPadding: 5,
+            labels: false,
             ticks: false,
             title: null,
           },
