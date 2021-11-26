@@ -1,4 +1,5 @@
-import { Column, Row } from "@amsterdam/asc-ui";
+import styled from "styled-components";
+import { Column, Row, themeSpacing } from "@amsterdam/asc-ui";
 
 import VerticalBarChart from "../components/VerticalBarChart";
 import ThemeHeader from "../components/ThemeHeader";
@@ -13,6 +14,13 @@ import KwetsbaarheidsscoreStackedBar from "../components/charts/Kwetsbaarheidssc
 import SociaalEconomischeScoreStackedBar from "../components/charts/SociaalEconomischeScoreStackedBar";
 import HeaderRow from "../components/layout/HeaderRow";
 import { useGWBSelection } from "../components/context/GWBContext";
+import MostVulnerableCitizens from "../components/tables/MostVulnerableCitizens";
+import CitizensWithLowCES from "../components/tables/CitizensWithLowSES";
+
+const Spacer = styled.div`
+  padding-top: ${themeSpacing(4)};
+  padding-bottom: ${themeSpacing(4)};
+`;
 
 const SocialeKracht = () => {
   const gwb = useGWBSelection();
@@ -30,7 +38,20 @@ const SocialeKracht = () => {
           <KwetsbaarheidsscoreStackedBar gwb={gwb} />
         </Column>
         <Column span={6}>
+          <MostVulnerableCitizens gwb={gwb} />
+        </Column>
+      </Row>
+      <Row>
+        <Column span={12}>
+          <Spacer />
+        </Column>
+      </Row>
+      <Row>
+        <Column span={6}>
           <SociaalEconomischeScoreStackedBar gwb={gwb} />
+        </Column>
+        <Column span={6}>
+          <CitizensWithLowCES gwb={gwb} />
         </Column>
       </Row>
       <Row>
@@ -83,18 +104,6 @@ const SocialeKracht = () => {
             config={[socialekrachtcijfers[5]]}
             gwb={gwb}
           ></VerticalBarChart>
-        </Column>
-      </Row>
-
-      <Row>
-        <Column span={12}>
-          <HeaderRow title={`${gwb?.naam} vergeleken met andere gebieden`} />
-        </Column>
-
-        <Column span={12}>
-          <div style={{ width: "100%" }}>
-            <p>TODO</p>
-          </div>
         </Column>
       </Row>
 
