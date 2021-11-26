@@ -15,6 +15,7 @@ const HuishoudensamenstellingStackedBar = ({ gwb }) => {
   customSpec.layer[0].encoding.color["scale"] = {
     range: colors,
   };
+  customSpec.config.legend.columns = 3;
 
   return (
     <StackedHorizontalBarChart
