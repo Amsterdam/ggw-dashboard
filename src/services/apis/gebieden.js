@@ -187,7 +187,11 @@ export async function getGwbSummary(code) {
     return null;
   }
 
-  GWB[code] = gwbCollection.find((item) => item.vollcode === code);
+  gwbCollection.forEach((i) => {
+    GWB[i.vollcode] = {...i};
+    console.log('item', i);
+  });
+
   return GWB[code];
 }
 
