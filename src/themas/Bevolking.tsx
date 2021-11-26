@@ -112,11 +112,6 @@ const Bevolking = () => {
       </Row>
 
       <Row>
-        <Column span={12}>
-          <HeaderRow title={`De ontwikkeling van ${BEVOLKING} in ${gwb?.naam} en Amsterdam`} />
-        </Column>
-      </Row>
-      <Row>
         <Column span={4}>
           <VerticalBarChart
             title={ontwikkelingBevolking[0].label}
