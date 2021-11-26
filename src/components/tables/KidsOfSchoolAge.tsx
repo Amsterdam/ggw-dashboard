@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
 import { Spinner, Table, TableBody, TableCell, TableHeader, TableRow } from "@amsterdam/asc-ui";
-import util from "../../services/util";
+import useGetLatestConfigCijfers from "../../hooks/useGetLatestConfigCijfers";
 
 const localConfig = [
   {
@@ -18,26 +17,7 @@ const localConfig = [
 ];
 
 const KidsOfSchoolAge = ({ gwb, config = localConfig }) => {
-  const [data, setData] = useState<any[]>();
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    if (!gwb) {
-      return;
-    }
-
-    async function getData() {
-      setIsLoading(true);
-      const data = await util.getLatestConfigCijfers(gwb, config);
-
-      console.log(data);
-
-      setIsLoading(false);
-      setData(data);
-    }
-
-    getData();
-  }, [gwb, config]);
+  const { data, isLoading } = useGetLatestConfigCijfers({ gwb, config });
 
   return (
     <>
