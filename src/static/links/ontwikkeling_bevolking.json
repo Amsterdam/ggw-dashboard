@@ -1,0 +1,26 @@
+[
+  {
+    "label": "Bevolkingsdichtheid",
+    "indicatorDefinitieId": "BEVDICHT"
+  },
+  {
+    "label": "Mutatiegraad",
+    "indicatorDefinitieId": "BEVMUTTOT_P"
+  },
+  {
+    "label": "1-persoonshuishouden (%)",
+    "indicatorDefinitieId": "BEVALLEENHH_P"
+  },
+  {
+    "label": "Stellen met kinderen (%)",
+    "indicatorDefinitieId": "BEVPAARMKINDHH_P"
+  },
+  {
+    "label": "Eenoudergezinnen (%)",
+    "indicatorDefinitieId": "BEVEENOUDERHH_P"
+  },
+  {
+    "label": "Alleenwonende 75-plussers (%)",
+    "indicatorDefinitieId": "BEV1P75PLUS_P"
+  }
+]
