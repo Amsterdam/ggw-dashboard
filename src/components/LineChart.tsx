@@ -37,12 +37,10 @@ const LineChart = ({ title, gwb, config }) => {
       )
       .flat();
 
-    vegaSpec.data[0].values = cijfers;
-    vegaSpec.scales[2].range = colors;
+    chartBase.data[0].values = cijfers;
+    chartBase.scales[2].range = colors;
 
-    // console.log(JSON.stringify(chartBase));
-
-    if (chartRef.current && vegaSpec.data[0].values.length > 0) {
+    if (chartRef.current && chartBase.data[0].values.length > 1) {
       setIsLoading(false);
       vegaEmbed(chartRef.current, chartBase, vegaEmbedOptions);
     } else {

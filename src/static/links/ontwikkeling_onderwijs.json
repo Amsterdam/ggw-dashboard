@@ -1,0 +1,26 @@
+[
+  {
+    "label": "% deelname VVE indicaties",
+    "indicatorDefinitieId": "OVVEDEELN_P"
+  },
+  {
+    "label": "Aanbod basisscholen (1-10)",
+    "indicatorDefinitieId": "OAANBODBAO_R"
+  },
+  {
+    "label": "Advies Havo/VWO (% groep8)",
+    "indicatorDefinitieId": "OHVWO_P"
+  },
+  {
+    "label": "Afstroom 3e klassers VO (%)",
+    "indicatorDefinitieId": "OSTARTKWAL_P"
+  },
+  {
+    "label": "Startkwalificatie (% 18-22)",
+    "indicatorDefinitieId": "OPROVMBOBK_P"
+  },
+  {
+    "label": "Laag opgeleide schoolverlaters (%)",
+    "indicatorDefinitieId": "OLSV_P"
+  }
+]

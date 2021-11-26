@@ -23,7 +23,7 @@ const KidsOfSchoolAge = ({ gwb, config = localConfig }) => {
     <>
       {isLoading ? <Spinner /> : null}
       {data && (
-        <Table style={{ borderBottom: "2px solid black", paddingRight: 0 }}>
+        <Table style={{ paddingRight: 0 }}>
           <TableHeader>
             <TableRow>
               <TableCell as="th" colSpan={2} style={{ textAlign: "right", borderBottom: "2px solid black" }}>
