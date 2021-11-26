@@ -20,8 +20,6 @@ import {
   getWijken,
   getBuurten,
   getGebiedType,
-  // getGwb,
-  // getGwbSummary,
   getDetail,
   GEBIED_TYPE,
 } from "./apis/gebieden";
@@ -241,9 +239,7 @@ const util = {
   getGebiedCijfers,
   getVerschillenCijfers,
   getGebiedType,
-  // getGwb,
   getGwbs,
-  // getGwbSummary,
   getLatestConfigCijfers,
   getLegendLabels,
   getMaxYear,
