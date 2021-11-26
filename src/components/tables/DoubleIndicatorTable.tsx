@@ -1,14 +1,9 @@
 import styled from "styled-components";
-import { Spinner, Table, TableBody, TableCell, TableHeader, TableRow, themeSpacing } from "@amsterdam/asc-ui";
+import { Spinner, Table, TableBody, TableCell, TableHeader, TableRow } from "@amsterdam/asc-ui";
 import useGetLatestConfigCijfers from "../../hooks/useGetLatestConfigCijfers";
 
 const SmallTable = styled(Table)`
-  borderbottom: 2px solid black;
   padding-right: 0;
-
-  ${TableCell} {
-    padding: ${themeSpacing(1)};
-  }
 `;
 
 const DoubleIndicatorTable = ({ gwb, config, headerTitles }) => {
