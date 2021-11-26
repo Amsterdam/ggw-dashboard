@@ -7,7 +7,6 @@ import StedelijkeOntwikkeling from "../../themas/StedelijkeOntwikkeling";
 import Verkeer from "../../themas/Verkeer";
 import Duurzaamheid from "../../themas/Duurzaamheid";
 import Economie from "../../themas/Economie";
-import OpenbareOrde from "../../themas/OpenbareOrde";
 import GebiedInHetKort from "../../themas/GebiedInHetKort";
 import Onderwijs from "../../themas/Onderwijs";
 import Werk from "../../themas/Werk";
@@ -38,7 +37,6 @@ const themaMapping = {
   [THEMAS[3]]: Verkeer,
   [THEMAS[4]]: Duurzaamheid,
   [THEMAS[5]]: Economie,
-  [THEMAS[6]]: OpenbareOrde,
   [THEMAS[7]]: Onderwijs,
   [THEMAS[8]]: Werk,
   [THEMAS[9]]: Welzijn,
