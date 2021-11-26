@@ -6,12 +6,13 @@ export default {
   data: {
     values: [],
   },
-  config: {
-    style: {
-      cell: {
-        stroke: "transparent",
-      },
+  params: [
+    {
+      name: "highlight",
+      select: { type: "point", on: "mouseover"}
     },
+  ],
+  config: {
     axis: {
       labelFontSize: 13,
       labelLimit: 100,
@@ -52,6 +53,10 @@ export default {
             ticks: false,
             title: null,
           },
+        },
+        fillOpacity: {
+          condition: { param: "highlight", value: 0.7 },
+          value: 1
         },
         tooltip: [
           { field: "gebied", type: "ordinal" , title: "gebied" },

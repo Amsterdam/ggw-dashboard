@@ -5,6 +5,7 @@ import { Spinner } from "@amsterdam/asc-ui";
 
 import util from "../services/util";
 import { getOneStd } from "../services/apis/bbga";
+import { getAll, getGebied } from "../services/apis/gebieden";
 import { getColor } from "../services/colorcoding";
 
 import vegaSpec from "../static/charts/verschillenbar";
@@ -13,7 +14,12 @@ const vegaEmbedOptions = {
   actions: false,
 };
 
-type MapResult = { gebied: string; value: string; color: string; };
+type MapResult = { 
+  gebied: string;
+  label: string;
+  value: string;
+  color: string;
+};
 
 const VerschillenBarChart = ({ gwb, variabele }) => {
   const chartRef = useRef<HTMLDivElement>(null);
@@ -26,8 +32,9 @@ const VerschillenBarChart = ({ gwb, variabele }) => {
 
     const chartBase = cloneDeep(vegaSpec);
 
+    await getAll();
+    
     const gebied = await util.getGebiedCijfers(variabele, gwb, util.CIJFERS.LATEST)
-console.log('gebied', gebied);
 
     const gebiedType = util.getGebiedType(gwb.vollcode, true)
 
@@ -40,8 +47,7 @@ console.log('gebied', gebied);
       .map(
         (d) =>
           ({
-            gebied: d.gebiedcode15,
-            naam: gebied.gebied.naam,
+            gebied: getGebied(d.gebiedcode15).naam,
             label: gebied.meta.label,
             value: d.waarde ? d.waarde : "Geen gegevens",
             color: getColor({ indicatorDefinitieId: variabele, kleurenpalet: 1 }, d.waarde, d.jaar, stdevs).color,
