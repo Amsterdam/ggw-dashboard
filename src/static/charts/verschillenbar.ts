@@ -39,8 +39,8 @@ export default {
           type: "quantitative",
 
           axis: {
-            labels: false,
-            ticks: false,
+            labels: true,
+            ticks: true,
             title: null,
           },
         },
@@ -55,7 +55,7 @@ export default {
           },
         },
         fillOpacity: {
-          condition: { param: "highlight", value: 0.7 },
+          condition: { param: "highlight", value: 0.6 },
           value: 1
         },
         tooltip: [
