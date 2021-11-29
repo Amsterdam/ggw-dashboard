@@ -73,6 +73,8 @@ const VerschillenMap = ({ gwb, variabele })  => {
     const mapShapes = drawShapes(shapes, {}); //, mapInstance);
     setJson(mapShapes);
 
+    console.log('showShapes', mapShapes);
+    
     // gwbLayer = drawShapes(shapes, map)
 
     // this.drawing = false
