@@ -3,7 +3,6 @@
  */
 
 import { readData } from "../datareader";
-import util from '../services/util';
 import { rdPolygonToWgs84 } from "../geojson";
 
 /**
@@ -57,28 +56,7 @@ export async function getGeometries(gebiedType) {
 }
 
 
-const allGeometries = {}
-
-/**
- * Retuns the geometries (polygons) for a given gebied type (STAD, Stadsdeel, ...)
- * Each polygon is styled according to the given styling method
- * @param gebiedType
- * @param getStyle styling method that is invoked for each polygon
- * @returns {Promise<void>}
- */
-export async function getShapes (gebiedType, getStyle) {
-  const gwbs = await util.getGwbs(gebiedType)
-
-  allGeometries[gebiedType] = allGeometries[gebiedType] || await util.getGeometries(gebiedType)
-
-  const geometries = allGeometries[gebiedType]
-
-  return gwbs.map(gwb => {
-    const geometry = geometries[gwb.vollcode] || geometries[gwb.code]
-    return L.polygon(geometry.coordinates, getStyle(gwb.vollcode))
-  })
-}
-
+// const allGeometries = {}
 /**
  * Draws a series of shapes (polygons) on the given Leaflet map
  * @param shapes
