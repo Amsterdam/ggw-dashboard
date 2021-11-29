@@ -4,7 +4,7 @@
 
 import { readData } from "../datareader";
 import util from '../services/util';
-import { rd, rdPolygonToWgs84 } from "../geojson";
+import { rdPolygonToWgs84 } from "../geojson";
 
 /**
  * Constant to denote the gebied types in the maps API
@@ -17,7 +17,7 @@ export const GEBIED_TYPE = {
   Buurt: "Buurt",
 };
 
-rd, /**
+/**
  * Returns the complete url for the maps API given an endpoint
  * @param endpoint
  * @returns {string}
