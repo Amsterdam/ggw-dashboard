@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { Map, ViewerContainer, Zoom } from "@amsterdam/arm-core";
 import { GeoJSON, useMapInstance } from "@amsterdam/react-maps";
 import util from "../services/util";
-import { getShapes, drawShapes, amsMap } from '../services/map'
+import { getShapes, drawShapes } from '../services/map'
 import { COLOR, getRankingColor } from '../services/colorcoding'
 import { getOneStd } from "../services/apis/bbga";
 import { GeoJSONOptions } from 'leaflet'
@@ -56,7 +56,7 @@ const VerschillenMap = ({ gwb, variabele })  => {
     // gwbLayer = drawShapes(shapes, map)
 
     // this.drawing = false
-  },
+  };
 
 
   const updateData = async() => {
@@ -87,12 +87,14 @@ const VerschillenMap = ({ gwb, variabele })  => {
     }
 
 
-  },
+  };
 
   useEffect(() => {
     if (!gwb) {
       return;
     }
+
+    // map = amsMap(this.$refs[this.mapRef]);
 
     updateData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
