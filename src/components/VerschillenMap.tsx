@@ -1,31 +1,49 @@
 // import DEFAULT_AMSTERDAM_MAPS_OPTIONS from ""
 import { useState, useEffect } from "react";
 import styled from "styled-components";
-
-import { Map, ViewerContainer, Zoom } from "@amsterdam/arm-core";
-import { GeoJSON, useMapInstance } from "@amsterdam/react-maps";
 import util from "../services/util";
-import { getShapes, drawShapes } from '../services/map'
+import { Map, ViewerContainer, Zoom, getCrsRd } from "@amsterdam/arm-core";
+import { GeoJSON } from "@amsterdam/react-maps";
+
+import { drawShapes, getShapes } from '../services/map'
 import { COLOR, getRankingColor } from '../services/colorcoding'
 import { getOneStd } from "../services/apis/bbga";
-import { GeoJSONOptions } from 'leaflet'
+import { GeoJSONOptions, MapOptions } from 'leaflet'
 import { GeoJsonObject } from 'geojson'
 
 const StyledDiv = styled.div`
   width: 100%;
   height: 400px;
-`
+`;
+
+const mapOptions: MapOptions = {
+  center: [52.3731081, 4.8932945],
+  zoom: 10,
+  maxZoom: 16,
+  minZoom: 3,
+  zoomControl: false,
+  crs: getCrsRd(),
+  maxBounds: [
+    [52.25168, 4.64034],
+    [52.50536, 5.10737],
+  ]
+};
 
 const VerschillenMap = ({ gwb, variabele })  => {
   const [json, setJson] = useState(GeoJsonObject);
-  const mapInstance = useMapInstance();
-
+  // @ts-ignore
+  const [mapInstance, setMapInstance] = useState(any);
+  // const mapInstance = useMapInstance();
+  
   const clearLayers = () => {
     if (json) {
-      mapInstance.removeLayer(json);
+      // mapInstance.removeLayer(json);
     }
     setJson({});
   }
+// 
+//   
+
 
   const cijferView = async (cijfers, gebiedType) => {
     clearLayers()
@@ -51,7 +69,9 @@ const VerschillenMap = ({ gwb, variabele })  => {
   const showShapes = (shapes) => {
     clearLayers()
     // this.drawing = true
-    setJson(drawShapes(shapes, mapInstance));
+
+    const mapShapes = drawShapes(shapes, {}); //, mapInstance);
+    setJson(mapShapes);
 
     // gwbLayer = drawShapes(shapes, map)
 
@@ -60,7 +80,6 @@ const VerschillenMap = ({ gwb, variabele })  => {
 
 
   const updateData = async() => {
-    console.log('updateData mapInstance', mapInstance)
 
     if (!variabele) {
       return null;
@@ -94,26 +113,22 @@ const VerschillenMap = ({ gwb, variabele })  => {
       return;
     }
 
+    console.log('updateData mapInstance', mapInstance)
+
     // map = amsMap(this.$refs[this.mapRef]);
 
     updateData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gwb]);
 
-
-
-
   const options: GeoJSONOptions = {};
   console.log('VerschillenMap');
-
-
-//  return json ? <GeoJSON args={[json]} options={options} /> : null;
 
 
   return (
     <StyledDiv>
       kaart
-      <Map fullScreen>
+      <Map fullScreen options={mapOptions} setInstance={setMapInstance}>
         <ViewerContainer bottomLeft={<Zoom />} />
         {json ? <GeoJSON args={[json]} options={options} /> : null}
       </Map>
