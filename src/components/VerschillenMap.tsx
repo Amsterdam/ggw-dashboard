@@ -3,8 +3,10 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 
 import { Map } from "@amsterdam/arm-core";
-import { GeoJSON } from "@amsterdam/react-maps";
+import { GeoJSON, useMapInstance } from "@amsterdam/react-maps";
 import util from "../services/util";
+import { getShapes, drawShapes, amsMap } from '../services/map'
+import { COLOR, getRankingColor } from '../services/colorcoding'
 import { getOneStd } from "../services/apis/bbga";
 import { GeoJSONOptions } from 'leaflet'
 import { GeoJsonObject } from 'geojson'
@@ -16,35 +18,72 @@ const StyledDiv = styled.div`
 
 const VerschillenMap = ({ gwb, variabele })  => {
   const [json, setJson] = useState(GeoJsonObject);
+  const mapInstance = useMapInstance();
 
   const clearLayers = () => {
     if (json) {
-      // map.removeLayer(json)
+      mapInstance.removeLayer(json);
     }
     setJson({});
   }
 
+  const cijferView = async (cijfers, gebiedType) => {
+    clearLayers()
+    // this.drawing = true
+
+    const cijfersLookup = {}
+    cijfers.forEach(cijfer => { cijfersLookup[cijfer.gebiedcode15] = cijfer })
+
+    const shapes = await getShapes(gebiedType, (gebiedcode15) => {
+      const c = cijfersLookup[gebiedcode15]
+      return {
+        fillOpacity: 0.8,
+        fillColor: c ? (c.color || getRankingColor(c.ranking - 1, cijfers.length - 1)) : COLOR['ams-wit'],
+        color: COLOR['ams-donkergrijs'],
+        opacity: 0.5,
+        weight: 1
+      }
+    })
+
+    showShapes(shapes)
+  };
+
+  const showShapes = (shapes) => {
+    clearLayers()
+    // this.drawing = true
+    setJson(drawShapes(shapes, mapInstance));
+
+    // gwbLayer = drawShapes(shapes, map)
+
+    // this.drawing = false
+  },
+
+
   const updateData = async() => {
+    console.log('updateData mapInstance', mapInstance)
+
     if (!variabele) {
       return null;
     }
 
     const gebied = await util.getGebiedCijfers(variabele, gwb, util.CIJFERS.LATEST)
 
-    // console.log('this.gwb code', this.gwb.vollcode)
 
     const gebiedType = util.getGebiedType(gwb.vollcode, true)
 
     const cijfers = await util.getVerschillenCijfers(variabele, gebiedType, gebied.cijfers.jaar)
 
     const stdevs = await getOneStd(variabele);
-    
-    // const cijfers = await this.getVerschillenCijfers(this.variable, gebiedType, gebied.cijfers.jaar)
-    // this.cityCijfers = cijfers
-    // this.loading = false
+    console.log('updateData stdevs', stdevs.length)
+
 
     if (cijfers) {
-      this.cijferView(cijfers, gebiedType)
+      cijferView(cijfers, gebiedType)
+    }
+    
+  
+    if (cijfers) {
+      cijferView(cijfers, gebiedType)
     }
 
 
