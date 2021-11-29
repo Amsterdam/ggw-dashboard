@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 
-import { Map } from "@amsterdam/arm-core";
+import { Map, ViewerContainer, Zoom } from "@amsterdam/arm-core";
 import { GeoJSON, useMapInstance } from "@amsterdam/react-maps";
 import util from "../services/util";
 import { getShapes, drawShapes, amsMap } from '../services/map'
@@ -112,6 +112,7 @@ const VerschillenMap = ({ gwb, variabele })  => {
     <StyledDiv>
       kaart
       <Map fullScreen>
+        <ViewerContainer bottomLeft={<Zoom />} />
         {json ? <GeoJSON args={[json]} options={options} /> : null}
       </Map>
     </StyledDiv>
