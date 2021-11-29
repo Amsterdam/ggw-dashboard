@@ -1,5 +1,5 @@
 import L from "leaflet";
-
+import util from "../services/util";
 import { rd, rdPolygonToWgs84 } from "../services/geojson";
 
 /**
@@ -56,6 +56,7 @@ export function amsMap(el) {
   return map;
 }
 
+const allGeometries = {};
 /**
  * Returns a tile layer for Amsterdam
  * This tyle layer can be used to show a given shape on the map of Amsterdam
@@ -71,4 +72,17 @@ function tileLayer() {
       opacity: 0.3,
     }
   );
+}
+
+export async function getShapes (gebiedType, getStyle) {
+  const gwbs = await util.getGwbs(gebiedType)
+
+  allGeometries[gebiedType] = allGeometries[gebiedType] || await util.getGeometries(gebiedType)
+
+  const geometries = allGeometries[gebiedType]
+
+  return gwbs.map(gwb => {
+    const geometry = geometries[gwb.vollcode] || geometries[gwb.code]
+    return L.polygon(geometry.coordinates, getStyle(gwb.vollcode))
+  })
 }
