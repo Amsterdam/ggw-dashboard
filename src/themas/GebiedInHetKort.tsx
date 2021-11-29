@@ -9,6 +9,7 @@ import SocialeKlasseStackedBar from "../components/charts/SocialeKlasseStackedBa
 import LeeftijdJeugdStackedBar from "../components/charts/LeeftijdJeudStackedBar";
 import ThemeHeader from "../components/ThemeHeader";
 import VerschillenBarChart from "../components/VerschillenBarChart"
+import VerschillenMap from "../components/VerschillenMap"
 import Car from "../components/Icons/Car";
 import LegendTable from "../components/LegendTable";
 import { useGWBSelection } from "../components/context/GWBContext";
@@ -51,6 +52,10 @@ const GebiedInHetKort = () => {
         <Column span={6}>
           <div>
             kaart van verschillen in {gwb?.naam}
+            <VerschillenMap 
+              gwb={gwb}
+              variabele="ORVERLOED_P"
+            />
           </div>
         </Column>
         <Column span={6}>
