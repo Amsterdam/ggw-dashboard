@@ -100,14 +100,14 @@ export function drawShapes (shapes) {
  * @param el
  * @returns {*}
  */
-export function amsMap (el) {
-  const map = L.map(el, {
-    crs: rd,
-    attributionControl: false,
-    zoomControl: true,
-    scrollWheelZoom: false
-  }).setView([52.35, 4.9], 6)
+export function amsMap () {
+  // const map = L.map(el, {
+  //   crs: rd,
+  //   attributionControl: false,
+  //   zoomControl: true,
+  //   scrollWheelZoom: false
+  // }).setView([52.35, 4.9], 6)
 
-  map.addLayer(tileLayer())
-  return map
+  // map.addLayer(tileLayer())
+  // return map
 }
