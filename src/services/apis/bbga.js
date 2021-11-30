@@ -136,7 +136,7 @@ async function getCijfers(meta, year = null, gebiedCode = null) {
     gebiedcode15: c.gebiedcode15,
     ...getColor(
       {
-        indicatorDefinitieId: meta?.indicatorDefinitieId ? meta?.indicatorDefinitieId : indicatorDefinitieId,
+        indicatorDefinitieId: meta?.indicatorDefinitieId,
         kleurenpalet: meta?.kleurenpalet ? meta.kleurenpalet : "",
       },
       c.waarde,
