@@ -68,7 +68,7 @@ export async function readPaginatedData(url, options = {}) {
   const concatParam = url.includes('?') ? '&' : '?'
   while (next) {
     try {
-      const requestUrl = `${url}${concatParam}page=${page}&page_size=${pageSize}`
+      const requestUrl = `${url}${concatParam}_page=${page}&_pageSize=${pageSize}&_format=json`
       const response = await get(requestUrl, options)
       next = response.data._links.next.href
       results = results.concat(response.data.results)
