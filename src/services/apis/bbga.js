@@ -23,7 +23,7 @@ function getUrlv1(endpoint) {
  */
 export async function getAllMeta() {
   async function getData() {
-    const url = getUrlv1('/indicatoren_definities/?page_size=100000')
+    const url = getUrlv1('/indicatoren_definities/?_pageSize=100000&_format=json')
     const data = await readData(url)
     const dataObject = {}
 
@@ -107,7 +107,7 @@ async function getCijfers(meta, year = null, gebiedCode = null) {
   const selectGebiedCode = gebiedCode ? `&gebiedcode15=${gebiedCode}` : ''
   const isLatest = year === 'latest'
   const url = getUrlv1(
-    `/kerncijfers/?${selectVariable}${selectGebiedCode}&page_size=100000`
+    `/kerncijfers/?${selectVariable}${selectGebiedCode}&_pageSize=100000&_format=json`
   )
   const cijfers = await readData(url)
   const std = await getStd()
