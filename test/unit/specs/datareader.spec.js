@@ -34,7 +34,7 @@ jest.mock('axios', () => ({
       }
     }
 
-    if (url.includes('page=2')) {
+    if (url.includes('_page=2')) {
       return Promise.resolve(lastData)
     } else if (url === 'retry') {
       throw new Error('fail')
@@ -107,8 +107,8 @@ describe('datareader', () => {
 
   it('should read paginated data given an url', async () => {
     const data = await readPaginatedData('url')
-    expect(axios.get).toBeCalledWith('url?page=1&page_size=1000', {})
-    expect(axios.get).toBeCalledWith('url?page=2&page_size=1000', {})
+    expect(axios.get).toBeCalledWith('url?_page=1&_pageSize=1000&_format=json', {})
+    expect(axios.get).toBeCalledWith('url?_page=2&_pageSize=1000&_format=json', {})
     expect(data).toEqual([1, 2, 3, 4])
 
     expect(HTTPStatus.error).toEqual(0)
