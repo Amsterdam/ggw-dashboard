@@ -38,7 +38,7 @@ const Bevolking = () => {
 
       <Row>
         <Column span={6}>
-          <LeeftijdssamenstellingStackedBar gwb={gwb} />
+          <OpleidingsniveauStackedBar gwb={gwb} />
         </Column>
         <Column span={6}>
           <HuishoudensamenstellingStackedBar gwb={gwb} />
@@ -47,18 +47,13 @@ const Bevolking = () => {
 
       <Row>
         <Column span={6}>
-          <MigratieachtergrondStackedBar gwb={gwb} />
+          <LeeftijdssamenstellingStackedBar gwb={gwb} />
         </Column>
         <Column span={6}>
-          <OpleidingsniveauStackedBar gwb={gwb} />
+          <MigratieachtergrondStackedBar gwb={gwb} />
         </Column>
       </Row>
 
-      <Row>
-        <Column span={12}>
-          <HeaderRow title={`De ontwikkeling van ${BEVOLKING} in ${gwb?.naam} en Amsterdam`} />
-        </Column>
-      </Row>
       <Row>
         <Column span={6}>
           <LineChart
@@ -108,6 +103,12 @@ const Bevolking = () => {
             ]}
             gwb={gwb}
           ></LineChart>
+        </Column>
+      </Row>
+
+      <Row>
+        <Column span={12}>
+          <HeaderRow title={`De ontwikkeling van ${BEVOLKING} in ${gwb?.naam} en Amsterdam`} />
         </Column>
       </Row>
 

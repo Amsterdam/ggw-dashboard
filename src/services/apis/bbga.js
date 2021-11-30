@@ -23,9 +23,9 @@ function getUrlv1(endpoint) {
  */
 export async function getAllMeta() {
   async function getData() {
-    const url = getUrlv1('/indicatoren_definities/?_pageSize=100000&_format=json')
-    const data = await readData(url)
-    const dataObject = {}
+    const url = getUrlv1("/indicatoren_definities/?_pageSize=100000&_format=json");
+    const data = await readData(url);
+    const dataObject = {};
 
     data._embedded.indicatoren_definities.forEach((item) => {
       dataObject[item.variabele.toUpperCase()] = {
@@ -115,21 +115,19 @@ export async function getOneStd(variabele) {
  * @param gebiedCode
  * @returns {Promise<{jaar: *|number|string, waarde: null, post: string, gebiedcode15: *|string, color, textColor: *|textColor}[]>}
  */
-async function getCijfers(meta, year = null, gebiedCode = null) {
-  const post = meta.symbool === '%' ? meta.symbool : '' // only copy % symbol
+async function getCijfers(meta, year = null, gebiedCode = null, indicatorDefinitieId = null) {
+  const post = meta.symbool === "%" ? meta.symbool : ""; // only copy % symbol
 
-  const selectVariable = `indicatorDefinitieId=${meta.indicatorDefinitieId}`
-  const selectGebiedCode = gebiedCode ? `&gebiedcode15=${gebiedCode}` : ''
-  const isLatest = year === 'latest'
-  const url = getUrlv1(
-    `/kerncijfers/?${selectVariable}${selectGebiedCode}&_pageSize=100000&_format=json`
-  )
-  const cijfers = await readData(url)
-  const std = await getStd()
+  const selectVariable = `indicatorDefinitieId=${meta.indicatorDefinitieId}`;
+  const selectGebiedCode = gebiedCode ? `&gebiedcode15=${gebiedCode}` : "";
+  const isLatest = year === "latest";
+  const url = getUrlv1(`/kerncijfers/?${selectVariable}${selectGebiedCode}&_pageSize=100000&_format=json`);
+  const cijfers = await readData(url);
+  const std = await getStd();
 
-  const array = cijfers._embedded.kerncijfers
-  array.sort((a, b) => a.jaar - b.jaar) // oldest first
-  const results = array.map(c => ({
+  const array = cijfers._embedded.kerncijfers;
+  array.sort((a, b) => a.jaar - b.jaar); // oldest first
+  const results = array.map((c) => ({
     jaar: c.jaar,
     waarde: c.waarde === "" || c.waarde === undefined ? null : c.waarde, // Sometimes the API returns '' for null value
     post,

@@ -1,0 +1,62 @@
+[
+  {
+    "label": "Ervaren gezondheid (zeer) goed",
+    "indicatorDefinitieId": "WZGEZOND_P"
+  },
+  {
+    "label": "Lichamelijke beperking (%)",
+    "indicatorDefinitieId": "WZOESO_P"
+  },
+  {
+    "label": "Overgewicht of obesitas (%)",
+    "indicatorDefinitieId": "WZZWAAR_P"
+  },
+  {
+    "label": "Weinig regie eigen leven (%)",
+    "indicatorDefinitieId": "PREGIE_P"
+  },
+  {
+    "label": "(Zeer) ernstig eenzaam (%)",
+    "indicatorDefinitieId": "PEENZ_P"
+  },
+  {
+    "label": "Ernstig psychische klachten (%)",
+    "indicatorDefinitieId": "WZDEPR_P"
+  },
+  {
+    "label": "Voldoet aan beweegnorm (%)",
+    "indicatorDefinitieId": "WZBEWEEG_P"
+  },
+  {
+    "label": "Rokers (%)",
+    "indicatorDefinitieId": "WZROOK_P"
+  },
+  {
+    "label": "Zwaar/overmatig alcohol (%)",
+    "indicatorDefinitieId": "WZALC_P"
+  },
+  {
+    "label": "Rapportcijfer zorgvoorzieningen",
+    "indicatorDefinitieId": "WZZORGVOORZIENINGEN_R"
+  },
+  {
+    "label": "Mantelzorgers (%)",
+    "indicatorDefinitieId": "PMANTEL_P"
+  },
+  {
+    "label": "18-65 jarigen met zorgvoorziening (%)",
+    "indicatorDefinitieId": "WZZORG18_65_P"
+  },
+  {
+    "label": "66+ met zorgvoorziening (%)",
+    "indicatorDefinitieId": "WZZORG66PLUS_P"
+  },
+  {
+    "label": "Ambulante zorg of dagbesteding (%)",
+    "indicatorDefinitieId": "WZAMBDAG_P"
+  },
+  {
+    "label": "Hulp bij huishouden (%66+)",
+    "indicatorDefinitieId": "WZHBH_P"
+  }
+]

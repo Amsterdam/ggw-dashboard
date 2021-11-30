@@ -27,8 +27,8 @@ const LineChart = ({ title, gwb, config }) => {
     const cijfers = chartdata
       .map((data) =>
         data.cijfers
-          .filter((cijfer) => cijfer.waarde !== null)
-          .map((cijfer) => ({
+          ?.filter((cijfer) => cijfer.waarde !== null)
+          ?.map((cijfer) => ({
             x: cijfer.jaar,
             y: cijfer.waarde,
             variable: data.label,
