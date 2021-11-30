@@ -76,11 +76,11 @@ export async function readPaginatedData(
   const concatParam = url.includes("?") ? "&" : "?";
   while (next) {
     try {
-      const requestUrl = `${url}${concatParam}page=${page}&page_size=${pageSize}`;
-      const response = await fetchData(requestUrl);
-      next = response.data?.next?.href;
-      results = results.concat(get(response.data, dataSelector));
-      page += 1;
+      const requestUrl = `${url}${concatParam}_page=${page}&_pageSize=${pageSize}&_format=json`
+      const response = await get(requestUrl, options)
+      next = response.data._links.next.href
+      results = results.concat(response.data.results)
+      page += 1
     } catch (e) {
       console.error(e);
       next = null;
