@@ -67,20 +67,20 @@ export async function readPaginatedData(
   url,
   // eslint-disable-next-line no-unused-vars
   options = {},
-  dataSelector = "results"
+  dataSelector = "results",
 ) {
   let next = url;
   let results = [];
-  let page = 1;
+  // let page = 1;
   const pageSize = 1000;
   const concatParam = url.includes("?") ? "&" : "?";
   while (next) {
     try {
-      const requestUrl = `${url}${concatParam}page=${page}&page_size=${pageSize}`;
+      const requestUrl = `${url}${concatParam}_pageSize=${pageSize}`; //page=${page}&
       const response = await fetchData(requestUrl);
       next = response.data?.next?.href;
       results = results.concat(get(response.data, dataSelector));
-      page += 1;
+      // page += 1;
     } catch (e) {
       console.error(e);
       next = null;

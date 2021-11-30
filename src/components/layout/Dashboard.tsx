@@ -10,15 +10,16 @@ import Economie from "../../themas/Economie";
 import GebiedInHetKort from "../../themas/GebiedInHetKort";
 import Onderwijs from "../../themas/Onderwijs";
 import Werk from "../../themas/Werk";
-import Welzijn from "../../themas/Welzijn";
+import Welzijn from "../../themas/Sport";
 import SocialeKracht from "../../themas/SocialeKracht";
 import Wonen from "../../themas/Wonen";
 import OpenbareRuimte from "../../themas/OpenbareRuimte";
-import { useGWBSelection } from "../context/GWBContext";
-import { THEMAS, URL_THEMA_MAPPING } from "../../services/thema";
 import PageTemplate from "./PageTemplate";
 import GGWInformation from "../GGWInformation";
 import Veiligheid from "../../themas/Veiligheid";
+import Zorg from "../../themas/Zorg";
+import { useGWBSelection } from "../context/GWBContext";
+import { THEMAS, URL_THEMA_MAPPING } from "../../services/thema";
 
 const DashboardDiv = styled.div`
   padding-top: ${themeSpacing(8)};
@@ -44,6 +45,7 @@ const themaMapping = {
   [THEMAS[11]]: SocialeKracht,
   [THEMAS[12]]: OpenbareRuimte,
   [THEMAS[13]]: Veiligheid,
+  [THEMAS[14]]: Zorg,
 };
 
 const Dashboard = ({ thema: propThema = THEMAS[0] }: { thema?: string }) => {
