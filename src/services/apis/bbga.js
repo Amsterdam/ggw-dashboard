@@ -99,7 +99,7 @@ export async function getStd() {
 export async function getOneStd(variabele) {
   const sdvars = await getStd();
   return sdvars
-    .filter((sd) => sd.indicatorDefinitieId === variabele.toUpperCase())
+    .filter((sd) => sd.indicatorDefinitieId === variabele?.toUpperCase())
     .map((sd) => ({ ...sd, jaar: sd.jaar, gemiddelde: sd.gemiddelde }));
 }
 

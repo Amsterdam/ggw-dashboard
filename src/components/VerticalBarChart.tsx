@@ -33,7 +33,7 @@ const VerticalBarChart = ({ title, gwb, config }) => {
     const stdevs = await getOneStd(variabele);
 
     // Only use last 10 years
-    const cijfers = chartdata[0].cijfers.length > 10 ? chartdata[0].cijfers.slice(-10) : chartdata[0].cijfers;
+    const cijfers = chartdata[0].cijfers?.length > 10 ? chartdata[0].cijfers.slice(-10) : chartdata[0].cijfers;
 
     chartBase.data.values = (cijfers || [])
       .filter((d) => d.waarde)

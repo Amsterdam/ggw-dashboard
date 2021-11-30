@@ -15,12 +15,13 @@ export const ONDERWIJS = "Onderwijs";
 export const OPENBARE_ORDE_EN_VEILIGHEID = "Openbare orde en veiligheid";
 export const STEDELIJKE_ONTWIKKELING_EN_WONEN = "Stedelijke ontwikkeling en wonen";
 export const VERKEER_EN_OPENBARE_RUIMTE = "Verkeer en Openbare ruimte";
-export const WELZIJN_ZORG_EN_SPORT = "Welzijn, zorg en sport";
+export const SPORT_EN_CULTUUR = "Sport en cultuur";
 export const WERK_INKOMEN_EN_PARTICIPATIE = "Werk, inkomen en participatie";
 export const WONEN = "Wonen";
 export const SOCIALE_KRACHT = "Sociale kracht";
 export const OPENBARE_RUIMTE = "Openbare ruimte";
 export const VEILIGHEID = "Veiligheid en Overlast";
+export const GEZONDHEID_ZORG = "Gezondheid en zorg";
 
 /**
  * The total set of available themas of which the user can choose from
@@ -35,11 +36,12 @@ export const THEMAS = [
   OPENBARE_ORDE_EN_VEILIGHEID,
   ONDERWIJS,
   WERK_INKOMEN_EN_PARTICIPATIE,
-  WELZIJN_ZORG_EN_SPORT,
+  SPORT_EN_CULTUUR,
   WONEN,
   SOCIALE_KRACHT,
   OPENBARE_RUIMTE,
   VEILIGHEID,
+  GEZONDHEID_ZORG,
 ];
 
 export const THEMA_URL_MAPPING = {
@@ -52,11 +54,12 @@ export const THEMA_URL_MAPPING = {
   [OPENBARE_ORDE_EN_VEILIGHEID]: "openbare-orde-en-veiligheid",
   [ONDERWIJS]: "onderwijs",
   [WERK_INKOMEN_EN_PARTICIPATIE]: "werk-inkomen-en-participatie",
-  [WELZIJN_ZORG_EN_SPORT]: "welzijn-zorg-en-sport",
+  [SPORT_EN_CULTUUR]: "sport-en-cultuur",
   [WONEN]: "wonen",
   [SOCIALE_KRACHT]: "sociale-kracht",
   [OPENBARE_RUIMTE]: "openbare-ruimte",
   [VEILIGHEID]: "veiligheid",
+  [GEZONDHEID_ZORG]: "gezondheid-en-zorg",
 };
 
 export const URL_THEMA_MAPPING = THEMAS.reduce((acc, curr) => {
