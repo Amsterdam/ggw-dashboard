@@ -14,6 +14,7 @@ import WoningVoorraadStackedBar from "../components/charts/WoningVoorraadStacked
 import GrootteWoningenStackedBar from "../components/charts/GrootteWoningenStackedBar";
 import HeaderRow from "../components/layout/HeaderRow";
 import { useGWBSelection } from "../components/context/GWBContext";
+import DevelopmentThemeHeader from "../components/DevelopmentThemeHeader";
 
 const Wonen = () => {
   const gwb = useGWBSelection();
@@ -44,7 +45,7 @@ const Wonen = () => {
       </Row>
       <Row>
         <Column span={12}>
-          <HeaderRow title={`De ontwikkeling van ${WONEN} in ${gwb?.naam} en Amsterdam`} />
+          <DevelopmentThemeHeader theme={WONEN} location={gwb?.naam} />
         </Column>
       </Row>
       <Row>

@@ -9,6 +9,7 @@ import Car from "../components/Icons/Car";
 import { SPORT_EN_CULTUUR } from "../services/thema";
 
 import sport from "../static/links/sport.json";
+import DevelopmentThemeHeader from "../components/DevelopmentThemeHeader";
 
 const Sport = () => {
   const gwb = useGWBSelection();
@@ -32,7 +33,7 @@ const Sport = () => {
 
       <Row>
         <Column span={12}>
-          <HeaderRow title={`De ontwikkeling van ${SPORT_EN_CULTUUR} in ${gwb?.naam} en Amsterdam`} />
+          <DevelopmentThemeHeader theme={SPORT_EN_CULTUUR} location={gwb?.naam} />
         </Column>
       </Row>
       <Row>

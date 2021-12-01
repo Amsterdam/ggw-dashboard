@@ -2,6 +2,7 @@ import { Column, Row } from "@amsterdam/asc-ui";
 import WoningenNaarEnergieStackedBar from "../components/charts/WoningenNaarEnergieStackedBar";
 
 import { useGWBSelection } from "../components/context/GWBContext";
+import DevelopmentThemeHeader from "../components/DevelopmentThemeHeader";
 import Car from "../components/Icons/Car";
 import HeaderRow from "../components/layout/HeaderRow";
 
@@ -33,7 +34,7 @@ const Duurzaamheid = () => {
 
       <Row>
         <Column span={12}>
-          <HeaderRow title={`De ontwikkeling van ${DUURZAAMHEID} in ${gwb?.naam} en Amsterdam`} />
+          <DevelopmentThemeHeader theme={DUURZAAMHEID} location={gwb?.naam} />
         </Column>
       </Row>
       {/* <Row>

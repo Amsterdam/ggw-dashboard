@@ -15,6 +15,7 @@ import ontwikkelingBevolking from "../static/links/ontwikkeling_bevolking.json";
 import HuishoudensamenstellingStackedBar from "../components/charts/HuishoudensamenstellingStackedBar";
 import MigratieachtergrondStackedBar from "../components/charts/MigratieachtergrondStackedBar";
 import OpleidingsniveauStackedBar from "../components/charts/OpleidingsniveauStackedBar";
+import DevelopmentThemeHeader from "../components/DevelopmentThemeHeader";
 
 const Bevolking = () => {
   const gwb = useGWBSelection();
@@ -108,7 +109,7 @@ const Bevolking = () => {
 
       <Row>
         <Column span={12}>
-          <HeaderRow title={`De ontwikkeling van ${BEVOLKING} in ${gwb?.naam} en Amsterdam`} />
+          <DevelopmentThemeHeader theme={BEVOLKING} location={gwb?.naam} />
         </Column>
       </Row>
 

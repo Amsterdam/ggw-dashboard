@@ -16,6 +16,7 @@ import LineChart from "../components/LineChart";
 import economiecijfers from "../static/links/economie_kerncijfers.json";
 import vestigingenOntwikkeling from "../static/links/vestigingen_ontwikkeling.json";
 import werkzamepersonenOntwikkeling from "../static/links/werkzamepersonen_ontwikkeling.json";
+import DevelopmentThemeHeader from "../components/DevelopmentThemeHeader";
 
 const Economie = () => {
   const gwb = useGWBSelection();
@@ -63,7 +64,7 @@ const Economie = () => {
 
       <Row>
         <Column span={12}>
-          <HeaderRow title={`De ontwikkeling van ${ECONOMIE} in ${gwb?.naam} en Amsterdam`} />
+          <DevelopmentThemeHeader theme={ECONOMIE} location={gwb?.naam} />
         </Column>
       </Row>
 

@@ -16,6 +16,7 @@ import HeaderRow from "../components/layout/HeaderRow";
 import { useGWBSelection } from "../components/context/GWBContext";
 import MostVulnerableCitizens from "../components/tables/MostVulnerableCitizens";
 import CitizensWithLowCES from "../components/tables/CitizensWithLowSES";
+import DevelopmentThemeHeader from "../components/DevelopmentThemeHeader";
 
 const Spacer = styled.div`
   padding-top: ${themeSpacing(4)};
@@ -56,7 +57,7 @@ const SocialeKracht = () => {
       </Row>
       <Row>
         <Column span={12}>
-          <HeaderRow title={`De ontwikkeling van ${SOCIALE_KRACHT} in ${gwb?.naam} en Amsterdam`} />
+          <DevelopmentThemeHeader theme={SOCIALE_KRACHT} location={gwb?.naam} />
         </Column>
       </Row>
       <Row>

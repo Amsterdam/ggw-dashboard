@@ -17,6 +17,7 @@ import ThemeHeader from "../components/ThemeHeader";
 import Car from "../components/Icons/Car";
 import HeaderRow from "../components/layout/HeaderRow";
 import { useGWBSelection } from "../components/context/GWBContext";
+import DevelopmentThemeHeader from "../components/DevelopmentThemeHeader";
 
 const Werk = () => {
   const gwb = useGWBSelection();
@@ -51,10 +52,7 @@ const Werk = () => {
       </Row>
       <Row>
         <Column span={12}>
-          <HeaderRow
-            title={`De ontwikkeling van ${WERK_INKOMEN_EN_PARTICIPATIE} in ${gwb?.naam} en
-            Amsterdam`}
-          />
+          <DevelopmentThemeHeader theme={WERK_INKOMEN_EN_PARTICIPATIE} location={gwb?.naam} />
         </Column>
       </Row>
       <Row>

@@ -3,6 +3,7 @@ import BasisschooladviezenStackedBar from "../components/charts/Basisschooladvie
 import StatusBovenleerplichtigenStackedBar from "../components/charts/StatusBovenleerplichtigenStackedBar";
 
 import { useGWBSelection } from "../components/context/GWBContext";
+import DevelopmentThemeHeader from "../components/DevelopmentThemeHeader";
 import Car from "../components/Icons/Car";
 import HeaderRow from "../components/layout/HeaderRow";
 import KidsOfSchoolAge from "../components/tables/KidsOfSchoolAge";
@@ -43,7 +44,7 @@ const Onderwijs = () => {
 
       <Row>
         <Column span={12}>
-          <HeaderRow title={`De ontwikkeling van ${ONDERWIJS} in ${gwb?.naam} en Amsterdam`} />
+          <DevelopmentThemeHeader theme={ONDERWIJS} location={gwb?.naam} />
         </Column>
       </Row>
       <Row>

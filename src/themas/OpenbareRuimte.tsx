@@ -14,6 +14,7 @@ import BodemgebruikStackedBar from "../components/charts/BodemgebruikStackedBar"
 import SamenstellingVerblijversStackedBar from "../components/charts/SamenstellingVerblijversStackedBar";
 import HeaderRow from "../components/layout/HeaderRow";
 import { useGWBSelection } from "../components/context/GWBContext";
+import DevelopmentThemeHeader from "../components/DevelopmentThemeHeader";
 
 const OpenbareRuimte = () => {
   const gwb = useGWBSelection();
@@ -44,7 +45,7 @@ const OpenbareRuimte = () => {
       </Row>
       <Row>
         <Column span={12}>
-          <HeaderRow title={`De ontwikkeling van ${OPENBARE_RUIMTE} in ${gwb?.naam} en Amsterdam`} />
+          <DevelopmentThemeHeader theme={OPENBARE_RUIMTE} location={gwb?.naam} />
         </Column>
       </Row>
       <Row>

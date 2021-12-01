@@ -11,6 +11,7 @@ import overlastcijfers from "../static/links/overlast_kerncijfers.json";
 
 import HeaderRow from "../components/layout/HeaderRow";
 import { useGWBSelection } from "../components/context/GWBContext";
+import DevelopmentThemeHeader from "../components/DevelopmentThemeHeader";
 
 const Veiligheid = () => {
   const gwb = useGWBSelection();
@@ -21,7 +22,7 @@ const Veiligheid = () => {
 
       <Row>
         <Column span={12}>
-          <HeaderRow title={`De ontwikkeling van veiligheid in ${gwb?.naam} en Amsterdam`} />
+          <DevelopmentThemeHeader theme={"veiligheid"} location={gwb?.naam} />
         </Column>
       </Row>
       <Row>
@@ -74,7 +75,7 @@ const Veiligheid = () => {
 
       <Row>
         <Column span={12}>
-          <HeaderRow title={`De ontwikkeling van overlast in ${gwb?.naam} en Amsterdam`} />
+          <DevelopmentThemeHeader theme={"overlast"} location={gwb?.naam} />
         </Column>
       </Row>
 
