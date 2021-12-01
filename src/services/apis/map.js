@@ -54,38 +54,3 @@ export async function getGeometries(gebiedType) {
 
   return geometries;
 }
-
-
-// const allGeometries = {}
-/**
- * Draws a series of shapes (polygons) on the given Leaflet map
- * @param shapes
- * @param map
- * @returns {*} the layer holding the drawn polygons. Can be used for later removel of the layer
- */
-export function drawShapes (shapes) {
-  const layer = L.featureGroup()
-  shapes.forEach(shape => shape.addTo(layer))
-  // layer.addTo(map)
-  // if (shapes.length) {
-    // map.fitBounds(layer.getBounds())
-  // }
-  return layer
-}
-
-/**
- * Returns a Leaflet map for Amsterdam
- * @param el
- * @returns {*}
- */
-export function amsMap () {
-  // const map = L.map(el, {
-  //   crs: rd,
-  //   attributionControl: false,
-  //   zoomControl: true,
-  //   scrollWheelZoom: false
-  // }).setView([52.35, 4.9], 6)
-
-  // map.addLayer(tileLayer())
-  // return map
-}

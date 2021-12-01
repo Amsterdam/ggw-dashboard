@@ -181,7 +181,7 @@ export const CIJFERS = {
  * @returns {Promise<*>}
  */
 export async function getVerschillenCijfers (variable, gebiedType, recentYear) {
-  console.log('getVerschillenCijfers', variable, gebiedType, recentYear)
+  // console.log('getVerschillenCijfers', variable, gebiedType, recentYear)
   // Sort and filter cijfers for gebiedType and waarde
   let cijfers = await getAllCijfers(variable, recentYear);
 
