@@ -3,7 +3,7 @@ import 'leaflet/dist/leaflet.css';
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import util from "../services/util";
-import { Map, ViewerContainer, Zoom, getCrsRd } from "@amsterdam/arm-core";
+import { Map, ViewerContainer, Zoom, BaseLayer, getCrsRd } from "@amsterdam/arm-core";
 import { GeoJSON } from "@amsterdam/react-maps";
 
 import { drawShapes, getShapes } from '../services/map'
@@ -19,11 +19,14 @@ const StyledDiv = styled.div`
 `;
 
 const mapOptions: MapOptions = {
-  center: [52.3731081, 4.8932945],
+  center: [52.35, 4.9],
   zoom: 6,
   maxZoom: 16,
   minZoom: 3,
-  crs: getCrsRd()
+  crs: getCrsRd(),
+  attributionControl: false,
+  zoomControl: true,
+  scrollWheelZoom: false
 };
 
 const VerschillenMap = ({ gwb, variabele })  => {
@@ -39,7 +42,8 @@ const VerschillenMap = ({ gwb, variabele })  => {
   
   const cijferView = async (cijfers, gebiedType) => {
     clearLayers()
-    // this.drawing = true
+    return;
+        // this.drawing = true
 
     const cijfersLookup = {}
     cijfers.forEach(cijfer => { cijfersLookup[cijfer.gebiedcode15] = cijfer })
@@ -90,9 +94,10 @@ const VerschillenMap = ({ gwb, variabele })  => {
 
     console.log('updateData cijfers', cijfers.length);
 
-    console.log('updateData mapInstance', mapInstance);
+    console.log('updateData mapInstance', gebiedType);
 
-    if (cijfers) {
+
+    if (cijfers && mapInstance) {
       // temp disabled
       // cijferView(cijfers, gebiedType)
     }
@@ -104,15 +109,23 @@ const VerschillenMap = ({ gwb, variabele })  => {
       return;
     }
 
-    // map = amsMap(this.$refs[this.mapRef]);
-
     updateData();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gwb]);
 
+  useEffect(() => {
+    if (!gwb) {
+      return;
+    }
+
+    updateData();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const options: GeoJSONOptions = {};
-  console.log('VerschillenMap');
+  console.log('VerschillenMap', json);
 
 
   return (
@@ -120,6 +133,7 @@ const VerschillenMap = ({ gwb, variabele })  => {
       kaart
       <Map options={mapOptions} fullScreen setInstance={setMapInstance}>
         <ViewerContainer bottomLeft={<Zoom />} />
+        <BaseLayer baseLayer={`https://{s}.data.amsterdam.nl/topo_rd_zw/{z}/{x}/{y}.png`} />
         {json ? <GeoJSON args={[json]} options={options} /> : null}
       </Map>
     </StyledDiv>
