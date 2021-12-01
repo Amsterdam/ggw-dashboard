@@ -116,9 +116,9 @@ export async function getOneStd(variabele) {
  * @returns {Promise<{jaar: *|number|string, waarde: null, post: string, gebiedcode15: *|string, color, textColor: *|textColor}[]>}
  */
 async function getCijfers(meta, year = null, gebiedCode = null, indicatorDefinitieId = null) {
-  const post = meta.symbool === "%" ? meta.symbool : ""; // only copy % symbol
+  const post = meta?.symbool === "%" ? meta.symbool : ""; // only copy % symbol
 
-  const selectVariable = `indicatorDefinitieId=${meta.indicatorDefinitieId}`;
+  const selectVariable = `indicatorDefinitieId=${meta?.indicatorDefinitieId}`;
   const selectGebiedCode = gebiedCode ? `&gebiedcode15=${gebiedCode}` : "";
   const isLatest = year === "latest";
   const url = getUrlv1(`/kerncijfers/?${selectVariable}${selectGebiedCode}&_pageSize=100000&_format=json`);
@@ -134,7 +134,7 @@ async function getCijfers(meta, year = null, gebiedCode = null, indicatorDefinit
     gebiedcode15: c.gebiedcode15,
     ...getColor(
       {
-        indicatorDefinitieId: meta?.indicatorDefinitieId,
+        indicatorDefinitieId: meta?.indicatorDefinitieId ? meta.indicatorDefinitieId : indicatorDefinitieId,
         kleurenpalet: meta?.kleurenpalet ? meta.kleurenpalet : "",
       },
       c.waarde,

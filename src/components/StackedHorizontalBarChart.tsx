@@ -115,7 +115,7 @@ const StackedHorizontalBarChart = ({ title, config, gwb, customVegaSpec = null, 
 
   return (
     <div>
-      <h5>{title}</h5>
+      <h4>{title}</h4>
       {isLoading ? <Spinner /> : null}
       {showError && <p>Op dit schaalniveau is helaas geen informatie beschikbaar.</p>}
       <div ref={chartRef}></div>

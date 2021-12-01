@@ -33,7 +33,7 @@ const TextStatistic = ({
         },
       ]);
 
-      setData(apiData[apiData.length - 1]?.recent?.waarde || "-");
+      setData(util.formatNumber(apiData[apiData.length - 1]?.recent?.waarde) || "-");
     } catch (e) {
       console.error(e);
       setData("-");

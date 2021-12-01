@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Spinner, Table, TableBody, TableCell, TableHeader, TableRow } from "@amsterdam/asc-ui";
 import useGetLatestConfigCijfers from "../../hooks/useGetLatestConfigCijfers";
+import util from "../../services/util";
 
 const SmallTable = styled(Table)`
   padding-right: 0;
@@ -28,7 +29,7 @@ const DoubleIndicatorTable = ({ gwb, config, headerTitles }) => {
             {[...Array(config.length / 2)].map((_, index) => {
               const indicator = data.find((d) => d.meta.indicatorDefinitieId === config[index].indicatorDefinitieId);
               const secondIndicator = data.find(
-                (d) => d.meta.indicatorDefinitieId === config[index + 4].indicatorDefinitieId,
+                (d) => d.meta.indicatorDefinitieId === config[index + config.length / 2].indicatorDefinitieId,
               );
 
               if (!indicator) {
@@ -39,10 +40,10 @@ const DoubleIndicatorTable = ({ gwb, config, headerTitles }) => {
                 <TableRow key={index}>
                   <TableCell as="th">{indicator.meta.labelKort}</TableCell>
                   <TableCell style={{ textAlign: "right" }}>
-                    {indicator.cijfers[indicator.cijfers.length - 1].waarde}
+                    {util.formatNumber(indicator.cijfers[indicator.cijfers.length - 1].waarde)}
                   </TableCell>
                   <TableCell style={{ textAlign: "right" }}>
-                    {secondIndicator.cijfers[indicator.cijfers.length - 1].waarde}
+                    {util.formatNumber(secondIndicator.cijfers[indicator.cijfers.length - 1].waarde)}
                   </TableCell>
                 </TableRow>
               );

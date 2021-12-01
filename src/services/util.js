@@ -220,6 +220,14 @@ const setVegaLocale = () => {
   });
 };
 
+const formatNumber = (value) => {
+  if (typeof value === "number") {
+    return new Intl.NumberFormat("nl-NL", { maximumSignificantDigits: 6 }).format(value);
+  }
+
+  return value;
+}
+
 /**
  * Util exports het methods in an object. Usage will therefore be like util.getCity instead of import {getCity} from util
  * This has been done for reasons of simplicity only
@@ -251,6 +259,7 @@ const util = {
   getYearCijfers,
   getStd,
   setVegaLocale,
+  formatNumber
 };
 
 export default util;

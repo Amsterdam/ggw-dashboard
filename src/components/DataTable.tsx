@@ -100,13 +100,13 @@ const DataTable = ({
     return Math.round((dataFinalYear?.waarde - dataFirstYear?.waarde) * 100) / 100;
   };
 
-  const formatValue = (value) => {
-    if (typeof value === "number") {
-      return new Intl.NumberFormat("nl-NL", { maximumSignificantDigits: 6 }).format(value);
-    }
+  // const formatValue = (value) => {
+  //   if (typeof value === "number") {
+  //     return new Intl.NumberFormat("nl-NL", { maximumSignificantDigits: 6 }).format(value);
+  //   }
 
-    return value;
-  };
+  //   return value;
+  // };
 
   return (
     <>
@@ -206,7 +206,7 @@ const DataTable = ({
                             textAlign: "right",
                           }}
                         >
-                          {formatValue(yearData?.waarde) || "-"}
+                          {util.formatNumber(yearData?.waarde) || "-"}
                         </TableCell>
                       );
                     })}
@@ -218,8 +218,8 @@ const DataTable = ({
                         }}
                       >
                         {indicatorDevelopment > 0
-                          ? `+${formatValue(indicatorDevelopment)}`
-                          : formatValue(indicatorDevelopment)}
+                          ? `+${util.formatNumber(indicatorDevelopment)}`
+                          : util.formatNumber(indicatorDevelopment)}
                       </TableCell>
                     )}
                     <TableCell
@@ -229,8 +229,8 @@ const DataTable = ({
                       }}
                     >
                       {cityIndicatorDevelopment > 0
-                        ? `+${formatValue(cityIndicatorDevelopment)}`
-                        : formatValue(cityIndicatorDevelopment)}
+                        ? `+${util.formatNumber(cityIndicatorDevelopment)}`
+                        : util.formatNumber(cityIndicatorDevelopment)}
                     </TableCell>
                   </TableRow>
                 );

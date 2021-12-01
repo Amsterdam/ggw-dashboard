@@ -1,5 +1,6 @@
 import { Spinner, Table, TableBody, TableCell, TableHeader, TableRow } from "@amsterdam/asc-ui";
 import useGetLatestConfigCijfers from "../../hooks/useGetLatestConfigCijfers";
+import util from "../../services/util";
 
 const localConfig = [
   {
@@ -43,7 +44,7 @@ const KidsOfSchoolAge = ({ gwb, config = localConfig }) => {
                 <TableRow key={c.indicatorDefinitieId}>
                   <TableCell as="th">{indicator.meta.labelKort}</TableCell>
                   <TableCell style={{ textAlign: "right" }}>
-                    {indicator.cijfers[indicator.cijfers.length - 1].waarde}
+                    {util.formatNumber(indicator.cijfers[indicator.cijfers.length - 1].waarde)}
                   </TableCell>
                 </TableRow>
               );

@@ -40,6 +40,8 @@ const LineChart = ({ title, gwb, config }) => {
     chartBase.data[0].values = cijfers;
     chartBase.scales[2].range = colors;
 
+    // console.log(JSON.stringify(chartBase));
+
     if (chartRef.current && chartBase.data[0].values.length > 1) {
       setIsLoading(false);
       vegaEmbed(chartRef.current, chartBase, vegaEmbedOptions);
@@ -60,7 +62,7 @@ const LineChart = ({ title, gwb, config }) => {
 
   return (
     <div>
-      <h5 className="text-center">{title}</h5>
+      <h4 className="text-center">{title}</h4>
       <div className="chart-container">
         {isLoading ? <Spinner /> : null}
         {showError && <p>Op dit schaalniveau is helaas geen informatie beschikbaar.</p>}
