@@ -8,8 +8,9 @@ import Car from "../components/Icons/Car";
 
 import { JEUGD } from "../services/thema";
 
-import sport from "../static/links/sport.json";
+import jeugdOntwikkeling from "../static/links/jeugd_ontwikkeling.json";
 import DevelopmentThemeHeader from "../components/DevelopmentThemeHeader";
+import DataTable from "../components/DataTable";
 
 const Jeugd = () => {
   const gwb = useGWBSelection();
@@ -38,25 +39,49 @@ const Jeugd = () => {
       </Row>
       <Row>
         <Column span={4}>
-          <VerticalBarChart title={sport[0].label} config={[sport[0]]} gwb={gwb}></VerticalBarChart>
+          <VerticalBarChart
+            title={jeugdOntwikkeling[0].label}
+            config={[jeugdOntwikkeling[0]]}
+            gwb={gwb}
+          ></VerticalBarChart>
         </Column>
         <Column span={4}>
-          <VerticalBarChart title={sport[1].label} config={[sport[1]]} gwb={gwb}></VerticalBarChart>
+          <VerticalBarChart
+            title={jeugdOntwikkeling[1].label}
+            config={[jeugdOntwikkeling[1]]}
+            gwb={gwb}
+          ></VerticalBarChart>
         </Column>
         <Column span={4}>
-          <VerticalBarChart title={sport[2].label} config={[sport[2]]} gwb={gwb}></VerticalBarChart>
+          <VerticalBarChart
+            title={jeugdOntwikkeling[2].label}
+            config={[jeugdOntwikkeling[2]]}
+            gwb={gwb}
+          ></VerticalBarChart>
         </Column>
       </Row>
 
       <Row>
         <Column span={4}>
-          <VerticalBarChart title={sport[3].label} config={[sport[3]]} gwb={gwb}></VerticalBarChart>
+          <VerticalBarChart
+            title={jeugdOntwikkeling[3].label}
+            config={[jeugdOntwikkeling[3]]}
+            gwb={gwb}
+          ></VerticalBarChart>
         </Column>
         <Column span={4}>
-          <VerticalBarChart title={sport[4].label} config={[sport[4]]} gwb={gwb}></VerticalBarChart>
+          <VerticalBarChart
+            title={jeugdOntwikkeling[4].label}
+            config={[jeugdOntwikkeling[4]]}
+            gwb={gwb}
+          ></VerticalBarChart>
         </Column>
         <Column span={4}>
-          <VerticalBarChart title={sport[5].label} config={[sport[5]]} gwb={gwb}></VerticalBarChart>
+          <VerticalBarChart
+            title={jeugdOntwikkeling[5].label}
+            config={[jeugdOntwikkeling[5]]}
+            gwb={gwb}
+          ></VerticalBarChart>
         </Column>
       </Row>
 
@@ -69,6 +94,16 @@ const Jeugd = () => {
           <div style={{ width: "100%" }}>
             <p>TODO</p>
           </div>
+        </Column>
+      </Row>
+
+      <Row>
+        <Column span={12}>
+          <HeaderRow title={`Aanvullende cijfers`} />
+        </Column>
+
+        <Column span={12}>
+          <DataTable gwb={gwb} config={{}} />
         </Column>
       </Row>
     </>
