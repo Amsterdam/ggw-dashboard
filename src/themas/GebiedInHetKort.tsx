@@ -50,13 +50,10 @@ const GebiedInHetKort = () => {
 
       <Row>
         <Column span={6}>
-          <div>
-            kaart van verschillen in {gwb?.naam}
-            <VerschillenMap 
-              gwb={gwb}
-              variabele="ORVERLOED_P"
-            />
-          </div>
+          <VerschillenMap 
+            gwb={gwb}
+            variabele="ORVERLOED_P"
+          />
         </Column>
         <Column span={6}>
           <div>
