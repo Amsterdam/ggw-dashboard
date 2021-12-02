@@ -76,7 +76,7 @@ const VerticalBarChart = ({ title, gwb, config }) => {
 
   return (
     <div>
-      <h5 className="text-center">{title}</h5>
+      <h4 className="text-center">{title}</h4>
       <div className="chart-container">
         {isLoading ? <Spinner /> : null}
         {showError && <p>Op dit schaalniveau is helaas geen informatie beschikbaar.</p>}

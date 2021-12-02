@@ -14,6 +14,8 @@ const WideMenu = styled.div`
 
   & > div > ul {
     width: 100% !important;
+    height: 250px;
+    padding-top: ${themeSpacing(6)};
   }
 `;
 

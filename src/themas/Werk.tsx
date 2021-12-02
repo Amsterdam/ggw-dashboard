@@ -5,7 +5,7 @@ import StackedHorizontalBarChart from "../components/StackedHorizontalBarChart";
 import VerticalBarChart from "../components/VerticalBarChart";
 import TextStatistic from "../components/TextStatistic";
 
-import { WERK_INKOMEN_EN_PARTICIPATIE } from "../services/thema";
+import { WERK_INKOMEN } from "../services/thema";
 import gemmInkomen from "../static/links/gemm_besteedbaar_inkomen.json";
 import werkloosheid from "../static/links/werkloosheid.json";
 import minimahuishoudens from "../static/links/minimahuishoudens.json";
@@ -24,10 +24,10 @@ const Werk = () => {
 
   return (
     <>
-      <ThemeHeader gwb={gwb} themeTitle={WERK_INKOMEN_EN_PARTICIPATIE} Icon={Car} />
+      <ThemeHeader gwb={gwb} themeTitle={WERK_INKOMEN} Icon={Car} />
       <Row>
         <Column span={12}>
-          <HeaderRow title={`Samenstelling ${WERK_INKOMEN_EN_PARTICIPATIE} in ${gwb?.naam}`} />
+          <HeaderRow title={`Samenstelling ${WERK_INKOMEN} in ${gwb?.naam}`} />
         </Column>
       </Row>
       <Row>
@@ -52,7 +52,7 @@ const Werk = () => {
       </Row>
       <Row>
         <Column span={12}>
-          <DevelopmentThemeHeader theme={WERK_INKOMEN_EN_PARTICIPATIE} location={gwb?.naam} />
+          <DevelopmentThemeHeader theme={WERK_INKOMEN} location={gwb?.naam} />
         </Column>
       </Row>
       <Row>

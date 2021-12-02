@@ -1,4 +1,5 @@
-import { Spinner, Table, TableBody, TableCell, TableHeader, TableRow } from "@amsterdam/asc-ui";
+import { Spinner, TableBody, TableCell, TableHeader, TableRow } from "@amsterdam/asc-ui";
+import { SmallTable } from "./SmallTable";
 import useGetLatestConfigCijfers from "../../hooks/useGetLatestConfigCijfers";
 import util from "../../services/util";
 
@@ -24,7 +25,7 @@ const KidsOfSchoolAge = ({ gwb, config = localConfig }) => {
     <>
       {isLoading ? <Spinner /> : null}
       {data && (
-        <Table style={{ paddingRight: 0 }}>
+        <SmallTable>
           <TableHeader>
             <TableRow>
               <TableCell as="th" colSpan={2} style={{ textAlign: "right", borderBottom: "2px solid black" }}>
@@ -50,7 +51,7 @@ const KidsOfSchoolAge = ({ gwb, config = localConfig }) => {
               );
             })}
           </TableBody>
-        </Table>
+        </SmallTable>
       )}
     </>
   );

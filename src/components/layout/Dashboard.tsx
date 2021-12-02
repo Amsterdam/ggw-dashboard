@@ -3,7 +3,6 @@ import { Column, Row, Spinner, themeSpacing } from "@amsterdam/asc-ui";
 import { useParams } from "react-router";
 
 import Bevolking from "../../themas/Bevolking";
-import StedelijkeOntwikkeling from "../../themas/StedelijkeOntwikkeling";
 import Verkeer from "../../themas/Verkeer";
 import Duurzaamheid from "../../themas/Duurzaamheid";
 import Economie from "../../themas/Economie";
@@ -14,15 +13,17 @@ import Welzijn from "../../themas/Sport";
 import SocialeKracht from "../../themas/SocialeKracht";
 import Wonen from "../../themas/Wonen";
 import OpenbareRuimte from "../../themas/OpenbareRuimte";
-import PageTemplate from "./PageTemplate";
-import GGWInformation from "../GGWInformation";
+import Jeugd from "../../themas/Jeugd";
+import Ouderen from "../../themas/Ouderen";
 import Veiligheid from "../../themas/Veiligheid";
 import Zorg from "../../themas/Zorg";
+import PageTemplate from "./PageTemplate";
+import GGWInformation from "../GGWInformation";
 import { useGWBSelection } from "../context/GWBContext";
 import { THEMAS, URL_THEMA_MAPPING } from "../../services/thema";
 
 const DashboardDiv = styled.div`
-  padding-top: ${themeSpacing(8)};
+  padding-top: ${themeSpacing(4)};
 `;
 
 const ContainerDiv = styled.div`
@@ -34,18 +35,19 @@ const ContainerDiv = styled.div`
 const themaMapping = {
   [THEMAS[0]]: GebiedInHetKort,
   [THEMAS[1]]: Bevolking,
-  [THEMAS[2]]: StedelijkeOntwikkeling,
-  [THEMAS[3]]: Verkeer,
-  [THEMAS[4]]: Duurzaamheid,
-  [THEMAS[5]]: Economie,
-  [THEMAS[7]]: Onderwijs,
-  [THEMAS[8]]: Werk,
-  [THEMAS[9]]: Welzijn,
-  [THEMAS[10]]: Wonen,
-  [THEMAS[11]]: SocialeKracht,
-  [THEMAS[12]]: OpenbareRuimte,
-  [THEMAS[13]]: Veiligheid,
-  [THEMAS[14]]: Zorg,
+  [THEMAS[2]]: Verkeer,
+  [THEMAS[3]]: Duurzaamheid,
+  [THEMAS[4]]: Economie,
+  [THEMAS[5]]: Onderwijs,
+  [THEMAS[6]]: Werk,
+  [THEMAS[7]]: Welzijn,
+  [THEMAS[8]]: Wonen,
+  [THEMAS[9]]: SocialeKracht,
+  [THEMAS[10]]: OpenbareRuimte,
+  [THEMAS[11]]: Veiligheid,
+  [THEMAS[12]]: Zorg,
+  [THEMAS[13]]: Jeugd,
+  [THEMAS[14]]: Ouderen,
 };
 
 const Dashboard = ({ thema: propThema = THEMAS[0] }: { thema?: string }) => {

@@ -12,7 +12,7 @@ const MapDiv = styled.div`
 const MapWrapper = styled.div`
   position: relative;
   width: 100%;
-  height: 200px;
+  height: 150px;
 `;
 
 const GWBMap = ({ gwb }) => {

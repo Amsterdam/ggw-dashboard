@@ -27,8 +27,8 @@ const ThemeHeader = ({ gwb, themeTitle, Icon }) => {
             </Column>
             <Column span={6}>
               <CenteredContent>
-                <h2>{themeTitle}</h2>
-                <Icon width="200" height="200" />
+                <h2>Thema {themeTitle}</h2>
+                <Icon width="150" height="150" />
               </CenteredContent>
             </Column>
           </Row>

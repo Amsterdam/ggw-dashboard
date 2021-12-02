@@ -2,14 +2,27 @@ import cloneDeep from "lodash/cloneDeep";
 import util from "../../services/util";
 
 import StackedHorizontalBarChart from "../StackedHorizontalBarChart";
-import bodemgebruik from "../../static/links/bodemgebruik.json";
 
 import stackedVegaSpec from "../../static/charts/stackedhorizontalbar.json";
 import { getColorsUsingStaticDefinition } from "../../services/colorcoding";
 
 const StatusBovenleerplichtigenStackedBar = ({ gwb }) => {
+  const config = [
+    {
+      indicatorDefinitieId: "OSCHGAAND_P",
+    },
+    {
+      indicatorDefinitieId: "OSTARTKWAL_P",
+    },
+    {
+      indicatorDefinitieId: "OARBKENMIGR_P",
+    },
+    {
+      indicatorDefinitieId: "OLSV_P",
+    },
+  ];
   const customSpec = cloneDeep(stackedVegaSpec);
-  const colors = getColorsUsingStaticDefinition(bodemgebruik);
+  const colors = getColorsUsingStaticDefinition(config);
 
   util.setVegaLocale();
 
@@ -19,24 +32,12 @@ const StatusBovenleerplichtigenStackedBar = ({ gwb }) => {
   customSpec.layer[0].encoding.color["scale"] = {
     range: colors,
   };
+  customSpec.config.legend.columns = 3;
 
   return (
     <StackedHorizontalBarChart
       title="Status bovenleerplichtigen"
-      config={[
-        {
-          indicatorDefinitieId: "OSCHGAAND_P",
-        },
-        {
-          indicatorDefinitieId: "OSTARTKWAL_P",
-        },
-        {
-          indicatorDefinitieId: "OARBKENMIGR_P",
-        },
-        {
-          indicatorDefinitieId: "OLSV_P",
-        },
-      ]}
+      config={config}
       gwb={gwb}
       scaleToHundred
       customVegaSpec={customSpec}
