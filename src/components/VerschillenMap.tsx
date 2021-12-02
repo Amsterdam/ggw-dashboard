@@ -27,7 +27,7 @@ const mapOptions: MapOptions = {
 
 const VerschillenMap = ({ gwb, variabele })  => {
   const [json, setJson] = useState<GeoJsonObject | null>(null);
-  // const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [mapInstance, setMapInstance] = useState<MapType>();
   
   const clearLayers = () => {
@@ -79,6 +79,7 @@ const VerschillenMap = ({ gwb, variabele })  => {
     if (!variabele) {
       return null;
     }
+    setIsLoading(true);
 
     const gebied = await util.getGebiedCijfers(variabele, gwb, util.CIJFERS.LATEST)
 
@@ -97,6 +98,7 @@ const VerschillenMap = ({ gwb, variabele })  => {
     setJson(shapes);
     console.log('updateData shapes', shapes);
     
+    setIsLoading(false);
 
     if (cijfers && mapInstance) {
       // temp disabled
@@ -127,7 +129,19 @@ const VerschillenMap = ({ gwb, variabele })  => {
 
   console.log('VerschillenMap json', json);
   
-  const options: GeoJSONOptions = {};
+  const options: GeoJSONOptions = {
+    pointToLayer: (feature, latlng) => {
+      console.log('pointToLayer', feature, latlng)
+    },
+    onEachFeature(feature, layer) {
+      console.log('onEachFeature', feature, layer);
+      layer.setStyle({
+        color: "blue",
+        fillColor: "#f00",
+        fillOpacity: 1
+      });
+    }
+  };
 
   return (
     <Map options={mapOptions} fullScreen setInstance={setMapInstance}>
