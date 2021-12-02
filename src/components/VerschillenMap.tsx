@@ -1,25 +1,21 @@
 import 'leaflet/dist/leaflet.css';
 
 import { useState, useEffect } from "react";
-import styled from "styled-components";
+// import styled from "styled-components";
+// import { Spinner } from "@amsterdam/asc-ui";
 import util from "../services/util";
 import { Map, ViewerContainer, Zoom, BaseLayer, getCrsRd } from "@amsterdam/arm-core";
 import { GeoJSON } from "@amsterdam/react-maps";
 
 import { drawShapes, getShapes } from '../services/map'
+import { getGeometriesGeoJson } from "../services/apis/map"
 import { COLOR, getRankingColor } from '../services/colorcoding'
 import { getOneStd } from "../services/apis/bbga";
 import { GeoJSONOptions, MapOptions, Map as MapType } from 'leaflet'
 import { GeoJsonObject } from 'geojson'
 
-
-const StyledDiv = styled.div`
-  width: 100%;
-  height: 400px;
-`;
-
 const mapOptions: MapOptions = {
-  center: [52.35, 4.9],
+  center: [52.3731081, 4.8932945],
   zoom: 6,
   maxZoom: 16,
   minZoom: 3,
@@ -31,6 +27,7 @@ const mapOptions: MapOptions = {
 
 const VerschillenMap = ({ gwb, variabele })  => {
   const [json, setJson] = useState<GeoJsonObject | null>(null);
+  // const [isLoading, setIsLoading] = useState<boolean>(true);
   const [mapInstance, setMapInstance] = useState<MapType>();
   
   const clearLayers = () => {
@@ -85,17 +82,21 @@ const VerschillenMap = ({ gwb, variabele })  => {
 
     const gebied = await util.getGebiedCijfers(variabele, gwb, util.CIJFERS.LATEST)
 
-    const gebiedType = util.getGebiedType(gwb.vollcode, true)
+    const gebiedType = util.getGebiedType(gwb.vollcode, true);
 
-    const cijfers = await util.getVerschillenCijfers(variabele, gebiedType, gebied.cijfers.jaar)
+    const cijfers = await util.getVerschillenCijfers(variabele, gebiedType, gebied.cijfers.jaar);
 
     const stdevs = await getOneStd(variabele);
     console.log('updateData stdevs', stdevs.length)
 
     console.log('updateData cijfers', cijfers.length);
 
-    console.log('updateData mapInstance', gebiedType);
-
+    console.log('updateData mapInstance', mapInstance);
+    
+    const shapes = await getGeometriesGeoJson(gebiedType)
+    setJson(shapes);
+    console.log('updateData shapes', shapes);
+    
 
     if (cijfers && mapInstance) {
       // temp disabled
@@ -119,25 +120,22 @@ const VerschillenMap = ({ gwb, variabele })  => {
       return;
     }
 
-    updateData();
+    // updateData();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  console.log('VerschillenMap json', json);
+  
   const options: GeoJSONOptions = {};
-  console.log('VerschillenMap', json);
-
 
   return (
-    <StyledDiv>
-      kaart
-      <Map options={mapOptions} fullScreen setInstance={setMapInstance}>
-        <ViewerContainer bottomLeft={<Zoom />} />
-        <BaseLayer baseLayer={`https://{s}.data.amsterdam.nl/topo_rd_zw/{z}/{x}/{y}.png`} />
-        {json ? <GeoJSON args={[json]} options={options} /> : null}
-      </Map>
-    </StyledDiv>
-  )
+    <Map options={mapOptions} fullScreen setInstance={setMapInstance}>
+      <ViewerContainer bottomLeft={<Zoom />} />
+      <BaseLayer baseLayer={`https://{s}.data.amsterdam.nl/topo_rd_zw/{z}/{x}/{y}.png`} />
+      {json ? <GeoJSON args={[json]} options={options} /> : null}
+    </Map>  
+  );
 }
 
 export default VerschillenMap;

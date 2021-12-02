@@ -54,3 +54,39 @@ export async function getGeometries(gebiedType) {
 
   return geometries;
 }
+
+
+const allGeometries = {};
+
+export async function getGeometriesGeoJson(gebiedType) {
+  if (!gebiedType) {
+    return;
+  }
+
+  if (allGeometries[gebiedType]) {
+    return allGeometries[gebiedType];
+  }
+
+  // buurt, buurtcombinatie (wijk), gebiedsgerichtwerken, stadsdeel
+  const url =
+    getUrl() +
+    "?request=getfeature" +
+    "&version=1.1.0" +
+    "&service=wfs" +
+    "" +
+    "&outputformat=geojson" +
+    `&typename=${GEBIED_TYPE[gebiedType]}`;
+
+  const data = await readData(url);
+  
+  const geometries = { ...data };
+    
+  geometries.features = data.features.map((feature) => ({
+    ...feature,
+    geometry: rdPolygonToWgs84(feature.geometry)
+  }));
+
+  allGeometries[gebiedType] = geometries;
+
+  return geometries;
+}
