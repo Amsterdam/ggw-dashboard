@@ -2,7 +2,7 @@ import 'leaflet/dist/leaflet.css';
 
 import { useState, useEffect } from "react";
 // import styled from "styled-components";
-// import { Spinner } from "@amsterdam/asc-ui";
+import { Spinner } from "@amsterdam/asc-ui";
 import util from "../services/util";
 import { Map, ViewerContainer, Zoom, BaseLayer, getCrsRd } from "@amsterdam/arm-core";
 import { GeoJSON } from "@amsterdam/react-maps";
@@ -134,7 +134,9 @@ const VerschillenMap = ({ gwb, variabele })  => {
       console.log('pointToLayer', feature, latlng)
     },
     onEachFeature(feature, layer) {
-      console.log('onEachFeature', feature, layer);
+      console.log('onEachFeature', feature.properties.code, layer);
+      
+
       layer.setStyle({
         color: "blue",
         fillColor: "#f00",
@@ -144,11 +146,16 @@ const VerschillenMap = ({ gwb, variabele })  => {
   };
 
   return (
-    <Map options={mapOptions} fullScreen setInstance={setMapInstance}>
-      <ViewerContainer bottomLeft={<Zoom />} />
-      <BaseLayer baseLayer={`https://{s}.data.amsterdam.nl/topo_rd_zw/{z}/{x}/{y}.png`} />
-      {json ? <GeoJSON args={[json]} options={options} /> : null}
-    </Map>  
+    <>
+      {isLoading ? 
+        <Spinner /> : 
+        <Map options={mapOptions} fullScreen setInstance={setMapInstance}>
+          <ViewerContainer bottomLeft={<Zoom />} />
+          <BaseLayer baseLayer={`https://{s}.data.amsterdam.nl/topo_rd_zw/{z}/{x}/{y}.png`} />
+          {json ? <GeoJSON args={[json]} options={options} /> : null}
+        </Map>  
+      }
+    </>
   );
 }
 
