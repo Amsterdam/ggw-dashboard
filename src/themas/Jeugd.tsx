@@ -19,7 +19,7 @@ const Jeugd = () => {
       <ThemeHeader gwb={gwb} themeTitle={JEUGD} Icon={Car} />
       <Row>
         <Column span={12}>
-          <HeaderRow title={`Samenstelling ${JEUGD} in ${gwb?.naam} en Amsterdam`} />
+          <HeaderRow title={`Samenstelling ${JEUGD} in ${gwb?.naam}`} />
         </Column>
       </Row>
       <Row>
@@ -57,6 +57,18 @@ const Jeugd = () => {
         </Column>
         <Column span={4}>
           <VerticalBarChart title={sport[5].label} config={[sport[5]]} gwb={gwb}></VerticalBarChart>
+        </Column>
+      </Row>
+
+      <Row>
+        <Column span={12}>
+          <HeaderRow title={`${gwb?.naam} vergeleken met andere gebieden`} />
+        </Column>
+
+        <Column span={12}>
+          <div style={{ width: "100%" }}>
+            <p>TODO</p>
+          </div>
         </Column>
       </Row>
     </>
