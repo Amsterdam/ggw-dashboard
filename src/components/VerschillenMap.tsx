@@ -80,6 +80,7 @@ const VerschillenMap = ({ gwb, variabele })  => {
       return null;
     }
     setIsLoading(true);
+    setJson(null);
 
     const gebied = await util.getGebiedCijfers(variabele, gwb, util.CIJFERS.LATEST)
 
@@ -136,7 +137,6 @@ const VerschillenMap = ({ gwb, variabele })  => {
     onEachFeature(feature, layer) {
       console.log('onEachFeature', feature.properties.code, layer);
       
-
       layer.setStyle({
         color: "blue",
         fillColor: "#f00",
