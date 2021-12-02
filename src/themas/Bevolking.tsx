@@ -12,6 +12,7 @@ import VerticalBarChart from "../components/VerticalBarChart";
 import { BEVOLKING } from "../services/thema";
 
 import ontwikkelingBevolking from "../static/links/ontwikkeling_bevolking.json";
+import migratieachtergrond from "../static/links/migratieachtergrond.json";
 import HuishoudensamenstellingStackedBar from "../components/charts/HuishoudensamenstellingStackedBar";
 import MigratieachtergrondStackedBar from "../components/charts/MigratieachtergrondStackedBar";
 import OpleidingsniveauStackedBar from "../components/charts/OpleidingsniveauStackedBar";
@@ -89,21 +90,7 @@ const Bevolking = () => {
           ></LineChart>
         </Column>
         <Column span={6}>
-          <LineChart
-            title="Migratieachtergrond"
-            config={[
-              {
-                indicatorDefinitieId: "BEVAUTOCH_P",
-              },
-              {
-                indicatorDefinitieId: "BEVWEST_P",
-              },
-              {
-                indicatorDefinitieId: "BEVNW_P",
-              },
-            ]}
-            gwb={gwb}
-          ></LineChart>
+          <LineChart title="Migratieachtergrond" config={migratieachtergrond} gwb={gwb}></LineChart>
         </Column>
       </Row>
 

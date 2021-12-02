@@ -31,7 +31,7 @@ const LineChart = ({ title, gwb, config }) => {
           ?.map((cijfer) => ({
             x: cijfer.jaar,
             y: cijfer.waarde,
-            variable: data.label,
+            variable: data?.meta?.labelKort,
             dash: /prognose/i.test(data.label), // show prognose variables as dashed lines
           })),
       )
