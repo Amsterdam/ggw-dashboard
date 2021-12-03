@@ -99,6 +99,8 @@ const GWBSelector = () => {
   const updateStadsDeel = async (stadsDeelCode) => {
     let stadsDeelDetail = null;
 
+    console.log("updateStadsdeel", stadsDeelCode);
+
     if (stadsDeelCode && stadsDeelCode !== "deel") {
       const deel = allData.stadsDelen.find((d) => d.code === stadsDeelCode);
       stadsDeelDetail = deel;
@@ -146,6 +148,7 @@ const GWBSelector = () => {
       });
     }
 
+    console.log("stadsdeeldetail", stadsDeelDetail);
     setGWB && setGWB(stadsDeelDetail);
   };
 
@@ -174,11 +177,11 @@ const GWBSelector = () => {
         wijken,
         buurten,
       });
-    } else {
-      updateStadsDeel(gwbSelection.stadsDeel);
-    }
 
-    setGWB && setGWB(gebiedDetail);
+      setGWB && setGWB(gebiedDetail);
+    } else {
+      updateStadsDeel(null);
+    }
   };
 
   const updateWijk = async (wijkCode) => {
