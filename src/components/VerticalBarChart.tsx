@@ -58,6 +58,7 @@ const VerticalBarChart = ({ title, gwb, config }) => {
 
     if (chartRef.current && chartBase.data.values.length > 0) {
       setIsLoading(false);
+      setShowError(false);
       vegaEmbed(chartRef.current, chartBase, vegaEmbedOptions);
     } else {
       setIsLoading(false);
@@ -80,7 +81,7 @@ const VerticalBarChart = ({ title, gwb, config }) => {
       <div className="chart-container">
         {isLoading ? <Spinner /> : null}
         {showError && <p>Op dit schaalniveau is helaas geen informatie beschikbaar.</p>}
-        <div ref={chartRef}></div>
+        {!showError && <div ref={chartRef}></div>}
       </div>
     </div>
   );

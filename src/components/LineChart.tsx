@@ -66,7 +66,7 @@ const LineChart = ({ title, gwb, config }) => {
       <div className="chart-container">
         {isLoading ? <Spinner /> : null}
         {showError && <p>Op dit schaalniveau is helaas geen informatie beschikbaar.</p>}
-        <div ref={chartRef}></div>
+        {!showError && <div ref={chartRef}></div>}
       </div>
     </div>
   );
