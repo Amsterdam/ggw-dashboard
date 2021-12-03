@@ -9,8 +9,10 @@ export interface StdType {
     standaardafwijking: number
   }
   
-  export interface MetaType {
+export interface MetaType {
     indicatorDefinitieId: string
     kleurenpalet: number
   }
   
+
+export type ConfigShort = { indicatorDefinitieId: string; labelKort: string };

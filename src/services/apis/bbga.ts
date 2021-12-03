@@ -5,6 +5,7 @@
 import { readData } from "../datareader";
 import { getColor } from "../colorcoding";
 import { cacheResponse } from "../cache";
+import { ConfigShort } from "../../types";
 
 /**
  * Returns the complete url for the BBGA API given an endpoint
@@ -43,27 +44,11 @@ export async function getAllMeta() {
  * Gets the meta information for a given variable name
  * When the variable name ends with the special value [LATEST] the most recent year variable is used
  * If meta contains VAR2018 and VAR2019 and the variable name is VAR[LATEST] then the meta for VAR2019 is returned
- * @param variableName
- * @returns {Promise<*>}
  */
-export async function getMeta(variableName) {
+export async function getMeta(variableName: string): Promise<ConfigShort | string> {
   const meta = await getAllMeta();
 
-  // Check for special variables, eg "Bev_prog[LATEST]"
-  const isLatest = new RegExp(/\[LATEST\]$/i);
-  if (isLatest.test(variableName)) {
-    let baseName = variableName.replace(isLatest, ""); // Bev_prog
-    baseName = new RegExp("^" + baseName, "i"); // /^Bev_prog/i
-    const vars = Object.keys(meta)
-      .filter((key) => baseName.test(key))
-      .sort()
-      .reverse();
-    if (!vars.length) {
-      return;
-    }
-    variableName = vars[0];
-  }
-  return meta[variableName.toUpperCase()];
+  return meta[variableName.toUpperCase()] ?? `${variableName} (niet gevonden)`;
 }
 
 /**
@@ -115,7 +100,7 @@ export async function getOneStd(variabele) {
  * @param gebiedCode
  * @returns {Promise<{jaar: *|number|string, waarde: null, post: string, gebiedcode15: *|string, color, textColor: *|textColor}[]>}
  */
-async function getCijfers(meta, year = null, gebiedCode = null, indicatorDefinitieId = null) {
+async function getCijfers(meta, year: string | null = null, gebiedCode = null, indicatorDefinitieId = null) {
   const post = meta?.symbool === "%" ? meta.symbool : ""; // only copy % symbol
 
   const selectVariable = `indicatorDefinitieId=${meta?.indicatorDefinitieId}`;

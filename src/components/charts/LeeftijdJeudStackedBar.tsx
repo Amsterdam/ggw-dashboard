@@ -11,7 +11,7 @@ const LeeftijdJeugdStackedBar = ({ gwb }) => {
   const customSpec = cloneDeep(stackedVegaSpec);
   const colors = getColorsUsingStaticDefinition(jeugd);
 
-  util.setVegaLocale()
+  util.setVegaLocale();
 
   customSpec.layer[0].encoding.color["field"] = "i";
   customSpec.layer[0].encoding.color.legend["labelExpr"] =

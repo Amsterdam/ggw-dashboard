@@ -9,8 +9,10 @@ import Car from "../components/Icons/Car";
 import { JEUGD } from "../services/thema";
 
 import jeugdOntwikkeling from "../static/links/jeugd_ontwikkeling.json";
+import jeugdData from "../static/links/jeugd_data.json";
 import DevelopmentThemeHeader from "../components/DevelopmentThemeHeader";
 import DataTable from "../components/DataTable";
+import LeeftijdssamenstellingBevolkingStackedBar from "../components/charts/LeeftijdssamenstellingBevolkingStackedBar";
 
 const Jeugd = () => {
   const gwb = useGWBSelection();
@@ -25,10 +27,10 @@ const Jeugd = () => {
       </Row>
       <Row>
         <Column span={6}>
-          <div>Aantal cultuurvoorzieningen </div>
+          <div>Aantal sportvoorzieningen</div>
         </Column>
         <Column span={6}>
-          <div>Aantal sportvoorzieningen</div>
+          <LeeftijdssamenstellingBevolkingStackedBar gwb={gwb} />
         </Column>
       </Row>
 
@@ -103,7 +105,7 @@ const Jeugd = () => {
         </Column>
 
         <Column span={12}>
-          <DataTable gwb={gwb} config={{}} />
+          <DataTable gwb={gwb} config={jeugdData} />
         </Column>
       </Row>
     </>

@@ -1,20 +1,20 @@
 import cloneDeep from "lodash/cloneDeep";
 
 import StackedHorizontalBarChart from "../StackedHorizontalBarChart";
-import vestigingen from "../../static/links/vestigingen_hoofdfunctie.json";
 import stackedVegaSpec from "../../static/charts/stackedhorizontalbar.json";
+import leeftijdsamenstelling from "../../static/links/leeftijdsamenstelling_bevolking.json";
 
-const VestigingenNaarFunctiegroep = ({ gwb }) => {
+const LeeftijdssamenstellingBevolkingStackedBar = ({ gwb }) => {
   const customSpec = cloneDeep(stackedVegaSpec);
 
   return (
     <StackedHorizontalBarChart
-      title="Vestigingen naar functiegroep"
-      config={vestigingen}
+      title="Leeftijdssamenstelling bevolking (%)"
+      config={leeftijdsamenstelling}
       gwb={gwb}
       customVegaSpec={customSpec}
     />
   );
 };
 
-export default VestigingenNaarFunctiegroep;
+export default LeeftijdssamenstellingBevolkingStackedBar;
