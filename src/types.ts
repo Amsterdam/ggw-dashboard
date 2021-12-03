@@ -15,4 +15,6 @@ export interface MetaType {
   }
   
 
-export type ConfigShort = { indicatorDefinitieId: string; labelKort: string };
+export type ConfigEnirched = { indicatorDefinitieId: string; labelKort: string };
+
+export type Config = {indicatorDefinitieId: string}; 

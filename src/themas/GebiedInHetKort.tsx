@@ -1,24 +1,20 @@
 import styled from "styled-components";
 import { Column, Row, themeSpacing } from "@amsterdam/asc-ui";
 
-import HorizontalBarChart from "../components/HorizontalBarChart";
-import StackedHorizontalBarChart from "../components/StackedHorizontalBarChart";
-import VerticalBarChart from "../components/VerticalBarChart";
 import DataTable from "../components/DataTable";
-import SocialeKlasseStackedBar from "../components/charts/SocialeKlasseStackedBar";
-import LeeftijdJeugdStackedBar from "../components/charts/LeeftijdJeudStackedBar";
 import ThemeHeader from "../components/ThemeHeader";
 import Car from "../components/Icons/Car";
 import LegendTable from "../components/LegendTable";
 import { useGWBSelection } from "../components/context/GWBContext";
 
-import woningVoorraad from "../static/links/woningvoorraad.json";
-import sociaalEconomisch from "../static/links/sociaaleconomisch.json";
-import migratieAchtergrond from "../static/links/migratieachtergrond.json";
-import gemmInkomen from "../static/links/gemm_besteedbaar_inkomen.json";
-import vandalismeSlachtoffers from "../static/links/vandalisme_slachtoffers.json";
-import wozWaarde from "../static/links/gemm_woz_waarde.json";
 import gebiedInHetKortConfig from "../static/links/gebiedinhetkort_tabel.json";
+import InwonersNaarLeeftijdStackedBar from "../components/charts/InwonersNaarLeeftijdStackedBar";
+import WoningVoorraadStackedBar from "../components/charts/WoningVoorraadStackedBar";
+import SociaalEconomischeScoreStackedBar from "../components/charts/SociaalEconomischeScoreStackedBar";
+import TextStatistic from "../components/TextStatistic";
+import DevelopmentThemeHeader from "../components/DevelopmentThemeHeader";
+import { IN_HET_KORT } from "../services/thema";
+import HeaderRow from "../components/layout/HeaderRow";
 
 const SpacingDiv = styled.div`
   padding-top: ${themeSpacing(4)};
@@ -35,9 +31,10 @@ const GebiedInHetKort = () => {
       <ThemeHeader gwb={gwb} themeTitle="Gebied in het kort" Icon={Car} />
       <Row>
         <Column span={12}>
-          <h2>Samenstelling woningvoorraad en bevolking van {gwb?.naam}</h2>
+          <h2>Gebied in het kort {gwb?.naam}</h2>
         </Column>
       </Row>
+
       <Row>
         <Column
           wrap
@@ -49,12 +46,7 @@ const GebiedInHetKort = () => {
             xLarge: 6,
           }}
         >
-          <HorizontalBarChart
-            title="Woningvoorraad"
-            icon="wonen_en_leefomgeving.png"
-            config={woningVoorraad}
-            gwb={gwb}
-          ></HorizontalBarChart>
+          <div>TODO: Pano?</div>
         </Column>
         <Column
           wrap
@@ -66,93 +58,37 @@ const GebiedInHetKort = () => {
             xLarge: 6,
           }}
         >
-          <HorizontalBarChart
-            title="Sociaal-economisch"
-            icon="werk_en_inkomen.png"
-            config={sociaalEconomisch}
-            gwb={gwb}
-          ></HorizontalBarChart>
+          <TextStatistic title="inwoners" gwb={gwb} indicatorId="BEVTOTAAL" />
+          <InwonersNaarLeeftijdStackedBar gwb={gwb} />
         </Column>
       </Row>
+
       <Row>
-        <Column
-          wrap
-          span={{
-            small: 1,
-            medium: 2,
-            big: 2,
-            large: 6,
-            xLarge: 6,
-          }}
-        >
-          <LeeftijdJeugdStackedBar gwb={gwb} />
+        <Column span={6}>
+          <TextStatistic title="woningen" gwb={gwb} indicatorId="WVOORRBAG" titleLeft={false} />
         </Column>
-        <Column
-          wrap
-          span={{
-            small: 1,
-            medium: 2,
-            big: 2,
-            large: 6,
-            xLarge: 6,
-          }}
-        >
-          <HorizontalBarChart
-            title="Migratie-achtergrond"
-            icon="locaties.png"
-            config={migratieAchtergrond}
+        <Column span={6}>
+          <TextStatistic
+            title="gemiddeld besteedbaar huishoudinkomen:"
             gwb={gwb}
-          ></HorizontalBarChart>
+            indicatorId="IHHINKOM_GEM"
+            titleLeft
+          />
+        </Column>
+      </Row>
+
+      <Row>
+        <Column span={6}>
+          <WoningVoorraadStackedBar gwb={gwb} />
+        </Column>
+        <Column span={6}>
+          <SociaalEconomischeScoreStackedBar gwb={gwb} />
         </Column>
       </Row>
 
       <Row>
         <Column span={12}>
-          <h2>Samenstelling jeugd in {gwb?.naam}</h2>
-        </Column>
-        <Column span={6}>
-          <div></div>
-        </Column>
-        <Column span={6}>
-          <LeeftijdJeugdStackedBar gwb={gwb} />
-        </Column>
-      </Row>
-      <Row>
-        <Column span={12}>
-          <h2>Samenstelling Werk en Inkomen in {gwb?.naam}</h2>
-        </Column>
-        <Column span={6}>
-          <SocialeKlasseStackedBar gwb={gwb} />
-        </Column>
-        <Column span={6}>
-          <StackedHorizontalBarChart
-            title="Inkomen naar landelijke 20% groepen"
-            config={gemmInkomen}
-            gwb={gwb}
-          ></StackedHorizontalBarChart>
-        </Column>
-      </Row>
-      <Row>
-        <Column span={12}>
-          <h2>Demo VerticalBarChart in {gwb?.naam}</h2>
-        </Column>
-        <Column span={6}>
-          <VerticalBarChart
-            title="Vandalisme en slachtoffers"
-            config={vandalismeSlachtoffers}
-            gwb={gwb}
-          ></VerticalBarChart>
-        </Column>
-        <Column span={6}>
-          <VerticalBarChart title="Gemiddelde WOZ-waarde" config={wozWaarde} gwb={gwb}></VerticalBarChart>
-        </Column>
-      </Row>
-
-      <Row>
-        <Column span={12}>
-          <SpacingDiv>
-            <DataTable gwb={gwb} config={gebiedInHetKortConfig} />
-          </SpacingDiv>
+          <HeaderRow title={`De positie van ${gwb?.naam} in Amsterdam`} />
         </Column>
       </Row>
 
@@ -160,6 +96,14 @@ const GebiedInHetKort = () => {
         <Column span={12}>
           <SpacingDiv>
             <LegendTable gwb={gwb} config={gebiedInHetKortConfig} />
+          </SpacingDiv>
+        </Column>
+      </Row>
+
+      <Row>
+        <Column span={12}>
+          <SpacingDiv>
+            <DataTable gwb={gwb} config={gebiedInHetKortConfig} />
           </SpacingDiv>
         </Column>
       </Row>

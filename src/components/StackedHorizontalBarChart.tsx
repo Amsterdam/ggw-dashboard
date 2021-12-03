@@ -8,7 +8,7 @@ import util from "../services/util";
 import "./HorizontalBarChart.scss";
 import { getColorsUsingStaticDefinition } from "../services/colorcoding";
 import { getMeta } from "../services/apis/bbga";
-import { ConfigShort } from "../types";
+import { ConfigEnirched } from "../types";
 
 const vegaEmbedOptions = {
   actions: false,
@@ -64,15 +64,15 @@ const getVegaChartData = async (gwb, config, scaleToHundred) => {
 /**
  * Given the plain config json enrich it with the data we can find in the BBGA.
  */
-const enrichConfig = async (config): Promise<(ConfigShort | string)[]> => {
-  return await Promise.all<ConfigShort | string>(config.map((c) => getMeta(c.indicatorDefinitieId)));
+const enrichConfig = async (config): Promise<(ConfigEnirched | string)[]> => {
+  return await Promise.all<ConfigEnirched | string>(config.map((c) => getMeta(c.indicatorDefinitieId)));
 };
 
 /**
  * Converts the enirched config to a vega label expression using the labelKort values from the BBGA.
  * "datum.value == 0 ? '0-3 jaar %' : datum.value == 1 ? '4-12 jaar %' : datum.value == 2 ? '13-17 jaar %' : datum.value == 1 ? '27-65 jaar (%)' : '66+ (%)'";
  */
-const labelExpr = (enrichedConfig: (ConfigShort | string)[]) => {
+const labelExpr = (enrichedConfig: (ConfigEnirched | string)[]) => {
   const configLength = enrichedConfig.length;
 
   const getLabel = (c) => {

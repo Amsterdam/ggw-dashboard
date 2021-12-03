@@ -13,6 +13,7 @@ import jeugdData from "../static/links/jeugd_data.json";
 import DevelopmentThemeHeader from "../components/DevelopmentThemeHeader";
 import DataTable from "../components/DataTable";
 import LeeftijdssamenstellingBevolkingStackedBar from "../components/charts/LeeftijdssamenstellingBevolkingStackedBar";
+import AantalKinderen from "../components/tables/AantalKinderen";
 
 const Jeugd = () => {
   const gwb = useGWBSelection();
@@ -27,7 +28,7 @@ const Jeugd = () => {
       </Row>
       <Row>
         <Column span={6}>
-          <div>Aantal sportvoorzieningen</div>
+          <AantalKinderen gwb={gwb} />
         </Column>
         <Column span={6}>
           <LeeftijdssamenstellingBevolkingStackedBar gwb={gwb} />

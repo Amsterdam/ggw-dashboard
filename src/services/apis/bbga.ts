@@ -5,7 +5,7 @@
 import { readData } from "../datareader";
 import { getColor } from "../colorcoding";
 import { cacheResponse } from "../cache";
-import { ConfigShort } from "../../types";
+import { ConfigEnirched } from "../../types";
 
 /**
  * Returns the complete url for the BBGA API given an endpoint
@@ -45,7 +45,7 @@ export async function getAllMeta() {
  * When the variable name ends with the special value [LATEST] the most recent year variable is used
  * If meta contains VAR2018 and VAR2019 and the variable name is VAR[LATEST] then the meta for VAR2019 is returned
  */
-export async function getMeta(variableName: string): Promise<ConfigShort | string> {
+export async function getMeta(variableName: string): Promise<ConfigEnirched | string> {
   const meta = await getAllMeta();
 
   return meta[variableName.toUpperCase()] ?? `${variableName} (niet gevonden)`;
