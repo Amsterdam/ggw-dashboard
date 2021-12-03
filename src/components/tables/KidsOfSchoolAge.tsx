@@ -1,5 +1,3 @@
-import { Spinner } from "@amsterdam/asc-ui";
-import useGetLatestConfigCijfers from "../../hooks/useGetLatestConfigCijfers";
 import SingleIndicatorTable from "./SingleIndicatorTable";
 
 const localConfig = [
@@ -18,14 +16,7 @@ const localConfig = [
 ];
 
 const KidsOfSchoolAge = ({ gwb, config = localConfig }) => {
-  const { data, isLoading } = useGetLatestConfigCijfers({ gwb, config });
-
-  return (
-    <>
-      {isLoading ? <Spinner /> : null}
-      {data && <SingleIndicatorTable config={localConfig} gwb={gwb} title="Inwoners" />}
-    </>
-  );
+  return <SingleIndicatorTable config={config} gwb={gwb} title="Inwoners" />;
 };
 
 export default KidsOfSchoolAge;

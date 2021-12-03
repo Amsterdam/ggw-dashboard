@@ -10,6 +10,8 @@ import { SPORT_EN_CULTUUR } from "../services/thema";
 
 import sport from "../static/links/sport.json";
 import DevelopmentThemeHeader from "../components/DevelopmentThemeHeader";
+import AantalCultuurvoorzieningen from "../components/tables/AantalCultuurvoorzieningen";
+import AantalSportvoorzieningen from "../components/tables/AantalSportvoorzieningen";
 
 const Sport = () => {
   const gwb = useGWBSelection();
@@ -19,15 +21,15 @@ const Sport = () => {
       <ThemeHeader gwb={gwb} themeTitle={SPORT_EN_CULTUUR} Icon={Car} />
       <Row>
         <Column span={12}>
-          <HeaderRow title={`Samenstelling ${SPORT_EN_CULTUUR} in ${gwb?.naam} en Amsterdam`} />
+          <HeaderRow title={`Samenstelling ${SPORT_EN_CULTUUR} in ${gwb?.naam}`} />
         </Column>
       </Row>
       <Row>
         <Column span={6}>
-          <div>Aantal cultuurvoorzieningen </div>
+          <AantalCultuurvoorzieningen gwb={gwb} />
         </Column>
         <Column span={6}>
-          <div>Aantal sportvoorzieningen</div>
+          <AantalSportvoorzieningen gwb={gwb} />
         </Column>
       </Row>
 

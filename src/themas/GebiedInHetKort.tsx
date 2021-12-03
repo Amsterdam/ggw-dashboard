@@ -12,7 +12,6 @@ import InwonersNaarLeeftijdStackedBar from "../components/charts/InwonersNaarLee
 import WoningVoorraadStackedBar from "../components/charts/WoningVoorraadStackedBar";
 import SociaalEconomischeScoreStackedBar from "../components/charts/SociaalEconomischeScoreStackedBar";
 import TextStatistic from "../components/TextStatistic";
-import DevelopmentThemeHeader from "../components/DevelopmentThemeHeader";
 import { IN_HET_KORT } from "../services/thema";
 import HeaderRow from "../components/layout/HeaderRow";
 
@@ -28,10 +27,18 @@ const GebiedInHetKort = () => {
 
   return (
     <>
-      <ThemeHeader gwb={gwb} themeTitle="Gebied in het kort" Icon={Car} />
+      <ThemeHeader gwb={gwb} themeTitle={IN_HET_KORT} Icon={Car} />
       <Row>
         <Column span={12}>
           <h2>Gebied in het kort {gwb?.naam}</h2>
+        </Column>
+      </Row>
+      <Row>
+        <Column span={6}>
+          <div></div>
+        </Column>
+        <Column span={6}>
+          <TextStatistic title="inwoners" gwb={gwb} indicatorId="BEVTOTAAL" />
         </Column>
       </Row>
 
@@ -58,7 +65,6 @@ const GebiedInHetKort = () => {
             xLarge: 6,
           }}
         >
-          <TextStatistic title="inwoners" gwb={gwb} indicatorId="BEVTOTAAL" />
           <InwonersNaarLeeftijdStackedBar gwb={gwb} />
         </Column>
       </Row>
