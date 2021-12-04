@@ -48,9 +48,9 @@ const VerschillenBarChart = ({ gwb, variabele }) => {
         (d) =>
           ({
             gebied: getGebied(d.gebiedcode15).naam,
-            label: gebied.meta.label,
+            label: gebied?.meta?.label,
             value: d.waarde ? d.waarde : "Geen gegevens",
-            color: getColor({ indicatorDefinitieId: variabele, kleurenpalet: 1 }, d.waarde, d.jaar, stdevs).color,
+            color: getColor({ indicatorDefinitieId: variabele, kleurenpalet: 1 }, d?.waarde, d?.jaar, stdevs).color,
           } as MapResult),
       ) as MapResult[];
 
