@@ -59,7 +59,7 @@ export async function getGeometries(gebiedType) {
 const allGeometries = {};
 
 export async function getGeometriesGeoJson(gebiedType) {
-  if (!gebiedType) {
+  if (!gebiedType || gebiedType === "Stad") {
     return;
   }
 
