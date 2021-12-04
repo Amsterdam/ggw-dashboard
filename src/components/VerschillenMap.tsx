@@ -1,7 +1,6 @@
 import 'leaflet/dist/leaflet.css';
 
 import { useState, useEffect } from "react";
-// import styled from "styled-components";
 import { Spinner } from "@amsterdam/asc-ui";
 import util from "../services/util";
 import { Map, ViewerContainer, Zoom, BaseLayer, getCrsRd } from "@amsterdam/arm-core";
@@ -44,10 +43,9 @@ const VerschillenMap = ({ gwb, variabele })  => {
     let features = [...shapes.features];
     features = features.map((feature) => {      
       const cijfer = cijfers.find((sd) => sd.gebiedcode15 === feature.properties.vollcode || sd.gebiedcode15 === feature.properties.code);
-      const colors = getColor(
-        { indicatorDefinitieId: variabele, kleurenpalet: 1 }, 
-        cijfer?.waarde, 
-        feature.properties.jaar, stdevs);
+      
+      const colors = getColor({ indicatorDefinitieId: variabele, kleurenpalet: 1 }, cijfer?.waarde, cijfer?.jaar, stdevs);
+    
       return {
         ...feature,
         properties: {
@@ -75,13 +73,18 @@ const VerschillenMap = ({ gwb, variabele })  => {
     const gebied = await util.getGebiedCijfers(variabele, gwb, util.CIJFERS.LATEST)
 
     const gebiedType = util.getGebiedType(gwb.vollcode, true);
+    
+    if (gebiedType === "Stad") {
+      setIsLoading(false);
+      return;
+    } 
 
     const cijfers = await util.getVerschillenCijfers(variabele, gebiedType, gebied.cijfers.jaar);
 
     const shapes = await getGeometriesGeoJson(gebiedType);
     const enrichedShapes = await enrichShapes(shapes, cijfers);
 
-    // setJson(enrichedShapes);
+    setJson(enrichedShapes);
     
     setIsLoading(false);
 
@@ -112,13 +115,7 @@ const VerschillenMap = ({ gwb, variabele })  => {
     // const shapes = await getGeometriesGeoJson(gebiedType)
     // setJson(shapes);
     // console.log('updateData shapes', shapes);
-    
-
-    if (cijfers && mapInstance) {
-      // temp disabled
-      // cijferView(cijfers, gebiedType)
-    }
-    
+        
   };
 
   useEffect(() => {
@@ -148,16 +145,16 @@ const VerschillenMap = ({ gwb, variabele })  => {
       console.log('pointToLayer', feature, latlng)
     },
     onEachFeature(feature, layer) {
-      console.log('onEachFeature', feature.properties.code, layer);
+      console.log('onEachFeature', feature.properties, layer);
       
       layer.setStyle({
-        color: "blue",
-        fillColor: "#f00",
-        fillOpacity: 1
+        color: feature.properties.color,
+        fillColor: feature.properties.color,
+        fillOpacity: 0.8
       });
     }
   };
-// @ts-ignore
+
   return (
     <>
       {isLoading ? 
