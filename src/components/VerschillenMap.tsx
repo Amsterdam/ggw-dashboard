@@ -44,7 +44,6 @@ const VerschillenMap = ({ gwb, variabele })  => {
     let features = [...shapes.features];
     features = features.map((feature) => {      
       const cijfer = cijfers.find((sd) => sd.gebiedcode15 === feature.properties.code || sd.gebiedcode15 === feature.properties.vollcode);
-      console.log('cijfer', feature.properties.code, cijfer);
       const colors = getColor(
         { indicatorDefinitieId: variabele, kleurenpalet: 1 }, 
         cijfer?.waarde, 
