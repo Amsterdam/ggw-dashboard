@@ -78,10 +78,6 @@ const VerschillenMap = ({ gwb, variabele })  => {
     setJson(enrichedShapes);
     
     setIsLoading(false);
-
-    console.log('updateData cijfers', cijfers.length);
-
-    console.log('updateData enrichedShapes', enrichedShapes);        
   };
 
   useEffect(() => {
