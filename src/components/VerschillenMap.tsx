@@ -7,12 +7,11 @@ import util from "../services/util";
 import { Map, ViewerContainer, Zoom, BaseLayer, getCrsRd } from "@amsterdam/arm-core";
 import { GeoJSON } from "@amsterdam/react-maps";
 
-import { drawShapes, getShapes } from '../services/map'
 import { getGeometriesGeoJson } from "../services/apis/map"
-import { COLOR, getRankingColor } from '../services/colorcoding'
+import { getColor } from '../services/colorcoding'
 import { getOneStd } from "../services/apis/bbga";
 import { GeoJSONOptions, MapOptions, Map as MapType } from 'leaflet'
-import { GeoJsonObject } from 'geojson'
+import { GeoJsonObject } from 'geojson';
 
 const mapOptions: MapOptions = {
   center: [52.3731081, 4.8932945],
@@ -29,53 +28,45 @@ const VerschillenMap = ({ gwb, variabele })  => {
   const [json, setJson] = useState<GeoJsonObject | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [mapInstance, setMapInstance] = useState<MapType>();
+  const [layarInstance, setLayerInstance] = useState<MapType>();
   
   const clearLayers = () => {
     if (json) {
       // mapInstance.removeLayer(json);
     }
-    setJson({});
+    // setJson({});
   }
   
-  const cijferView = async (cijfers, gebiedType) => {
-    clearLayers()
-    return;
-        // this.drawing = true
+  const enrichShapes = async (shapes :GeoJsonObject, cijfers) => {
+    const stdevs = await getOneStd(variabele);
+    const enrichedShapes = { ...shapes };
 
-    const cijfersLookup = {}
-    cijfers.forEach(cijfer => { cijfersLookup[cijfer.gebiedcode15] = cijfer })
-
-    const shapes = await getShapes(gebiedType, (gebiedcode15) => {
-      const c = cijfersLookup[gebiedcode15]
+    let features = [...shapes.features];
+    features = features.map((feature) => {      
+      const cijfer = cijfers.find((sd) => sd.gebiedcode15 === feature.properties.code || sd.gebiedcode15 === feature.properties.vollcode);
+      console.log('cijfer', feature.properties.code, cijfer);
+      const colors = getColor(
+        { indicatorDefinitieId: variabele, kleurenpalet: 1 }, 
+        cijfer?.waarde, 
+        feature.properties.jaar, stdevs);
       return {
-        fillOpacity: 0.8,
-        fillColor: c ? (c.color || getRankingColor(c.ranking - 1, cijfers.length - 1)) : COLOR['ams-wit'],
-        color: COLOR['ams-donkergrijs'],
-        opacity: 0.5,
-        weight: 1
-      }
-    })
+        ...feature,
+        properties: {
+          ...feature.properties,
+          ...cijfer,
+          ...colors
+        }
+       }
+    });
 
-    showShapes(shapes)
-  };
-
-  const showShapes = (shapes) => {
-    clearLayers()
-    // this.drawing = true
-
-    const mapShapes = drawShapes(shapes, mapInstance); //, mapInstance);
-    setJson(mapShapes);
-
-    console.log('showShapes', mapShapes);
+    enrichedShapes.crs.properties.name = "urn:ogc:def:crs:OGC:1.3:CRS84";
     
-    // gwbLayer = drawShapes(shapes, map)
-
-    // this.drawing = false
-  };
-
+    enrichedShapes.features = features;
+    
+    return enrichedShapes;
+  }
 
   const updateData = async() => {
-
     if (!variabele) {
       return null;
     }
@@ -88,18 +79,41 @@ const VerschillenMap = ({ gwb, variabele })  => {
 
     const cijfers = await util.getVerschillenCijfers(variabele, gebiedType, gebied.cijfers.jaar);
 
-    const stdevs = await getOneStd(variabele);
-    console.log('updateData stdevs', stdevs.length)
+    const shapes = await getGeometriesGeoJson(gebiedType);
+    const enrichedShapes = await enrichShapes(shapes, cijfers);
+
+    // setJson(enrichedShapes);
+    
+    setIsLoading(false);
 
     console.log('updateData cijfers', cijfers.length);
 
     console.log('updateData mapInstance', mapInstance);
+    console.log('updateData layarInstance', layarInstance);
+    console.log('updateData enrichedShapes', enrichedShapes);
     
-    const shapes = await getGeometriesGeoJson(gebiedType)
-    setJson(shapes);
-    console.log('updateData shapes', shapes);
+    // const test = {
+    //   type: 'FeatureCollection',
+    //   name: 'Black spots',
+    //   crs: {
+    //     type: 'name',
+    //     properties: {
+    //       name: 'urn:ogc:def:crs:OGC:1.3:CRS84',
+    //     },
+    //   },
+    //   features: [{
+    //     type: "Feature",
+    //     geometry: {
+    //       type: "Point",
+    //       coordinates: [4.8932945, 52.3731081]
+    //     }
+    //   }],
+    // };
+    // setJson(test);
+    // const shapes = await getGeometriesGeoJson(gebiedType)
+    // setJson(shapes);
+    // console.log('updateData shapes', shapes);
     
-    setIsLoading(false);
 
     if (cijfers && mapInstance) {
       // temp disabled
@@ -123,7 +137,7 @@ const VerschillenMap = ({ gwb, variabele })  => {
       return;
     }
 
-    // updateData();
+    updateData();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -144,7 +158,7 @@ const VerschillenMap = ({ gwb, variabele })  => {
       });
     }
   };
-
+// @ts-ignore
   return (
     <>
       {isLoading ? 
@@ -152,7 +166,7 @@ const VerschillenMap = ({ gwb, variabele })  => {
         <Map options={mapOptions} fullScreen setInstance={setMapInstance}>
           <ViewerContainer bottomLeft={<Zoom />} />
           <BaseLayer baseLayer={`https://{s}.data.amsterdam.nl/topo_rd_zw/{z}/{x}/{y}.png`} />
-          {json ? <GeoJSON args={[json]} options={options} /> : null}
+          {json ? <GeoJSON setInstance={setLayerInstance} args={[json]} options={options} /> : null}
         </Map>  
       }
     </>
