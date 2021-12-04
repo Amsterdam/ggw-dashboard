@@ -237,7 +237,6 @@ export async function getAll() {
 }
 
 export function getGebied(code) {
-  console.log('getGebied', code);
   if (code === 'STAD') {
     return { naam: "Amsterdam" };
   }

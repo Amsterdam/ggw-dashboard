@@ -181,7 +181,6 @@ export const CIJFERS = {
  * @returns {Promise<*>}
  */
 export async function getVerschillenCijfers (variable, gebiedType, recentYear) {
-  // console.log('getVerschillenCijfers', variable, gebiedType, recentYear)
   // Sort and filter cijfers for gebiedType and waarde
   let cijfers = await getAllCijfers(variable, recentYear);
 
@@ -189,8 +188,6 @@ export async function getVerschillenCijfers (variable, gebiedType, recentYear) {
   cijfers = cijfers.filter(c => c.jaar === recentYear);
   cijfers = cijfers.filter(c => getGebiedType(c.gebiedcode15) === gebiedType);
   cijfers = cijfers.sort((c1, c2) => c2.waarde - c1.waarde);
-
-  console.log('cijfers', cijfers);
 
   /**
    * Provide for an index that denotes the ranking of each gebied

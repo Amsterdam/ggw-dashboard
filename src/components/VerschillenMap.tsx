@@ -9,7 +9,7 @@ import { GeoJSON } from "@amsterdam/react-maps";
 import { getGeometriesGeoJson } from "../services/apis/map"
 import { getColor } from '../services/colorcoding'
 import { getOneStd } from "../services/apis/bbga";
-import { GeoJSONOptions, MapOptions, Map as MapType } from 'leaflet'
+import { GeoJSONOptions, MapOptions } from 'leaflet'
 import { GeoJsonObject } from 'geojson';
 
 const mapOptions: MapOptions = {
@@ -26,16 +26,7 @@ const mapOptions: MapOptions = {
 const VerschillenMap = ({ gwb, variabele })  => {
   const [json, setJson] = useState<GeoJsonObject | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [mapInstance, setMapInstance] = useState<MapType>();
-  const [layarInstance, setLayerInstance] = useState<MapType>();
-  
-  const clearLayers = () => {
-    if (json) {
-      // mapInstance.removeLayer(json);
-    }
-    // setJson({});
-  }
-  
+    
   const enrichShapes = async (shapes :GeoJsonObject, cijfers) => {
     const stdevs = await getOneStd(variabele);
     const enrichedShapes = { ...shapes };
@@ -90,32 +81,7 @@ const VerschillenMap = ({ gwb, variabele })  => {
 
     console.log('updateData cijfers', cijfers.length);
 
-    console.log('updateData mapInstance', mapInstance);
-    console.log('updateData layarInstance', layarInstance);
-    console.log('updateData enrichedShapes', enrichedShapes);
-    
-    // const test = {
-    //   type: 'FeatureCollection',
-    //   name: 'Black spots',
-    //   crs: {
-    //     type: 'name',
-    //     properties: {
-    //       name: 'urn:ogc:def:crs:OGC:1.3:CRS84',
-    //     },
-    //   },
-    //   features: [{
-    //     type: "Feature",
-    //     geometry: {
-    //       type: "Point",
-    //       coordinates: [4.8932945, 52.3731081]
-    //     }
-    //   }],
-    // };
-    // setJson(test);
-    // const shapes = await getGeometriesGeoJson(gebiedType)
-    // setJson(shapes);
-    // console.log('updateData shapes', shapes);
-        
+    console.log('updateData enrichedShapes', enrichedShapes);        
   };
 
   useEffect(() => {
@@ -137,19 +103,12 @@ const VerschillenMap = ({ gwb, variabele })  => {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  console.log('VerschillenMap json', json);
   
-  const options: GeoJSONOptions = {
-    pointToLayer: (feature, latlng) => {
-      console.log('pointToLayer', feature, latlng)
-    },
-    onEachFeature(feature, layer) {
-      console.log('onEachFeature', feature.properties, layer);
-      
+  const options: GeoJSONOptions = {    
+    onEachFeature(feature, layer) {      
       layer.setStyle({
-        color: feature.properties.color,
-        fillColor: feature.properties.color,
+        color: feature?.properties?.color,
+        fillColor: feature?.properties?.color,
         fillOpacity: 0.8
       });
     }
@@ -159,10 +118,10 @@ const VerschillenMap = ({ gwb, variabele })  => {
     <>
       {isLoading ? 
         <Spinner /> : 
-        <Map options={mapOptions} fullScreen setInstance={setMapInstance}>
+        <Map options={mapOptions} fullScreen>
           <ViewerContainer bottomLeft={<Zoom />} />
           <BaseLayer baseLayer={`https://{s}.data.amsterdam.nl/topo_rd_zw/{z}/{x}/{y}.png`} />
-          {json ? <GeoJSON setInstance={setLayerInstance} args={[json]} options={options} /> : null}
+          {json ? <GeoJSON args={[json]} options={options} /> : null}
         </Map>  
       }
     </>
