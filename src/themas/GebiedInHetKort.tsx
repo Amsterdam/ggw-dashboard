@@ -8,8 +8,8 @@ import DataTable from "../components/DataTable";
 import SocialeKlasseStackedBar from "../components/charts/SocialeKlasseStackedBar";
 import LeeftijdJeugdStackedBar from "../components/charts/LeeftijdJeudStackedBar";
 import ThemeHeader from "../components/ThemeHeader";
-import VerschillenBarChart from "../components/VerschillenBarChart"
-import VerschillenMap from "../components/VerschillenMap"
+import Verschillen from "../components/Verschillen"
+
 import Car from "../components/Icons/Car";
 import LegendTable from "../components/LegendTable";
 import { useGWBSelection } from "../components/context/GWBContext";
@@ -47,23 +47,8 @@ const GebiedInHetKort = () => {
           <Heading as="h2">Verschillen in {gwb?.naam}</Heading>
         </Column>
       </Row>
-
-      <Row>
-        <Column span={6}>
-          <VerschillenMap 
-            gwb={gwb}
-            variabele="ORVERLOED_P"
-          />
-        </Column>
-        <Column span={6}>
-          <div>
-            <VerschillenBarChart 
-              gwb={gwb}
-              variabele="ORVERLOED_P"
-            />
-          </div>
-        </Column>
-      </Row>
+      
+      <Verschillen gwb={gwb} />
 
       <Row>
         <Column
