@@ -24,11 +24,9 @@ type MapResult = {
 const VerschillenBarChart = ({ gwb, indicatorDefinitieId }) => {
   const chartRef = useRef<HTMLDivElement>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [showError, setShowError] = useState(false);
 
   async function updateData() {
     setIsLoading(true);
-    setShowError(false);
 
     const chartBase = cloneDeep(vegaSpec);
 
@@ -57,9 +55,6 @@ const VerschillenBarChart = ({ gwb, indicatorDefinitieId }) => {
     if (chartRef.current && chartBase.data.values.length > 0) {
       setIsLoading(false);
       vegaEmbed(chartRef.current, chartBase, vegaEmbedOptions);
-    } else {
-      setIsLoading(false);
-      setShowError(true);
     }
   }
 
@@ -94,7 +89,6 @@ const VerschillenBarChart = ({ gwb, indicatorDefinitieId }) => {
     <div>
       <div className="chart-container">
         {isLoading ? <Spinner /> : null}
-        {showError && <p>Op dit schaalniveau is helaas geen informatie beschikbaar.</p>}
         <div ref={chartRef}></div>
       </div>
     </div>

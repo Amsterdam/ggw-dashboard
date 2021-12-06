@@ -1,7 +1,7 @@
 export default {
   $schema: "https://vega.github.io/schema/vega-lite/v5.json",
   description: "",
-  height: 300,
+  height: 350,
   width: 500,
   data: {
     values: [],
