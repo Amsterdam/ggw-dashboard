@@ -5,7 +5,7 @@ import VerschillenMap from "./VerschillenMap"
 import HeaderRow from "../components/layout/HeaderRow";
 
 const Verschillen = ({ gwb }) => {
-  const [variabele, setVariabele] = useState<string>('');
+  const [indicatorDefinitieId, setVariabele] = useState<string>('');
   
   const allVars = [
     { key: "LBUURT_R", value: "Buurt: tevredenheid met eigen buurt (1-10)" },
@@ -27,8 +27,8 @@ const Verschillen = ({ gwb }) => {
       <Row>
         <Column span={6}>
           <Select
-              id="variabele"
-              value={variabele}
+              id="indicatorDefinitieId"
+              value={indicatorDefinitieId}
               onChange={(event: FormEvent<HTMLSelectElement>) => {
                 setVariabele(event.currentTarget.value);
               }}
@@ -50,13 +50,13 @@ const Verschillen = ({ gwb }) => {
         <Column span={6}>
           <VerschillenMap 
             gwb={gwb}
-            variabele={variabele}
+            indicatorDefinitieId={indicatorDefinitieId}
           />
         </Column>
         <Column span={6}>
           <VerschillenBarChart 
             gwb={gwb}
-            variabele={variabele}
+            indicatorDefinitieId={indicatorDefinitieId}
           />
         </Column>
       </Row>

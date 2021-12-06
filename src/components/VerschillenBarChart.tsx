@@ -21,7 +21,7 @@ type MapResult = {
   color: string;
 };
 
-const VerschillenBarChart = ({ gwb, variabele }) => {
+const VerschillenBarChart = ({ gwb, indicatorDefinitieId }) => {
   const chartRef = useRef<HTMLDivElement>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [showError, setShowError] = useState(false);
@@ -34,13 +34,13 @@ const VerschillenBarChart = ({ gwb, variabele }) => {
 
     await getAll();
     
-    const gebied = await util.getGebiedCijfers(variabele, gwb, util.CIJFERS.LATEST)
+    const gebied = await util.getGebiedCijfers(indicatorDefinitieId, gwb, util.CIJFERS.LATEST)
 
     const gebiedType = util.getGebiedType(gwb.vollcode || gwb.code, true)
 
-    const cijfers = await util.getVerschillenCijfers(variabele, gebiedType, gebied.cijfers.jaar)
+    const cijfers = await util.getVerschillenCijfers(indicatorDefinitieId, gebiedType, gebied.cijfers.jaar)
 
-    const stdevs = await getOneStd(variabele);
+    const stdevs = await getOneStd(indicatorDefinitieId);
 
     chartBase.data.values = (cijfers || [])
       .filter((d) => d.waarde)
@@ -50,7 +50,7 @@ const VerschillenBarChart = ({ gwb, variabele }) => {
             gebied: getGebied(d.gebiedcode15).naam,
             label: gebied?.meta?.label,
             value: d.waarde ? d.waarde : "Geen gegevens",
-            color: getColor({ indicatorDefinitieId: variabele, kleurenpalet: 1 }, d?.waarde, d?.jaar, stdevs).color,
+            color: getColor({ indicatorDefinitieId: indicatorDefinitieId, kleurenpalet: 1 }, d?.waarde, d?.jaar, stdevs).color,
           } as MapResult),
       ) as MapResult[];
 
@@ -79,7 +79,7 @@ const VerschillenBarChart = ({ gwb, variabele }) => {
 
     updateData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [variabele]);
+  }, [indicatorDefinitieId]);
 
   useEffect(() => {
     if (!gwb) {

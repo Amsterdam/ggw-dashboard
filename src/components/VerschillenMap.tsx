@@ -23,19 +23,19 @@ const mapOptions: MapOptions = {
   scrollWheelZoom: false
 };
 
-const VerschillenMap = ({ gwb, variabele })  => {
+const VerschillenMap = ({ gwb, indicatorDefinitieId })  => {
   const [json, setJson] = useState<GeoJsonObject | null>(null);
   const [isLoading, setIsLoading] = useState(true);
     
   const enrichShapes = async (shapes :GeoJsonObject, cijfers) => {
-    const stdevs = await getOneStd(variabele);
+    const stdevs = await getOneStd(indicatorDefinitieId);
     const enrichedShapes = { ...shapes };
 
     let features = [...shapes.features];
     features = features.map((feature) => {      
       const cijfer = cijfers.find((sd) => sd.gebiedcode15 === feature.properties.vollcode || sd.gebiedcode15 === feature.properties.code);
       
-      const colors = getColor({ indicatorDefinitieId: variabele, kleurenpalet: 1 }, cijfer?.waarde, cijfer?.jaar, stdevs);
+      const colors = getColor({ indicatorDefinitieId: indicatorDefinitieId, kleurenpalet: 1 }, cijfer?.waarde, cijfer?.jaar, stdevs);
     
       return {
         ...feature,
@@ -55,13 +55,13 @@ const VerschillenMap = ({ gwb, variabele })  => {
   }
 
   const updateData = async() => {
-    if (!variabele) {
+    if (!indicatorDefinitieId) {
       return null;
     }
     setIsLoading(true);
     setJson(null);
 
-    const gebied = await util.getGebiedCijfers(variabele, gwb, util.CIJFERS.LATEST)
+    const gebied = await util.getGebiedCijfers(indicatorDefinitieId, gwb, util.CIJFERS.LATEST)
 
     const gebiedType = util.getGebiedType(gwb.vollcode, true);
     
@@ -70,7 +70,7 @@ const VerschillenMap = ({ gwb, variabele })  => {
       return;
     } 
 
-    const cijfers = await util.getVerschillenCijfers(variabele, gebiedType, gebied.cijfers.jaar);
+    const cijfers = await util.getVerschillenCijfers(indicatorDefinitieId, gebiedType, gebied.cijfers.jaar);
 
     const shapes = await getGeometriesGeoJson(gebiedType);
     const enrichedShapes = await enrichShapes(shapes, cijfers);
@@ -100,7 +100,7 @@ const VerschillenMap = ({ gwb, variabele })  => {
     updateData();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [variabele]);
+  }, [indicatorDefinitieId]);
   
 
   useEffect(() => {
