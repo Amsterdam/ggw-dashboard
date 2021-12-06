@@ -4,7 +4,6 @@ import ThemeHeader from "../components/ThemeHeader";
 import HeaderRow from "../components/layout/HeaderRow";
 import { useGWBSelection } from "../components/context/GWBContext";
 import VerticalBarChart from "../components/VerticalBarChart";
-import Car from "../components/Icons/Car";
 
 import { SPORT_EN_CULTUUR } from "../services/thema";
 
@@ -12,13 +11,14 @@ import sport from "../static/links/sport.json";
 import DevelopmentThemeHeader from "../components/DevelopmentThemeHeader";
 import AantalCultuurvoorzieningen from "../components/tables/AantalCultuurvoorzieningen";
 import AantalSportvoorzieningen from "../components/tables/AantalSportvoorzieningen";
+import SportThema from "../components/Icons/SportThema";
 
 const Sport = () => {
   const gwb = useGWBSelection();
 
   return (
     <>
-      <ThemeHeader gwb={gwb} themeTitle={SPORT_EN_CULTUUR} Icon={Car} />
+      <ThemeHeader gwb={gwb} themeTitle={SPORT_EN_CULTUUR} Icon={SportThema} />
       <Row>
         <Column span={12}>
           <HeaderRow title={`Samenstelling ${SPORT_EN_CULTUUR} in ${gwb?.naam}`} />

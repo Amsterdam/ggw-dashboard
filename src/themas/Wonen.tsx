@@ -4,7 +4,6 @@ import VerticalBarChart from "../components/VerticalBarChart";
 import TextStatistic from "../components/TextStatistic";
 import ThemeHeader from "../components/ThemeHeader";
 import DataTable from "../components/DataTable";
-import Car from "../components/Icons/Car";
 
 import { WONEN } from "../services/thema";
 
@@ -15,13 +14,16 @@ import GrootteWoningenStackedBar from "../components/charts/GrootteWoningenStack
 import HeaderRow from "../components/layout/HeaderRow";
 import { useGWBSelection } from "../components/context/GWBContext";
 import DevelopmentThemeHeader from "../components/DevelopmentThemeHeader";
+import WonenThema from "../components/Icons/WonenThema";
+import WonenKrappeWoningen from "../components/Icons/WonenKrappeWoningen";
+import WonenWoning from "../components/Icons/WonenWoning";
 
 const Wonen = () => {
   const gwb = useGWBSelection();
 
   return (
     <>
-      <ThemeHeader gwb={gwb} themeTitle={WONEN} Icon={Car} />
+      <ThemeHeader gwb={gwb} themeTitle={WONEN} Icon={WonenThema} />
       <Row>
         <Column span={12}>
           <HeaderRow title={`Samenstelling ${WONEN} in ${gwb?.naam}`} />
@@ -29,10 +31,16 @@ const Wonen = () => {
       </Row>
       <Row>
         <Column span={6}>
-          <TextStatistic title="Woningen" gwb={gwb} indicatorId="WVOORRBAG" titleLeft={false} />
+          <TextStatistic title="Woningen" gwb={gwb} indicatorId="WVOORRBAG" titleLeft={false} Icon={WonenWoning} />
         </Column>
         <Column span={6}>
-          <TextStatistic title="% krappe woningen" gwb={gwb} indicatorId="W_KRAP_P" titleLeft={false} />
+          <TextStatistic
+            title="% krappe woningen"
+            gwb={gwb}
+            indicatorId="W_KRAP_P"
+            titleLeft={false}
+            Icon={WonenKrappeWoningen}
+          />
         </Column>
       </Row>
       <Row>

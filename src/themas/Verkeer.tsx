@@ -4,19 +4,19 @@ import ThemeHeader from "../components/ThemeHeader";
 import HeaderRow from "../components/layout/HeaderRow";
 import { useGWBSelection } from "../components/context/GWBContext";
 import VerticalBarChart from "../components/VerticalBarChart";
-import Car from "../components/Icons/Car";
 import verkeer from "../static/links/verkeer.json";
 
 import { VERKEER } from "../services/thema";
 
 import DevelopmentThemeHeader from "../components/DevelopmentThemeHeader";
+import VerkeerThema from "../components/Icons/VerkeerThema";
 
 const Verkeer = () => {
   const gwb = useGWBSelection();
 
   return (
     <>
-      <ThemeHeader gwb={gwb} themeTitle={VERKEER} Icon={Car} />
+      <ThemeHeader gwb={gwb} themeTitle={VERKEER} Icon={VerkeerThema} />
 
       <Row>
         <Column span={12}>

@@ -15,6 +15,8 @@ import SamenstellingVerblijversStackedBar from "../components/charts/Samenstelli
 import HeaderRow from "../components/layout/HeaderRow";
 import { useGWBSelection } from "../components/context/GWBContext";
 import DevelopmentThemeHeader from "../components/DevelopmentThemeHeader";
+import OpenbareRuimteGroep from "../components/Icons/OpenbareRuimteGroep";
+import OpenbareRuimteManSchep from "../components/Icons/OpenbareRuimteManSchep";
 
 const OpenbareRuimte = () => {
   const gwb = useGWBSelection();
@@ -29,10 +31,16 @@ const OpenbareRuimte = () => {
       </Row>
       <Row>
         <Column span={6}>
-          <TextStatistic title="Oppervlakte:" gwb={gwb} indicatorId="OROPP" titleLeft />
+          <TextStatistic title="Oppervlakte:" gwb={gwb} indicatorId="OROPP" titleLeft Icon={OpenbareRuimteManSchep} />
         </Column>
         <Column span={6}>
-          <TextStatistic title="Verblijversdichtheidsindex:" gwb={gwb} indicatorId="ORVERBLIJF_I" titleLeft />
+          <TextStatistic
+            title="Verblijversdichtheidsindex:"
+            gwb={gwb}
+            indicatorId="ORVERBLIJF_I"
+            titleLeft
+            Icon={OpenbareRuimteGroep}
+          />
         </Column>
       </Row>
       <Row>

@@ -2,7 +2,6 @@ import { Column, Row } from "@amsterdam/asc-ui";
 
 import { useGWBSelection } from "../components/context/GWBContext";
 import LeeftijdssamenstellingStackedBar from "../components/charts/LeeftijdssamenstellingStackedBar";
-import Car from "../components/Icons/Car";
 import HeaderRow from "../components/layout/HeaderRow";
 import LineChart from "../components/LineChart";
 import TextStatistic from "../components/TextStatistic";
@@ -17,13 +16,16 @@ import HuishoudensamenstellingStackedBar from "../components/charts/Huishoudensa
 import MigratieachtergrondStackedBar from "../components/charts/MigratieachtergrondStackedBar";
 import OpleidingsniveauStackedBar from "../components/charts/OpleidingsniveauStackedBar";
 import DevelopmentThemeHeader from "../components/DevelopmentThemeHeader";
+import BevolkingThema from "../components/Icons/BevolkingThema";
+import BevolkingAdam from "../components/Icons/BevolkingAdam";
+import BevolkingGezin from "../components/Icons/BevolkingGezin";
 
 const Bevolking = () => {
   const gwb = useGWBSelection();
 
   return (
     <>
-      <ThemeHeader gwb={gwb} themeTitle={BEVOLKING} Icon={Car} />
+      <ThemeHeader gwb={gwb} themeTitle={BEVOLKING} Icon={BevolkingThema} />
       <Row>
         <Column span={12}>
           <HeaderRow title={`Samenstelling ${BEVOLKING} in ${gwb?.naam}`} />
@@ -31,10 +33,16 @@ const Bevolking = () => {
       </Row>
       <Row>
         <Column span={6}>
-          <TextStatistic title="inwoners" gwb={gwb} indicatorId="BEVTOTAAL" titleLeft={false} />
+          <TextStatistic title="inwoners" gwb={gwb} indicatorId="BEVTOTAAL" titleLeft={false} Icon={BevolkingAdam} />
         </Column>
         <Column span={6}>
-          <TextStatistic title="huishoudens" gwb={gwb} indicatorId="BEVHUISHOUDENHH" titleLeft={false} />
+          <TextStatistic
+            title="huishoudens"
+            gwb={gwb}
+            indicatorId="BEVHUISHOUDENHH"
+            titleLeft={false}
+            Icon={BevolkingGezin}
+          />
         </Column>
       </Row>
 

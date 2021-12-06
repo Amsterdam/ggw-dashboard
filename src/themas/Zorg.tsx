@@ -4,7 +4,7 @@ import ThemeHeader from "../components/ThemeHeader";
 import HeaderRow from "../components/layout/HeaderRow";
 import { useGWBSelection } from "../components/context/GWBContext";
 import VerticalBarChart from "../components/VerticalBarChart";
-import Car from "../components/Icons/Car";
+import Gezondheid from "../components/Icons/GezondheidThema";
 
 import { GEZONDHEID_ZORG } from "../services/thema";
 
@@ -14,7 +14,7 @@ const Zorg = () => {
   const gwb = useGWBSelection();
   return (
     <>
-      <ThemeHeader gwb={gwb} themeTitle={GEZONDHEID_ZORG} Icon={Car} />
+      <ThemeHeader gwb={gwb} themeTitle={GEZONDHEID_ZORG} Icon={Gezondheid} />
       <Row>
         <Column span={12}>
           <HeaderRow title={`Gezondheid en welzijn in ${gwb?.naam} en Amsterdam`} />

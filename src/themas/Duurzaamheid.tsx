@@ -3,7 +3,7 @@ import WoningenNaarEnergieStackedBar from "../components/charts/WoningenNaarEner
 
 import { useGWBSelection } from "../components/context/GWBContext";
 import DevelopmentThemeHeader from "../components/DevelopmentThemeHeader";
-import Car from "../components/Icons/Car";
+import DuurzaamheidThema from "../components/Icons/DuurzaamheidThema";
 import HeaderRow from "../components/layout/HeaderRow";
 
 import ThemeHeader from "../components/ThemeHeader";
@@ -17,7 +17,7 @@ const Duurzaamheid = () => {
 
   return (
     <>
-      <ThemeHeader gwb={gwb} themeTitle={DUURZAAMHEID} Icon={Car} />
+      <ThemeHeader gwb={gwb} themeTitle={DUURZAAMHEID} Icon={DuurzaamheidThema} />
       <Row>
         <Column span={12}>
           <HeaderRow title={`Samenstelling ${DUURZAAMHEID} in ${gwb?.naam}`} />
@@ -37,7 +37,7 @@ const Duurzaamheid = () => {
           <DevelopmentThemeHeader theme={DUURZAAMHEID} location={gwb?.naam} />
         </Column>
       </Row>
-      {/* <Row>
+      <Row>
         <Column span={4}>
           <VerticalBarChart
             title={ontwikkelingDuurzaamheid[0].label}
@@ -60,9 +60,9 @@ const Duurzaamheid = () => {
           ></VerticalBarChart>
         </Column>
       </Row>
-*/}
+
       <Row>
-        {/*  <Column span={4}>
+        <Column span={4}>
           <VerticalBarChart
             title={ontwikkelingDuurzaamheid[3].label}
             config={[ontwikkelingDuurzaamheid[3]]}
@@ -75,7 +75,7 @@ const Duurzaamheid = () => {
             config={[ontwikkelingDuurzaamheid[4]]}
             gwb={gwb}
           ></VerticalBarChart>
-        </Column>*/}
+        </Column>
         <Column span={4}>
           <VerticalBarChart
             title={ontwikkelingDuurzaamheid[5].label}

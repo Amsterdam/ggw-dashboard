@@ -3,7 +3,6 @@ import { Column, Row } from "@amsterdam/asc-ui";
 import VerticalBarChart from "../components/VerticalBarChart";
 import TextStatistic from "../components/TextStatistic";
 import ThemeHeader from "../components/ThemeHeader";
-import Car from "../components/Icons/Car";
 
 import { ECONOMIE } from "../services/thema";
 
@@ -17,13 +16,16 @@ import economiecijfers from "../static/links/economie_kerncijfers.json";
 import vestigingenOntwikkeling from "../static/links/vestigingen_ontwikkeling.json";
 import werkzamepersonenOntwikkeling from "../static/links/werkzamepersonen_ontwikkeling.json";
 import DevelopmentThemeHeader from "../components/DevelopmentThemeHeader";
+import EconomieThema from "../components/Icons/EconomieThema";
+import EconomieVestiging from "../components/Icons/EconomieVestiging";
+import EconomieWerkzamepersonen from "../components/Icons/EconomieWerkzamepersonen";
 
 const Economie = () => {
   const gwb = useGWBSelection();
 
   return (
     <>
-      <ThemeHeader gwb={gwb} themeTitle={ECONOMIE} Icon={Car} />
+      <ThemeHeader gwb={gwb} themeTitle={ECONOMIE} Icon={EconomieThema} />
       <Row>
         <Column span={12}>
           <HeaderRow title={`Samenstelling ${ECONOMIE} in ${gwb?.naam}`} />
@@ -31,10 +33,22 @@ const Economie = () => {
       </Row>
       <Row>
         <Column span={6}>
-          <TextStatistic title="vestigingen" gwb={gwb} indicatorId="BHVEST" titleLeft={false} />
+          <TextStatistic
+            title="vestigingen"
+            gwb={gwb}
+            indicatorId="BHVEST"
+            titleLeft={false}
+            Icon={EconomieVestiging}
+          />
         </Column>
         <Column span={6}>
-          <TextStatistic title="werkzame personen" gwb={gwb} indicatorId="BHWP" titleLeft={false} />
+          <TextStatistic
+            title="werkzame personen"
+            gwb={gwb}
+            indicatorId="BHWP"
+            titleLeft={false}
+            Icon={EconomieWerkzamepersonen}
+          />
         </Column>
       </Row>
       <Row>

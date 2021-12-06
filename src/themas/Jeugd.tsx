@@ -4,7 +4,6 @@ import ThemeHeader from "../components/ThemeHeader";
 import HeaderRow from "../components/layout/HeaderRow";
 import { useGWBSelection } from "../components/context/GWBContext";
 import VerticalBarChart from "../components/VerticalBarChart";
-import Car from "../components/Icons/Car";
 
 import { JEUGD } from "../services/thema";
 
@@ -14,13 +13,14 @@ import DevelopmentThemeHeader from "../components/DevelopmentThemeHeader";
 import DataTable from "../components/DataTable";
 import LeeftijdssamenstellingBevolkingStackedBar from "../components/charts/LeeftijdssamenstellingBevolkingStackedBar";
 import AantalKinderen from "../components/tables/AantalKinderen";
+import JeugdThema from "../components/Icons/JeugdThema";
 
 const Jeugd = () => {
   const gwb = useGWBSelection();
 
   return (
     <>
-      <ThemeHeader gwb={gwb} themeTitle={JEUGD} Icon={Car} />
+      <ThemeHeader gwb={gwb} themeTitle={JEUGD} Icon={JeugdThema} />
       <Row>
         <Column span={12}>
           <HeaderRow title={`Samenstelling ${JEUGD} in ${gwb?.naam}`} />

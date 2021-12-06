@@ -14,11 +14,13 @@ const TextStatistic = ({
   gwb,
   indicatorId,
   titleLeft = true,
+  Icon,
 }: {
   title: string;
   gwb: any;
   indicatorId: string;
   titleLeft?: boolean;
+  Icon?: ({ width, height }: { width?: string | undefined; height?: string | undefined }) => JSX.Element;
 }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState<string | null>(null);
@@ -56,12 +58,28 @@ const TextStatistic = ({
       <h3>
         {titleLeft && (
           <>
-            {title} {isLoading ? <Spinner /> : data}
+            {title}{" "}
+            {isLoading ? (
+              <Spinner />
+            ) : (
+              <>
+                {Icon && <Icon />}
+                {data}
+              </>
+            )}
           </>
         )}
         {!titleLeft && (
           <>
-            {isLoading ? <Spinner /> : data} {title}
+            {isLoading ? (
+              <Spinner />
+            ) : (
+              <>
+                {Icon && <Icon />}
+                {data}
+              </>
+            )}{" "}
+            {title}
           </>
         )}
       </h3>
