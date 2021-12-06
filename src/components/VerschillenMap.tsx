@@ -118,7 +118,10 @@ const VerschillenMap = ({ gwb, variabele })  => {
       layer.setStyle({
         color: feature?.properties?.color,
         fillColor: feature?.properties?.color,
-        fillOpacity: 0.8
+        fillOpacity: 0.8,
+        strokeWidth: 1,
+        strokeColor: "#666",
+        strokeOpacity: 0.5
       });
     }
   };
