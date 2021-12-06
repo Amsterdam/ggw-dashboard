@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Column, Row } from "@amsterdam/asc-ui";
 import VerschillenBarChart from "./VerschillenBarChart"
 import VerschillenMap from "./VerschillenMap"
@@ -6,7 +6,10 @@ import HeaderRow from "../components/layout/HeaderRow";
 
 const Verschillen = ({ gwb }) => {
   const [variabele, setVariabele] = useState<string>('');
-  setVariabele("ORVERLOED_P");
+
+  useEffect(() => {
+    setVariabele("ORVERLOED_P");
+  }, []);
 
   return (
     <>
