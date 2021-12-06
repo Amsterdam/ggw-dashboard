@@ -1,24 +1,22 @@
 import cloneDeep from "lodash/cloneDeep";
 
 import StackedHorizontalBarChart from "../StackedHorizontalBarChart";
-import verblijvers from "../../static/links/verblijvers.json";
-
+import gemmInkomen from "../../static/links/gemm_besteedbaar_inkomen.json";
 import stackedVegaSpec from "../../static/charts/stackedhorizontalbar.json";
 
-const SamenstellingVerblijversStackedBar = ({ gwb }) => {
+const InkomenNaarLandelijkStackedBar = ({ gwb }) => {
   const customSpec = cloneDeep(stackedVegaSpec);
 
   customSpec.config.legend.columns = 3;
 
   return (
     <StackedHorizontalBarChart
-      title="Samenstelling verblijvers"
-      config={verblijvers}
+      title="Inkomen naar landelijke 20% groepen"
+      config={gemmInkomen}
       gwb={gwb}
-      scaleToHundred
       customVegaSpec={customSpec}
-    />
+    ></StackedHorizontalBarChart>
   );
 };
 
-export default SamenstellingVerblijversStackedBar;
+export default InkomenNaarLandelijkStackedBar;

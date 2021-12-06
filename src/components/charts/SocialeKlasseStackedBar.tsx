@@ -7,6 +7,8 @@ import stackedVegaSpec from "../../static/charts/stackedhorizontalbar.json";
 const SocialeKlasseStackedBar = ({ gwb }) => {
   const customSpec = cloneDeep(stackedVegaSpec);
 
+  customSpec.config.legend.columns = 3;
+
   return (
     <StackedHorizontalBarChart
       title="18 t/m 74 jarigen naar sociale klasse"

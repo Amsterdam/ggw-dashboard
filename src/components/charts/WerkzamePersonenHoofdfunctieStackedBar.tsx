@@ -7,6 +7,8 @@ import stackedVegaSpec from "../../static/charts/stackedhorizontalbar.json";
 const WerkzamePersonenHoofdfunctieStackedBar = ({ gwb }) => {
   const customSpec = cloneDeep(stackedVegaSpec);
 
+  customSpec.config.legend.columns = 3;
+
   return (
     <StackedHorizontalBarChart
       title="Werkzame personen naar functiegroep"

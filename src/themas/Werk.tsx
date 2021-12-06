@@ -1,12 +1,11 @@
 import { Column, Row } from "@amsterdam/asc-ui";
 
 import SocialeKlasseStackedBar from "../components/charts/SocialeKlasseStackedBar";
-import StackedHorizontalBarChart from "../components/StackedHorizontalBarChart";
 import VerticalBarChart from "../components/VerticalBarChart";
 import TextStatistic from "../components/TextStatistic";
 
 import { WERK_INKOMEN } from "../services/thema";
-import gemmInkomen from "../static/links/gemm_besteedbaar_inkomen.json";
+
 import werkloosheid from "../static/links/werkloosheid.json";
 import minimahuishoudens from "../static/links/minimahuishoudens.json";
 import gemiddeldBesteedbaarInkomen from "../static/links/gemm_besteedbaarinkomen.json";
@@ -18,6 +17,7 @@ import Car from "../components/Icons/Car";
 import HeaderRow from "../components/layout/HeaderRow";
 import { useGWBSelection } from "../components/context/GWBContext";
 import DevelopmentThemeHeader from "../components/DevelopmentThemeHeader";
+import InkomenNaarLandelijkStackedBar from "../components/charts/InkomenNaarLandelijkStackedBar";
 
 const Werk = () => {
   const gwb = useGWBSelection();
@@ -43,11 +43,7 @@ const Werk = () => {
           <SocialeKlasseStackedBar gwb={gwb} />
         </Column>
         <Column span={6}>
-          <StackedHorizontalBarChart
-            title="Inkomen naar landelijke 20% groepen"
-            config={gemmInkomen}
-            gwb={gwb}
-          ></StackedHorizontalBarChart>
+          <InkomenNaarLandelijkStackedBar gwb={gwb}></InkomenNaarLandelijkStackedBar>
         </Column>
       </Row>
       <Row>
@@ -56,13 +52,37 @@ const Werk = () => {
         </Column>
       </Row>
       <Row>
-        <Column span={4}>
+        <Column
+          span={{
+            small: 1,
+            medium: 1,
+            big: 3,
+            large: 6,
+            xLarge: 4,
+          }}
+        >
           <VerticalBarChart title={werkloosheid[0].label} config={werkloosheid} gwb={gwb}></VerticalBarChart>
         </Column>
-        <Column span={4}>
+        <Column
+          span={{
+            small: 1,
+            medium: 1,
+            big: 3,
+            large: 6,
+            xLarge: 4,
+          }}
+        >
           <VerticalBarChart title={minimahuishoudens[0].label} config={minimahuishoudens} gwb={gwb}></VerticalBarChart>
         </Column>
-        <Column span={4}>
+        <Column
+          span={{
+            small: 1,
+            medium: 6,
+            big: 3,
+            large: 6,
+            xLarge: 4,
+          }}
+        >
           <VerticalBarChart
             title={gemiddeldBesteedbaarInkomen[0].label}
             config={gemiddeldBesteedbaarInkomen}

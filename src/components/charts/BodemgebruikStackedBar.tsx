@@ -8,6 +8,8 @@ import stackedVegaSpec from "../../static/charts/stackedhorizontalbar.json";
 const BodemgebruikStackedBar = ({ gwb }) => {
   const customSpec = cloneDeep(stackedVegaSpec);
 
+  customSpec.config.legend.columns = 3;
+
   return (
     <StackedHorizontalBarChart
       title="Bodemgebruik"
