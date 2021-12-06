@@ -36,7 +36,7 @@ const VerschillenBarChart = ({ gwb, variabele }) => {
     
     const gebied = await util.getGebiedCijfers(variabele, gwb, util.CIJFERS.LATEST)
 
-    const gebiedType = util.getGebiedType(gwb.vollcode, true)
+    const gebiedType = util.getGebiedType(gwb.vollcode || gwb.code, true)
 
     const cijfers = await util.getVerschillenCijfers(variabele, gebiedType, gebied.cijfers.jaar)
 
