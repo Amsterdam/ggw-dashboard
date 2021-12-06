@@ -86,9 +86,22 @@ const VerschillenMap = ({ gwb, variabele })  => {
     }
 
     updateData();
+    console.log("VerschillenMap", json);
+    
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gwb]);
+
+  useEffect(() => {
+    if (!gwb) {
+      return;
+    }
+
+    updateData();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [variabele]);
+  
 
   useEffect(() => {
     if (!gwb) {
