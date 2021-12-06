@@ -1,14 +1,20 @@
-import { useEffect, useState } from "react";
-import { Column, Row } from "@amsterdam/asc-ui";
+import { useEffect, useState, FormEvent } from "react";
+import { Column, Row, Select } from "@amsterdam/asc-ui";
 import VerschillenBarChart from "./VerschillenBarChart"
 import VerschillenMap from "./VerschillenMap"
 import HeaderRow from "../components/layout/HeaderRow";
 
 const Verschillen = ({ gwb }) => {
   const [variabele, setVariabele] = useState<string>('');
+  
+  const allVars = [
+    { key: "LBUURT_R", value: "Buurt: tevredenheid met eigen buurt (1-10)" },
+    { key: "ORVERLOED_P", value: "Verloederingscode" },
+  ]
 
   useEffect(() => {
-    setVariabele("ORVERLOED_P");
+    setVariabele(allVars[0].key);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -16,6 +22,28 @@ const Verschillen = ({ gwb }) => {
       <Row>
         <Column span={12}>
           <HeaderRow title={`De verschillen in ${gwb?.naam}`} />
+        </Column>
+      </Row>
+      <Row>
+        <Column span={6}>
+          <Select
+              id="variabele"
+              value={variabele}
+              onChange={(event: FormEvent<HTMLSelectElement>) => {
+                setVariabele(event.currentTarget.value);
+              }}
+            >
+              {allVars.map((stadsDeel) => {
+                return (
+                  <option key={stadsDeel.key} value={stadsDeel.key}>
+                    {stadsDeel.value}
+                  </option>
+                );
+              })}
+            </Select>
+        </Column>
+        <Column span={6}>
+          &nbsp;
         </Column>
       </Row>
       <Row>
