@@ -1,6 +1,6 @@
 import L from "leaflet";
 
-import { rd, rdPolygonToWgs84 } from "../services/geojson";
+import { rdPolygonToWgs84 } from "../services/geojson";
 
 /**
  * Returns the geometries (polygons) for a given gebied, wijk or buurt
@@ -11,13 +11,9 @@ import { rd, rdPolygonToWgs84 } from "../services/geojson";
  */
 export function getGWBShapes(gwb, getStyle) {
   if (gwb.geometrie) {
-    gwb.wgs84Geometries = gwb.wgs84Geometries || [
-      rdPolygonToWgs84(gwb.geometrie),
-    ];
+    gwb.wgs84Geometries = gwb.wgs84Geometries || [rdPolygonToWgs84(gwb.geometrie)];
 
-    return gwb.wgs84Geometries.map((geometry) =>
-      L.polygon(geometry.coordinates, getStyle(gwb.volledige_code))
-    );
+    return gwb.wgs84Geometries.map((geometry) => L.polygon(geometry.coordinates, getStyle(gwb.volledige_code)));
   } else {
     return [];
   }
@@ -37,38 +33,4 @@ export function drawShapes(shapes, map) {
     map.fitBounds(layer.getBounds());
   }
   return layer;
-}
-
-/**
- * Returns a Leaflet map for Amsterdam
- * @param el
- * @returns {*}
- */
-export function amsMap(el) {
-  const map = L.map(el, {
-    crs: rd,
-    attributionControl: false,
-    zoomControl: true,
-    scrollWheelZoom: false,
-  }).setView([52.35, 4.9], 6);
-
-  map.addLayer(tileLayer());
-  return map;
-}
-
-/**
- * Returns a tile layer for Amsterdam
- * This tyle layer can be used to show a given shape on the map of Amsterdam
- * @returns {*}
- */
-function tileLayer() {
-  return L.tileLayer(
-    "https://t1.data.amsterdam.nl/topo_rd_zw/{z}/{x}/{y}.png",
-    {
-      tms: true,
-      minZoom: 0,
-      maxZoom: 20,
-      opacity: 0.3,
-    }
-  );
 }

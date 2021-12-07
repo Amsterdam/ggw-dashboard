@@ -1,7 +1,10 @@
-import * as React from "react";
+import { useEffect, useRef, useState } from "react";
+import L from "leaflet";
 import styled from "styled-components";
-import { getGWBShapes, drawShapes, amsMap } from "../services/map";
+import { Map, BaseLayer, constants } from "@amsterdam/arm-core";
+import { getGWBShapes, drawShapes } from "../services/map";
 import { COLOR } from "../services/colorcoding";
+import { DEFAULT_AMSTERDAM_MAPS_OPTIONS } from "@amsterdam/arm-core/lib/constants";
 
 const MapDiv = styled.div`
   display: flex;
@@ -9,53 +12,48 @@ const MapDiv = styled.div`
   width: 100%;
 `;
 
-const MapWrapper = styled.div`
+const MapWrapper = styled(Map)`
   position: relative;
   width: 100%;
   height: 150px;
 `;
 
 const GWBMap = ({ gwb }) => {
-  const mapRef = React.useRef<HTMLDivElement>(null);
-  const map = React.useRef<{
-    removeLayer: (layer: any) => void;
-    remove: () => void;
-  } | null>(null);
+  const [mapInstance, setMapInstance] = useState<L.Map | null>(null);
 
-  const gwbLayer = React.useRef(null);
+  const gwbLayer = useRef(null);
 
   const updateData = () => {
-    if (gwbLayer.current && map.current) {
-      map.current.removeLayer(gwbLayer.current);
+    if (!gwb || !mapInstance) {
+      return;
     }
 
-    if (!gwb || !map.current) {
-      return;
+    if (mapInstance && gwbLayer.current) {
+      mapInstance.removeLayer(gwbLayer.current);
     }
 
     const shapes = getGWBShapes(gwb, () => ({
       color: COLOR["ams-rood"],
     }));
 
-    gwbLayer.current = drawShapes(shapes, map.current);
+    gwbLayer.current = drawShapes(shapes, mapInstance);
   };
 
-  React.useEffect(() => {
-    if (map.current === null) {
-      map.current = amsMap(mapRef.current);
-    }
-
+  useEffect(() => {
     updateData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [gwb]);
+  }, [gwb, mapInstance]);
 
   return (
     <MapDiv>
       <h2>
         {gwb?.gebiedType} {gwb?.naam}
       </h2>
-      <MapWrapper>
-        <div className="map" style={{ height: "100%", width: "100%" }} ref={mapRef}></div>
+      <MapWrapper
+        options={{ ...DEFAULT_AMSTERDAM_MAPS_OPTIONS, zoomControl: true, maxZoom: 12, minZoom: 6 }}
+        setInstance={setMapInstance}
+      >
+        <BaseLayer baseLayer={constants.DEFAULT_AMSTERDAM_LAYERS[2].urlTemplate} />
       </MapWrapper>
     </MapDiv>
   );
