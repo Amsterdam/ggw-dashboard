@@ -13,12 +13,12 @@ import { useGWBSelection } from "../components/context/GWBContext";
 import LineChart from "../components/LineChart";
 
 import economiecijfers from "../static/links/economie_kerncijfers.json";
-import vestigingenOntwikkeling from "../static/links/vestigingen_ontwikkeling.json";
 import werkzamepersonenOntwikkeling from "../static/links/werkzamepersonen_ontwikkeling.json";
 import DevelopmentThemeHeader from "../components/DevelopmentThemeHeader";
 import EconomieThema from "../components/Icons/EconomieThema";
 import EconomieVestiging from "../components/Icons/EconomieVestiging";
 import EconomieWerkzamepersonen from "../components/Icons/EconomieWerkzamepersonen";
+import VestigingenNaarFunctiegroepLineChart from "../components/linecharts/VestigingenNaarFunctiegroepLineChart";
 
 const Economie = () => {
   const gwb = useGWBSelection();
@@ -61,11 +61,7 @@ const Economie = () => {
       </Row>
       <Row>
         <Column span={6}>
-          <LineChart
-            title="Aantal vestigingen naar functiegroep"
-            config={vestigingenOntwikkeling}
-            gwb={gwb}
-          ></LineChart>
+          <VestigingenNaarFunctiegroepLineChart gwb={gwb} />
         </Column>
         <Column span={6}>
           <LineChart

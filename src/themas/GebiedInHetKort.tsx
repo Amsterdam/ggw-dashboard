@@ -30,7 +30,7 @@ const GebiedInHetKort = () => {
       <ThemeHeader gwb={gwb} themeTitle={IN_HET_KORT} Icon={Car} />
       <Row>
         <Column span={12}>
-          <h2>Gebied in het kort {gwb?.naam}</h2>
+          <HeaderRow title={`Gebied in het kort ${gwb?.naam}`} />
         </Column>
       </Row>
       <Row>

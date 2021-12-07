@@ -5,8 +5,7 @@ import { Spinner, themeSpacing } from "@amsterdam/asc-ui";
 import util from "../services/util";
 
 const Wrapper = styled.div`
-  margin-top: ${themeSpacing(6)};
-  margin-bottom: ${themeSpacing(10)};
+  margin-bottom: ${themeSpacing(2)};
 `;
 
 const TextStatistic = ({
@@ -58,13 +57,12 @@ const TextStatistic = ({
       <h3>
         {titleLeft && (
           <>
-            {title}{" "}
             {isLoading ? (
               <Spinner />
             ) : (
               <>
-                {Icon && <Icon />}
-                {data}
+                {Icon && <Icon width={"72"} height={"72"} />}
+                {title} {data}
               </>
             )}
           </>
@@ -75,11 +73,10 @@ const TextStatistic = ({
               <Spinner />
             ) : (
               <>
-                {Icon && <Icon />}
-                {data}
+                {Icon && <Icon width={"72"} height={"72"} />}
+                {data} {title}
               </>
-            )}{" "}
-            {title}
+            )}
           </>
         )}
       </h3>

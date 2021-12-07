@@ -12,7 +12,7 @@ const vegaEmbedOptions = {
   actions: false,
 };
 
-const LineChart = ({ title, gwb, config }) => {
+const LineChart = ({ title, gwb, config, customVegaSpec = null }) => {
   const chartRef = useRef<HTMLDivElement>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [showError, setShowError] = useState(false);
@@ -22,7 +22,7 @@ const LineChart = ({ title, gwb, config }) => {
     setShowError(false);
     const colors = getColorsUsingStaticDefinition(config);
     const chartdata = await util.getConfigCijfers(gwb, config);
-    const chartBase = cloneDeep(vegaSpec);
+    const chartBase = cloneDeep(customVegaSpec ? customVegaSpec : vegaSpec);
 
     const cijfers = chartdata
       .map((data) =>

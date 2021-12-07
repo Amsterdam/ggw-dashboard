@@ -115,7 +115,7 @@ const DataTable = ({
           <TableHeader>
             <TableRow>
               <TableCell
-                colSpan={8 + (needCityAverage ? 1 : 0)}
+                colSpan={10 + (needCityAverage ? 1 : 0)}
                 style={{ borderBottom: "none", textAlign: "right", paddingBottom: "0px" }}
               >
                 Ontwikkeling laatste 4 jaar

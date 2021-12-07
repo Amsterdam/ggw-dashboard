@@ -19,8 +19,8 @@ import CitizensWithLowCES from "../components/tables/CitizensWithLowSES";
 import DevelopmentThemeHeader from "../components/DevelopmentThemeHeader";
 
 const Spacer = styled.div`
-  padding-top: ${themeSpacing(4)};
-  padding-bottom: ${themeSpacing(4)};
+  padding-top: ${themeSpacing(10)};
+  padding-bottom: ${themeSpacing(8)};
 `;
 
 const SocialeKracht = () => {

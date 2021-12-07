@@ -12,11 +12,11 @@
     "indicatorDefinitieId": "WWONING_R"
   },
   {
-    "label": "WOZ-waarde (euro per m2)",
+    "label": "WOZ-waarde (€ per m2)",
     "indicatorDefinitieId": "WWOZ_M2"
   },
   {
-    "label": "Gemiddelde huur vrije sector (euro)",
+    "label": "Gemiddelde huur vrije sector (€)",
     "indicatorDefinitieId": "WHUURVRIJ_GEM"
   },
   {

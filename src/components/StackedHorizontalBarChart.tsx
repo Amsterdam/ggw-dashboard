@@ -5,7 +5,6 @@ import { Spinner } from "@amsterdam/asc-ui";
 
 import stackedVegaSpec from "../static/charts/stackedhorizontalbar.json";
 import util from "../services/util";
-import "./HorizontalBarChart.scss";
 import { getColorsUsingStaticDefinition } from "../services/colorcoding";
 import { getMeta } from "../services/apis/bbga";
 import { ConfigEnirched } from "../types";
