@@ -11,7 +11,7 @@ const InkomenNaarLandelijkStackedBar = ({ gwb }) => {
 
   return (
     <StackedHorizontalBarChart
-      title="Inkomen naar landelijke 20% groepen"
+      title="Inkomen naar landelijke 20%-groepen"
       config={gemmInkomen}
       gwb={gwb}
       customVegaSpec={customSpec}

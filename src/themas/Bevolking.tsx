@@ -70,9 +70,6 @@ const Bevolking = () => {
             title="Bevolkingsprognose naar leeftijd"
             config={[
               {
-                indicatorDefinitieId: "BEVTOTAAL",
-              },
-              {
                 indicatorDefinitieId: "BEV0_17",
               },
               {
@@ -80,6 +77,9 @@ const Bevolking = () => {
               },
               {
                 indicatorDefinitieId: "BEV65PLUS",
+              },
+              {
+                indicatorDefinitieId: "BEVTOTAAL",
               },
               {
                 indicatorDefinitieId: "BEV_PROG",
@@ -149,8 +149,8 @@ const Bevolking = () => {
         </Column>
         <Column span={4}>
           <VerticalBarChart
-            title={ontwikkelingBevolking[4].label}
-            config={[ontwikkelingBevolking[4]]}
+            title={ontwikkelingBevolking[5].label}
+            config={[ontwikkelingBevolking[5]]}
             gwb={gwb}
           ></VerticalBarChart>
         </Column>

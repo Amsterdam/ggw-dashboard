@@ -17,6 +17,7 @@ import DevelopmentThemeHeader from "../components/DevelopmentThemeHeader";
 import WonenThema from "../components/Icons/WonenThema";
 import WonenKrappeWoningen from "../components/Icons/WonenKrappeWoningen";
 import WonenWoning from "../components/Icons/WonenWoning";
+import LineChart from "../components/LineChart";
 
 const Wonen = () => {
   const gwb = useGWBSelection();
@@ -49,6 +50,21 @@ const Wonen = () => {
         </Column>
         <Column span={6}>
           <GrootteWoningenStackedBar gwb={gwb} />
+        </Column>
+      </Row>
+      <Row>
+        <Column span={12}>
+          <LineChart
+            title="Aantal woningen"
+            config={[
+              { indicatorDefinitieId: "WVOORRBAG" },
+              { indicatorDefinitieId: "WKOOP" },
+              { indicatorDefinitieId: "WCORHUUR" },
+              { indicatorDefinitieId: "WPARTHUUR" },
+              { indicatorDefinitieId: "W_PROG" },
+            ]}
+            gwb={gwb}
+          ></LineChart>
         </Column>
       </Row>
       <Row>

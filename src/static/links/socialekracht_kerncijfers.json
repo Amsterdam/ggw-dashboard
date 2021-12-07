@@ -1,10 +1,10 @@
 [
   {
-    "label": "Meest kwetsbare bewoners",
+    "label": "Meest kwetsbare bewoners (%)",
     "indicatorDefinitieId": "SKKWETS34_P"
   },
   {
-    "label": "% met lage SES",
+    "label": "Lage SES (%)",
     "indicatorDefinitieId": "SKSES234_P"
   },
   {

@@ -1,18 +1,18 @@
 [
   {
-    "label": "Verloederingsscore",
+    "label": "Verloederingsscore (1-100)",
     "indicatorDefinitieId": "ORVERLOED_P"
   },
   {
-    "label": "Onderhoud straten en stoepen",
+    "label": "Onderhoud straten en stoepen (1-10)",
     "indicatorDefinitieId": "ORONDERHOUDSTRATEN_R"
   },
   {
-    "label": "Onderhoud speelvoorzieningen",
+    "label": "Onderhoud speelvoorzieningen (1-10)",
     "indicatorDefinitieId": "ORONDERHOUDSPELEN_R"
   },
   {
-    "label": "Schoon straten en stoepen",
+    "label": "Schoon straten en stoepen (1-10)",
     "indicatorDefinitieId": "ORSCHOONSTRATEN_R"
   },
   {

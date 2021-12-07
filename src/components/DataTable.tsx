@@ -46,7 +46,7 @@ const DataTable = ({
       const maxYear = util.getMaxYear(cijfers);
 
       setSd(sdvars as StdType[]);
-      setYears([4, 3, 2, 1, 0].map((i) => maxYear - i));
+      setYears([6, 5, 4, 3, 2, 1, 0].map((i) => maxYear - i));
       setData(data);
     }
 

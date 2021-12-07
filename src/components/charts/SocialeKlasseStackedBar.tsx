@@ -11,7 +11,7 @@ const SocialeKlasseStackedBar = ({ gwb }) => {
 
   return (
     <StackedHorizontalBarChart
-      title="18 t/m 74 jarigen naar sociale klasse"
+      title="18 t/m 74-jarigen naar inkomensbron"
       config={beroepsbevolking}
       gwb={gwb}
       customVegaSpec={customSpec}

@@ -1,10 +1,10 @@
 [
   {
-    "label": "% Minimajongeren",
+    "label": "Minimajongeren (% 0-17 jaar)",
     "indicatorDefinitieId": "IMINJONG120_P"
   },
   {
-    "label": "% ‘Meest kwetsbaar’ (0-17 jaar)",
+    "label": "‘Meest kwetsbaar’ (% 0-17 jaar)",
     "indicatorDefinitieId": "SK017_KWETS34_P"
   },
   {
@@ -12,7 +12,7 @@
     "indicatorDefinitieId": "WZJVOORZ_P"
   },
   {
-    "label": "Kindvriendelijkheid buurt (1-10)",
+    "label": "Kindvriendelijkheid buurt volgens ouders (1-10)",
     "indicatorDefinitieId": "Niet in BBGA"
   },
   {
@@ -20,7 +20,7 @@
     "indicatorDefinitieId": "WZZWAAR10_P"
   },
   {
-    "label": "Verdachten: % jeugdigen (12-24 jaar)",
+    "label": "Jeugdige verdachten (% 12-24 jaar)",
     "indicatorDefinitieId": "VJEUGDIGE_P"
   }
 ]

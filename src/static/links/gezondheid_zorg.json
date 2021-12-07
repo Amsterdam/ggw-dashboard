@@ -1,46 +1,46 @@
 [
   {
-    "label": "Ervaren gezondheid (zeer) goed",
+    "label": "Ervaren gezondheid (zeer) goed (% 18+)",
     "indicatorDefinitieId": "WZGEZOND_P"
   },
   {
-    "label": "Lichamelijke beperking (%)",
+    "label": "Lichamelijke beperking (% 18+)",
     "indicatorDefinitieId": "WZOESO_P"
   },
   {
-    "label": "Overgewicht of obesitas (%)",
+    "label": "Overgewicht of obesitas (% 18+)",
     "indicatorDefinitieId": "WZZWAAR_P"
   },
   {
-    "label": "Weinig regie eigen leven (%)",
+    "label": "Weinig regie eigen leven (% 18+)",
     "indicatorDefinitieId": "PREGIE_P"
   },
   {
-    "label": "(Zeer) ernstig eenzaam (%)",
+    "label": "(Zeer) ernstig eenzaam (% 18+)",
     "indicatorDefinitieId": "PEENZ_P"
   },
   {
-    "label": "Ernstig psychische klachten (%)",
+    "label": "Ernstig psychische klachten (% 18+)",
     "indicatorDefinitieId": "WZDEPR_P"
   },
   {
-    "label": "Voldoet aan beweegnorm (%)",
+    "label": "Voldoet aan beweegnorm (% 18+)",
     "indicatorDefinitieId": "WZBEWEEG_P"
   },
   {
-    "label": "Rokers (%)",
+    "label": "Rokers (% 18+)",
     "indicatorDefinitieId": "WZROOK_P"
   },
   {
-    "label": "Zwaar/overmatig alcohol (%)",
+    "label": "Zwaar/overmatig alcohol (% 18+)",
     "indicatorDefinitieId": "WZALC_P"
   },
   {
-    "label": "Rapportcijfer zorgvoorzieningen",
+    "label": "Aanbod zorgvoorzieningen (1-10)",
     "indicatorDefinitieId": "WZZORGVOORZIENINGEN_R"
   },
   {
-    "label": "Mantelzorgers (%)",
+    "label": "Mantelzorgers (% 18+)",
     "indicatorDefinitieId": "PMANTEL_P"
   },
   {
@@ -56,7 +56,7 @@
     "indicatorDefinitieId": "WZAMBDAG_P"
   },
   {
-    "label": "Hulp bij huishouden (%66+)",
+    "label": "Hulp bij huishouden (% 66+)",
     "indicatorDefinitieId": "WZHBH_P"
   }
 ]

@@ -31,14 +31,20 @@ const OpenbareRuimte = () => {
       </Row>
       <Row>
         <Column span={6}>
-          <TextStatistic title="Oppervlakte:" gwb={gwb} indicatorId="OROPP" titleLeft Icon={OpenbareRuimteManSchep} />
+          <TextStatistic
+            title="Aantal hectare:"
+            gwb={gwb}
+            indicatorId="OROPP"
+            titleLeft={false}
+            Icon={OpenbareRuimteManSchep}
+          />
         </Column>
         <Column span={6}>
           <TextStatistic
             title="Verblijversdichtheidsindex:"
             gwb={gwb}
             indicatorId="ORVERBLIJF_I"
-            titleLeft
+            titleLeft={false}
             Icon={OpenbareRuimteGroep}
           />
         </Column>

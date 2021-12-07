@@ -62,14 +62,14 @@ const Economie = () => {
       <Row>
         <Column span={6}>
           <LineChart
-            title="Aantal vestigingen naar functie groep"
+            title="Aantal vestigingen naar functiegroep"
             config={vestigingenOntwikkeling}
             gwb={gwb}
           ></LineChart>
         </Column>
         <Column span={6}>
           <LineChart
-            title="Werkzame personen naar functiegroep"
+            title="Aantal werkzame personen naar functiegroep"
             config={werkzamepersonenOntwikkeling}
             gwb={gwb}
           ></LineChart>

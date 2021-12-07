@@ -1,18 +1,18 @@
 [
   {
-    "label": "Rapportcijfer aanbod sportgelegenheden (1-10)",
+    "label": "Aanbod sportgelegenheden (1-10)",
     "indicatorDefinitieId": "SRSPORTGELEGENHEDEN_R"
   },
   {
-    "label": "% Sportdeelname (5-80 jaar)",
+    "label": "Sportdeelname (% 5-80 jaar)",
     "indicatorDefinitieId": "SRSPORTDLN_P"
   },
   {
-    "label": "% voldoet aan beweegnorm",
+    "label": "Voldoet aan beweegnorm (% 18+)",
     "indicatorDefinitieId": "WZBEWEEG_P"
   },
   {
-    "label": "Rapportcijfer aanbod culturele voorzieningen (1-10)",
+    "label": "Aanbod culturele voorzieningen (1-10)",
     "indicatorDefinitieId": "SRCULTVOORZ_R"
   },
   {
@@ -20,7 +20,7 @@
     "indicatorDefinitieId": "SRCULTUUR_1000INW"
   },
   {
-    "label": "Culturele participatie",
+    "label": "Culturele participatie (% 18+)",
     "indicatorDefinitieId": "SRUIT4_P"
   }
 ]
