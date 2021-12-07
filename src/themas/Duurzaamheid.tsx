@@ -62,30 +62,6 @@ const Duurzaamheid = () => {
       </Row>
 
       <Row>
-        <Column span={4}>
-          <VerticalBarChart
-            title={ontwikkelingDuurzaamheid[3].label}
-            config={[ontwikkelingDuurzaamheid[3]]}
-            gwb={gwb}
-          ></VerticalBarChart>
-        </Column>
-        <Column span={4}>
-          <VerticalBarChart
-            title={ontwikkelingDuurzaamheid[4].label}
-            config={[ontwikkelingDuurzaamheid[4]]}
-            gwb={gwb}
-          ></VerticalBarChart>
-        </Column>
-        <Column span={4}>
-          <VerticalBarChart
-            title={ontwikkelingDuurzaamheid[5].label}
-            config={[ontwikkelingDuurzaamheid[5]]}
-            gwb={gwb}
-          ></VerticalBarChart>
-        </Column>
-      </Row>
-
-      <Row>
         <Column span={12}>
           <HeaderRow title={`${gwb?.naam} vergeleken met andere gebieden`} />
         </Column>
