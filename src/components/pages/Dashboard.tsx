@@ -17,7 +17,7 @@ import Jeugd from "../../themas/Jeugd";
 import Ouderen from "../../themas/Ouderen";
 import Veiligheid from "../../themas/Veiligheid";
 import Zorg from "../../themas/Zorg";
-import PageTemplate from "./PageTemplate";
+import PageTemplate from "../layout/PageTemplate";
 import GGWInformation from "../GGWInformation";
 import { useGWBSelection } from "../context/GWBContext";
 import { THEMAS, URL_THEMA_MAPPING } from "../../services/thema";
