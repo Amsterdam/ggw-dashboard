@@ -54,6 +54,16 @@ const VerticalBarChart = ({ title, gwb, config }) => {
       chartBase.layer[0].encoding.color.scale.range = colors;
     }
 
+    // If the indicator is a 'rapportcijfer' set the scale to 0 - 10. Unfortunately the only way for us to detect this is to check the labelKort property.
+    if (/.*(\(1-10\))/.test(chartdata[0].meta.labelKort)) {
+      chartBase.layer[0].encoding.y = {
+        ...chartBase.layer[0].encoding.y,
+        scale: {
+          domain: [0, 10],
+        },
+      };
+    }
+
     // console.log(JSON.stringify(chartBase));
 
     if (chartRef.current && chartBase.data.values.length > 0) {

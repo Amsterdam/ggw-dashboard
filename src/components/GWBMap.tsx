@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { Map, BaseLayer, constants } from "@amsterdam/arm-core";
 import { getGWBShapes, drawShapes } from "../services/map";
 import { COLOR } from "../services/colorcoding";
-import { DEFAULT_AMSTERDAM_MAPS_OPTIONS } from "@amsterdam/arm-core/lib/constants";
 
 const MapDiv = styled.div`
   display: flex;
@@ -50,7 +49,7 @@ const GWBMap = ({ gwb }) => {
         {gwb?.gebiedType} {gwb?.naam}
       </h2>
       <MapWrapper
-        options={{ ...DEFAULT_AMSTERDAM_MAPS_OPTIONS, zoomControl: true, maxZoom: 12, minZoom: 6 }}
+        options={{ ...constants.DEFAULT_AMSTERDAM_MAPS_OPTIONS, zoomControl: true, maxZoom: 12, minZoom: 6 }}
         setInstance={setMapInstance}
       >
         <BaseLayer baseLayer={constants.DEFAULT_AMSTERDAM_LAYERS[2].urlTemplate} />
