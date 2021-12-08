@@ -4,7 +4,6 @@ import { Column, Row, themeColor } from "@amsterdam/asc-ui";
 
 import "./App.scss";
 import Dashboard from "./components/pages/Dashboard";
-import GGWFooter from "./components/layout/GGWFooter";
 import { GWBProvider } from "./components/context/GWBContext";
 
 import { THEMAS } from "./services/thema";
@@ -37,7 +36,6 @@ function App() {
                 </Routes>
               </Router>
             </GWBProvider>
-            <GGWFooter />
           </InnerWrapper>
         </Column>
       </Row>
