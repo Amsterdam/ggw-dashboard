@@ -23,7 +23,7 @@ const Verschillen = ({ gwb, config }) => {
     <>
       <Row>
         <Column span={12}>
-          <HeaderRow title={`De verschillen in ${gwb?.naam}`} />
+          <HeaderRow title={`Verschillen in ${gwb?.naam}`} />
         </Column>
       </Row>
       <Row> 
