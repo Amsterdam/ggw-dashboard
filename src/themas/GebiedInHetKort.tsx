@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { Column, Row, themeSpacing } from "@amsterdam/asc-ui";
 
-import Verschillen from "../components/Verschillen";
 import DataTable from "../components/DataTable";
 import ThemeHeader from "../components/ThemeHeader";
 import Car from "../components/Icons/Car";
@@ -34,7 +33,6 @@ const GebiedInHetKort = () => {
           <HeaderRow title={`Gebied in het kort ${gwb?.naam}`} />
         </Column>
       </Row>
-      <Verschillen gwb={gwb} config={gebiedInHetKortConfig} />
       <Row>
         <Column span={6}>
           <div></div>

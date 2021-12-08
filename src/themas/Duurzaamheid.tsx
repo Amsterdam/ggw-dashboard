@@ -8,6 +8,7 @@ import HeaderRow from "../components/layout/HeaderRow";
 
 import ThemeHeader from "../components/ThemeHeader";
 import VerticalBarChart from "../components/VerticalBarChart";
+import Verschillen from "../components/Verschillen";
 import { DUURZAAMHEID } from "../services/thema";
 
 import ontwikkelingDuurzaamheid from "../static/links/ontwikkeling_duurzaamheid.json";
@@ -31,6 +32,8 @@ const Duurzaamheid = () => {
           <div></div>
         </Column>
       </Row>
+
+      <Verschillen gwb={gwb} config={ontwikkelingDuurzaamheid} />
 
       <Row>
         <Column span={12}>

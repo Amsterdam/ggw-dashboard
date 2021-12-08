@@ -5,6 +5,7 @@ import HeaderRow from "../components/layout/HeaderRow";
 import { useGWBSelection } from "../components/context/GWBContext";
 import VerticalBarChart from "../components/VerticalBarChart";
 import Car from "../components/Icons/Car";
+import Verschillen from "../components/Verschillen";
 
 import { OUDEREN } from "../services/thema";
 
@@ -52,6 +53,8 @@ const Ouderen = () => {
           <div>TODO: Informatie over tabel moet nog aangeleverd worden.</div>
         </Column>
       </Row>
+
+      <Verschillen gwb={gwb} config={ouderen} />
 
       <Row>
         <Column span={6}>

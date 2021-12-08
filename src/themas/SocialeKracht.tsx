@@ -5,6 +5,7 @@ import VerticalBarChart from "../components/VerticalBarChart";
 import ThemeHeader from "../components/ThemeHeader";
 import DataTable from "../components/DataTable";
 import Car from "../components/Icons/Car";
+import Verschillen from "../components/Verschillen";
 
 import { SOCIALE_KRACHT } from "../services/thema";
 
@@ -42,6 +43,7 @@ const SocialeKracht = () => {
           <MostVulnerableCitizens gwb={gwb} />
         </Column>
       </Row>
+      <Verschillen gwb={gwb} config={socialekrachtcijfers} />
       <Row>
         <Column span={12}>
           <Spacer />

@@ -5,7 +5,7 @@ import HeaderRow from "../components/layout/HeaderRow";
 import { useGWBSelection } from "../components/context/GWBContext";
 import VerticalBarChart from "../components/VerticalBarChart";
 import Gezondheid from "../components/Icons/GezondheidThema";
-
+import Verschillen from "../components/Verschillen";
 import { GEZONDHEID_ZORG } from "../services/thema";
 
 import gezondheidCijfers from "../static/links/gezondheid_zorg.json";
@@ -20,6 +20,7 @@ const Zorg = () => {
           <HeaderRow title={`Gezondheid en welzijn in ${gwb?.naam} en Amsterdam`} />
         </Column>
       </Row>
+      <Verschillen gwb={gwb} config={gezondheidCijfers} />
       <Row>
         <Column span={4}>
           <VerticalBarChart

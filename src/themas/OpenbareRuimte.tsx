@@ -17,6 +17,7 @@ import { useGWBSelection } from "../components/context/GWBContext";
 import DevelopmentThemeHeader from "../components/DevelopmentThemeHeader";
 import OpenbareRuimteGroep from "../components/Icons/OpenbareRuimteGroep";
 import OpenbareRuimteManSchep from "../components/Icons/OpenbareRuimteManSchep";
+import Verschillen from "../components/Verschillen";
 
 const OpenbareRuimte = () => {
   const gwb = useGWBSelection();
@@ -42,6 +43,7 @@ const OpenbareRuimte = () => {
           />
         </Column>
       </Row>
+      <Verschillen gwb={gwb} config={openbareruimtecijfers} />
       <Row>
         <Column span={6}>
           <BodemgebruikStackedBar gwb={gwb} />
