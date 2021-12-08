@@ -12,6 +12,7 @@ import ThemeHeader from "../components/ThemeHeader";
 import Car from "../components/Icons/Car";
 import LegendTable from "../components/LegendTable";
 import { useGWBSelection } from "../components/context/GWBContext";
+import Verschillen from "../components/Verschillen";
 
 import woningVoorraad from "../static/links/woningvoorraad.json";
 import sociaalEconomisch from "../static/links/sociaaleconomisch.json";
@@ -40,6 +41,8 @@ const GebiedInHetKort = () => {
           <Heading as="h2">Samenstelling woningvoorraad en bevolking van {gwb?.naam}</Heading>
         </Column>
       </Row>
+
+      <Verschillen gwb={gwb} config={gebiedInHetKortConfig} />
 
       <Row>
         <Column span={12}>
