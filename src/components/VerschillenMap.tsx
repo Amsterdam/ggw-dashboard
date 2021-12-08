@@ -1,5 +1,6 @@
 import 'leaflet/dist/leaflet.css';
 
+// @ts-ignore
 import { useState, useEffect } from "react";
 import { Spinner } from "@amsterdam/asc-ui";
 import util from "../services/util";
@@ -36,7 +37,7 @@ const VerschillenMap = ({ gwb, indicatorDefinitieId })  => {
       const cijfer = cijfers.find((sd) => sd.gebiedcode15 === feature.properties.vollcode || sd.gebiedcode15 === feature.properties.code);
       
       const colors = getColor({ indicatorDefinitieId: indicatorDefinitieId, kleurenpalet: 1 }, cijfer?.waarde, cijfer?.jaar, stdevs);
-    
+
       return {
         ...feature,
         properties: {

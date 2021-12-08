@@ -1,3 +1,4 @@
+// @ts-ignore
 import { useEffect, useRef, useState } from "react";
 import vegaEmbed from "vega-embed";
 import cloneDeep from "lodash/cloneDeep";
