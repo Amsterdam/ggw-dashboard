@@ -8,7 +8,6 @@ import DataTable from "../components/DataTable";
 import SocialeKlasseStackedBar from "../components/charts/SocialeKlasseStackedBar";
 import LeeftijdJeugdStackedBar from "../components/charts/LeeftijdJeudStackedBar";
 import ThemeHeader from "../components/ThemeHeader";
-import Verschillen from "../components/Verschillen"
 
 import Car from "../components/Icons/Car";
 import LegendTable from "../components/LegendTable";
@@ -47,8 +46,6 @@ const GebiedInHetKort = () => {
           <Heading as="h2">Verschillen in {gwb?.naam}</Heading>
         </Column>
       </Row>
-      
-      <Verschillen gwb={gwb} />
 
       <Row>
         <Column
