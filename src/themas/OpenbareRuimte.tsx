@@ -14,6 +14,9 @@ import BodemgebruikStackedBar from "../components/charts/BodemgebruikStackedBar"
 import SamenstellingVerblijversStackedBar from "../components/charts/SamenstellingVerblijversStackedBar";
 import HeaderRow from "../components/layout/HeaderRow";
 import { useGWBSelection } from "../components/context/GWBContext";
+import DevelopmentThemeHeader from "../components/DevelopmentThemeHeader";
+import OpenbareRuimteGroep from "../components/Icons/OpenbareRuimteGroep";
+import OpenbareRuimteManSchep from "../components/Icons/OpenbareRuimteManSchep";
 
 const OpenbareRuimte = () => {
   const gwb = useGWBSelection();
@@ -28,10 +31,15 @@ const OpenbareRuimte = () => {
       </Row>
       <Row>
         <Column span={6}>
-          <TextStatistic title="Oppervlakte:" gwb={gwb} indicatorId="OROPP" titleLeft />
+          <TextStatistic title="Aantal hectare:" gwb={gwb} indicatorId="OROPP" Icon={OpenbareRuimteManSchep} />
         </Column>
         <Column span={6}>
-          <TextStatistic title="Verblijversdichtheidsindex:" gwb={gwb} indicatorId="ORVERBLIJF_I" titleLeft />
+          <TextStatistic
+            title="Verblijversdichtheidsindex:"
+            gwb={gwb}
+            indicatorId="ORVERBLIJF_I"
+            Icon={OpenbareRuimteGroep}
+          />
         </Column>
       </Row>
       <Row>
@@ -44,7 +52,7 @@ const OpenbareRuimte = () => {
       </Row>
       <Row>
         <Column span={12}>
-          <HeaderRow title={`De ontwikkeling van ${OPENBARE_RUIMTE} in ${gwb?.naam} en Amsterdam`} />
+          <DevelopmentThemeHeader theme={OPENBARE_RUIMTE} location={gwb?.naam} />
         </Column>
       </Row>
       <Row>

@@ -1,22 +1,22 @@
 [
   {
-    "label": "Rapportcijfer eigen buurt",
+    "label": "Tevredenheid met eigen buurt (1-10)",
     "indicatorDefinitieId": "Lbuurt_r"
   },
   {
-    "label": "Rapportcijfer verwachte buurtontwikkeling",
+    "label": "Verwachte buurtontwikkeling (1-10)",
     "indicatorDefinitieId": "LVERWACHTINGBUURT_R"
   },
   {
-    "label": "Rapportcijfer eigen woning",
+    "label": "Tevredenheid met eigen woning (1-10)",
     "indicatorDefinitieId": "WWONING_R"
   },
   {
-    "label": "WOZ-waarde per m2 ",
+    "label": "WOZ-waarde (€ per m2)",
     "indicatorDefinitieId": "WWOZ_M2"
   },
   {
-    "label": "Gemiddelde huur vrije sector",
+    "label": "Gemiddelde huur vrije sector (€)",
     "indicatorDefinitieId": "WHUURVRIJ_GEM"
   },
   {

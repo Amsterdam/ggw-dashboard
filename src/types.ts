@@ -9,8 +9,12 @@ export interface StdType {
     standaardafwijking: number
   }
   
-  export interface MetaType {
+export interface MetaType {
     indicatorDefinitieId: string
     kleurenpalet: number
   }
   
+
+export type ConfigEnirched = { indicatorDefinitieId: string; labelKort: string };
+
+export type Config = {indicatorDefinitieId: string}; 

@@ -18,18 +18,25 @@
     }
   },
   "data": { "values": [] },
+  "transform": [{ "calculate": "split(datum.gebied, ' ')", "as": "gebied" }],
   "encoding": {
     "x": {
       "field": "value",
       "title": null,
       "scale": {
         "domain": [0, 100]
+      },
+      "axis": {
+        "tickCount": 5
       }
     },
     "y": {
       "field": "gebied",
       "title": null,
-      "sort": { "order": "descending" }
+      "sort": { "order": "descending" },
+      "axis": {
+        "ticks": false
+      }
     }
   },
   "layer": [

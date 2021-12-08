@@ -1,10 +1,10 @@
 [
   {
-    "label": "Winkelaanbod dagelijkse boodschappen",
+    "label": "Winkelaanbod dagelijkse boodschappen (1-10)",
     "indicatorDefinitieId": "BHWINKELAANBOD_R"
   },
   {
-    "label": "Rapportcijfer horeca",
+    "label": "Horeca-aanbod (1-10)",
     "indicatorDefinitieId": "BHHORECAAANBOD_R"
   },
   {
@@ -16,7 +16,7 @@
     "indicatorDefinitieId": "BHWINK_1000INW"
   },
   {
-    "label": "Leegstand kantoorruimtes m2 %",
+    "label": "Leegstand kantoorruimtes (% m2)",
     "indicatorDefinitieId": "BHKANTRUIM_M2LEEG_P"
   },
   {

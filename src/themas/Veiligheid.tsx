@@ -2,7 +2,6 @@ import { Column, Row } from "@amsterdam/asc-ui";
 
 import VerticalBarChart from "../components/VerticalBarChart";
 import ThemeHeader from "../components/ThemeHeader";
-import Car from "../components/Icons/Car";
 
 import { VEILIGHEID } from "../services/thema";
 
@@ -11,17 +10,19 @@ import overlastcijfers from "../static/links/overlast_kerncijfers.json";
 
 import HeaderRow from "../components/layout/HeaderRow";
 import { useGWBSelection } from "../components/context/GWBContext";
+import DevelopmentThemeHeader from "../components/DevelopmentThemeHeader";
+import VeiligheidThema from "../components/Icons/VeiligheidThema";
 
 const Veiligheid = () => {
   const gwb = useGWBSelection();
 
   return (
     <>
-      <ThemeHeader gwb={gwb} themeTitle={VEILIGHEID} Icon={Car} />
+      <ThemeHeader gwb={gwb} themeTitle={VEILIGHEID} Icon={VeiligheidThema} />
 
       <Row>
         <Column span={12}>
-          <HeaderRow title={`De ontwikkeling van veiligheid in ${gwb?.naam} en Amsterdam`} />
+          <DevelopmentThemeHeader theme={"veiligheid"} location={gwb?.naam} />
         </Column>
       </Row>
       <Row>
@@ -74,7 +75,7 @@ const Veiligheid = () => {
 
       <Row>
         <Column span={12}>
-          <HeaderRow title={`De ontwikkeling van overlast in ${gwb?.naam} en Amsterdam`} />
+          <DevelopmentThemeHeader theme={"overlast"} location={gwb?.naam} />
         </Column>
       </Row>
 

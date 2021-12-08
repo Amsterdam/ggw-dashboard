@@ -1,12 +1,11 @@
 import { Column, Row } from "@amsterdam/asc-ui";
 
 import SocialeKlasseStackedBar from "../components/charts/SocialeKlasseStackedBar";
-import StackedHorizontalBarChart from "../components/StackedHorizontalBarChart";
 import VerticalBarChart from "../components/VerticalBarChart";
 import TextStatistic from "../components/TextStatistic";
 
-import { WERK_INKOMEN_EN_PARTICIPATIE } from "../services/thema";
-import gemmInkomen from "../static/links/gemm_besteedbaar_inkomen.json";
+import { WERK_INKOMEN } from "../services/thema";
+
 import werkloosheid from "../static/links/werkloosheid.json";
 import minimahuishoudens from "../static/links/minimahuishoudens.json";
 import gemiddeldBesteedbaarInkomen from "../static/links/gemm_besteedbaarinkomen.json";
@@ -17,16 +16,18 @@ import ThemeHeader from "../components/ThemeHeader";
 import Car from "../components/Icons/Car";
 import HeaderRow from "../components/layout/HeaderRow";
 import { useGWBSelection } from "../components/context/GWBContext";
+import DevelopmentThemeHeader from "../components/DevelopmentThemeHeader";
+import InkomenNaarLandelijkStackedBar from "../components/charts/InkomenNaarLandelijkStackedBar";
 
 const Werk = () => {
   const gwb = useGWBSelection();
 
   return (
     <>
-      <ThemeHeader gwb={gwb} themeTitle={WERK_INKOMEN_EN_PARTICIPATIE} Icon={Car} />
+      <ThemeHeader gwb={gwb} themeTitle={WERK_INKOMEN} Icon={Car} />
       <Row>
         <Column span={12}>
-          <HeaderRow title={`Samenstelling ${WERK_INKOMEN_EN_PARTICIPATIE} in ${gwb?.naam}`} />
+          <HeaderRow title={`Samenstelling ${WERK_INKOMEN} in ${gwb?.naam}`} />
         </Column>
       </Row>
       <Row>
@@ -42,29 +43,46 @@ const Werk = () => {
           <SocialeKlasseStackedBar gwb={gwb} />
         </Column>
         <Column span={6}>
-          <StackedHorizontalBarChart
-            title="Inkomen naar landelijke 20% groepen"
-            config={gemmInkomen}
-            gwb={gwb}
-          ></StackedHorizontalBarChart>
+          <InkomenNaarLandelijkStackedBar gwb={gwb}></InkomenNaarLandelijkStackedBar>
         </Column>
       </Row>
       <Row>
         <Column span={12}>
-          <HeaderRow
-            title={`De ontwikkeling van ${WERK_INKOMEN_EN_PARTICIPATIE} in ${gwb?.naam} en
-            Amsterdam`}
-          />
+          <DevelopmentThemeHeader theme={WERK_INKOMEN} location={gwb?.naam} />
         </Column>
       </Row>
       <Row>
-        <Column span={4}>
+        <Column
+          span={{
+            small: 1,
+            medium: 1,
+            big: 3,
+            large: 6,
+            xLarge: 4,
+          }}
+        >
           <VerticalBarChart title={werkloosheid[0].label} config={werkloosheid} gwb={gwb}></VerticalBarChart>
         </Column>
-        <Column span={4}>
+        <Column
+          span={{
+            small: 1,
+            medium: 1,
+            big: 3,
+            large: 6,
+            xLarge: 4,
+          }}
+        >
           <VerticalBarChart title={minimahuishoudens[0].label} config={minimahuishoudens} gwb={gwb}></VerticalBarChart>
         </Column>
-        <Column span={4}>
+        <Column
+          span={{
+            small: 1,
+            medium: 6,
+            big: 3,
+            large: 6,
+            xLarge: 4,
+          }}
+        >
           <VerticalBarChart
             title={gemiddeldBesteedbaarInkomen[0].label}
             config={gemiddeldBesteedbaarInkomen}

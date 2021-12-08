@@ -55,7 +55,6 @@ export async function getGeometries(gebiedType) {
   return geometries;
 }
 
-
 const allGeometries = {};
 
 export async function getGeometriesGeoJson(gebiedType) {

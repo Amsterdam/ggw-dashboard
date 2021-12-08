@@ -4,7 +4,7 @@ export const GWBContext = React.createContext<{ gwb?: any; setGWB?: (gwb: any) =
 
 export const GWBProvider = ({ children }) => {
   // TODO: Create gwb type.
-  const [gwb, setGWB] = useState<any>(); // Init on entire city.
+  const [gwb, setGWB] = useState<any>();
 
   return (
     <GWBContext.Provider

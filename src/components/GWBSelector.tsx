@@ -174,11 +174,11 @@ const GWBSelector = () => {
         wijken,
         buurten,
       });
-    } else {
-      updateStadsDeel(gwbSelection.stadsDeel);
-    }
 
-    setGWB && setGWB(gebiedDetail);
+      setGWB && setGWB(gebiedDetail);
+    } else {
+      updateStadsDeel(null);
+    }
   };
 
   const updateWijk = async (wijkCode) => {

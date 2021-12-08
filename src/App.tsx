@@ -9,6 +9,7 @@ import { GWBProvider } from "./components/context/GWBContext";
 
 import { THEMAS } from "./services/thema";
 import util from "./services/util";
+import ColorDetails from "./components/pages/ColorDetails";
 
 const OuterWrapper = styled.div`
   background-color: ${themeColor("tint", "level3")};
@@ -29,6 +30,7 @@ function App() {
             <GWBProvider>
               <Router>
                 <Routes>
+                  <Route path="/kleuren-legenda" element={<ColorDetails />} />
                   <Route path="/" element={<Dashboard thema={THEMAS[0]} />}>
                     <Route path="/:thema" element={<Dashboard />} />
                   </Route>

@@ -127,19 +127,6 @@ export default {
                 },
               ],
             },
-            update: {
-              interpolate: {
-                value: "natural",
-              },
-              fillOpacity: {
-                value: 1,
-              },
-            },
-            hover: {
-              fillOpacity: {
-                value: 1,
-              },
-            },
           },
         },
       ],

@@ -33,7 +33,9 @@ const VerticalBarChart = ({ title, gwb, config }) => {
     const stdevs = await getOneStd(variabele);
 
     // Only use last 10 years
-    const cijfers = chartdata[0].cijfers.length > 10 ? chartdata[0].cijfers.slice(-10) : chartdata[0].cijfers;
+    const cijfers = chartdata[0].cijfers?.length > 10 ? chartdata[0].cijfers.slice(-10) : chartdata[0].cijfers;
+
+    const kleurenpalet = chartdata[0]?.meta?.kleurenpalet || 1;
 
     chartBase.data.values = (cijfers || [])
       .filter((d) => d.waarde)
@@ -42,9 +44,8 @@ const VerticalBarChart = ({ title, gwb, config }) => {
           ({
             key: d.jaar,
             value: d.waarde ? d.waarde : "Geen gegevens",
-            color: getColor({ indicatorDefinitieId: variabele, kleurenpalet: 1 }, d.waarde, d.jaar, stdevs).color,
-            textColor: getColor({ indicatorDefinitieId: variabele, kleurenpalet: 1 }, d.waarde, d.jaar, stdevs)
-              .textColor,
+            color: getColor({ indicatorDefinitieId: variabele, kleurenpalet }, d.waarde, d.jaar, stdevs).color,
+            textColor: getColor({ indicatorDefinitieId: variabele, kleurenpalet }, d.waarde, d.jaar, stdevs).textColor,
             gemiddelde: stdevs.find((sd) => sd.jaar === d.jaar).gemiddelde,
             last: cijfers.length === i + 1,
           } as MapResult),
@@ -54,10 +55,25 @@ const VerticalBarChart = ({ title, gwb, config }) => {
       chartBase.layer[0].encoding.color.scale.range = colors;
     }
 
+    if (kleurenpalet === 2) {
+      chartBase.layer[1].mark.color = "#000000";
+    }
+
+    // If the indicator is a 'rapportcijfer' set the scale to 0 - 10. Unfortunately the only way for us to detect this is to check the labelKort property.
+    if (/.*(\(1-10\))/.test(chartdata[0].meta.labelKort)) {
+      chartBase.layer[0].encoding.y = {
+        ...chartBase.layer[0].encoding.y,
+        scale: {
+          domain: [0, 10],
+        },
+      };
+    }
+
     // console.log(JSON.stringify(chartBase));
 
     if (chartRef.current && chartBase.data.values.length > 0) {
       setIsLoading(false);
+      setShowError(false);
       vegaEmbed(chartRef.current, chartBase, vegaEmbedOptions);
     } else {
       setIsLoading(false);
@@ -76,11 +92,11 @@ const VerticalBarChart = ({ title, gwb, config }) => {
 
   return (
     <div>
-      <h5 className="text-center">{title}</h5>
+      <h4 className="text-center">{title}</h4>
       <div className="chart-container">
         {isLoading ? <Spinner /> : null}
         {showError && <p>Op dit schaalniveau is helaas geen informatie beschikbaar.</p>}
-        <div ref={chartRef}></div>
+        {!showError && <div ref={chartRef}></div>}
       </div>
     </div>
   );

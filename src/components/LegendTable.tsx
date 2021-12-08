@@ -17,6 +17,10 @@ const LegendColumn = styled.div`
   width: 20%;
   padding: ${themeSpacing(2)};
   border-right: 1px solid ${themeColor("tint", "level7")};
+
+  > ul {
+    margin-bottom: 0px;
+  }
 `;
 
 const LegendRow = styled.div`
@@ -32,10 +36,13 @@ const ColumnHeading = styled(Paragraph)`
   text-align: center;
   margin-bottom: 0px;
   font-weight: 500;
+  font-size: 16px !important;
 `;
 
 const listItems = colorLegend.map((color) => {
   return styled(ListItem)`
+    font-size: 16px !important;
+
     &::before {
       background-color: ${color} !important;
     }
@@ -56,7 +63,7 @@ const LegendTable = ({
   const [dataTable, setDataTable] = useState<{ [key: string]: string[] }>();
 
   useEffect(() => {
-    if (!gwb || gwb?.code === "STAD") {
+    if (!gwb) {
       return;
     }
 

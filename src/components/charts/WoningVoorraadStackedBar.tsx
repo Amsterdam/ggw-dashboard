@@ -4,18 +4,9 @@ import StackedHorizontalBarChart from "../StackedHorizontalBarChart";
 
 import stackedVegaSpec from "../../static/charts/stackedhorizontalbar.json";
 import woningvoorraad from "../../static/links/woningvoorraad.json";
-import { getColorsUsingStaticDefinition } from "../../services/colorcoding";
 
 const WoningVoorraadStackedBar = ({ gwb }) => {
   const customSpec = cloneDeep(stackedVegaSpec);
-  const colors = getColorsUsingStaticDefinition(woningvoorraad);
-
-  customSpec.layer[0].encoding.color["field"] = "i";
-  customSpec.layer[0].encoding.color.legend["labelExpr"] =
-    "datum.value == 0 ? 'Koop' : datum.value == 1 ? 'Particuliere huur' : 'Corporatiebezit'";
-  customSpec.layer[0].encoding.color["scale"] = {
-    range: colors,
-  };
 
   return (
     <StackedHorizontalBarChart

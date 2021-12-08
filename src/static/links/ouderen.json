@@ -1,0 +1,26 @@
+[
+  {
+    "label": "Woning geschikt om oud in te worden (% 65+)",
+    "indicatorDefinitieId": "WGESCHIKTOUD65_P"
+  },
+  {
+    "label": "Buurt geschikt voor ouderen volgens 65+ (1-10)",
+    "indicatorDefinitieId": "L65PLUSOUD_R"
+  },
+  {
+    "label": "75-plussers op begane grond of met lift (%)",
+    "indicatorDefinitieId": "WLIFTBG75_P"
+  },
+  {
+    "label": "Meest kwetsbare ouderen (% 66+)",
+    "indicatorDefinitieId": "SK66PLUS_KWETS34_P"
+  },
+  {
+    "label": "Minimaouderen (% 66+)",
+    "indicatorDefinitieId": "IMINOUD120_P"
+  },
+  {
+    "label": "Met zorgvoorziening (% 66+)",
+    "indicatorDefinitieId": "WZZORG66PLUS_P"
+  }
+]

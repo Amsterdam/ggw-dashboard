@@ -2,7 +2,8 @@ import { Column, Row } from "@amsterdam/asc-ui";
 import WoningenNaarEnergieStackedBar from "../components/charts/WoningenNaarEnergieStackedBar";
 
 import { useGWBSelection } from "../components/context/GWBContext";
-import Car from "../components/Icons/Car";
+import DevelopmentThemeHeader from "../components/DevelopmentThemeHeader";
+import DuurzaamheidThema from "../components/Icons/DuurzaamheidThema";
 import HeaderRow from "../components/layout/HeaderRow";
 
 import ThemeHeader from "../components/ThemeHeader";
@@ -16,7 +17,7 @@ const Duurzaamheid = () => {
 
   return (
     <>
-      <ThemeHeader gwb={gwb} themeTitle={DUURZAAMHEID} Icon={Car} />
+      <ThemeHeader gwb={gwb} themeTitle={DUURZAAMHEID} Icon={DuurzaamheidThema} />
       <Row>
         <Column span={12}>
           <HeaderRow title={`Samenstelling ${DUURZAAMHEID} in ${gwb?.naam}`} />
@@ -33,10 +34,10 @@ const Duurzaamheid = () => {
 
       <Row>
         <Column span={12}>
-          <HeaderRow title={`De ontwikkeling van ${DUURZAAMHEID} in ${gwb?.naam} en Amsterdam`} />
+          <DevelopmentThemeHeader theme={DUURZAAMHEID} location={gwb?.naam} />
         </Column>
       </Row>
-      {/* <Row>
+      <Row>
         <Column span={4}>
           <VerticalBarChart
             title={ontwikkelingDuurzaamheid[0].label}
@@ -55,30 +56,6 @@ const Duurzaamheid = () => {
           <VerticalBarChart
             title={ontwikkelingDuurzaamheid[2].label}
             config={[ontwikkelingDuurzaamheid[2]]}
-            gwb={gwb}
-          ></VerticalBarChart>
-        </Column>
-      </Row>
-*/}
-      <Row>
-        {/*  <Column span={4}>
-          <VerticalBarChart
-            title={ontwikkelingDuurzaamheid[3].label}
-            config={[ontwikkelingDuurzaamheid[3]]}
-            gwb={gwb}
-          ></VerticalBarChart>
-        </Column>
-        <Column span={4}>
-          <VerticalBarChart
-            title={ontwikkelingDuurzaamheid[4].label}
-            config={[ontwikkelingDuurzaamheid[4]]}
-            gwb={gwb}
-          ></VerticalBarChart>
-        </Column>*/}
-        <Column span={4}>
-          <VerticalBarChart
-            title={ontwikkelingDuurzaamheid[5].label}
-            config={[ontwikkelingDuurzaamheid[5]]}
             gwb={gwb}
           ></VerticalBarChart>
         </Column>

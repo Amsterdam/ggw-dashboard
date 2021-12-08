@@ -12,15 +12,16 @@ export const BEVOLKING = "Bevolking";
 export const DUURZAAMHEID = "Duurzaamheid";
 export const ECONOMIE = "Economie";
 export const ONDERWIJS = "Onderwijs";
-export const OPENBARE_ORDE_EN_VEILIGHEID = "Openbare orde en veiligheid";
-export const STEDELIJKE_ONTWIKKELING_EN_WONEN = "Stedelijke ontwikkeling en wonen";
-export const VERKEER_EN_OPENBARE_RUIMTE = "Verkeer en Openbare ruimte";
-export const WELZIJN_ZORG_EN_SPORT = "Welzijn, zorg en sport";
-export const WERK_INKOMEN_EN_PARTICIPATIE = "Werk, inkomen en participatie";
+export const VERKEER = "Verkeer";
+export const SPORT_EN_CULTUUR = "Sport en cultuur";
+export const WERK_INKOMEN = "Werk en inkomen";
 export const WONEN = "Wonen";
 export const SOCIALE_KRACHT = "Sociale kracht";
 export const OPENBARE_RUIMTE = "Openbare ruimte";
 export const VEILIGHEID = "Veiligheid en Overlast";
+export const GEZONDHEID_ZORG = "Gezondheid en zorg";
+export const JEUGD = "Jeugd";
+export const OUDEREN = "Ouderen";
 
 /**
  * The total set of available themas of which the user can choose from
@@ -28,35 +29,37 @@ export const VEILIGHEID = "Veiligheid en Overlast";
 export const THEMAS = [
   IN_HET_KORT,
   BEVOLKING,
-  STEDELIJKE_ONTWIKKELING_EN_WONEN,
-  VERKEER_EN_OPENBARE_RUIMTE,
+  VERKEER,
   DUURZAAMHEID,
   ECONOMIE,
-  OPENBARE_ORDE_EN_VEILIGHEID,
   ONDERWIJS,
-  WERK_INKOMEN_EN_PARTICIPATIE,
-  WELZIJN_ZORG_EN_SPORT,
+  WERK_INKOMEN,
+  SPORT_EN_CULTUUR,
   WONEN,
   SOCIALE_KRACHT,
   OPENBARE_RUIMTE,
   VEILIGHEID,
+  GEZONDHEID_ZORG,
+  JEUGD,
+  OUDEREN,
 ];
 
 export const THEMA_URL_MAPPING = {
   [IN_HET_KORT]: "in-het-kort",
   [BEVOLKING]: "bevolking",
-  [STEDELIJKE_ONTWIKKELING_EN_WONEN]: "stedelijke-ontwikkeling-en-wonen",
-  [VERKEER_EN_OPENBARE_RUIMTE]: "verkeer-en-openbare-ruimte",
+  [VERKEER]: "verkeer",
   [DUURZAAMHEID]: "duurzaamheid",
   [ECONOMIE]: "economie",
-  [OPENBARE_ORDE_EN_VEILIGHEID]: "openbare-orde-en-veiligheid",
   [ONDERWIJS]: "onderwijs",
-  [WERK_INKOMEN_EN_PARTICIPATIE]: "werk-inkomen-en-participatie",
-  [WELZIJN_ZORG_EN_SPORT]: "welzijn-zorg-en-sport",
+  [WERK_INKOMEN]: "werk-en-inkomen",
+  [SPORT_EN_CULTUUR]: "sport-en-cultuur",
   [WONEN]: "wonen",
   [SOCIALE_KRACHT]: "sociale-kracht",
   [OPENBARE_RUIMTE]: "openbare-ruimte",
-  [VEILIGHEID]: "veiligheid",
+  [VEILIGHEID]: "veiligheid-en-overlast",
+  [GEZONDHEID_ZORG]: "gezondheid-en-zorg",
+  [JEUGD]: "jeugd",
+  [OUDEREN]: "ouderen",
 };
 
 export const URL_THEMA_MAPPING = THEMAS.reduce((acc, curr) => {

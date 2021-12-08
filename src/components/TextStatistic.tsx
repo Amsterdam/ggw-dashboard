@@ -5,8 +5,7 @@ import { Spinner, themeSpacing } from "@amsterdam/asc-ui";
 import util from "../services/util";
 
 const Wrapper = styled.div`
-  margin-top: ${themeSpacing(6)};
-  margin-bottom: ${themeSpacing(10)};
+  margin-bottom: ${themeSpacing(2)};
 `;
 
 const TextStatistic = ({
@@ -14,11 +13,13 @@ const TextStatistic = ({
   gwb,
   indicatorId,
   titleLeft = true,
+  Icon,
 }: {
   title: string;
   gwb: any;
   indicatorId: string;
   titleLeft?: boolean;
+  Icon?: ({ width, height }: { width?: string | undefined; height?: string | undefined }) => JSX.Element;
 }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState<string | null>(null);
@@ -33,7 +34,7 @@ const TextStatistic = ({
         },
       ]);
 
-      setData(apiData[apiData.length - 1]?.recent?.waarde || "-");
+      setData(util.formatNumber(apiData[apiData.length - 1]?.recent?.waarde) || "-");
     } catch (e) {
       console.error(e);
       setData("-");
@@ -56,12 +57,26 @@ const TextStatistic = ({
       <h3>
         {titleLeft && (
           <>
-            {title} {isLoading ? <Spinner /> : data}
+            {isLoading ? (
+              <Spinner />
+            ) : (
+              <>
+                {Icon && <Icon width={"72"} height={"72"} />}
+                {title} {data}
+              </>
+            )}
           </>
         )}
         {!titleLeft && (
           <>
-            {isLoading ? <Spinner /> : data} {title}
+            {isLoading ? (
+              <Spinner />
+            ) : (
+              <>
+                {Icon && <Icon width={"72"} height={"72"} />}
+                {data} {title}
+              </>
+            )}
           </>
         )}
       </h3>

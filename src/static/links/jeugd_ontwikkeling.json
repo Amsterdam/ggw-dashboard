@@ -1,0 +1,26 @@
+[
+  {
+    "label": "Minimajongeren (% 0-17 jaar)",
+    "indicatorDefinitieId": "IMINJONG120_P"
+  },
+  {
+    "label": "‘Meest kwetsbaar’ (% 0-17 jaar)",
+    "indicatorDefinitieId": "SK017_KWETS34_P"
+  },
+  {
+    "label": "Jongerenvoorzieningen goed (%)",
+    "indicatorDefinitieId": "WZJVOORZ_P"
+  },
+  {
+    "label": "Kindvriendelijkheid buurt volgens ouders (1-10)",
+    "indicatorDefinitieId": "Niet in BBGA"
+  },
+  {
+    "label": "Overgewicht of obesitas (%10-jarigen)",
+    "indicatorDefinitieId": "WZZWAAR10_P"
+  },
+  {
+    "label": "Jeugdige verdachten (% 12-24 jaar)",
+    "indicatorDefinitieId": "VJEUGDIGE_P"
+  }
+]

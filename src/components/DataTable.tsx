@@ -46,7 +46,7 @@ const DataTable = ({
       const maxYear = util.getMaxYear(cijfers);
 
       setSd(sdvars as StdType[]);
-      setYears([4, 3, 2, 1, 0].map((i) => maxYear - i));
+      setYears([6, 5, 4, 3, 2, 1, 0].map((i) => maxYear - i));
       setData(data);
     }
 
@@ -100,13 +100,13 @@ const DataTable = ({
     return Math.round((dataFinalYear?.waarde - dataFirstYear?.waarde) * 100) / 100;
   };
 
-  const formatValue = (value) => {
-    if (typeof value === "number") {
-      return new Intl.NumberFormat("nl-NL", { maximumSignificantDigits: 6 }).format(value);
-    }
+  // const formatValue = (value) => {
+  //   if (typeof value === "number") {
+  //     return new Intl.NumberFormat("nl-NL", { maximumSignificantDigits: 6 }).format(value);
+  //   }
 
-    return value;
-  };
+  //   return value;
+  // };
 
   return (
     <>
@@ -115,7 +115,7 @@ const DataTable = ({
           <TableHeader>
             <TableRow>
               <TableCell
-                colSpan={8 + (needCityAverage ? 1 : 0)}
+                colSpan={10 + (needCityAverage ? 1 : 0)}
                 style={{ borderBottom: "none", textAlign: "right", paddingBottom: "0px" }}
               >
                 Ontwikkeling laatste 4 jaar
@@ -206,7 +206,7 @@ const DataTable = ({
                             textAlign: "right",
                           }}
                         >
-                          {formatValue(yearData?.waarde) || "-"}
+                          {util.formatNumber(yearData?.waarde) || "-"}
                         </TableCell>
                       );
                     })}
@@ -218,8 +218,8 @@ const DataTable = ({
                         }}
                       >
                         {indicatorDevelopment > 0
-                          ? `+${formatValue(indicatorDevelopment)}`
-                          : formatValue(indicatorDevelopment)}
+                          ? `+${util.formatNumber(indicatorDevelopment)}`
+                          : util.formatNumber(indicatorDevelopment)}
                       </TableCell>
                     )}
                     <TableCell
@@ -229,8 +229,8 @@ const DataTable = ({
                       }}
                     >
                       {cityIndicatorDevelopment > 0
-                        ? `+${formatValue(cityIndicatorDevelopment)}`
-                        : formatValue(cityIndicatorDevelopment)}
+                        ? `+${util.formatNumber(cityIndicatorDevelopment)}`
+                        : util.formatNumber(cityIndicatorDevelopment)}
                     </TableCell>
                   </TableRow>
                 );

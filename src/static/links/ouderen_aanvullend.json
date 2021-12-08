@@ -1,0 +1,72 @@
+[
+  {
+    "label": "Ervaren gezondheid (65+)",
+    "categorie": "Welzijn",
+    "indicatorDefinitieId": "WZGEZOND65_P"
+  },
+  {
+    "label": "Beperking ADL (65+)",
+    "categorie": "Welzijn",
+    "indicatorDefinitieId": "WZADL_P"
+  },
+  {
+    "label": "Ernstig eenzaam (65+)",
+    "categorie": "Welzijn",
+    "indicatorDefinitieId": "PEENZ65_P"
+  },
+  {
+    "label": "Weinig regie over leven (65+)",
+    "categorie": "Welzijn",
+    "indicatorDefinitieId": "PREGIE65_P"
+  },
+  {
+    "label": "Mantelzorg verlenend (65+)",
+    "categorie": "Welzijn",
+    "indicatorDefinitieId": "PMANTEL65_P"
+  },
+  {
+    "label": "Alleenwonend (% 75+)",
+    "categorie": "Welzijn",
+    "indicatorDefinitieId": "BEV1P75PLUS_P"
+  },
+  {
+    "label": "Buurt Te groot wonend (65+)",
+    "categorie": "Buurt",
+    "indicatorDefinitieId": "WTEGROOT65_P"
+  },
+  {
+    "label": "Verhuisgeneigde 65+",
+    "categorie": "Buurt",
+    "indicatorDefinitieId": "WVERHUIS65_P"
+  },
+  {
+    "label": "Mensen helpen elkaar in de buurt (65+)",
+    "categorie": "Buurt",
+    "indicatorDefinitieId": "W65PLUSHELP_R"
+  },
+  {
+    "label": "Dagelijkse boodschappen (65+)",
+    "categorie": "Buurt",
+    "indicatorDefinitieId": "BH65PLUSWINKEL_R"
+  },
+  {
+    "label": "Zorgvoorzieningen (65+)",
+    "categorie": "Buurt",
+    "indicatorDefinitieId": "WZZORGVOORZ65_R"
+  },
+  {
+    "label": "Buurthuizen/wijkcentra (65+)",
+    "categorie": "Buurt",
+    "indicatorDefinitieId": "WZBUURTHUIZEN65_R"
+  },
+  {
+    "label": "OV (65+)",
+    "categorie": "Buurt",
+    "indicatorDefinitieId": "VKOV65_R"
+  },
+  {
+    "label": "Onveilig voelen ’s avonds (65+)",
+    "categorie": "Buurt",
+    "indicatorDefinitieId": "VVEILIGVOELEN65_P"
+  }
+]

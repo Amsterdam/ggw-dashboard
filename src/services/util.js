@@ -23,7 +23,7 @@ import {
   getDetail,
   GEBIED_TYPE,
 } from "./apis/gebieden";
-import { getAllMeta, getMeta, getAllCijfers, getVerschillenCijfers, getGebiedCijfers, CIJFERS, getStd } from "./apis/bbga";
+import { getAllMeta, getMeta, getAllCijfers, getGebiedCijfers, getVerschillenCijfers, CIJFERS, getStd } from "./apis/bbga";
 
 /**
  * Gets the most recent cijfers for a given configuration
@@ -218,6 +218,14 @@ const setVegaLocale = () => {
   });
 };
 
+const formatNumber = (value) => {
+  if (typeof value === "number") {
+    return new Intl.NumberFormat("nl-NL", { maximumSignificantDigits: 6 }).format(value);
+  }
+
+  return value;
+}
+
 /**
  * Util exports het methods in an object. Usage will therefore be like util.getCity instead of import {getCity} from util
  * This has been done for reasons of simplicity only
@@ -248,6 +256,7 @@ const util = {
   getYearCijfers,
   getStd,
   setVegaLocale,
+  formatNumber
 };
 
 export default util;

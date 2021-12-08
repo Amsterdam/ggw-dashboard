@@ -4,23 +4,11 @@
     "indicatorDefinitieId": "WLABELAB_P"
   },
   {
-    "label": "lucht: stikstof (%)",
-    "indicatorDefinitieId": "DSTIKSTOF"
-  },
-  {
-    "label": "lucht: fijn stof (%)",
-    "indicatorDefinitieId": "DFIJNSTOF"
-  },
-  {
-    "label": "Kilo afval per inwoner",
-    "indicatorDefinitieId": "DAFVALKILO_GEM"
-  },
-  {
-    "label": "Gescheiden afval (%)",
-    "indicatorDefinitieId": "DAFVALSCHEIDING_P"
-  },
-  {
     "label": "Niet-geïsoleerde woningen (%)",
     "indicatorDefinitieId": "DNIETISO_P"
+  },
+  {
+    "label": "Woningen met zonnepanelen of WTW",
+    "indicatorDefinitieId": "DZON_P"
   }
 ]

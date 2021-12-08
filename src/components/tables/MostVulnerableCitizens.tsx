@@ -34,7 +34,7 @@ const config = [
 ];
 
 const MostVulnerableCitizens = ({ gwb }) => {
-  return <DoubleIndicatorTable gwb={gwb} config={config} headerTitles={["Aantal", "%"]} />;
+  return <DoubleIndicatorTable gwb={gwb} config={config} headerTitles={["Aantal", "%"]} withTotalRow />;
 };
 
 export default MostVulnerableCitizens;
