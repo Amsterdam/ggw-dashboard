@@ -1,9 +1,15 @@
 // @ts-ignore
 import { useEffect, useState, FormEvent } from "react";
-import { Column, Row, Select } from "@amsterdam/asc-ui";
+import styled from "styled-components";
+import { Column, Row, Select, themeSpacing } from "@amsterdam/asc-ui";
 import VerschillenBarChart from "./VerschillenBarChart"
 import VerschillenMap from "./VerschillenMap"
 import HeaderRow from "../components/layout/HeaderRow";
+
+const StyledDiv = styled.div`
+  width: 100%;
+  margin-bottom: ${themeSpacing(4)};
+`
 
 const Verschillen = ({ gwb, config }) => {
   const [indicatorDefinitieId, setVar] = useState<string>('');
@@ -21,9 +27,11 @@ const Verschillen = ({ gwb, config }) => {
           <HeaderRow title={`De verschillen in ${gwb?.naam}`} />
         </Column>
       </Row>
-      <Row>
+      <Row> 
         <Column span={6}>
-          <Select
+          <StyledDiv>
+            <Select
+              style={{marginBottom: "10px"}}
               id="indicatorDefinitieId"
               value={indicatorDefinitieId}
               onChange={(event: FormEvent<HTMLSelectElement>) => {
@@ -38,6 +46,7 @@ const Verschillen = ({ gwb, config }) => {
                 );
               })}
             </Select>
+          </StyledDiv>
         </Column>
         <Column span={6}>
           &nbsp;
