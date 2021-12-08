@@ -1,19 +1,18 @@
+// @ts-ignore
 import { useEffect, useState, FormEvent } from "react";
 import { Column, Row, Select } from "@amsterdam/asc-ui";
 import VerschillenBarChart from "./VerschillenBarChart"
 import VerschillenMap from "./VerschillenMap"
 import HeaderRow from "../components/layout/HeaderRow";
 
-const Verschillen = ({ gwb }) => {
-  const [indicatorDefinitieId, setVariabele] = useState<string>('');
+const Verschillen = ({ gwb, config }) => {
+  const [indicatorDefinitieId, setVar] = useState<string>('');
   
-  const allVars = [
-    { key: "LBUURT_R", value: "Buurt: tevredenheid met eigen buurt (1-10)" },
-    { key: "ORVERLOED_P", value: "Verloederingscode" },
-  ]
-
+  console.log('Verschillen', config);
+  
   useEffect(() => {
-    setVariabele(allVars[0].key);
+    setVar(config[0].indicatorDefinitieId);
+
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -30,13 +29,13 @@ const Verschillen = ({ gwb }) => {
               id="indicatorDefinitieId"
               value={indicatorDefinitieId}
               onChange={(event: FormEvent<HTMLSelectElement>) => {
-                setVariabele(event.currentTarget.value);
+                setVar(event.currentTarget.value);
               }}
             >
-              {allVars.map((stadsDeel) => {
+              {config.map((stadsDeel) => {
                 return (
-                  <option key={stadsDeel.key} value={stadsDeel.key}>
-                    {stadsDeel.value}
+                  <option key={stadsDeel.indicatorDefinitieId} value={stadsDeel.indicatorDefinitieId}>
+                    {stadsDeel.label}
                   </option>
                 );
               })}
