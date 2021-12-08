@@ -18,6 +18,7 @@
     }
   },
   "data": { "values": [] },
+  "transform": [{ "calculate": "split(datum.gebied, ' ')", "as": "gebied" }],
   "encoding": {
     "x": {
       "field": "value",
