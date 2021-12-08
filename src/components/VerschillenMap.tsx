@@ -62,13 +62,12 @@ const VerschillenMap = ({ gwb, indicatorDefinitieId })  => {
     setJson(null);
 
     const gebied = await util.getGebiedCijfers(indicatorDefinitieId, gwb, util.CIJFERS.LATEST)
-
-    const gebiedType = util.getGebiedType(gwb.vollcode, true);
     
-    if (gebiedType === "Stad" || !gebied.cijfers) {
+    if (gwb.code === "STAD" || !gebied.cijfers) {
       setIsLoading(false);
       return;
     }     
+    const gebiedType = util.getGebiedType(gwb.vollcode || gwb.code, true);
 
     const cijfers = await util.getVerschillenCijfers(indicatorDefinitieId, gebiedType, gebied.cijfers.jaar);
 

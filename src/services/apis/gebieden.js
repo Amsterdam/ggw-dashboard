@@ -136,7 +136,7 @@ export async function getBuurten(wijk) {
  * @param gebiedCode
  * @returns {*}
  */
-export function getGebiedType(gebiedCode, notUrl)  {
+export function getGebiedType(gebiedCode, notUrl = false)  {
   if (/^[A-Z]$/.test(gebiedCode)) {
     return GEBIED_TYPE.Stadsdeel;
   } else if (/^DX\d\d$/.test(gebiedCode)) {
