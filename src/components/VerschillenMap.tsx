@@ -1,6 +1,5 @@
 import 'leaflet/dist/leaflet.css';
 
-// @ts-ignore
 import { useState, useEffect } from "react";
 import { Spinner } from "@amsterdam/asc-ui";
 import util from "../services/util";
@@ -86,9 +85,7 @@ const VerschillenMap = ({ gwb, indicatorDefinitieId })  => {
       return;
     }
 
-    updateData();
-    console.log("VerschillenMap", json);
-    
+    updateData();    
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gwb]);

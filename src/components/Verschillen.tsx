@@ -1,4 +1,3 @@
-// @ts-ignore
 import { useEffect, useState, FormEvent } from "react";
 import styled from "styled-components";
 import { Column, Row, Select, themeSpacing } from "@amsterdam/asc-ui";
