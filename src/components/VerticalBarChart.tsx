@@ -35,6 +35,8 @@ const VerticalBarChart = ({ title, gwb, config }) => {
     // Only use last 10 years
     const cijfers = chartdata[0].cijfers?.length > 10 ? chartdata[0].cijfers.slice(-10) : chartdata[0].cijfers;
 
+    const kleurenpalet = chartdata[0]?.meta?.kleurenpalet || 1;
+
     chartBase.data.values = (cijfers || [])
       .filter((d) => d.waarde)
       .map(
@@ -42,9 +44,8 @@ const VerticalBarChart = ({ title, gwb, config }) => {
           ({
             key: d.jaar,
             value: d.waarde ? d.waarde : "Geen gegevens",
-            color: getColor({ indicatorDefinitieId: variabele, kleurenpalet: 1 }, d.waarde, d.jaar, stdevs).color,
-            textColor: getColor({ indicatorDefinitieId: variabele, kleurenpalet: 1 }, d.waarde, d.jaar, stdevs)
-              .textColor,
+            color: getColor({ indicatorDefinitieId: variabele, kleurenpalet }, d.waarde, d.jaar, stdevs).color,
+            textColor: getColor({ indicatorDefinitieId: variabele, kleurenpalet }, d.waarde, d.jaar, stdevs).textColor,
             gemiddelde: stdevs.find((sd) => sd.jaar === d.jaar).gemiddelde,
             last: cijfers.length === i + 1,
           } as MapResult),
