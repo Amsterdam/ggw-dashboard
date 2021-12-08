@@ -37,6 +37,11 @@ const VerschillenBarChart = ({ gwb, indicatorDefinitieId }) => {
 
     const gebiedType = util.getGebiedType(gwb.vollcode || gwb.code, true)
 
+    if (!gebied.cijfers) {
+      setIsLoading(false);
+      return;
+    } 
+
     const cijfers = await util.getVerschillenCijfers(indicatorDefinitieId, gebiedType, gebied.cijfers.jaar)
 
     const stdevs = await getOneStd(indicatorDefinitieId);

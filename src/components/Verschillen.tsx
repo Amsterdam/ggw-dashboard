@@ -7,9 +7,7 @@ import HeaderRow from "../components/layout/HeaderRow";
 
 const Verschillen = ({ gwb, config }) => {
   const [indicatorDefinitieId, setVar] = useState<string>('');
-  
-  console.log('Verschillen', config);
-  
+   
   useEffect(() => {
     setVar(config[0].indicatorDefinitieId);
 

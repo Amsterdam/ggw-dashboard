@@ -66,10 +66,10 @@ const VerschillenMap = ({ gwb, indicatorDefinitieId })  => {
 
     const gebiedType = util.getGebiedType(gwb.vollcode, true);
     
-    if (gebiedType === "Stad") {
+    if (gebiedType === "Stad" || !gebied.cijfers) {
       setIsLoading(false);
       return;
-    } 
+    }     
 
     const cijfers = await util.getVerschillenCijfers(indicatorDefinitieId, gebiedType, gebied.cijfers.jaar);
 
@@ -120,7 +120,7 @@ const VerschillenMap = ({ gwb, indicatorDefinitieId })  => {
         color: feature?.properties?.color,
         fillColor: feature?.properties?.color,
         fillOpacity: 0.8,
-        strokeWidth: 1,
+        strokeWidth: "1px",
         strokeColor: "#666",
         strokeOpacity: 0.5
       });
