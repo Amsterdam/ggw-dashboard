@@ -117,8 +117,8 @@ const VerschillenMap = ({ gwb, indicatorDefinitieId })  => {
         color: feature?.properties?.color,
         fillColor: feature?.properties?.color,
         fillOpacity: 0.8,
-        strokeWidth: "1px",
-        strokeColor: "#666",
+        strokeWidth: 1,
+        stroke: "#666666",
         strokeOpacity: 0.5
       });
     }
