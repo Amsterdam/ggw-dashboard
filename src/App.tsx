@@ -3,8 +3,7 @@ import styled from "styled-components";
 import { Column, Row, themeColor } from "@amsterdam/asc-ui";
 
 import "./App.scss";
-import Dashboard from "./components/layout/Dashboard";
-import GGWFooter from "./components/layout/GGWFooter";
+import Dashboard from "./components/pages/Dashboard";
 import { GWBProvider } from "./components/context/GWBContext";
 
 import { THEMAS } from "./services/thema";
@@ -37,7 +36,6 @@ function App() {
                 </Routes>
               </Router>
             </GWBProvider>
-            <GGWFooter />
           </InnerWrapper>
         </Column>
       </Row>

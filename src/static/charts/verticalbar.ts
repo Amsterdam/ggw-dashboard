@@ -69,7 +69,7 @@ export default {
       },
       mark: {
         type: "line",
-        color: "#EC0000",
+        color: "#000000",
       },
     },
     {
@@ -141,7 +141,7 @@ export default {
       mark: {
         type: "text",
         align: "left",
-        color: "#EC0000",
+        color: "#000000",
         baseline: "middle",
         dx: 20,
         opacity: { expr: "datum.last ? 1 : 0 " },
