@@ -183,19 +183,21 @@ export async function getGebiedCijfers(variableName, gebied, recentOrAll = CIJFE
   return cacheResponse(`gebiedCijfers.${variableName}.${gebied.volledige_code}.${recentOrAll}`, getData);
 }
 
-export async function getVerschillenCijfers (variable, gebiedType, recentYear) {
+export async function getVerschillenCijfers(variable, gebiedType, recentYear) {
   // Sort and filter cijfers for gebiedType and waarde
   let cijfers = await getAllCijfers(variable, recentYear);
 
-  cijfers = cijfers.filter(c => c.waarde !== null);
-  cijfers = cijfers.filter(c => c.jaar === recentYear);
-  cijfers = cijfers.filter(c => getGebiedType(c.gebiedcode15, false) === gebiedType);
+  cijfers = cijfers.filter((c) => c.waarde !== null);
+  cijfers = cijfers.filter((c) => c.jaar === recentYear);
+  cijfers = cijfers.filter((c) => getGebiedType(c.gebiedcode15, false) === gebiedType);
   cijfers = cijfers.sort((c1, c2) => c2.waarde - c1.waarde);
 
   /**
    * Provide for an index that denotes the ranking of each gebied
    */
-  cijfers.forEach((c, i) => { c.ranking = i + 1 });
+  cijfers.forEach((c, i) => {
+    c.ranking = i + 1;
+  });
 
   return cijfers;
 }

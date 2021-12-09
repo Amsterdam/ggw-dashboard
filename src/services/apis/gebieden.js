@@ -136,7 +136,7 @@ export async function getBuurten(wijk) {
  * @param gebiedCode
  * @returns {*}
  */
-export function getGebiedType(gebiedCode, notUrl = false)  {
+export function getGebiedType(gebiedCode, notUrl = false) {
   if (/^[A-Z]$/.test(gebiedCode)) {
     return GEBIED_TYPE.Stadsdeel;
   } else if (/^DX\d\d$/.test(gebiedCode)) {
@@ -217,29 +217,24 @@ const GWB = {};
 
 export async function getAll() {
   const getData = async () => {
-    const results = await Promise.all([
-      getAllStadsdelen(),
-      getAllGebieden(),
-      getAllWijken(),
-      getAllBuurten(),
-    ]);
+    const results = await Promise.all([getAllStadsdelen(), getAllGebieden(), getAllWijken(), getAllBuurten()]);
 
     const gwbCollection = [...results[0], ...results[1], ...results[2], ...results[3]];
 
     gwbCollection.forEach((i) => {
-      GWB[i.vollcode] = {...i};
+      GWB[i.vollcode] = { ...i };
     });
 
     return gwbCollection;
   };
-  
+
   return cacheResponse("all", getData);
 }
 
 export function getGebied(code) {
-  if (code === 'STAD') {
+  if (code === "STAD") {
     return { naam: "Amsterdam" };
   }
 
-  return GWB[code]
+  return GWB[code];
 }

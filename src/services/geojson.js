@@ -22,8 +22,8 @@ const config = {
       "76542563,-1.8703473836068,4.0812 +no_defs",
     transformation: {
       resolutions: [
-        3440.64, 1720.32, 860.16, 430.08, 215.04, 107.52, 53.76, 26.88, 13.44,
-        6.72, 3.36, 1.68, 0.84, 0.42, 0.21, 0.105, 0.0525,
+        3440.64, 1720.32, 860.16, 430.08, 215.04, 107.52, 53.76, 26.88, 13.44, 6.72, 3.36, 1.68, 0.84, 0.42, 0.21,
+        0.105, 0.0525,
       ],
       bounds: [
         [-285401.92, 22598.08],
@@ -40,16 +40,9 @@ const config = {
 };
 
 const rdSettings = config.rd;
-rdSettings.transformation.bounds = L.bounds.apply(
-  null,
-  rdSettings.transformation.bounds
-);
+rdSettings.transformation.bounds = L.bounds.apply(null, rdSettings.transformation.bounds);
 
-export const rd = new L.Proj.CRS(
-  rdSettings.code,
-  rdSettings.projection,
-  rdSettings.transformation
-);
+export const rd = new L.Proj.CRS(rdSettings.code, rdSettings.projection, rdSettings.transformation);
 
 rd.distance = L.CRS.Earth.distance;
 rd.R = config.EARTH_RADIUS;
@@ -81,11 +74,7 @@ export const toPrecision = (x, decimals = PRECISION_DECIMALS) =>
  * @returns {*[]}
  */
 export function rdToWgs84(rdCoordinates) {
-  const wgs84Coordinates = proj4(
-    config.rd.projection,
-    config.wgs84.projection,
-    [rdCoordinates[0], rdCoordinates[1]]
-  );
+  const wgs84Coordinates = proj4(config.rd.projection, config.wgs84.projection, [rdCoordinates[0], rdCoordinates[1]]);
   return [wgs84Coordinates[0], wgs84Coordinates[1]].map((x) => toPrecision(x));
 }
 
@@ -96,10 +85,7 @@ export function rdToWgs84(rdCoordinates) {
  */
 export function rdPolygonToWgs84(geometry) {
   if (geometry.type !== "Polygon") {
-    console.error(
-      'Error in geometry type, "Polygon" was expected',
-      geometry.type
-    );
+    console.error('Error in geometry type, "Polygon" was expected', geometry.type);
     return;
   }
 
@@ -114,9 +100,7 @@ export function rdPolygonToWgs84(geometry) {
 
   return {
     type: "Polygon",
-    coordinates: [
-      geometry.coordinates[0].map((rdCoordinate) => rdToWgs84(rdCoordinate)),
-    ],
+    coordinates: [geometry.coordinates[0].map((rdCoordinate) => rdToWgs84(rdCoordinate))],
   };
 }
 
@@ -127,10 +111,7 @@ export function rdPolygonToWgs84(geometry) {
  */
 export function rdMultiPolygonToWgs84(geometry) {
   if (geometry.type !== "MultiPolygon") {
-    console.error(
-      'Error in geometry type, "MultiPolygon" was expected',
-      geometry.type
-    );
+    console.error('Error in geometry type, "MultiPolygon" was expected', geometry.type);
     return;
   }
 
@@ -161,9 +142,7 @@ export function rdMultiPolygonToWgs84(geometry) {
     rdPolygonCoordinates.forEach((rdCoordinateCollection) => {
       polygons.push({
         type: "Polygon",
-        coordinates: [
-          rdCoordinateCollection.map((rdCoordinate) => rdToWgs84(rdCoordinate)),
-        ],
+        coordinates: [rdCoordinateCollection.map((rdCoordinate) => rdToWgs84(rdCoordinate))],
       });
     });
   });
