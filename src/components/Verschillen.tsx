@@ -1,18 +1,18 @@
 import { useState, FormEvent } from "react";
 import styled from "styled-components";
 import { Column, Row, Select, themeSpacing } from "@amsterdam/asc-ui";
-import VerschillenBarChart from "./VerschillenBarChart"
-import VerschillenMap from "./VerschillenMap"
+import VerschillenBarChart from "./VerschillenBarChart";
+import VerschillenMap from "./VerschillenMap";
 import HeaderRow from "../components/layout/HeaderRow";
 
 const StyledDiv = styled.div`
   width: 100%;
   margin-bottom: ${themeSpacing(4)};
-`
+`;
 
 const Verschillen = ({ gwb, config }) => {
   const [indicatorDefinitieId, setVar] = useState<string>(config[0]?.indicatorDefinitieId);
-  
+
   return (
     <>
       <Row>
@@ -20,11 +20,11 @@ const Verschillen = ({ gwb, config }) => {
           <HeaderRow title={`Verschillen in ${gwb?.naam}`} />
         </Column>
       </Row>
-      <Row> 
+      <Row>
         <Column span={6}>
           <StyledDiv>
             <Select
-              style={{marginBottom: "10px"}}
+              style={{ marginBottom: "10px" }}
               id="indicatorDefinitieId"
               value={indicatorDefinitieId}
               onChange={(event: FormEvent<HTMLSelectElement>) => {
@@ -41,26 +41,18 @@ const Verschillen = ({ gwb, config }) => {
             </Select>
           </StyledDiv>
         </Column>
-        <Column span={6}>
-          &nbsp;
-        </Column>
+        <Column span={6}>&nbsp;</Column>
       </Row>
       <Row>
         <Column span={6}>
-          <VerschillenMap 
-            gwb={gwb}
-            indicatorDefinitieId={indicatorDefinitieId}
-          />
+          <VerschillenMap gwb={gwb} indicatorDefinitieId={indicatorDefinitieId} />
         </Column>
         <Column span={6}>
-          <VerschillenBarChart 
-            gwb={gwb}
-            indicatorDefinitieId={indicatorDefinitieId}
-          />
+          <VerschillenBarChart gwb={gwb} indicatorDefinitieId={indicatorDefinitieId} />
         </Column>
       </Row>
     </>
-  )
+  );
 };
 
 export default Verschillen;

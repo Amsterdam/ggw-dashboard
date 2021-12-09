@@ -14,7 +14,7 @@ const vegaEmbedOptions = {
   actions: false,
 };
 
-type MapResult = { 
+type MapResult = {
   gebied: string;
   label: string;
   value: string;
@@ -31,17 +31,17 @@ const VerschillenBarChart = ({ gwb, indicatorDefinitieId }) => {
     const chartBase = cloneDeep(vegaSpec);
 
     await getAll();
-    
-    const gebied = await util.getGebiedCijfers(indicatorDefinitieId, gwb, util.CIJFERS.LATEST)
+
+    const gebied = await util.getGebiedCijfers(indicatorDefinitieId, gwb, util.CIJFERS.LATEST);
 
     if (!gebied.cijfers) {
       setIsLoading(false);
       return;
-    } 
+    }
 
-    const gebiedType = util.getGebiedType(gwb.vollcode || gwb.code, true)
+    const gebiedType = util.getGebiedType(gwb.vollcode || gwb.code, true);
 
-    const cijfers = await util.getVerschillenCijfers(indicatorDefinitieId, gebiedType, gebied.cijfers.jaar)
+    const cijfers = await util.getVerschillenCijfers(indicatorDefinitieId, gebiedType, gebied.cijfers.jaar);
 
     const stdevs = await getOneStd(indicatorDefinitieId);
 
@@ -53,7 +53,8 @@ const VerschillenBarChart = ({ gwb, indicatorDefinitieId }) => {
             gebied: getGebied(d.gebiedcode15).naam,
             label: gebied?.meta?.label,
             value: d.waarde ? d.waarde : "Geen gegevens",
-            color: getColor({ indicatorDefinitieId: indicatorDefinitieId, kleurenpalet: 1 }, d?.waarde, d?.jaar, stdevs).color,
+            color: getColor({ indicatorDefinitieId: indicatorDefinitieId, kleurenpalet: 1 }, d?.waarde, d?.jaar, stdevs)
+              .color,
           } as MapResult),
       ) as MapResult[];
 
