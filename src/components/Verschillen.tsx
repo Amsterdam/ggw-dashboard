@@ -12,6 +12,7 @@ const StyledDiv = styled.div`
 
 const Verschillen = ({ gwb, config }) => {
   const [indicatorDefinitieId, setVar] = useState<string>(config[0]?.indicatorDefinitieId);
+  const [label, setLabel] = useState<string>(config[0]?.label);
 
   return (
     <>
@@ -29,6 +30,7 @@ const Verschillen = ({ gwb, config }) => {
               value={indicatorDefinitieId}
               onChange={(event: FormEvent<HTMLSelectElement>) => {
                 setVar(event.currentTarget.value);
+                setLabel(event.currentTarget.options[event.currentTarget.selectedIndex].label);
               }}
             >
               {config.map((stadsDeel) => {
@@ -45,10 +47,17 @@ const Verschillen = ({ gwb, config }) => {
       </Row>
       <Row>
         <Column span={6}>
-          <VerschillenMap gwb={gwb} indicatorDefinitieId={indicatorDefinitieId} />
+          <VerschillenMap 
+            gwb={gwb} 
+            indicatorDefinitieId={indicatorDefinitieId} 
+          />
         </Column>
         <Column span={6}>
-          <VerschillenBarChart gwb={gwb} indicatorDefinitieId={indicatorDefinitieId} />
+          <VerschillenBarChart 
+            gwb={gwb} 
+            indicatorDefinitieId={indicatorDefinitieId} 
+            label={label}
+          />
         </Column>
       </Row>
     </>

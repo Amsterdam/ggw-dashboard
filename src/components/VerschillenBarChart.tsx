@@ -21,7 +21,7 @@ type MapResult = {
   color: string;
 };
 
-const VerschillenBarChart = ({ gwb, indicatorDefinitieId }) => {
+const VerschillenBarChart = ({ gwb, indicatorDefinitieId, label }) => {
   const chartRef = useRef<HTMLDivElement>(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -51,7 +51,7 @@ const VerschillenBarChart = ({ gwb, indicatorDefinitieId }) => {
         (d) =>
           ({
             gebied: getGebied(d.gebiedcode15).naam,
-            label: gebied?.meta?.label,
+            label,
             value: d.waarde ? d.waarde : "Geen gegevens",
             ...getColor({ indicatorDefinitieId: indicatorDefinitieId, kleurenpalet: 1 }, d?.waarde, d?.jaar, stdevs)
           } as MapResult),
