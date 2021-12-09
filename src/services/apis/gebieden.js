@@ -219,8 +219,8 @@ export async function getAll() {
   const getData = async () => {
     const results = await Promise.all([getAllStadsdelen(), getAllGebieden(), getAllWijken(), getAllBuurten()]);
 
-    const gwbCollection = [...results[0], ...results[1], ...results[2], ...results[3]];
-
+    const gwbCollection = results.flat();
+    
     gwbCollection.forEach((i) => {
       GWB[i.vollcode] = { ...i };
     });
