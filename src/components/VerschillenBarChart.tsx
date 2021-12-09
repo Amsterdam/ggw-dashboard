@@ -53,7 +53,7 @@ const VerschillenBarChart = ({ gwb, indicatorDefinitieId, label }) => {
             gebied: getGebied(d.gebiedcode15).naam,
             label,
             value: d.waarde ? d.waarde : "Geen gegevens",
-            ...getColor({ indicatorDefinitieId: indicatorDefinitieId, kleurenpalet: 1 }, d?.waarde, d?.jaar, stdevs)
+            ...getColor({ indicatorDefinitieId: indicatorDefinitieId, kleurenpalet: 1 }, d?.waarde, d?.jaar, stdevs),
           } as MapResult),
       ) as MapResult[];
 

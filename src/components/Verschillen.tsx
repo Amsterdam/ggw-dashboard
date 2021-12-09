@@ -47,17 +47,10 @@ const Verschillen = ({ gwb, config }) => {
       </Row>
       <Row>
         <Column span={6}>
-          <VerschillenMap 
-            gwb={gwb} 
-            indicatorDefinitieId={indicatorDefinitieId} 
-          />
+          <VerschillenMap gwb={gwb} indicatorDefinitieId={indicatorDefinitieId} />
         </Column>
         <Column span={6}>
-          <VerschillenBarChart 
-            gwb={gwb} 
-            indicatorDefinitieId={indicatorDefinitieId} 
-            label={label}
-          />
+          <VerschillenBarChart gwb={gwb} indicatorDefinitieId={indicatorDefinitieId} label={label} />
         </Column>
       </Row>
     </>
