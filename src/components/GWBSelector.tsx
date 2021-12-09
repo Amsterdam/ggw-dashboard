@@ -7,7 +7,6 @@ import util from "../services/util";
 import { useNavigate } from "react-router";
 import { useParams } from "react-router";
 import { useGWBContext } from "./context/GWBContext";
-import { THEMA_URL_MAPPING, IN_HET_KORT } from "../services/thema";
 
 type GwbItem = {
   display: string;
@@ -90,8 +89,8 @@ const GWBSelector = () => {
   const navigate = useNavigate();
   const { thema } = useParams();
   useEffect(() => {
-    if (gwb) {      
-      navigate(`${thema ? thema : THEMA_URL_MAPPING[IN_HET_KORT]}/?code=${gwb.code}`);
+    if (gwb) {
+      navigate(`${thema ? thema : ""}/?code=${gwb.code}`);
     }
   }, [gwb, navigate, thema]);
 
