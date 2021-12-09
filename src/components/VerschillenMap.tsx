@@ -25,8 +25,8 @@ const mapOptions: MapOptions = {
 };
 
 interface Props {
-  gwb: Gwb
-  indicatorDefinitieId: string
+  gwb: Gwb;
+  indicatorDefinitieId: string;
 }
 
 const VerschillenMap: React.FC<Props> = ({ gwb, indicatorDefinitieId }) => {

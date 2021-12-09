@@ -23,9 +23,9 @@ type MapResult = {
 };
 
 interface Props {
-  gwb: Gwb
-  indicatorDefinitieId: string
-  label: string
+  gwb: Gwb;
+  indicatorDefinitieId: string;
+  label: string;
 }
 
 const VerschillenBarChart: React.FC<Props> = ({ gwb, indicatorDefinitieId, label }) => {

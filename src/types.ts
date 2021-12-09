@@ -26,3 +26,5 @@ export interface MetaType {
 export type ConfigEnirched = { indicatorDefinitieId: string; labelKort: string };
 
 export type Config = {indicatorDefinitieId: string}; 
+
+export type ConfigList = { indicatorDefinitieId: string; label: string }[];
