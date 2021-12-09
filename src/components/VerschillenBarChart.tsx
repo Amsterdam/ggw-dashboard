@@ -7,6 +7,7 @@ import util from "../services/util";
 import { getOneStd } from "../services/apis/bbga";
 import { getAll, getGebied } from "../services/apis/gebieden";
 import { getColor } from "../services/colorcoding";
+import { Gwb } from "../types";
 
 import vegaSpec from "../static/charts/verschillenbar";
 
@@ -21,7 +22,13 @@ type MapResult = {
   color: string;
 };
 
-const VerschillenBarChart = ({ gwb, indicatorDefinitieId, label }) => {
+interface Props {
+  gwb: Gwb
+  indicatorDefinitieId: string
+  label: string
+}
+
+const VerschillenBarChart: React.FC<Props> = ({ gwb, indicatorDefinitieId, label }) => {
   const chartRef = useRef<HTMLDivElement>(null);
   const [isLoading, setIsLoading] = useState(true);
 

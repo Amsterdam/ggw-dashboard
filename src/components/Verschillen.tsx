@@ -4,13 +4,20 @@ import { Column, Row, Select, themeSpacing } from "@amsterdam/asc-ui";
 import VerschillenBarChart from "./VerschillenBarChart";
 import VerschillenMap from "./VerschillenMap";
 import HeaderRow from "../components/layout/HeaderRow";
+import { AnyCnameRecord } from "dns";
+import { Gwb } from "../types";
 
 const StyledDiv = styled.div`
   width: 100%;
   margin-bottom: ${themeSpacing(4)};
 `;
 
-const Verschillen = ({ gwb, config }) => {
+interface Props {
+  gwb: Gwb
+  config: any
+}
+
+const Verschillen: React.FC<Props> = ({ gwb, config }) => {
   const [indicatorDefinitieId, setVar] = useState<string>(config[0]?.indicatorDefinitieId);
   const [label, setLabel] = useState<string>(config[0]?.label);
 

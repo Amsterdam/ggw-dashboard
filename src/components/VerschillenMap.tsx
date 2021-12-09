@@ -11,6 +11,7 @@ import { getColor } from "../services/colorcoding";
 import { getOneStd } from "../services/apis/bbga";
 import { GeoJSONOptions, MapOptions } from "leaflet";
 import { GeoJsonObject } from "geojson";
+import { Gwb } from "../types";
 
 const mapOptions: MapOptions = {
   center: [52.3731081, 4.8932945],
@@ -23,7 +24,12 @@ const mapOptions: MapOptions = {
   scrollWheelZoom: false,
 };
 
-const VerschillenMap = ({ gwb, indicatorDefinitieId }) => {
+interface Props {
+  gwb: Gwb
+  indicatorDefinitieId: string
+}
+
+const VerschillenMap: React.FC<Props> = ({ gwb, indicatorDefinitieId }) => {
   const [json, setJson] = useState<GeoJsonObject | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
