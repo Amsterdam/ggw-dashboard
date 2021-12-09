@@ -1,4 +1,4 @@
-import { useEffect, useState, FormEvent } from "react";
+import { useState, FormEvent } from "react";
 import styled from "styled-components";
 import { Column, Row, Select, themeSpacing } from "@amsterdam/asc-ui";
 import VerschillenBarChart from "./VerschillenBarChart"
@@ -11,14 +11,8 @@ const StyledDiv = styled.div`
 `
 
 const Verschillen = ({ gwb, config }) => {
-  const [indicatorDefinitieId, setVar] = useState<string>('');
-   
-  useEffect(() => {
-    setVar(config[0].indicatorDefinitieId);
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
+  const [indicatorDefinitieId, setVar] = useState<string>(config[0]?.indicatorDefinitieId);
+  
   return (
     <>
       <Row>
