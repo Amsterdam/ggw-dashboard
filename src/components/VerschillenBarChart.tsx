@@ -15,6 +15,7 @@ const vegaEmbedOptions = {
   actions: false,
 };
 
+
 type MapResult = {
   gebied: string;
   label: string;
