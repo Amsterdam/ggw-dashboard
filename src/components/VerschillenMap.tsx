@@ -90,7 +90,7 @@ const VerschillenMap: React.FC<Props> = ({ gwb, indicatorDefinitieId }) => {
 
     setJson(enrichedShapes);
 
-    setIsLoading(false);    
+    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -107,7 +107,7 @@ const VerschillenMap: React.FC<Props> = ({ gwb, indicatorDefinitieId }) => {
     if (!instance) {
       return;
     }
-    
+
     instance._map.fitBounds(instance.getBounds());
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
