@@ -72,13 +72,13 @@ const VerschillenBarChart: React.FC<Props> = ({ gwb, indicatorDefinitieId, label
   }
 
   useEffect(() => {
-    if (!gwb) {
+    if (!gwb || !indicatorDefinitieId) {
       return;
     }
 
     updateData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [gwb]);
+  }, [gwb, indicatorDefinitieId]);
 
   useEffect(() => {
     if (!gwb) {
@@ -87,16 +87,7 @@ const VerschillenBarChart: React.FC<Props> = ({ gwb, indicatorDefinitieId, label
 
     updateData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [indicatorDefinitieId]);
-
-  useEffect(() => {
-    if (!gwb) {
-      return;
-    }
-
-    updateData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [updateData]);
 
   return (
     <div>

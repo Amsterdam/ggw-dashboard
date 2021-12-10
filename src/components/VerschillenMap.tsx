@@ -93,14 +93,14 @@ const VerschillenMap: React.FC<Props> = ({ gwb, indicatorDefinitieId }) => {
   };
 
   useEffect(() => {
-    if (!gwb) {
+    if (!gwb || !indicatorDefinitieId) {
       return;
     }
 
     updateData();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [gwb]);
+  }, [gwb, indicatorDefinitieId]);
 
   useEffect(() => {
     if (!gwb) {
@@ -110,17 +110,7 @@ const VerschillenMap: React.FC<Props> = ({ gwb, indicatorDefinitieId }) => {
     updateData();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [indicatorDefinitieId]);
-
-  useEffect(() => {
-    if (!gwb) {
-      return;
-    }
-
-    updateData();
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [updateData]);
 
   const options: GeoJSONOptions = {
     onEachFeature(feature, layer) {
