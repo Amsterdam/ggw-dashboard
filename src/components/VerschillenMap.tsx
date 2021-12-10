@@ -41,7 +41,7 @@ const VerschillenMap: React.FC<Props> = ({ gwb, indicatorDefinitieId }) => {
     let features = [...shapes.features];
     features = features.map((feature) => {
       const cijfer = cijfers.find(
-        (sd) => sd.gebiedcode15 === feature.properties.vollcode || sd.gebiedcode15 === feature.properties.code,
+        (c) => c.gebiedcode15 === feature.properties.vollcode || c.gebiedcode15 === feature.properties.code,
       );
 
       const colors = getColor(
