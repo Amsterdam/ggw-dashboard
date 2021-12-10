@@ -110,7 +110,7 @@ const VerschillenMap: React.FC<Props> = ({ gwb, indicatorDefinitieId }) => {
     updateData();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [updateData]);
+  }, []);
 
   const options: GeoJSONOptions = {
     onEachFeature(feature, layer) {

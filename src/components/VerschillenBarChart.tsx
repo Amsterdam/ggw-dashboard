@@ -87,7 +87,7 @@ const VerschillenBarChart: React.FC<Props> = ({ gwb, indicatorDefinitieId, label
 
     updateData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [updateData]);
+  }, []);
 
   return (
     <div>
