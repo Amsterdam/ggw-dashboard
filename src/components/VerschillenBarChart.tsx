@@ -15,7 +15,6 @@ const vegaEmbedOptions = {
   actions: false,
 };
 
-
 type MapResult = {
   gebied: string;
   label: string;
@@ -65,8 +64,9 @@ const VerschillenBarChart: React.FC<Props> = ({ gwb, indicatorDefinitieId, label
           } as MapResult),
       ) as MapResult[];
 
+    setIsLoading(false);
+
     if (chartRef.current && chartBase.data.values.length > 0) {
-      setIsLoading(false);
       vegaEmbed(chartRef.current, chartBase, vegaEmbedOptions);
     }
   }
@@ -100,10 +100,7 @@ const VerschillenBarChart: React.FC<Props> = ({ gwb, indicatorDefinitieId, label
 
   return (
     <div>
-      <div className="chart-container">
-        {isLoading ? <Spinner /> : null}
-        <div ref={chartRef}></div>
-      </div>
+      <div className="chart-container">{isLoading ? <Spinner /> : <div ref={chartRef}></div>}</div>
     </div>
   );
 };
