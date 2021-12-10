@@ -9,7 +9,7 @@ import { GeoJSON } from "@amsterdam/react-maps";
 import { getGeometriesGeoJson } from "../services/apis/map";
 import { getColor } from "../services/colorcoding";
 import { getOneStd } from "../services/apis/bbga";
-import { GeoJSONOptions, MapOptions } from "leaflet";
+import { GeoJSONOptions, MapOptions, Layer } from "leaflet";
 import { GeoJsonObject } from "geojson";
 import { Gwb } from "../types";
 
@@ -31,7 +31,8 @@ interface Props {
 
 const VerschillenMap: React.FC<Props> = ({ gwb, indicatorDefinitieId }) => {
   const [json, setJson] = useState<GeoJsonObject | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [instance, setInstance] = useState<Layer | undefined>();
 
   const enrichShapes = async (shapes: GeoJsonObject, cijfers) => {
     const stdevs = await getOneStd(indicatorDefinitieId);
@@ -89,7 +90,7 @@ const VerschillenMap: React.FC<Props> = ({ gwb, indicatorDefinitieId }) => {
 
     setJson(enrichedShapes);
 
-    setIsLoading(false);
+    setIsLoading(false);    
   };
 
   useEffect(() => {
@@ -101,6 +102,16 @@ const VerschillenMap: React.FC<Props> = ({ gwb, indicatorDefinitieId }) => {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gwb, indicatorDefinitieId]);
+
+  useEffect(() => {
+    if (!instance) {
+      return;
+    }
+    
+    instance._map.fitBounds(instance.getBounds());
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [instance]);
 
   useEffect(() => {
     if (!gwb) {
@@ -115,12 +126,10 @@ const VerschillenMap: React.FC<Props> = ({ gwb, indicatorDefinitieId }) => {
   const options: GeoJSONOptions = {
     onEachFeature(feature, layer) {
       layer.setStyle({
-        color: feature?.properties?.color,
+        color: "#666666",
         fillColor: feature?.properties?.color,
         fillOpacity: 0.8,
-        strokeWidth: 1,
-        stroke: "#666666",
-        strokeOpacity: 0.5,
+        stroke: 1,
       });
     },
   };
@@ -133,7 +142,7 @@ const VerschillenMap: React.FC<Props> = ({ gwb, indicatorDefinitieId }) => {
         <Map options={mapOptions} fullScreen>
           <ViewerContainer bottomLeft={<Zoom />} />
           <BaseLayer baseLayer={`https://{s}.data.amsterdam.nl/topo_rd_zw/{z}/{x}/{y}.png`} />
-          {json ? <GeoJSON args={[json]} options={options} /> : null}
+          {json ? <GeoJSON setInstance={setInstance} args={[json]} options={options} /> : null}
         </Map>
       )}
     </>
