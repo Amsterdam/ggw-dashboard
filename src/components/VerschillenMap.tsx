@@ -32,7 +32,7 @@ interface Props {
 const VerschillenMap: React.FC<Props> = ({ gwb, indicatorDefinitieId }) => {
   const [json, setJson] = useState<GeoJsonObject | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [instance, setInstance] = useState<Layer | undefined>();
+  const [layerInstance, setInstance] = useState<Layer | undefined>();
 
   const enrichShapes = async (shapes: GeoJsonObject, cijfers) => {
     const stdevs = await getOneStd(indicatorDefinitieId);
@@ -104,14 +104,14 @@ const VerschillenMap: React.FC<Props> = ({ gwb, indicatorDefinitieId }) => {
   }, [gwb, indicatorDefinitieId]);
 
   useEffect(() => {
-    if (!instance) {
+    if (!layerInstance) {
       return;
     }
 
-    instance._map.fitBounds(instance.getBounds());
+    layerInstance._map.fitBounds(layerInstance.getBounds());
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [instance]);
+  }, [layerInstance]);
 
   useEffect(() => {
     if (!gwb) {
