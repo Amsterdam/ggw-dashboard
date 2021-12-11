@@ -3,9 +3,7 @@ import L from "leaflet";
 import styled from "styled-components";
 import { Map, BaseLayer, constants } from "@amsterdam/arm-core";
 import { GeoJSON } from "@amsterdam/react-maps";
-// import { getGWBShapes, drawShapes } from "../services/map";
 import { Heading } from "@amsterdam/asc-ui"; 
-// import { COLOR } from "../services/colorcoding";
 import { GeoJsonObject, GeoJSONOptions } from "geojson";
 import { rdPolygonToWgs84 } from "../services/geojson";
 const MapDiv = styled.div`
@@ -23,12 +21,9 @@ const MapWrapper = styled(Map)`
 const GWBMap = ({ gwb }) => {
   const [layerInstance, setInstance] = useState<L.Layer | undefined>();
   const [mapInstance, setMapInstance] = useState<L.Layer | undefined>();
-    const [json, setJson] = useState<GeoJsonObject | null>(null);
+  const [json, setJson] = useState<GeoJsonObject | null>(null);
   console.log('GWBMap', gwb.naam);
   
-
-  // const gwbLayer = useRef(null);
-
   const getGeoJson = (geometry) => {
     return {
       type: 'Feature',
@@ -42,7 +37,6 @@ const GWBMap = ({ gwb }) => {
     }
   };
 
-
   const updateData = () => {
     if (!gwb || gwb.naam === "Amsterdam") {
       return;
@@ -53,18 +47,6 @@ const GWBMap = ({ gwb }) => {
     const yo = getGeoJson(geometry);
     console.log('json', yo);
     setJson(yo);
-
-    // layerInstance._map.fitBounds(layerInstance.getBounds());
-
-    // if (mapInstance && gwbLayer.current) {
-    //   mapInstance.removeLayer(gwbLayer.current);
-    // }
-
-    // const shapes = getGWBShapes(gwb, () => ({
-    //   color: COLOR["ams-rood"],
-    // }));
-
-    // gwbLayer.current = drawShapes(shapes, mapInstance);
   };
 
   useEffect(() => {
