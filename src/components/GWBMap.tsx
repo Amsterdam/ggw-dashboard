@@ -17,7 +17,7 @@ const MapDiv = styled.div`
 const MapWrapper = styled(Map)`
   position: relative;
   width: 100%;
-  height: 150px;
+  height: 200px;
 `;
 
 const GWBMap = ({ gwb }) => {
@@ -89,12 +89,13 @@ const GWBMap = ({ gwb }) => {
     updateData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  
 
   const options: GeoJSONOptions = {
     onEachFeature(feature, layer) {
       layer.setStyle({
-        color: "#ff0000",
-        fillColor: "#ff0000",
+        color: "#ec0000",
+        fillColor: "#ec0000",
         fillOpacity: 0.2,
       });
     },
