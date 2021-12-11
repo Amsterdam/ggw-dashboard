@@ -24,7 +24,9 @@ const GWBMap = ({ gwb }) => {
   const [json, setJson] = useState<GeoJsonObject | null>(null);
   console.log('GWBMap', gwb.naam);
   
-  const getGeoJson = (geometry) => {
+  const getGeoJson = (gwb) => {
+    const geometry = rdPolygonToWgs84(gwb.geometrie);
+
     return {
       type: 'Feature',
       crs: {
@@ -32,6 +34,10 @@ const GWBMap = ({ gwb }) => {
         properties: {
           name: 'urn:ogc:def:crs:OGC:1.3:CRS84',
         },
+      },
+      properties: {
+        naam: gwb.naam,
+        gebied: gwb.vollcode || gwb.code
       },
       geometry
     }
@@ -43,8 +49,7 @@ const GWBMap = ({ gwb }) => {
     }
     setJson(null);
     console.log('gwb', gwb);
-    const geometry = rdPolygonToWgs84(gwb.geometrie);
-    const yo = getGeoJson(geometry);
+    const yo = getGeoJson(gwb);
     console.log('json', yo);
     setJson(yo);
   };
@@ -86,10 +91,9 @@ const GWBMap = ({ gwb }) => {
   return (
     <MapDiv>
       <Heading as="h2">
-        {gwb?.gebiedType} {gwb?.naam}*
+        {gwb?.gebiedType} {gwb?.naam}
       </Heading>
       <MapWrapper
-        fullScreen
         setInstance={setMapInstance}
         options={{ ...constants.DEFAULT_AMSTERDAM_MAPS_OPTIONS, zoomControl: true, maxZoom: 12, minZoom: 6 }}
       >
