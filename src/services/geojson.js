@@ -86,7 +86,7 @@ export function rdToWgs84(rdCoordinates) {
     config.wgs84.projection,
     [rdCoordinates[0], rdCoordinates[1]]
   );
-  return [wgs84Coordinates[1], wgs84Coordinates[0]].map((x) => toPrecision(x));
+  return [wgs84Coordinates[0], wgs84Coordinates[1]].map((x) => toPrecision(x));
 }
 
 /**
