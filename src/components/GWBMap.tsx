@@ -3,7 +3,7 @@ import { Map as MapType, Layer, MapOptions } from "leaflet";
 import styled from "styled-components";
 import { Map, BaseLayer, constants } from "@amsterdam/arm-core";
 import { GeoJSON } from "@amsterdam/react-maps";
-import { Heading } from "@amsterdam/asc-ui"; 
+import { Heading } from "@amsterdam/asc-ui";
 import { GeoJsonObject, GeoJSONOptions } from "geojson";
 import { rdPolygonToWgs84 } from "../services/geojson";
 
@@ -13,34 +13,33 @@ const MapDiv = styled.div`
   width: 100%;
 `;
 
-const MapWrapper = styled(Map)`
-  position: relative;
+const StyledMap = styled(Map)`
   width: 100%;
-  height: 180px;
+  height: 160px;
 `;
 
 const GWBMap = ({ gwb }) => {
   const [layerInstance, setInstance] = useState<Layer | undefined>();
   const [mapInstance, setMapInstance] = useState<MapType | undefined>();
   const [json, setJson] = useState<GeoJsonObject | null>(null);
-  
+
   const getGeoJson = (gwb) => {
     const geometry = rdPolygonToWgs84(gwb.geometrie);
 
     return {
-      type: 'Feature',
+      type: "Feature",
       crs: {
-        type: 'name',
+        type: "name",
         properties: {
-          name: 'urn:ogc:def:crs:OGC:1.3:CRS84',
+          name: "urn:ogc:def:crs:OGC:1.3:CRS84",
         },
       },
       properties: {
         naam: gwb.naam,
-        gebied: gwb.vollcode || gwb.code
+        gebied: gwb.vollcode || gwb.code,
       },
-      geometry
-    }
+      geometry,
+    };
   };
 
   const updateData = () => {
@@ -53,25 +52,23 @@ const GWBMap = ({ gwb }) => {
     }
 
     setJson(null);
-    
+
     const geojson = getGeoJson(gwb);
 
     setTimeout(() => {
       setJson(geojson);
     }, 0);
-  };  
+  };
 
   useEffect(() => {
     updateData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gwb]);
 
-
   useEffect(() => {
     if (!gwb || !layerInstance || !mapInstance) {
-      return
+      return;
     }
-
     mapInstance.fitBounds(layerInstance.getBounds());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [layerInstance, mapInstance, gwb]);
@@ -80,10 +77,9 @@ const GWBMap = ({ gwb }) => {
     updateData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  
 
   const options: GeoJSONOptions = {
-    onEachFeature(feature, layer) {      
+    onEachFeature(feature, layer) {
       layer.setStyle({
         color: "#ec0000",
         fillColor: "#ec0000",
@@ -93,11 +89,11 @@ const GWBMap = ({ gwb }) => {
   };
 
   const mapOptions: MapOptions = {
-    ...constants.DEFAULT_AMSTERDAM_MAPS_OPTIONS, 
-    zoomControl: true, 
-    maxZoom: 12, 
-    minZoom: 6, 
-    zoom: 6 
+    ...constants.DEFAULT_AMSTERDAM_MAPS_OPTIONS,
+    zoomControl: true,
+    maxZoom: 12,
+    minZoom: 6,
+    zoom: 6,
   };
 
   return (
@@ -105,13 +101,10 @@ const GWBMap = ({ gwb }) => {
       <Heading as="h2">
         {gwb?.gebiedType} {gwb?.naam}
       </Heading>
-      <MapWrapper
-        setInstance={setMapInstance}
-        options={mapOptions}
-      >
+      <StyledMap setInstance={setMapInstance} options={mapOptions}>
         <BaseLayer baseLayer={constants.DEFAULT_AMSTERDAM_LAYERS[2].urlTemplate} />
         {json ? <GeoJSON setInstance={setInstance} args={[json]} options={options} /> : null}
-      </MapWrapper>
+      </StyledMap>
     </MapDiv>
   );
 };
