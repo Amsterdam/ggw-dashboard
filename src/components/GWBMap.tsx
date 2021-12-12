@@ -1,3 +1,4 @@
+import "leaflet/dist/leaflet.css";
 import { useEffect, useState } from "react";
 import { Map as MapType, Layer, MapOptions } from "leaflet";
 import styled from "styled-components";
@@ -15,7 +16,8 @@ const MapDiv = styled.div`
 
 const StyledMap = styled(Map)`
   width: 100%;
-  height: 160px;
+  overflow: hidden;
+  height: 175px;
 `;
 
 const GWBMap = ({ gwb }) => {
@@ -101,7 +103,7 @@ const GWBMap = ({ gwb }) => {
       <Heading as="h2">
         {gwb?.gebiedType} {gwb?.naam}
       </Heading>
-      <StyledMap setInstance={setMapInstance} options={mapOptions}>
+      <StyledMap setInstance={setMapInstance} options={mapOptions} fullScreen>
         <BaseLayer baseLayer={constants.DEFAULT_AMSTERDAM_LAYERS[2].urlTemplate} />
         {json ? <GeoJSON setInstance={setInstance} args={[json]} options={options} /> : null}
       </StyledMap>
