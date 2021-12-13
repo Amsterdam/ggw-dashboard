@@ -1,39 +1,39 @@
 [
   {
     "gwb": "STAD",
-    "file": "../../../static/panos/amsterdam.jpg"
+    "file": "/panos/amsterdam.jpg"
   },
   {
     "gwb": "A",
-    "file": "../../../static/panos/centrum.jpg"
+    "file": "/panos/centrum.jpg"
   },
   {
     "gwb": "B",
-    "file": "../../../static/panos/westpoort.jpg"
+    "file": "/panos/westpoort.jpg"
   },
   {
     "gwb": "E",
-    "file": "../../../static/panos/west.jpg"
+    "file": "/panos/west.jpg"
   },
   {
     "gwb": "F",
-    "file": "../../../static/panos/nieuw-west.jpg"
+    "file": "/panos/nieuw-west.jpg"
   },
   {
     "gwb": "K",
-    "file": "../../../static/panos/zuid.jpg"
+    "file": "/panos/zuid.jpg"
   },
   {
     "gwb": "M",
-    "file": "../../../static/panos/oost.jpg"
+    "file": "/panos/oost.jpg"
   },
   {
     "gwb": "N",
-    "file": "../../../static/panos/noord.jpg"
+    "file": "/panos/noord.jpg"
   },
   {
     "gwb": "T",
-    "file": "../../../static/panos/zuid-oost.jpg"
+    "file": "/panos/zuid-oost.jpg"
   },
   {
     "gwb": "A00",
