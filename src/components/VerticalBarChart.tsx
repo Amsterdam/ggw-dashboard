@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import vegaEmbed from "vega-embed";
 import cloneDeep from "lodash/cloneDeep";
-import { Spinner } from "@amsterdam/asc-ui";
+import { Heading, Spinner } from "@amsterdam/asc-ui";
 
 import util from "../services/util";
 import { getOneStd } from "../services/apis/bbga";
@@ -88,7 +88,7 @@ const VerticalBarChart = ({ title, gwb, config }) => {
 
   return (
     <div>
-      <h4 className="text-center">{title}</h4>
+      <Heading as="h4" className="text-center">{title}</Heading>
       <div className="chart-container">
         {isLoading ? <Spinner /> : null}
         {showError && <p>Op dit schaalniveau is helaas geen informatie beschikbaar.</p>}

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import L from "leaflet";
 import styled from "styled-components";
+import { Heading } from "@amsterdam/asc-ui";
 import { Map, BaseLayer, constants } from "@amsterdam/arm-core";
 import { getGWBShapes, drawShapes } from "../services/map";
 import { COLOR } from "../services/colorcoding";
@@ -45,9 +46,9 @@ const GWBMap = ({ gwb }) => {
 
   return (
     <MapDiv>
-      <h2>
+      <Heading as="h2">
         {gwb?.gebiedType} {gwb?.naam}
-      </h2>
+      </Heading>
       <MapWrapper
         options={{ ...constants.DEFAULT_AMSTERDAM_MAPS_OPTIONS, zoomControl: true, maxZoom: 12, minZoom: 6 }}
         setInstance={setMapInstance}

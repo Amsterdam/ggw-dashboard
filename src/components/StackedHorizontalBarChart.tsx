@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import vegaEmbed from "vega-embed";
 import cloneDeep from "lodash/cloneDeep";
-import { Spinner } from "@amsterdam/asc-ui";
+import { Heading, Spinner } from "@amsterdam/asc-ui";
 
 import stackedVegaSpec from "../static/charts/stackedhorizontalbar.json";
 import util from "../services/util";
@@ -154,7 +154,7 @@ const StackedHorizontalBarChart = ({ title, config, gwb, customVegaSpec = null, 
 
   return (
     <div>
-      <h4>{title}</h4>
+      <Heading as="h4">{title}</Heading>
       {isLoading ? <Spinner /> : null}
       {showError && <p>Op dit schaalniveau is helaas geen informatie beschikbaar.</p>}
       {!showError && <div ref={chartRef}></div>}

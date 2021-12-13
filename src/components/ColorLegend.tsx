@@ -1,4 +1,4 @@
-import { TableBody, TableCell, TableHeader, TableRow } from "@amsterdam/asc-ui";
+import { Heading, TableBody, TableCell, TableHeader, TableRow } from "@amsterdam/asc-ui";
 import { SmallTable } from "./tables/SmallTable";
 // import kleurencodetabel from "../static/kleurcodetabel.json";
 
@@ -7,7 +7,7 @@ const ColorLegend = () => {
 
   return (
     <div>
-      <h4>Betekenis kleuren</h4>
+      <Heading as="h4">Betekenis kleuren</Heading>
 
       <SmallTable>
         <TableHeader>
