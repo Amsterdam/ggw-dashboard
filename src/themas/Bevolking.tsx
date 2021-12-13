@@ -8,6 +8,7 @@ import TextStatistic from "../components/TextStatistic";
 
 import ThemeHeader from "../components/ThemeHeader";
 import VerticalBarChart from "../components/VerticalBarChart";
+import Verschillen from "../components/Verschillen";
 import { BEVOLKING } from "../services/thema";
 
 import ontwikkelingBevolking from "../static/links/ontwikkeling_bevolking.json";
@@ -45,6 +46,8 @@ const Bevolking = () => {
           />
         </Column>
       </Row>
+
+      <Verschillen gwb={gwb} config={ontwikkelingBevolking} />
 
       <Row>
         <Column span={6}>

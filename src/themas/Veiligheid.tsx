@@ -2,6 +2,7 @@ import { Column, Row } from "@amsterdam/asc-ui";
 
 import VerticalBarChart from "../components/VerticalBarChart";
 import ThemeHeader from "../components/ThemeHeader";
+import Verschillen from "../components/Verschillen";
 
 import { VEILIGHEID } from "../services/thema";
 
@@ -48,6 +49,8 @@ const Veiligheid = () => {
           ></VerticalBarChart>
         </Column>
       </Row>
+
+      <Verschillen gwb={gwb} config={overlastcijfers} />
 
       <Row>
         <Column span={4}>

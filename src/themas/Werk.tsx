@@ -3,6 +3,7 @@ import { Column, Row } from "@amsterdam/asc-ui";
 import SocialeKlasseStackedBar from "../components/charts/SocialeKlasseStackedBar";
 import VerticalBarChart from "../components/VerticalBarChart";
 import TextStatistic from "../components/TextStatistic";
+import Verschillen from "../components/Verschillen";
 
 import { WERK_INKOMEN } from "../services/thema";
 
@@ -13,18 +14,20 @@ import bijstand from "../static/links/bijstand.json";
 import geregistreerdeWerkloosheid from "../static/links/geregistreerd_werkloosheid.json";
 import vroegErOpAf from "../static/links/vroeg_er_op_af.json";
 import ThemeHeader from "../components/ThemeHeader";
-import Car from "../components/Icons/Car";
 import HeaderRow from "../components/layout/HeaderRow";
 import { useGWBSelection } from "../components/context/GWBContext";
 import DevelopmentThemeHeader from "../components/DevelopmentThemeHeader";
 import InkomenNaarLandelijkStackedBar from "../components/charts/InkomenNaarLandelijkStackedBar";
+import WerkEnInkomenThema from "../components/Icons/WerkEnInkomenThema";
+import WerkEnInkomen from "../components/Icons/WerkEnInkomen";
+import Inkomen from "../components/Icons/Inkomen";
 
 const Werk = () => {
   const gwb = useGWBSelection();
 
   return (
     <>
-      <ThemeHeader gwb={gwb} themeTitle={WERK_INKOMEN} Icon={Car} />
+      <ThemeHeader gwb={gwb} themeTitle={WERK_INKOMEN} Icon={WerkEnInkomenThema} />
       <Row>
         <Column span={12}>
           <HeaderRow title={`Samenstelling ${WERK_INKOMEN} in ${gwb?.naam}`} />
@@ -32,12 +35,23 @@ const Werk = () => {
       </Row>
       <Row>
         <Column span={6}>
-          <TextStatistic title="Potentiële beroepsbevolking (18-74 jaar):" gwb={gwb} indicatorId="BEVPOTBBV18_74" />
+          <TextStatistic
+            title="Potentiële beroepsbevolking (18-74 jaar):"
+            gwb={gwb}
+            indicatorId="BEVPOTBBV18_74"
+            Icon={WerkEnInkomen}
+          />
         </Column>
         <Column span={6}>
-          <TextStatistic title="Gemiddeld besteedbaar huishoudinkomen: €" gwb={gwb} indicatorId="IHHINK_GEM" />
+          <TextStatistic
+            title="Gemiddeld besteedbaar huishoudinkomen: €"
+            gwb={gwb}
+            indicatorId="IHHINK_GEM"
+            Icon={Inkomen}
+          />
         </Column>
       </Row>
+      <Verschillen gwb={gwb} config={werkloosheid} />
       <Row>
         <Column span={6}>
           <SocialeKlasseStackedBar gwb={gwb} />

@@ -4,6 +4,7 @@ import VerticalBarChart from "../components/VerticalBarChart";
 import TextStatistic from "../components/TextStatistic";
 import ThemeHeader from "../components/ThemeHeader";
 import DataTable from "../components/DataTable";
+import Verschillen from "../components/Verschillen";
 
 import { WONEN } from "../services/thema";
 
@@ -72,6 +73,7 @@ const Wonen = () => {
           <DevelopmentThemeHeader theme={WONEN} location={gwb?.naam} />
         </Column>
       </Row>
+      <Verschillen gwb={gwb} config={wonenkerncijfers} />
       <Row>
         <Column span={4}>
           <VerticalBarChart

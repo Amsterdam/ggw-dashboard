@@ -16,16 +16,30 @@ const CenteredContent = styled.div`
   width: 100%;
 `;
 
-const ThemeHeader = ({ gwb, themeTitle, Icon }) => {
+const ThemeHeader = ({ gwb, themeTitle, Icon, WithExtraInfo = false }) => {
   return (
     <Row>
       <Column span={12}>
         <StyledDiv>
           <Row>
-            <Column span={6}>
+            <Column span={WithExtraInfo ? 4 : 6}>
               <GWBMap gwb={gwb} />
             </Column>
-            <Column span={6}>
+            {WithExtraInfo && (
+              <Column span={4}>
+                <div>
+                  <p>
+                    Op <b>Gebied in Beeld</b> vindt u:
+                  </p>
+                  <ul>
+                    <li>kerncijfers</li>
+                    <li>over diverse thema’s</li>
+                    <li>voor Amsterdam en alle stadsdelen, gebieden, wijken en buurten.</li>
+                  </ul>
+                </div>
+              </Column>
+            )}
+            <Column span={WithExtraInfo ? 4 : 6}>
               <CenteredContent>
                 <h2>Thema {themeTitle}</h2>
                 <Icon width="150" height="150" />
