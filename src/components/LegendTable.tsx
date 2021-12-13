@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import isEmpty from "lodash/isEmpty";
 import styled from "styled-components";
 import { List, ListItem, Paragraph, themeColor, themeSpacing } from "@amsterdam/asc-ui";
 
@@ -69,8 +70,8 @@ const LegendTable = ({
 
     const newRow = () => {
       const row = {};
-      colorLegend.forEach((color) => {
-        row[color] = null;
+      colorLegend.forEach((color, index) => {
+        row[index] = null;
       });
       return row;
     };
@@ -95,7 +96,7 @@ const LegendTable = ({
           return;
         }
 
-        // console.log(indicator, yearData, stdevs);
+        console.log(indicator?.meta?.kleurenpalet);
 
         const colorDef = getColor(
           {
@@ -107,11 +108,11 @@ const LegendTable = ({
           stdevs as StdType[],
         );
 
-        if (row[colorDef.color] !== null) {
-          return row[colorDef.color].push(indicator?.meta?.labelKort);
+        if (!isEmpty(row[colorDef.index])) {
+          return row[colorDef.index].push(indicator?.meta?.labelKort);
         }
 
-        return (row[colorDef.color] = [indicator?.meta?.labelKort]);
+        return (row[colorDef.index] = [indicator?.meta?.labelKort]);
       });
 
       setDataTable(row);

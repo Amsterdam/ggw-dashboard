@@ -4,7 +4,6 @@ import VerticalBarChart from "../components/VerticalBarChart";
 import TextStatistic from "../components/TextStatistic";
 import ThemeHeader from "../components/ThemeHeader";
 import DataTable from "../components/DataTable";
-import Car from "../components/Icons/Car";
 
 import { OPENBARE_RUIMTE } from "../services/thema";
 
@@ -17,13 +16,14 @@ import { useGWBSelection } from "../components/context/GWBContext";
 import DevelopmentThemeHeader from "../components/DevelopmentThemeHeader";
 import OpenbareRuimteGroep from "../components/Icons/OpenbareRuimteGroep";
 import OpenbareRuimteManSchep from "../components/Icons/OpenbareRuimteManSchep";
+import OpenbareRuimteThema from "../components/Icons/OpenbareRuimteThema";
 
 const OpenbareRuimte = () => {
   const gwb = useGWBSelection();
 
   return (
     <>
-      <ThemeHeader gwb={gwb} themeTitle={OPENBARE_RUIMTE} Icon={Car} />
+      <ThemeHeader gwb={gwb} themeTitle={OPENBARE_RUIMTE} Icon={OpenbareRuimteThema} />
       <Row>
         <Column span={12}>
           <HeaderRow title={`Samenstelling ${OPENBARE_RUIMTE} in ${gwb?.naam}`} />
