@@ -95,8 +95,6 @@ const LegendTable = ({
           return;
         }
 
-        // console.log(indicator, yearData, stdevs);
-
         const colorDef = getColor(
           {
             indicatorDefinitieId: c.indicatorDefinitieId,
