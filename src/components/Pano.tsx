@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
-// import { styled } from "styled-components"
+import styled from "styled-components"
 // import { TableBody, TableCell, TableHeader, TableRow } from "@amsterdam/asc-ui";
 import panos from "../static/links/panos.json";
 
 // 310px hoog
+const StyledImage = styled.img`
+  width: 100%;
+`
 
 const Pano = ({ gwb }) => {
   const [src, setSrc] = useState<string>("");
@@ -52,9 +55,7 @@ const Pano = ({ gwb }) => {
   }, []);
 
   return (
-    <div>
-      <img src={src} alt={`Pano van ${gwb.naam}`} title={`Pano van ${gwb.naam}`} />
-    </div>
+    <StyledImage src={src} alt={`Pano van ${gwb.naam}`} title={`Pano van ${gwb.naam}`} />
   );
 };
 
