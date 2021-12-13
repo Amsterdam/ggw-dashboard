@@ -9,6 +9,7 @@ import { ECONOMIE } from "../services/thema";
 import WerkzamePersonenHoofdfunctieStackedBar from "../components/charts/WerkzamePersonenHoofdfunctieStackedBar";
 import VestigingenNaarFunctiegroep from "../components/charts/VestigingenNaarFunctiegroepStackedBar";
 import HeaderRow from "../components/layout/HeaderRow";
+import Verschillen from "../components/Verschillen";
 import { useGWBSelection } from "../components/context/GWBContext";
 import LineChart from "../components/LineChart";
 
@@ -51,6 +52,9 @@ const Economie = () => {
           />
         </Column>
       </Row>
+
+      <Verschillen gwb={gwb} config={economiecijfers} />
+
       <Row>
         <Column span={6}>
           <VestigingenNaarFunctiegroep gwb={gwb} />

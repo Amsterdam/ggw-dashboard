@@ -3,6 +3,7 @@ import { Column, Row } from "@amsterdam/asc-ui";
 import SocialeKlasseStackedBar from "../components/charts/SocialeKlasseStackedBar";
 import VerticalBarChart from "../components/VerticalBarChart";
 import TextStatistic from "../components/TextStatistic";
+import Verschillen from "../components/Verschillen";
 
 import { WERK_INKOMEN } from "../services/thema";
 
@@ -50,6 +51,7 @@ const Werk = () => {
           />
         </Column>
       </Row>
+      <Verschillen gwb={gwb} config={werkloosheid} />
       <Row>
         <Column span={6}>
           <SocialeKlasseStackedBar gwb={gwb} />
