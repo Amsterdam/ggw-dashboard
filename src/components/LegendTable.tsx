@@ -96,8 +96,6 @@ const LegendTable = ({
           return;
         }
 
-        console.log(indicator?.meta?.kleurenpalet);
-
         const colorDef = getColor(
           {
             indicatorDefinitieId: c.indicatorDefinitieId,
@@ -108,8 +106,8 @@ const LegendTable = ({
           stdevs as StdType[],
         );
 
-        if (!isEmpty(row[colorDef.index])) {
-          return row[colorDef.index].push(indicator?.meta?.labelKort);
+        if (Array.isArray(row[colorDef.color])) {
+          return row[colorDef.color].push(indicator?.meta?.labelKort);
         }
 
         return (row[colorDef.index] = [indicator?.meta?.labelKort]);
@@ -146,7 +144,13 @@ const LegendTable = ({
           <LegendRow>
             {Object.keys(dataTable).map((key, index) => {
               const row = dataTable[key];
+              if (!row) {
+                return null;
+              }
               const ColoredListItem = listItems[index];
+              if (!ColoredListItem) {
+                return null;
+              }
 
               return (
                 <LegendColumn key={key}>
