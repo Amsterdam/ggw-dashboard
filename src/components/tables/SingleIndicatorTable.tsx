@@ -31,7 +31,7 @@ const SingleIndicatorTable = ({ gwb, config, title }: { gwb: any; config: Config
                 <TableRow key={c.indicatorDefinitieId}>
                   <TableCell as="th">{indicator.meta.labelKort}</TableCell>
                   <TableCell style={{ textAlign: "right" }}>
-                    {util.formatNumber(indicator.cijfers[indicator.cijfers.length - 1].waarde)}
+                    {util.formatNumber(indicator.cijfers[indicator.cijfers.length - 1]?.waarde)}
                   </TableCell>
                 </TableRow>
               );

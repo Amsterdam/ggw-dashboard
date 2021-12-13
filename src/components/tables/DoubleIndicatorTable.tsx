@@ -56,7 +56,7 @@ const DoubleIndicatorTable = ({ gwb, config, headerTitles, withTotalRow = false 
                 (d) => d.meta.indicatorDefinitieId === config[index + config.length / 2].indicatorDefinitieId,
               );
 
-              if (!indicator) {
+              if (!indicator || !secondIndicator) {
                 return;
               }
 
@@ -64,10 +64,10 @@ const DoubleIndicatorTable = ({ gwb, config, headerTitles, withTotalRow = false 
                 <TableRow key={index}>
                   <TableCell as="th">{indicator.meta.labelKort}</TableCell>
                   <TableCellRight>
-                    {util.formatNumber(indicator.cijfers[indicator.cijfers.length - 1].waarde)}
+                    {util.formatNumber(indicator.cijfers[indicator.cijfers.length - 1]?.waarde)}
                   </TableCellRight>
                   <TableCellRight>
-                    {util.formatNumber(secondIndicator.cijfers[indicator.cijfers.length - 1].waarde)}
+                    {util.formatNumber(secondIndicator.cijfers[indicator.cijfers.length - 1]?.waarde)}
                   </TableCellRight>
                 </TableRow>
               );

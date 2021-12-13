@@ -15,6 +15,7 @@ import Migratieachtergrond65PlusStackedBar from "../components/charts/Migratieac
 import LeeftijdsverdelingStackedBar from "../components/charts/LeeftijdsverdelingStackedBar";
 import DataTable from "../components/DataTable";
 import OuderenThema from "../components/Icons/OuderenThema";
+import OuderenWoningen from "../components/tables/OuderenWoningen";
 
 const Ouderen = () => {
   const gwb = useGWBSelection();
@@ -49,7 +50,7 @@ const Ouderen = () => {
           ></LineChart>
         </Column>
         <Column span={6}>
-          <div>TODO: Informatie over tabel moet nog aangeleverd worden.</div>
+          <OuderenWoningen gwb={gwb} />
         </Column>
       </Row>
 
