@@ -1,24 +1,31 @@
 import { useEffect, useState } from "react";
+// import { styled } from "styled-components"
 // import { TableBody, TableCell, TableHeader, TableRow } from "@amsterdam/asc-ui";
 import panos from "../static/links/panos.json";
 
 // 310px hoog
 
 const Pano = ({ gwb }) => {
-  const [href, setHref] = useState<string>("");
+  const [src, setSrc] = useState<string>("");
 
 
   const updateData = () => {
 
-    console.log('updateData gwb', gwb);
-    const code = gwb.vollcode || gwb.code;
-    console.log('updateDate', code);
-    const pano = panos.find((i) => { i.gwb === code })
+    // console.log('updateData gwb', gwb);
+    // const code = gwb.code;
+    // console.log('updateDate', code);
+    const pano = panos.find((i) => i.gwb === gwb.code);
     console.log('pano', pano);
+    if (pano?.file) {
+      setSrc(pano?.file);
+      return;
+    } 
     
-
-    
-
+    if (pano?.pano) {
+      const url = pano?.pano;
+      console.log('call: url', url);
+      
+    } 
   };
 
   useEffect(() => {
@@ -43,7 +50,7 @@ const Pano = ({ gwb }) => {
 
   return (
     <div>
-      Pano
+      <img   src="/static/panos/amsterdam.jpg" alt={`Pano van ${gwb.naam}`} />
     </div>
   );
 };
