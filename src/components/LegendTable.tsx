@@ -106,8 +106,7 @@ const LegendTable = ({
           yearData?.jaar,
           stdevs as StdType[],
         );
-
-        if (row[colorDef.color] !== null) {
+        if (Array.isArray(row[colorDef.color])) {
           return row[colorDef.color].push(indicator?.meta?.labelKort);
         }
 
@@ -145,7 +144,13 @@ const LegendTable = ({
           <LegendRow>
             {Object.keys(dataTable).map((key, index) => {
               const row = dataTable[key];
+              if (!row) {
+                return null;
+              }
               const ColoredListItem = listItems[index];
+              if (!ColoredListItem) {
+                return null;
+              }
 
               return (
                 <LegendColumn key={key}>
