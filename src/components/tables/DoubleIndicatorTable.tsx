@@ -22,10 +22,10 @@ const FinalRow = ({ data, config }) => {
         {finalIndicator.meta.labelKort}
       </TableCell>
       <TableCellRight style={{ borderTop: "1px solid black" }}>
-        {util.formatNumber(finalIndicator.cijfers[finalIndicator.cijfers.length - 1].waarde)}
+        {util.formatNumber(finalIndicator?.cijfers[finalIndicator?.cijfers?.length - 1]?.waarde)}
       </TableCellRight>
       <TableCellRight style={{ borderTop: "1px solid black" }}>
-        {util.formatNumber(secondFinalIndicator.cijfers[secondFinalIndicator.cijfers.length - 1].waarde)}
+        {util.formatNumber(secondFinalIndicator?.cijfers[secondFinalIndicator?.cijfers?.length - 1]?.waarde)}
       </TableCellRight>
     </TableRow>
   );
@@ -56,18 +56,20 @@ const DoubleIndicatorTable = ({ gwb, config, headerTitles, withTotalRow = false 
                 (d) => d.meta.indicatorDefinitieId === config[index + config.length / 2].indicatorDefinitieId,
               );
 
-              if (!indicator || !secondIndicator) {
+              if (!indicator && !secondIndicator) {
                 return;
               }
 
               return (
                 <TableRow key={index}>
-                  <TableCell as="th">{indicator.meta.labelKort}</TableCell>
+                  <TableCell as="th">{(indicator || secondIndicator).meta.labelKort}</TableCell>
                   <TableCellRight>
-                    {util.formatNumber(indicator.cijfers[indicator.cijfers.length - 1]?.waarde)}
+                    {indicator ? util.formatNumber(indicator?.cijfers[indicator?.cijfers?.length - 1]?.waarde) : ""}
                   </TableCellRight>
                   <TableCellRight>
-                    {util.formatNumber(secondIndicator.cijfers[indicator.cijfers.length - 1]?.waarde)}
+                    {secondIndicator
+                      ? util.formatNumber(secondIndicator?.cijfers[secondIndicator?.cijfers?.length - 1]?.waarde)
+                      : ""}
                   </TableCellRight>
                 </TableRow>
               );

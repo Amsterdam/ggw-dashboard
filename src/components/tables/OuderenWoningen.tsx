@@ -1,4 +1,4 @@
-import SingleIndicatorTable from "./SingleIndicatorTable";
+import DoubleIndicatorTable from "./DoubleIndicatorTable";
 
 const localConfig = [
   {
@@ -6,6 +6,12 @@ const localConfig = [
   },
   {
     indicatorDefinitieId: "WSENIOREN",
+  },
+  {
+    indicatorDefinitieId: "nvt",
+  },
+  {
+    indicatorDefinitieId: "nvt",
   },
   {
     indicatorDefinitieId: "WZVENV",
@@ -25,10 +31,16 @@ const localConfig = [
   {
     indicatorDefinitieId: "WNULSOCCOR_P",
   },
+  {
+    indicatorDefinitieId: "nvt",
+  },
+  {
+    indicatorDefinitieId: "nvt",
+  },
 ];
 
 const OuderenWoningen = ({ gwb, config = localConfig }) => {
-  return <SingleIndicatorTable config={config} gwb={gwb} title="Voorraad ouderenwoningen" />;
+  return <DoubleIndicatorTable config={config} gwb={gwb} headerTitles={["aantal", "woningen %"]} withTotalRow />;
 };
 
 export default OuderenWoningen;
