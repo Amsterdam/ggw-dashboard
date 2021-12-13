@@ -1,11 +1,14 @@
 [
   {
-    "indicatorDefinitieId": "BEVAUTOCH_P"
+    "label": "Geen",
+    "indicatorDefinitieId": "BevAutoch_p"
   },
   {
-    "indicatorDefinitieId": "BEVNW_P"
+    "label": "Westers",
+    "indicatorDefinitieId": "BevWest_p"
   },
   {
-    "indicatorDefinitieId": "BEVWEST_P"
+    "label": "Niet-westers",
+    "indicatorDefinitieId": "BevNW_p"
   }
 ]
