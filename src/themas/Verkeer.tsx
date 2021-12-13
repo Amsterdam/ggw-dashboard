@@ -4,6 +4,7 @@ import ThemeHeader from "../components/ThemeHeader";
 import HeaderRow from "../components/layout/HeaderRow";
 import { useGWBSelection } from "../components/context/GWBContext";
 import VerticalBarChart from "../components/VerticalBarChart";
+import Verschillen from "../components/Verschillen";
 import verkeer from "../static/links/verkeer.json";
 
 import { VERKEER } from "../services/thema";
@@ -23,6 +24,9 @@ const Verkeer = () => {
           <DevelopmentThemeHeader theme={VERKEER} location={gwb?.naam} />
         </Column>
       </Row>
+
+      <Verschillen gwb={gwb} config={verkeer} />
+
       <Row>
         <Column span={4}>
           <VerticalBarChart title={verkeer[0].label} config={[verkeer[0]]} gwb={gwb}></VerticalBarChart>

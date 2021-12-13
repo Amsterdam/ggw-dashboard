@@ -4,6 +4,7 @@ import ThemeHeader from "../components/ThemeHeader";
 import HeaderRow from "../components/layout/HeaderRow";
 import { useGWBSelection } from "../components/context/GWBContext";
 import VerticalBarChart from "../components/VerticalBarChart";
+import Verschillen from "../components/Verschillen";
 
 import { SPORT_EN_CULTUUR } from "../services/thema";
 
@@ -32,6 +33,8 @@ const Sport = () => {
           <AantalSportvoorzieningen gwb={gwb} />
         </Column>
       </Row>
+      
+      <Verschillen gwb={gwb} config={sport} />
 
       <Row>
         <Column span={12}>
