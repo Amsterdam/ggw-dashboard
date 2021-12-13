@@ -8,25 +8,28 @@ import panos from "../static/links/panos.json";
 const Pano = ({ gwb }) => {
   const [src, setSrc] = useState<string>("");
 
-
   const updateData = () => {
-
-    // console.log('updateData gwb', gwb);
-    // const code = gwb.code;
-    // console.log('updateDate', code);
     const pano = panos.find((i) => i.gwb === gwb.code);
-    console.log('pano', pano);
+    console.log("pano", pano);
+
+    if (!pano) {
+      // not found
+      setSrc("/panos/amsterdam.jpg");
+      return;
+    }
+
     if (pano?.file) {
+      // found file
       setSrc(pano?.file);
       return;
-    } 
-    
+    }
+
     if (pano?.pano) {
+      // found url
       const url = pano?.pano;
-      console.log('call: url', url);
-      
-    } 
-  };
+      console.log("call: url", url);
+    }
+ };
 
   useEffect(() => {
     if (!gwb) {
@@ -35,7 +38,7 @@ const Pano = ({ gwb }) => {
 
     updateData();
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gwb]);
 
   useEffect(() => {
@@ -45,12 +48,12 @@ const Pano = ({ gwb }) => {
 
     updateData();
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <div>
-      <img   src="/static/panos/amsterdam.jpg" alt={`Pano van ${gwb.naam}`} />
+      <img src={src} alt={`Pano van ${gwb.naam}`} title={`Pano van ${gwb.naam}`} />
     </div>
   );
 };
