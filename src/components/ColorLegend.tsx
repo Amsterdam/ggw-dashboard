@@ -1,9 +1,9 @@
 import { TableBody, TableCell, TableHeader, TableRow } from "@amsterdam/asc-ui";
 import { SmallTable } from "./tables/SmallTable";
-import kleurencodetabel from "../static/kleurcodetabel.json";
+// import kleurencodetabel from "../static/kleurcodetabel.json";
 
 const ColorLegend = () => {
-  const labelsLeft = kleurencodetabel;
+  // const labelsLeft = kleurencodetabel;
 
   return (
     <div>

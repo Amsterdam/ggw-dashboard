@@ -69,8 +69,8 @@ const LegendTable = ({
 
     const newRow = () => {
       const row = {};
-      colorLegend.forEach((color) => {
-        row[color] = null;
+      colorLegend.forEach((color, index) => {
+        row[index] = null;
       });
       return row;
     };
@@ -95,8 +95,6 @@ const LegendTable = ({
           return;
         }
 
-        // console.log(indicator, yearData, stdevs);
-
         const colorDef = getColor(
           {
             indicatorDefinitieId: c.indicatorDefinitieId,
@@ -107,11 +105,11 @@ const LegendTable = ({
           stdevs as StdType[],
         );
 
-        if (row[colorDef.color] !== null) {
+        if (Array.isArray(row[colorDef.color])) {
           return row[colorDef.color].push(indicator?.meta?.labelKort);
         }
 
-        return (row[colorDef.color] = [indicator?.meta?.labelKort]);
+        return (row[colorDef.index] = [indicator?.meta?.labelKort]);
       });
 
       setDataTable(row);
@@ -145,7 +143,13 @@ const LegendTable = ({
           <LegendRow>
             {Object.keys(dataTable).map((key, index) => {
               const row = dataTable[key];
+              if (!row) {
+                return null;
+              }
               const ColoredListItem = listItems[index];
+              if (!ColoredListItem) {
+                return null;
+              }
 
               return (
                 <LegendColumn key={key}>

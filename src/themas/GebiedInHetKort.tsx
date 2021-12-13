@@ -3,7 +3,6 @@ import { Column, Row, themeSpacing } from "@amsterdam/asc-ui";
 
 import DataTable from "../components/DataTable";
 import ThemeHeader from "../components/ThemeHeader";
-import Car from "../components/Icons/Car";
 import LegendTable from "../components/LegendTable";
 import { useGWBSelection } from "../components/context/GWBContext";
 
@@ -14,6 +13,7 @@ import SociaalEconomischeScoreStackedBar from "../components/charts/SociaalEcono
 import TextStatistic from "../components/TextStatistic";
 import { IN_HET_KORT } from "../services/thema";
 import HeaderRow from "../components/layout/HeaderRow";
+import GebiedInHetKortIcon from "../components/Icons/GebiedInHetKort";
 
 const SpacingDiv = styled.div`
   padding-top: ${themeSpacing(4)};
@@ -27,7 +27,7 @@ const GebiedInHetKort = () => {
 
   return (
     <>
-      <ThemeHeader gwb={gwb} themeTitle={IN_HET_KORT} Icon={Car} />
+      <ThemeHeader gwb={gwb} themeTitle={IN_HET_KORT} Icon={GebiedInHetKortIcon} WithExtraInfo />
       <Row>
         <Column span={12}>
           <HeaderRow title={`Gebied in het kort ${gwb?.naam}`} />

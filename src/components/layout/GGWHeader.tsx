@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Header, MenuToggle, themeSpacing, breakpoint } from "@amsterdam/asc-ui";
+import { Header, MenuToggle, themeSpacing } from "@amsterdam/asc-ui";
 
 import GWBSelector from "../GWBSelector";
 import ThemaSelector from "../ThemaSelector";
@@ -11,9 +11,7 @@ const WideMenu = styled.div`
   & > div {
     max-width: 100%;
 
-    @media screen and ${breakpoint("max-width", "laptopM")} {
-      position: static;
-    }
+    position: static;
   }
 
   & > div > ul {
@@ -35,7 +33,7 @@ const CustomHeader = styled(Header)`
 const GGWHeader = () => {
   return (
     <CustomHeader
-      tall
+      tall={false}
       title="Gebied in beeld"
       homeLink=""
       fullWidth
