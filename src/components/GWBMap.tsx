@@ -57,6 +57,7 @@ const GWBMap = ({ gwb }) => {
 
     const geojson = getGeoJson(gwb);
 
+    // @TODO fix this later
     setTimeout(() => {
       setJson(geojson);
     }, 0);
