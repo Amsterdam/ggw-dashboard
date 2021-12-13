@@ -1,9 +1,12 @@
-import { useEffect, useRef, useState } from "react";
-import L from "leaflet";
+import "leaflet/dist/leaflet.css";
+import { useEffect, useState } from "react";
+import { Map as MapType, Layer, MapOptions } from "leaflet";
 import styled from "styled-components";
 import { Map, BaseLayer, constants } from "@amsterdam/arm-core";
-import { getGWBShapes, drawShapes } from "../services/map";
-import { COLOR } from "../services/colorcoding";
+import { GeoJSON } from "@amsterdam/react-maps";
+import { Heading } from "@amsterdam/asc-ui";
+import { GeoJsonObject, GeoJSONOptions } from "geojson";
+import { rdPolygonToWgs84 } from "../services/geojson";
 
 const MapDiv = styled.div`
   display: flex;
@@ -11,49 +14,100 @@ const MapDiv = styled.div`
   width: 100%;
 `;
 
-const MapWrapper = styled(Map)`
-  position: relative;
+const StyledMap = styled(Map)`
   width: 100%;
-  height: 150px;
+  overflow: hidden;
+  height: 175px;
 `;
 
 const GWBMap = ({ gwb }) => {
-  const [mapInstance, setMapInstance] = useState<L.Map | null>(null);
+  const [layerInstance, setInstance] = useState<Layer | undefined>();
+  const [mapInstance, setMapInstance] = useState<MapType | undefined>();
+  const [json, setJson] = useState<GeoJsonObject | null>(null);
 
-  const gwbLayer = useRef(null);
+  const getGeoJson = (gwb) => {
+    const geometry = rdPolygonToWgs84(gwb.geometrie);
+
+    return {
+      type: "Feature",
+      crs: {
+        type: "name",
+        properties: {
+          name: "urn:ogc:def:crs:OGC:1.3:CRS84",
+        },
+      },
+      properties: {
+        naam: gwb.naam,
+        gebied: gwb.vollcode || gwb.code,
+      },
+      geometry,
+    };
+  };
 
   const updateData = () => {
-    if (!gwb || !mapInstance) {
+    if (!gwb) {
+      return;
+    }
+    if (gwb.naam === "Amsterdam") {
+      setJson(null);
       return;
     }
 
-    if (mapInstance && gwbLayer.current) {
-      mapInstance.removeLayer(gwbLayer.current);
-    }
+    setJson(null);
 
-    const shapes = getGWBShapes(gwb, () => ({
-      color: COLOR["ams-rood"],
-    }));
+    const geojson = getGeoJson(gwb);
 
-    gwbLayer.current = drawShapes(shapes, mapInstance);
+    // @TODO fix this later
+    setTimeout(() => {
+      setJson(geojson);
+    }, 0);
   };
 
   useEffect(() => {
     updateData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [gwb, mapInstance]);
+  }, [gwb]);
+
+  useEffect(() => {
+    if (!gwb || !layerInstance || !mapInstance) {
+      return;
+    }
+    mapInstance.fitBounds(layerInstance.getBounds());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [layerInstance, mapInstance, gwb]);
+
+  useEffect(() => {
+    updateData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const options: GeoJSONOptions = {
+    onEachFeature(feature, layer) {
+      layer.setStyle({
+        color: "#ec0000",
+        fillColor: "#ec0000",
+        fillOpacity: 0.2,
+      });
+    },
+  };
+
+  const mapOptions: MapOptions = {
+    ...constants.DEFAULT_AMSTERDAM_MAPS_OPTIONS,
+    zoomControl: true,
+    maxZoom: 12,
+    minZoom: 6,
+    zoom: 6,
+  };
 
   return (
     <MapDiv>
-      <h2>
+      <Heading as="h2">
         {gwb?.gebiedType} {gwb?.naam}
-      </h2>
-      <MapWrapper
-        options={{ ...constants.DEFAULT_AMSTERDAM_MAPS_OPTIONS, zoomControl: true, maxZoom: 12, minZoom: 6 }}
-        setInstance={setMapInstance}
-      >
+      </Heading>
+      <StyledMap setInstance={setMapInstance} options={mapOptions} fullScreen>
         <BaseLayer baseLayer={constants.DEFAULT_AMSTERDAM_LAYERS[2].urlTemplate} />
-      </MapWrapper>
+        {json ? <GeoJSON setInstance={setInstance} args={[json]} options={options} /> : null}
+      </StyledMap>
     </MapDiv>
   );
 };

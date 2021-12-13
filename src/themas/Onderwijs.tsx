@@ -4,8 +4,9 @@ import StatusBovenleerplichtigenStackedBar from "../components/charts/StatusBove
 
 import { useGWBSelection } from "../components/context/GWBContext";
 import DevelopmentThemeHeader from "../components/DevelopmentThemeHeader";
-import Car from "../components/Icons/Car";
+import OnderwijsThema from "../components/Icons/OnderwijsThema";
 import HeaderRow from "../components/layout/HeaderRow";
+import Verschillen from "../components/Verschillen";
 import KidsOfSchoolAge from "../components/tables/KidsOfSchoolAge";
 import NumberOfSchoolesAndStudents from "../components/tables/NumberOfSchoolesAndStudents";
 import ThemeHeader from "../components/ThemeHeader";
@@ -19,7 +20,7 @@ const Onderwijs = () => {
 
   return (
     <>
-      <ThemeHeader gwb={gwb} themeTitle={ONDERWIJS} Icon={Car} />
+      <ThemeHeader gwb={gwb} themeTitle={ONDERWIJS} Icon={OnderwijsThema} />
       <Row>
         <Column span={12}>
           <HeaderRow title={`Samenstelling ${ONDERWIJS} in ${gwb?.naam}`} />
@@ -33,6 +34,7 @@ const Onderwijs = () => {
           <NumberOfSchoolesAndStudents gwb={gwb} />
         </Column>
       </Row>
+      <Verschillen gwb={gwb} config={ontwikkelingOnderwijs} />
       <Row>
         <Column span={6}>
           <BasisschooladviezenStackedBar gwb={gwb} />

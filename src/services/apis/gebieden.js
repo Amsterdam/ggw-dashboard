@@ -136,7 +136,7 @@ export async function getBuurten(wijk) {
  * @param gebiedCode
  * @returns {*}
  */
-export function getGebiedType(gebiedCode) {
+export function getGebiedType(gebiedCode, notUrl = false) {
   if (/^[A-Z]$/.test(gebiedCode)) {
     return GEBIED_TYPE.Stadsdeel;
   } else if (/^DX\d\d$/.test(gebiedCode)) {
@@ -148,57 +148,7 @@ export function getGebiedType(gebiedCode) {
   } else if (/^STAD$/.test(gebiedCode)) {
     return GEBIED_TYPE.Stad;
   } else {
-    return "?" + gebiedCode;
-  }
-}
-
-/**
- * Local object to cache the getGWBSummary responses
- * @type {{}}
- */
-const GWB = {};
-
-/**
- * Gets the gebied, wijk, buurt info for a given gebiedCode
- * @param code
- * @returns {Promise<*>}
- */
-export async function getGwbSummary(code) {
-  if (GWB[code]) {
-    return GWB[code];
-  }
-
-  const gebiedType = getGebiedType(code);
-  let gwbCollection = [];
-
-  if (gebiedType === GEBIED_TYPE.Stad) {
-    return getCity();
-  } else if (gebiedType === GEBIED_TYPE.Stadsdeel) {
-    gwbCollection = await getAllStadsdelen();
-  } else if (gebiedType === GEBIED_TYPE.Gebied) {
-    gwbCollection = await getAllGebieden();
-  } else if (gebiedType === GEBIED_TYPE.Wijk) {
-    gwbCollection = await getAllWijken();
-  } else if (gebiedType === GEBIED_TYPE.Buurt) {
-    gwbCollection = await getAllBuurten();
-  } else {
-    console.error("Unknown gebied type", gebiedType, code);
-    return null;
-  }
-
-  GWB[code] = gwbCollection.find((item) => item.vollcode === code);
-  return GWB[code];
-}
-
-/**
- * Gets the full info, including geometry, for a given gebiedCode
- * @param code
- * @returns {Promise<*>}
- */
-export async function getGwb(code) {
-  const gwb = await getGwbSummary(code);
-  if (gwb) {
-    return getDetail(gwb);
+    return (notUrl ? "" : "?") + gebiedCode;
   }
 }
 
@@ -257,4 +207,34 @@ export async function getAllBuurten() {
   const url = getUrl("/buurten/");
   const getData = async () => enhancedGWBList(await readPaginatedData(url, {}, "_embedded.buurten"));
   return cacheResponse("allBuurten", getData);
+}
+
+/**
+ * Local object to cache the getGWBSummary responses
+ * @type {{}}
+ */
+const GWB = {};
+
+export async function getAll() {
+  const getData = async () => {
+    const results = await Promise.all([getAllStadsdelen(), getAllGebieden(), getAllWijken(), getAllBuurten()]);
+
+    const gwbCollection = results.flat();
+    
+    gwbCollection.forEach((i) => {
+      GWB[i.vollcode] = { ...i };
+    });
+
+    return gwbCollection;
+  };
+
+  return cacheResponse("all", getData);
+}
+
+export function getGebied(code) {
+  if (code === "STAD") {
+    return { naam: "Amsterdam" };
+  }
+
+  return GWB[code];
 }

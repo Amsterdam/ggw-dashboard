@@ -4,7 +4,7 @@ import ThemeHeader from "../components/ThemeHeader";
 import HeaderRow from "../components/layout/HeaderRow";
 import { useGWBSelection } from "../components/context/GWBContext";
 import VerticalBarChart from "../components/VerticalBarChart";
-import Car from "../components/Icons/Car";
+import Verschillen from "../components/Verschillen";
 
 import { OUDEREN } from "../services/thema";
 
@@ -15,13 +15,14 @@ import LineChart from "../components/LineChart";
 import Migratieachtergrond65PlusStackedBar from "../components/charts/Migratieachtergrond65PlusStackedBar";
 import LeeftijdsverdelingStackedBar from "../components/charts/LeeftijdsverdelingStackedBar";
 import DataTable from "../components/DataTable";
+import OuderenThema from "../components/Icons/OuderenThema";
 
 const Ouderen = () => {
   const gwb = useGWBSelection();
 
   return (
     <>
-      <ThemeHeader gwb={gwb} themeTitle={OUDEREN} Icon={Car} />
+      <ThemeHeader gwb={gwb} themeTitle={OUDEREN} Icon={OuderenThema} />
       <Row>
         <Column span={12}>
           <HeaderRow title={`Samenstelling ${OUDEREN} in ${gwb?.naam}`} />
@@ -52,6 +53,8 @@ const Ouderen = () => {
           <div>TODO: Informatie over tabel moet nog aangeleverd worden.</div>
         </Column>
       </Row>
+
+      <Verschillen gwb={gwb} config={ouderen} />
 
       <Row>
         <Column span={6}>

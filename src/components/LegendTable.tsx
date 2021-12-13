@@ -69,8 +69,8 @@ const LegendTable = ({
 
     const newRow = () => {
       const row = {};
-      colorLegend.forEach((color) => {
-        row[color] = null;
+      colorLegend.forEach((color, index) => {
+        row[index] = null;
       });
       return row;
     };
@@ -104,11 +104,12 @@ const LegendTable = ({
           yearData?.jaar,
           stdevs as StdType[],
         );
+
         if (Array.isArray(row[colorDef.color])) {
           return row[colorDef.color].push(indicator?.meta?.labelKort);
         }
 
-        return (row[colorDef.color] = [indicator?.meta?.labelKort]);
+        return (row[colorDef.index] = [indicator?.meta?.labelKort]);
       });
 
       setDataTable(row);
