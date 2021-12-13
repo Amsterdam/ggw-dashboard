@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import isEmpty from "lodash/isEmpty";
 import styled from "styled-components";
 import { List, ListItem, Paragraph, themeColor, themeSpacing } from "@amsterdam/asc-ui";
 
