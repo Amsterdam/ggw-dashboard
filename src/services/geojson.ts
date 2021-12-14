@@ -66,7 +66,7 @@ const PRECISION_DECIMALS = 6;
  * @returns {number}
  */
 export const toPrecision = (x, decimals = PRECISION_DECIMALS) =>
-// @ts-ignore
+  // @ts-ignore
   Number(Math.round(`${x}e${decimals}`) + `e-${decimals}`);
 
 /**
