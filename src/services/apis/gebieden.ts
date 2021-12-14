@@ -7,8 +7,8 @@ import { readData, readPaginatedData } from "../datareader";
  * The list of gebieden is supplied by OIS. If information about a gebied is available in this list it is used instead of the API data
  */
 
-import wijkgebied from "../../static/tmp/wijkgebied.json";
 import { cacheResponse } from "../cache";
+import { Gwb } from "../../types";
 
 /**
  * Constant to denote the gebied types in the Gebieden API
@@ -27,7 +27,7 @@ export const GEBIED_TYPE = {
  * @param endpoint
  * @returns {string}
  */
-function getUrl(endpoint) {
+function getUrl(endpoint: string): string {
   return `https://api.data.amsterdam.nl/v1/gebieden${endpoint}?eindGeldigheid[isnull]=true`;
 }
 
@@ -38,7 +38,7 @@ function getUrl(endpoint) {
  * @param gwb
  * @returns {*}
  */
-export function enhanceGWB(gwb) {
+export function enhanceGWB(gwb: Gwb): Gwb {
   gwb.vollcode = gwb.code;
   gwb.volledige_code = gwb.code;
   gwb.gebiedType = getGebiedType(gwb.code);
@@ -51,7 +51,7 @@ export function enhanceGWB(gwb) {
  * @param gwbList
  * @returns {*}
  */
-function enhancedGWBList(gwbList) {
+function enhancedGWBList(gwbList): Gwb[] {
   gwbList.forEach((g) => enhanceGWB(g));
   gwbList.sort((gwb1, gwb2) => gwb1.vollcode.localeCompare(gwb2.vollcode));
   return gwbList;
@@ -62,8 +62,8 @@ function enhancedGWBList(gwbList) {
  * This key is not available as a property but is only to be derived from the detail url
  * @param url
  */
-export function getKeyFromUrl(url) {
-  return url.match(/\/([^/]*)\/$/)[1];
+export function getKeyFromUrl(url: string): string {
+  return url.match(/\/([^/]*)\/$/)![1];
 }
 
 /**
@@ -85,34 +85,6 @@ export async function getDetail(entity) {
     return data;
   }
   return cacheResponse(`GWB.detail.${entity?.vollcode}`, getData);
-}
-
-/**
- * Get all wijken for a given gebied
- * Unfortunately the logic is complex and the result is wrong
- * The gebieden API does not implement the logic to get wijken within a given gebied
- * Instead, the wijken within the stadsdeel of the given gebied are returned
- * @param gebied
- * @returns {Promise<*>}
- */
-export async function getWijken(gebied) {
-  // Get the wijk codes of all wijken within the gebied
-  const wijkgebieden = wijkgebied.filter((wg) => wg.gebied === gebied.vollcode);
-
-  const gebiedsDetailUrl = gebied._links.self.href;
-  const gebiedsDetail = await readData(gebiedsDetailUrl);
-
-  const stadsdeel = gebiedsDetail.stadsdeel;
-  const stadsdeelDetailUrl = stadsdeel._links.self.href;
-  const stadsdeelKey = getKeyFromUrl(stadsdeelDetailUrl);
-
-  // Get all wijken within the stadsdeel
-  const wijkenUrl = getUrl("/wijk/?stadsdeel=" + stadsdeelKey);
-  let wijken = await readPaginatedData(wijkenUrl);
-
-  // Filter the wijken for being a wijk within the gebied
-  wijken = wijken.filter((w) => wijkgebieden.find((wg) => wg.wijk === w.vollcode));
-  return enhancedGWBList(wijken);
 }
 
 /**
@@ -231,9 +203,12 @@ export async function getAll() {
   return cacheResponse("all", getData);
 }
 
-export function getGebied(code) {
+export function getGebied(code: string): Gwb {
   if (code === "STAD") {
-    return { naam: "Amsterdam" };
+    return {
+      code: "STAD",
+      naam: "Amsterdam",
+    };
   }
 
   return GWB[code];

@@ -17,7 +17,7 @@ export const HTTPStatus = {
  * @param ms
  * @returns {Promise<any>}
  */
-function sleep(ms) {
+function sleep(ms: number) {
   return new Promise((resolve) => {
     setTimeout(resolve, ms);
   });
@@ -29,12 +29,13 @@ function sleep(ms) {
  * @param nTries optional parameter specifying the number of retries, default = 5
  * @returns {Promise<*>}
  */
-async function fetchData(url, options, nTries = 5) {
+async function fetchData(url: string, options = {}, nTries = 5) {
   let result;
   let nTry = 0;
   do {
     try {
       HTTPStatus.pending++; // Track pending requests
+      // eslint-disable-next-line prefer-const
       result = await axios.get(url, options);
     } catch (error) {
       console.error("Retry...", url);
@@ -52,7 +53,7 @@ async function fetchData(url, options, nTries = 5) {
     // All retries have failed
     console.error("Request failed", url);
     HTTPStatus.error++;
-    throw new Error("Request failed", url);
+    throw new Error("Request failed");
   }
 }
 
@@ -64,15 +65,15 @@ async function fetchData(url, options, nTries = 5) {
  * @returns {Promise<Array>}
  */
 export async function readPaginatedData(
-  url,
-  // eslint-disable-next-line no-unused-vars
+  url: string,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   options = {},
   dataSelector = "results",
 ) {
   let next = url;
   let results = [];
   // let page = 1;
-  const pageSize = 1000;
+  const pageSize = 100000;
   const concatParam = url.includes("?") ? "&" : "?";
   while (next) {
     try {
@@ -83,7 +84,7 @@ export async function readPaginatedData(
       // page += 1;
     } catch (e) {
       console.error(e);
-      next = null;
+      next = "";
     }
   }
 
@@ -96,7 +97,7 @@ export async function readPaginatedData(
  * @param resolve
  * @returns {Promise<*>}
  */
-export async function readData(url, options = {}, resolve = (d) => d.data) {
+export async function readData(url: string, options = {}, resolve = (d) => d.data) {
   const response = await fetchData(url, options);
   return resolve(response);
 }
