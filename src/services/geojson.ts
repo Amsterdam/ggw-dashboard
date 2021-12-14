@@ -42,10 +42,10 @@ const config = {
 const rdSettings = config.rd;
 rdSettings.transformation.bounds = L.bounds.apply(null, rdSettings.transformation.bounds);
 
-export const rd = new L.Proj.CRS(rdSettings.code, rdSettings.projection, rdSettings.transformation);
+const rd = new L.Proj.CRS(rdSettings.code, rdSettings.projection, rdSettings.transformation);
 
 rd.distance = L.CRS.Earth.distance;
-rd.R = config.EARTH_RADIUS;
+rd.R = config.earthRadius;
 
 /**
  * Pricision decimals used to convert floats to fixed decimal floats
@@ -66,6 +66,7 @@ const PRECISION_DECIMALS = 6;
  * @returns {number}
  */
 export const toPrecision = (x, decimals = PRECISION_DECIMALS) =>
+// @ts-ignore
   Number(Math.round(`${x}e${decimals}`) + `e-${decimals}`);
 
 /**
@@ -102,50 +103,4 @@ export function rdPolygonToWgs84(geometry) {
     type: "Polygon",
     coordinates: [geometry.coordinates[0].map((rdCoordinate) => rdToWgs84(rdCoordinate))],
   };
-}
-
-/**
- * Converts a rd encoded multi polygon to an array of ws84 polygons
- * @param geometry
- * @returns {*}
- */
-export function rdMultiPolygonToWgs84(geometry) {
-  if (geometry.type !== "MultiPolygon") {
-    console.error('Error in geometry type, "MultiPolygon" was expected', geometry.type);
-    return;
-  }
-
-  // {
-  //   'type': 'MultiPolygon',
-  //   'coordinates': [
-  //     [
-  //       [
-  //         [-99.028, 46.985], [-99.028, 50.979],
-  //         [-82.062, 50.979], [-82.062, 47.002],
-  //         [-99.028, 46.985]
-  //       ]
-  //     ],
-  //     [
-  //       [
-  //         [-109.028, 36.985], [-109.028, 40.979],
-  //         [-102.062, 40.979], [-102.062, 37.002],
-  //         [-109.028, 36.985]
-  //       ]
-  //     ]
-  //   ]
-  // }
-
-  const rdMultiPolygonCoordinates = geometry.coordinates;
-  const polygons = [];
-
-  rdMultiPolygonCoordinates.forEach((rdPolygonCoordinates) => {
-    rdPolygonCoordinates.forEach((rdCoordinateCollection) => {
-      polygons.push({
-        type: "Polygon",
-        coordinates: [rdCoordinateCollection.map((rdCoordinate) => rdToWgs84(rdCoordinate))],
-      });
-    });
-  });
-
-  return polygons;
 }
