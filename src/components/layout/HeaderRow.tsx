@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { themeSpacing, themeColor } from "@amsterdam/asc-ui";
+import { themeSpacing, themeColor, Heading } from "@amsterdam/asc-ui";
 
 const HeadingDiv = styled.div`
   background-color: ${themeColor("tint", "level2")};
@@ -15,7 +15,7 @@ const HeadingDiv = styled.div`
 const HeaderRow = ({ title }: { title: string }) => {
   return (
     <HeadingDiv>
-      <h2>{title}</h2>
+      <Heading as="h2">{title}</Heading>
     </HeadingDiv>
   );
 };

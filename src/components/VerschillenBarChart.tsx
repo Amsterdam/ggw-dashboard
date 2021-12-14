@@ -80,15 +80,6 @@ const VerschillenBarChart: React.FC<Props> = ({ gwb, indicatorDefinitieId, label
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gwb, indicatorDefinitieId]);
 
-  useEffect(() => {
-    if (!gwb) {
-      return;
-    }
-
-    updateData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   return (
     <div>
       <div className="chart-container">{isLoading ? <Spinner /> : <div ref={chartRef}></div>}</div>

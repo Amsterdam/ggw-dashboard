@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Column, Row, themeSpacing, themeColor } from "@amsterdam/asc-ui";
+import { Column, Row, themeSpacing, themeColor, Heading } from "@amsterdam/asc-ui";
 import GWBMap from "../components/GWBMap";
 
 const StyledDiv = styled.div`
@@ -41,7 +41,7 @@ const ThemeHeader = ({ gwb, themeTitle, Icon, WithExtraInfo = false }) => {
             )}
             <Column span={WithExtraInfo ? 4 : 6}>
               <CenteredContent>
-                <h2>Thema {themeTitle}</h2>
+                <Heading as="h2">Thema {themeTitle}</Heading>
                 <Icon width="150" height="150" />
               </CenteredContent>
             </Column>

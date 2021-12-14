@@ -2,9 +2,9 @@ import "leaflet/dist/leaflet.css";
 import { useEffect, useState } from "react";
 import { Map as MapType, Layer, MapOptions } from "leaflet";
 import styled from "styled-components";
+import { Heading } from "@amsterdam/asc-ui";
 import { Map, BaseLayer, constants } from "@amsterdam/arm-core";
 import { GeoJSON } from "@amsterdam/react-maps";
-import { Heading } from "@amsterdam/asc-ui";
 import { GeoJsonObject, GeoJSONOptions } from "geojson";
 import { rdPolygonToWgs84 } from "../services/geojson";
 

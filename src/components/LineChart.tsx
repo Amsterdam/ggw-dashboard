@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import vegaEmbed from "vega-embed";
 import cloneDeep from "lodash/cloneDeep";
-import { Spinner } from "@amsterdam/asc-ui";
+import { Heading, Spinner } from "@amsterdam/asc-ui";
 
 import util from "../services/util";
 
@@ -62,7 +62,9 @@ const LineChart = ({ title, gwb, config, customVegaSpec = null }) => {
 
   return (
     <div>
-      <h4 className="text-center">{title}</h4>
+      <Heading as="h4">
+        {title}
+      </Heading>
       <div className="chart-container">
         {isLoading ? <Spinner /> : null}
         {showError && <p>Op dit schaalniveau is helaas geen informatie beschikbaar.</p>}
