@@ -84,7 +84,7 @@ export async function readPaginatedData(
       // page += 1;
     } catch (e) {
       console.error(e);
-      next = null;
+      next = "";
     }
   }
 
