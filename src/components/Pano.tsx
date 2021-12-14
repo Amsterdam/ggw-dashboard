@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import styled from "styled-components"
-import { base62DecodeAngle } from '../services/base62'
+import styled from "styled-components";
+import { base62DecodeAngle } from "../services/base62";
 import panos from "../static/links/panos.json";
 
 const StyledImage = styled.img`
   width: 400px;
-`
+`;
 
 const Pano = ({ gwb }) => {
   const [src, setSrc] = useState<string>("");
@@ -35,12 +35,12 @@ const Pano = ({ gwb }) => {
       // @ts-ignore
       sbh = Math.round(base62DecodeAngle(sbh, 1));
       const width = 500;
-      const url = `https://api.data.amsterdam.nl/panorama/thumbnail/${sbi}/?width=${width}&heading=${sbh}`
+      const url = `https://api.data.amsterdam.nl/panorama/thumbnail/${sbi}/?width=${width}&heading=${sbh}`;
 
       setSrc(url);
       console.log("call: url", url);
     }
- };
+  };
 
   useEffect(() => {
     if (!gwb) {
@@ -62,9 +62,7 @@ const Pano = ({ gwb }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return (
-    <StyledImage src={src} alt={`Pano van ${gwb.naam}`} title={`Pano van ${gwb.naam}`} />
-  );
+  return <StyledImage src={src} alt={`Pano van ${gwb.naam}`} title={`Pano van ${gwb.naam}`} />;
 };
 
 export default Pano;
