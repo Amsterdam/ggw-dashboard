@@ -91,6 +91,7 @@ const GebiedInHetKort = ({ width = "48", height = "48" }: { width?: string; heig
             <path
               d="m0 0c0 19.262 15.614 34.877 34.877 34.877 19.262 0 34.877-15.615 34.877-34.877s-15.615-34.877-34.877-34.877c-19.263 0-34.877 15.615-34.877 34.877z"
               style={{ strokeMiterlimit: 10, strokeWidth: 5.618, stroke: "#e2001a" }}
+              fill="#F5F5F5"
             />
           </g>
         </g>

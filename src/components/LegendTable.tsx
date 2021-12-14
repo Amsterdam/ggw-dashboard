@@ -70,7 +70,7 @@ const LegendTable = ({
     const newRow = () => {
       const row = {};
       colorLegend.forEach((color, index) => {
-        row[index] = null;
+        row[index] = [];
       });
       return row;
     };
@@ -111,6 +111,8 @@ const LegendTable = ({
 
         return (row[colorDef.index] = [indicator?.meta?.labelKort]);
       });
+
+      console.log(row);
 
       setDataTable(row);
     }

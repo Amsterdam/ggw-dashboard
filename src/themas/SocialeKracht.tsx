@@ -43,7 +43,7 @@ const SocialeKracht = () => {
           <MostVulnerableCitizens gwb={gwb} />
         </Column>
       </Row>
-      <Verschillen gwb={gwb} config={socialekrachtcijfers} />
+
       <Row>
         <Column span={12}>
           <Spacer />
@@ -109,6 +109,13 @@ const SocialeKracht = () => {
           ></VerticalBarChart>
         </Column>
       </Row>
+
+      <Row>
+        <Column span={12}>
+          <HeaderRow title={`${gwb?.naam} vergeleken met andere gebieden`} />
+        </Column>
+      </Row>
+      <Verschillen gwb={gwb} config={socialekrachtcijfers} />
 
       <Row>
         <Column span={12}>

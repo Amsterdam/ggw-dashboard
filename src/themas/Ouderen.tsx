@@ -55,8 +55,6 @@ const Ouderen = () => {
         </Column>
       </Row>
 
-      <Verschillen gwb={gwb} config={ouderen} />
-
       <Row>
         <Column span={6}>
           <LeeftijdsverdelingStackedBar gwb={gwb} />
@@ -94,6 +92,13 @@ const Ouderen = () => {
           <VerticalBarChart title={ouderen[5].label} config={[ouderen[5]]} gwb={gwb}></VerticalBarChart>
         </Column>
       </Row>
+
+      <Row>
+        <Column span={12}>
+          <HeaderRow title={`${gwb?.naam} vergeleken met andere gebieden`} />
+        </Column>
+      </Row>
+      <Verschillen gwb={gwb} config={ouderen} />
 
       <Row>
         <Column span={12}>

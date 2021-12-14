@@ -23,11 +23,6 @@ const Verschillen: React.FC<Props> = ({ gwb, config }) => {
   return (
     <>
       <Row>
-        <Column span={12}>
-          <HeaderRow title={`Verschillen in ${gwb?.naam}`} />
-        </Column>
-      </Row>
-      <Row>
         <Column span={6}>
           <StyledDiv>
             <Select
