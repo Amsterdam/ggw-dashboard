@@ -70,7 +70,7 @@ const LegendTable = ({
     const newRow = () => {
       const row = {};
       colorLegend.forEach((color, index) => {
-        row[index] = null;
+        row[index] = [];
       });
       return row;
     };

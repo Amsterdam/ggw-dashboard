@@ -51,7 +51,7 @@ const Werk = () => {
           />
         </Column>
       </Row>
-      <Verschillen gwb={gwb} config={werkloosheid} />
+
       <Row>
         <Column span={6}>
           <SocialeKlasseStackedBar gwb={gwb} />
@@ -126,6 +126,7 @@ const Werk = () => {
           <HeaderRow title={`${gwb?.naam} vergeleken met andere gebieden`} />
         </Column>
       </Row>
+      <Verschillen gwb={gwb} config={werkloosheid} />
     </>
   );
 };

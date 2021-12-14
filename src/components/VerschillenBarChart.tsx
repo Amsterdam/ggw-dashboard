@@ -4,7 +4,7 @@ import cloneDeep from "lodash/cloneDeep";
 import { Spinner } from "@amsterdam/asc-ui";
 
 import util from "../services/util";
-import { getOneStd } from "../services/apis/bbga";
+import { getMeta, getOneStd } from "../services/apis/bbga";
 import { getAll, getGebied } from "../services/apis/gebieden";
 import { getColor } from "../services/colorcoding";
 import { Gwb } from "../types";
@@ -40,8 +40,9 @@ const VerschillenBarChart: React.FC<Props> = ({ gwb, indicatorDefinitieId, label
     await getAll();
 
     const gebied = await util.getGebiedCijfers(indicatorDefinitieId, gwb, util.CIJFERS.LATEST);
+    const meta = await getMeta(indicatorDefinitieId);
 
-    if (!gebied.cijfers) {
+    if (!gebied.cijfers || typeof meta === "string") {
       setIsLoading(false);
       return;
     }
@@ -60,7 +61,12 @@ const VerschillenBarChart: React.FC<Props> = ({ gwb, indicatorDefinitieId, label
             gebied: getGebied(d.gebiedcode15).naam,
             label,
             value: d.waarde ? d.waarde : "Geen gegevens",
-            ...getColor({ indicatorDefinitieId: indicatorDefinitieId, kleurenpalet: 1 }, d?.waarde, d?.jaar, stdevs),
+            ...getColor(
+              { indicatorDefinitieId: indicatorDefinitieId, kleurenpalet: meta.kleurenpalet },
+              d?.waarde,
+              d?.jaar,
+              stdevs,
+            ),
           } as MapResult),
       ) as MapResult[];
 

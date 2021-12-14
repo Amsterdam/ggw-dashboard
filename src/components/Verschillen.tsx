@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { Column, Row, Select, themeSpacing } from "@amsterdam/asc-ui";
 import VerschillenBarChart from "./VerschillenBarChart";
 import VerschillenMap from "./VerschillenMap";
-import HeaderRow from "../components/layout/HeaderRow";
 import { Gwb, ConfigList } from "../types";
 
 const StyledDiv = styled.div`
@@ -22,11 +21,6 @@ const Verschillen: React.FC<Props> = ({ gwb, config }) => {
 
   return (
     <>
-      <Row>
-        <Column span={12}>
-          <HeaderRow title={`Verschillen in ${gwb?.naam}`} />
-        </Column>
-      </Row>
       <Row>
         <Column span={6}>
           <StyledDiv>

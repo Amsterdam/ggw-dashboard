@@ -74,12 +74,7 @@ const GebiedInHetKort = () => {
           <TextStatistic title="woningen" gwb={gwb} indicatorId="WVOORRBAG" titleLeft={false} />
         </Column>
         <Column span={6}>
-          <TextStatistic
-            title="gemiddeld besteedbaar huishoudinkomen:"
-            gwb={gwb}
-            indicatorId="IHHINKOM_GEM"
-            titleLeft
-          />
+          <TextStatistic title="gemiddeld besteedbaar huishoudinkomen:" gwb={gwb} indicatorId="IHHINK_GEM" titleLeft />
         </Column>
       </Row>
 

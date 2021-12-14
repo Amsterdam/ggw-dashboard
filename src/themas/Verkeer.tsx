@@ -25,8 +25,6 @@ const Verkeer = () => {
         </Column>
       </Row>
 
-      <Verschillen gwb={gwb} config={verkeer} />
-
       <Row>
         <Column span={4}>
           <VerticalBarChart title={verkeer[0].label} config={[verkeer[0]]} gwb={gwb}></VerticalBarChart>
@@ -55,13 +53,8 @@ const Verkeer = () => {
         <Column span={12}>
           <HeaderRow title={`${gwb?.naam} vergeleken met andere gebieden`} />
         </Column>
-
-        <Column span={12}>
-          <div style={{ width: "100%" }}>
-            <p>TODO</p>
-          </div>
-        </Column>
       </Row>
+      <Verschillen gwb={gwb} config={verkeer} />
     </>
   );
 };

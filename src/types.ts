@@ -24,7 +24,7 @@ export interface MetaType {
   kleurenpalet: number;
 }
 
-export type ConfigEnirched = { indicatorDefinitieId: string; labelKort: string };
+export type ConfigEnirched = { indicatorDefinitieId: string; labelKort: string; kleurenpalet: number };
 
 export type Config = { indicatorDefinitieId: string };
 
