@@ -9,6 +9,7 @@ import { readData, readPaginatedData } from "../datareader";
 
 import wijkgebied from "../../static/tmp/wijkgebied.json";
 import { cacheResponse } from "../cache";
+import { Gwb } from "../../types";
 
 /**
  * Constant to denote the gebied types in the Gebieden API
@@ -38,7 +39,7 @@ function getUrl(endpoint: string): string {
  * @param gwb
  * @returns {*}
  */
-export function enhanceGWB(gwb) {
+export function enhanceGWB(gwb: Gwb): Gwb {
   gwb.vollcode = gwb.code;
   gwb.volledige_code = gwb.code;
   gwb.gebiedType = getGebiedType(gwb.code);
@@ -51,7 +52,7 @@ export function enhanceGWB(gwb) {
  * @param gwbList
  * @returns {*}
  */
-function enhancedGWBList(gwbList) {
+function enhancedGWBList(gwbList): Gwb[] {
   gwbList.forEach((g) => enhanceGWB(g));
   gwbList.sort((gwb1, gwb2) => gwb1.vollcode.localeCompare(gwb2.vollcode));
   return gwbList;
@@ -220,7 +221,7 @@ export async function getAll() {
     const results = await Promise.all([getAllStadsdelen(), getAllGebieden(), getAllWijken(), getAllBuurten()]);
 
     const gwbCollection = results.flat();
-    
+
     gwbCollection.forEach((i) => {
       GWB[i.vollcode] = { ...i };
     });
@@ -231,9 +232,12 @@ export async function getAll() {
   return cacheResponse("all", getData);
 }
 
-export function getGebied(code) {
+export function getGebied(code: string): Gwb {
   if (code === "STAD") {
-    return { naam: "Amsterdam" };
+    return {
+      code: "STAD",
+      naam: "Amsterdam",
+    };
   }
 
   return GWB[code];
