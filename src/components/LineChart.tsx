@@ -62,7 +62,7 @@ const LineChart = ({ title, gwb, config, customVegaSpec = null }) => {
 
   return (
     <div>
-      <Heading as="h4" className="text-center">
+      <Heading as="h4">
         {title}
       </Heading>
       <div className="chart-container">
