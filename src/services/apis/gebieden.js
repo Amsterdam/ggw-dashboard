@@ -9,7 +9,6 @@ import { readData, readPaginatedData } from "../datareader";
 
 import wijkgebied from "../../static/tmp/wijkgebied.json";
 import { cacheResponse } from "../cache";
-import { Gwb } from "../../types";
 
 /**
  * Constant to denote the gebied types in the Gebieden API
@@ -28,7 +27,7 @@ export const GEBIED_TYPE = {
  * @param endpoint
  * @returns {string}
  */
-function getUrl(endpoint: string): string {
+function getUrl(endpoint) {
   return `https://api.data.amsterdam.nl/v1/gebieden${endpoint}?eindGeldigheid[isnull]=true`;
 }
 
@@ -39,7 +38,7 @@ function getUrl(endpoint: string): string {
  * @param gwb
  * @returns {*}
  */
-export function enhanceGWB(gwb): Gwb {
+export function enhanceGWB(gwb) {
   gwb.vollcode = gwb.code;
   gwb.volledige_code = gwb.code;
   gwb.gebiedType = getGebiedType(gwb.code);
@@ -52,7 +51,7 @@ export function enhanceGWB(gwb): Gwb {
  * @param gwbList
  * @returns {*}
  */
-function enhancedGWBList(gwbList): Gwb[] {
+function enhancedGWBList(gwbList) {
   gwbList.forEach((g) => enhanceGWB(g));
   gwbList.sort((gwb1, gwb2) => gwb1.vollcode.localeCompare(gwb2.vollcode));
   return gwbList;
@@ -63,7 +62,7 @@ function enhancedGWBList(gwbList): Gwb[] {
  * This key is not available as a property but is only to be derived from the detail url
  * @param url
  */
-export function getKeyFromUrl(url): string {
+export function getKeyFromUrl(url) {
   return url.match(/\/([^/]*)\/$/)[1];
 }
 
@@ -78,15 +77,11 @@ export async function getDetail(entity) {
   if (entity === undefined) {
     return;
   }
-  console.log('getDetail entity', entity );
-  
 
   async function getData() {
     const url = entity._links.self.href;
     const data = await readData(url);
     enhanceGWB(data);
-    console.log('getD', data);
-    
     return data;
   }
   return cacheResponse(`GWB.detail.${entity?.vollcode}`, getData);
