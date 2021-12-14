@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components"
-// import { TableBody, TableCell, TableHeader, TableRow } from "@amsterdam/asc-ui";
+import { base62DecodeAngle } from '../services/base62'
 import panos from "../static/links/panos.json";
 
-// 310px hoog
 const StyledImage = styled.img`
-  width: 100%;
+  width: 400px;
 `
 
 const Pano = ({ gwb }) => {
@@ -28,8 +27,17 @@ const Pano = ({ gwb }) => {
     }
 
     if (pano?.pano) {
-      // found url
-      const url = pano?.pano;
+      const panoUrl = pano?.pano;
+      // @ts-ignore
+      const sbi: string = panoUrl.match(/&sbi=([^&]*)/)[1];
+      // @ts-ignore
+      let sbh: string = panoUrl.match(/&sbh=([^&]*)/)[1];
+      // @ts-ignore
+      sbh = Math.round(base62DecodeAngle(sbh, 1));
+      const width = 500;
+      const url = `https://api.data.amsterdam.nl/panorama/thumbnail/${sbi}/?width=${width}&heading=${sbh}`
+
+      setSrc(url);
       console.log("call: url", url);
     }
  };
