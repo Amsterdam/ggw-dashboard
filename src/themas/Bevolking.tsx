@@ -157,11 +157,6 @@ const Bevolking = () => {
         </Column>
       </Row>
 
-      <Row>
-        <Column span={12}>
-          <HeaderRow title={`${gwb?.naam} vergeleken met andere gebieden`} />
-        </Column>
-      </Row>
       <Verschillen gwb={gwb} config={ontwikkelingBevolking} />
     </>
   );

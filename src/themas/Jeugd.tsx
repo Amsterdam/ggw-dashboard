@@ -29,10 +29,10 @@ const Jeugd = () => {
       </Row>
       <Row>
         <Column span={6}>
-          <AantalKinderen gwb={gwb} />
+          <LeeftijdssamenstellingBevolkingStackedBar gwb={gwb} />
         </Column>
         <Column span={6}>
-          <LeeftijdssamenstellingBevolkingStackedBar gwb={gwb} />
+          <AantalKinderen gwb={gwb} />
         </Column>
       </Row>
 
@@ -86,12 +86,6 @@ const Jeugd = () => {
             config={[jeugdOntwikkeling[5]]}
             gwb={gwb}
           ></VerticalBarChart>
-        </Column>
-      </Row>
-
-      <Row>
-        <Column span={12}>
-          <HeaderRow title={`${gwb?.naam} vergeleken met andere gebieden`} />
         </Column>
       </Row>
 

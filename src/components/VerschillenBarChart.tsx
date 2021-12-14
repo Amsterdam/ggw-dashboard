@@ -4,9 +4,8 @@ import cloneDeep from "lodash/cloneDeep";
 import { Spinner } from "@amsterdam/asc-ui";
 
 import util from "../services/util";
-import { getMeta, getOneStd } from "../services/apis/bbga";
+import { getMeta } from "../services/apis/bbga";
 import { getAll, getGebied } from "../services/apis/gebieden";
-import { getColor } from "../services/colorcoding";
 import { Gwb } from "../types";
 
 import vegaSpec from "../static/charts/verschillenbar";
@@ -51,22 +50,15 @@ const VerschillenBarChart: React.FC<Props> = ({ gwb, indicatorDefinitieId, label
 
     const cijfers = await util.getVerschillenCijfers(indicatorDefinitieId, gebiedType, gebied.cijfers.jaar);
 
-    const stdevs = await getOneStd(indicatorDefinitieId);
-
     chartBase.data.values = (cijfers || [])
       .filter((d) => d.waarde)
       .map(
         (d) =>
           ({
-            gebied: getGebied(d.gebiedcode15).naam,
+            gebied: getGebied(d.gebiedcode15)?.naam,
             label,
             value: d.waarde ? d.waarde : "Geen gegevens",
-            ...getColor(
-              { indicatorDefinitieId: indicatorDefinitieId, kleurenpalet: meta.kleurenpalet },
-              d?.waarde,
-              d?.jaar,
-              stdevs,
-            ),
+            color: d.color,
           } as MapResult),
       ) as MapResult[];
 

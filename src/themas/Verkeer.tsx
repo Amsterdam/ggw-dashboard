@@ -1,7 +1,6 @@
 import { Column, Row } from "@amsterdam/asc-ui";
 
 import ThemeHeader from "../components/ThemeHeader";
-import HeaderRow from "../components/layout/HeaderRow";
 import { useGWBSelection } from "../components/context/GWBContext";
 import VerticalBarChart from "../components/VerticalBarChart";
 import Verschillen from "../components/Verschillen";
@@ -49,11 +48,6 @@ const Verkeer = () => {
         </Column>
       </Row>
 
-      <Row>
-        <Column span={12}>
-          <HeaderRow title={`${gwb?.naam} vergeleken met andere gebieden`} />
-        </Column>
-      </Row>
       <Verschillen gwb={gwb} config={verkeer} />
     </>
   );

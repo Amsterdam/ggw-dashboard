@@ -9,7 +9,6 @@ import { VEILIGHEID } from "../services/thema";
 import veiligheidcijfers from "../static/links/veiligheid_kerncijfers.json";
 import overlastcijfers from "../static/links/overlast_kerncijfers.json";
 
-import HeaderRow from "../components/layout/HeaderRow";
 import { useGWBSelection } from "../components/context/GWBContext";
 import DevelopmentThemeHeader from "../components/DevelopmentThemeHeader";
 import VeiligheidThema from "../components/Icons/VeiligheidThema";
@@ -104,12 +103,7 @@ const Veiligheid = () => {
         </Column>
       </Row>
 
-      <Row>
-        <Column span={12}>
-          <HeaderRow title={`${gwb?.naam} vergeleken met andere gebieden`} />
-        </Column>
-      </Row>
-      <Verschillen gwb={gwb} config={overlastcijfers} />
+      <Verschillen gwb={gwb} config={[...veiligheidcijfers, ...overlastcijfers]} />
     </>
   );
 };

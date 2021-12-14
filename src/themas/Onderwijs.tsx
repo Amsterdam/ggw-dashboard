@@ -1,4 +1,5 @@
-import { Column, Row } from "@amsterdam/asc-ui";
+import styled from "styled-components";
+import { Column, Row, themeSpacing } from "@amsterdam/asc-ui";
 import BasisschooladviezenStackedBar from "../components/charts/BasisschooladviezenStackedBar";
 import StatusBovenleerplichtigenStackedBar from "../components/charts/StatusBovenleerplichtigenStackedBar";
 
@@ -14,6 +15,10 @@ import VerticalBarChart from "../components/VerticalBarChart";
 import { ONDERWIJS } from "../services/thema";
 
 import ontwikkelingOnderwijs from "../static/links/ontwikkeling_onderwijs.json";
+
+const SpacingDiv = styled.div`
+  padding-top: ${themeSpacing(9)};
+`;
 
 const Onderwijs = () => {
   const gwb = useGWBSelection();
@@ -34,6 +39,8 @@ const Onderwijs = () => {
           <NumberOfSchoolesAndStudents gwb={gwb} />
         </Column>
       </Row>
+
+      <SpacingDiv />
 
       <Row>
         <Column span={6}>
@@ -97,11 +104,6 @@ const Onderwijs = () => {
         </Column>
       </Row>
 
-      <Row>
-        <Column span={12}>
-          <HeaderRow title={`${gwb?.naam} vergeleken met andere gebieden`} />
-        </Column>
-      </Row>
       <Verschillen gwb={gwb} config={ontwikkelingOnderwijs} />
     </>
   );
