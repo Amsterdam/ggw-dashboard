@@ -112,8 +112,6 @@ const LegendTable = ({
         return (row[colorDef.index] = [indicator?.meta?.labelKort]);
       });
 
-      console.log(row);
-
       setDataTable(row);
     }
 

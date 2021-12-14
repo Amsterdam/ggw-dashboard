@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { Column, Row, Select, themeSpacing } from "@amsterdam/asc-ui";
 import VerschillenBarChart from "./VerschillenBarChart";
 import VerschillenMap from "./VerschillenMap";
-import HeaderRow from "../components/layout/HeaderRow";
 import { Gwb, ConfigList } from "../types";
 
 const StyledDiv = styled.div`

@@ -2,16 +2,16 @@ import SingleIndicatorTable from "./SingleIndicatorTable";
 
 const localConfig = [
   {
-    indicatorDefinitieId: "SRCULTAMATEUR_P",
+    indicatorDefinitieId: "SRCULTUURPODIA",
   },
   {
-    indicatorDefinitieId: "SRCULTUURPODIA_P",
+    indicatorDefinitieId: "SRCULTAMATEUR",
+  },
+  {
+    indicatorDefinitieId: "SRUITLEEN",
   },
   {
     indicatorDefinitieId: "SRMUSEA",
-  },
-  {
-    indicatorDefinitieId: "SRUITLEEN_P",
   },
   {
     indicatorDefinitieId: "SRCULTUUR",
@@ -19,7 +19,7 @@ const localConfig = [
 ];
 
 const AantalCultuurvoorzieningen = ({ gwb, config = localConfig }) => {
-  return <SingleIndicatorTable config={config} gwb={gwb} title="Aantal cultuurvoorzieningen" />;
+  return <SingleIndicatorTable config={config} gwb={gwb} title="Aantal cultuurvoorzieningen" withTotalRow />;
 };
 
 export default AantalCultuurvoorzieningen;
