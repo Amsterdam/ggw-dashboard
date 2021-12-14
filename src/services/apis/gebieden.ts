@@ -7,7 +7,6 @@ import { readData, readPaginatedData } from "../datareader";
  * The list of gebieden is supplied by OIS. If information about a gebied is available in this list it is used instead of the API data
  */
 
-import wijkgebied from "../../static/tmp/wijkgebied.json";
 import { cacheResponse } from "../cache";
 import { Gwb } from "../../types";
 
