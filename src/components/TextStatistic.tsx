@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
-import { Spinner, themeSpacing } from "@amsterdam/asc-ui";
+import { Heading, Spinner, themeSpacing } from "@amsterdam/asc-ui";
 
 import util from "../services/util";
 
@@ -54,7 +54,7 @@ const TextStatistic = ({
 
   return (
     <Wrapper>
-      <h3>
+      <Heading as="h3">
         {titleLeft && (
           <>
             {isLoading ? (
@@ -79,7 +79,7 @@ const TextStatistic = ({
             )}
           </>
         )}
-      </h3>
+      </Heading>
     </Wrapper>
   );
 };
