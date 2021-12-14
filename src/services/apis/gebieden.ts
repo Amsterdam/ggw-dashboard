@@ -89,34 +89,6 @@ export async function getDetail(entity) {
 }
 
 /**
- * Get all wijken for a given gebied
- * Unfortunately the logic is complex and the result is wrong
- * The gebieden API does not implement the logic to get wijken within a given gebied
- * Instead, the wijken within the stadsdeel of the given gebied are returned
- * @param gebied
- * @returns {Promise<*>}
- */
-export async function getWijken(gebied) {
-  // Get the wijk codes of all wijken within the gebied
-  const wijkgebieden = wijkgebied.filter((wg) => wg.gebied === gebied.vollcode);
-
-  const gebiedsDetailUrl = gebied._links.self.href;
-  const gebiedsDetail = await readData(gebiedsDetailUrl);
-
-  const stadsdeel = gebiedsDetail.stadsdeel;
-  const stadsdeelDetailUrl = stadsdeel._links.self.href;
-  const stadsdeelKey = getKeyFromUrl(stadsdeelDetailUrl);
-
-  // Get all wijken within the stadsdeel
-  const wijkenUrl = getUrl("/wijk/?stadsdeel=" + stadsdeelKey);
-  let wijken = await readPaginatedData(wijkenUrl);
-
-  // Filter the wijken for being a wijk within the gebied
-  wijken = wijken.filter((w) => wijkgebieden.find((wg) => wg.wijk === w.vollcode));
-  return enhancedGWBList(wijken);
-}
-
-/**
  * Get the buurten within a given wijk
  * Unfortunately the logic is complex; the access is by deriving a key value out of the self url...
  * @param wijk
