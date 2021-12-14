@@ -27,7 +27,7 @@ export const GEBIED_TYPE = {
  * @param endpoint
  * @returns {string}
  */
-function getUrl(endpoint) {
+function getUrl(endpoint: string): string {
   return `https://api.data.amsterdam.nl/v1/gebieden${endpoint}?eindGeldigheid[isnull]=true`;
 }
 
@@ -62,8 +62,8 @@ function enhancedGWBList(gwbList) {
  * This key is not available as a property but is only to be derived from the detail url
  * @param url
  */
-export function getKeyFromUrl(url) {
-  return url.match(/\/([^/]*)\/$/)[1];
+export function getKeyFromUrl(url: string): string {
+  return url.match(/\/([^/]*)\/$/)![1];
 }
 
 /**
