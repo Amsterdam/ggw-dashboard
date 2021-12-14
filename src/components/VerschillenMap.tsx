@@ -8,7 +8,7 @@ import { GeoJSON } from "@amsterdam/react-maps";
 
 import { getGeometriesGeoJson } from "../services/apis/map";
 import { getColor } from "../services/colorcoding";
-import { getOneStd } from "../services/apis/bbga";
+import { getMeta, getOneStd } from "../services/apis/bbga";
 import { GeoJSONOptions, MapOptions, Layer } from "leaflet";
 import { GeoJsonObject } from "geojson";
 import { Gwb } from "../types";
@@ -36,7 +36,12 @@ const VerschillenMap: React.FC<Props> = ({ gwb, indicatorDefinitieId }) => {
 
   const enrichShapes = async (shapes: GeoJsonObject, cijfers) => {
     const stdevs = await getOneStd(indicatorDefinitieId);
+    const meta = await getMeta(indicatorDefinitieId);
     const enrichedShapes = { ...shapes };
+
+    if (typeof meta === "string") {
+      return;
+    }
 
     let features = [...shapes.features];
     features = features.map((feature) => {
@@ -45,7 +50,7 @@ const VerschillenMap: React.FC<Props> = ({ gwb, indicatorDefinitieId }) => {
       );
 
       const colors = getColor(
-        { indicatorDefinitieId: indicatorDefinitieId, kleurenpalet: 1 },
+        { indicatorDefinitieId: indicatorDefinitieId, kleurenpalet: meta.kleurenpalet },
         cijfer?.waarde,
         cijfer?.jaar,
         stdevs,
@@ -118,7 +123,7 @@ const VerschillenMap: React.FC<Props> = ({ gwb, indicatorDefinitieId }) => {
       layer.setStyle({
         color: "#666666",
         fillColor: feature?.properties?.color,
-        fillOpacity: 0.8,
+        fillOpacity: 1,
         stroke: 1,
       });
     },
