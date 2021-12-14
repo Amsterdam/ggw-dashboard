@@ -5,6 +5,7 @@ import GWBMap from "../components/GWBMap";
 const StyledDiv = styled.div`
   background-color: ${themeColor("tint", "level2")};
   padding-bottom: ${themeSpacing(5)};
+  padding-top: ${themeSpacing(2)};
   width: 100%;
   height: 100%;
 `;

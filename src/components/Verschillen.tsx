@@ -4,6 +4,7 @@ import { Column, Row, Select, themeSpacing } from "@amsterdam/asc-ui";
 import VerschillenBarChart from "./VerschillenBarChart";
 import VerschillenMap from "./VerschillenMap";
 import { Gwb, ConfigList } from "../types";
+import HeaderRow from "./layout/HeaderRow";
 
 const StyledDiv = styled.div`
   width: 100%;
@@ -15,12 +16,30 @@ interface Props {
   config: ConfigList;
 }
 
+const getGebiedType = (type) => {
+  switch (type) {
+    case "Buurt":
+      return "buurten";
+    case "Wijk":
+      return "wijken";
+    case "Gebied":
+      return "gebieden";
+    case "Stadsdeel":
+      return "stadsdelen";
+  }
+};
+
 const Verschillen: React.FC<Props> = ({ gwb, config }) => {
   const [indicatorDefinitieId, setVar] = useState<string>(config[0]?.indicatorDefinitieId);
   const [label, setLabel] = useState<string>(config && config[0]?.label);
 
   return (
     <>
+      <Row>
+        <Column span={12}>
+          <HeaderRow title={`${gwb?.naam} vergeleken met andere ${getGebiedType(gwb?.gebiedType)}`} />
+        </Column>
+      </Row>
       <Row>
         <Column span={6}>
           <StyledDiv>

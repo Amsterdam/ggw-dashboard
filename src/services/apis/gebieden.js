@@ -220,7 +220,7 @@ export async function getAll() {
     const results = await Promise.all([getAllStadsdelen(), getAllGebieden(), getAllWijken(), getAllBuurten()]);
 
     const gwbCollection = results.flat();
-    
+
     gwbCollection.forEach((i) => {
       GWB[i.vollcode] = { ...i };
     });

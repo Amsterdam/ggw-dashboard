@@ -40,7 +40,7 @@ const localConfig = [
 ];
 
 const OuderenWoningen = ({ gwb, config = localConfig }) => {
-  return <DoubleIndicatorTable config={config} gwb={gwb} headerTitles={["aantal", "woningen %"]} withTotalRow />;
+  return <DoubleIndicatorTable config={config} gwb={gwb} headerTitles={["aantal", "woningen %"]} />;
 };
 
 export default OuderenWoningen;
