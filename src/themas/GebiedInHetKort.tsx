@@ -4,6 +4,7 @@ import { Column, Row, themeSpacing } from "@amsterdam/asc-ui";
 import DataTable from "../components/DataTable";
 import ThemeHeader from "../components/ThemeHeader";
 import LegendTable from "../components/LegendTable";
+import Pano from "../components/Pano";
 import { useGWBSelection } from "../components/context/GWBContext";
 
 import gebiedInHetKortConfig from "../static/links/gebiedinhetkort_tabel.json";
@@ -56,7 +57,7 @@ const GebiedInHetKort = () => {
             xLarge: 6,
           }}
         >
-          <div>TODO: Pano?</div>
+          <Pano gwb={gwb} />
         </Column>
         <Column
           wrap
