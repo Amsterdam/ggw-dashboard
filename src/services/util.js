@@ -22,7 +22,15 @@ import {
   getDetail,
   GEBIED_TYPE,
 } from "./apis/gebieden";
-import { getAllMeta, getMeta, getAllCijfers, getGebiedCijfers, getVerschillenCijfers, CIJFERS, getStd } from "./apis/bbga";
+import {
+  getAllMeta,
+  getMeta,
+  getAllCijfers,
+  getGebiedCijfers,
+  getVerschillenCijfers,
+  CIJFERS,
+  getStd,
+} from "./apis/bbga";
 
 /**
  * Gets the most recent cijfers for a given configuration
@@ -52,15 +60,6 @@ async function getConfigCijfers(gwb, config, recentOrAll = CIJFERS.ALL) {
   const data = config.map(async (c, index) => {
     try {
       const cijfers = await getGebiedCijfers(c.indicatorDefinitieId, gwb, recentOrAll);
-      if (c.post) {
-        if (Array.isArray(cijfers.cijfers)) {
-          cijfers.cijfers.forEach((cijfer) => {
-            cijfer.post = c.post;
-          });
-        } else {
-          cijfers.cijfers.post = c.post;
-        }
-      }
 
       return {
         ...cijfers,
@@ -223,7 +222,7 @@ const formatNumber = (value) => {
   }
 
   return value;
-}
+};
 
 /**
  * Util exports het methods in an object. Usage will therefore be like util.getCity instead of import {getCity} from util
@@ -254,7 +253,7 @@ const util = {
   getYearCijfers,
   getStd,
   setVegaLocale,
-  formatNumber
+  formatNumber,
 };
 
 export default util;

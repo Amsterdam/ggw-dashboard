@@ -20,6 +20,7 @@ import DevelopmentThemeHeader from "../components/DevelopmentThemeHeader";
 import BevolkingThema from "../components/Icons/BevolkingThema";
 import BevolkingAdam from "../components/Icons/BevolkingAdam";
 import BevolkingGezin from "../components/Icons/BevolkingGezin";
+import BevolkingsPrognoseNaarLeeftijdLineChart from "../components/linecharts/BevolkingsPrognoseNaarLeeftijdLineChart";
 
 const Bevolking = () => {
   const gwb = useGWBSelection();
@@ -67,36 +68,7 @@ const Bevolking = () => {
 
       <Row>
         <Column span={6}>
-          <LineChart
-            title="Bevolkingsprognose naar leeftijd"
-            config={[
-              {
-                indicatorDefinitieId: "BEV0_17",
-              },
-              {
-                indicatorDefinitieId: "BEV18_64",
-              },
-              {
-                indicatorDefinitieId: "BEV65PLUS",
-              },
-              {
-                indicatorDefinitieId: "BEVTOTAAL",
-              },
-              {
-                indicatorDefinitieId: "BEV_PROG",
-              },
-              {
-                indicatorDefinitieId: "BEV0_17_PROG",
-              },
-              {
-                indicatorDefinitieId: "BEV18_64_PROG",
-              },
-              {
-                indicatorDefinitieId: "BEV65PLUS_PROG",
-              },
-            ]}
-            gwb={gwb}
-          ></LineChart>
+          <BevolkingsPrognoseNaarLeeftijdLineChart gwb={gwb} />
         </Column>
         <Column span={6}>
           <LineChart title="Migratieachtergrond" config={migratieachtergrond} gwb={gwb}></LineChart>

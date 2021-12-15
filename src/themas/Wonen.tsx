@@ -58,13 +58,13 @@ const Wonen = () => {
           <LineChart
             title="Aantal woningen"
             config={[
-              { indicatorDefinitieId: "WVOORRBAG" },
+              { indicatorDefinitieId: "WVOORRBAG", prognoseIndicator: "W_PROG" },
               { indicatorDefinitieId: "WKOOP" },
               { indicatorDefinitieId: "WCORHUUR" },
               { indicatorDefinitieId: "WPARTHUUR" },
-              { indicatorDefinitieId: "W_PROG" },
             ]}
             gwb={gwb}
+            withPrognosis
           ></LineChart>
         </Column>
       </Row>

@@ -41,18 +41,15 @@ const Ouderen = () => {
             config={[
               {
                 indicatorDefinitieId: "BEV65PLUS",
+                prognoseIndicator: "BEV65PLUS_PROG",
               },
               {
                 indicatorDefinitieId: "BEV75PLUS",
-              },
-              {
-                indicatorDefinitieId: "BEV65PLUS_PROG",
-              },
-              {
-                indicatorDefinitieId: "BEV75PLUS_PROG",
+                prognoseIndicator: "BEV75PLUS_PROG",
               },
             ]}
             gwb={gwb}
+            withPrognosis
           ></LineChart>
         </Column>
         <Column span={6}>
