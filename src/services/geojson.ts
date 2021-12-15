@@ -86,6 +86,7 @@ export function rdToWgs84(rdCoordinates) {
  */
 export function rdPolygonToWgs84(geometry) {
   if (geometry.type !== "Polygon") {
+    // eslint-disable-next-line no-console
     console.error('Error in geometry type, "Polygon" was expected', geometry.type);
     return;
   }

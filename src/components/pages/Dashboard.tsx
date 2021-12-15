@@ -59,6 +59,7 @@ const Dashboard = ({ thema: propThema = THEMAS[0] }: { thema?: string }) => {
   }
 
   if (!thema) {
+    // eslint-disable-next-line no-console
     console.error("No theme found");
     return null;
   }
