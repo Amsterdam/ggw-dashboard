@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Column, Row, themeSpacing } from "@amsterdam/asc-ui";
+import { Column, Heading, Row, themeSpacing } from "@amsterdam/asc-ui";
 
 import ThemeHeader from "../components/ThemeHeader";
 import HeaderRow from "../components/layout/HeaderRow";
@@ -53,7 +53,10 @@ const Ouderen = () => {
           ></LineChart>
         </Column>
         <Column span={6}>
-          <OuderenWoningen gwb={gwb} />
+          <div>
+            <Heading as="h4">Voorraad ouderenwoningen</Heading>
+            <OuderenWoningen gwb={gwb} />
+          </div>
         </Column>
       </Row>
 
