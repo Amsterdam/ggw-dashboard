@@ -5,6 +5,7 @@ const HeadingDiv = styled.div`
   background-color: ${themeColor("tint", "level2")};
   padding-left: ${themeSpacing(2)};
   padding-right: ${themeSpacing(2)};
+  padding-top: ${themeSpacing(2)};
 
   margin-top: ${themeSpacing(10)};
   margin-bottom: ${themeSpacing(4)};

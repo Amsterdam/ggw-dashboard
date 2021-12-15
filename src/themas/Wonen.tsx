@@ -73,7 +73,7 @@ const Wonen = () => {
           <DevelopmentThemeHeader theme={WONEN} location={gwb?.naam} />
         </Column>
       </Row>
-      <Verschillen gwb={gwb} config={wonenkerncijfers} />
+
       <Row>
         <Column span={4}>
           <VerticalBarChart
@@ -122,17 +122,7 @@ const Wonen = () => {
         </Column>
       </Row>
 
-      <Row>
-        <Column span={12}>
-          <HeaderRow title={`${gwb?.naam} vergeleken met andere gebieden`} />
-        </Column>
-
-        <Column span={12}>
-          <div style={{ width: "100%" }}>
-            <p>TODO</p>
-          </div>
-        </Column>
-      </Row>
+      <Verschillen gwb={gwb} config={wonenkerncijfers} />
 
       <Row>
         <Column span={12}>

@@ -100,14 +100,6 @@ const DataTable = ({
     return Math.round((dataFinalYear?.waarde - dataFirstYear?.waarde) * 100) / 100;
   };
 
-  // const formatValue = (value) => {
-  //   if (typeof value === "number") {
-  //     return new Intl.NumberFormat("nl-NL", { maximumSignificantDigits: 6 }).format(value);
-  //   }
-
-  //   return value;
-  // };
-
   return (
     <>
       {data && gwb && years && sd && (

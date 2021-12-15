@@ -20,7 +20,7 @@ const Zorg = () => {
           <HeaderRow title={`Gezondheid en welzijn in ${gwb?.naam} en Amsterdam`} />
         </Column>
       </Row>
-      <Verschillen gwb={gwb} config={gezondheidCijfers} />
+
       <Row>
         <Column span={4}>
           <VerticalBarChart
@@ -149,6 +149,8 @@ const Zorg = () => {
           ></VerticalBarChart>
         </Column>
       </Row>
+
+      <Verschillen gwb={gwb} config={gezondheidCijfers} />
     </>
   );
 };

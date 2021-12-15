@@ -7,8 +7,7 @@ import { Map, ViewerContainer, Zoom, BaseLayer, getCrsRd } from "@amsterdam/arm-
 import { GeoJSON } from "@amsterdam/react-maps";
 
 import { getGeometriesGeoJson } from "../services/apis/map";
-import { getColor } from "../services/colorcoding";
-import { getOneStd } from "../services/apis/bbga";
+import { getMeta } from "../services/apis/bbga";
 import { GeoJSONOptions, MapOptions, Layer } from "leaflet";
 import { GeoJsonObject } from "geojson";
 import { Gwb } from "../types";
@@ -20,7 +19,7 @@ const mapOptions: MapOptions = {
   minZoom: 3,
   crs: getCrsRd(),
   attributionControl: false,
-  zoomControl: true,
+  zoomControl: false,
   scrollWheelZoom: false,
 };
 
@@ -35,8 +34,12 @@ const VerschillenMap: React.FC<Props> = ({ gwb, indicatorDefinitieId }) => {
   const [layerInstance, setInstance] = useState<Layer | undefined>();
 
   const enrichShapes = async (shapes: GeoJsonObject, cijfers) => {
-    const stdevs = await getOneStd(indicatorDefinitieId);
+    const meta = await getMeta(indicatorDefinitieId);
     const enrichedShapes = { ...shapes };
+
+    if (typeof meta === "string") {
+      return;
+    }
 
     let features = [...shapes.features];
     features = features.map((feature) => {
@@ -44,19 +47,11 @@ const VerschillenMap: React.FC<Props> = ({ gwb, indicatorDefinitieId }) => {
         (c) => c.gebiedcode15 === feature.properties.vollcode || c.gebiedcode15 === feature.properties.code,
       );
 
-      const colors = getColor(
-        { indicatorDefinitieId: indicatorDefinitieId, kleurenpalet: 1 },
-        cijfer?.waarde,
-        cijfer?.jaar,
-        stdevs,
-      );
-
       return {
         ...feature,
         properties: {
           ...feature.properties,
           ...cijfer,
-          ...colors,
         },
       };
     });
@@ -118,8 +113,9 @@ const VerschillenMap: React.FC<Props> = ({ gwb, indicatorDefinitieId }) => {
       layer.setStyle({
         color: "#666666",
         fillColor: feature?.properties?.color,
-        fillOpacity: 0.8,
+        fillOpacity: 1,
         stroke: 1,
+        weight: 1,
       });
     },
   };

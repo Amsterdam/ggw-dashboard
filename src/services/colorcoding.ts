@@ -127,7 +127,7 @@ export const CATEGORY_COLORS = [
  * Gets the category from CATEGORY_COLORS for the given z-score
  * @param zScore
  */
-function getCategory(zScore: number, kleurenpalet: number): { color: string; textColor?: string, index: number } {
+function getCategory(zScore: number, kleurenpalet: number): { color: string; textColor?: string; index: number } {
   const colors = kleurenTabel.kleur[kleurenTabel.kleurenpalet[kleurenpalet].kleur];
 
   const average = 0.5;
@@ -136,31 +136,31 @@ function getCategory(zScore: number, kleurenpalet: number): { color: string; tex
       inCategory: (s) => 2 * average <= s, // s groter dan of gelijk aan 1
       color: colors[0],
       textColor: kleurenTabel.tekst_kleur[colors[0]] || "#000000",
-      index: 0
+      index: 0,
     },
     {
       inCategory: (s) => average <= s && s < 2 * average, // s groter dan of gelijk aan 0.5 en s kleiner dan 1
       color: colors[1],
       textColor: kleurenTabel.tekst_kleur[colors[1]] || "#000000",
-      index: 1
+      index: 1,
     },
     {
       inCategory: (s) => average > s && s > -average, // s kleiner dan 0,5 en s groter dan -0,5
       color: colors[2],
       textColor: kleurenTabel.tekst_kleur[colors[2]] || "#000000",
-      index: 2
+      index: 2,
     },
     {
       inCategory: (s) => -average >= s && s > 2 * -average, // s kleiner dan of gelijk aan -0,5 en s groter dan -1
       color: colors[3],
       textColor: kleurenTabel.tekst_kleur[colors[3]] || "#000000",
-      index: 3
+      index: 3,
     },
     {
       inCategory: (s) => -2 * average >= s, // s kleiner dan -1
       color: colors[4],
       textColor: kleurenTabel.tekst_kleur[colors[4]] || "#000000",
-      index: 4
+      index: 4,
     },
   ];
 
@@ -182,7 +182,7 @@ export function getColor(
   value: number,
   year: number,
   stdValue: StdType[],
-): { color: string; textColor?: string, index: number } {
+): { color: string; textColor?: string; index: number } {
   if (value !== null) {
     const variable = meta.indicatorDefinitieId;
     const varStd = stdValue
@@ -207,7 +207,7 @@ export function getColor(
   return {
     color: "#FFFFFF",
     textColor: "#000000",
-    index: 0
+    index: 0,
   };
 }
 
@@ -232,7 +232,8 @@ export function getColorGivenValueAndColorPalet(kleurenpalet: number, waarde: nu
     return "#000000";
   }
 
-  if (kleurenpalet === 1) {
+  // Treat 1 and 3 as the same, values above zero are considerd good and given a green color.
+  if (kleurenpalet === 1 || kleurenpalet === 3) {
     return waarde < 0 ? kleurenTabel.kleur.amsterdam_rood : kleurenTabel.kleur.amsterdam_groen;
   }
 

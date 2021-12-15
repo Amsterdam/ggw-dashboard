@@ -133,7 +133,8 @@ const GWBSelector = () => {
         });
       }
     } else {
-      const deel = util.getCity();
+      const deel: any = util.getCity();
+      
       stadsDeelDetail = deel;
 
       setGwbSelection({

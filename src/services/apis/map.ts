@@ -4,6 +4,7 @@
 
 import { readData } from "../datareader";
 import { rdPolygonToWgs84 } from "../geojson";
+import { GeoJsonObject } from "geojson";
 
 /**
  * Constant to denote the gebied types in the maps API
@@ -21,42 +22,13 @@ export const GEBIED_TYPE = {
  * @param endpoint
  * @returns {string}
  */
-function getUrl() {
+function getUrl(): string {
   return "https://map.data.amsterdam.nl/maps/gebieden";
-}
-
-/**
- * Gets all geometries with a given gebied type (gebied, wijk, buurt, stadsdeel)
- * The geometries are converted from the rd crs to wgs84
- * @param gebiedType
- * @returns {Promise<*>}
- */
-export async function getGeometries(gebiedType) {
-  if (!gebiedType) {
-    return [];
-  }
-  // buurt, buurtcombinatie (wijk), gebiedsgerichtwerken, stadsdeel
-  const url =
-    getUrl() +
-    "?request=getfeature" +
-    "&version=1.1.0" +
-    "&service=wfs" +
-    "" +
-    "&outputformat=geojson" +
-    `&typename=${gebiedType}`;
-  const data = await readData(url);
-
-  const geometries = {};
-  data.features.forEach((item) => {
-    geometries[item.properties.vollcode || item.properties.code] = rdPolygonToWgs84(item.geometry);
-  });
-
-  return geometries;
 }
 
 const allGeometries = {};
 
-export async function getGeometriesGeoJson(gebiedType) {
+export async function getGeometriesGeoJson(gebiedType: string):GeoJsonObject {
   if (!gebiedType || gebiedType === "Stad") {
     return;
   }

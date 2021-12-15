@@ -2,22 +2,22 @@ import SingleIndicatorTable from "./SingleIndicatorTable";
 
 const localConfig = [
   {
-    indicatorDefinitieId: "SRFITNESS_P",
+    indicatorDefinitieId: "SRSPORTACCOM",
   },
   {
-    indicatorDefinitieId: "SRSPORTACCOM_P",
+    indicatorDefinitieId: "SRSPORTBUITEN",
   },
   {
-    indicatorDefinitieId: "SRSPORTBINNEN_P",
+    indicatorDefinitieId: "SRFITNESS",
   },
   {
-    indicatorDefinitieId: "SRSPORTBUITEN_P",
+    indicatorDefinitieId: "SRSPORTBINNEN",
   },
   {
-    indicatorDefinitieId: "SRSPORTOVERIG_P",
+    indicatorDefinitieId: "SRSPORTWATER",
   },
   {
-    indicatorDefinitieId: "SRSPORTWATER_P",
+    indicatorDefinitieId: "SRSPORTOVERIG",
   },
   {
     indicatorDefinitieId: "SRSPORT",
@@ -25,7 +25,7 @@ const localConfig = [
 ];
 
 const AantalSportvoorzieningen = ({ gwb, config = localConfig }) => {
-  return <SingleIndicatorTable config={config} gwb={gwb} title="Aantal sportvoorzieningen" />;
+  return <SingleIndicatorTable config={config} gwb={gwb} title="Aantal sportvoorzieningen" withTotalRow />;
 };
 
 export default AantalSportvoorzieningen;

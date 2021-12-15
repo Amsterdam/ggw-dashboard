@@ -1,4 +1,5 @@
-import { Column, Row } from "@amsterdam/asc-ui";
+import styled from "styled-components";
+import { Column, Row, themeSpacing } from "@amsterdam/asc-ui";
 
 import ThemeHeader from "../components/ThemeHeader";
 import HeaderRow from "../components/layout/HeaderRow";
@@ -17,6 +18,10 @@ import LeeftijdsverdelingStackedBar from "../components/charts/Leeftijdsverdelin
 import DataTable from "../components/DataTable";
 import OuderenThema from "../components/Icons/OuderenThema";
 import OuderenWoningen from "../components/tables/OuderenWoningen";
+
+const SpacingDiv = styled.div`
+  padding-top: ${themeSpacing(9)};
+`;
 
 const Ouderen = () => {
   const gwb = useGWBSelection();
@@ -55,7 +60,7 @@ const Ouderen = () => {
         </Column>
       </Row>
 
-      <Verschillen gwb={gwb} config={ouderen} />
+      <SpacingDiv />
 
       <Row>
         <Column span={6}>
@@ -94,6 +99,8 @@ const Ouderen = () => {
           <VerticalBarChart title={ouderen[5].label} config={[ouderen[5]]} gwb={gwb}></VerticalBarChart>
         </Column>
       </Row>
+
+      <Verschillen gwb={gwb} config={ouderen} />
 
       <Row>
         <Column span={12}>

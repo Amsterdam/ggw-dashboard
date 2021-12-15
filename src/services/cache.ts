@@ -8,7 +8,7 @@ const cache = {};
  * @param getData
  * @returns {Promise<*>}
  */
-export async function cacheResponse(key, getData) {
+export async function cacheResponse(key: string, getData: () => any) {
   if (!cache[key]) {
     cache[key] = getData();
   }

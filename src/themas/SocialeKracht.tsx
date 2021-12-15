@@ -4,7 +4,6 @@ import { Column, Row, themeSpacing } from "@amsterdam/asc-ui";
 import VerticalBarChart from "../components/VerticalBarChart";
 import ThemeHeader from "../components/ThemeHeader";
 import DataTable from "../components/DataTable";
-import Car from "../components/Icons/Car";
 import Verschillen from "../components/Verschillen";
 
 import { SOCIALE_KRACHT } from "../services/thema";
@@ -18,6 +17,7 @@ import { useGWBSelection } from "../components/context/GWBContext";
 import MostVulnerableCitizens from "../components/tables/MostVulnerableCitizens";
 import CitizensWithLowCES from "../components/tables/CitizensWithLowSES";
 import DevelopmentThemeHeader from "../components/DevelopmentThemeHeader";
+import SocialeKrachtThema from "../components/Icons/SocialeKrachtThema";
 
 const Spacer = styled.div`
   padding-top: ${themeSpacing(10)};
@@ -29,7 +29,7 @@ const SocialeKracht = () => {
 
   return (
     <>
-      <ThemeHeader gwb={gwb} themeTitle={SOCIALE_KRACHT} Icon={Car} />
+      <ThemeHeader gwb={gwb} themeTitle={SOCIALE_KRACHT} Icon={SocialeKrachtThema} />
       <Row>
         <Column span={12}>
           <HeaderRow title={`Samenstelling ${SOCIALE_KRACHT} in ${gwb?.naam}`} />
@@ -43,7 +43,7 @@ const SocialeKracht = () => {
           <MostVulnerableCitizens gwb={gwb} />
         </Column>
       </Row>
-      <Verschillen gwb={gwb} config={socialekrachtcijfers} />
+
       <Row>
         <Column span={12}>
           <Spacer />
@@ -109,6 +109,8 @@ const SocialeKracht = () => {
           ></VerticalBarChart>
         </Column>
       </Row>
+
+      <Verschillen gwb={gwb} config={socialekrachtcijfers} />
 
       <Row>
         <Column span={12}>

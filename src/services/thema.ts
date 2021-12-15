@@ -1,9 +1,4 @@
 /**
- * Each thema has a set of kerncijfers that are supplied by OIS
- */
-import kerncijfers from "../static/links/kerncijfers.json";
-
-/**
  * Each thema is identied by a string in the UI
  */
 
@@ -68,11 +63,3 @@ export const URL_THEMA_MAPPING = THEMAS.reduce((acc, curr) => {
     [THEMA_URL_MAPPING[curr]]: curr,
   };
 }, {});
-
-/**
- * Gets the set of kerncijfers for a given thema
- * @param thema
- */
-export function getKerncijfers(thema) {
-  return kerncijfers.filter((cijfer) => cijfer.thema === thema).sort((c1, c2) => c1.volgorde - c2.volgorde);
-}

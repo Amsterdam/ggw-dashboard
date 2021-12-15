@@ -70,7 +70,7 @@ const LegendTable = ({
     const newRow = () => {
       const row = {};
       colorLegend.forEach((color, index) => {
-        row[index] = null;
+        row[index] = [];
       });
       return row;
     };
@@ -105,8 +105,9 @@ const LegendTable = ({
           stdevs as StdType[],
         );
 
-        if (Array.isArray(row[colorDef.color])) {
-          return row[colorDef.color].push(indicator?.meta?.labelKort);
+        // Use color index as it refers to how 'good or bad' a indicator performs for the given area.
+        if (Array.isArray(row[colorDef.index])) {
+          return row[colorDef.index].push(indicator?.meta?.labelKort);
         }
 
         return (row[colorDef.index] = [indicator?.meta?.labelKort]);

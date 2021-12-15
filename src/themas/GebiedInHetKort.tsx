@@ -15,6 +15,9 @@ import TextStatistic from "../components/TextStatistic";
 import { IN_HET_KORT } from "../services/thema";
 import HeaderRow from "../components/layout/HeaderRow";
 import GebiedInHetKortIcon from "../components/Icons/GebiedInHetKort";
+import DuurzaamheidThema from "../components/Icons/DuurzaamheidThema";
+import EconomieThema from "../components/Icons/EconomieThema";
+import BevolkingGezin from "../components/Icons/BevolkingGezin";
 
 const SpacingDiv = styled.div`
   padding-top: ${themeSpacing(4)};
@@ -39,7 +42,7 @@ const GebiedInHetKort = () => {
           <div></div>
         </Column>
         <Column span={6}>
-          <TextStatistic title="inwoners" gwb={gwb} indicatorId="BEVTOTAAL" />
+          <TextStatistic title="inwoners" gwb={gwb} indicatorId="BEVTOTAAL" Icon={BevolkingGezin} titleLeft={false} />
         </Column>
       </Row>
 
@@ -72,14 +75,21 @@ const GebiedInHetKort = () => {
 
       <Row>
         <Column span={6}>
-          <TextStatistic title="woningen" gwb={gwb} indicatorId="WVOORRBAG" titleLeft={false} />
+          <TextStatistic
+            title="woningen"
+            gwb={gwb}
+            indicatorId="WVOORRBAG"
+            titleLeft={false}
+            Icon={DuurzaamheidThema}
+          />
         </Column>
         <Column span={6}>
           <TextStatistic
             title="gemiddeld besteedbaar huishoudinkomen:"
             gwb={gwb}
-            indicatorId="IHHINKOM_GEM"
+            indicatorId="IHHINK_GEM"
             titleLeft
+            Icon={EconomieThema}
           />
         </Column>
       </Row>

@@ -3,11 +3,13 @@
  */
 
 export interface Gwb {
-  code?: string;
-  display: string;
-  gebiedType: string;
+  code: string;
+  display?: string;
+  gebiedType?: string;
   naam: string;
   vollcode?: string;
+  volledige_code?: string;
+  geometrie?: any;
 }
 
 export interface StdType {
@@ -22,7 +24,7 @@ export interface MetaType {
   kleurenpalet: number;
 }
 
-export type ConfigEnirched = { indicatorDefinitieId: string; labelKort: string };
+export type ConfigEnirched = { indicatorDefinitieId: string; labelKort: string; kleurenpalet: number };
 
 export type Config = { indicatorDefinitieId: string };
 

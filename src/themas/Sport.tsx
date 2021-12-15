@@ -33,8 +33,6 @@ const Sport = () => {
           <AantalSportvoorzieningen gwb={gwb} />
         </Column>
       </Row>
-      
-      <Verschillen gwb={gwb} config={sport} />
 
       <Row>
         <Column span={12}>
@@ -64,6 +62,8 @@ const Sport = () => {
           <VerticalBarChart title={sport[5].label} config={[sport[5]]} gwb={gwb}></VerticalBarChart>
         </Column>
       </Row>
+
+      <Verschillen gwb={gwb} config={sport} />
     </>
   );
 };
