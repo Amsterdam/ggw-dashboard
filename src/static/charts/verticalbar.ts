@@ -54,6 +54,10 @@ export default {
             title: null,
           },
         },
+        tooltip: [
+          { field: "definitie", type: "ordinal", title: "Definitie" },
+          { field: "bron", type: "ordinal", title: "Bron" },
+        ],
       },
     },
     {

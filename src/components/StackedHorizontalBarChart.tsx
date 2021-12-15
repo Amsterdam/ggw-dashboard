@@ -39,8 +39,6 @@ const getVegaChartData = async (gwb, config, scaleToHundred) => {
   const colors = getColorsUsingStaticDefinition(config);
   const chartdata = await util.getLatestConfigCijfers(gwb, config);
 
-  console.log(chartdata);
-
   // If we need to scale the values to a 100 (%) we need to determin the multiplier.
   const multiplier = scaleToHundred ? 100 / chartdata.reduce(sumReducer, 0) : 1;
 

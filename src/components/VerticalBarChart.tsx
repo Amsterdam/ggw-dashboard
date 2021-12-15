@@ -48,6 +48,8 @@ const VerticalBarChart = ({ title, gwb, config }) => {
             textColor: getColor({ indicatorDefinitieId: variabele, kleurenpalet }, d.waarde, d.jaar, stdevs).textColor,
             gemiddelde: stdevs.find((sd) => sd.jaar === d.jaar).gemiddelde,
             last: cijfers.length === i + 1,
+            definitie: chartdata[0]?.meta?.definitie,
+            bron: chartdata[0]?.meta?.bron,
           } as MapResult),
       ) as MapResult[];
 
