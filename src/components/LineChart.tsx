@@ -42,6 +42,8 @@ const LineChart = ({ title, gwb, config, customVegaSpec = null, withPrognosis = 
             x: cijfer.jaar,
             y: cijfer.waarde,
             variable: data?.meta?.labelKort,
+            definitie: data?.meta?.definitie,
+            bron: data?.meta?.bron,
           })),
       )
       .flat();
@@ -58,6 +60,8 @@ const LineChart = ({ title, gwb, config, customVegaSpec = null, withPrognosis = 
                 y: cijfer.waarde,
                 variable: data?.meta?.labelKort, // Need to use the label of the prognosis else vega will not show a dashed line
                 dash: /prognose/i.test(data.label), // show prognose variables as dashed lines
+                definitie: data?.meta?.definitie,
+                bron: data?.meta?.bron,
               })),
           )
           .flat(),
