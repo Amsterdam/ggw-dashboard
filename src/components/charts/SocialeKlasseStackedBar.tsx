@@ -2,7 +2,7 @@ import cloneDeep from "lodash/cloneDeep";
 
 import StackedHorizontalBarChart from "../StackedHorizontalBarChart";
 import beroepsbevolking from "../../static/links/potentiele_beroepsbevolking.json";
-import stackedVegaSpec from "../../static/charts/stackedhorizontalbar.json";
+import stackedVegaSpec from "../../static/charts/stackedhorizontalbar";
 
 const SocialeKlasseStackedBar = ({ gwb }) => {
   const customSpec = cloneDeep(stackedVegaSpec);

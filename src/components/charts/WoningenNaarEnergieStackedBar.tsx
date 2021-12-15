@@ -2,7 +2,7 @@ import cloneDeep from "lodash/cloneDeep";
 
 import StackedHorizontalBarChart from "../StackedHorizontalBarChart";
 import woningen from "../../static/links/woningen_naar_energielabel.json";
-import stackedVegaSpec from "../../static/charts/stackedhorizontalbar.json";
+import stackedVegaSpec from "../../static/charts/stackedhorizontalbar";
 
 const WoningenNaarEnergieStackedBar = ({ gwb }) => {
   const customSpec = cloneDeep(stackedVegaSpec);

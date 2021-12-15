@@ -1,6 +1,6 @@
 import cloneDeep from "lodash/cloneDeep";
 import StackedHorizontalBarChart from "../StackedHorizontalBarChart";
-import stackedVegaSpec from "../../static/charts/stackedhorizontalbar.json";
+import stackedVegaSpec from "../../static/charts/stackedhorizontalbar";
 
 const BasisschooladviezenStackedBar = ({ gwb }) => {
   const customSpec = cloneDeep(stackedVegaSpec);

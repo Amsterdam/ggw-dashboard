@@ -3,7 +3,7 @@ import vegaEmbed from "vega-embed";
 import cloneDeep from "lodash/cloneDeep";
 import { Heading, Spinner } from "@amsterdam/asc-ui";
 
-import stackedVegaSpec from "../static/charts/stackedhorizontalbar.json";
+import stackedVegaSpec from "../static/charts/stackedhorizontalbar";
 import util from "../services/util";
 import { getColorsUsingStaticDefinition } from "../services/colorcoding";
 import { getMeta } from "../services/apis/bbga";
@@ -39,6 +39,8 @@ const getVegaChartData = async (gwb, config, scaleToHundred) => {
   const colors = getColorsUsingStaticDefinition(config);
   const chartdata = await util.getLatestConfigCijfers(gwb, config);
 
+  console.log(chartdata);
+
   // If we need to scale the values to a 100 (%) we need to determin the multiplier.
   const multiplier = scaleToHundred ? 100 / chartdata.reduce(sumReducer, 0) : 1;
 
@@ -56,6 +58,9 @@ const getVegaChartData = async (gwb, config, scaleToHundred) => {
       label: d.recent && d.recent.waarde !== null ? d.recent.waarde : 0,
       color: colors[i],
       gebied: d?.gebied?.naam,
+      definitie: d?.meta?.definitie,
+      pijljaar: d.recent.jaar,
+      bron: d?.meta?.bron,
     };
   });
 };
@@ -132,7 +137,7 @@ const StackedHorizontalBarChart = ({ title, config, gwb, customVegaSpec = null, 
     chartBase.layer[0].encoding.color["field"] = "i";
     chartBase.layer[0].encoding.color.legend["labelExpr"] = labelExpr(enrichedConfig);
 
-    // console.log(JSON.stringify(chartBase));
+    console.log(JSON.stringify(chartBase));
 
     if (chartRef.current && chartdata.length > 0) {
       setIsLoading(false);

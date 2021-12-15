@@ -39,7 +39,7 @@ const GebiedInHetKort = () => {
       </Row>
       <Row>
         <Column span={6}>
-          <div></div>
+          <Pano gwb={gwb} />
         </Column>
         <Column span={6}>
           <TextStatistic title="inwoners" gwb={gwb} indicatorId="BEVTOTAAL" Icon={BevolkingGezin} titleLeft={false} />
@@ -57,7 +57,7 @@ const GebiedInHetKort = () => {
             xLarge: 6,
           }}
         >
-          <Pano gwb={gwb} />
+          <div></div>
         </Column>
         <Column
           wrap

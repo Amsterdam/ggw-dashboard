@@ -3,7 +3,7 @@ import cloneDeep from "lodash/cloneDeep";
 import StackedHorizontalBarChart from "../StackedHorizontalBarChart";
 import verblijvers from "../../static/links/verblijvers.json";
 
-import stackedVegaSpec from "../../static/charts/stackedhorizontalbar.json";
+import stackedVegaSpec from "../../static/charts/stackedhorizontalbar";
 
 const SamenstellingVerblijversStackedBar = ({ gwb }) => {
   const customSpec = cloneDeep(stackedVegaSpec);

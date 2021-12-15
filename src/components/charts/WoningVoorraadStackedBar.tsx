@@ -2,7 +2,7 @@ import cloneDeep from "lodash/cloneDeep";
 
 import StackedHorizontalBarChart from "../StackedHorizontalBarChart";
 
-import stackedVegaSpec from "../../static/charts/stackedhorizontalbar.json";
+import stackedVegaSpec from "../../static/charts/stackedhorizontalbar";
 import woningvoorraad from "../../static/links/woningvoorraad.json";
 
 const WoningVoorraadStackedBar = ({ gwb }) => {

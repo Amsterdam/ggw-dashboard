@@ -2,7 +2,7 @@ import cloneDeep from "lodash/cloneDeep";
 
 import StackedHorizontalBarChart from "../StackedHorizontalBarChart";
 import vestigingen from "../../static/links/vestigingen_hoofdfunctie.json";
-import stackedVegaSpec from "../../static/charts/stackedhorizontalbar.json";
+import stackedVegaSpec from "../../static/charts/stackedhorizontalbar";
 
 const VestigingenNaarFunctiegroep = ({ gwb }) => {
   const customSpec = cloneDeep(stackedVegaSpec);

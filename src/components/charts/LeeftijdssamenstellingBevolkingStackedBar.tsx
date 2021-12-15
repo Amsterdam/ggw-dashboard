@@ -1,7 +1,7 @@
 import cloneDeep from "lodash/cloneDeep";
 
 import StackedHorizontalBarChart from "../StackedHorizontalBarChart";
-import stackedVegaSpec from "../../static/charts/stackedhorizontalbar.json";
+import stackedVegaSpec from "../../static/charts/stackedhorizontalbar";
 import leeftijdsamenstelling from "../../static/links/leeftijdsamenstelling_bevolking.json";
 
 const LeeftijdssamenstellingBevolkingStackedBar = ({ gwb }) => {
