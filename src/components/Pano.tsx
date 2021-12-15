@@ -27,13 +27,12 @@ const Pano = ({ gwb }) => {
 
     if (pano?.pano) {
       const panoUrl = pano?.pano;
-  
+
       const sbi: string = panoUrl.match(/&sbi=([^&]*)/)![1];
       let sbh: any = panoUrl.match(/&sbh=([^&]*)/)![1];
       sbh = Math.round(base62DecodeAngle(sbh, 1));
       const width = 500;
       const url = `https://api.data.amsterdam.nl/panorama/thumbnail/${sbi}/?width=${width}&heading=${sbh}`;
-
       setSrc(url);
       console.log("call: url", url);
     }
