@@ -40,7 +40,6 @@ const Pano = ({ gwb }) => {
       const width = 640;
       const url = `https://api.data.amsterdam.nl/panorama/thumbnail/${sbi}/?width=${width}&heading=${sbh}`;
       setSrc(url);
-      console.log("call: url", url);
     }
   };
 
