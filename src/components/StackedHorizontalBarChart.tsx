@@ -135,8 +135,6 @@ const StackedHorizontalBarChart = ({ title, config, gwb, customVegaSpec = null, 
     chartBase.layer[0].encoding.color["field"] = "i";
     chartBase.layer[0].encoding.color.legend["labelExpr"] = labelExpr(enrichedConfig);
 
-    console.log(JSON.stringify(chartBase));
-
     if (chartRef.current && chartdata.length > 0) {
       setIsLoading(false);
       vegaEmbed(chartRef.current, chartBase, vegaEmbedOptions);

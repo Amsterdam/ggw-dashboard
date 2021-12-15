@@ -36,6 +36,7 @@ const TextStatistic = ({
 
       setData(util.formatNumber(apiData[apiData.length - 1]?.recent?.waarde) || "-");
     } catch (e) {
+      // eslint-disable-next-line no-console
       console.error(e);
       setData("-");
     }

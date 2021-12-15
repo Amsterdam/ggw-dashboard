@@ -38,6 +38,7 @@ async function fetchData(url: string, options = {}, nTries = 5) {
       // eslint-disable-next-line prefer-const
       result = await axios.get(url, options);
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error("Retry...", url);
       nTry++;
       await sleep(nTry * 100); // small sleep before retry request
@@ -51,6 +52,7 @@ async function fetchData(url: string, options = {}, nTries = 5) {
     return result;
   } else {
     // All retries have failed
+    // eslint-disable-next-line no-console
     console.error("Request failed", url);
     HTTPStatus.error++;
     throw new Error("Request failed");
@@ -83,6 +85,7 @@ export async function readPaginatedData(
       results = results.concat(get(response.data, dataSelector));
       // page += 1;
     } catch (e) {
+      // eslint-disable-next-line no-console
       console.error(e);
       next = "";
     }
