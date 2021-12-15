@@ -44,6 +44,7 @@ module.exports = {
     root: true,
     rules: {
       'no-debugger': 1,
+      'no-console': 1,
       'no-redeclare': 'off',
       'promise/always-return': 'off',
       'promise/catch-or-return': 'off',
