@@ -112,7 +112,7 @@ const VerschillenMap: React.FC<Props> = ({ gwb, indicatorDefinitieId }) => {
     onEachFeature(feature, layer) {
       layer.setStyle({
         color: "#666666",
-        fillColor: feature?.properties?.color,
+        fillColor: feature?.properties?.color ?? "#ffffff",
         fillOpacity: 1,
         stroke: 1,
         weight: 1,
