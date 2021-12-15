@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Column, Row, themeSpacing } from "@amsterdam/asc-ui";
+import { Column, Heading, Row, themeSpacing } from "@amsterdam/asc-ui";
 
 import ThemeHeader from "../components/ThemeHeader";
 import HeaderRow from "../components/layout/HeaderRow";
@@ -41,22 +41,22 @@ const Ouderen = () => {
             config={[
               {
                 indicatorDefinitieId: "BEV65PLUS",
+                prognoseIndicator: "BEV65PLUS_PROG",
               },
               {
                 indicatorDefinitieId: "BEV75PLUS",
-              },
-              {
-                indicatorDefinitieId: "BEV65PLUS_PROG",
-              },
-              {
-                indicatorDefinitieId: "BEV75PLUS_PROG",
+                prognoseIndicator: "BEV75PLUS_PROG",
               },
             ]}
             gwb={gwb}
+            withPrognosis
           ></LineChart>
         </Column>
         <Column span={6}>
-          <OuderenWoningen gwb={gwb} />
+          <div>
+            <Heading as="h4">Voorraad ouderenwoningen</Heading>
+            <OuderenWoningen gwb={gwb} />
+          </div>
         </Column>
       </Row>
 

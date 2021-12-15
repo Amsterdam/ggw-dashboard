@@ -33,6 +33,10 @@ const Verschillen: React.FC<Props> = ({ gwb, config }) => {
   const [indicatorDefinitieId, setVar] = useState<string>(config[0]?.indicatorDefinitieId);
   const [label, setLabel] = useState<string>(config && config[0]?.label);
 
+  if (gwb?.vollcode === "STAD") {
+    return <></>;
+  }
+
   return (
     <>
       <Row>
