@@ -11,7 +11,7 @@ const StyledImage = styled.img`
 
 const StyledDiv = styled.div`
   padding: ${themeSpacing(0, 10, 6, 0)};
-`
+`;
 
 const Pano = ({ gwb }) => {
   const [src, setSrc] = useState<string>("");
@@ -67,7 +67,7 @@ const Pano = ({ gwb }) => {
     <StyledDiv>
       <StyledImage src={src} alt={`Pano van ${gwb.naam}`} title={`Pano van ${gwb.naam}`} />
     </StyledDiv>
-  )
+  );
 };
 
 export default Pano;
