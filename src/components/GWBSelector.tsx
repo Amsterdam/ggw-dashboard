@@ -134,7 +134,7 @@ const GWBSelector = () => {
       }
     } else {
       const deel: any = util.getCity();
-      
+
       stadsDeelDetail = deel;
 
       setGwbSelection({
@@ -264,7 +264,7 @@ const GWBSelector = () => {
       }
 
       const code = searchParams.get("code");
-      let currentSelection = util.getCity();
+      let currentSelection = allAreas.find((g) => g.code === "A");
 
       if (code) {
         const foundSelection = allAreas.find((a) => a.code === code);
