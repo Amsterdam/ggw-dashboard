@@ -47,7 +47,10 @@ export default {
       },
       scale: { range: null },
     },
-    tooltip: [{ field: "definitie", type: "ordinal", title: "Definitie" }],
+    tooltip: [
+      { field: "definitie", type: "ordinal", title: "Definitie" },
+      { field: "bron", type: "ordinal", title: "Bron" },
+    ],
     strokeDash: { field: "dash", type: "nominal", legend: null },
   },
   mark: {
