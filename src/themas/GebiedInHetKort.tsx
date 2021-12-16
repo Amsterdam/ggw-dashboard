@@ -42,36 +42,14 @@ const GebiedInHetKort = () => {
           <Pano gwb={gwb} />
         </Column>
         <Column span={6}>
-          <TextStatistic title="inwoners" gwb={gwb} indicatorId="BEVTOTAAL" Icon={BevolkingGezin} titleLeft={false} />
+          <div>
+            <TextStatistic title="inwoners" gwb={gwb} indicatorId="BEVTOTAAL" Icon={BevolkingGezin} titleLeft={false} />
+            <InwonersNaarLeeftijdStackedBar gwb={gwb} />
+          </div>
         </Column>
       </Row>
 
-      <Row>
-        <Column
-          wrap
-          span={{
-            small: 1,
-            medium: 2,
-            big: 2,
-            large: 6,
-            xLarge: 6,
-          }}
-        >
-          <div></div>
-        </Column>
-        <Column
-          wrap
-          span={{
-            small: 1,
-            medium: 2,
-            big: 2,
-            large: 6,
-            xLarge: 6,
-          }}
-        >
-          <InwonersNaarLeeftijdStackedBar gwb={gwb} />
-        </Column>
-      </Row>
+      <SpacingDiv />
 
       <Row>
         <Column span={6}>
