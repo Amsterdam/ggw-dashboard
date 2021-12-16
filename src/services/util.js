@@ -68,7 +68,9 @@ async function getConfigCijfers(gwb, config, recentOrAll = CIJFERS.ALL) {
         index,
       };
     } catch (e) {
+      // eslint-disable-next-line no-console
       console.error("Variable not found", c.indicatorDefinitieId);
+      // eslint-disable-next-line no-console
       console.error(e);
       return {
         label: c?.label || c?.indicatorDefinitieId,
