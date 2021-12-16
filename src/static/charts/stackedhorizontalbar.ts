@@ -57,7 +57,7 @@ export default {
         },
         tooltip: [
           { field: "definitie", type: "ordinal", title: "Definitie" },
-          { field: "pijljaar", type: "ordinal", title: "Pijljaar" },
+          { field: "peiljaar", type: "ordinal", title: "Peiljaar" },
           { field: "bron", type: "ordinal", title: "Bron" },
         ],
       },
