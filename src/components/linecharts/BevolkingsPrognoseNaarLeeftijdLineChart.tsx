@@ -5,10 +5,6 @@ import vegaSpec from "../../static/charts/linechart";
 const BevolkingsPrognoseNaarLeeftijdLineChart = ({ gwb }) => {
   const spec = cloneDeep(vegaSpec);
 
-  spec.config.legend.columns = 3;
-  spec.legends[0].legendX = -60;
-  spec.legends[0].legendY = -80;
-
   return (
     <LineChart
       title="Bevolkingsprognose naar leeftijd"

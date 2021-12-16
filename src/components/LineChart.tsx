@@ -39,6 +39,9 @@ const LineChart = ({ title, gwb, config, customVegaSpec = null, withPrognosis = 
         data.cijfers
           ?.filter((cijfer) => cijfer.waarde !== null)
           ?.map((cijfer) => ({
+            i: config.findIndex(
+              (c) => c.indicatorDefinitieId.toUpperCase() === data?.meta?.indicatorDefinitieId.toUpperCase(),
+            ),
             x: cijfer.jaar,
             y: cijfer.waarde,
             variable: data?.meta?.labelKort,
@@ -56,6 +59,9 @@ const LineChart = ({ title, gwb, config, customVegaSpec = null, withPrognosis = 
             data.cijfers
               ?.filter((cijfer) => cijfer.waarde !== null)
               ?.map((cijfer) => ({
+                i: config.findIndex(
+                  (c) => c.prognoseIndicator.toUpperCase() === data?.meta?.indicatorDefinitieId.toUpperCase(),
+                ),
                 x: cijfer.jaar,
                 y: cijfer.waarde,
                 variable: data?.meta?.labelKort, // Need to use the label of the prognosis else vega will not show a dashed line
@@ -68,12 +74,30 @@ const LineChart = ({ title, gwb, config, customVegaSpec = null, withPrognosis = 
       );
     }
 
-    chartBase.data[0].values = cijfers;
-    chartBase.scales[2].range = colors;
+    chartBase.data.values = cijfers;
+    chartBase.encoding.color.scale.range = colors;
+
+    chartBase.encoding.color.legend["labelExpr"] = config
+      .map((c, i) => {
+        const legend = chartdata.find(
+          (d) => d.meta.indicatorDefinitieId.toUpperCase() === c.indicatorDefinitieId.toUpperCase(),
+        );
+
+        if (!legend) {
+          return;
+        }
+
+        if (i === config.length - 1) {
+          return `'${legend?.meta?.labelKort}'`;
+        }
+
+        return `datum.value == ${i} ? '${legend?.meta?.labelKort}' : `;
+      })
+      .join("");
 
     // console.log(JSON.stringify(chartBase));
 
-    if (chartRef.current && chartBase.data[0].values.length > 1) {
+    if (chartRef.current && chartBase.data.values.length > 1) {
       setIsLoading(false);
       vegaEmbed(chartRef.current, chartBase, vegaEmbedOptions);
     } else {
