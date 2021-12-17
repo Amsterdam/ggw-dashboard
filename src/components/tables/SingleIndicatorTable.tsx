@@ -1,8 +1,11 @@
+import { useState } from "react";
 import { Spinner, TableBody, TableCell, TableHeader, TableRow } from "@amsterdam/asc-ui";
 import { SmallTable } from "./SmallTable";
 import useGetLatestConfigCijfers from "../../hooks/useGetLatestConfigCijfers";
 import util from "../../services/util";
 import { Config } from "../../types";
+import Modal from "../Modal";
+import { Button } from "../Button";
 
 const SingleIndicatorTable = ({
   gwb,
@@ -16,6 +19,8 @@ const SingleIndicatorTable = ({
   withTotalRow?: boolean;
 }) => {
   const { data, isLoading } = useGetLatestConfigCijfers({ gwb, config });
+  const [showModal, setShowModal] = useState(false);
+  const [modalContent, setModalContent] = useState(<></>);
 
   return (
     <>
@@ -37,20 +42,31 @@ const SingleIndicatorTable = ({
                 return;
               }
 
-              return withTotalRow && i === config.length - 1 ? (
+              const onClick = () => {
+                setShowModal(true);
+                setModalContent(
+                  <>
+                    <p>
+                      <strong>Definitie:</strong>&nbsp;{indicator?.meta?.definitie}
+                    </p>
+                    <p>
+                      <strong>Bron:</strong>&nbsp;{indicator?.meta?.bron}
+                    </p>
+                  </>,
+                );
+              };
+
+              const cellStyle = withTotalRow && i === config.length - 1 ? { borderTop: "1px solid black" } : {};
+
+              return (
                 <TableRow key={c.indicatorDefinitieId}>
-                  <TableCell as="th" style={{ borderTop: "1px solid black" }}>
-                    {indicator.meta.labelKort}
+                  <TableCell as="th" style={cellStyle}>
+                    <Button onClick={onClick}>{indicator?.meta?.labelKort}</Button>
                   </TableCell>
-                  <TableCell style={{ textAlign: "right", borderTop: "1px solid black" }}>
-                    {util.formatNumber(indicator.cijfers[indicator.cijfers.length - 1]?.waarde)}
-                  </TableCell>
-                </TableRow>
-              ) : (
-                <TableRow key={c.indicatorDefinitieId}>
-                  <TableCell as="th">{indicator.meta.labelKort}</TableCell>
-                  <TableCell style={{ textAlign: "right" }}>
-                    {util.formatNumber(indicator.cijfers[indicator.cijfers.length - 1]?.waarde)}
+                  <TableCell style={{ ...{ textAlign: "right" }, ...cellStyle }}>
+                    <Button onClick={onClick}>
+                      {util.formatNumber(indicator?.cijfers[indicator?.cijfers?.length - 1]?.waarde)}
+                    </Button>
                   </TableCell>
                 </TableRow>
               );
@@ -58,6 +74,10 @@ const SingleIndicatorTable = ({
           </TableBody>
         </SmallTable>
       )}
+
+      <Modal showModal={showModal} setShowModal={setShowModal}>
+        {modalContent}
+      </Modal>
     </>
   );
 };

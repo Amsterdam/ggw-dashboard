@@ -3,7 +3,7 @@ import "leaflet/dist/leaflet.css";
 import { useState, useEffect } from "react";
 import { Spinner } from "@amsterdam/asc-ui";
 import util from "../services/util";
-import { Map, ViewerContainer, Zoom, BaseLayer, getCrsRd } from "@amsterdam/arm-core";
+import { Map, ViewerContainer, BaseLayer, getCrsRd } from "@amsterdam/arm-core";
 import { GeoJSON } from "@amsterdam/react-maps";
 
 import { getGeometriesGeoJson } from "../services/apis/map";

@@ -11,29 +11,6 @@ const TableCellRight = styled(TableCell)`
   text-align: right;
 `;
 
-const FinalRow = ({ data, config }) => {
-  const finalIndicator = data.find(
-    (d) => d.meta.indicatorDefinitieId === config[config.length / 2 - 1].indicatorDefinitieId,
-  );
-  const secondFinalIndicator = data.find(
-    (d) => d.meta.indicatorDefinitieId === config[config.length - 1].indicatorDefinitieId,
-  );
-
-  return (
-    <TableRow>
-      <TableCell as="th" style={{ borderTop: "1px solid black" }}>
-        {finalIndicator.meta.labelKort}
-      </TableCell>
-      <TableCellRight style={{ borderTop: "1px solid black" }}>
-        {util.formatNumber(finalIndicator?.cijfers[finalIndicator?.cijfers?.length - 1]?.waarde)}
-      </TableCellRight>
-      <TableCellRight style={{ borderTop: "1px solid black" }}>
-        {util.formatNumber(secondFinalIndicator?.cijfers[secondFinalIndicator?.cijfers?.length - 1]?.waarde)}
-      </TableCellRight>
-    </TableRow>
-  );
-};
-
 const DoubleIndicatorTable = ({ gwb, config, headerTitles, withTotalRow = false }) => {
   const { data, isLoading } = useGetLatestConfigCijfers({ gwb, config });
   const [showModal, setShowModal] = useState(false);
@@ -55,7 +32,7 @@ const DoubleIndicatorTable = ({ gwb, config, headerTitles, withTotalRow = false 
             </TableRow>
           </TableHeader>
           <TableBody>
-            {[...Array((withTotalRow ? config.length - 2 : config.length) / 2)].map((_, index) => {
+            {[...Array(config.length / 2)].map((_, index) => {
               const indicator = data.find((d) => d.meta.indicatorDefinitieId === config[index].indicatorDefinitieId);
               const secondIndicator = data.find(
                 (d) => d.meta.indicatorDefinitieId === config[index + config.length / 2].indicatorDefinitieId,
@@ -70,36 +47,35 @@ const DoubleIndicatorTable = ({ gwb, config, headerTitles, withTotalRow = false 
                 setModalContent(
                   <>
                     <p>
-                      <strong>Definitie:</strong>&nbsp;{indicator?.meta?.definitie}
+                      <strong>Definitie:</strong>&nbsp;{(indicator || secondIndicator)?.meta?.definitie}
                     </p>
                     <p>
-                      <strong>Bron:</strong>&nbsp;{indicator?.meta?.bron}
+                      <strong>Bron:</strong>&nbsp;{(indicator || secondIndicator)?.meta?.bron}
                     </p>
                   </>,
                 );
               };
 
+              const cellStyle = withTotalRow && index === config.length / 2 - 1 ? { borderTop: "1px solid black" } : {};
+
               return (
-                <TableRow key={index}>
-                  <TableCell as="th">
-                    <Button onClick={onClick}>{(indicator || secondIndicator).meta.labelKort}</Button>
+                <TableRow key={(indicator || secondIndicator)?.meta?.indicatorDefinitieId}>
+                  <TableCell as="th" style={cellStyle}>
+                    <Button onClick={onClick}>{(indicator || secondIndicator)?.meta?.labelKort}</Button>
                   </TableCell>
-                  <TableCellRight>
+                  <TableCellRight style={cellStyle}>
                     <Button onClick={onClick}>
-                      {indicator ? util.formatNumber(indicator?.cijfers[indicator?.cijfers?.length - 1]?.waarde) : ""}
+                      {util.formatNumber(indicator?.cijfers[indicator?.cijfers?.length - 1]?.waarde)}
                     </Button>
                   </TableCellRight>
-                  <TableCellRight>
+                  <TableCellRight style={cellStyle}>
                     <Button onClick={onClick}>
-                      {secondIndicator
-                        ? util.formatNumber(secondIndicator?.cijfers[secondIndicator?.cijfers?.length - 1]?.waarde)
-                        : ""}
+                      {util.formatNumber(secondIndicator?.cijfers[secondIndicator?.cijfers?.length - 1]?.waarde)}
                     </Button>
                   </TableCellRight>
                 </TableRow>
               );
             })}
-            {withTotalRow && <FinalRow data={data} config={config} />}
           </TableBody>
         </SmallTable>
       )}

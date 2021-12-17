@@ -11,6 +11,7 @@ const Button = styled.button`
   font-size: inherit;
   color: inherit;
   font-weight: inherit;
+  cursor: pointer;
 `;
 
 export { Button };
