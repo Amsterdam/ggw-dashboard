@@ -37,7 +37,7 @@ const GGWHeader = () => {
       title="Gebied in beeld"
       homeLink=""
       fullWidth
-      css={{ zIndex: 1200 }}
+      css={{ zIndex: 20 }}
       navigation={
         <WideMenu>
           <MenuToggle open>

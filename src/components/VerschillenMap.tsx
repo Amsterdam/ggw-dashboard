@@ -126,7 +126,7 @@ const VerschillenMap: React.FC<Props> = ({ gwb, indicatorDefinitieId }) => {
         <Spinner />
       ) : (
         <Map options={mapOptions} fullScreen>
-          <ViewerContainer bottomLeft={<Zoom />} />
+          <ViewerContainer />
           <BaseLayer baseLayer={`https://{s}.data.amsterdam.nl/topo_rd_zw/{z}/{x}/{y}.png`} />
           {json ? <GeoJSON setInstance={setInstance} args={[json]} options={options} /> : null}
         </Map>

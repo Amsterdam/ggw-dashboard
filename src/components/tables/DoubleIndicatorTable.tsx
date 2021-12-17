@@ -1,8 +1,11 @@
+import { useState } from "react";
 import styled from "styled-components";
 import { Spinner, TableBody, TableCell, TableHeader, TableRow } from "@amsterdam/asc-ui";
 import useGetLatestConfigCijfers from "../../hooks/useGetLatestConfigCijfers";
 import util from "../../services/util";
+import { Button } from "../Button";
 import { SmallTable } from "./SmallTable";
+import Modal from "../Modal";
 
 const TableCellRight = styled(TableCell)`
   text-align: right;
@@ -33,6 +36,8 @@ const FinalRow = ({ data, config }) => {
 
 const DoubleIndicatorTable = ({ gwb, config, headerTitles, withTotalRow = false }) => {
   const { data, isLoading } = useGetLatestConfigCijfers({ gwb, config });
+  const [showModal, setShowModal] = useState(false);
+  const [modalContent, setModalContent] = useState(<></>);
 
   return (
     <>
@@ -60,16 +65,36 @@ const DoubleIndicatorTable = ({ gwb, config, headerTitles, withTotalRow = false 
                 return;
               }
 
+              const onClick = () => {
+                setShowModal(true);
+                setModalContent(
+                  <>
+                    <p>
+                      <strong>Definitie:</strong>&nbsp;{indicator?.meta?.definitie}
+                    </p>
+                    <p>
+                      <strong>Bron:</strong>&nbsp;{indicator?.meta?.bron}
+                    </p>
+                  </>,
+                );
+              };
+
               return (
                 <TableRow key={index}>
-                  <TableCell as="th">{(indicator || secondIndicator).meta.labelKort}</TableCell>
+                  <TableCell as="th">
+                    <Button onClick={onClick}>{(indicator || secondIndicator).meta.labelKort}</Button>
+                  </TableCell>
                   <TableCellRight>
-                    {indicator ? util.formatNumber(indicator?.cijfers[indicator?.cijfers?.length - 1]?.waarde) : ""}
+                    <Button onClick={onClick}>
+                      {indicator ? util.formatNumber(indicator?.cijfers[indicator?.cijfers?.length - 1]?.waarde) : ""}
+                    </Button>
                   </TableCellRight>
                   <TableCellRight>
-                    {secondIndicator
-                      ? util.formatNumber(secondIndicator?.cijfers[secondIndicator?.cijfers?.length - 1]?.waarde)
-                      : ""}
+                    <Button onClick={onClick}>
+                      {secondIndicator
+                        ? util.formatNumber(secondIndicator?.cijfers[secondIndicator?.cijfers?.length - 1]?.waarde)
+                        : ""}
+                    </Button>
                   </TableCellRight>
                 </TableRow>
               );
@@ -78,6 +103,10 @@ const DoubleIndicatorTable = ({ gwb, config, headerTitles, withTotalRow = false 
           </TableBody>
         </SmallTable>
       )}
+
+      <Modal showModal={showModal} setShowModal={setShowModal}>
+        {modalContent}
+      </Modal>
     </>
   );
 };
