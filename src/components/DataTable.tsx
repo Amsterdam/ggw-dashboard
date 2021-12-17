@@ -3,6 +3,8 @@ import { Table, TableHeader, TableRow, TableCell, TableBody } from "@amsterdam/a
 import util from "../services/util";
 import { getColor, getColorGivenValueAndColorPalet } from "../services/colorcoding";
 import { StdType } from "../types";
+import Modal from "../components/Modal";
+import { Button } from "../components/Button";
 
 const DataTable = ({
   gwb,
@@ -83,22 +85,37 @@ const DataTable = ({
    */
   const getIndicatorDevelopment = (indicator) => {
     if (!indicator || !indicator?.cijfers) {
-      return "-";
+      return {
+        value: "-",
+      };
     }
 
     const dataFinalYear = getFinalYearsData(indicator);
     const dataFirstYear = getFirstYearData(indicator, dataFinalYear?.jaar);
 
     if (dataFirstYear === undefined) {
-      return "n.b.";
+      return {
+        value: "n.b.",
+      };
     }
 
     if (dataFirstYear?.jaar === dataFinalYear?.jaar) {
-      return "-";
+      return {
+        value: "-",
+      };
     }
 
-    return Math.round((dataFinalYear?.waarde - dataFirstYear?.waarde) * 100) / 100;
+    return {
+      firstYear: dataFirstYear?.jaar,
+      firstYearValue: dataFirstYear?.waarde,
+      finalYear: dataFinalYear?.jaar,
+      finalYearValue: dataFinalYear?.waarde,
+      value: Math.round((dataFinalYear?.waarde - dataFirstYear?.waarde) * 100) / 100,
+    };
   };
+
+  const [showModal, setShowModal] = useState(false);
+  const [modalContent, setModalContent] = useState(<></>);
 
   return (
     <>
@@ -148,26 +165,75 @@ const DataTable = ({
                 const indicatorDevelopment = getIndicatorDevelopment(indicator);
                 const developmentColor = getColorGivenValueAndColorPalet(
                   indicator.meta.kleurenpalet,
-                  indicatorDevelopment,
+                  indicatorDevelopment.value,
                 );
 
+                const cityIndicator = cityAvgData?.find((d) => d?.meta?.variabele === c.indicatorDefinitieId);
                 const cityIndicatorDevelopment = needCityAverage
-                  ? getIndicatorDevelopment(cityAvgData?.find((d) => d?.meta?.variabele === c.indicatorDefinitieId))
+                  ? getIndicatorDevelopment(cityIndicator)
                   : indicatorDevelopment;
                 const cityDevelopmentColor = getColorGivenValueAndColorPalet(
                   indicator.meta.kleurenpalet,
-                  cityIndicatorDevelopment,
+                  cityIndicatorDevelopment.value,
                 );
 
-                // console.log("stdevs", stdevs);
-                // console.log(indicator);
+                const getOnDataCellClick =
+                  (amsValue = null) =>
+                  () => {
+                    setShowModal(true);
+                    setModalContent(
+                      <>
+                        <p>
+                          <strong>Definitie:</strong>&nbsp;{indicator?.meta?.definitie}
+                        </p>
+                        <p>
+                          <strong>Bron:</strong>&nbsp;{indicator?.meta?.bron}
+                        </p>
+                        {amsValue && (
+                          <p>
+                            <strong>Waarde Amsterdam:</strong>&nbsp;{amsValue}
+                          </p>
+                        )}
+                      </>,
+                    );
+                  };
+
+                const getOnDevelopmentCellClick =
+                  (firstYear, finalYear, firstYearData = null, finalYearData = null) =>
+                  () => {
+                    setShowModal(true);
+                    setModalContent(
+                      <>
+                        <p>
+                          <strong>Peiljaar meest recente meting:</strong>&nbsp;{firstYear}
+                        </p>
+                        {firstYearData && (
+                          <p>
+                            <strong>Waarde meest recente meting:</strong>&nbsp;{firstYearData}
+                          </p>
+                        )}
+
+                        <p>
+                          <strong>Peiljaar -4:</strong>&nbsp;{finalYear}
+                        </p>
+                        {finalYearData && (
+                          <p>
+                            <strong>Waarde peiljaar -4:</strong>&nbsp;{finalYearData}
+                          </p>
+                        )}
+                      </>,
+                    );
+                  };
 
                 return (
                   <TableRow key={c.indicatorDefinitieId}>
                     <TableCell as="th">{c?.categorie}</TableCell>
-                    <TableCell>{indicator?.meta?.labelKort}</TableCell>
+                    <TableCell>
+                      <Button onClick={getOnDataCellClick()}>{indicator?.meta?.labelKort}</Button>
+                    </TableCell>
                     {years.map((year) => {
                       const yearData = indicator.cijfers.find((c) => c.jaar === year && c.waarde !== null);
+                      const cityData = cityIndicator.cijfers.find((c) => c.jaar === year && c.waarde !== null);
 
                       if (!yearData) {
                         return (
@@ -198,7 +264,9 @@ const DataTable = ({
                             textAlign: "right",
                           }}
                         >
-                          {util.formatNumber(yearData?.waarde) || "-"}
+                          <Button onClick={getOnDataCellClick(cityData?.waarde)}>
+                            {util.formatNumber(yearData?.waarde) || "-"}
+                          </Button>
                         </TableCell>
                       );
                     })}
@@ -209,9 +277,20 @@ const DataTable = ({
                           textAlign: "right",
                         }}
                       >
-                        {indicatorDevelopment > 0
-                          ? `+${util.formatNumber(indicatorDevelopment)}`
-                          : util.formatNumber(indicatorDevelopment)}
+                        {typeof indicatorDevelopment.value === "number" ? (
+                          <Button
+                            onClick={getOnDevelopmentCellClick(
+                              indicatorDevelopment?.finalYear,
+                              indicatorDevelopment?.firstYear,
+                            )}
+                          >
+                            {indicatorDevelopment.value > 0
+                              ? `+${util.formatNumber(indicatorDevelopment.value)}`
+                              : util.formatNumber(indicatorDevelopment.value)}
+                          </Button>
+                        ) : (
+                          indicatorDevelopment.value
+                        )}
                       </TableCell>
                     )}
                     <TableCell
@@ -220,9 +299,22 @@ const DataTable = ({
                         textAlign: "right",
                       }}
                     >
-                      {cityIndicatorDevelopment > 0
-                        ? `+${util.formatNumber(cityIndicatorDevelopment)}`
-                        : util.formatNumber(cityIndicatorDevelopment)}
+                      {typeof cityIndicatorDevelopment.value === "number" ? (
+                        <Button
+                          onClick={getOnDevelopmentCellClick(
+                            cityIndicatorDevelopment?.finalYear,
+                            cityIndicatorDevelopment?.firstYear,
+                            cityIndicatorDevelopment?.finalYearValue,
+                            cityIndicatorDevelopment?.firstYearValue,
+                          )}
+                        >
+                          {cityIndicatorDevelopment.value > 0
+                            ? `+${util.formatNumber(cityIndicatorDevelopment.value)}`
+                            : util.formatNumber(cityIndicatorDevelopment.value)}
+                        </Button>
+                      ) : (
+                        cityIndicatorDevelopment.value
+                      )}
                     </TableCell>
                   </TableRow>
                 );
@@ -230,6 +322,10 @@ const DataTable = ({
           </TableBody>
         </Table>
       )}
+
+      <Modal showModal={showModal} setShowModal={setShowModal}>
+        {modalContent}
+      </Modal>
     </>
   );
 };
