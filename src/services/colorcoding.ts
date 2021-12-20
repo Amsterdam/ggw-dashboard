@@ -138,13 +138,13 @@ function getCategory(zScore: number, kleurenpalet: number): { color: string; tex
       inCategory: (s) => 2 * average <= s, // s groter dan of gelijk aan 1
       color: colors[0],
       textColor: kleurenTabel.tekst_kleur[colors[0]] || "#000000",
-      index: 0,
+      index: kleurenpalet === 2 ? 4 : 0,
     },
     {
       inCategory: (s) => average <= s && s < 2 * average, // s groter dan of gelijk aan 0.5 en s kleiner dan 1
       color: colors[1],
       textColor: kleurenTabel.tekst_kleur[colors[1]] || "#000000",
-      index: 1,
+      index: kleurenpalet === 2 ? 3 : 1,
     },
     {
       inCategory: (s) => average > s && s > -average, // s kleiner dan 0,5 en s groter dan -0,5
@@ -156,13 +156,13 @@ function getCategory(zScore: number, kleurenpalet: number): { color: string; tex
       inCategory: (s) => -average >= s && s > 2 * -average, // s kleiner dan of gelijk aan -0,5 en s groter dan -1
       color: colors[3],
       textColor: kleurenTabel.tekst_kleur[colors[3]] || "#000000",
-      index: 3,
+      index: kleurenpalet === 2 ? 1 : 3,
     },
     {
       inCategory: (s) => -2 * average >= s, // s kleiner dan -1
       color: colors[4],
       textColor: kleurenTabel.tekst_kleur[colors[4]] || "#000000",
-      index: 4,
+      index: kleurenpalet === 2 ? 0 : 4,
     },
   ];
 

@@ -59,7 +59,7 @@ const TextStatistic = ({
 
   return (
     <Wrapper>
-      <Heading as="h3">
+      <Heading as="h3" style={{ justifyContent: "initial" }}>
         {titleLeft && (
           <>
             {isLoading ? (

@@ -7,12 +7,7 @@ import Verschillen from "../components/Verschillen";
 
 import { WERK_INKOMEN } from "../services/thema";
 
-import werkloosheid from "../static/links/werkloosheid.json";
-import minimahuishoudens from "../static/links/minimahuishoudens.json";
-import gemiddeldBesteedbaarInkomen from "../static/links/gemm_besteedbaarinkomen.json";
-import bijstand from "../static/links/bijstand.json";
-import geregistreerdeWerkloosheid from "../static/links/geregistreerd_werkloosheid.json";
-import vroegErOpAf from "../static/links/vroeg_er_op_af.json";
+import werkEnInkomen from "../static/links/werk_en_inkomen.json";
 import ThemeHeader from "../components/ThemeHeader";
 import HeaderRow from "../components/layout/HeaderRow";
 import { useGWBSelection } from "../components/context/GWBContext";
@@ -75,7 +70,7 @@ const Werk = () => {
             xLarge: 4,
           }}
         >
-          <VerticalBarChart title={werkloosheid[0].label} config={werkloosheid} gwb={gwb}></VerticalBarChart>
+          <VerticalBarChart title={werkEnInkomen[0].label} config={werkEnInkomen[0]} gwb={gwb}></VerticalBarChart>
         </Column>
         <Column
           span={{
@@ -86,7 +81,7 @@ const Werk = () => {
             xLarge: 4,
           }}
         >
-          <VerticalBarChart title={minimahuishoudens[0].label} config={minimahuishoudens} gwb={gwb}></VerticalBarChart>
+          <VerticalBarChart title={werkEnInkomen[1].label} config={werkEnInkomen[1]} gwb={gwb}></VerticalBarChart>
         </Column>
         <Column
           span={{
@@ -97,31 +92,23 @@ const Werk = () => {
             xLarge: 4,
           }}
         >
-          <VerticalBarChart
-            title={gemiddeldBesteedbaarInkomen[0].label}
-            config={gemiddeldBesteedbaarInkomen}
-            gwb={gwb}
-          ></VerticalBarChart>
+          <VerticalBarChart title={werkEnInkomen[2].label} config={werkEnInkomen[2]} gwb={gwb}></VerticalBarChart>
         </Column>
       </Row>
 
       <Row>
         <Column span={4}>
-          <VerticalBarChart title={bijstand[0].label} config={bijstand} gwb={gwb}></VerticalBarChart>
+          <VerticalBarChart title={werkEnInkomen[3].label} config={werkEnInkomen[3]} gwb={gwb}></VerticalBarChart>
         </Column>
         <Column span={4}>
-          <VerticalBarChart
-            title={geregistreerdeWerkloosheid[0].label}
-            config={geregistreerdeWerkloosheid}
-            gwb={gwb}
-          ></VerticalBarChart>
+          <VerticalBarChart title={werkEnInkomen[4].label} config={werkEnInkomen[4]} gwb={gwb}></VerticalBarChart>
         </Column>
         <Column span={4}>
-          <VerticalBarChart title={vroegErOpAf[0].label} config={vroegErOpAf} gwb={gwb}></VerticalBarChart>
+          <VerticalBarChart title={werkEnInkomen[5].label} config={werkEnInkomen[5]} gwb={gwb}></VerticalBarChart>
         </Column>
       </Row>
 
-      <Verschillen gwb={gwb} config={werkloosheid} />
+      <Verschillen gwb={gwb} config={werkEnInkomen} />
     </>
   );
 };

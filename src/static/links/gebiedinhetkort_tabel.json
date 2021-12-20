@@ -5,9 +5,9 @@
     "indicatorDefinitieId": "LBUURT_R"
   },
   {
-    "label": "Veiligheidsindex",
-    "categorie": "Veiligheid",
-    "indicatorDefinitieId": "VVEILIGVOELEN_P"
+    "label": "",
+    "categorie": "Wonen",
+    "indicatorDefinitieId": "LVERWACHTINGBUURT_R"
   },
   {
     "label": "Schoonhouden straat",
@@ -15,9 +15,14 @@
     "indicatorDefinitieId": "ORSCHOONSTRATEN_R"
   },
   {
-    "label": "% minimahuishoudens",
-    "categorie": "Werk en inkomen",
-    "indicatorDefinitieId": "IMIN120_P"
+    "label": "Veiligheidsindex",
+    "categorie": "Veiligheid",
+    "indicatorDefinitieId": "VVEILIGVOELEN_P"
+  },
+  {
+    "label": "",
+    "categorie": "Verkeer",
+    "indicatorDefinitieId": "VKPARKEREN_R"
   },
   {
     "label": "Winkelaanbod",
@@ -25,14 +30,9 @@
     "indicatorDefinitieId": "BHWINKELAANBOD_R"
   },
   {
-    "label": "Verkeersdrukte",
-    "categorie": "Verkeer",
-    "indicatorDefinitieId": "VKOVERLASTVERKEER_R"
-  },
-  {
-    "label": "Basisschooladvies Havo/VWO",
-    "categorie": "Onderwijs",
-    "indicatorDefinitieId": "OHVWO_P"
+    "label": "% minimahuishoudens",
+    "categorie": "Werk en inkomen",
+    "indicatorDefinitieId": "IMINHH120_P"
   },
   {
     "label": "Geschiktheid buurt voor jongeren",
@@ -40,14 +40,29 @@
     "indicatorDefinitieId": "LKIND_R"
   },
   {
-    "label": "% huishoudens > 1 voorziening",
-    "categorie": "Gezondheid en zorg",
-    "indicatorDefinitieId": "WZVOORZHHH_P"
+    "label": "Basisschooladvies Havo/VWO",
+    "categorie": "Onderwijs",
+    "indicatorDefinitieId": "OHVWO_P"
+  },
+  {
+    "label": "Aanbod sportvoorzieningen",
+    "categorie": "Sport en cultuur",
+    "indicatorDefinitieId": "SRSPORTGELEGENHEDEN_R"
   },
   {
     "label": "% alleenwonende 80-plussers",
     "categorie": "Ouderen",
-    "indicatorDefinitieId": "BEV1P80PLUS_P"
+    "indicatorDefinitieId": "SK66PLUS_KWETS34_P"
+  },
+  {
+    "label": "% huishoudens > 1 voorziening",
+    "categorie": "Gezondheid en zorg",
+    "indicatorDefinitieId": "WZGEZOND_P"
+  },
+  {
+    "label": "",
+    "categorie": "Duurzaamheid",
+    "indicatorDefinitieId": "WLABELAB_P"
   },
   {
     "label": "Sociale cohesie",
@@ -55,13 +70,8 @@
     "indicatorDefinitieId": "LSOCCOH_R"
   },
   {
-    "label": "% kwetsbare bewoners",
+    "label": "",
     "categorie": "Sociale kracht",
-    "indicatorDefinitieId": "SKKWETS34_P"
-  },
-  {
-    "label": "Aanbod sportvoorzieningen",
-    "categorie": "Sport en cultuur",
-    "indicatorDefinitieId": "SRSPORTGELEGENHEDEN"
+    "indicatorDefinitieId": "SKSES_GEM"
   }
 ]

@@ -44,6 +44,7 @@ const GebiedInHetKort = () => {
         <Column span={6}>
           <div>
             <TextStatistic title="inwoners" gwb={gwb} indicatorId="BEVTOTAAL" Icon={BevolkingGezin} titleLeft={false} />
+
             <InwonersNaarLeeftijdStackedBar gwb={gwb} />
           </div>
         </Column>
@@ -63,7 +64,7 @@ const GebiedInHetKort = () => {
         </Column>
         <Column span={6}>
           <TextStatistic
-            title="gemiddeld besteedbaar huishoudinkomen:"
+            title="gemiddeld besteedbaar huishoudinkomen: &euro;"
             gwb={gwb}
             indicatorId="IHHINK_GEM"
             titleLeft
