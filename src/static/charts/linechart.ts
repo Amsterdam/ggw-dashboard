@@ -48,7 +48,9 @@ export default {
       scale: { range: null },
     },
     tooltip: [
-      { field: "definitie", type: "ordinal", title: "Definitie" },
+      { field: "y", type: "ordinal", title: "Waarde" },
+      { field: "variable", type: "ordinal", title: "Label" },
+      { field: "x", type: "ordinal", title: "Peiljaar" },
       { field: "bron", type: "ordinal", title: "Bron" },
     ],
     strokeDash: { field: "dash", type: "nominal", legend: null },

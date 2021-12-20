@@ -1,16 +1,20 @@
-import "leaflet/dist/leaflet.css";
-
 import { useState, useEffect } from "react";
+import styled from "styled-components";
 import { Spinner } from "@amsterdam/asc-ui";
-import util from "../services/util";
 import { Map, ViewerContainer, BaseLayer, getCrsRd } from "@amsterdam/arm-core";
 import { GeoJSON } from "@amsterdam/react-maps";
 
 import { getGeometriesGeoJson } from "../services/apis/map";
+import util from "../services/util";
 import { getMeta } from "../services/apis/bbga";
 import { GeoJSONOptions, MapOptions, Layer } from "leaflet";
 import { GeoJsonObject } from "geojson";
 import { Gwb } from "../types";
+
+const MapWrapper = styled.div`
+  height: 380px;
+  width: 100%;
+`;
 
 const mapOptions: MapOptions = {
   center: [52.3731081, 4.8932945],
@@ -21,6 +25,7 @@ const mapOptions: MapOptions = {
   attributionControl: false,
   zoomControl: false,
   scrollWheelZoom: false,
+  doubleClickZoom: false,
 };
 
 interface Props {
@@ -52,6 +57,7 @@ const VerschillenMap: React.FC<Props> = ({ gwb, indicatorDefinitieId }) => {
         properties: {
           ...feature.properties,
           ...cijfer,
+          meta,
         },
       };
     });
@@ -104,12 +110,10 @@ const VerschillenMap: React.FC<Props> = ({ gwb, indicatorDefinitieId }) => {
     }
 
     layerInstance._map.fitBounds(layerInstance.getBounds());
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [layerInstance]);
 
   const options: GeoJSONOptions = {
-    onEachFeature(feature, layer) {
+    onEachFeature(feature, layer: Layer) {
       layer.setStyle({
         color: "#666666",
         fillColor: feature?.properties?.color ?? "#ffffff",
@@ -117,6 +121,14 @@ const VerschillenMap: React.FC<Props> = ({ gwb, indicatorDefinitieId }) => {
         stroke: 1,
         weight: 1,
       });
+
+      layer.bindPopup(
+        `<strong>Gebied</strong>: ${feature.properties.display}</br><strong>Label</strong>: ${
+          feature.properties.meta.labelKort
+        }</br><strong>Peiljaar</strong>: ${feature.properties.jaar ?? "-"}</br><strong>Waarde</strong>: ${
+          feature.properties.waarde ?? "-"
+        }`,
+      );
     },
   };
 
@@ -125,11 +137,13 @@ const VerschillenMap: React.FC<Props> = ({ gwb, indicatorDefinitieId }) => {
       {isLoading ? (
         <Spinner />
       ) : (
-        <Map options={mapOptions} fullScreen>
-          <ViewerContainer />
-          <BaseLayer baseLayer={`https://{s}.data.amsterdam.nl/topo_rd_zw/{z}/{x}/{y}.png`} />
-          {json ? <GeoJSON setInstance={setInstance} args={[json]} options={options} /> : null}
-        </Map>
+        <MapWrapper>
+          <Map options={mapOptions} fullScreen>
+            <ViewerContainer />
+            <BaseLayer baseLayer={`https://{s}.data.amsterdam.nl/topo_rd_zw/{z}/{x}/{y}.png`} />
+            {json ? <GeoJSON setInstance={setInstance} args={[json]} options={options} /> : null}
+          </Map>
+        </MapWrapper>
       )}
     </>
   );

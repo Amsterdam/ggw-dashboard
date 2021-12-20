@@ -66,7 +66,6 @@ const Verschillen: React.FC<Props> = ({ gwb, config }) => {
             </Select>
           </StyledDiv>
         </Column>
-        <Column span={6}>&nbsp;</Column>
       </Row>
       <Row>
         <Column span={6}>

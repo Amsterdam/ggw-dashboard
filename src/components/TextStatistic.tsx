@@ -8,6 +8,10 @@ const Wrapper = styled.div`
   margin-bottom: ${themeSpacing(2)};
 `;
 
+const IconWrapper = styled.div`
+  margin-right: ${themeSpacing(2)};
+`;
+
 const TextStatistic = ({
   title,
   gwb,
@@ -62,7 +66,11 @@ const TextStatistic = ({
               <Spinner />
             ) : (
               <>
-                {Icon && <Icon width={"72"} height={"72"} />}
+                {Icon && (
+                  <IconWrapper>
+                    <Icon width={"72"} height={"72"} />
+                  </IconWrapper>
+                )}
                 {title} {data}
               </>
             )}
@@ -74,7 +82,11 @@ const TextStatistic = ({
               <Spinner />
             ) : (
               <>
-                {Icon && <Icon width={"72"} height={"72"} />}
+                {Icon && (
+                  <IconWrapper>
+                    <Icon width={"72"} height={"72"} />
+                  </IconWrapper>
+                )}
                 {data} {title}
               </>
             )}

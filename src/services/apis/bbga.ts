@@ -127,6 +127,7 @@ async function getCijfers(meta, year: string | null = null, gebiedCode = null, i
       c.jaar,
       std,
     ),
+    label: meta.labelKort ?? meta.label,
   }));
 
   return isLatest ? results.pop() : results;

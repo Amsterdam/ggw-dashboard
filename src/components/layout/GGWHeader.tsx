@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Header, MenuToggle, themeSpacing } from "@amsterdam/asc-ui";
+import { breakpoint, Header, MenuToggle, themeSpacing } from "@amsterdam/asc-ui";
 
 import GWBSelector from "../GWBSelector";
 import ThemaSelector from "../ThemaSelector";
@@ -10,14 +10,18 @@ const WideMenu = styled.div`
 
   & > div {
     max-width: 100%;
-
+    flex-direction: row-reverse;
     position: static;
   }
 
   & > div > ul {
     width: 100% !important;
-    height: 250px;
+    height: 440px;
     padding-top: ${themeSpacing(6)};
+
+    @media screen and ${breakpoint("min-width", "tabletM")} {
+      height: 250px;
+    }
   }
 `;
 

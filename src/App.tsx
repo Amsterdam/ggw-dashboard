@@ -2,13 +2,16 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import styled from "styled-components";
 import { Column, Row, themeColor } from "@amsterdam/asc-ui";
 
-import "./App.scss";
 import Dashboard from "./components/pages/Dashboard";
 import { GWBProvider } from "./components/context/GWBContext";
 
 import { THEMAS } from "./services/thema";
 import util from "./services/util";
 import ColorDetails from "./components/pages/ColorDetails";
+
+import "./App.scss";
+import "leaflet/dist/leaflet.css";
+import "./static/leaflet_override.css";
 
 const OuterWrapper = styled.div`
   background-color: ${themeColor("tint", "level3")};

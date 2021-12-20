@@ -1,5 +1,3 @@
-import "leaflet/dist/leaflet.css";
-import "../static/leaflet_override.css";
 import { useEffect, useState } from "react";
 import { Map as MapType, Layer, MapOptions } from "leaflet";
 import styled from "styled-components";
