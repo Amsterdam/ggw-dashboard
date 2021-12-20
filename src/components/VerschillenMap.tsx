@@ -52,6 +52,7 @@ const VerschillenMap: React.FC<Props> = ({ gwb, indicatorDefinitieId }) => {
         properties: {
           ...feature.properties,
           ...cijfer,
+          color: feature?.properties?.code === gwb?.code ? "black" : cijfer?.color
         },
       };
     });
