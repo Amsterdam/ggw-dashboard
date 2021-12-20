@@ -58,7 +58,7 @@ const VerschillenBarChart: React.FC<Props> = ({ gwb, indicatorDefinitieId, label
             gebied: getGebied(d.gebiedcode15)?.naam,
             label,
             value: d.waarde ? d.waarde : "Geen gegevens",
-            color: d.color,
+            color: d.gebiedcode15 === gwb.code ? "black" : d.color,
           } as MapResult),
       ) as MapResult[];
 
