@@ -89,6 +89,8 @@ const ABSOLUTE_COLORS = [
   "#004699",
 ].reverse();
 
+export const VERSCHILLEN_SELECTED = "#000000";
+
 /**
  * The colors for charts that are colored on z-score
  * Foreground color (color) and an optional text color can be specified for each category

@@ -11,6 +11,7 @@ import { getMeta } from "../services/apis/bbga";
 import { GeoJSONOptions, MapOptions, Layer } from "leaflet";
 import { GeoJsonObject } from "geojson";
 import { Gwb } from "../types";
+import { VERSCHILLEN_SELECTED } from "../services/colorcoding";
 
 const mapOptions: MapOptions = {
   center: [52.3731081, 4.8932945],
@@ -52,7 +53,7 @@ const VerschillenMap: React.FC<Props> = ({ gwb, indicatorDefinitieId }) => {
         properties: {
           ...feature.properties,
           ...cijfer,
-          color: feature?.properties?.code === gwb?.code ? "black" : cijfer?.color
+          color: feature?.properties?.code === gwb?.code ? VERSCHILLEN_SELECTED : cijfer?.color,
         },
       };
     });
