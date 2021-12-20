@@ -9,6 +9,7 @@ import { getAll, getGebied } from "../services/apis/gebieden";
 import { Gwb } from "../types";
 
 import vegaSpec from "../static/charts/verschillenbar";
+import { VERSCHILLEN_SELECTED } from "../services/colorcoding";
 
 const vegaEmbedOptions = {
   actions: false,
@@ -45,6 +46,7 @@ const VerschillenBarChart: React.FC<Props> = ({ gwb, indicatorDefinitieId, label
       setIsLoading(false);
       return;
     }
+    ``;
 
     const gebiedType = util.getGebiedType(gwb.vollcode || gwb.code, true);
 
@@ -58,7 +60,7 @@ const VerschillenBarChart: React.FC<Props> = ({ gwb, indicatorDefinitieId, label
             gebied: getGebied(d.gebiedcode15)?.naam,
             label,
             value: d.waarde ? d.waarde : "Geen gegevens",
-            color: d.color,
+            color: d.gebiedcode15 === gwb.code ? VERSCHILLEN_SELECTED : d.color,
           } as MapResult),
       ) as MapResult[];
 
