@@ -25,7 +25,7 @@ const localConfig = [
 ];
 
 const AantalSportvoorzieningen = ({ gwb, config = localConfig }) => {
-  return <SingleIndicatorTable config={config} gwb={gwb} title="Aantal sportvoorzieningen" withTotalRow />;
+  return <SingleIndicatorTable config={config} gwb={gwb} title="Aantal vestigingen sport" withTotalRow />;
 };
 
 export default AantalSportvoorzieningen;

@@ -19,7 +19,7 @@ const localConfig = [
 ];
 
 const AantalCultuurvoorzieningen = ({ gwb, config = localConfig }) => {
-  return <SingleIndicatorTable config={config} gwb={gwb} title="Aantal cultuurvoorzieningen" withTotalRow />;
+  return <SingleIndicatorTable config={config} gwb={gwb} title="Aantal vestigingen cultuur" withTotalRow />;
 };
 
 export default AantalCultuurvoorzieningen;
