@@ -70,7 +70,7 @@ const ColorLegend = () => {
             <TableCell>Minstens 1 standaarddeviatie onder of boven het stedelijk gemiddelde</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell colSpan={2}>Rode streep</TableCell>
+            <TableCell colSpan={2}>Zwarte streep</TableCell>
             <TableCell>Amsterdams gemiddelde</TableCell>
           </TableRow>
         </TableBody>
