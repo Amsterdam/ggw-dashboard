@@ -54,6 +54,15 @@ export default {
       { field: "bron", type: "ordinal", title: "Bron" },
     ],
     strokeDash: { field: "dash", type: "nominal", legend: null },
+    strokeWidth: {
+      condition: {
+        test: {
+          field: "dash",
+          equal: true,
+        },
+        value: 0,
+      },
+    },
   },
   mark: {
     type: "line",
