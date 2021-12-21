@@ -61,9 +61,7 @@ export async function getMeta(variableName: string): Promise<ConfigEnirched | st
  * @returns {Promise<{indicatorDefinitieId}[]>}
  */
 export async function getStd() {
-  const url = getUrlv1(
-    "/statistieken/?_pageSize=10000&_format=json&_fields=indicatorDefinitieId,jaar,gemiddelde,standaardafwijking",
-  );
+  const url = getUrlv1("/statistieken/?_pageSize=10000&_format=json");
 
   async function getData() {
     const data = await readData(url);
