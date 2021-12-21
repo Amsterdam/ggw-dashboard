@@ -14,4 +14,9 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
-export { Button };
+const LinkButton = styled(Button)`
+  text-decoration: underline;
+  font-size: 16px;
+`;
+
+export { Button, LinkButton };

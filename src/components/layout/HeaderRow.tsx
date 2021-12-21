@@ -1,5 +1,9 @@
 import styled from "styled-components";
 import { themeSpacing, themeColor, Heading } from "@amsterdam/asc-ui";
+import Modal from "../Modal";
+import { useState } from "react";
+import ColorLegend from "../ColorLegend";
+import { LinkButton } from "../Button";
 
 const HeadingDiv = styled.div`
   background-color: ${themeColor("tint", "level2")};
@@ -14,10 +18,20 @@ const HeadingDiv = styled.div`
 `;
 
 const HeaderRow = ({ title }: { title: string }) => {
+  const [showModal, setShowModal] = useState(false);
+
   return (
-    <HeadingDiv>
-      <Heading as="h2">{title}</Heading>
-    </HeadingDiv>
+    <>
+      <HeadingDiv>
+        <Heading as="h2">
+          {title}
+          <LinkButton onClick={() => setShowModal(true)}>Kleuren</LinkButton>
+        </Heading>
+      </HeadingDiv>
+      <Modal showModal={showModal} setShowModal={setShowModal}>
+        <ColorLegend />
+      </Modal>
+    </>
   );
 };
 
