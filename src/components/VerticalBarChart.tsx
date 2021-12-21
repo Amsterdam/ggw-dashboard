@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import vegaEmbed from "vega-embed";
 import cloneDeep from "lodash/cloneDeep";
+import vegaEmbed from "vega-embed";
+import styled from "styled-components";
 import { Heading, Spinner } from "@amsterdam/asc-ui";
 
 import util from "../services/util";
@@ -9,6 +10,12 @@ import { getColor } from "../services/colorcoding";
 
 import { getColorsUsingStaticDefinition } from "../services/colorcoding";
 import vegaSpec from "../static/charts/verticalbar";
+
+const ChartWrapper = styled.div`
+  @media print {
+    break-inside: avoid-page;
+  }
+`;
 
 const vegaEmbedOptions = {
   actions: false,
@@ -89,14 +96,14 @@ const VerticalBarChart = ({ title, gwb, config }) => {
   }, [gwb]);
 
   return (
-    <div>
+    <ChartWrapper>
       <Heading as="h4">{title}</Heading>
       <div className="chart-container">
         {isLoading ? <Spinner /> : null}
         {showError && <p>Op dit schaalniveau is helaas geen informatie beschikbaar.</p>}
         {!showError && <div ref={chartRef}></div>}
       </div>
-    </div>
+    </ChartWrapper>
   );
 };
 

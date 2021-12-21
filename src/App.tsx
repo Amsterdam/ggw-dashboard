@@ -15,6 +15,10 @@ import "./static/leaflet_override.css";
 
 const OuterWrapper = styled.div`
   background-color: ${themeColor("tint", "level3")};
+
+  @media print {
+    background-color: ${themeColor("tint", "level1")};
+  }
 `;
 
 const InnerWrapper = styled.div`

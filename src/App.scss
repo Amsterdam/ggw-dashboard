@@ -4,3 +4,12 @@
 //
 
 @import "~@amsterdam/asc-assets/static/fonts/fonts.css";
+
+@media print {
+  body {
+    box-decoration-break: clone;
+
+    widows: 5;
+    orphans: 5;
+  }
+}
