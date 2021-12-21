@@ -1,0 +1,26 @@
+[
+  {
+    "label": "Kantoor",
+    "indicatorDefinitieId": "BHWP_KANT_P"
+  },
+  {
+    "label": "Winkel",
+    "indicatorDefinitieId": "BHWP_WINK_P"
+  },
+  {
+    "label": "Voorzieningen",
+    "indicatorDefinitieId": "BHWP_VOORZ_P"
+  },
+  {
+    "label": "Horeca",
+    "indicatorDefinitieId": "BHWP_HORECA_P"
+  },
+  {
+    "label": "Bedrijf",
+    "indicatorDefinitieId": "BHWP_BEDR_P"
+  },
+  {
+    "label": "Overig",
+    "indicatorDefinitieId": "BHWP_OVG_P"
+  }
+]

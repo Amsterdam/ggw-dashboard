@@ -1,0 +1,30 @@
+[
+  {
+    "label": "Krappe woningen kinderen (%)",
+    "indicatorDefinitieId": "W_KRAP_KIND_P"
+  },
+  {
+    "label": "Lid sportvereniging (% 10-jarigen)",
+    "indicatorDefinitieId": "SRCLUB10_P"
+  },
+  {
+    "label": ">1x mnd alcohol (% 4e klas VO)",
+    "indicatorDefinitieId": "WZALCOREGVO4_P"
+  },
+  {
+    "label": "Angstklachten (% 4e klas VO)",
+    "indicatorDefinitieId": "WZANGST_P"
+  },
+  {
+    "label": "Overlast: rondhangende jongeren (%)",
+    "indicatorDefinitieId": "LJONGERENOVL_P"
+  },
+  {
+    "label": "Jeugdwerkloosheid (%)",
+    "indicatorDefinitieId": "PJEUGDW_P"
+  },
+  {
+    "label": "18-22 jaar: % LSV",
+    "indicatorDefinitieId": "OLSV_P"
+  }
+]

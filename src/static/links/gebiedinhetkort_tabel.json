@@ -1,0 +1,77 @@
+[
+  {
+    "label": "Tevredenheid met eigen buurt",
+    "categorie": "Wonen",
+    "indicatorDefinitieId": "LBUURT_R"
+  },
+  {
+    "label": "",
+    "categorie": "Wonen",
+    "indicatorDefinitieId": "LVERWACHTINGBUURT_R"
+  },
+  {
+    "label": "Schoonhouden straat",
+    "categorie": "Openbare ruimte",
+    "indicatorDefinitieId": "ORSCHOONSTRATEN_R"
+  },
+  {
+    "label": "Veiligheidsindex",
+    "categorie": "Veiligheid",
+    "indicatorDefinitieId": "VVEILIGVOELEN_P"
+  },
+  {
+    "label": "",
+    "categorie": "Verkeer",
+    "indicatorDefinitieId": "VKPARKEREN_R"
+  },
+  {
+    "label": "Winkelaanbod",
+    "categorie": "Economie",
+    "indicatorDefinitieId": "BHWINKELAANBOD_R"
+  },
+  {
+    "label": "% minimahuishoudens",
+    "categorie": "Werk en inkomen",
+    "indicatorDefinitieId": "IMINHH120_P"
+  },
+  {
+    "label": "Geschiktheid buurt voor jongeren",
+    "categorie": "Jeugd en zorg",
+    "indicatorDefinitieId": "LKIND_R"
+  },
+  {
+    "label": "Basisschooladvies Havo/VWO",
+    "categorie": "Onderwijs",
+    "indicatorDefinitieId": "OHVWO_P"
+  },
+  {
+    "label": "Aanbod sportvoorzieningen",
+    "categorie": "Sport en cultuur",
+    "indicatorDefinitieId": "SRSPORTGELEGENHEDEN_R"
+  },
+  {
+    "label": "% alleenwonende 80-plussers",
+    "categorie": "Ouderen",
+    "indicatorDefinitieId": "SK66PLUS_KWETS34_P"
+  },
+  {
+    "label": "% huishoudens > 1 voorziening",
+    "categorie": "Gezondheid en zorg",
+    "indicatorDefinitieId": "WZGEZOND_P"
+  },
+  {
+    "label": "",
+    "categorie": "Duurzaamheid",
+    "indicatorDefinitieId": "WLABELAB_P"
+  },
+  {
+    "label": "Sociale cohesie",
+    "categorie": "Sociale kracht",
+    "indicatorDefinitieId": "LSOCCOH_R"
+  },
+  {
+    "label": "",
+    "categorie": "Sociale kracht",
+    "indicatorDefinitieId": "SKSES_GEM"
+  }
+]

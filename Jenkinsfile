@@ -17,14 +17,14 @@ node {
     stage("Checkout") {
         checkout scm
     }
-    stage('Test') {
-        tryStep "test", {
-            sh "docker-compose build && " +
-               "docker-compose run -u root --rm test-unit"
-        }, {
-            sh "docker-compose down"
-        }
-    }
+    // stage('Test') {
+    //     tryStep "test", {
+    //         sh "docker-compose build && " +
+    //            "docker-compose run -u root --rm test-unit"
+    //     }, {
+    //         sh "docker-compose down"
+    //     }
+    // }
     stage("Build image") {
         tryStep "build", {
             def image = docker.build("docker-registry.secure.amsterdam.nl/ois/ggw:${env.BUILD_NUMBER}",
@@ -34,30 +34,28 @@ node {
             image.push()
         }
     }
+    
+    stage('Push acceptance image') {
+        tryStep "image tagging", {
+            def image = docker.image("docker-registry.secure.amsterdam.nl/ois/ggw:${env.BUILD_NUMBER}")
+            image.pull()
+            image.push("acceptance")
+        }
+    }
+
+    stage("Deploy to ACC") {
+        tryStep "deployment", {
+            build job: 'Subtask_Openstack_Playbook',
+                parameters: [
+                    [$class: 'StringParameterValue', name: 'INVENTORY', value: 'acceptance'],
+                    [$class: 'StringParameterValue', name: 'PLAYBOOK', value: 'deploy.yml'],
+                    [$class: 'StringParameterValue', name: 'PLAYBOOKPARAMS', value: "-e cmdb_id=app_ggw"]
+                ]
+        }
+    }
 }
 String BRANCH = "${env.BRANCH_NAME}"
 if (BRANCH == "master") {
-    node {
-        stage('Push acceptance image') {
-            tryStep "image tagging", {
-                def image = docker.image("docker-registry.secure.amsterdam.nl/ois/ggw:${env.BUILD_NUMBER}")
-                image.pull()
-                image.push("acceptance")
-            }
-        }
-    }
-    node {
-        stage("Deploy to ACC") {
-            tryStep "deployment", {
-                build job: 'Subtask_Openstack_Playbook',
-                    parameters: [
-                        [$class: 'StringParameterValue', name: 'INVENTORY', value: 'acceptance'],
-                        [$class: 'StringParameterValue', name: 'PLAYBOOK', value: 'deploy.yml'],
-                        [$class: 'StringParameterValue', name: 'PLAYBOOKPARAMS', value: "-e cmdb_id=app_ggw"]
-                    ]
-            }
-        }
-    }
     stage('Waiting for approval') {
         slackSend channel: '#ci-channel', color: 'warning', message: 'GGW Dashboard is waiting for Production Release - please confirm'
         input "Deploy to Production?"

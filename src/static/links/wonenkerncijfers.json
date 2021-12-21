@@ -1,0 +1,26 @@
+[
+  {
+    "label": "Tevredenheid met eigen buurt (1-10)",
+    "indicatorDefinitieId": "Lbuurt_r"
+  },
+  {
+    "label": "Verwachte buurtontwikkeling (1-10)",
+    "indicatorDefinitieId": "LVERWACHTINGBUURT_R"
+  },
+  {
+    "label": "Tevredenheid met eigen woning (1-10)",
+    "indicatorDefinitieId": "WWONING_R"
+  },
+  {
+    "label": "WOZ-waarde (€ per m2)",
+    "indicatorDefinitieId": "WWOZ_M2"
+  },
+  {
+    "label": "Gemiddelde huur vrije sector (€)",
+    "indicatorDefinitieId": "WHUURVRIJ_GEM"
+  },
+  {
+    "label": "Mutatiegraad",
+    "indicatorDefinitieId": "BEVMUTTOT_P"
+  }
+]

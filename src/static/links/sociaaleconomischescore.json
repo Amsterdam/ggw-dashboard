@@ -1,0 +1,14 @@
+[
+  {
+    "label": "SES laag (%)",
+    "indicatorDefinitieId": "SKSES234_P"
+  },
+  {
+    "label": "SES midden (%)",
+    "indicatorDefinitieId": "SKSES567_P"
+  },
+  {
+    "label": "SES hoog (%)",
+    "indicatorDefinitieId": "SKSES8910_P"
+  }
+]

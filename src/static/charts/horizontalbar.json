@@ -1,0 +1,93 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 150,
+  "description": "",
+  "data": {
+    "values": []
+  },
+  "config": {
+    "style": {
+      "cell": {
+        "stroke": "transparent"
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "bar"
+      },
+      "encoding": {
+        "x": {
+          "field": "value",
+          "type": "quantitative",
+          "axis": {
+            "labels": false,
+            "domain": false,
+            "grid": false,
+            "ticks": false,
+            "title": null
+          }
+        },
+        "y": {
+          "field": "key",
+          "type": "ordinal",
+          "sort": null,
+          "axis": {
+            "labels": true,
+            "domain": false,
+            "grid": false,
+            "ticks": false,
+            "title": null,
+            "offset": 5
+          }
+        },
+        "color": {
+          "field": "i",
+          "type": "nominal",
+          "scale": {
+            "range": ["red", "blue", "green"]
+          },
+          "legend": null
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 5
+      },
+      "encoding": {
+        "x": {
+          "field": "value",
+          "type": "quantitative",
+          "axis": {
+            "labels": false,
+            "domain": false,
+            "grid": false,
+            "ticks": false,
+            "title": null
+          }
+        },
+        "y": {
+          "field": "key",
+          "type": "ordinal",
+          "sort": null,
+          "axis": {
+            "labels": true,
+            "domain": false,
+            "grid": false,
+            "ticks": false,
+            "title": null
+          }
+        },
+        "text": {
+          "field": "label",
+          "type": "ordinal"
+        }
+      }
+    }
+  ]
+}

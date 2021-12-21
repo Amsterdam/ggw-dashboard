@@ -1,0 +1,26 @@
+[
+  {
+    "label": "0-3 jaar %",
+    "indicatorDefinitieId": "BEV0_3_P"
+  },
+  {
+    "label": "4-12 jaar %",
+    "indicatorDefinitieId": "BEV4_12_P"
+  },
+  {
+    "label": "13-17 jaar %",
+    "indicatorDefinitieId": "BEV13_17_P"
+  },
+  {
+    "label": "18-26 jaar %",
+    "indicatorDefinitieId": "BEV18_26_P"
+  },
+  {
+    "label": "27-65 jaar (%)",
+    "indicatorDefinitieId": "BEV27_65_P"
+  },
+  {
+    "label": "66+ (%)",
+    "indicatorDefinitieId": "BEV66PLUS_P"
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "label": "Werkloosheid (% beroepsbevolking)",
+    "indicatorDefinitieId": "PWERKLBBV_P"
+  },
+  {
+    "label": "Minimahuishoudens (%)",
+    "indicatorDefinitieId": "IMINJONG120_P"
+  },
+  {
+    "label": "Gemiddeld besteedbaar huishoudinkomen",
+    "indicatorDefinitieId": "IHHINK_GEM"
+  },
+  {
+    "label": "Bijstand (%)",
+    "indicatorDefinitieId": "IWWB_P"
+  },
+  {
+    "label": "Geregistreerde werkloosheid (%)",
+    "indicatorDefinitieId": "IMINHH120_P"
+  },
+  {
+    "label": "Vroeg er op af (%)",
+    "indicatorDefinitieId": "IVEOA_P"
+  }
+]

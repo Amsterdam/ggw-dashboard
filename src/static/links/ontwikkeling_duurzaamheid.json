@@ -1,0 +1,14 @@
+[
+  {
+    "label": "Woningen met label A of B (%)",
+    "indicatorDefinitieId": "WLABELAB_P"
+  },
+  {
+    "label": "Niet-geïsoleerde woningen (%)",
+    "indicatorDefinitieId": "DNIETISO_P"
+  },
+  {
+    "label": "Woningen met zonnepanelen of WTW",
+    "indicatorDefinitieId": "DZON_P"
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "label": "Parkeervoorzieningen (1-10)",
+    "indicatorDefinitieId": "VKPARKEREN_R"
+  },
+  {
+    "label": "Parkeervoorzieningen fietsen (1-10)",
+    "indicatorDefinitieId": "VKFIETSPARKEREN_R"
+  },
+  {
+    "label": "Overlast parkeerproblemen (%)",
+    "indicatorDefinitieId": "VKPARKOVL_P"
+  },
+  {
+    "label": "Overlast te hard rijden (%)",
+    "indicatorDefinitieId": "VKHARD_P"
+  },
+  {
+    "label": "Overlast verkeersdrukte (1-10)",
+    "indicatorDefinitieId": "VKOVERLASTVERKEER_R"
+  },
+  {
+    "label": "Rapportcijfer aanbod OV",
+    "indicatorDefinitieId": "VKOV_R"
+  }
+]

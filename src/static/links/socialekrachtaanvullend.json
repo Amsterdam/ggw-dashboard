@@ -1,0 +1,32 @@
+[
+  {
+    "label": "SES laag (% 0-17)",
+    "categorie": "SES",
+    "indicatorDefinitieId": "SK017_SES234_P"
+  },
+  {
+    "label": "SES laag (% 18-26)",
+    "categorie": "SES",
+    "indicatorDefinitieId": "SK1826_SES234_P"
+  },
+  {
+    "label": "SES laag (% 27-65)",
+    "categorie": "SES",
+    "indicatorDefinitieId": "SK2765_SES234_P"
+  },
+  {
+    "label": "SES laag (% 66+)",
+    "categorie": "SES",
+    "indicatorDefinitieId": "SK66PLUS_SES234_"
+  },
+  {
+    "label": "Sociale cohesie",
+    "categorie": "Draagkracht",
+    "indicatorDefinitieId": "LSOCCOH_R"
+  },
+  {
+    "label": "Buurtactiviteiten / 1.000 inwoners",
+    "categorie": "Draagkracht",
+    "indicatorDefinitieId": "SKACTI_1000INW"
+  }
+]

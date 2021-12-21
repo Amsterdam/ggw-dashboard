@@ -1,0 +1,89 @@
+{
+  "kleur": {
+    "primary": "#004699",
+    "secondary": "#EC0000",
+    "grafiek_1": ["#004699"],
+    "grafiek_2": ["#004699", "#BEBEBE"],
+    "grafiek_3": ["#004699", "#BEBEBE", "#B4E600"],
+    "grafiek_4": ["#004699", "#BEBEBE", "#B4E600", "#787878"],
+    "grafiek_5": ["#004699", "#00a0e6", "#BEBEBE", "#B4E600", "#00A03C"],
+    "grafiek_6": ["#004699", "#00a0e6", "#BEBEBE", "#B4E600", "#00A03C", "#787878"],
+    "blauwgradient_5": ["#004699", "#00a0e6", "#71BDEE", "#B1D9F5", "#E5F2FC"],
+    "hoog_is_groen": ["#00A03C", "#B4E600", "#FFF498", "#F6B400", "#FF0000"],
+    "laag_is_groen": ["#FF0000", "#F6B400", "#FFF498", "#B4E600", "#00A03C"],
+    "hoog_is_blauw": ["#004699", "#71BDEE", "#E8E8E8", "#BEBEBE", "#787878"],
+    "amsterdam_rood": "#FF0000",
+    "amsterdam_groen": "#00A03C"
+  },
+  "tekst_kleur": {
+    "#004699": "#FFFFFF",
+    "#787878": "#FFFFFF",
+    "#00A03C": "#FFFFFF",
+    "#FF0000": "#FFFFFF"
+  },
+  "legenda": {
+    "beter_slechter": [
+      "> 1 SD beter dan gemiddeld",
+      "0,5 - 1 SD beter dan gemiddeld",
+      "0,5 SD rond het stedelijk gemiddelde",
+      "0,5 - 1 SD slechter dan gemiddeld",
+      "> 1 SD slechter dan gemiddeld",
+      "onbekend / geen data beschikbaar"
+    ],
+    "beter_slechter_kort": [
+      "veel beter dan gemiddelde",
+      "beter dan gemiddelde",
+      "gemiddeld",
+      "slechter dan gemiddelde",
+      "veel slechter dan gemiddelde",
+      "onbekend"
+    ],
+    "meer_minder": [
+      "> 1 SD meer dan gemiddeld",
+      "0,5 - 1 SD meer dan gemiddeld",
+      "0,5 SD rond het stedelijk gemiddelde",
+      "0,5 - 1 SD minder dan gemiddeld",
+      "> 1 SD minder dan gemiddeld",
+      "onbekend / geen data beschikbaar"
+    ],
+    "meer_minder_kort": [
+      "veel meer dan gemiddelde",
+      "meer dan gemiddelde",
+      "gemiddeld",
+      "minder dan gemiddelde",
+      "veel minder dan gemiddelde",
+      "onbekend"
+    ],
+    "tooltip": [
+      "minstens 1 standaarddeviatie onder of boven het stedelijk gemiddelde",
+      "",
+      "tot een halve standaarddeviatie onder of boven het stedelijk gemiddelde",
+      "",
+      "minstens 1 standaarddeviatie onder of boven het stedelijk gemiddelde"
+    ]
+  },
+  "kleurenpalet": {
+    "1": {
+      "label": "hoog is groen",
+      "kleur": "hoog_is_groen",
+      "legenda": "beter_slechter",
+      "legenda_kort": "beter_slechter_kort"
+    },
+    "2": {
+      "label": "laag is groen",
+      "kleur": "laag_is_groen",
+      "legenda": "beter_slechter",
+      "legenda_kort": "beter_slechter_kort"
+    },
+    "3": {
+      "label": "hoog is blauw",
+      "kleur": "hoog_is_blauw",
+      "legenda": "meer_minder",
+      "legenda_kort": "meer_minder_kort"
+    },
+    "9": {
+      "label": "geen kleuren/absolute aantallen",
+      "kleur": "blauwgradient_5"
+    }
+  }
+}

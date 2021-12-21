@@ -1,4 +1,5 @@
-FROM node:12.20.0-stretch  AS builder
+FROM node:14.18-stretch AS builder
+
 LABEL maintainer="datapunt@amsterdam.nl"
 
 EXPOSE 80
@@ -9,10 +10,6 @@ COPY package.json \
   package-lock.json \
   .eslintrc.js \
   .gitignore \
-  babel.config.js \
-  jest.config.js \
-  postcss.config.js \
-  vue.config.js \
   /app/
 
 #  Changing git URL because network is blocking git protocol...
@@ -32,6 +29,7 @@ RUN npm run build
 
 # Deploy
 FROM nginx:stable-alpine
-COPY --from=builder /app/dist/. /var/www/html/
+COPY --from=builder /app/build/. /var/www/html/
 
 COPY default.conf /etc/nginx/conf.d/
+

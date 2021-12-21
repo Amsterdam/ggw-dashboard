@@ -1,0 +1,8 @@
+.leaflet-pane {
+  z-index: 18;
+}
+
+.leaflet-top,
+.leaflet-bottom {
+  z-index: 19;
+}
