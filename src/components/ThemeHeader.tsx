@@ -15,6 +15,10 @@ const CenteredContent = styled.div`
   align-items: center;
   flex-direction: column;
   width: 100%;
+
+  @media print {
+    display: none;
+  }
 `;
 
 const ThemeHeader = ({ gwb, themeTitle, Icon, WithExtraInfo = false }) => {

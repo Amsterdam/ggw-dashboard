@@ -13,9 +13,15 @@ const Link = styled.a`
   }
 `;
 
+const GGWInfoWrapper = styled.div`
+  @media print {
+    display: none;
+  }
+`;
+
 const GGWInformation = () => {
   return (
-    <>
+    <GGWInfoWrapper>
       <Row>
         <Column span={12}>
           <HeaderRow title="Meer cijfers en informatie" />
@@ -63,7 +69,7 @@ const GGWInformation = () => {
           </div>
         </Column>
       </Row>
-    </>
+    </GGWInfoWrapper>
   );
 };
 

@@ -32,6 +32,10 @@ const MenuItemWrapper = styled.div`
 
 const CustomHeader = styled(Header)`
   postion: relative;
+
+  @media print {
+    display: none;
+  }
 `;
 
 const GGWHeader = () => {
