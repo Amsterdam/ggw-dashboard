@@ -70,7 +70,7 @@ const Werk = () => {
             xLarge: 4,
           }}
         >
-          <VerticalBarChart title={werkEnInkomen[0].label} config={werkEnInkomen[0]} gwb={gwb}></VerticalBarChart>
+          <VerticalBarChart title={werkEnInkomen[0].label} config={[werkEnInkomen[0]]} gwb={gwb}></VerticalBarChart>
         </Column>
         <Column
           span={{
@@ -81,7 +81,7 @@ const Werk = () => {
             xLarge: 4,
           }}
         >
-          <VerticalBarChart title={werkEnInkomen[1].label} config={werkEnInkomen[1]} gwb={gwb}></VerticalBarChart>
+          <VerticalBarChart title={werkEnInkomen[1].label} config={[werkEnInkomen[1]]} gwb={gwb}></VerticalBarChart>
         </Column>
         <Column
           span={{
@@ -92,19 +92,19 @@ const Werk = () => {
             xLarge: 4,
           }}
         >
-          <VerticalBarChart title={werkEnInkomen[2].label} config={werkEnInkomen[2]} gwb={gwb}></VerticalBarChart>
+          <VerticalBarChart title={werkEnInkomen[2].label} config={[werkEnInkomen[2]]} gwb={gwb}></VerticalBarChart>
         </Column>
       </Row>
 
       <Row>
         <Column span={4}>
-          <VerticalBarChart title={werkEnInkomen[3].label} config={werkEnInkomen[3]} gwb={gwb}></VerticalBarChart>
+          <VerticalBarChart title={werkEnInkomen[3].label} config={[werkEnInkomen[3]]} gwb={gwb}></VerticalBarChart>
         </Column>
         <Column span={4}>
-          <VerticalBarChart title={werkEnInkomen[4].label} config={werkEnInkomen[4]} gwb={gwb}></VerticalBarChart>
+          <VerticalBarChart title={werkEnInkomen[4].label} config={[werkEnInkomen[4]]} gwb={gwb}></VerticalBarChart>
         </Column>
         <Column span={4}>
-          <VerticalBarChart title={werkEnInkomen[5].label} config={werkEnInkomen[5]} gwb={gwb}></VerticalBarChart>
+          <VerticalBarChart title={werkEnInkomen[5].label} config={[werkEnInkomen[5]]} gwb={gwb}></VerticalBarChart>
         </Column>
       </Row>
 
