@@ -62,6 +62,7 @@ export default {
         },
         value: 0,
       },
+      value: 2,
     },
   },
   mark: {
