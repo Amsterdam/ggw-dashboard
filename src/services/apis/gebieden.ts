@@ -58,15 +58,6 @@ function enhancedGWBList(gwbList): Gwb[] {
 }
 
 /**
- * Occasionally the key of a gebied, wijk or buurt is required
- * This key is not available as a property but is only to be derived from the detail url
- * @param url
- */
-export function getKeyFromUrl(url: string): string {
-  return url.match(/\/([^/]*)\/$/)![1];
-}
-
-/**
  * Gets all details of a given gebied, wijk, buurt
  * The HAL Json self href is used to get the requested info
  * The returned info contains the geometry for the given entity
@@ -85,21 +76,6 @@ export async function getDetail(entity) {
     return data;
   }
   return cacheResponse(`GWB.detail.${entity?.vollcode}`, getData);
-}
-
-/**
- * Get the buurten within a given wijk
- * Unfortunately the logic is complex; the access is by deriving a key value out of the self url...
- * @param wijk
- * @returns {Promise<*>}
- */
-export async function getBuurten(wijk) {
-  const wijkDetailUrl = wijk._links.self.href;
-  const wijkKey = getKeyFromUrl(wijkDetailUrl);
-
-  const buurtenUrl = getUrl("/buurt/?buurtcombinatie=" + wijkKey);
-  const buurten = await readPaginatedData(buurtenUrl);
-  return enhancedGWBList(buurten);
 }
 
 /**
