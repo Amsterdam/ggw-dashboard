@@ -11,7 +11,7 @@ import { GeoJSONOptions, MapOptions, Layer } from "leaflet";
 import { GeoJsonObject } from "geojson";
 import { Gwb } from "../types";
 
-const MapWrapper = styled.div`
+const MapWrapper = styled.figure`
   height: 380px;
   width: 100%;
 `;

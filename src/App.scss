@@ -5,11 +5,30 @@
 
 @import "~@amsterdam/asc-assets/static/fonts/fonts.css";
 
+figure {
+  margin: 0;
+}
+
 @media print {
   body {
     box-decoration-break: clone;
 
     widows: 5;
     orphans: 5;
+
+    column-count: 1;
+
+    font-size: 12px !important;
+  }
+
+  table {
+    break-inside: avoid;
+
+    font-size: 12px !important;
+    padding: 0 !important;
+  }
+
+  figure {
+    break-inside: avoid;
   }
 }

@@ -13,7 +13,7 @@ import vegaSpec from "../static/charts/verticalbar";
 
 const ChartWrapper = styled.div`
   @media print {
-    break-inside: avoid-page;
+    break-inside: avoid;
   }
 `;
 
@@ -96,14 +96,14 @@ const VerticalBarChart = ({ title, gwb, config }) => {
   }, [gwb]);
 
   return (
-    <ChartWrapper>
+    <figure>
       <Heading as="h4">{title}</Heading>
       <div className="chart-container">
         {isLoading ? <Spinner /> : null}
         {showError && <p>Op dit schaalniveau is helaas geen informatie beschikbaar.</p>}
         {!showError && <div ref={chartRef}></div>}
       </div>
-    </ChartWrapper>
+    </figure>
   );
 };
 
