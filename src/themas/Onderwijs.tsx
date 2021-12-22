@@ -28,7 +28,7 @@ const Onderwijs = () => {
       <ThemeHeader gwb={gwb} themeTitle={ONDERWIJS} Icon={OnderwijsThema} />
       <Row>
         <Column span={12}>
-          <HeaderRow title={`Samenstelling ${ONDERWIJS} in ${gwb?.naam}`} />
+          <HeaderRow title={`Samenstelling ${ONDERWIJS} in ${gwb?.naam}`} withColorLink={false} />
         </Column>
       </Row>
       <Row>

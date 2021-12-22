@@ -25,7 +25,7 @@ const Werk = () => {
       <ThemeHeader gwb={gwb} themeTitle={WERK_INKOMEN} Icon={WerkEnInkomenThema} />
       <Row>
         <Column span={12}>
-          <HeaderRow title={`Samenstelling ${WERK_INKOMEN} in ${gwb?.naam}`} />
+          <HeaderRow title={`Samenstelling ${WERK_INKOMEN} in ${gwb?.naam}`} withColorLink={false} />
         </Column>
       </Row>
       <Row>

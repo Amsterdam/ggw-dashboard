@@ -17,7 +17,7 @@ const Zorg = () => {
       <ThemeHeader gwb={gwb} themeTitle={GEZONDHEID_ZORG} Icon={Gezondheid} />
       <Row>
         <Column span={12}>
-          <HeaderRow title={`Gezondheid en welzijn in ${gwb?.naam} en Amsterdam`} />
+          <HeaderRow title={`Gezondheid en welzijn in ${gwb?.naam} en Amsterdam`} withColorLink={false} />
         </Column>
       </Row>
 

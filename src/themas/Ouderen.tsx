@@ -31,7 +31,7 @@ const Ouderen = () => {
       <ThemeHeader gwb={gwb} themeTitle={OUDEREN} Icon={OuderenThema} />
       <Row>
         <Column span={12}>
-          <HeaderRow title={`Samenstelling ${OUDEREN} in ${gwb?.naam}`} />
+          <HeaderRow title={`Samenstelling ${OUDEREN} in ${gwb?.naam}`} withColorLink={false} />
         </Column>
       </Row>
       <Row>
@@ -104,7 +104,7 @@ const Ouderen = () => {
 
       <Row>
         <Column span={12}>
-          <HeaderRow title={`Aanvullende cijfers`} />
+          <HeaderRow title={`Aanvullende cijfers ${gwb?.naam}`} />
         </Column>
 
         <Column span={12}>

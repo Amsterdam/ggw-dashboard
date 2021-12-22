@@ -17,7 +17,7 @@ const HeadingDiv = styled.div`
   width: 100%;
 `;
 
-const HeaderRow = ({ title }: { title: string }) => {
+const HeaderRow = ({ title, withColorLink = true }: { title: string; withColorLink?: boolean }) => {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -25,7 +25,7 @@ const HeaderRow = ({ title }: { title: string }) => {
       <HeadingDiv>
         <Heading as="h2">
           {title}
-          <LinkButton onClick={() => setShowModal(true)}>Kleuren</LinkButton>
+          {withColorLink && <LinkButton onClick={() => setShowModal(true)}>Kleuren</LinkButton>}
         </Heading>
       </HeadingDiv>
       <Modal showModal={showModal} setShowModal={setShowModal}>

@@ -27,7 +27,7 @@ const OpenbareRuimte = () => {
       <ThemeHeader gwb={gwb} themeTitle={OPENBARE_RUIMTE} Icon={OpenbareRuimteThema} />
       <Row>
         <Column span={12}>
-          <HeaderRow title={`Samenstelling ${OPENBARE_RUIMTE} in ${gwb?.naam}`} />
+          <HeaderRow title={`Samenstelling ${OPENBARE_RUIMTE} in ${gwb?.naam}`} withColorLink={false} />
         </Column>
       </Row>
       <Row>
@@ -109,7 +109,7 @@ const OpenbareRuimte = () => {
 
       <Row>
         <Column span={12}>
-          <HeaderRow title={`Aanvullende cijfers`} />
+          <HeaderRow title={`Aanvullende cijfers ${gwb?.naam}`} />
         </Column>
 
         <Column span={12}>

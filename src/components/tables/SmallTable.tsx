@@ -7,10 +7,10 @@ export const SmallTable = styled(Table)`
   font-size: 16px;
 
   @media print {
-    break-before: avoid;
-    break-after: avoid;
-    break-inside: avoid-page;
+    // break-before: avoid;
+    // break-after: avoid;
+    // break-inside: avoid-page;
 
-    box-decoration-break: clone;
+    // box-decoration-break: clone;
   }
 `;

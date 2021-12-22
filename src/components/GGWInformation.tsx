@@ -24,7 +24,7 @@ const GGWInformation = () => {
     <GGWInfoWrapper>
       <Row>
         <Column span={12}>
-          <HeaderRow title="Meer cijfers en informatie" />
+          <HeaderRow title="Meer cijfers en informatie" withColorLink={false} />
         </Column>
       </Row>
       <Row>

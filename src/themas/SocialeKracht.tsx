@@ -32,7 +32,7 @@ const SocialeKracht = () => {
       <ThemeHeader gwb={gwb} themeTitle={SOCIALE_KRACHT} Icon={SocialeKrachtThema} />
       <Row>
         <Column span={12}>
-          <HeaderRow title={`Samenstelling ${SOCIALE_KRACHT} in ${gwb?.naam}`} />
+          <HeaderRow title={`Samenstelling ${SOCIALE_KRACHT} in ${gwb?.naam}`} withColorLink={false} />
         </Column>
       </Row>
       <Row>
@@ -114,7 +114,7 @@ const SocialeKracht = () => {
 
       <Row>
         <Column span={12}>
-          <HeaderRow title={`Aanvullende cijfers`} />
+          <HeaderRow title={`Aanvullende cijfers ${gwb?.naam}`} />
         </Column>
 
         <Column span={12}>
