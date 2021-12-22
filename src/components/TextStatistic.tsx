@@ -10,6 +10,10 @@ const Wrapper = styled.div`
 
 const IconWrapper = styled.div`
   margin-right: ${themeSpacing(2)};
+
+  @media print {
+    display: none;
+  }
 `;
 
 const TextStatistic = ({

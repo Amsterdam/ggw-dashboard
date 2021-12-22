@@ -25,12 +25,19 @@ const InnerWrapper = styled.div`
   background-color: ${themeColor("tint", "level1")};
 `;
 
+const PrintRow = styled(Row)`
+  @media print {
+    margin: 0;
+    padding: 0;
+  }
+`;
+
 function App() {
   util.setVegaLocale();
 
   return (
     <OuterWrapper>
-      <Row>
+      <PrintRow>
         <Column span={12}>
           <InnerWrapper>
             <GWBProvider>
@@ -45,7 +52,7 @@ function App() {
             </GWBProvider>
           </InnerWrapper>
         </Column>
-      </Row>
+      </PrintRow>
     </OuterWrapper>
   );
 }

@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import cloneDeep from "lodash/cloneDeep";
 import vegaEmbed from "vega-embed";
-import styled from "styled-components";
 import { Heading, Spinner } from "@amsterdam/asc-ui";
 
 import util from "../services/util";
@@ -10,12 +9,6 @@ import { getColor } from "../services/colorcoding";
 
 import { getColorsUsingStaticDefinition } from "../services/colorcoding";
 import vegaSpec from "../static/charts/verticalbar";
-
-const ChartWrapper = styled.div`
-  @media print {
-    break-inside: avoid;
-  }
-`;
 
 const vegaEmbedOptions = {
   actions: false,

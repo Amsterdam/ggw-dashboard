@@ -10,6 +10,10 @@ figure {
 }
 
 @media print {
+  @page {
+    margin: 0;
+  }
+
   body {
     box-decoration-break: clone;
 
@@ -18,17 +22,17 @@ figure {
 
     column-count: 1;
 
-    font-size: 12px !important;
+    font-size: 8px !important;
   }
 
   table {
-    break-inside: avoid;
+    break-inside: avoid-page;
 
-    font-size: 12px !important;
+    font-size: 8px !important;
     padding: 0 !important;
   }
 
   figure {
-    break-inside: avoid;
+    break-inside: avoid-page;
   }
 }
