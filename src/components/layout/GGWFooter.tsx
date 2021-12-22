@@ -15,10 +15,10 @@ const GGWFooter = () => {
       <FooterTop>
         <Row>
           <Column span={12}>
-            <FooterSection title="Colofoon">
+            <FooterSection title="Colofon">
               <p>
                 Gebied in Beeld is gemaakt door OIS in opdracht van de samenwerkende stadsdelen. Contact:{" "}
-                <a href="mailto:algemeen.OIS@amsterdam.nl">algemeen.OIS@amsterdam.nl</a>
+                <a href="mailto:l.bicknese@amsterdam.nl">l.bicknese@amsterdam.nl</a>
               </p>
             </FooterSection>
           </Column>
@@ -39,7 +39,7 @@ const GGWFooter = () => {
 
               <p>
                 Wilt u informatie hergebruiken, neem dan even contact op met OIS via{" "}
-                <a href="mailto:algemeen.OIS@amsterdam.nl">algemeen.OIS@amsterdam.nl</a>.
+                <a href="mailto:l.bicknese@amsterdam.nl">l.bicknese@amsterdam.nl</a>.
               </p>
             </FooterSection>
           </Column>
