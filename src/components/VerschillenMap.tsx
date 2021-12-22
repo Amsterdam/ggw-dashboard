@@ -26,6 +26,7 @@ const mapOptions: MapOptions = {
   zoomControl: false,
   scrollWheelZoom: false,
   doubleClickZoom: false,
+  dragging: false,
 };
 
 interface Props {
