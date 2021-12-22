@@ -98,14 +98,12 @@ const LegendTable = ({
         const colorDef = getColor(
           {
             indicatorDefinitieId: c.indicatorDefinitieId,
-            kleurenpalet: indicator?.meta?.kleurenpalet,
+            kleurenpalet: indicator?.meta?.kleurenpalet ?? 1,
           },
           yearData?.waarde,
           yearData?.jaar,
           stdevs as StdType[],
         );
-
-        // console.log(c, indicator?.meta?.kleurenpalet, colorDef);
 
         // Use color index as it refers to how 'good or bad' a indicator performs for the given area.
         if (Array.isArray(row[colorDef.index])) {

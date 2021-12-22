@@ -9,7 +9,6 @@ import { getAll, getGebied } from "../services/apis/gebieden";
 import { Gwb } from "../types";
 
 import vegaSpec from "../static/charts/verschillenbar";
-import { VERSCHILLEN_SELECTED } from "../services/colorcoding";
 
 const vegaEmbedOptions = {
   actions: false,

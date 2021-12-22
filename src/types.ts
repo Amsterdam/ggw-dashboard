@@ -20,8 +20,12 @@ export interface StdType {
 }
 
 export interface MetaType {
-  indicatorDefinitieId: string;
-  kleurenpalet: number;
+  indicatorDefinitieId?: string;
+  kleurenpalet: number | undefined;
+  labelKort: string | undefined;
+  variabele: string;
+  definitie: string;
+  bron: string;
 }
 
 export type ConfigEnirched = { indicatorDefinitieId: string; labelKort: string; kleurenpalet: number };
@@ -29,3 +33,13 @@ export type ConfigEnirched = { indicatorDefinitieId: string; labelKort: string; 
 export type Config = { indicatorDefinitieId: string };
 
 export type ConfigList = { indicatorDefinitieId: string; label: string }[];
+
+export type Cijfers = {
+  gebied: Gwb;
+  meta: MetaType;
+  cijfers: any[];
+  recent: any | undefined;
+  label?: string;
+  showInLegend?: boolean;
+  index?: number;
+};

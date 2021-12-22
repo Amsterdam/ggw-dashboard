@@ -57,7 +57,7 @@ const getVegaChartData = async (gwb, config, scaleToHundred) => {
       color: colors[i],
       gebied: d?.gebied?.naam,
       definitie: d?.meta?.definitie,
-      peiljaar: d?.recent?.jaar,
+      peiljaar: d.recent.jaar,
       bron: d?.meta?.bron,
     };
   });

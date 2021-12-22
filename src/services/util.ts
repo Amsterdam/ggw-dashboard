@@ -31,6 +31,7 @@ import {
   CIJFERS,
   getStd,
 } from "./apis/bbga";
+import { Cijfers } from "../types";
 
 /**
  * Gets the most recent cijfers for a given configuration
@@ -39,10 +40,6 @@ import {
  * @returns {Promise<*>}
  */
 async function getLatestConfigCijfers(gwb, config) {
-  const latestCijfers = await getConfigCijfers(gwb, config, CIJFERS.LATEST);
-  if (latestCijfers.recent && latestCijfers.recent.waarde !== null) {
-    return latestCijfers;
-  }
   return getConfigCijfers(gwb, config, CIJFERS.ALL);
 }
 
@@ -54,9 +51,9 @@ async function getLatestConfigCijfers(gwb, config) {
  * @param {Object} gwb gebied, wijk, buurt
  * @param {Object} config
  * @param {String} [recentOrAll=CIJFERS.ALL] Only the most recent year or all years (default)
- * @returns {Promise<any[]>}
+ *
  */
-async function getConfigCijfers(gwb, config, recentOrAll = CIJFERS.ALL) {
+async function getConfigCijfers(gwb, config, recentOrAll = CIJFERS.ALL): Promise<Cijfers[]> {
   const data = config.map(async (c, index) => {
     try {
       const cijfers = await getGebiedCijfers(c.indicatorDefinitieId, gwb, recentOrAll);
@@ -97,6 +94,7 @@ async function getConfigCijfers(gwb, config, recentOrAll = CIJFERS.ALL) {
  * @returns {Object}
  */
 function getYearCijfers(data, last = null, include = {}) {
+  // @ts-ignore
   const { odd, even, before, after, exact } = include;
   const cijferData = data.filter(({ cijfers }) => cijfers);
 

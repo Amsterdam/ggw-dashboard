@@ -40,7 +40,7 @@ const LineChart = ({ title, gwb, config, customVegaSpec = null, withPrognosis = 
           ?.filter((cijfer) => cijfer.waarde !== null)
           ?.map((cijfer) => ({
             i: config.findIndex(
-              (c) => c.indicatorDefinitieId.toUpperCase() === data?.meta?.indicatorDefinitieId.toUpperCase(),
+              (c) => c.indicatorDefinitieId.toUpperCase() === data?.meta?.indicatorDefinitieId?.toUpperCase(),
             ),
             x: cijfer.jaar,
             y: cijfer.waarde,
@@ -80,7 +80,7 @@ const LineChart = ({ title, gwb, config, customVegaSpec = null, withPrognosis = 
     chartBase.encoding.color.legend["labelExpr"] = config
       .map((c, i) => {
         const legend = chartdata.find(
-          (d) => d.meta.indicatorDefinitieId.toUpperCase() === c.indicatorDefinitieId.toUpperCase(),
+          (d) => d?.meta?.indicatorDefinitieId?.toUpperCase() === c.indicatorDefinitieId.toUpperCase(),
         );
 
         if (!legend) {

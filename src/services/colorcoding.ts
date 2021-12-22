@@ -1,4 +1,4 @@
-import { StdType, MetaType } from "../types";
+import { StdType } from "../types";
 import kleurenTabel from "../static/kleurcodetabel.json";
 
 /**
@@ -180,7 +180,10 @@ function getCategory(zScore: number, kleurenpalet: number): { color: string; tex
  * @returns {{color, textColor: *|textColSDor}}
  */
 export function getColor(
-  meta: MetaType,
+  meta: {
+    indicatorDefinitieId: string;
+    kleurenpalet: number;
+  },
   value: number,
   year: number,
   stdValue: StdType[],
