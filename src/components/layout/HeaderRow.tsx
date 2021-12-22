@@ -15,6 +15,10 @@ const HeadingDiv = styled.div`
   margin-bottom: ${themeSpacing(4)};
 
   width: 100%;
+
+  @media print {
+    background-color: #ffffff;
+  }
 `;
 
 const HeaderRow = ({ title, withColorLink = true }: { title: string; withColorLink?: boolean }) => {

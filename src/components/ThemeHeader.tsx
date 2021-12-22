@@ -21,6 +21,12 @@ const CenteredContent = styled.div`
   }
 `;
 
+const ContentHiddenOnPrint = styled.div`
+  @media print {
+    display: none;
+  }
+`;
+
 const ThemeHeader = ({ gwb, themeTitle, Icon, WithExtraInfo = false }) => {
   return (
     <Row>
@@ -32,7 +38,7 @@ const ThemeHeader = ({ gwb, themeTitle, Icon, WithExtraInfo = false }) => {
             </Column>
             {WithExtraInfo && (
               <Column span={4}>
-                <div>
+                <ContentHiddenOnPrint>
                   <p>
                     Op <b>Gebied in Beeld</b> vindt u:
                   </p>
@@ -41,7 +47,7 @@ const ThemeHeader = ({ gwb, themeTitle, Icon, WithExtraInfo = false }) => {
                     <li>over diverse thema’s</li>
                     <li>voor Amsterdam en alle stadsdelen, gebieden, wijken en buurten.</li>
                   </ul>
-                </div>
+                </ContentHiddenOnPrint>
               </Column>
             )}
             <Column span={WithExtraInfo ? 4 : 6}>

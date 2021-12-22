@@ -11,6 +11,10 @@ const StyledImage = styled.img`
 
 const StyledDiv = styled.div`
   padding: ${themeSpacing(0, 10, 6, 0)};
+
+  @media print {
+    display: none;
+  }
 `;
 
 const Pano = ({ gwb }) => {
