@@ -126,7 +126,7 @@ const Wonen = () => {
 
       <Row>
         <Column span={12}>
-          <HeaderRow title={`Aanvullende cijfers ${gwb?.naam}`} />
+          <HeaderRow title={`Aanvullende cijfers over ${gwb?.naam}`} />
         </Column>
 
         <Column span={12}>

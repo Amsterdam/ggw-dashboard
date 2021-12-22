@@ -20,6 +20,11 @@
     "indicatorDefinitieId": "SK66PLUS_SES234_"
   },
   {
+    "label": "",
+    "categorie": "SES",
+    "indicatorDefinitieId": "SK66PLUS_SES234_P"
+  },
+  {
     "label": "Sociale cohesie",
     "categorie": "Draagkracht",
     "indicatorDefinitieId": "LSOCCOH_R"
@@ -28,5 +33,30 @@
     "label": "Buurtactiviteiten / 1.000 inwoners",
     "categorie": "Draagkracht",
     "indicatorDefinitieId": "SKACTI_1000INW"
+  },
+  {
+    "label": "",
+    "categorie": "Draagkracht",
+    "indicatorDefinitieId": "PVRIJWIL_P"
+  },
+  {
+    "label": "",
+    "categorie": "Draagkracht",
+    "indicatorDefinitieId": "PINZETBRT_P"
+  },
+  {
+    "label": "",
+    "categorie": "Draagkracht",
+    "indicatorDefinitieId": "PINFORM_P"
+  },
+  {
+    "label": "",
+    "categorie": "Draagkracht",
+    "indicatorDefinitieId": "WCONTACTB_R"
+  },
+  {
+    "label": "",
+    "categorie": "Draagkracht",
+    "indicatorDefinitieId": "WHELP_R"
   }
 ]
