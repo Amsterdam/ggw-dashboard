@@ -2,6 +2,13 @@
   z-index: 18;
 }
 
+@media print {
+  .leaflet-map-pane svg {
+    display: block;
+    break-inside: avoid-page;
+  }
+}
+
 .leaflet-top,
 .leaflet-bottom {
   z-index: 19;
