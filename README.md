@@ -51,16 +51,6 @@ The app is exposed at localhost:8080
 A few files are retrieved from OIS to cover for missing or erroneous data in any of the API's
 This data is contained in the static/tmp folder
 
-### std - reference data
-
-For the maintainance for the standard deviations file please see this [Readme file](./static/tmp/README.md)
-
-### gebieden - Names of gebieden
-
-The names of the gebieden is retrieved from static/tmp/gebieden.json.
-If the name cannot be found in this document, the Gebieden API name is used.
-The gebieden.json document has been constructed on the basis of a csv file received from OIS.
-
 ### wijkgebied - relation between wijken en gebieden
 
 The gebieden API does not provide for getting wijken with in a gebied

@@ -29,7 +29,7 @@ const Economie = () => {
       <ThemeHeader gwb={gwb} themeTitle={ECONOMIE} Icon={EconomieThema} />
       <Row>
         <Column span={12}>
-          <HeaderRow title={`Samenstelling ${ECONOMIE} in ${gwb?.naam}`} />
+          <HeaderRow title={`Samenstelling ${ECONOMIE} in ${gwb?.naam}`} withColorLink={false} />
         </Column>
       </Row>
       <Row>

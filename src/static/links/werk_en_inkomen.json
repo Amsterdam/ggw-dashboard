@@ -5,7 +5,7 @@
   },
   {
     "label": "Minimahuishoudens (%)",
-    "indicatorDefinitieId": "IMINJONG120_P"
+    "indicatorDefinitieId": "IMINHH120_P"
   },
   {
     "label": "Gemiddeld besteedbaar huishoudinkomen",
@@ -17,7 +17,7 @@
   },
   {
     "label": "Geregistreerde werkloosheid (%)",
-    "indicatorDefinitieId": "IMINHH120_P"
+    "indicatorDefinitieId": "PREGWERKL_P"
   },
   {
     "label": "Vroeg er op af (%)",

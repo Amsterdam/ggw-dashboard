@@ -1,10 +1,17 @@
 import { useEffect, useState } from "react";
+import styled from "styled-components";
 import { Table, TableHeader, TableRow, TableCell, TableBody } from "@amsterdam/asc-ui";
 import util from "../services/util";
 import { getColor, getColorGivenValueAndColorPalet } from "../services/colorcoding";
 import { StdType } from "../types";
 import Modal from "../components/Modal";
 import { Button } from "../components/Button";
+
+const HiddenOnPrint = styled.span`
+  @media print {
+    display: none;
+  }
+`;
 
 const DataTable = ({
   gwb,
@@ -227,7 +234,9 @@ const DataTable = ({
 
                 return (
                   <TableRow key={c.indicatorDefinitieId}>
-                    <TableCell as="th">{c?.categorie}</TableCell>
+                    <TableCell as="th">
+                      <HiddenOnPrint>{c?.categorie}</HiddenOnPrint>
+                    </TableCell>
                     <TableCell>
                       <Button onClick={getOnDataCellClick()}>{indicator?.meta?.labelKort}</Button>
                     </TableCell>

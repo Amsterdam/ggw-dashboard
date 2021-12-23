@@ -17,7 +17,6 @@ import {
   getAllWijken,
   getAllBuurten,
   getCity,
-  getBuurten,
   getGebiedType,
   getDetail,
   GEBIED_TYPE,
@@ -166,25 +165,6 @@ function getMaxYear(cijfers) {
 }
 
 /**
- * Returns the set of gebied, wijk or buurten for a given gebied type
- * @param gebiedType
- * @returns {Promise<*>}
- */
-async function getGwbs(gebiedType) {
-  const getAll = {
-    [GEBIED_TYPE.Stadsdeel]: getAllStadsdelen,
-    [GEBIED_TYPE.Gebied]: getAllGebieden,
-    [GEBIED_TYPE.Wijk]: getAllWijken,
-    [GEBIED_TYPE.Buurt]: getAllBuurten,
-  };
-  if (getAll[gebiedType]) {
-    return getAll[gebiedType]();
-  } else {
-    return [];
-  }
-}
-
-/**
  * Provides for a display value for a cijfer, using the NL locale for numbers
  * @param cijfer
  * @returns {string}
@@ -240,14 +220,12 @@ const util = {
   getAllMeta,
   getAllStadsdelen,
   getAllWijken,
-  getBuurten,
   getCity,
   getConfigCijfers,
   getDetail,
   getGebiedCijfers,
   getVerschillenCijfers,
   getGebiedType,
-  getGwbs,
   getLatestConfigCijfers,
   getLegendLabels,
   getMaxYear,

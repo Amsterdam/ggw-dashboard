@@ -28,7 +28,7 @@ const Wonen = () => {
       <ThemeHeader gwb={gwb} themeTitle={WONEN} Icon={WonenThema} />
       <Row>
         <Column span={12}>
-          <HeaderRow title={`Samenstelling ${WONEN} in ${gwb?.naam}`} />
+          <HeaderRow title={`Samenstelling ${WONEN} in ${gwb?.naam}`} withColorLink={false} />
         </Column>
       </Row>
       <Row>
@@ -126,7 +126,7 @@ const Wonen = () => {
 
       <Row>
         <Column span={12}>
-          <HeaderRow title={`Aanvullende cijfers`} />
+          <HeaderRow title={`Aanvullende cijfers over ${gwb?.naam}`} />
         </Column>
 
         <Column span={12}>

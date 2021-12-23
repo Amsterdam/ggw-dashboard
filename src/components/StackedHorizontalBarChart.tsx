@@ -154,12 +154,12 @@ const StackedHorizontalBarChart = ({ title, config, gwb, customVegaSpec = null, 
   }, [gwb]);
 
   return (
-    <div>
+    <figure>
       <Heading as="h4">{title}</Heading>
       {isLoading ? <Spinner /> : null}
       {showError && <p>Op dit schaalniveau is helaas geen informatie beschikbaar.</p>}
       {!showError && <div ref={chartRef}></div>}
-    </div>
+    </figure>
   );
 };
 

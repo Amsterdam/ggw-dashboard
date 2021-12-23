@@ -30,7 +30,7 @@ const Bevolking = () => {
       <ThemeHeader gwb={gwb} themeTitle={BEVOLKING} Icon={BevolkingThema} />
       <Row>
         <Column span={12}>
-          <HeaderRow title={`Samenstelling ${BEVOLKING} in ${gwb?.naam}`} />
+          <HeaderRow title={`Samenstelling ${BEVOLKING} in ${gwb?.naam}`} withColorLink={false} />
         </Column>
       </Row>
       <Row>

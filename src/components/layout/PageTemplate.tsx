@@ -12,6 +12,10 @@ const Page = styled.div`
 const Content = styled.div`
   grid-area: main;
   overflow: auto;
+
+  @media print {
+    overflow: initial;
+  }
 `;
 
 const HeaderArea = styled.div`

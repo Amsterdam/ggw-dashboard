@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { GlobalStyle, ThemeProvider } from "@amsterdam/asc-ui";
 
-import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 

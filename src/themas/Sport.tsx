@@ -22,7 +22,7 @@ const Sport = () => {
       <ThemeHeader gwb={gwb} themeTitle={SPORT_EN_CULTUUR} Icon={SportThema} />
       <Row>
         <Column span={12}>
-          <HeaderRow title={`Samenstelling ${SPORT_EN_CULTUUR} in ${gwb?.naam}`} />
+          <HeaderRow title={`Samenstelling ${SPORT_EN_CULTUUR} in ${gwb?.naam}`} withColorLink={false} />
         </Column>
       </Row>
       <Row>

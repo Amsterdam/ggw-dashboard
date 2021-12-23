@@ -15,11 +15,21 @@ const CenteredContent = styled.div`
   align-items: center;
   flex-direction: column;
   width: 100%;
+
+  @media print {
+    display: none;
+  }
+`;
+
+const PrintHiddenRow = styled(Row)`
+  @media print {
+    display: none;
+  }
 `;
 
 const ThemeHeader = ({ gwb, themeTitle, Icon, WithExtraInfo = false }) => {
   return (
-    <Row>
+    <PrintHiddenRow>
       <Column span={12}>
         <StyledDiv>
           <Row>
@@ -49,7 +59,7 @@ const ThemeHeader = ({ gwb, themeTitle, Icon, WithExtraInfo = false }) => {
           </Row>
         </StyledDiv>
       </Column>
-    </Row>
+    </PrintHiddenRow>
   );
 };
 

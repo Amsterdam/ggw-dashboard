@@ -46,6 +46,10 @@ const listItems = colorLegend.map((color) => {
     &::before {
       background-color: ${color} !important;
     }
+
+    @media print {
+      font-size: 10px !important;
+    }
   `;
 });
 

@@ -15,10 +15,21 @@ import "./static/leaflet_override.css";
 
 const OuterWrapper = styled.div`
   background-color: ${themeColor("tint", "level3")};
+
+  @media print {
+    background-color: ${themeColor("tint", "level1")};
+  }
 `;
 
 const InnerWrapper = styled.div`
   background-color: ${themeColor("tint", "level1")};
+`;
+
+const PrintRow = styled(Row)`
+  @media print {
+    margin: 0;
+    padding: 0;
+  }
 `;
 
 function App() {
@@ -26,7 +37,7 @@ function App() {
 
   return (
     <OuterWrapper>
-      <Row>
+      <PrintRow>
         <Column span={12}>
           <InnerWrapper>
             <GWBProvider>
@@ -41,7 +52,7 @@ function App() {
             </GWBProvider>
           </InnerWrapper>
         </Column>
-      </Row>
+      </PrintRow>
     </OuterWrapper>
   );
 }

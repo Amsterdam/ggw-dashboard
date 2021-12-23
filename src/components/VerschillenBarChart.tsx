@@ -81,9 +81,9 @@ const VerschillenBarChart: React.FC<Props> = ({ gwb, indicatorDefinitieId, label
   }, [gwb, indicatorDefinitieId]);
 
   return (
-    <div>
+    <figure>
       <div className="chart-container">{isLoading ? <Spinner /> : <div ref={chartRef}></div>}</div>
-    </div>
+    </figure>
   );
 };
 

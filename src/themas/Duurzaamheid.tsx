@@ -21,7 +21,7 @@ const Duurzaamheid = () => {
       <ThemeHeader gwb={gwb} themeTitle={DUURZAAMHEID} Icon={DuurzaamheidThema} />
       <Row>
         <Column span={12}>
-          <HeaderRow title={`Samenstelling ${DUURZAAMHEID} in ${gwb?.naam}`} />
+          <HeaderRow title={`Samenstelling ${DUURZAAMHEID} in ${gwb?.naam}`} withColorLink={false} />
         </Column>
       </Row>
       <Row>

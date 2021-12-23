@@ -17,6 +17,10 @@ const Button = styled.button`
 const LinkButton = styled(Button)`
   text-decoration: underline;
   font-size: 16px;
+
+  @media print {
+    display: none;
+  }
 `;
 
 export { Button, LinkButton };
