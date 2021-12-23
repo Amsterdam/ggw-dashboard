@@ -130,7 +130,7 @@ export default {
         text: {
           field: "gemiddelde",
           type: "quantitative",
-          format: ",.2r",
+          format: ",.2f",
           formatType: "number",
         },
         x: {
