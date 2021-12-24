@@ -25,4 +25,6 @@ describe("map", () => {
     const result = await getGeometriesGeoJson("Wijk");
     expect(result.features.length).toEqual(107);
   });
+
+  // skipped buurten because too many data
 });
