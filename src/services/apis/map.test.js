@@ -1,23 +1,15 @@
-import { getGeometriesGeoJson } from './map'
+import axios from "axios";
+import { getGeometriesGeoJson } from "./map";
+import { gebieden } from "./map.fixtures";
 
-describe('map', () => {
-  it('should return all gebied types of stadsdelen', async () => {
-    const result = await getGeometriesGeoJson("Stadsdeel");
-    expect(result.features.length).toEqual(9);
-  })
+jest.mock("axios");
+console.log("gebieden", gebieden);
 
-  it('should return all gebied types of gebieden', async () => {
+describe("map", () => {
+  it("should return all gebied types of gebieden", async () => {
+    axios.get.mockResolvedValue(gebieden);
+
     const result = await getGeometriesGeoJson("Gebied");
     expect(result.features.length).toEqual(22);
-  })
-
-  it('should return all gebied types of wijken', async () => {
-    const result = await getGeometriesGeoJson("Wijk");
-    expect(result.features.length).toEqual(107);
-  })
-
-  it('should return all gebied types of buurten', async () => {
-    const result = await getGeometriesGeoJson("Buurt");
-    expect(result.features.length).toEqual(500);
-  })
-})
+  });
+});
