@@ -68,7 +68,6 @@ async function fetchData(url: string, options = {}, nTries = 5) {
  */
 export async function readPaginatedData(
   url: string,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   options = {},
   dataSelector = "results",
 ) {
@@ -80,7 +79,7 @@ export async function readPaginatedData(
   while (next) {
     try {
       const requestUrl = `${url}${concatParam}_pageSize=${pageSize}`; //page=${page}&
-      const response = await fetchData(requestUrl);
+      const response = await fetchData(requestUrl, options);    
       next = response.data?.next?.href;
       results = results.concat(get(response.data, dataSelector));
       // page += 1;
