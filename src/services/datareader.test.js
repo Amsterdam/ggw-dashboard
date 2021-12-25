@@ -10,7 +10,6 @@ describe("datareader", async () => {
     axios.get.mockImplementationOnce(() => Promise.resolve({ data: stadsdelen }));
 
     const data = await readPaginatedData("url", {}, "_embedded.stadsdelen");
-
     expect(data.length).toEqual(9);
   });
 
