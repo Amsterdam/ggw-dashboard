@@ -4,6 +4,7 @@ describe("base62", () => {
   it("can base62 decode strings", () => {
     expect(decodeString("FR")).toEqual(957);
   });
+  
   it("can base62 decode strings with angle", () => {
     expect(base62DecodeAngle("FR", 1)).toEqual(95.7);
     expect(base62DecodeAngle("-FR", 1)).toEqual(264.3);
