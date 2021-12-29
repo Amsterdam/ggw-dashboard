@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { getAllMeta, getMeta, getStd, getOneStd, getAllCijfers, getGebiedCijfers } from "../../../src/services/apis/bbga";
+import { getAllMeta, getMeta, getStd, getOneStd, getAllCijfers, getGebiedCijfers, getVerschillenCijfers } from "../../../src/services/apis/bbga";
 import { metaMock, stdMock, kerncijfersMock } from "./bbga.fixtures";
 
 jest.mock("axios");
@@ -44,7 +44,7 @@ describe("bbga", () => {
   it("should retrieve all gebied cijfers information", async () => {
     axios.get.mockImplementationOnce(() => Promise.resolve({ data: kerncijfersMock }));
 
-    const gebied = await getGebiedCijfers("BEV66PLUS_P", "STAD");
+    const gebied = await getGebiedCijfers("BEV66PLUS_P", "A");
 
     expect(gebied.cijfers.length).toEqual(17);
   });
@@ -52,7 +52,7 @@ describe("bbga", () => {
   it("should retrieve only recent gebied cijfers information", async () => {
     axios.get.mockImplementationOnce(() => Promise.resolve({ data: kerncijfersMock }));
 
-    const gebied = await getGebiedCijfers("BEV66PLUS_P", "STAD", "latest");
+    const gebied = await getGebiedCijfers("BEV66PLUS_P", "A", "latest");
 
     expect(gebied.cijfers.jaar).toEqual(2021);
   });
