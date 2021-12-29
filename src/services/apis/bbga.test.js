@@ -1,7 +1,7 @@
 import axios from "axios";
 
-import { getAllMeta, getMeta } from "../../../src/services/apis/bbga";
-import { metaMock } from "./bbga.fixtures";
+import { getAllMeta, getMeta, getStd,  getOneStd} from "../../../src/services/apis/bbga";
+import { metaMock, stdMock } from "./bbga.fixtures";
 
 jest.mock("axios");
 
@@ -18,6 +18,23 @@ describe("bbga", () => {
     axios.get.mockImplementationOnce(() => Promise.resolve({ data: metaMock }));
 
     const meta = await getMeta("BEV0_17_P");
+
     expect(meta.label).toEqual("0-17 jaar (%)");
+  });
+
+  it("should retrieve all std information", async () => {
+    axios.get.mockImplementationOnce(() => Promise.resolve({ data: stdMock }));
+
+    const std = await getStd();
+
+    expect(std.length).toEqual(11);
+  });
+  
+  it("should return std information given a variable name", async () => {
+    axios.get.mockImplementationOnce(() => Promise.resolve({ data: metaMock }));
+
+    const std = await getOneStd("BEV0_17_P");
+   
+    expect(std.length).toEqual(10);
   });
 });
