@@ -1,6 +1,15 @@
 import axios from "axios";
 
-import { getAllMeta, getMeta, getStd, getOneStd, getAllCijfers, getGebiedCijfers, getVerschillenCijfers } from "../../../src/services/apis/bbga";
+import {
+  getAllMeta,
+  getMeta,
+  getStd,
+  getOneStd,
+  getAllCijfers,
+  getGebiedCijfers,
+  getVerschillenCijfers,
+} from "../../../src/services/apis/bbga";
+import { GEBIED_TYPE } from "./gebieden";
 import { metaMock, stdMock, kerncijfersMock } from "./bbga.fixtures";
 
 jest.mock("axios");
@@ -60,7 +69,7 @@ describe("bbga", () => {
   it("should retrieve verschillen cijfers information", async () => {
     axios.get.mockImplementationOnce(() => Promise.resolve({ data: kerncijfersMock }));
 
-    const verschillen = await getVerschillenCijfers("BEV66PLUS_P", "Stadsdeel", 2021);
+    const verschillen = await getVerschillenCijfers("BEV66PLUS_P", GEBIED_TYPE.Stadsdeel, 2021);
 
     expect(verschillen[0].jaar).toEqual(2021);
   });
