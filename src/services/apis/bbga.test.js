@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { getAllMeta, getMeta, getStd, getOneStd, getAllCijfers } from "../../../src/services/apis/bbga";
+import { getAllMeta, getMeta, getStd, getOneStd, getAllCijfers, getGebiedCijfers } from "../../../src/services/apis/bbga";
 import { metaMock, stdMock, kerncijfersMock } from "./bbga.fixtures";
 
 jest.mock("axios");
@@ -34,10 +34,26 @@ describe("bbga", () => {
     expect(std.length).toEqual(10);
   });
 
-  it("should retrieve cijfers information", async () => {
+  it("should retrieve all cijfers information", async () => {
     axios.get.mockImplementationOnce(() => Promise.resolve({ data: kerncijfersMock }));
 
     const cijfers = await getAllCijfers("BEV66PLUS_P", 2018);
     expect(cijfers.length).toEqual(17);
+  });
+
+  it("should retrieve all gebied cijfers information", async () => {
+    axios.get.mockImplementationOnce(() => Promise.resolve({ data: kerncijfersMock }));
+
+    const gebied = await getGebiedCijfers("BEV66PLUS_P", "STAD");
+
+    expect(gebied.cijfers.length).toEqual(17);
+  });
+
+  it("should retrieve only recent gebied cijfers information", async () => {
+    axios.get.mockImplementationOnce(() => Promise.resolve({ data: kerncijfersMock }));
+
+    const gebied = await getGebiedCijfers("BEV66PLUS_P", "STAD", "latest");
+
+    expect(gebied.cijfers.jaar).toEqual(2021);
   });
 });
