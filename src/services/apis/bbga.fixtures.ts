@@ -151,3 +151,228 @@ export const metaMock = {
     ],
   },
 };
+
+export const stdMock = {
+  _embedded: {
+    statistieken: [
+      {
+        _links: {
+          schema: "https://schemas.data.amsterdam.nl/datasets/bbga/dataset#statistieken",
+          self: {
+            href: "https://api.data.amsterdam.nl/v1/bbga/statistieken/BEV0_17_P%7C2005/?_format=json",
+            title: "BEV0_17_P",
+            indicatorDefinitieId: "BEV0_17_P",
+          },
+          indicatorDefinitie: {
+            href: "https://api.data.amsterdam.nl/v1/bbga/indicatoren_definities/BEV0_17_P/?_format=json",
+            title: "BEV0_17_P",
+            variabele: "BEV0_17_P",
+          },
+        },
+        jaar: 2005,
+        gemiddelde: 18.9,
+        standaardafwijking: 6.183,
+        bron: "sdbc",
+        indicatorDefinitieId: "BEV0_17_P",
+        id: "BEV0_17_P|2005",
+      },
+      {
+        _links: {
+          schema: "https://schemas.data.amsterdam.nl/datasets/bbga/dataset#statistieken",
+          self: {
+            href: "https://api.data.amsterdam.nl/v1/bbga/statistieken/BEV0_17_P%7C2006/?_format=json",
+            title: "BEV0_17_P",
+            indicatorDefinitieId: "BEV0_17_P",
+          },
+          indicatorDefinitie: {
+            href: "https://api.data.amsterdam.nl/v1/bbga/indicatoren_definities/BEV0_17_P/?_format=json",
+            title: "BEV0_17_P",
+            variabele: "BEV0_17_P",
+          },
+        },
+        jaar: 2006,
+        gemiddelde: 18.8,
+        standaardafwijking: 6.291,
+        bron: "sdbc",
+        indicatorDefinitieId: "BEV0_17_P",
+        id: "BEV0_17_P|2006",
+      },
+      {
+        _links: {
+          schema: "https://schemas.data.amsterdam.nl/datasets/bbga/dataset#statistieken",
+          self: {
+            href: "https://api.data.amsterdam.nl/v1/bbga/statistieken/BEV0_17_P%7C2007/?_format=json",
+            title: "BEV0_17_P",
+            indicatorDefinitieId: "BEV0_17_P",
+          },
+          indicatorDefinitie: {
+            href: "https://api.data.amsterdam.nl/v1/bbga/indicatoren_definities/BEV0_17_P/?_format=json",
+            title: "BEV0_17_P",
+            variabele: "BEV0_17_P",
+          },
+        },
+        jaar: 2007,
+        gemiddelde: 18.7,
+        standaardafwijking: 6.31,
+        bron: "sdbc",
+        indicatorDefinitieId: "BEV0_17_P",
+        id: "BEV0_17_P|2007",
+      },
+      {
+        _links: {
+          schema: "https://schemas.data.amsterdam.nl/datasets/bbga/dataset#statistieken",
+          self: {
+            href: "https://api.data.amsterdam.nl/v1/bbga/statistieken/BEV0_17_P%7C2008/?_format=json",
+            title: "BEV0_17_P",
+            indicatorDefinitieId: "BEV0_17_P",
+          },
+          indicatorDefinitie: {
+            href: "https://api.data.amsterdam.nl/v1/bbga/indicatoren_definities/BEV0_17_P/?_format=json",
+            title: "BEV0_17_P",
+            variabele: "BEV0_17_P",
+          },
+        },
+        jaar: 2008,
+        gemiddelde: 18.5,
+        standaardafwijking: 6.315,
+        bron: "sdbc",
+        indicatorDefinitieId: "BEV0_17_P",
+        id: "BEV0_17_P|2008",
+      },
+      {
+        _links: {
+          schema: "https://schemas.data.amsterdam.nl/datasets/bbga/dataset#statistieken",
+          self: {
+            href: "https://api.data.amsterdam.nl/v1/bbga/statistieken/BEV0_17_P%7C2009/?_format=json",
+            title: "BEV0_17_P",
+            indicatorDefinitieId: "BEV0_17_P",
+          },
+          indicatorDefinitie: {
+            href: "https://api.data.amsterdam.nl/v1/bbga/indicatoren_definities/BEV0_17_P/?_format=json",
+            title: "BEV0_17_P",
+            variabele: "BEV0_17_P",
+          },
+        },
+        jaar: 2009,
+        gemiddelde: 18.4,
+        standaardafwijking: 6.362,
+        bron: "sdbc",
+        indicatorDefinitieId: "BEV0_17_P",
+        id: "BEV0_17_P|2009",
+      },
+      {
+        _links: {
+          schema: "https://schemas.data.amsterdam.nl/datasets/bbga/dataset#statistieken",
+          self: {
+            href: "https://api.data.amsterdam.nl/v1/bbga/statistieken/BEV0_17_P%7C2010/?_format=json",
+            title: "BEV0_17_P",
+            indicatorDefinitieId: "BEV0_17_P",
+          },
+          indicatorDefinitie: {
+            href: "https://api.data.amsterdam.nl/v1/bbga/indicatoren_definities/BEV0_17_P/?_format=json",
+            title: "BEV0_17_P",
+            variabele: "BEV0_17_P",
+          },
+        },
+        jaar: 2010,
+        gemiddelde: 18.4,
+        standaardafwijking: 6.302,
+        bron: "sdbc",
+        indicatorDefinitieId: "BEV0_17_P",
+        id: "BEV0_17_P|2010",
+      },
+      {
+        _links: {
+          schema: "https://schemas.data.amsterdam.nl/datasets/bbga/dataset#statistieken",
+          self: {
+            href: "https://api.data.amsterdam.nl/v1/bbga/statistieken/BEV0_17_P%7C2011/?_format=json",
+            title: "BEV0_17_P",
+            indicatorDefinitieId: "BEV0_17_P",
+          },
+          indicatorDefinitie: {
+            href: "https://api.data.amsterdam.nl/v1/bbga/indicatoren_definities/BEV0_17_P/?_format=json",
+            title: "BEV0_17_P",
+            variabele: "BEV0_17_P",
+          },
+        },
+        jaar: 2011,
+        gemiddelde: 18.3,
+        standaardafwijking: 6.137,
+        bron: "sdbc",
+        indicatorDefinitieId: "BEV0_17_P",
+        id: "BEV0_17_P|2011",
+      },
+      {
+        _links: {
+          schema: "https://schemas.data.amsterdam.nl/datasets/bbga/dataset#statistieken",
+          self: {
+            href: "https://api.data.amsterdam.nl/v1/bbga/statistieken/BEV0_17_P%7C2012/?_format=json",
+            title: "BEV0_17_P",
+            indicatorDefinitieId: "BEV0_17_P",
+          },
+          indicatorDefinitie: {
+            href: "https://api.data.amsterdam.nl/v1/bbga/indicatoren_definities/BEV0_17_P/?_format=json",
+            title: "BEV0_17_P",
+            variabele: "BEV0_17_P",
+          },
+        },
+        jaar: 2012,
+        gemiddelde: 18.2,
+        standaardafwijking: 6.153,
+        bron: "sdbc",
+        indicatorDefinitieId: "BEV0_17_P",
+        id: "BEV0_17_P|2012",
+      },
+      {
+        _links: {
+          schema: "https://schemas.data.amsterdam.nl/datasets/bbga/dataset#statistieken",
+          self: {
+            href: "https://api.data.amsterdam.nl/v1/bbga/statistieken/BEV0_17_P%7C2013/?_format=json",
+            title: "BEV0_17_P",
+            indicatorDefinitieId: "BEV0_17_P",
+          },
+          indicatorDefinitie: {
+            href: "https://api.data.amsterdam.nl/v1/bbga/indicatoren_definities/BEV0_17_P/?_format=json",
+            title: "BEV0_17_P",
+            variabele: "BEV0_17_P",
+          },
+        },
+        jaar: 2013,
+        gemiddelde: 18.2,
+        standaardafwijking: 6.269,
+        bron: "sdbc",
+        indicatorDefinitieId: "BEV0_17_P",
+        id: "BEV0_17_P|2013",
+      },
+      {
+        _links: {
+          schema: "https://schemas.data.amsterdam.nl/datasets/bbga/dataset#statistieken",
+          self: {
+            href: "https://api.data.amsterdam.nl/v1/bbga/statistieken/BEV0_17_P%7C2014/?_format=json",
+            title: "BEV0_17_P",
+            indicatorDefinitieId: "BEV0_17_P",
+          },
+          indicatorDefinitie: {
+            href: "https://api.data.amsterdam.nl/v1/bbga/indicatoren_definities/BEV0_17_P/?_format=json",
+            title: "BEV0_17_P",
+            variabele: "BEV0_17_P",
+          },
+        },
+        jaar: 2014,
+        gemiddelde: 18.2,
+        standaardafwijking: 6.074,
+        bron: "sdbc",
+        indicatorDefinitieId: "BEV0_17_P",
+        id: "BEV0_17_P|2014",
+      },
+      {
+        jaar: 2015,
+        gemiddelde: 18.1,
+        standaardafwijking: 5.863,
+        bron: "sdbc",
+        indicatorDefinitieId: "OTHER_VAR",
+        id: "BEV0_17_P|2015",
+      },
+    ],
+  },
+};
