@@ -5,35 +5,6 @@ import { metaMock } from "./bbga.fixtures";
 
 jest.mock("axios");
 
-// jest.mock('axios', () => ({
-//   get: jest.fn((url) => {
-//     const meta = {
-//       data: {
-//         _links: {
-//           next: {
-//             href: ''
-//           }
-//         },
-//         results: [
-//           {
-//             variabele: 'x'
-//           },
-//           {
-//             variabele: 'x2'
-//           },
-//           {
-//             variabele: 'x1'
-//           },
-//           {
-//             variabele: 'y'
-//           }
-//         ]
-//       }
-//     }
-//     return Promise.resolve(meta)
-//   })
-// }))
-
 describe("bbga", () => {
   it("should retrieve all available meta information", async () => {
     axios.get.mockImplementationOnce(() => Promise.resolve({ data: metaMock }));
@@ -43,13 +14,10 @@ describe("bbga", () => {
     expect(Object.keys(meta).length).toEqual(4);
   });
 
-//   it("should return meta information given a variable name", async () => {
-//     const meta = await getMeta("x");
-//     expect(meta.variabele).toEqual("x");
-//   });
+  it("should return meta information given a variable name", async () => {
+    axios.get.mockImplementationOnce(() => Promise.resolve({ data: metaMock }));
 
-//   it("should return latest meta information given a variable name ending at [LATEST]", async () => {
-//     const meta = await getMeta("x[LATEST]");
-//     expect(meta.variabele).toEqual("x2");
-//   });
+    const meta = await getMeta("BEV0_17_P");
+    expect(meta.label).toEqual("0-17 jaar (%)");
+  });
 });
