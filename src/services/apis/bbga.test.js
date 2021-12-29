@@ -56,4 +56,12 @@ describe("bbga", () => {
 
     expect(gebied.cijfers.jaar).toEqual(2021);
   });
+
+  it("should retrieve verschillen cijfers information", async () => {
+    axios.get.mockImplementationOnce(() => Promise.resolve({ data: kerncijfersMock }));
+
+    const verschillen = await getVerschillenCijfers("BEV66PLUS_P", "Stadsdeel", 2021);
+
+    expect(verschillen[0].jaar).toEqual(2021);
+  });
 });
