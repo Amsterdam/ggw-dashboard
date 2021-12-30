@@ -1,35 +1,8 @@
-// import axios from "axios";
+import axios from "axios";
+import { stadsdelen, gebieden, wijken } from "./map.fixtures";
+import { GEBIED_TYPE, getGebiedType, enhanceGWB, getAllStadsdelen } from "./gebieden";
 
-import { GEBIED_TYPE, getGebiedType, enhanceGWB } from "./gebieden";
-
-// jest.mock('axios', () => ({
-//   get: jest.fn((url) => {
-//     const meta = {
-//       data: {
-//         _links: {
-//           next: {
-//             href: ''
-//           }
-//         },
-//         results: [
-//           {
-//             variabele: 'x'
-//           },
-//           {
-//             variabele: 'x2'
-//           },
-//           {
-//             variabele: 'x1'
-//           },
-//           {
-//             variabele: 'y'
-//           }
-//         ]
-//       }
-//     }
-//     return Promise.resolve(meta)
-//   })
-// }))
+jest.mock("axios");
 
 describe("Gebieden API", () => {
   it("should get the gebied type for a given gebiedcode", () => {
@@ -59,17 +32,25 @@ describe("Gebieden API", () => {
   });
 
   it("should compensate for API inconsistencies and missing properties", () => {
-        expect(enhanceGWB({ 
+    expect(
+      enhanceGWB({
+        code: "A",
+        naam: "Centrum",
+      }),
+    ).toEqual({
       code: "A",
-      naam: "Centrum"
-     })).toEqual({
-       code: "A",
-       display: "A Centrum",
-       gebiedType: "Stadsdeel",
-       naam: "Centrum",
-       vollcode: "A",
-       volledige_code: "A"
-     });
+      display: "A Centrum",
+      gebiedType: "Stadsdeel",
+      naam: "Centrum",
+      vollcode: "A",
+      volledige_code: "A",
+    });
   });
 
+  it("should fetch all stadsdelen", async () => {
+    axios.get.mockImplementationOnce(() => Promise.resolve({ data: stadsdelen }));
+
+    const gebieden = await getAllStadsdelen();
+    console.log("-", gebieden);
+  });
 });
