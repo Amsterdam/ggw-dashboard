@@ -28,7 +28,7 @@ export const GEBIED_TYPE = {
  * @returns {string}
  */
 function getUrl(endpoint: string): string {
-  return `https://api.data.amsterdam.nl/v1/gebieden${endpoint}?eindGeldigheid[isnull]=true`;
+  return `https://api.data.amsterdam.nl/v1/gebieden${endpoint}?eindGeldigheid[isnull]=true&_pageSize=100000`;
 }
 
 /**
@@ -124,7 +124,10 @@ export function getCity() {
  */
 export async function getAllStadsdelen() {
   const url = getUrl("/stadsdelen/");
-  const getData = async () => enhancedGWBList(await readPaginatedData(url, {}, "_embedded.stadsdelen"));
+  const getData = async () => {
+    const result = await readData(url);    
+    return enhancedGWBList(result._embedded.stadsdelen);
+  }
   return cacheResponse("allStadsdelen", getData);
 }
 
