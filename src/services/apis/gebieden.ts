@@ -39,6 +39,10 @@ function getUrl(endpoint: string): string {
  * @returns {*}
  */
 export function enhanceGWB(gwb: Gwb): Gwb {
+  if (!gwb) {
+    // @ts-ignore
+    return {};
+  }
   gwb.vollcode = gwb.code;
   gwb.volledige_code = gwb.code;
   gwb.gebiedType = getGebiedType(gwb.code);
