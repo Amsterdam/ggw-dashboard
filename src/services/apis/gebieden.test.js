@@ -52,5 +52,7 @@ describe("Gebieden API", () => {
 
     const gebieden = await getAllStadsdelen();
     console.log("-", gebieden);
+
+    expect(gebieden[0]).toBeDefined();
   });
 });
