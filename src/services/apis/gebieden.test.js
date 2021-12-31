@@ -14,6 +14,7 @@ import {
   getAllWijken,
   getAllBuurten,
   getAll,
+  getGebied,
 } from "./gebieden";
 
 jest.mock("axios");
@@ -100,5 +101,16 @@ describe("Gebieden API", () => {
     expect(all.length).toEqual(55);
   });
 
+  it("should fetch 1 gebied", () => {
+    axios.get.mockImplementationOnce(() => Promise.resolve({ data: stadsdelenMock }));
+    axios.get.mockImplementationOnce(() => Promise.resolve({ data: gebiedenMock }));
+    axios.get.mockImplementationOnce(() => Promise.resolve({ data: wijkenMock }));
+    axios.get.mockImplementationOnce(() => Promise.resolve({ data: buurtenMock }));
+
+   expect(getGebied("A").naam).toEqual("Centrum");
+   expect(getGebied("DX01").naam).toEqual("Centrum-West");
+   expect(getGebied("B10").naam).toEqual("Westelijk Havengebied");
+   expect(getGebied("SAF1").naam).toEqual("Aetsveldsepolder");
+  });
   
 });
