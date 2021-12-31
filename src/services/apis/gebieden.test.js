@@ -13,6 +13,7 @@ import {
   getAllGebieden,
   getAllWijken,
   getAllBuurten,
+  getAll,
 } from "./gebieden";
 
 jest.mock("axios");
@@ -87,4 +88,17 @@ describe("Gebieden API", () => {
 
     expect(buurten.length).toEqual(4);
   });
+
+  it("should fetch all", async () => {
+    axios.get.mockImplementationOnce(() => Promise.resolve({ data: stadsdelenMock }));
+    axios.get.mockImplementationOnce(() => Promise.resolve({ data: gebiedenMock }));
+    axios.get.mockImplementationOnce(() => Promise.resolve({ data: wijkenMock }));
+    axios.get.mockImplementationOnce(() => Promise.resolve({ data: buurtenMock }));
+    
+    const all = await getAll();
+
+    expect(all.length).toEqual(55);
+  });
+
+  
 });
