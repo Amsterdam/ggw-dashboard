@@ -1,10 +1,27 @@
 import axios from "axios";
-import { stadsdelen, gebieden, wijken } from "./map.fixtures";
-import { GEBIED_TYPE, getGebiedType, enhanceGWB, getAllStadsdelen } from "./gebieden";
+import {
+  stadsdelen as stadsdelenMock,
+  gebieden as gebiedenMock,
+  wijken as wijkenMock,
+  buurten as buurtenMock,
+} from "./gebieden.fixtures";
+import {
+  GEBIED_TYPE,
+  getGebiedType,
+  enhanceGWB,
+  getAllStadsdelen,
+  getAllGebieden,
+  getAllWijken,
+  getAllBuurten,
+} from "./gebieden";
 
 jest.mock("axios");
 
 describe("Gebieden API", () => {
+  // beforeEach(() => {
+  //   jest.resetAllMocks();
+  // });
+
   it("should get the gebied type for a given gebiedcode", () => {
     expect(getGebiedType("")).toEqual("?");
 
@@ -48,11 +65,30 @@ describe("Gebieden API", () => {
   });
 
   it("should fetch all stadsdelen", async () => {
-    axios.get.mockImplementationOnce(() => Promise.resolve({ data: stadsdelen }));
+    axios.get.mockImplementationOnce(() => Promise.resolve({ data: stadsdelenMock }));
+    const stadsdelen = await getAllStadsdelen();
 
-    const gebieden = await getAllStadsdelen();
-    console.log("-", gebieden);
+    expect(stadsdelen.length).toEqual(9);
+  });
 
-    expect(gebieden[0]).toBeDefined();
+  it("should fetch all gebieden", async () => {
+    axios.get.mockImplementationOnce(() => Promise.resolve({ data: gebiedenMock }));
+    const gebieden = await getAllGebieden();
+
+    expect(gebieden.length).toEqual(22);
+  });
+
+  it("should fetch all wijken", async () => {
+    axios.get.mockImplementationOnce(() => Promise.resolve({ data: wijkenMock }));
+    const wijken = await getAllWijken();
+
+    expect(wijken.length).toEqual(20);
+  });
+
+  it("should fetch all buurten", async () => {
+    axios.get.mockImplementationOnce(() => Promise.resolve({ data: buurtenMock }));
+    const buurten = await getAllBuurten();
+
+    expect(buurten.length).toEqual(4);
   });
 });
