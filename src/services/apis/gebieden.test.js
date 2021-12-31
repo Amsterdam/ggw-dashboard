@@ -19,7 +19,7 @@ import {
 
 jest.mock("axios");
 
-describe("Gebieden API", () => {
+describe("gebieden", () => {
   it("should get the gebied type for a given gebiedcode", () => {
     expect(getGebiedType("")).toEqual("?");
 
@@ -95,7 +95,7 @@ describe("Gebieden API", () => {
     axios.get.mockImplementationOnce(() => Promise.resolve({ data: gebiedenMock }));
     axios.get.mockImplementationOnce(() => Promise.resolve({ data: wijkenMock }));
     axios.get.mockImplementationOnce(() => Promise.resolve({ data: buurtenMock }));
-    
+
     const all = await getAll();
 
     expect(all.length).toEqual(55);
@@ -107,10 +107,9 @@ describe("Gebieden API", () => {
     axios.get.mockImplementationOnce(() => Promise.resolve({ data: wijkenMock }));
     axios.get.mockImplementationOnce(() => Promise.resolve({ data: buurtenMock }));
 
-   expect(getGebied("A").naam).toEqual("Centrum");
-   expect(getGebied("DX01").naam).toEqual("Centrum-West");
-   expect(getGebied("B10").naam).toEqual("Westelijk Havengebied");
-   expect(getGebied("SAF1").naam).toEqual("Aetsveldsepolder");
+    expect(getGebied("A").naam).toEqual("Centrum");
+    expect(getGebied("DX01").naam).toEqual("Centrum-West");
+    expect(getGebied("B10").naam).toEqual("Westelijk Havengebied");
+    expect(getGebied("SAF1").naam).toEqual("Aetsveldsepolder");
   });
-  
 });
