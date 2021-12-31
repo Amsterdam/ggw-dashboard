@@ -18,10 +18,6 @@ import {
 jest.mock("axios");
 
 describe("Gebieden API", () => {
-  // beforeEach(() => {
-  //   jest.resetAllMocks();
-  // });
-
   it("should get the gebied type for a given gebiedcode", () => {
     expect(getGebiedType("")).toEqual("?");
 
