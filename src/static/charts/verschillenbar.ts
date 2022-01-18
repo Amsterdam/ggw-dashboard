@@ -40,6 +40,10 @@ export default {
         x: {
           field: "gebied",
           type: "ordinal",
+          // sort: {
+          //   encoding: "y",
+          //   order: "descending",
+          // },
           axis: {
             labels: false,
             ticks: false,
@@ -72,7 +76,7 @@ export default {
         align: "left",
         dy: -15,
         opacity: 1,
-        color: "black"
+        color: "black",
       },
     },
   ],
