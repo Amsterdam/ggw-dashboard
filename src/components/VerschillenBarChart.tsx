@@ -57,7 +57,8 @@ const VerschillenBarChart: React.FC<Props> = ({ gwb, indicatorDefinitieId, label
       .map(
         (d) =>
           ({
-            gebied: getGebied(d.gebiedcode15)?.naam,
+            gebied: d.gebiedcode15,
+            gebiedName: getGebied(d.gebiedcode15)?.naam,
             label,
             value: d.waarde ? d.waarde : "Geen gegevens",
             color: d.gebiedcode15 === gwb.code ? VERSCHILLEN_SELECTED : d.color,

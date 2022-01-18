@@ -31,7 +31,6 @@ export default {
         y: {
           field: "value",
           type: "quantitative",
-
           axis: {
             labels: true,
             ticks: true,
@@ -41,7 +40,6 @@ export default {
         x: {
           field: "gebied",
           type: "ordinal",
-          sort: null,
           axis: {
             labels: false,
             ticks: false,
@@ -49,7 +47,7 @@ export default {
           },
         },
         tooltip: [
-          { field: "gebied", type: "ordinal", title: "Gebied" },
+          { field: "gebiedName", type: "ordinal", title: "Gebied" },
           { field: "label", type: "ordinal", title: "Label" },
           { field: "value", type: "quantitative", title: "Waarde" },
         ],
