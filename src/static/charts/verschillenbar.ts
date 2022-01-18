@@ -55,5 +55,27 @@ export default {
         ],
       },
     },
+    {
+      encoding: {
+        text: {
+          field: "current",
+        },
+        x: {
+          field: "gebied",
+          type: "ordinal",
+        },
+        y: {
+          field: "value",
+          type: "quantitative",
+        },
+      },
+      mark: {
+        type: "text",
+        align: "left",
+        dy: -15,
+        opacity: 1,
+        color: "black"
+      },
+    },
   ],
 };
