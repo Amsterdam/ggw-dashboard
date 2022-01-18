@@ -332,7 +332,7 @@ const GWBSelector = () => {
                 updateGebied(event.currentTarget.value);
               }}
             >
-              <option value="gebied">Selecteer een gebied</option>
+              <option value="gebied">Geen gebied geselecteerd</option>
               {gwbSelection.gebieden.map((gebied) => {
                 return (
                   <option key={gebied.code} value={gebied.code}>
