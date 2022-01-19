@@ -63,38 +63,40 @@ describe("gebieden", () => {
   });
 
   it("should fetch all stadsdelen", async () => {
-    axios.get.mockImplementationOnce(() => Promise.resolve({ data: stadsdelenMock }));
+    axios.get.mockResolvedValueOnce({ data: stadsdelenMock });
+
     const stadsdelen = await getAllStadsdelen();
 
     expect(stadsdelen.length).toEqual(9);
   });
 
   it("should fetch all gebieden", async () => {
-    axios.get.mockImplementationOnce(() => Promise.resolve({ data: gebiedenMock }));
+    axios.get.mockResolvedValueOnce({ data: gebiedenMock });
     const gebieden = await getAllGebieden();
 
     expect(gebieden.length).toEqual(22);
   });
 
   it("should fetch all wijken", async () => {
-    axios.get.mockImplementationOnce(() => Promise.resolve({ data: wijkenMock }));
+    axios.get.mockResolvedValueOnce({ data: wijkenMock });
+
     const wijken = await getAllWijken();
 
     expect(wijken.length).toEqual(20);
   });
 
   it("should fetch all buurten", async () => {
-    axios.get.mockImplementationOnce(() => Promise.resolve({ data: buurtenMock }));
+    axios.get.mockResolvedValueOnce({ data: buurtenMock });
     const buurten = await getAllBuurten();
 
     expect(buurten.length).toEqual(4);
   });
 
   it("should fetch all", async () => {
-    axios.get.mockImplementationOnce(() => Promise.resolve({ data: stadsdelenMock }));
-    axios.get.mockImplementationOnce(() => Promise.resolve({ data: gebiedenMock }));
-    axios.get.mockImplementationOnce(() => Promise.resolve({ data: wijkenMock }));
-    axios.get.mockImplementationOnce(() => Promise.resolve({ data: buurtenMock }));
+    axios.get.mockResolvedValueOnce({ data: stadsdelenMock });
+    axios.get.mockResolvedValueOnce({ data: gebiedenMock });
+    axios.get.mockResolvedValueOnce({ data: wijkenMock });
+    axios.get.mockResolvedValueOnce({ data: buurtenMock });
 
     const all = await getAll();
 
@@ -102,10 +104,10 @@ describe("gebieden", () => {
   });
 
   it("should fetch 1 gebied", () => {
-    axios.get.mockImplementationOnce(() => Promise.resolve({ data: stadsdelenMock }));
-    axios.get.mockImplementationOnce(() => Promise.resolve({ data: gebiedenMock }));
-    axios.get.mockImplementationOnce(() => Promise.resolve({ data: wijkenMock }));
-    axios.get.mockImplementationOnce(() => Promise.resolve({ data: buurtenMock }));
+    axios.get.mockResolvedValueOnce({ data: stadsdelenMock });
+    axios.get.mockResolvedValueOnce({ data: gebiedenMock });
+    axios.get.mockResolvedValueOnce({ data: wijkenMock });
+    axios.get.mockResolvedValueOnce({ data: buurtenMock });
 
     expect(getGebied("A").naam).toEqual("Centrum");
     expect(getGebied("DX01").naam).toEqual("Centrum-West");

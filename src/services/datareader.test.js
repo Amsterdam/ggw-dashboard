@@ -13,7 +13,7 @@ beforeEach(() => {
 
 describe("datareader", () => {
   it("should read paginated data given an url", async () => {
-    axios.get.mockImplementationOnce(() => Promise.resolve({ data: stadsdelen }));
+    axios.get.mockResolvedValueOnce({ data: stadsdelen});
 
     const data = await readPaginatedData("url", {}, "_embedded.stadsdelen");
     expect(data.length).toEqual(9);
@@ -24,7 +24,7 @@ describe("datareader", () => {
   });
 
   it("should read data given an url", async () => {
-    axios.get.mockImplementationOnce(() => Promise.resolve({ data: stadsdelen }));
+    axios.get.mockResolvedValueOnce({ data: stadsdelen});
 
     const data = await readData("url");
     expect(data._embedded.stadsdelen.length).toEqual(9);
