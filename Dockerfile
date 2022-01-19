@@ -1,4 +1,4 @@
-FROM node:14.18-stretch AS builder
+FROM node:16-bullseye AS builder
 
 LABEL maintainer="datapunt@amsterdam.nl"
 
