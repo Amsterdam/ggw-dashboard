@@ -68,7 +68,7 @@ const Pano = ({ gwb }) => {
   }, []);
 
   return (
-    <StyledDiv>
+    <StyledDiv data-testid="pano">
       <StyledImage src={src} alt={`Pano van ${gwb.naam}`} title={`Pano van ${gwb.naam}`} />
     </StyledDiv>
   );
