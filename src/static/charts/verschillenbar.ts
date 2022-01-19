@@ -31,7 +31,7 @@ export default {
         y: {
           field: "value",
           type: "quantitative",
-
+          sort: null,
           axis: {
             labels: true,
             ticks: true,
@@ -49,11 +49,34 @@ export default {
           },
         },
         tooltip: [
-          { field: "gebied", type: "ordinal", title: "Gebied" },
+          { field: "gebiedNaam", type: "ordinal", title: "Gebied" },
           { field: "label", type: "ordinal", title: "Label" },
           { field: "value", type: "quantitative", title: "Waarde" },
         ],
       },
     },
+    // TO-DO fix random sorting
+    // {
+    //   encoding: {
+    //     text: {
+    //       field: "current",
+    //     },
+    //     x: {
+    //       field: "gebied",
+    //       type: "ordinal",
+    //     },
+    //     y: {
+    //       field: "value",
+    //       type: "quantitative",
+    //     },
+    //   },
+    //   mark: {
+    //     type: "text",
+    //     align: "left",
+    //     dy: -15,
+    //     opacity: 1,
+    //     color: "black",
+    //   },
+    // },
   ],
 };

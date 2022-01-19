@@ -54,7 +54,7 @@ const GGWHeader = () => {
     <CustomHeader
       tall={false}
       title="Gebied in beeld"
-      homeLink=""
+      homeLink="/"
       fullWidth
       css={{ zIndex: 20 }}
       navigation={

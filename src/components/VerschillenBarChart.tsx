@@ -20,6 +20,7 @@ type MapResult = {
   label: string;
   value: string;
   color: string;
+  current: string;
 };
 
 interface Props {
@@ -51,16 +52,17 @@ const VerschillenBarChart: React.FC<Props> = ({ gwb, indicatorDefinitieId, label
     const gebiedType = util.getGebiedType(gwb.vollcode || gwb.code, true);
 
     const cijfers = await util.getVerschillenCijfers(indicatorDefinitieId, gebiedType, gebied.cijfers.jaar);
-
     chartBase.data.values = (cijfers || [])
       .filter((d) => d.waarde)
       .map(
         (d) =>
           ({
-            gebied: getGebied(d.gebiedcode15)?.naam,
+            gebied: d.gebiedcode15,
+            gebiedNaam: getGebied(d.gebiedcode15)?.naam,
             label,
             value: d.waarde ? d.waarde : "Geen gegevens",
             color: d.gebiedcode15 === gwb.code ? VERSCHILLEN_SELECTED : d.color,
+            current: d.gebiedcode15 === gebied.gebied.code ? getGebied(d.gebiedcode15)?.naam : "",
           } as MapResult),
       ) as MapResult[];
 
