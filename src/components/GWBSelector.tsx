@@ -255,6 +255,8 @@ const GWBSelector = () => {
   }, []);
 
   useEffect(() => {
+    updateStadsDeel('A');
+
     // One time only when loading the component update the selection using the query param code (if present)
     function updateSelectionBasedOnQuery() {
       const allAreas = [allData.gebieden, allData.stadsDelen, allData.wijken, allData.buurten].flat();
@@ -332,7 +334,7 @@ const GWBSelector = () => {
                 updateGebied(event.currentTarget.value);
               }}
             >
-              <option value="gebied">Selecteer een gebied</option>
+              <option value="gebied">Geen gebied geselecteerd</option>
               {gwbSelection.gebieden.map((gebied) => {
                 return (
                   <option key={gebied.code} value={gebied.code}>
