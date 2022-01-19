@@ -11,7 +11,7 @@ beforeEach(() => {
   HTTPStatus.success = 0;
 });
 
-describe("datareader", async () => {
+describe("datareader", () => {
   it("should read paginated data given an url", async () => {
     axios.get.mockImplementationOnce(() => Promise.resolve({ data: stadsdelen }));
 
@@ -28,7 +28,7 @@ describe("datareader", async () => {
 
     const data = await readData("url");
     expect(data._embedded.stadsdelen.length).toEqual(9);
-    
+
     expect(HTTPStatus.pending).toEqual(0);
     expect(HTTPStatus.error).toEqual(0);
     expect(HTTPStatus.success).toEqual(1);
