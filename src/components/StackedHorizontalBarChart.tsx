@@ -13,13 +13,6 @@ const vegaEmbedOptions = {
   actions: false,
 };
 
-const sumReducer = (previousValue, currentItem) => {
-  if (currentItem?.recent?.waarde) {
-    return previousValue + currentItem?.recent?.waarde;
-  }
-  return previousValue;
-};
-
 const calcPosition = (d, values) => {
   return d.i === 0
     ? d.value / 2
@@ -35,19 +28,16 @@ const calcPosition = (d, values) => {
         d.value / 2;
 };
 
-const getVegaChartData = async (gwb, config, scaleToHundred) => {
+const getVegaChartData = async (gwb, config) => {
   const colors = getColorsUsingStaticDefinition(config);
   const chartdata = await util.getLatestConfigCijfers(gwb, config);
-
-  // If we need to scale the values to a 100 (%) we need to determin the multiplier.
-  const multiplier = scaleToHundred ? 100 / chartdata.reduce(sumReducer, 0) : 1;
 
   // Filter data points with no data.
   const filteredChartData = chartdata.filter((d) => d);
 
   // Convert to vega spec
   return filteredChartData.map((d, i) => {
-    const scaledValue = Math.round(d?.recent?.waarde * multiplier) || 0;
+    const scaledValue = Math.round(d?.recent?.waarde) || 0;
 
     return {
       i,
@@ -97,7 +87,7 @@ const labelExpr = (enrichedConfig: (ConfigEnirched | string)[]) => {
     .join("");
 };
 
-const StackedHorizontalBarChart = ({ title, config, gwb, customVegaSpec = null, scaleToHundred = false }) => {
+const StackedHorizontalBarChart = ({ title, config, gwb, customVegaSpec = null }) => {
   const chartRef = useRef<HTMLDivElement>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [showError, setShowError] = useState(false);
@@ -112,9 +102,9 @@ const StackedHorizontalBarChart = ({ title, config, gwb, customVegaSpec = null, 
     const showCityAverage = gwb?.code !== "STAD";
     const colors = getColorsUsingStaticDefinition(config);
 
-    const chartdata = await getVegaChartData(gwb, config, scaleToHundred);
+    const chartdata = await getVegaChartData(gwb, config);
     const cityAverage = showCityAverage
-      ? await getVegaChartData({ volledige_code: "STAD", naam: "Amsterdam" }, config, scaleToHundred)
+      ? await getVegaChartData({ volledige_code: "STAD", naam: "Amsterdam" }, config)
       : [];
 
     const chartBase = cloneDeep(customVegaSpec ? customVegaSpec : stackedVegaSpec);
