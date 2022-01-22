@@ -13,7 +13,6 @@ const KwetsbaarheidsscoreStackedBar = ({ gwb }) => {
       title="Kwetsbaarheidsscore bewoners"
       config={kwetsbaarheid}
       gwb={gwb}
-      scaleToHundred
       customVegaSpec={customSpec}
     />
   );

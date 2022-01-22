@@ -13,7 +13,6 @@ const LeeftijdJeugdStackedBar = ({ gwb }) => {
       title="Leeftijdsgroepen in %"
       config={jeugd}
       gwb={gwb}
-      scaleToHundred
       customVegaSpec={customSpec}
     />
   );

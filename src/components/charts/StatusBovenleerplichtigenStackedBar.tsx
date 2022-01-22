@@ -27,7 +27,6 @@ const StatusBovenleerplichtigenStackedBar = ({ gwb }) => {
       title="Status bovenleerplichtigen"
       config={config}
       gwb={gwb}
-      scaleToHundred
       customVegaSpec={customSpec}
     />
   );

@@ -13,7 +13,6 @@ const SociaalEconomischeScoreStackedBar = ({ gwb }) => {
       title="Sociaal economische score bewoners"
       config={sociaaleconomischescore}
       gwb={gwb}
-      scaleToHundred
       customVegaSpec={customSpec}
     />
   );

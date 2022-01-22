@@ -20,7 +20,6 @@ const BasisschooladviezenStackedBar = ({ gwb }) => {
         },
       ]}
       gwb={gwb}
-      scaleToHundred
       customVegaSpec={customSpec}
     />
   );
