@@ -15,7 +15,6 @@ const SamenstellingVerblijversStackedBar = ({ gwb }) => {
       title="Samenstelling verblijvers"
       config={verblijvers}
       gwb={gwb}
-      scaleToHundred
       customVegaSpec={customSpec}
     />
   );

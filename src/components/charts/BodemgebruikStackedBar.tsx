@@ -15,7 +15,6 @@ const BodemgebruikStackedBar = ({ gwb }) => {
       title="Bodemgebruik"
       config={bodemgebruik}
       gwb={gwb}
-      scaleToHundred
       customVegaSpec={customSpec}
     />
   );
