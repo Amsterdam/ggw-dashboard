@@ -10,7 +10,7 @@ import { GeoJsonObject } from "geojson";
  * Constant to denote the gebied types in the maps API
  * @type {{Stadsdeel: string, Gebied: string, Wijk: string, Buurt: string}}
  */
-export const GEBIED_TYPE = {
+const GEBIED_TYPE = {
   Stadsdeel: "Stadsdeel",
   Gebied: "Gebiedsgerichtwerken",
   Wijk: "Buurtcombinatie",

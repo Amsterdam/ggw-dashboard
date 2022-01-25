@@ -2,7 +2,7 @@
  * All logic regarding the interface with the Gebieden API
  */
 
-import { readData, readPaginatedData } from "../datareader";
+import { readData } from "../datareader";
 /**
  * The list of gebieden is supplied by OIS. If information about a gebied is available in this list it is used instead of the API data
  */
@@ -28,7 +28,7 @@ export const GEBIED_TYPE = {
  * @returns {string}
  */
 function getUrl(endpoint: string): string {
-  return `https://api.data.amsterdam.nl/v1/gebieden${endpoint}?eindGeldigheid[isnull]=true`;
+  return `https://api.data.amsterdam.nl/v1/gebieden${endpoint}?eindGeldigheid[isnull]=true&_pageSize=100000`;
 }
 
 /**
@@ -39,6 +39,10 @@ function getUrl(endpoint: string): string {
  * @returns {*}
  */
 export function enhanceGWB(gwb: Gwb): Gwb {
+  if (!gwb) {
+    // @ts-ignore
+    return {};
+  }
   gwb.vollcode = gwb.code;
   gwb.volledige_code = gwb.code;
   gwb.gebiedType = getGebiedType(gwb.code);
@@ -120,7 +124,10 @@ export function getCity() {
  */
 export async function getAllStadsdelen() {
   const url = getUrl("/stadsdelen/");
-  const getData = async () => enhancedGWBList(await readPaginatedData(url, {}, "_embedded.stadsdelen"));
+  const getData = async () => {
+    const result = await readData(url);    
+    return enhancedGWBList(result._embedded.stadsdelen);
+  }
   return cacheResponse("allStadsdelen", getData);
 }
 
@@ -131,7 +138,10 @@ export async function getAllStadsdelen() {
  */
 export async function getAllGebieden() {
   const url = getUrl("/ggwgebieden/");
-  const getData = async () => enhancedGWBList(await readPaginatedData(url, {}, "_embedded.ggwgebieden"));
+  const getData = async () => {
+    const result = await readData(url);    
+    return enhancedGWBList(result._embedded.ggwgebieden);
+  }
   return cacheResponse("allGebieden", getData);
 }
 
@@ -142,7 +152,10 @@ export async function getAllGebieden() {
  */
 export async function getAllWijken() {
   const url = getUrl("/wijken/");
-  const getData = async () => enhancedGWBList(await readPaginatedData(url, {}, "_embedded.wijken"));
+  const getData = async () => {
+    const result = await readData(url);    
+    return enhancedGWBList(result._embedded.wijken);
+  }
   return cacheResponse("allWijken", getData);
 }
 
@@ -153,7 +166,10 @@ export async function getAllWijken() {
  */
 export async function getAllBuurten() {
   const url = getUrl("/buurten/");
-  const getData = async () => enhancedGWBList(await readPaginatedData(url, {}, "_embedded.buurten"));
+  const getData = async () => {
+    const result = await readData(url);    
+    return enhancedGWBList(result._embedded.buurten);
+  }
   return cacheResponse("allBuurten", getData);
 }
 
