@@ -360,7 +360,7 @@ const GWBSelector = () => {
                 updateWijk(event.currentTarget.value);
               }}
             >
-              <option value="wijk">Selecteer een wijk</option>
+              <option value="wijk">Geen wijk geselecteerd</option>
               {gwbSelection.wijken.map((wijk) => {
                 return (
                   <option key={wijk.code} value={wijk.code}>
@@ -387,7 +387,7 @@ const GWBSelector = () => {
               }}
               disabled={gwbSelection.buurten.length < 1}
             >
-              <option value="buurt">Selecteer een buurt</option>
+              <option value="buurt">Geen buurt geselecteerd</option>
               {gwbSelection.buurten.map((buurt) => {
                 return (
                   <option key={buurt.vollcode} value={buurt.vollcode}>
