@@ -5,7 +5,7 @@ import TextStatistic from "../components/TextStatistic";
 import ThemeHeader from "../components/ThemeHeader";
 import DataTable from "../components/DataTable";
 
-import { OPENBARE_RUIMTE } from "../services/thema";
+import { OPENBARE_RUIMTE } from "../services/themaNames";
 
 import openbareruimtecijfers from "../static/links/openbareruimte_kerncijfers.json";
 import openbareruimteaanvullend from "../static/links/openbareruimteaanvullend.json";

@@ -6,7 +6,7 @@ import ThemeHeader from "../components/ThemeHeader";
 import DataTable from "../components/DataTable";
 import Verschillen from "../components/Verschillen";
 
-import { WONEN } from "../services/thema";
+import { WONEN } from "../services/themaNames";
 
 import wonenkerncijfers from "../static/links/wonenkerncijfers.json";
 import wonenaanvullend from "../static/links/wonenaanvullend.json";

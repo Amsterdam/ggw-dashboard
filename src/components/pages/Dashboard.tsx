@@ -7,6 +7,7 @@ import PageTemplate from "../layout/PageTemplate";
 import GGWInformation from "../GGWInformation";
 import { useGWBSelection } from "../context/GWBContext";
 import { THEMAS, URL_THEMA_MAPPING } from "../../services/thema";
+import { IN_HET_KORT } from "../../services/themaNames";
 
 const DashboardDiv = styled.div`
   padding-top: ${themeSpacing(4)};
@@ -18,7 +19,7 @@ const ContainerDiv = styled.div`
   width: 100%;
 `;
 
-const Dashboard = ({ thema: propThema = THEMAS[0] }: { thema?: string }) => {
+const Dashboard = ({ thema: propThema = IN_HET_KORT }: { thema?: string }) => {
   let { thema } = useParams();
   const gwb = useGWBSelection();
 

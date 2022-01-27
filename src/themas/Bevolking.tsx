@@ -9,7 +9,7 @@ import TextStatistic from "../components/TextStatistic";
 import ThemeHeader from "../components/ThemeHeader";
 import VerticalBarChart from "../components/VerticalBarChart";
 import Verschillen from "../components/Verschillen";
-import { BEVOLKING } from "../services/thema";
+import { BEVOLKING } from "../services/themaNames";
 
 import ontwikkelingBevolking from "../static/links/ontwikkeling_bevolking.json";
 import migratieachtergrond from "../static/links/migratieachtergrond.json";

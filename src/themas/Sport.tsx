@@ -6,7 +6,7 @@ import { useGWBSelection } from "../components/context/GWBContext";
 import VerticalBarChart from "../components/VerticalBarChart";
 import Verschillen from "../components/Verschillen";
 
-import { SPORT_EN_CULTUUR } from "../services/thema";
+import { SPORT_EN_CULTUUR } from "../services/themaNames";
 
 import sport from "../static/links/sport.json";
 import DevelopmentThemeHeader from "../components/DevelopmentThemeHeader";

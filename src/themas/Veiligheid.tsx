@@ -4,7 +4,7 @@ import VerticalBarChart from "../components/VerticalBarChart";
 import ThemeHeader from "../components/ThemeHeader";
 import Verschillen from "../components/Verschillen";
 
-import { VEILIGHEID } from "../services/thema";
+import { VEILIGHEID } from "../services/themaNames";
 
 import veiligheidcijfers from "../static/links/veiligheid_kerncijfers.json";
 import overlastcijfers from "../static/links/overlast_kerncijfers.json";

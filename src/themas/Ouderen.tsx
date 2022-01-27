@@ -7,7 +7,7 @@ import { useGWBSelection } from "../components/context/GWBContext";
 import VerticalBarChart from "../components/VerticalBarChart";
 import Verschillen from "../components/Verschillen";
 
-import { OUDEREN } from "../services/thema";
+import { OUDEREN } from "../services/themaNames";
 
 import ouderen from "../static/links/ouderen.json";
 import ouderenAanvullend from "../static/links/ouderen_aanvullend.json";

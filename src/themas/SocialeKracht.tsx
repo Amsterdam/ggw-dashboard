@@ -6,7 +6,7 @@ import ThemeHeader from "../components/ThemeHeader";
 import DataTable from "../components/DataTable";
 import Verschillen from "../components/Verschillen";
 
-import { SOCIALE_KRACHT } from "../services/thema";
+import { SOCIALE_KRACHT } from "../services/themaNames";
 
 import socialekrachtcijfers from "../static/links/socialekracht_kerncijfers.json";
 import socialekrachtaanvullend from "../static/links/socialekrachtaanvullend.json";

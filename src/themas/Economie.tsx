@@ -4,7 +4,7 @@ import VerticalBarChart from "../components/VerticalBarChart";
 import TextStatistic from "../components/TextStatistic";
 import ThemeHeader from "../components/ThemeHeader";
 
-import { ECONOMIE } from "../services/thema";
+import { ECONOMIE } from "../services/themaNames";
 
 import WerkzamePersonenHoofdfunctieStackedBar from "../components/charts/WerkzamePersonenHoofdfunctieStackedBar";
 import VestigingenNaarFunctiegroep from "../components/charts/VestigingenNaarFunctiegroepStackedBar";
@@ -21,7 +21,7 @@ import EconomieVestiging from "../components/Icons/EconomieVestiging";
 import EconomieWerkzamepersonen from "../components/Icons/EconomieWerkzamepersonen";
 import VestigingenNaarFunctiegroepLineChart from "../components/linecharts/VestigingenNaarFunctiegroepLineChart";
 
-const Economie = () => {
+const EconomieTheme = () => {
   const gwb = useGWBSelection();
 
   return (
@@ -109,4 +109,4 @@ const Economie = () => {
   );
 };
 
-export default Economie;
+export default EconomieTheme;

@@ -6,7 +6,7 @@ import { useGWBSelection } from "../components/context/GWBContext";
 import VerticalBarChart from "../components/VerticalBarChart";
 import Gezondheid from "../components/Icons/GezondheidThema";
 import Verschillen from "../components/Verschillen";
-import { GEZONDHEID_ZORG } from "../services/thema";
+import { GEZONDHEID_ZORG } from "../services/themaNames";
 
 import gezondheidCijfers from "../static/links/gezondheid_zorg.json";
 
