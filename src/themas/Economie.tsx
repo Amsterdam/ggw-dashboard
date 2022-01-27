@@ -21,7 +21,7 @@ import EconomieVestiging from "../components/Icons/EconomieVestiging";
 import EconomieWerkzamepersonen from "../components/Icons/EconomieWerkzamepersonen";
 import VestigingenNaarFunctiegroepLineChart from "../components/linecharts/VestigingenNaarFunctiegroepLineChart";
 
-const EconomieTheme = () => {
+const Economie = () => {
   const gwb = useGWBSelection();
 
   return (
@@ -109,4 +109,4 @@ const EconomieTheme = () => {
   );
 };
 
-export default EconomieTheme;
+export default Economie;
