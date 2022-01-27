@@ -2,7 +2,7 @@ import { THEMAS, URL_THEMA_MAPPING } from "./thema";
 
 describe("thema", () => {
   it("should export all themas", () => {
-    expect(THEMAS.length).toEqual(15);
+    expect(Object.keys(THEMAS).length).toEqual(15);
   });
 
   it("should export all url mappings", () => {
@@ -10,6 +10,6 @@ describe("thema", () => {
   });
 
   it("should export gebied-in-kort as first url mapping", () => {
-    expect(URL_THEMA_MAPPING["in-het-kort"]).toEqual(THEMAS[0]);
+    expect(URL_THEMA_MAPPING["in-het-kort"]).toEqual(Object.keys(THEMAS)[0]);
   });
 });
