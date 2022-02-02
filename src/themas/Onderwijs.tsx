@@ -12,7 +12,7 @@ import KidsOfSchoolAge from "../components/tables/KidsOfSchoolAge";
 import NumberOfSchoolesAndStudents from "../components/tables/NumberOfSchoolesAndStudents";
 import ThemeHeader from "../components/ThemeHeader";
 import VerticalBarChart from "../components/VerticalBarChart";
-import { ONDERWIJS } from "../services/thema";
+import { ONDERWIJS } from "../services/themaNames";
 
 import ontwikkelingOnderwijs from "../static/links/ontwikkeling_onderwijs.json";
 

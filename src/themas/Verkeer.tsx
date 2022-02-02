@@ -6,7 +6,7 @@ import VerticalBarChart from "../components/VerticalBarChart";
 import Verschillen from "../components/Verschillen";
 import verkeer from "../static/links/verkeer.json";
 
-import { VERKEER } from "../services/thema";
+import { VERKEER } from "../services/themaNames";
 
 import DevelopmentThemeHeader from "../components/DevelopmentThemeHeader";
 import VerkeerThema from "../components/Icons/VerkeerThema";

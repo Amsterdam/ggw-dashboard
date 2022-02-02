@@ -9,7 +9,7 @@ import HeaderRow from "../components/layout/HeaderRow";
 import ThemeHeader from "../components/ThemeHeader";
 import VerticalBarChart from "../components/VerticalBarChart";
 import Verschillen from "../components/Verschillen";
-import { DUURZAAMHEID } from "../services/thema";
+import { DUURZAAMHEID } from "../services/themaNames";
 
 import ontwikkelingDuurzaamheid from "../static/links/ontwikkeling_duurzaamheid.json";
 

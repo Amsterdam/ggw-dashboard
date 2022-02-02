@@ -5,7 +5,7 @@ import HeaderRow from "../components/layout/HeaderRow";
 import { useGWBSelection } from "../components/context/GWBContext";
 import VerticalBarChart from "../components/VerticalBarChart";
 
-import { JEUGD } from "../services/thema";
+import { JEUGD } from "../services/themaNames";
 
 import jeugdOntwikkeling from "../static/links/jeugd_ontwikkeling.json";
 import jeugdData from "../static/links/jeugd_data.json";

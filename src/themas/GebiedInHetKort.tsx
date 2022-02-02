@@ -12,7 +12,7 @@ import InwonersNaarLeeftijdStackedBar from "../components/charts/InwonersNaarLee
 import WoningVoorraadStackedBar from "../components/charts/WoningVoorraadStackedBar";
 import SociaalEconomischeScoreStackedBar from "../components/charts/SociaalEconomischeScoreStackedBar";
 import TextStatistic from "../components/TextStatistic";
-import { IN_HET_KORT } from "../services/thema";
+import { IN_HET_KORT } from "../services/themaNames";
 import HeaderRow from "../components/layout/HeaderRow";
 import GebiedInHetKortIcon from "../components/Icons/GebiedInHetKort";
 import DuurzaamheidThema from "../components/Icons/DuurzaamheidThema";

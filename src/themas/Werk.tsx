@@ -5,7 +5,7 @@ import VerticalBarChart from "../components/VerticalBarChart";
 import TextStatistic from "../components/TextStatistic";
 import Verschillen from "../components/Verschillen";
 
-import { WERK_INKOMEN } from "../services/thema";
+import { WERK_INKOMEN } from "../services/themaNames";
 
 import werkEnInkomen from "../static/links/werk_en_inkomen.json";
 import ThemeHeader from "../components/ThemeHeader";

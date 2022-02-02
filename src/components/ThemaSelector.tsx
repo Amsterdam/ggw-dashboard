@@ -29,7 +29,7 @@ const ThemaSelector = () => {
             }}
           >
             {THEMAS &&
-              THEMAS.map((t) => (
+              Object.keys(THEMAS).map((t) => (
                 <option key={t} value={t}>
                   {t}
                 </option>
