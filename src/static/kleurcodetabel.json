@@ -11,7 +11,7 @@
     "blauwgradient_5": ["#004699", "#00a0e6", "#71BDEE", "#B1D9F5", "#E5F2FC"],
     "hoog_is_groen": ["#00A03C", "#B4E600", "#FFF498", "#F6B400", "#FF0000"],
     "laag_is_groen": ["#FF0000", "#F6B400", "#FFF498", "#B4E600", "#00A03C"],
-    "hoog_is_blauw": ["#004699", "#71BDEE", "#E8E8E8", "#BEBEBE", "#787878"],
+    "hoog_is_blauw": ["#004699", "#00a0e6", "#B1D9F5", "#D5D5D5", "#BEBEBE"],
     "amsterdam_rood": "#FF0000",
     "amsterdam_groen": "#00A03C"
   },
