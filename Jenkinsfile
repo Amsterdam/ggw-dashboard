@@ -19,7 +19,10 @@ node {
     }
     stage('Test') {
         tryStep "test", {
-            sh "docker-compose up --exit-code-from test-unit"
+            sh "docker-compose build && " +
+               "docker-compose run -u root --rm test-unit"
+        }, {
+            sh "docker-compose down"
         }
     }
     stage("Build image") {
