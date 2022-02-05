@@ -18,10 +18,8 @@ node {
         checkout scm
     }
     stage('Test') {
-        steps {
-            script {
-                sh "docker-compose up --exit-code-from test-unit"
-            }
+        tryStep "test", {
+            sh "docker-compose up --exit-code-from test-unit"
         }
     }
     stage("Build image") {
