@@ -27,15 +27,15 @@ describe("gebieden", () => {
     expect(getGebiedType("a")).toEqual("?a");
     expect(getGebiedType("A1")).toEqual("?A1");
 
-    expect(getGebiedType("DX01")).toEqual(GEBIED_TYPE.Gebied);
+    expect(getGebiedType("GX01")).toEqual(GEBIED_TYPE.Gebied);
     expect(getGebiedType("DX011")).toEqual("?DX011");
     expect(getGebiedType("DXA1")).toEqual("?DXA1");
 
-    expect(getGebiedType("D01")).toEqual(GEBIED_TYPE.Wijk);
+    expect(getGebiedType("DD")).toEqual(GEBIED_TYPE.Wijk);
     expect(getGebiedType("D011")).toEqual("?D011");
     expect(getGebiedType("DA1")).toEqual("?DA1");
 
-    expect(getGebiedType("D01a")).toEqual(GEBIED_TYPE.Buurt);
+    expect(getGebiedType("ED01")).toEqual(GEBIED_TYPE.Buurt);
     expect(getGebiedType("d01a")).toEqual("?d01a");
     expect(getGebiedType("D01A")).toEqual("?D01A");
     expect(getGebiedType("DA1a")).toEqual("?DA1a");
