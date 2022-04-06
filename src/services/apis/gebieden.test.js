@@ -37,7 +37,6 @@ describe("gebieden", () => {
 
     expect(getGebiedType("ED01")).toEqual(GEBIED_TYPE.Buurt);
     expect(getGebiedType("d01a")).toEqual("?d01a");
-    expect(getGebiedType("D01A")).toEqual("?D01A");
     expect(getGebiedType("DA1a")).toEqual("?DA1a");
 
     expect(getGebiedType("STAD")).toEqual(GEBIED_TYPE.Stad);
