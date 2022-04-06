@@ -23,7 +23,6 @@ RUN npm --production=false --unsafe-perm ci && \
 
 COPY . /app
 
-
 # Test 
 FROM builder as test
 RUN echo "run test"
