@@ -13,6 +13,9 @@ def tryStep(String message, Closure block, Closure tearDown = null) {
         }
     }
 }
+
+String BUILD_ID = "${Math.abs(new Random().nextInt() % 600) + 1}"
+
 node {
     // stage('Test') {
     //     tryStep "test", {
@@ -21,7 +24,7 @@ node {
     // }
     stage("Build image") {
         tryStep "build", {
-            def image = docker.build("docker-registry.secure.amsterdam.nl/ois/ggw:${env.BUILD_NUMBER}",
+            def image = docker.build("docker-registry.secure.amsterdam.nl/ois/ggw:${BUILD_ID}",
                 "--shm-size 1G " +
                 "--build-arg BUILD_ENV=acc" +
                 " .")
@@ -31,7 +34,7 @@ node {
     
     stage('Push acceptance image') {
         tryStep "image tagging", {
-            def image = docker.image("docker-registry.secure.amsterdam.nl/ois/ggw:${env.BUILD_NUMBER}")
+            def image = docker.image("docker-registry.secure.amsterdam.nl/ois/ggw:${BUILD_ID}")
             image.pull()
             image.push("acceptance")
         }
@@ -57,7 +60,7 @@ if (BRANCH == "master") {
     node {
         stage('Push production image') {
             tryStep "image tagging", {
-                def image = docker.image("docker-registry.secure.amsterdam.nl/ois/ggw:${env.BUILD_NUMBER}")
+                def image = docker.image("docker-registry.secure.amsterdam.nl/ois/ggw:${BUILD_ID}")
                 image.pull()
                 image.push("production")
                 image.push("latest")
