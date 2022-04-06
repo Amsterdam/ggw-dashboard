@@ -91,11 +91,11 @@ export async function getDetail(entity) {
 export function getGebiedType(gebiedCode, notUrl = false) {
   if (/^[A-Z]$/.test(gebiedCode)) {
     return GEBIED_TYPE.Stadsdeel;
-  } else if (/^DX\d\d$/.test(gebiedCode)) {
+  } else if (/^G[A-Z]\d\d$/.test(gebiedCode)) {
     return GEBIED_TYPE.Gebied;
-  } else if (/^[A-Z]\d\d$/.test(gebiedCode)) {
+  } else if (/^[A-Z][A-Z]$/.test(gebiedCode)) {
     return GEBIED_TYPE.Wijk;
-  } else if (/^[A-Z]\d\d[a-z]$/.test(gebiedCode)) {
+  } else if (/^[^G][A-Z]\d\d$/.test(gebiedCode)) {
     return GEBIED_TYPE.Buurt;
   } else if (/^STAD$/.test(gebiedCode)) {
     return GEBIED_TYPE.Stad;
@@ -125,9 +125,9 @@ export function getCity() {
 export async function getAllStadsdelen() {
   const url = getUrl("/stadsdelen/");
   const getData = async () => {
-    const result = await readData(url);    
+    const result = await readData(url);
     return enhancedGWBList(result._embedded.stadsdelen);
-  }
+  };
   return cacheResponse("allStadsdelen", getData);
 }
 
@@ -139,9 +139,9 @@ export async function getAllStadsdelen() {
 export async function getAllGebieden() {
   const url = getUrl("/ggwgebieden/");
   const getData = async () => {
-    const result = await readData(url);    
+    const result = await readData(url);
     return enhancedGWBList(result._embedded.ggwgebieden);
-  }
+  };
   return cacheResponse("allGebieden", getData);
 }
 
@@ -153,9 +153,9 @@ export async function getAllGebieden() {
 export async function getAllWijken() {
   const url = getUrl("/wijken/");
   const getData = async () => {
-    const result = await readData(url);    
+    const result = await readData(url);
     return enhancedGWBList(result._embedded.wijken);
-  }
+  };
   return cacheResponse("allWijken", getData);
 }
 
@@ -167,9 +167,9 @@ export async function getAllWijken() {
 export async function getAllBuurten() {
   const url = getUrl("/buurten/");
   const getData = async () => {
-    const result = await readData(url);    
+    const result = await readData(url);
     return enhancedGWBList(result._embedded.buurten);
-  }
+  };
   return cacheResponse("allBuurten", getData);
 }
 
