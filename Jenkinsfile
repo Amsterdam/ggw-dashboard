@@ -14,9 +14,6 @@ def tryStep(String message, Closure block, Closure tearDown = null) {
     }
 }
 node {
-    stage("Checkout") {
-        checkout scm
-    }
     stage('Test') {
         tryStep "test", {
             sh "docker-compose up --abort-on-container-exit test-unit"
