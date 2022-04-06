@@ -23,7 +23,13 @@ RUN npm --production=false --unsafe-perm ci && \
 
 COPY . /app
 
+
+# Test 
+FROM builder as test
+RUN npm run test
+
 # Build
+FROM builder as build
 RUN echo "run build"
 RUN GENERATE_SOURCEMAP=false npm run build
 

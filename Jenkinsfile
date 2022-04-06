@@ -14,11 +14,11 @@ def tryStep(String message, Closure block, Closure tearDown = null) {
     }
 }
 node {
-    stage('Test') {
-        tryStep "test", {
-            sh "docker-compose up --abort-on-container-exit test-unit"
-        }
-    }
+    // stage('Test') {
+    //     tryStep "test", {
+    //         sh "docker-compose up --abort-on-container-exit test-unit"
+    //     }
+    // }
     stage("Build image") {
         tryStep "build", {
             def image = docker.build("docker-registry.secure.amsterdam.nl/ois/ggw:${env.BUILD_NUMBER}",
