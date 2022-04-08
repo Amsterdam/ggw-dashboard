@@ -1,7 +1,7 @@
 import { useLayoutEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import styled from "styled-components";
-import { Column, Row, themeColor } from "@amsterdam/asc-ui";
+import { Button, Column, Row, themeColor, themeSpacing } from "@amsterdam/asc-ui";
 
 import Dashboard from "./components/pages/Dashboard";
 import { GWBProvider } from "./components/context/GWBContext";
@@ -32,6 +32,11 @@ const PrintRow = styled(Row)`
     margin: 0;
     padding: 0;
   }
+`;
+
+const StyledButton = styled(Button)`
+  display: initial;
+  margin-top: ${themeSpacing(3)};
 `;
 
 function App() {
@@ -67,6 +72,9 @@ function App() {
           altijd alle gegevens bekend. Over het nieuwe stadsgebied Weesp worden de eerste cijfers aan het begin van de
           zomer verwacht.
         </p>
+        <StyledButton variant="primary" onClick={() => setShowModal(false)}>
+          Sluit
+        </StyledButton>
       </Modal>
     </OuterWrapper>
   );
