@@ -23,13 +23,19 @@ RUN npm --production=false --unsafe-perm ci && \
 
 COPY . /app
 
+# Test 
+FROM builder as test
+RUN echo "run test"
+RUN npm run test
+
 # Build
+FROM builder as build
 RUN echo "run build"
 RUN GENERATE_SOURCEMAP=false npm run build
 
 # Deploy
 FROM nginx:stable-alpine
-COPY --from=builder /app/build/. /var/www/html/
+COPY --from=build /app/build/. /var/www/html/
 
 COPY default.conf /etc/nginx/conf.d/
 
