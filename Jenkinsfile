@@ -59,7 +59,6 @@ if (BRANCH == "master") {
         stage('Push production image') {
             tryStep "image tagging", {
                 def image = docker.image("docker-registry.secure.amsterdam.nl/ois/ggw:${BUILD_ID}")
-                image.pull()
                 image.push("production")
                 image.push("latest")
             }
