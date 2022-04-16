@@ -26,7 +26,7 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "^5.0.0",
     "sass": "1.50.0",
-    "styled-components": "^5.3.3",
+    "styled-components": "^5.3.5",
     "typescript": "^4.6.3",
     "vega": "^5.21.0",
     "vega-embed": "^6.20.8",
