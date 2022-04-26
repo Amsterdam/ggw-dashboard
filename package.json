@@ -16,7 +16,7 @@
     "@types/react-dom": "^18.0.2",
     "axios": "^0.26.1",
     "jest-canvas-mock": "^2.3.1",
-    "leaflet": "^1.7.1",
+    "leaflet": "^1.8.0",
     "lodash": "^4.17.21",
     "proj4": "^2.8.0",
     "proj4leaflet": "^1.0.2",
