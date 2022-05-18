@@ -13,6 +13,11 @@ const vegaEmbedOptions = {
   actions: false,
 };
 
+/**
+ * We want to position the text element with the bar value in the center of the bar.
+ * We achieve this by calculating the values of all previous bar's plus the current bar's value/2.
+ *
+ */
 const calcPosition = (d, values) => {
   return d.i === 0
     ? d.value / 2
