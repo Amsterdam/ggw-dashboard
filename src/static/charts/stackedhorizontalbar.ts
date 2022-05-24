@@ -18,7 +18,6 @@ export default {
     },
   },
   data: { values: [] },
-  transform: [{ calculate: "split(datum.gebied, ' ')", as: "gebied" }],
   encoding: {
     x: {
       field: "value",
@@ -36,6 +35,7 @@ export default {
       sort: { order: "descending" },
       axis: {
         ticks: false,
+        labelExpr: "split(datum.value, ' ')",
       },
     },
   },

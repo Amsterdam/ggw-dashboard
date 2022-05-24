@@ -13,33 +13,31 @@ def tryStep(String message, Closure block, Closure tearDown = null) {
         }
     }
 }
+
+String BUILD_ID = "${Math.abs(new Random().nextInt() % 600) + 1}"
+
 node {
     stage("Checkout") {
         checkout scm
     }
+}
+
+node {
     stage('Test') {
         tryStep "test", {
             sh "docker-compose up --abort-on-container-exit test-unit"
         }
     }
-    stage("Build image") {
-        tryStep "build", {
-            def image = docker.build("docker-registry.secure.amsterdam.nl/ois/ggw:${env.BUILD_NUMBER}",
+    stage("Build and push acceptance image") {
+        tryStep "build image", {
+            def image = docker.build("docker-registry.secure.amsterdam.nl/ois/ggw:${BUILD_ID}",
                 "--shm-size 1G " +
                 "--build-arg BUILD_ENV=acc" +
                 " .")
-            image.push()
-        }
-    }
-    
-    stage('Push acceptance image') {
-        tryStep "image tagging", {
-            def image = docker.image("docker-registry.secure.amsterdam.nl/ois/ggw:${env.BUILD_NUMBER}")
-            image.pull()
             image.push("acceptance")
         }
     }
-
+    
     stage("Deploy to ACC") {
         tryStep "deployment", {
             build job: 'Subtask_Openstack_Playbook',
@@ -60,8 +58,7 @@ if (BRANCH == "master") {
     node {
         stage('Push production image') {
             tryStep "image tagging", {
-                def image = docker.image("docker-registry.secure.amsterdam.nl/ois/ggw:${env.BUILD_NUMBER}")
-                image.pull()
+                def image = docker.image("docker-registry.secure.amsterdam.nl/ois/ggw:acceptance")
                 image.push("production")
                 image.push("latest")
             }
