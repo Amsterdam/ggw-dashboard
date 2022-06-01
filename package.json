@@ -71,6 +71,6 @@
     "geojson": "^0.5.0",
     "jest-watch-typeahead": "^1.1.0",
     "prettier": "^2.6.2",
-    "prettier-eslint": "^15.0.0"
+    "prettier-eslint": "^15.0.1"
   }
 }
