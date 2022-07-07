@@ -20,7 +20,7 @@
     # install dependencies
     npm install
 
-    # start with hot reload at localhost:8080
+    # start with hot reload at localhost:3000
     npm run start
 
     # build for production with minification
