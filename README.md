@@ -1,6 +1,7 @@
 # Gebiedsgericht Werken Dashboard (Gebied in beeld)
 
-> A Vue.js project
+- PROD: [https://gebiedinbeld.amsterdam.nl](https://gebiedinbeld.amsterdam.nl)
+- ACC: [https://acc.gebiedinbeld.amsterdam.nl](https://acc.gebiedinbeld.amsterdam.nl)
 
 ## Requirements
 
