@@ -1,7 +1,7 @@
 # Gebiedsgericht Werken Dashboard (Gebied in beeld)
 
-- PROD: [https://gebiedinbeld.amsterdam.nl](https://gebiedinbeld.amsterdam.nl)
-- ACC: [https://acc.gebiedinbeld.amsterdam.nl](https://acc.gebiedinbeld.amsterdam.nl)
+- PROD: [https://gebiedinbeeld.amsterdam.nl](https://gebiedinbeeld.amsterdam.nl)
+- ACC: [https://acc.gebiedinbeeld.amsterdam.nl](https://acc.gebiedinbeeld.amsterdam.nl)
 
 ## Requirements
 
