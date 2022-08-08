@@ -7,7 +7,7 @@
     "@amsterdam/asc-assets": "^0.36.0",
     "@amsterdam/asc-ui": "^0.36.0",
     "@amsterdam/react-maps": "^0.12.1",
-    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^12.1.5",
     "@testing-library/user-event": "^14.2.6",
     "@types/jest": "^28.1.6",
