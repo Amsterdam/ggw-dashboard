@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { base62DecodeAngle } from "../services/base62";
 import { themeSpacing, themeColor } from "@amsterdam/asc-ui";
-import panos from "../static/links/panos.json";
+import panos from "../static/links/panos_2022.json";
 
 const StyledImage = styled.img`
   width: 100%;
@@ -26,12 +26,6 @@ const Pano = ({ gwb }) => {
     if (!pano) {
       // not found
       setSrc("/panos/amsterdam.jpg");
-      return;
-    }
-
-    if (pano?.file) {
-      // found file
-      setSrc(pano?.file);
       return;
     }
 
