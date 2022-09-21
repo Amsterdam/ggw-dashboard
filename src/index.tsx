@@ -1,13 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { GlobalStyle, ThemeProvider } from "@amsterdam/asc-ui";
+import { ascDefaultTheme, GlobalStyle, ThemeProvider } from "@amsterdam/asc-ui";
 
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider>
+    <ThemeProvider
+      theme={{
+        ...ascDefaultTheme,
+        typography: { ...ascDefaultTheme.typography, fontFamily: "Amsterdam Sans, Arial, Helvetica, sans-serif" },
+      }}
+    >
       <GlobalStyle />
       <App />
     </ThemeProvider>

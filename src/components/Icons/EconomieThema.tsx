@@ -18,7 +18,7 @@ const EconomieThema = ({ width = "48", height = "48" }: { width?: string; height
           <text
             transform="matrix(.99432 0 0 -1 17.873 7.0732)"
             fill="#ffffff"
-            style={{ fontFamily: "Avenir Black", fontSize: "31.185px", fontWeight: "bold" }}
+            style={{ fontFamily: "Amsterdam Sans", fontSize: "31.185px", fontWeight: "bold" }}
           >
             <tspan x="0" y="0">
               €

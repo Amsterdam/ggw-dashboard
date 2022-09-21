@@ -6,15 +6,15 @@ export default {
     axis: {
       labelFontSize: 13,
       labelLimit: 100,
-      labelFont: "Avenir Next",
+      labelFont: "Amsterdam Sans",
     },
     legend: {
       labelFontSize: 13,
       columns: 4,
-      labelFont: "Avenir Next",
+      labelFont: "Amsterdam Sans",
     },
     title: {
-      font: "Avenir Next",
+      font: "Amsterdam Sans",
     },
   },
   data: { values: [] },
