@@ -5,7 +5,7 @@
   "dependencies": {
     "@amsterdam/arm-core": "^0.10.2",
     "@amsterdam/asc-assets": "^0.37.0",
-    "@amsterdam/asc-ui": "^0.36.0",
+    "@amsterdam/asc-ui": "^0.37.0",
     "@amsterdam/react-maps": "^0.12.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^12.1.5",
