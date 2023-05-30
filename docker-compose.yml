@@ -11,4 +11,5 @@ services:
     build:
       context: .
       target: builder
+    image: ggw-test-image 
     command: npm run test
