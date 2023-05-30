@@ -26,10 +26,6 @@ enum GebiedType {
   Buurt = "Buurt",
 }
 
-const getParsedItemId = (item: { id: string }) => {
-  return item?.id?.split(".")[0] + "";
-};
-
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const GWBSelector = () => {
   const emptyState: {
@@ -103,16 +99,16 @@ const GWBSelector = () => {
       const deel = allData.stadsDelen.find((d) => d.code === stadsDeelCode);
       stadsDeelDetail = deel;
 
-      const gebieden = allData.gebieden.filter((g) => g.ligtInStadsdeelId === getParsedItemId(deel));
+      const gebieden = allData.gebieden.filter((g) => g.ligtInStadsdeelId === deel.identificatie);
 
       if (gebieden.length > 0) {
         const buurtIds = gebieden.map((g) => g._links.bestaatUitBuurten.map((b) => b.identificatie)).flat();
 
-        const buurten = allData.buurten.filter((b) => buurtIds.includes(getParsedItemId(b)));
+        const buurten = allData.buurten.filter((b) => buurtIds.includes(b.identificatie));
 
         const wijkIds = buurten.map((b) => b.ligtInWijkId);
 
-        const wijken = allData.wijken.filter((w) => wijkIds.includes(getParsedItemId(w)));
+        const wijken = allData.wijken.filter((w) => wijkIds.includes(w.identificatie));
 
         setGwbSelection({
           ...emptyState,
@@ -160,11 +156,11 @@ const GWBSelector = () => {
       gebiedDetail = await util.getDetail(gebied);
 
       const buurtIds = gebied._links.bestaatUitBuurten.map((b) => b.identificatie);
-      const buurten = allData.buurten.filter((b) => buurtIds.includes(getParsedItemId(b)));
+      const buurten = allData.buurten.filter((b) => buurtIds.includes(b.identificatie));
 
       const wijkIds = buurten.map((b) => b.ligtInWijkId);
 
-      const wijken = allData.wijken.filter((w) => wijkIds.includes(getParsedItemId(w)));
+      const wijken = allData.wijken.filter((w) => wijkIds.includes(w.identificatie));
 
       setGwbSelection({
         ...emptyState,
@@ -191,7 +187,7 @@ const GWBSelector = () => {
       //TODO: Remove getDetail code
       wijkDetail = await util.getDetail(wijk);
 
-      const buurten = allData.buurten.filter((b) => b.ligtInWijkId === getParsedItemId(wijk));
+      const buurten = allData.buurten.filter((b) => b.ligtInWijkId === wijk.identificatie);
 
       setGwbSelection({
         ...gwbSelection,
