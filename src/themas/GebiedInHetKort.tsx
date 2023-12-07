@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Column, Row, themeSpacing } from "@amsterdam/asc-ui";
+import { Alert, Column, Link, Row, themeSpacing } from "@amsterdam/asc-ui";
 
 import DataTable from "../components/DataTable";
 import ThemeHeader from "../components/ThemeHeader";
@@ -32,6 +32,20 @@ const GebiedInHetKort = () => {
   return (
     <>
       <ThemeHeader gwb={gwb} themeTitle={IN_HET_KORT} Icon={GebiedInHetKortIcon} WithExtraInfo />
+      <Row>
+        <Column span={12}>
+          <Alert level="warning">
+            Deze website verdwijnt eind 2023. De kerncijfers zijn vanaf ook te vinden op het{" "}
+            <Link
+              href="https://onderzoek.amsterdam.nl/interactief/dashboard-kerncijfers?tab=gebied&thema=overzicht&gebied=STAD&taal=nl"
+              variant="inline"
+            >
+              Dashboard kerncijfers van Onderzoek en Statistiek
+            </Link>
+            .
+          </Alert>
+        </Column>
+      </Row>
       <Row>
         <Column span={12}>
           <HeaderRow title={`Gebied in het kort ${gwb?.naam}`} withColorLink={false} />
