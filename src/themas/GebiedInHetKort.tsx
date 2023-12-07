@@ -35,12 +35,12 @@ const GebiedInHetKort = () => {
       <Row>
         <Column span={12}>
           <Alert level="warning">
-            Deze website verdwijnt eind 2023. De kerncijfers zijn vanaf ook te vinden op het{" "}
+            Deze website verdwijnt eind 2023. De kerncijfers zijn vanaf heden ook te vinden op het{" "}
             <Link
               href="https://onderzoek.amsterdam.nl/interactief/dashboard-kerncijfers?tab=gebied&thema=overzicht&gebied=STAD&taal=nl"
               variant="inline"
             >
-              Dashboard kerncijfers van Onderzoek en Statistiek
+              dashboard kerncijfers van Onderzoek en Statistiek
             </Link>
             .
           </Alert>
