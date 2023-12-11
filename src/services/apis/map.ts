@@ -28,7 +28,7 @@ function getUrl(): string {
 
 const allGeometries = {};
 
-export async function getGeometriesGeoJson(gebiedType: string):GeoJsonObject {
+export async function getGeometriesGeoJson(gebiedType: string): Promise<GeoJsonObject | undefined> {
   if (!gebiedType || gebiedType === "Stad") {
     return;
   }

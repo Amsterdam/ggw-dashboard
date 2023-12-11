@@ -39,7 +39,7 @@ const VerschillenMap: React.FC<Props> = ({ gwb, indicatorDefinitieId }) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [layerInstance, setInstance] = useState<Layer | undefined>();
 
-  const enrichShapes = async (shapes: GeoJsonObject, cijfers) => {
+  const enrichShapes = async (shapes, cijfers) => {
     const meta = await getMeta(indicatorDefinitieId);
     const enrichedShapes = { ...shapes };
 

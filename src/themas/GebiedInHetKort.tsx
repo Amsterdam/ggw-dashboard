@@ -39,6 +39,7 @@ const GebiedInHetKort = () => {
             <Link
               href="https://onderzoek.amsterdam.nl/interactief/dashboard-kerncijfers?tab=gebied&thema=overzicht&gebied=STAD&taal=nl"
               variant="inline"
+              target="_blank"
             >
               dashboard kerncijfers van Onderzoek en Statistiek
             </Link>

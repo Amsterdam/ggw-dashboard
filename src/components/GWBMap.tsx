@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { Heading } from "@amsterdam/asc-ui";
 import { Map, BaseLayer, constants } from "@amsterdam/arm-core";
 import { GeoJSON } from "@amsterdam/react-maps";
-import { GeoJsonObject, GeoJSONOptions } from "geojson";
+import { GeoJsonObject } from "geojson";
 import { rdPolygonToWgs84 } from "../services/geojson";
 
 const MapDiv = styled.div`
@@ -54,7 +54,7 @@ const GWBMap = ({ gwb }) => {
 
     setJson(null);
 
-    const geojson = getGeoJson(gwb);
+    const geojson = getGeoJson(gwb) as GeoJsonObject;
 
     // @TODO fix this later
     setTimeout(() => {
@@ -80,7 +80,7 @@ const GWBMap = ({ gwb }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const options: GeoJSONOptions = {
+  const options = {
     onEachFeature(feature, layer) {
       layer.setStyle({
         color: "#ec0000",
