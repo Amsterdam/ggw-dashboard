@@ -1,4 +1,4 @@
-FROM node:14.18-stretch AS builder
+FROM node:18.12.1 AS builder
 
 LABEL maintainer="datapunt@amsterdam.nl"
 
@@ -16,14 +16,13 @@ COPY package.json \
 RUN git config --global url."https://".insteadOf git://
 RUN git config --global url."https://github.com/".insteadOf git@github.com:
 
-
 # Install NPM dependencies.
 RUN npm --production=false --unsafe-perm ci && \
   npm cache clean --force
 
 COPY . /app
 
-# Test 
+# Test
 FROM builder as test
 RUN echo "run test"
 RUN npm run test
@@ -38,4 +37,3 @@ FROM nginx:stable-alpine
 COPY --from=build /app/build/. /var/www/html/
 
 COPY default.conf /etc/nginx/conf.d/
-
