@@ -1,4 +1,5 @@
 version: "3.5"
+
 services:
   web:
     build:
@@ -11,5 +12,5 @@ services:
     build:
       context: .
       target: builder
-    image: ggw-test-image 
+    image: ggw-test-image
     command: npm run test
